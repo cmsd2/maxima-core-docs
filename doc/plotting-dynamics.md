@@ -61,7 +61,7 @@ same as for `plot2d`.
 ```
 
 
-(Figure dynamics7)
+![dynamics7](figures/dynamics7.png)
 
 See also: `plot2d`.
 
@@ -180,7 +180,7 @@ depend on *y*, but any other variable can be used),
 (%i1) evolution(cos(y), 2, 11);
 ```
 
-(Figure dynamics1)
+![dynamics1](figures/dynamics1.png)
 
 See also: `plot2d`.
 
@@ -216,7 +216,7 @@ same as for `plot2d`.
 ```
 
 
-(Figure dynamics5)
+![dynamics5](figures/dynamics5.png)
 
 
 And an enlargement of a small region in that fractal:
@@ -229,7 +229,7 @@ And an enlargement of a small region in that fractal:
 ```
 
 
-(Figure dynamics6)
+![dynamics6](figures/dynamics6.png)
 
 See also: `plot2d`.
 
@@ -276,7 +276,7 @@ options are the same as for `plot2d`.
 ```
 
 
-(Figure dynamics8)
+![dynamics8](figures/dynamics8.png)
 
 See also: `chaosgame`, `plot2d`.
 
@@ -330,7 +330,7 @@ in the vertical direction.
 ```
 
 
-(Figure dynamics3)
+![dynamics3](figures/dynamics3.png)
 
 
 To enlarge the region around the lower bifurcation near x `=` -1.25 use:
@@ -342,7 +342,7 @@ To enlarge the region around the lower bifurcation near x `=` -1.25 use:
 ```
 
 
-(Figure dynamics4)
+![dynamics4](figures/dynamics4.png)
 
 See also: `plot2d`.
 
@@ -458,7 +458,7 @@ name and the following elements are options for that object.
 (%i1) scene(cone, [background,"#9980e5"])$
 ```
 
-(Figure scene1)
+![scene1](figures/scene1.png)
 
 
 By holding down the left button of the mouse while it is moved on the
@@ -506,7 +506,7 @@ animation, press the play/pause button.
 (%i5) scene (ball, ground, restart)$
 ```
 
-(Figure scene2)
+![scene2](figures/scene2.png)
 
 
 The *restart* option was used to make the animation restart
@@ -553,7 +553,7 @@ reached. The options are the same as for `plot2d`.
 (%i1) staircase(cos(y), 1, 11, [y, 0, 1.2]);
 ```
 
-(Figure dynamics2)
+![dynamics2](figures/dynamics2.png)
 
 See also: `evolution`, `plot2d`.
 

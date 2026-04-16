@@ -593,7 +593,7 @@ maxima
 ```
 
 
-(Figure plotting4)
+![plotting4](figures/plotting4.png)
 
 See also: `grid`, `iterations`, `palette`, `yx_ratio`, `same_xy`, `color_bar_tics`.
 
@@ -712,7 +712,7 @@ maxima
 ```
 
 
-(Figure plotting5)
+![plotting5](figures/plotting5.png)
 
 See also: `grid`, `iterations`, `palette`, `yx_ratio`, `same_xy`.
 
@@ -894,7 +894,7 @@ maxima
 ```
 
 
-(Figure plotting6)
+![plotting6](figures/plotting6.png)
 2. Implicit function.
 
 
@@ -908,7 +908,7 @@ maxima
 ```
 
 
-(Figure plotting3)
+![plotting3](figures/plotting3.png)
 3. Parametric function.
 
 
@@ -924,7 +924,7 @@ maxima
 ```
 
 
-(Figure plotting11)
+![plotting11](figures/plotting11.png)
 4. Set of points.
 
 
@@ -941,7 +941,7 @@ maxima
 ```
 
 
-(Figure plotting14)
+![plotting14](figures/plotting14.png)
 5. Contour lines.
 
 
@@ -955,7 +955,7 @@ maxima
 ```
 
 
-(Figure plotting2)
+![plotting2](figures/plotting2.png)
 
 
 **Examples using options**.
@@ -977,7 +977,7 @@ plot2d: some values will be clipped.
 ```
 
 
-(Figure plotting7)
+![plotting7](figures/plotting7.png)
 
 
 When the plot box is disabled, no labels are created for the axes. In
@@ -1005,7 +1005,7 @@ maxima
 ```
 
 
-(Figure plotting8)
+![plotting8](figures/plotting8.png)
 
 
 A plot with a logarithmic scale in the vertical axis:
@@ -1021,7 +1021,7 @@ maxima
 ```
 
 
-(Figure plotting9)
+![plotting9](figures/plotting9.png)
 
 
 Plotting functions by name:
@@ -1046,7 +1046,7 @@ $g
 ```
 
 
-(Figure plotting10)
+![plotting10](figures/plotting10.png)
 
 
 Plot of a circumference of radius 1 centered at the origin, together with the
@@ -1070,7 +1070,7 @@ maxima
 ```
 
 
-(Figure plotting12)
+![plotting12](figures/plotting12.png)
 
 
 A plot of 200 random numbers between 0 and 9:
@@ -1086,7 +1086,7 @@ maxima
 ```
 
 
-(Figure plotting13)
+![plotting13](figures/plotting13.png)
 
 
 In the next example a table with three columns is saved in a file
@@ -1117,7 +1117,7 @@ maxima
 ```
 
 
-(Figure plotting15)
+![plotting15](figures/plotting15.png)
 
 
 A plot of discrete data points together with a continuous function:
@@ -1146,7 +1146,7 @@ maxima
 ```
 
 
-(Figure plotting16)
+![plotting16](figures/plotting16.png)
 
 
 See also the `Plotting Options` section.
@@ -1183,7 +1183,7 @@ maxima
 ```
 
 
-(Figure plotting17)
+![plotting17](figures/plotting17.png)
 
 
 Use of the `z` option to limit a function that goes to infinity
@@ -1205,7 +1205,7 @@ log: encountered log(0).
 ```
 
 
-(Figure plotting18)
+![plotting18](figures/plotting18.png)
 
 
 The infinite values of z can also be avoided by choosing a grid that
@@ -1232,7 +1232,7 @@ log: encountered log(0).
 ```
 
 
-(Figure plotting19)
+![plotting19](figures/plotting19.png)
 
 
 Two surfaces in the same plot. Ranges specific to one of the surfaces can
@@ -1257,7 +1257,7 @@ expt: undefined: 0 to a negative exponent.
 ```
 
 
-(Figure plotting20)
+![plotting20](figures/plotting20.png)
 
 
 Plot of a Klein bottle, defined parametrically:
@@ -1282,7 +1282,7 @@ maxima
 ```
 
 
-(Figure plotting21)
+![plotting21](figures/plotting21.png)
 
 
 Plot of a “spherical harmonic” function, using the predefined
@@ -1304,7 +1304,7 @@ maxima
 ```
 
 
-(Figure plotting22)
+![plotting22](figures/plotting22.png)
 
 
 Use of the pre-defined function `polar_to_xy` to transform from
@@ -1325,7 +1325,7 @@ maxima
 ```
 
 
-(Figure plotting23)
+![plotting23](figures/plotting23.png)
 
 
 Plot of a sphere using the transformation from spherical to rectangular
@@ -1350,7 +1350,7 @@ maxima
 ```
 
 
-(Figure plotting24)
+![plotting24](figures/plotting24.png)
 
 
 Definition of a function of two-variables using a matrix.  Notice the
@@ -1373,7 +1373,7 @@ maxima
 ```
 
 
-(Figure plotting25)
+![plotting25](figures/plotting25.png)
 
 
 By setting the elevation equal to zero, a surface can be seen as a map
@@ -1395,7 +1395,7 @@ maxima
 ```
 
 
-(Figure plotting26)
+![plotting26](figures/plotting26.png)
 
 
 See also `Plotting-Options`.

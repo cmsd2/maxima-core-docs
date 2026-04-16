@@ -1178,12 +1178,12 @@ If an equation uses the following values with tolerances:
 
 
 `num=2` will cause the following combinations of tolerances to be tested:
-(Figure wrstcse_ewc_2)
+![wrstcse_ewc_2](figures/wrstcse_ewc_2.png)
 `num=3` will cause the following combinations of tolerances to be tested:
-(Figure wrstcse_ewc_3)
+![wrstcse_ewc_3](figures/wrstcse_ewc_3.png)
 `num=-500` will cause the following combinations of tolerances to
 be tested, instead:
-(Figure wrstcse_montecarlo)
+![wrstcse_montecarlo](figures/wrstcse_montecarlo.png)
 
 
 See also `wc_defaultvaluespertol`, `wc_mintypmax`,

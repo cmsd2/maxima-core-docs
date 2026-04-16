@@ -180,10 +180,10 @@ maxima
 ```
 
 
-(Figure interpol3)
+![interpol3](figures/interpol3.png)
 
 
-(Figure interpol4)
+![interpol4](figures/interpol4.png)
 
 See also: `lagrange`, `linearinterpol`, `ratinterpol`.
 
@@ -284,7 +284,7 @@ maxima
 ```
 
 
-(Figure interpol1)
+![interpol1](figures/interpol1.png)
 
 See also: `linearinterpol`, `cspline`, `ratinterpol`.
 
@@ -375,7 +375,7 @@ maxima
 ```
 
 
-(Figure interpol2)
+![interpol2](figures/interpol2.png)
 
 See also: `lagrange`, `cspline`, `ratinterpol`.
 
@@ -432,19 +432,19 @@ maxima
 ```
 
 
-(Figure interpol5)
+![interpol5](figures/interpol5.png)
 
 
-(Figure interpol6)
+![interpol6](figures/interpol6.png)
 
 
-(Figure interpol7)
+![interpol7](figures/interpol7.png)
 
 
-(Figure interpol8)
+![interpol8](figures/interpol8.png)
 
 
-(Figure interpol9)
+![interpol9](figures/interpol9.png)
 
 See also: `lagrange`, `linearinterpol`, `cspline`, `minpack_lsquares`, `Package-lbfgs`.
 

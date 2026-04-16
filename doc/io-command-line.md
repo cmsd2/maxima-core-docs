@@ -379,7 +379,7 @@ Expressions displayed by 2-d pretty printer using Unicode drawing characters
 shown as an image:
 
 
-(Figure maxima-unicode-display-variety-1)
+![maxima-unicode-display-variety-1](figures/maxima-unicode-display-variety-1.png)
 
 
 Same expressions, displayed using only ASCII characters
@@ -387,7 +387,7 @@ Same expressions, displayed using only ASCII characters
 shown as an image:
 
 
-(Figure maxima-unicode-display-variety-1-ascii)
+![maxima-unicode-display-variety-1-ascii](figures/maxima-unicode-display-variety-1-ascii.png)
 
 
 

@@ -258,7 +258,7 @@ output
 .
 
 
-(Figure color_terminal)
+![color_terminal](figures/color_terminal.png)
 
 
 Each prompt string starts with the ASCII escape character (27) followed

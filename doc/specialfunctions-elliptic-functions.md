@@ -197,7 +197,7 @@ maxima
 Compare this plot with the plot from [https://dlmf.nist.gov/22.16.ivDLMF 22.16.iv]():
 
 
-(Figure jacobi_am)
+![jacobi_am](figures/jacobi_am.png)
 
 See also: `jacobi_am`, `elliptic_f`.
 

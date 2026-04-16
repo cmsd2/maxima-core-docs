@@ -31,7 +31,7 @@ In site graphics.
           grid = true) ) $
 ```
 
-(Figure draw_allocation)
+![draw_allocation](figures/draw_allocation.png)
 
 
 Multiplot with selected dimensions.
@@ -50,7 +50,7 @@ Multiplot with selected dimensions.
           explicit(x^2+y^2,x,-1,1,y,-1,1) ))$
 ```
 
-(Figure draw_allocation2)
+![draw_allocation2](figures/draw_allocation2.png)
 
 
 See also option `columns`.
@@ -78,7 +78,7 @@ Example:
              explicit(sin(x^2+y^2),x,-2,2,y,-2,2) )$
 ```
 
-(Figure draw_axis3d)
+![draw_axis3d](figures/draw_axis3d.png)
 
 
 See also `axis_bottom`,  `axis_left`, `axis_top`, and `axis_right` for axis in 2d.
@@ -106,7 +106,7 @@ Example:
              explicit(x^3,x,-1,1))$
 ```
 
-(Figure draw_axis_bottom)
+![draw_axis_bottom](figures/draw_axis_bottom.png)
 
 
 See also `axis_left`,  `axis_top`, `axis_right` and `axis_005f3d`.
@@ -243,7 +243,7 @@ Example:
        xaxis = true);
 ```
 
-(Figure draw_bars)
+![draw_bars](figures/draw_bars.png)
 
 See also: `key`, `fill_color`, `fill_density`, `line_width`.
 
@@ -276,7 +276,7 @@ Example:
              polygon([[5,2],[9,2],[7,5]]) )$
 ```
 
-(Figure draw_border)
+![draw_border](figures/draw_border.png)
 
 See also: `polygon`, `rectangle`, `ellipse`.
 
@@ -322,7 +322,7 @@ Example:
              a, 0, 8) )$
 ```
 
-(Figure draw_tube_extremes)
+![draw_tube_extremes](figures/draw_tube_extremes.png)
 
 ### Variable: cbrange
 
@@ -359,7 +359,7 @@ Example:
         explicit(x^2+y^2, x,-2,2,y,-2,2)) $
 ```
 
-(Figure draw_cbrange)
+![draw_cbrange](figures/draw_cbrange.png)
 
 
 See also `enhanced3d`,  `colorbox` and `cbtics`.
@@ -395,7 +395,7 @@ Example :
         explicit(x^2+y^2, x,-2,2,y,-2,2)) $
 ```
 
-(Figure draw_cbtics)
+![draw_cbtics](figures/draw_cbtics.png)
 
 
 See also `enhanced3d`,  `colorbox` and `cbrange`.
@@ -432,7 +432,7 @@ Color scale and images.
       )$
 ```
 
-(Figure draw_colorbox)
+![draw_colorbox](figures/draw_colorbox.png)
 Color scale and 3D coloured object.
 
 
@@ -444,7 +444,7 @@ Color scale and 3D coloured object.
         explicit(x^2+y^2,x,-1,1,y,-1,1))$
 ```
 
-(Figure draw_colorbox2)
+![draw_colorbox2](figures/draw_colorbox2.png)
 
 
 See also `palette_005fdraw`.
@@ -476,7 +476,7 @@ Example:
 (%i3) draw(scene1, scene2, columns = 2)$
 ```
 
-(Figure draw_columns)
+![draw_columns](figures/draw_columns.png)
 
 ### Variable: contour
 
@@ -521,7 +521,7 @@ Example:
              surface_hide   = true) $
 ```
 
-(Figure draw_contour)
+![draw_contour](figures/draw_contour.png)
 
 
 
@@ -532,7 +532,7 @@ Example:
       ) $
 ```
 
-(Figure draw_contour2)
+![draw_contour2](figures/draw_contour2.png)
 
 ### Variable: contour_levels
 
@@ -633,7 +633,7 @@ Example:
 (%i1) draw3d(cylindrical(1,z,-2,2,az,0,2*%pi))$
 ```
 
-(Figure draw_cylindrical)
+![draw_cylindrical](figures/draw_cylindrical.png)
 
 See also: `xu_grid`, `yv_grid`, `line_type`, `key`, `wired_surface`.
 
@@ -784,7 +784,7 @@ Examples:
 (%i3) draw(scene1, scene2, columns = 2)$
 ```
 
-(Figure draw_intro2)
+![draw_intro2](figures/draw_intro2.png)
 
 
 
@@ -798,7 +798,7 @@ Examples:
 (%i3) draw(scene1, scene2)$
 ```
 
-(Figure draw_intro3)
+![draw_intro3](figures/draw_intro3.png)
 
 
 The following two draw sentences are equivalent:
@@ -827,7 +827,7 @@ End of animation sequence
 (%o1)          [gr2d(explicit), gr2d(explicit), gr2d(explicit)]
 ```
 
-(Figure draw_equiv)
+![draw_equiv](figures/draw_equiv.png)
 See also `gr2d`, `gr3d`, `draw2d` and `draw3d`.
 
 See also: `terminal`, `columns`, `dimensions`, `file_name`, `delay`, `draw2d`, `draw3d`, `gr2d`, `gr3d`.
@@ -946,7 +946,7 @@ Example:
          surface_hide = true);
 ```
 
-(Figure draw_elevation_grid)
+![draw_elevation_grid](figures/draw_elevation_grid.png)
 
 See also: `line_type`, `line_width`, `key`, `wired_surface`, `enhanced3d`, `elevation_grid`, `mesh`.
 
@@ -990,7 +990,7 @@ Example:
              yrange      = [2,9] )$
 ```
 
-(Figure draw_ellipse)
+![draw_ellipse](figures/draw_ellipse.png)
 
 See also: `nticks`, `transparent`, `fill_color`, `fill_density`, `border`, `line_type`, `key`.
 
@@ -1050,7 +1050,7 @@ Examples:
          explicit(20*exp(-x^2-y^2)-10,x,-3,3,y,-3,3))$
 ```
 
-(Figure draw_enhanced3d)
+![draw_enhanced3d](figures/draw_enhanced3d.png)
 
 
 `explicit` object with coloring defined by the `[f(x,y), x, y]` model.
@@ -1066,7 +1066,7 @@ to `x`, and `s` to `y`.
          explicit(20*exp(-x^2-y^2)-10,x,-3,3,y,-3,3))$
 ```
 
-(Figure draw_enhanced3d2)
+![draw_enhanced3d2](figures/draw_enhanced3d2.png)
 
 
 `parametric` object with coloring defined by the `[f(x,y,z), x, y, z]` model.
@@ -1081,7 +1081,7 @@ to `x`, and `s` to `y`.
          parametric(sin(u)^2,cos(u),u,u,0,4*%pi)) $
 ```
 
-(Figure draw_enhanced3d3)
+![draw_enhanced3d3](figures/draw_enhanced3d3.png)
 
 
 `parametric` object with coloring defined by the `[f(u), u]` model.
@@ -1097,7 +1097,7 @@ In this case, `(u-1)^2` is a shortcut for `[(u-1)^2,u]`.
          parametric(cos(5*u)^2,sin(7*u),u-2,u,0,2))$
 ```
 
-(Figure draw_enhanced3d4)
+![draw_enhanced3d4](figures/draw_enhanced3d4.png)
 
 
 `elevation_grid` object with coloring defined by the `[f(x,y), x, y]` model.
@@ -1115,7 +1115,7 @@ In this case, `(u-1)^2` is a shortcut for `[(u-1)^2,u]`.
          ylabel = "y");
 ```
 
-(Figure draw_enhanced3d5)
+![draw_enhanced3d5](figures/draw_enhanced3d5.png)
 
 
 `tube` object with coloring defined by the `[f(x,y,z), x, y, z]` model.
@@ -1130,7 +1130,7 @@ In this case, `(u-1)^2` is a shortcut for `[(u-1)^2,u]`.
          tube(cos(a), a, 0, 1, a, 0, 4*%pi) )$
 ```
 
-(Figure draw_enhanced3d6)
+![draw_enhanced3d6](figures/draw_enhanced3d6.png)
 
 
 `tube` object with coloring defined by the `[f(u), u]` model.
@@ -1146,7 +1146,7 @@ Here, `enhanced3d = -a` would be the shortcut for `enhanced3d = [-foo,foo]`.
          tube(a, a, a^2, 1, a, -2, 2) )$
 ```
 
-(Figure draw_enhanced3d7)
+![draw_enhanced3d7](figures/draw_enhanced3d7.png)
 
 
 `implicit` and `points` objects with coloring defined by the `[f(x,y,z), x, y, z]` model.
@@ -1161,7 +1161,7 @@ Here, `enhanced3d = -a` would be the shortcut for `enhanced3d = [-foo,foo]`.
 (%i2) m: makelist([random(1.0),random(1.0),random(1.0)],k,1,2000)$
 ```
 
-(Figure draw_enhanced3d9)
+![draw_enhanced3d9](figures/draw_enhanced3d9.png)
 
 
 ```maxima
@@ -1172,7 +1172,7 @@ Here, `enhanced3d = -a` would be the shortcut for `enhanced3d = [-foo,foo]`.
          points(m) ) $
 ```
 
-(Figure draw_enhanced3d10)
+![draw_enhanced3d10](figures/draw_enhanced3d10.png)
 
 
 When points have a chronological nature, model `[f(k), k]` is also valid,
@@ -1190,7 +1190,7 @@ being `k` an ordering parameter.
          points(m)) $
 ```
 
-(Figure draw_enhanced3d11)
+![draw_enhanced3d11](figures/draw_enhanced3d11.png)
 
 See also: `enhanced3d`, `parametric`, `tube`, `elevation_grid`.
 
@@ -1250,7 +1250,7 @@ Horizontal error bars.
         errors([[1,2,1], [3,5,3], [10,3,1], [17,6,2]]))$
 ```
 
-(Figure draw_errors)
+![draw_errors](figures/draw_errors.png)
 
 
 Vertical and horizontal error bars.
@@ -1265,7 +1265,7 @@ Vertical and horizontal error bars.
         errors([[1,2,1,2], [3,5,2,1], [10,3,1,1], [17,6,1/2,2]]));
 ```
 
-(Figure draw_errors2)
+![draw_errors2](figures/draw_errors2.png)
 
 See also: `error_type`, `points_joined`, `line_width`, `key`, `line_type`, `fill_density`, `xaxis_secondary`, `yaxis_secondary`.
 
@@ -1296,7 +1296,7 @@ Example:
              explicit(x^2,x,-3,3) )$
 ```
 
-(Figure draw_explicit)
+![draw_explicit](figures/draw_explicit.png)
 
 
 ```maxima
@@ -1305,7 +1305,7 @@ Example:
              explicit(x^2,x,-3,3) )$
 ```
 
-(Figure draw_explicit2)
+![draw_explicit2](figures/draw_explicit2.png)
 
 
 **3D**
@@ -1336,7 +1336,7 @@ Example:
              surface_hide = true)$
 ```
 
-(Figure draw_explicit3)
+![draw_explicit3](figures/draw_explicit3.png)
 
 
 See also `filled_func` for filled functions.
@@ -1428,7 +1428,7 @@ graphic window.
              explicit(sin(x),x,0,10) )$
 ```
 
-(Figure draw_filledfunc)
+![draw_filledfunc](figures/draw_filledfunc.png)
 
 
 Region bounded by an `explicit` object and the function
@@ -1442,7 +1442,7 @@ defined by option `filled_func`. Note that the variable in
              explicit(-sin(x),x,0,%pi));
 ```
 
-(Figure draw_filledfunc2)
+![draw_filledfunc2](figures/draw_filledfunc2.png)
 See also `fill_color` and `explicit`.
 
 See also: `explicit`, `fill_color`.
@@ -1636,7 +1636,7 @@ A simple map defined by hand:
 (%i8) draw2d(geomap([0,1,2,3,4]))$
 ```
 
-(Figure worldmap_geomap)
+![worldmap_geomap](figures/worldmap_geomap.png)
 
 
 The auxiliary package `worldmap` sets the global variable
@@ -1664,7 +1664,7 @@ package `worldmap`.
            c1,c2,c3,c4)$
 ```
 
-(Figure worldmap_geomap2)
+![worldmap_geomap2](figures/worldmap_geomap2.png)
 
 
 Package `worldmap` is also useful for plotting
@@ -1689,7 +1689,7 @@ and `make_poly_continent` to understand the following code.
 (%i3) apply(draw2d, mymap)$
 ```
 
-(Figure worldmap_geomap3)
+![worldmap_geomap3](figures/worldmap_geomap3.png)
 
 
 
@@ -1715,7 +1715,7 @@ radius *r* centered at (*x*,*y*,*z*).
              geomap(Australia,
                     [spherical_projection,2,2,2,3]))$
 ```
-(Figure worldmap_geomap4)
+![worldmap_geomap4](figures/worldmap_geomap4.png)
 - *
 `[cylindrical_projection,x,y,z,r,rc]`: re-projects spherical map boundaries on the cylinder of radius
 *rc* and axis passing through the poles of the globe of radius *r* centered at (*x*,*y*,*z*).
@@ -1725,7 +1725,7 @@ radius *r* centered at (*x*,*y*,*z*).
 (%i2) draw3d(geomap([America_coastlines,Eurasia_coastlines],
                     [cylindrical_projection,2,2,2,3,4]))$
 ```
-(Figure worldmap_geomap5)
+![worldmap_geomap5](figures/worldmap_geomap5.png)
 - *
 `[conic_projection,x,y,z,r,alpha]`: re-projects spherical map boundaries on the cones of angle *alpha*,
 with axis passing through the poles of the globe of radius *r* centered at (*x*,*y*,*z*). Both 
@@ -1737,7 +1737,7 @@ the northern and southern cones are tangent to sphere.
                     [conic_projection,0,0,0,1,90]))$
 ```
 
-(Figure worldmap_geomap6)
+![worldmap_geomap6](figures/worldmap_geomap6.png)
 
 
 See also [https://riotorto.users.sourceforge.net/Maxima/gnuplot/geomap/]()
@@ -1841,7 +1841,7 @@ and `draw2d`.
 (%o1)           [gr2d(explicit), gr2d(explicit)]
 ```
 
-(Figure draw_scene)
+![draw_scene](figures/draw_scene.png)
 
 See also: `bars`, `ellipse`, `explicit`, `image`, `implicit`, `label`, `parametric`, `points`, `polar`, `polygon`, `quadrilateral`, `rectangle`, `triangle`, `vector`, `draw`, `draw2d`.
 
@@ -1910,7 +1910,7 @@ Example:
              vector([9,1],[0,6]) )$
 ```
 
-(Figure draw_head_angle)
+![draw_head_angle](figures/draw_head_angle.png)
 
 
 See also `head_both`,  `head_length`,  and `head_005ftype`.
@@ -1942,7 +1942,7 @@ Example:
              vector([1,7],[6,0]) )$
 ```
 
-(Figure draw_head_both)
+![draw_head_both](figures/draw_head_both.png)
 
 
 See also `head_length`,  `head_angle`,  and `head_005ftype`.
@@ -1976,7 +1976,7 @@ Example:
              vector([6,1],[5,5]))$
 ```
 
-(Figure draw_head_length)
+![draw_head_length](figures/draw_head_length.png)
 
 
 See also `head_both`,  `head_angle`,  and `head_005ftype`.
@@ -2011,7 +2011,7 @@ Example:
              vector([6,1],[5,5]))$
 ```
 
-(Figure draw_head_type)
+![draw_head_type](figures/draw_head_type.png)
 
 
 See also `head_both`,  `head_angle`,  and `head_005flength`.
@@ -2082,14 +2082,14 @@ to graphic option `palette`.
       draw2d(image(im,0,0,30,30))$
 ```
 
-(Figure draw_image)
+![draw_image](figures/draw_image.png)
 
 
 ```maxima
 (%i3) draw2d(palette = gray, image(im,0,0,30,30))$
 ```
 
-(Figure draw_image2)
+![draw_image2](figures/draw_image2.png)
 
 
 ```maxima
@@ -2098,7 +2098,7 @@ to graphic option `palette`.
              image(im,0,0,30,30))$
 ```
 
-(Figure draw_image3)
+![draw_image3](figures/draw_image3.png)
 
 
 See also `colorbox`.
@@ -2118,7 +2118,7 @@ as red, green and blue color components.
 (%i2) draw2d(image(im,0,0,30,30))$
 ```
 
-(Figure draw_image4)
+![draw_image4](figures/draw_image4.png)
 
 
 Package `draw` automatically loads package `picture`. In this
@@ -2132,7 +2132,7 @@ example, a level picture object is built by hand and then rendered.
       draw2d(image(im,0,0,30,30))$
 ```
 
-(Figure draw_image5)
+![draw_image5](figures/draw_image5.png)
 
 
 ```maxima
@@ -2141,7 +2141,7 @@ example, a level picture object is built by hand and then rendered.
              image(im,0,0,30,30))$
 ```
 
-(Figure draw_image6)
+![draw_image6](figures/draw_image6.png)
 
 
 An xpm file is read and then rendered.
@@ -2195,7 +2195,7 @@ Example:
              title     = "Two implicit functions" )$
 ```
 
-(Figure draw_implicit)
+![draw_implicit](figures/draw_implicit.png)
 
 
 **3D**
@@ -2225,7 +2225,7 @@ Example:
         surface_hide=true);
 ```
 
-(Figure draw_implicit2)
+![draw_implicit2](figures/draw_implicit2.png)
 
 See also: `ip_grid`, `ip_grid_in`, `line_width`, `line_type`, `key`, `x_voxel`, `y_voxel`, `z_voxel`, `wired_surface`, `enhanced3d`.
 
@@ -2267,7 +2267,7 @@ Color interpolation with explicit functions.
         explicit(20*exp(-x^2-y^2)-10, x ,-3, 3, y, -3, 3)) $
 ```
 
-(Figure draw_interpolate_color)
+![draw_interpolate_color](figures/draw_interpolate_color.png)
 
 
 ```maxima
@@ -2277,7 +2277,7 @@ Color interpolation with explicit functions.
         explicit(20*exp(-x^2-y^2)-10, x ,-3, 3, y, -3, 3)) $
 ```
 
-(Figure draw_interpolate_color2)
+![draw_interpolate_color2](figures/draw_interpolate_color2.png)
 
 
 ```maxima
@@ -2287,7 +2287,7 @@ Color interpolation with explicit functions.
         explicit(20*exp(-x^2-y^2)-10, x ,-3, 3, y, -3, 3)) $
 ```
 
-(Figure draw_interpolate_color3)
+![draw_interpolate_color3](figures/draw_interpolate_color3.png)
 
 
 Color interpolation with the `mesh` graphic object.
@@ -2305,7 +2305,7 @@ Interpolating colors in parametric surfaces can give unexpected results.
              [[-2,11,10],[6,9,5],[6,15,1], [20,15,2]])) $
 ```
 
-(Figure draw_interpolate_color4)
+![draw_interpolate_color4](figures/draw_interpolate_color4.png)
 
 
 ```maxima
@@ -2317,7 +2317,7 @@ Interpolating colors in parametric surfaces can give unexpected results.
              [[-2,11,10],[6,9,5],[6,15,1], [20,15,2]])) $
 ```
 
-(Figure draw_interpolate_color5)
+![draw_interpolate_color5](figures/draw_interpolate_color5.png)
 
 
 ```maxima
@@ -2330,7 +2330,7 @@ Interpolating colors in parametric surfaces can give unexpected results.
              [[-2,11,10],[6,9,5],[6,15,1], [20,15,2]])) $
 ```
 
-(Figure draw_interpolate_color6)
+![draw_interpolate_color6](figures/draw_interpolate_color6.png)
 
 
 See also `enhanced3d`.
@@ -2390,7 +2390,7 @@ Example:
              explicit(cos(x),x,0,10) )$
 ```
 
-(Figure draw_key)
+![draw_key](figures/draw_key.png)
 
 See also: `points`, `polygon`, `rectangle`, `ellipse`, `vector`, `explicit`, `implicit`, `parametric`, `polar`, `parametric_surface`.
 
@@ -2431,7 +2431,7 @@ Example:
         explicit(x^2+y^2,x,0,10,y,0,10))$
 ```
 
-(Figure draw_key_pos)
+![draw_key_pos](figures/draw_key_pos.png)
 
 ### Variable: label_alignment
 
@@ -2463,7 +2463,7 @@ Example:
              label(["Right alignment",5,8]))$
 ```
 
-(Figure draw_label_alignment)
+![draw_label_alignment](figures/draw_label_alignment.png)
 
 
 See also `label_orientation`,  and `color`
@@ -2501,7 +2501,7 @@ Package `draw` needs always data to draw an scene.
              label(["Vertical orientation",1,5]))$
 ```
 
-(Figure draw_label_orientation)
+![draw_label_orientation](figures/draw_label_orientation.png)
 
 
 See also `label_alignment` and `color`
@@ -2541,7 +2541,7 @@ Example:
              explicit(2 + x^2,x,-1,1))$
 ```
 
-(Figure draw_line_type)
+![draw_line_type](figures/draw_line_type.png)
 
 
 See also `line_005fwidth`.
@@ -2580,7 +2580,7 @@ Example:
              explicit(2 + x^2,x,-1,1))$
 ```
 
-(Figure draw_line_width)
+![draw_line_width](figures/draw_line_width.png)
 
 
 See also `line_005ftype`.
@@ -2618,7 +2618,7 @@ Example:
         explicit(exp(x^2-y^2), x,-2,2,y,-2,2)) $
 ```
 
-(Figure draw_logcb)
+![draw_logcb](figures/draw_logcb.png)
 
 
 See also `enhanced3d`,  `colorbox` and `cbrange`.
@@ -2659,7 +2659,7 @@ Example:
         explicit(x^2,x,1,100) )$
 ```
 
-(Figure draw_logx_secondary)
+![draw_logx_secondary](figures/draw_logx_secondary.png)
 
 
 See also `logx_draw`,  `logy_draw`,  `logy_secondary`,  and `logz`.
@@ -2792,7 +2792,7 @@ Example:
 (%i3) apply(draw2d, %)$
 ```
 
-(Figure worldmap_make_poly_continent)
+![worldmap_make_poly_continent](figures/worldmap_make_poly_continent.png)
 
 
 ```maxima
@@ -2801,7 +2801,7 @@ Example:
 (%i5) apply(draw2d, %)$
 ```
 
-(Figure worldmap_make_poly_continent2)
+![worldmap_make_poly_continent2](figures/worldmap_make_poly_continent2.png)
 
 ### Function: make_poly_country (country_name)
 
@@ -2820,7 +2820,7 @@ Example:
 (%i3) apply(draw2d, %)$
 ```
 
-(Figure worldmap_make_poly_country)
+![worldmap_make_poly_country](figures/worldmap_make_poly_country.png)
 
 ### Function: make_polygon (nlist)
 
@@ -2884,7 +2884,7 @@ polygon can be drawn.
 (%i7) draw2d(Bhutan_polygon)$
 ```
 
-(Figure worldmap_make_polygon)
+![worldmap_make_polygon](figures/worldmap_make_polygon.png)
 
 ### Function: make_rgb_picture (redlevel, greenlevel, bluelevel)
 
@@ -2953,7 +2953,7 @@ A simple example.
               [[-2,11,10],[6,9,5],[6,15,1], [20,15,2]])) $
 ```
 
-(Figure draw_mesh)
+![draw_mesh](figures/draw_mesh.png)
 
 
 Plotting a triangle in 3D.
@@ -2967,7 +2967,7 @@ Plotting a triangle in 3D.
              [[0,0,1],[0,0,1]])) $
 ```
 
-(Figure draw_mesh2)
+![draw_mesh2](figures/draw_mesh2.png)
 
 
 Two quadrilaterals.
@@ -2986,7 +2986,7 @@ Two quadrilaterals.
              [[2,0,4], [2,2,4]])) $
 ```
 
-(Figure draw_mesh3)
+![draw_mesh3](figures/draw_mesh3.png)
 
 See also: `line_type`, `line_width`, `color`, `key`, `wired_surface`, `enhanced3d`, `transform`.
 
@@ -3029,7 +3029,7 @@ Example:
 (%i6) multiplot_mode(none)$
 ```
 
-(Figure draw_multiplot)
+![draw_multiplot](figures/draw_multiplot.png)
 
 See also: `explicit`.
 
@@ -3085,7 +3085,7 @@ Example:
              parametric(2*cos(rrr),rrr^2,rrr,0,2*%pi))$
 ```
 
-(Figure draw_parametric)
+![draw_parametric](figures/draw_parametric.png)
 
 
 **3D**
@@ -3110,7 +3110,7 @@ Example:
              title = "Surface & curves" )$
 ```
 
-(Figure draw_parametric2)
+![draw_parametric2](figures/draw_parametric2.png)
 
 See also: `nticks`, `line_width`, `line_type`, `key`, `color`, `enhanced3d`.
 
@@ -3148,7 +3148,7 @@ Example:
                            u, 0, 13*%pi, v, -%pi, %pi) )$
 ```
 
-(Figure draw_parametric3)
+![draw_parametric3](figures/draw_parametric3.png)
 
 See also: `draw_realpart`, `xu_grid`, `yv_grid`, `line_type`, `line_width`, `key`, `wired_surface`, `enhanced3d`.
 
@@ -3193,7 +3193,7 @@ Example:
         points(makelist(k,k,1,20),makelist(random(30),k,1,20)))$
 ```
 
-(Figure draw_point_size)
+![draw_point_size](figures/draw_point_size.png)
 
 See also: `points`.
 
@@ -3249,7 +3249,7 @@ of separate coordinates.
         points([2,12,8]))$
 ```
 
-(Figure draw_points)
+![draw_points](figures/draw_points.png)
 
 
 Drawing impulses.
@@ -3263,7 +3263,7 @@ Drawing impulses.
         points(makelist([random(20),random(50)],k,1,10)))$
 ```
 
-(Figure draw_points2)
+![draw_points2](figures/draw_points2.png)
 
 
 Array with ordinates.
@@ -3275,7 +3275,7 @@ Array with ordinates.
 (%i3) draw2d(points(a)) $
 ```
 
-(Figure draw_points3)
+![draw_points3](figures/draw_points3.png)
 
 
 Two arrays with separate coordinates.
@@ -3290,7 +3290,7 @@ Two arrays with separate coordinates.
 (%i4) draw2d(points(x, y)) $
 ```
 
-(Figure draw_points4)
+![draw_points4](figures/draw_points4.png)
 
 
 A two-column 2D array.
@@ -3304,7 +3304,7 @@ A two-column 2D array.
 (%i3) draw2d(points(xy)) $
 ```
 
-(Figure draw_points5)
+![draw_points5](figures/draw_points5.png)
 
 
 Drawing an array filled with function `read_array`.
@@ -3376,7 +3376,7 @@ Unidimensional arrays,
 (%i5) draw3d(points(x,y,z)) $
 ```
 
-(Figure draw_points6)
+![draw_points6](figures/draw_points6.png)
 
 
 Bidimensional colored array,
@@ -3394,7 +3394,7 @@ Bidimensional colored array,
          points(xyz)) $
 ```
 
-(Figure draw_points7)
+![draw_points7](figures/draw_points7.png)
 
 
 Color numbers explicitly specified by the user.
@@ -3410,7 +3410,7 @@ Color numbers explicitly specified by the user.
         points(pts))$
 ```
 
-(Figure draw_points8)
+![draw_points8](figures/draw_points8.png)
 
 See also: `point_size`, `point_type`, `points_joined`, `line_width`, `key`, `line_type`, `enhanced3d`.
 
@@ -3455,7 +3455,7 @@ Example:
              points([[1,3],[5,3],[9,3]]) )$
 ```
 
-(Figure draw_points_joined)
+![draw_points_joined](figures/draw_points_joined.png)
 
 See also: `points`.
 
@@ -3492,7 +3492,7 @@ Example:
              polar(10/theta,theta,1,10*%pi) )$
 ```
 
-(Figure draw_polar)
+![draw_polar](figures/draw_polar.png)
 
 See also: `nticks`, `line_width`, `line_type`, `key`.
 
@@ -3527,7 +3527,7 @@ Example:
              polygon([[5,2],[9,2],[7,5]]) )$
 ```
 
-(Figure draw_polygon)
+![draw_polygon](figures/draw_polygon.png)
 
 See also: `transparent`, `fill_color`, `fill_density`, `border`, `line_width`, `key`, `line_type`.
 
@@ -3565,7 +3565,7 @@ Single 2D plot.
         proportional_axes = 'xy) $
 ```
 
-(Figure draw_proportional_axis)
+![draw_proportional_axis](figures/draw_proportional_axis.png)
 
 
 Multiplot.
@@ -3584,7 +3584,7 @@ Multiplot.
         gr2d(explicit(x^2,x,0,1)))$
 ```
 
-(Figure draw_proportional_axis2)
+![draw_proportional_axis2](figures/draw_proportional_axis2.png)
 
 ### Function: quadrilateral (point_1, point_2, point_3, point_4)
 
@@ -3615,7 +3615,7 @@ Example:
         quadrilateral([1,1],[2,2],[3,-1],[2,-2]))$
 ```
 
-(Figure draw_quadrilateral)
+![draw_quadrilateral](figures/draw_quadrilateral.png)
 
 
 **3D**
@@ -3673,7 +3673,7 @@ Example:
              yrange      = [-3,4.5] )$
 ```
 
-(Figure draw_rectangle)
+![draw_rectangle](figures/draw_rectangle.png)
 
 See also: `transparent`, `fill_color`, `border`, `line_width`, `key`, `line_type`.
 
@@ -3726,7 +3726,7 @@ Returns segment numbers for plotting southern Italy.
 (%i3) draw2d(geomap(%))$
 ```
 
-(Figure worldmap_region_boundaries)
+![worldmap_region_boundaries](figures/worldmap_region_boundaries.png)
 
 ### Function: region_boundaries_plus (x1, y1, x2, y2)
 
@@ -3747,7 +3747,7 @@ Example:
 (%i3) draw2d(geomap(%))$
 ```
 
-(Figure worldmap_region_boundaries_plus)
+![worldmap_region_boundaries_plus](figures/worldmap_region_boundaries_plus.png)
 
 ### Function: rgb2level (pic)
 
@@ -3803,7 +3803,7 @@ Example:
 (%i1) draw3d(spherical(1,a,0,2*%pi,z,0,%pi))$
 ```
 
-(Figure draw_spherical)
+![draw_spherical](figures/draw_spherical.png)
 
 See also: `xu_grid`, `yv_grid`, `line_type`, `key`, `wired_surface`, `enhanced3d`.
 
@@ -3830,7 +3830,7 @@ Example:
                 explicit(exp(sin(x)+cos(x^2)),x,-3,3,y,-3,3)) )$
 ```
 
-(Figure draw_surface_hide)
+![draw_surface_hide](figures/draw_surface_hide.png)
 
 ### Function: take_channel (im, color)
 
@@ -4004,7 +4004,7 @@ Rotation in 2D.
         triangle([3,2],[7,2],[5,5]) )$
 ```
 
-(Figure draw_transform)
+![draw_transform](figures/draw_transform.png)
 
 
 Translation in 3D.
@@ -4047,7 +4047,7 @@ Example:
              polygon([[5,2],[9,2],[7,5]]) )$
 ```
 
-(Figure draw_transparent)
+![draw_transparent](figures/draw_transparent.png)
 
 See also: `polygon`, `rectangle`, `ellipse`.
 
@@ -4079,7 +4079,7 @@ Example:
         triangle([1,1],[2,2],[3,-1]))$
 ```
 
-(Figure draw_triangle)
+![draw_triangle](figures/draw_triangle.png)
 
 
 **3D**
@@ -4125,7 +4125,7 @@ Example:
              a, 0, 4*%pi) )$
 ```
 
-(Figure draw_tube)
+![draw_tube](figures/draw_tube.png)
 
 See also: `xu_grid`, `yv_grid`, `line_type`, `line_width`, `key`, `wired_surface`, `enhanced3d`, `color`, `capping`.
 
@@ -4156,7 +4156,7 @@ Example:
              vector([0,3],[5,2]))$
 ```
 
-(Figure draw_unit_vectors)
+![draw_unit_vectors](figures/draw_unit_vectors.png)
 
 ### Variable: user_preamble
 
@@ -4189,7 +4189,7 @@ Tell Gnuplot to draw axes and grid on top of graphics objects,
         region(x^2+y^2<1 ,x,-1.5,1.5,y,-1.5,1.5))$
 ```
 
-(Figure draw_user_preamble)
+![draw_user_preamble](figures/draw_user_preamble.png)
 
 
 Tell gnuplot to draw all contour lines in black
@@ -4206,7 +4206,7 @@ Tell gnuplot to draw all contour lines in black
       );
 ```
 
-(Figure draw_user_preamble2)
+![draw_user_preamble2](figures/draw_user_preamble2.png)
 
 ### Function: vector (vector, x, y, dx, dy, vector, x, y, z, dx, dy, dz)
 
@@ -4242,7 +4242,7 @@ Example:
              vector([6,1],[5,5]))$
 ```
 
-(Figure draw_vector)
+![draw_vector](figures/draw_vector.png)
 
 
 **3D**
@@ -4264,7 +4264,7 @@ Example:
              vector([0,0,0],[1,1,-2]/sqrt(6)) )$
 ```
 
-(Figure draw_vector2)
+![draw_vector2](figures/draw_vector2.png)
 
 See also: `head_both`, `head_length`, `head_angle`, `head_type`, `line_width`, `line_type`, `key`.
 
@@ -4297,7 +4297,7 @@ Example:
              explicit(sin(x^2+y^2),x,-2,2,y,-2,2) )$
 ```
 
-(Figure draw_view)
+![draw_view](figures/draw_view.png)
 
 
 ```maxima
@@ -4306,7 +4306,7 @@ Example:
              explicit(sin(x^2+y^2),x,-2,2,y,-2,2) )$
 ```
 
-(Figure draw_view2)
+![draw_view2](figures/draw_view2.png)
 
 ### Variable: wired_surface
 
@@ -4332,7 +4332,7 @@ Example:
         explicit(x^2+y^2,x,-1,1,y,-1,1)) $
 ```
 
-(Figure draw_wired_surface)
+![draw_wired_surface](figures/draw_wired_surface.png)
 
 ### Variable: x_voxel
 
@@ -4368,7 +4368,7 @@ Example:
              xaxis_color = blue)$
 ```
 
-(Figure draw_xaxis)
+![draw_xaxis](figures/draw_xaxis.png)
 
 
 See also `xaxis_width`,  `xaxis_type` and `xaxis_005fcolor`.
@@ -4430,7 +4430,7 @@ Example:
          explicit(x^2,x,-1,1)) $
 ```
 
-(Figure draw_xaxis_secondary)
+![draw_xaxis_secondary](figures/draw_xaxis_secondary.png)
 
 
 See also `xrange_secondary`,  `xtics_secondary`,  `xtics_rotate_secondary`, 
@@ -4520,7 +4520,7 @@ Example:
          explicit(sin(t),t,0,10) )$
 ```
 
-(Figure draw_ylabel_secondary)
+![draw_ylabel_secondary](figures/draw_ylabel_secondary.png)
 
 
 See also `xlabel_draw`,  `ylabel_draw`,  `ylabel_secondary` and `zlabel_005fdraw`.
@@ -5053,7 +5053,7 @@ Example:
              explicit(x^2+y^2,x,-3,3,y,-3,3) )$
 ```
 
-(Figure draw_xugrid)
+![draw_xugrid](figures/draw_xugrid.png)
 
 
 See also `xu_005fgrid`.
