@@ -210,7 +210,7 @@ maxima
 ```
 
 
-figures/trigtools-15inplot1
+![figures/trigtools-1](figures/trigtools-1.png)
 
 
 
@@ -582,7 +582,7 @@ maxima
 ```
 
 
-figures/trigtools-25inplot2
+![figures/trigtools-2](figures/trigtools-2.png)
 
 
 
@@ -623,7 +623,7 @@ maxima
 ```
 
 
-figures/trigtools-35inplot3
+![figures/trigtools-3](figures/trigtools-3.png)
 
 We have 6 solutions from [0, 2*pi].
 
@@ -641,7 +641,7 @@ maxima
 ```
 
 
-figures/trigtools-45inplot4
+![figures/trigtools-4](figures/trigtools-4.png)
 
 
 
@@ -659,7 +659,7 @@ maxima
 ```
 
 
-figures/trigtools-55inplot4
+![figures/trigtools-5](figures/trigtools-5.png)
 
 
 
@@ -802,7 +802,7 @@ maxima
 ```
 
 
-figures/trigtools-65inplot6
+![figures/trigtools-6](figures/trigtools-6.png)
 
 
 
@@ -830,7 +830,7 @@ maxima
 ```
 
 
-figures/trigtools-75inplot7
+![figures/trigtools-7](figures/trigtools-7.png)
 
 Equation we multiply by 
 $2\sin x\cos 2x:$

@@ -161,7 +161,7 @@ maxima
 (%i1) plotdf(exp(-x)+y,[trajectory_at,2,-0.1])$
 ```
 
-figures/plotdf18cm
+![figures/plotdf1](figures/plotdf1.png)
 - *
 To obtain the direction field for the equation
 $dy/dx = x - y^2$
@@ -180,7 +180,7 @@ maxima
 The graph also shows the function
 $y = \sqrt{x}.$
 
-figures/plotdf28cm
+![figures/plotdf2](figures/plotdf2.png)
 - *
 The following example shows the direction field of a harmonic oscillator,
 defined by the two equations $dz/dt = v$ and
@@ -198,7 +198,7 @@ maxima
            [sliders,"m=1:5"], [trajectory_at,6,0])$
 ```
 
-figures/plotdf38cm
+![figures/plotdf3](figures/plotdf3.png)
 - *
 To plot the direction field of the Duffing equation,
 $m x''+c x' + kx + bx^3 = 0,$
@@ -213,7 +213,7 @@ maxima
              [sliders,"k=-2:2,m=-1:1"],[tstep,0.1])$
 ```
 
-figures/plotdf48cm
+![figures/plotdf4](figures/plotdf4.png)
 - *
 The direction field for a damped pendulum, including the
 solution for the given initial conditions, with a slider that
@@ -233,7 +233,7 @@ maxima
         [nsteps,300], [sliders,"m=0.1:1"], [versus_t,1])$
 ```
 
-figures/plotdf58cmfigures/plotdf68cm
+![figures/plotdf5](figures/plotdf5.png)![figures/plotdf6](figures/plotdf6.png)
 
 ### Function: ploteq (exp, ...options...)
 
@@ -358,7 +358,7 @@ maxima
 The results will be saved in the list `results` and the plot will show the solution obtained, with *t* on the horizontal axis and *x* on the vertical axis.
 
 
-figures/plotrk8cm
+![figures/plotrk](figures/plotrk.png)
 
 To solve numerically the system:
 
@@ -404,7 +404,7 @@ maxima
 The plot will show the solution for variable *y* as a function of *t*.
 
 
-figures/plotrk28cm
+![figures/plotrk2](figures/plotrk2.png)
 
 See also: `drawdf`, `rk_adaptive`, `desolve`, `ode2`.
 
