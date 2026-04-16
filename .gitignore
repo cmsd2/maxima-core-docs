@@ -1,0 +1,23 @@
+*~
+*.fas
+*.o
+*.ERR
+.mxpm.json
+
+# Doc build artifacts
+*.info
+*.info-*
+*-index.lisp
+*-doc-index.json
+doc/*.texi
+doc/*.expanded.md
+doc/book/
+
+# Figures: only PNGs are used in docs
+doc/figures/*.pdf
+doc/figures/*.ps.gz
+doc/figures/*.mac
+doc/figures/*.svg
+doc/figures/*.ico
+doc/figures/Makefile*
+doc/figures/README
