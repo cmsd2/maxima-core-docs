@@ -1,0 +1,97 @@
+## ggf
+
+### Function: ggf (l)
+
+Compute the generating function (if it is a fraction of two
+polynomials) of a sequence, its first terms being given. *l*
+is a list of numbers.
+
+
+The solution is returned as a fraction of two polynomials.
+If no solution has been found, it returns with `done`.
+
+
+This function is controlled by global variables *GGFINFINITY* and *GGFCFMAX*. See also *GGFINFINITY* and *GGFCFMAX*.
+
+
+To use this function write first `load("ggf")`.
+
+
+
+
+```maxima
+(%i1) load("ggf")$
+(%i2) makelist(fib(n),n,0,10);
+(%o2)                [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+(%i3) ggf(%);
+                                       x
+(%o3)                            - ----------
+                                    2
+                                   x  + x - 1
+(%i4) taylor(%,x,0,10);
+              2      3      4      5      6       7       8       9       10
+(%o4)/T/ x + x  + 2 x  + 3 x  + 5 x  + 8 x  + 13 x  + 21 x  + 34 x  + 55 x
+                                                                        + . . .
+(%i5) makelist(2*fib(n+1)-fib(n),n,0,10);
+(%o5)              [2, 1, 3, 4, 7, 11, 18, 29, 47, 76, 123]
+(%i6) ggf(%);
+                                    x - 2
+(%o6)                             ----------
+                                   2
+                                  x  + x - 1
+(%i7) taylor(%,x,0,10);
+                    2      3      4       5       6       7       8       9
+(%o7)/T/ 2 + x + 3 x  + 4 x  + 7 x  + 11 x  + 18 x  + 29 x  + 47 x  + 76 x
+                                                                     10
+                                                              + 123 x   + . . .
+```
+
+
+As these examples show, the generating function does create a function
+whose Taylor series has coefficients that are the elements of the
+original list.
+
+### Variable: GGFCFMAX
+
+Default value: 3
+
+
+This is an option variable for function `ggf`.
+
+
+When computing the continued fraction of the
+generating function, if no good result has been found (see
+the *GGFINFINITY* flag) after having computed *GGFCFMAX* partial
+quotients, the generating function will be considered as
+not being a fraction of two polynomials and the function will
+exit. Put freely a greater value for more complicated
+generating functions.
+
+
+See also `ggf`.
+
+See also: `ggf`.
+
+### Variable: GGFINFINITY
+
+Default value: 3
+
+
+This is an option variable for function `ggf`.
+
+
+When computing the continued fraction of the
+generating function, a partial quotient having a degree
+(strictly) greater than *GGFINFINITY* will be discarded and
+the current convergent will be considered as the exact value
+of the generating function; most often the degree of all
+partial quotients will be 0 or 1; if you use a greater value,
+then you should give enough terms in order to make the
+computation accurate enough.
+
+
+
+See also `ggf`.
+
+See also: `ggf`.
+

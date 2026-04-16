@@ -1,0 +1,278 @@
+## Differential Equations
+
+### Variable: %c
+
+`%c` is the integration constant in the solutions of first
+order ODEs returned from `ode2`.
+
+See also: `ode2`.
+
+### Variable: %k1
+
+`%k1` is the first integration constant in the solutions of second
+order ODEs returned from `ode2`.
+
+See also: `ode2`.
+
+### Variable: %k2
+
+`%k2` is the second integration constant in the solutions of second
+order ODEs returned from `ode2`.
+
+See also: `ode2`.
+
+### Function: bc2 (solution, xval1, yval1, xval2, yval2)
+
+Solves a boundary value problem for a second order differential equation.
+Here: *solution* is a general solution to the equation, as found by
+`ode2`; *xval1* specifies the value of the independent variable
+in a first point, in the form `x = x1`, and *yval1*
+gives the value of the dependent variable in that point, in the form
+`y = y1`. The expressions *xval2* and *yval2*
+give the values for these variables at a second point, using the same
+form.
+
+
+See `ode2` for an example of its usage.
+
+See also: `ode2`.
+
+### Function: desolve (desolve, eqn, y, desolve, eqn_1, ..., eqn_n, y_1, ..., y_n)
+
+The function `desolve` solves systems of linear ordinary
+differential equations using Laplace transform. Here the *eqn*’s are
+differential equations in the dependent variables *y_1*, ...,
+*y_n*. The functional dependence of *y_1*, ..., *y_n* on an
+independent variable, for instance *x*, must be explicitly indicated
+in the variables and its derivatives. For example, the *correct*
+way to define the differential equations would be:
+
+
+
+```maxima
+eqn_1: 'diff(f(x),x,2) = sin(x) + 'diff(g(x),x);
+eqn_2: 'diff(f(x),x) + x^2 - f(x) = 2*'diff(g(x),x,2);
+```
+
+
+The call to the function `desolve` would then be:
+
+
+```maxima
+desolve([eqn_1, eqn_2], [f(x),g(x)]);
+```
+
+
+If initial conditions at `x=0` are known, they can be supplied before
+calling `desolve` by using `atvalue`.
+
+
+
+
+
+
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) 'diff(f(x),x)='diff(g(x),x)+sin(x);
+                 d           d
+(%o1)            -- (f(x)) = -- (g(x)) + sin(x)
+                 dx          dx
+
+
+(%i2) 'diff(g(x),x,2)='diff(f(x),x)-cos(x);
+                  2
+                 d            d
+(%o2)            --- (g(x)) = -- (f(x)) - cos(x)
+                   2          dx
+                 dx
+
+
+(%i3) atvalue('diff(g(x),x),x=0,a);
+(%o3)                           a
+
+
+(%i4) atvalue(f(x),x=0,1);
+(%o4)                           1
+
+
+(%i5) desolve([%o1,%o2],[f(x),g(x)]);
+                x
+(%o5) [f(x) = %e  a - a + 1, g(x) = 
+                                              x
+                                   cos(x) + %e  a - a + g(0) - 1]
+
+
+(%i6) [%o1,%o2],%o5,diff;
+           x       x      x                x
+(%o6)   [%e  a = %e  a, %e  a - cos(x) = %e  a - cos(x)]
+```
+
+
+If `desolve` cannot obtain a solution, it returns `false`.
+
+
+See also `ode2`, `drawdf` and `rk`.
+
+See also: `atvalue`, `ode2`, `drawdf`, `rk`.
+
+### Function: ic1 (solution, xval, yval)
+
+Solves initial value problems for first order differential equations.
+Here *solution* is a general solution to the equation, as found by
+`ode2`, *xval* gives an initial value for the independent
+variable in the form `x = x0`, and *yval* gives the
+initial value for the dependent variable in the form `y = y0`.
+
+
+See `ode2` for an example of its usage.
+
+See also: `ode2`.
+
+### Function: ic2 (solution, xval, yval, dval)
+
+Solves initial value problems for second-order differential equations.
+Here *solution* is a general solution to the equation, as found by
+`ode2`, *xval* gives the initial value for the independent
+variable in the form `x = x0`, *yval* gives the
+initial value of the dependent variable in the form `y = y0`, and *dval* gives the initial value for the first
+derivative of the dependent variable with respect to independent
+variable, in the form `'diff(y,x) = dy0`.
+
+
+See `ode2` for an example of its usage.
+
+See also: `ode2`.
+
+### Variable: method
+
+The variable `method` is set by `ode2` to the successful solution
+method.
+
+See also: `ode2`.
+
+### Function: ode2 (eqn, dvar, ivar)
+
+The function `ode2` solves an ordinary differential equation (ODE)
+of first or second order. It takes three arguments: an ODE given by
+*eqn*, the dependent variable *dvar*, and the independent
+variable *ivar*. When successful, it returns either an explicit or
+implicit solution for the dependent variable. `%c` is used to
+represent the integration constant in the case of first-order equations,
+and `%k1` and `%k2` the constants for second-order
+equations. The dependence of the dependent variable on the independent
+variable does not have to be written explicitly, as in the case of
+`desolve`, but the independent variable must always be given as the
+third argument.
+
+
+If `ode2` cannot obtain a solution for whatever reason, it returns
+`false`, after perhaps printing out an error message. The methods
+implemented for first order equations in the order in which they are
+tested are: linear, separable, exact - perhaps requiring an integrating
+factor, homogeneous, Bernoulli’s equation, and a generalized homogeneous
+method. The types of second-order equations which can be solved are:
+constant coefficients, exact, linear homogeneous with non-constant
+coefficients which can be transformed to constant coefficients, the
+Euler or equi-dimensional equation, equations solvable by the method of
+variation of parameters, and equations which are free of either the
+independent or of the dependent variable so that they can be reduced to
+two first order linear equations to be solved sequentially.
+
+
+In the course of solving ODE’s, several variables are set purely for
+informational purposes: `method` denotes the method of solution
+used (e.g., `linear`), `intfactor` denotes any integrating
+factor used, `odeindex` denotes the index for Bernoulli’s method or
+for the generalized homogeneous method, and `yp` denotes the
+particular solution for the variation of parameters technique.
+
+
+In order to solve initial value problems (IVP) functions `ic1` and
+`ic2` are available for first and second order equations, and to
+solve second-order boundary value problems (BVP) the function `bc2`
+can be used.
+
+
+See also `desolve`, `drawdf` and `rk`.
+
+
+Example:
+
+
+
+
+
+
+
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) x^2*'diff(y,x) + 3*y*x = sin(x)/x;
+                      2 dy           sin(x)
+(%o1)                x  -- + 3 x y = ------
+                        dx             x
+
+
+(%i2) soln1: ode2(%,y,x);
+                             %c - cos(x)
+(%o2)                    y = -----------
+                                  3
+                                 x
+
+
+(%i3) ic1 (soln1,x=%pi,y=0);
+                              cos(x) + 1
+(%o3)                   y = - ----------
+                                   3
+                                  x
+
+
+(%i4) 'diff(y,x,2) + y*'diff(y,x)^3 = 0;
+                         2
+                        d y      dy 3
+(%o4)                   --- + y (--)  = 0
+                          2      dx
+                        dx
+
+
+(%i5) soln2: ode2(%,y,x);
+                      3
+                     y  + 6 %k1 y
+(%o5)                ------------ = x + %k2
+                          6
+
+
+(%i6) ratsimp (ic2(soln2,x=0,y=0,'diff(y,x)=2));
+                           3
+                          y  + 3 y
+(%o6)                     -------- = x
+                             6
+
+
+(%i7) bc2 (soln2,x=0,y=1,x=1,y=3);
+                         3
+                        y  - 10 y       3
+(%o7)                   --------- = x - -
+                            6           2
+```
+
+See also: `%c`, `%k1`, `%k2`, `desolve`, `method`, `yp`, `ic1`, `ic2`, `bc2`, `drawdf`, `rk`.
+
+### Variable: yp
+
+`yp` is the particular solution of an ODE found by `ode2`
+when using the variation of parameters technique.
+
+See also: `yp`, `ode2`.
+
