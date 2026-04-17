@@ -1,4 +1,4 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.3 from
+This is maxima-core-docs.info, produced by makeinfo version 7.1 from
 maxima-core-docs.texi.
 
 
@@ -54,11 +54,11 @@ File: maxima-core-docs.info,  Node: Maxima Core Documentation,  Next: Function a
 * Matrices and Linear Algebra::
 * linearalgebra::
 * NumberTheory::
-* Data Types and Structures: Data Types and Structures 2.
-* Elementary Functions: Elementary Functions 2.
+* Data Types and Structures::
+* Elementary Functions::
 * Number Theory::
-* Numerical: Numerical 2.
-* Numerical: Numerical 3.
+* Numerical::
+* Numerical::
 * cobyla::
 * colnew::
 * hompack::
@@ -73,7 +73,7 @@ File: maxima-core-docs.info,  Node: Maxima Core Documentation,  Next: Function a
 * simplex::
 * Other::
 * Bug Detection and Reporting::
-* Elementary Functions: Elementary Functions 3.
+* Elementary Functions::
 * Groups::
 * Miscellaneous Options::
 * augmented_lagrangian::
@@ -87,27 +87,27 @@ File: maxima-core-docs.info,  Node: Maxima Core Documentation,  Next: Function a
 * impdiff::
 * lindstedt::
 * makeOrders::
-* operatingsystem: operatingsystem 2.
+* operatingsystem::
 * pytranslate::
 * quantum_computing::
 * stirling::
 * wrstcse::
 * Plotting::
-* Plotting: Plotting 2.
+* Plotting::
 * descriptive::
 * draw::
 * drawdf::
 * dynamics::
 * graphs::
-* stringproc: stringproc 2.
+* stringproc::
 * Polynomials::
-* Polynomials: Polynomials 2.
+* Polynomials::
 * grobner::
 * orthopoly::
 * ratpow::
 * Programming::
-* Command Line: Command Line 2.
-* Data Types and Structures: Data Types and Structures 3.
+* Command Line::
+* Data Types and Structures::
 * Debugging::
 * Evaluation::
 * Expressions::
@@ -117,26 +117,26 @@ File: maxima-core-docs.info,  Node: Maxima Core Documentation,  Next: Function a
 * Operators::
 * Program Flow::
 * Runtime Environment::
-* stringproc: stringproc 3.
+* stringproc::
 * Series::
 * Limits::
 * Sums Products and Series::
 * zeilberger::
 * Simplification::
 * Rules and Patterns::
-* Simplification: Simplification 2.
+* Simplification::
 * simplification::
 * Solving::
 * Equations::
-* Numerical: Numerical 4.
-* Operators: Operators 2.
+* Numerical::
+* Operators::
 * solve_rec::
 * to_poly_solve::
 * SpecialFunctions::
-* Elliptic Functions: Elliptic Functions 2.
-* Special Functions: Special Functions 2.
+* Elliptic Functions::
+* Special Functions::
 * Statistics::
-* descriptive: descriptive 2.
+* descriptive::
 * distrib::
 * lsquares::
 * stats::
@@ -147,7 +147,7 @@ File: maxima-core-docs.info,  Node: Maxima Core Documentation,  Next: Function a
 * ctensor::
 * itensor::
 * Trigonometry::
-* Elementary Functions: Elementary Functions 4.
+* Elementary Functions::
 * trigtools::
 * Units::
 * ezunits::
@@ -185,8 +185,8 @@ File: maxima-core-docs.info,  Node: Function asympa,  Up: asympa
 ----------------------
 
 ‘asympa’ is a package for asymptotic analysis.  The package contains
-simplification functions for asymptotic analysis, including the “big O”
-and “little o” functions that are widely used in complexity analysis and
+simplification functions for asymptotic analysis, including the "big O"
+and "little o" functions that are widely used in complexity analysis and
 numerical analysis.
 
 ‘load ("asympa")’ loads this package.
@@ -893,7 +893,6 @@ File: maxima-core-docs.info,  Node: Function resolvante P x f [x_1 ... x_d],  Ne
         •    • A polynomial in a single variable,
 
         •    • 
-
      linear, - *
 
      alternating, - *
@@ -913,7 +912,6 @@ File: maxima-core-docs.info,  Node: Function resolvante P x f [x_1 ... x_d],  Ne
      the flag of ‘resolvante’ may be, respectively:
 
         •    • 
-
      unitaire, - *
 
      lineaire, - *
@@ -2466,7 +2464,7 @@ File: maxima-core-docs.info,  Node: Function carlson_rc x y,  Next: Function car
      R_C(x, y) = \frac{1}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}(t+y)}\,
      dt
 
-     See https//arxivorg/pdf/math/9409227Numerical Computation of Real
+     See https://arxiv.org/pdf/math/9409227Numerical Computation of Real
      or Complex Elliptic Integrals for more information.
 
      This integral is related to many elementary functions in the
@@ -2516,7 +2514,7 @@ File: maxima-core-docs.info,  Node: Function carlson_rd x y z,  Next: Function c
      R_D(x,y,z) = \frac{3}{2} \int_0^{\infty}
      \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}\,(t+z)}\, dt
 
-     See https//arxivorg/pdf/math/9409227Numerical Computation of Real
+     See https://arxiv.org/pdf/math/9409227Numerical Computation of Real
      or Complex Elliptic Integrals for more information.
 
      We also have the special values
@@ -2550,7 +2548,7 @@ File: maxima-core-docs.info,  Node: Function carlson_rf x y z,  Next: Function c
      R_F(x,y,z) = \frac{1}{2} \int_0^{\infty}
      \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}}\, dt
 
-     See https//arxivorg/pdf/math/9409227Numerical Computation of Real
+     See https://arxiv.org/pdf/math/9409227Numerical Computation of Real
      or Complex Elliptic Integrals for more information.
 
      We also have the special values
@@ -2584,7 +2582,7 @@ File: maxima-core-docs.info,  Node: Function carlson_rj x y z p,  Next: Function
      R_J(x,y,z) = \frac{1}{2} \int_0^{\infty}
      \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}\,(t+p)}\, dt
 
-     See https//arxivorg/pdf/math/9409227Numerical Computation of Real
+     See https://arxiv.org/pdf/math/9409227Numerical Computation of Real
      or Complex Elliptic Integrals for more information.
 
      It is related to the elliptic integral of the third kind
@@ -2732,7 +2730,7 @@ File: maxima-core-docs.info,  Node: Integration,  Next: Numerical,  Prev: Ellipt
 * Function quad_qaws fx x a b alpha beta wfun [epsrel epsabs limit]::
 * Function residue expr z z_0::
 * Function risch expr x::
-* Function specint exp-s_t_expr t::
+* Function specint exp-stexpr t::
 * Function tldefint expr x a b::
 
 
@@ -3164,10 +3162,10 @@ File: maxima-core-docs.info,  Node: Function integrate expr x,  Next: Variable i
                                  2
      (%i3) neg;
 
-        •    • Change of variable.  There are two changes of
-               variable in this example: one using a derivative
-               established by ‘gradef’, and one using the derivation
-               ‘diff(r(x))’ of an unspecified function ‘r(x)’.
+        •    • Change of variable.  There are two changes of variable in
+               this example: one using a derivative established by
+               ‘gradef’, and one using the derivation ‘diff(r(x))’ of an
+               unspecified function ‘r(x)’.
 
      maxima
      (%i1) gradef (q(x), sin(x**2));
@@ -3183,11 +3181,11 @@ File: maxima-core-docs.info,  Node: Function integrate expr x,  Next: Variable i
      (%i3) integrate (%, x);
      (%o3)                     log(q(r(x)))
 
-        •    • Return value contains the ‘'integrate’ noun
-               form.  In this example, Maxima can extract one factor of
-               the denominator of a rational function, but cannot factor
-               the remainder or otherwise find its integral.  ‘grind’
-               shows the noun form ‘'integrate’ in the result.  See also
+        •    • Return value contains the ‘'integrate’ noun form.  In
+               this example, Maxima can extract one factor of the
+               denominator of a rational function, but cannot factor the
+               remainder or otherwise find its integral.  ‘grind’ shows
+               the noun form ‘'integrate’ in the result.  See also
                ‘integrate_use_rootsof’ for more on integrals of rational
                functions.
 
@@ -3209,12 +3207,12 @@ File: maxima-core-docs.info,  Node: Function integrate expr x,  Next: Variable i
      log(x-4)/73-('integrate((x^2+4*x+18)/(x^3+2*x+1),x))/73$
      (%o3)                         done
 
-        •    • Defining a function in terms of an integral.
-               The body of a function is not evaluated when the function
-               is defined.  Thus the body of ‘f_1’ in this example
-               contains the noun form of ‘integrate’.  The quote-quote
-               operator ‘''’ causes the integral to be evaluated, and
-               the result becomes the body of ‘f_2’.
+        •    • Defining a function in terms of an integral.  The body of
+               a function is not evaluated when the function is defined.
+               Thus the body of ‘f_1’ in this example contains the noun
+               form of ‘integrate’.  The quote-quote operator ‘''’
+               causes the integral to be evaluated, and the result
+               becomes the body of ‘f_2’.
 
      maxima
      (%i1) f_1 (a) := integrate (x^3, x, 1, a);
@@ -3651,8 +3649,7 @@ File: maxima-core-docs.info,  Node: Function quad_qag fx x a b key [epsrel epsab
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the
-               approximation,
+        •    • the estimated absolute error of the approximation,
 
         •    • the number integrand evaluations,
 
@@ -3725,8 +3722,7 @@ File: maxima-core-docs.info,  Node: Function quad_qagi fx x a b [epsrel epsabs l
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the
-               approximation,
+        •    • the estimated absolute error of the approximation,
 
         •    • the number integrand evaluations,
 
@@ -3796,8 +3792,7 @@ File: maxima-core-docs.info,  Node: Function quad_qagp fx x a b points [epsrel e
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the
-               approximation,
+        •    • the estimated absolute error of the approximation,
 
         •    • the number integrand evaluations,
 
@@ -3864,8 +3859,7 @@ File: maxima-core-docs.info,  Node: Function quad_qags fx x a b [epsrel epsabs l
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the
-               approximation,
+        •    • the estimated absolute error of the approximation,
 
         •    • the number integrand evaluations,
 
@@ -3926,8 +3920,7 @@ File: maxima-core-docs.info,  Node: Function quad_qawc fx x c a b [epsrel epsabs
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the
-               approximation,
+        •    • the estimated absolute error of the approximation,
 
         •    • the number integrand evaluations,
 
@@ -4018,8 +4011,7 @@ File: maxima-core-docs.info,  Node: Function quad_qawf fx x a omega trig [epsabs
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the
-               approximation,
+        •    • the estimated absolute error of the approximation,
 
         •    • the number integrand evaluations,
 
@@ -4092,8 +4084,7 @@ File: maxima-core-docs.info,  Node: Function quad_qawo fx x a b omega trig [epsr
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the
-               approximation,
+        •    • the estimated absolute error of the approximation,
 
         •    • the number integrand evaluations,
 
@@ -4171,8 +4162,7 @@ File: maxima-core-docs.info,  Node: Function quad_qaws fx x a b alpha beta wfun 
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the
-               approximation,
+        •    • the estimated absolute error of the approximation,
 
         •    • the number integrand evaluations,
 
@@ -4228,7 +4218,7 @@ File: maxima-core-docs.info,  Node: Function residue expr z z_0,  Next: Function
                                      6
 
 
-File: maxima-core-docs.info,  Node: Function risch expr x,  Next: Function specint exp-s_t_expr t,  Prev: Function residue expr z z_0,  Up: Integration
+File: maxima-core-docs.info,  Node: Function risch expr x,  Next: Function specint exp-stexpr t,  Prev: Function residue expr z z_0,  Up: Integration
 
  -- Function: risch (EXPR, X)
      Integrates _expr_ with respect to _x_ using the transcendental case
@@ -4259,7 +4249,7 @@ File: maxima-core-docs.info,  Node: Function risch expr x,  Next: Function speci
      See also: ‘integrate’.
 
 
-File: maxima-core-docs.info,  Node: Function specint exp-s_t_expr t,  Next: Function tldefint expr x a b,  Prev: Function risch expr x,  Up: Integration
+File: maxima-core-docs.info,  Node: Function specint exp-stexpr t,  Next: Function tldefint expr x a b,  Prev: Function risch expr x,  Up: Integration
 
  -- Function: specint (EXP(-S_T)_EXPR, T)
      Compute the Laplace transform of _expr_ with respect to the
@@ -4371,7 +4361,7 @@ File: maxima-core-docs.info,  Node: Function specint exp-s_t_expr t,  Next: Func
      ‘gamma_incomplete’, ‘expintegral_e1’.
 
 
-File: maxima-core-docs.info,  Node: Function tldefint expr x a b,  Prev: Function specint exp-s_t_expr t,  Up: Integration
+File: maxima-core-docs.info,  Node: Function tldefint expr x a b,  Prev: Function specint exp-stexpr t,  Up: Integration
 
  -- Function: tldefint (EXPR, X, A, B)
      Equivalent to ‘ldefint’ with ‘tlimswitch’ set to ‘true’.
@@ -4454,15 +4444,15 @@ File: maxima-core-docs.info,  Node: Function plotdf dydx options...,  Next: Func
 
      The options which are recognized by ‘plotdf’ are the following:
 
-        •    • _nsteps_ defines the number of steps that will
-               be used for the independent variable, to compute an
-               integral curve.  The default value is
+        •    • _nsteps_ defines the number of steps that will be used
+               for the independent variable, to compute an integral
+               curve.  The default value is
 
        100. 
-        •    • _direction_ defines the direction of the
-               independent variable that will be followed to compute an
-               integral curve.  Possible values are ‘forward’, to make
-               the independent variable increase ‘nsteps’ times, with
+        •    • _direction_ defines the direction of the independent
+               variable that will be followed to compute an integral
+               curve.  Possible values are ‘forward’, to make the
+               independent variable increase ‘nsteps’ times, with
                increments ‘tstep’, ‘backward’, to make the independent
                variable decrease, or ‘both’ that will lead to an
                integral curve that extends ‘nsteps’ forward, and
@@ -4470,80 +4460,79 @@ File: maxima-core-docs.info,  Node: Function plotdf dydx options...,  Next: Func
                be used as synonyms for ‘forward’ and ‘backward’.  The
                default value is ‘both’.
 
-        •    • _tinitial_ defines the initial value of
-               variable _t_ used to compute integral curves.  Since the
-               differential equations are autonomous, that setting will
-               only appear in the plot of the curves as functions of
-               _t_.  The default value is 0.
+        •    • _tinitial_ defines the initial value of variable _t_ used
+               to compute integral curves.  Since the differential
+               equations are autonomous, that setting will only appear
+               in the plot of the curves as functions of _t_.  The
+               default value is 0.
 
-        •    • _versus_t_ is used to create a second plot
-               window, with a plot of an integral curve, as two
-               functions _x_, _y_, of the independent variable _t_.  If
-               ‘versus_t’ is given any value different from 0, the
-               second plot window will be displayed.  The second plot
-               window includes another menu, similar to the menu of the
-               main plot window.  The default value is 0.
+        •    • _versus_t_ is used to create a second plot window, with a
+               plot of an integral curve, as two functions _x_, _y_, of
+               the independent variable _t_.  If ‘versus_t’ is given any
+               value different from 0, the second plot window will be
+               displayed.  The second plot window includes another menu,
+               similar to the menu of the main plot window.  The default
+               value is 0.
 
-        •    • _trajectory_at_ defines the coordinates
-               _xinitial_ and _yinitial_ for the starting point of an
-               integral curve.  The option is empty by default.
+        •    • _trajectory_at_ defines the coordinates _xinitial_ and
+               _yinitial_ for the starting point of an integral curve.
+               The option is empty by default.
 
-        •    • _parameters_ defines a list of parameters, and
-               their numerical values, used in the definition of the
+        •    • _parameters_ defines a list of parameters, and their
+               numerical values, used in the definition of the
                differential equations.  The name and values of the
                parameters must be given in a string with a
                comma-separated sequence of pairs ‘name=value’.
 
-        •    • _sliders_ defines a list of parameters that
-               will be changed interactively using slider buttons, and
-               the range of variation of those parameters.  The names
-               and ranges of the parameters must be given in a string
-               with a comma-separated sequence of elements
-               ‘name=min:max’
+        •    • _sliders_ defines a list of parameters that will be
+               changed interactively using slider buttons, and the range
+               of variation of those parameters.  The names and ranges
+               of the parameters must be given in a string with a
+               comma-separated sequence of elements ‘name=min:max’
 
-        •    • _tstep_ sets the value of the time intervals
-               used in the integration algorithm.  It must be a floating
-               point number; you might have to adjust its value to get
-               good results for the integral curves.  If not given, a
-               default value will be chosen according to the region to
-               be plotted.
+        •    • _tstep_ sets the value of the time intervals used in the
+               integration algorithm.  It must be a floating point
+               number; you might have to adjust its value to get good
+               results for the integral curves.  If not given, a default
+               value will be chosen according to the region to be
+               plotted.
 
-        •    • _xfun_ defines a string with
-               semi-colon-separated sequence of functions of _x_ to be
-               displayed, on top of the direction field.  Those
-               functions will be parsed by Tcl and not by Maxima.
+        •    • _xfun_ defines a string with semi-colon-separated
+               sequence of functions of _x_ to be displayed, on top of
+               the direction field.  Those functions will be parsed by
+               Tcl and not by Maxima.
 
-        •    • _x_ should be followed by two numbers, which
-               will set up the minimum and maximum values shown on the
-               horizontal axis.  If the variable on the horizontal axis
-               is not _x_, then this option should have the name of the
-               variable on the horizontal axis.  The default horizontal
-               range is from -10 to 10.
+        •    • _x_ should be followed by two numbers, which will set up
+               the minimum and maximum values shown on the horizontal
+               axis.  If the variable on the horizontal axis is not _x_,
+               then this option should have the name of the variable on
+               the horizontal axis.  The default horizontal range is
+               from -10 to 10.
 
-        •    • _y_ should be followed by two numbers, which
-               will set up the minimum and maximum values shown on the
-               vertical axis.  If the variable on the vertical axis is
-               not _y_, then this option should have the name of the
-               variable on the vertical axis.  The default vertical
-               range is from -10 to 10.
+        •    • _y_ should be followed by two numbers, which will set up
+               the minimum and maximum values shown on the vertical
+               axis.  If the variable on the vertical axis is not _y_,
+               then this option should have the name of the variable on
+               the vertical axis.  The default vertical range is from
+               -10 to 10.
 
-        •    • _xaxislabel_ will be used to identify the
-               horizontal axis.  Its default value is the name of the
-               first state variable.
+        •    • _xaxislabel_ will be used to identify the horizontal
+               axis.  Its default value is the name of the first state
+               variable.
 
-        •    • _yaxislabel_ will be used to identify the
-               vertical axis.  Its default value is the name of the
-               second state variable.
+        •    • _yaxislabel_ will be used to identify the vertical axis.
+               Its default value is the name of the second state
+               variable.
 
-        •    • _number_of_arrows_ should be set to a square
-               number and defines the approximate density of the arrows
-               being drawn.  The default value is 225.
+        •    • _number_of_arrows_ should be set to a square number and
+               defines the approximate density of the arrows being
+               drawn.  The default value is 225.
 
      *Examples:*
 
-        •    • To show the direction field of the differential
-               equation y' = e^{-x} + y and the solution that goes
-               through (2, -0.1):
+        •    • To show the direction field of the differential equation
+               y' = e^{-x} + y and the solution that goes through (2,
+               -0.1):
 
      maxima
      (%i1) plotdf(exp(-x)+y,[trajectory_at,2,-0.1])$
@@ -4598,6 +4587,7 @@ File: maxima-core-docs.info,  Node: Function plotdf dydx options...,  Next: Func
 
  [image src="figures/plotdf5.png" alt="figures/plotdf5" ]
  [image src="figures/plotdf6.png" alt="figures/plotdf6" ]
+
 
 
 File: maxima-core-docs.info,  Node: Function ploteq exp ...options...,  Next: Function rk ODE var initial domain,  Prev: Function plotdf dydx options...,  Up: Numerical
@@ -4696,6 +4686,7 @@ File: maxima-core-docs.info,  Node: Function rk ODE var initial domain,  Prev: F
 
  [image src="figures/plotrk.png" alt="figures/plotrk" ]
 
+
      figures/plotrk
      To solve numerically the system:
 
@@ -4721,6 +4712,7 @@ File: maxima-core-docs.info,  Node: Function rk ODE var initial domain,  Prev: F
      _t_.
 
  [image src="figures/plotrk2.png" alt="figures/plotrk2" ]
+
 
      figures/plotrk2
      See also: ‘drawdf’, ‘rk_adaptive’, ‘desolve’, ‘ode2’.
@@ -4749,8 +4741,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_chi z,  Next: Function 
 
  -- Function: expintegral_chi (Z)
      The Exponential Integral Chi(z)
-     (https//personalmathubcca/~cbm/aands/page_231htmA&S eqn 524 and
-     https//dlmfnistgov/62#E16DLMF 62#E16) defined as
+     (https://personal.math.ubc.ca/~cbm/aands/page_231.htmA&S eqn 5.2.4
+     and https://dlmf.nist.gov/6.2#E16DLMF 6.2#E16) defined as
 
      {\rm Chi}(z) = \gamma + \log z + \int_0^z {{\cosh t - 1} \over t}
      dt
@@ -4770,8 +4762,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_ci z,  Next: Function e
 
  -- Function: expintegral_ci (Z)
      The Exponential Integral Ci(z)
-     (https//personalmathubcca/~cbm/aands/page_231htmA&S eqn 522 and
-     https//dlmfnistgov/62#E13DLMF 62#E13) defined as
+     (https://personal.math.ubc.ca/~cbm/aands/page_231.htmA&S eqn 5.2.2
+     and https://dlmf.nist.gov/6.2#E13DLMF 6.2#E13) defined as
 
      {\rm Ci}(z) = \gamma + \log z + \int_0^z {{\cos t - 1} \over t} dt
 
@@ -4789,7 +4781,7 @@ File: maxima-core-docs.info,  Node: Function expintegral_e n z,  Next: Function 
 
  -- Function: expintegral_e (N, Z)
      The Exponential Integral En(z)
-     (https//personalmathubcca/~cbm/aands/page_228htmA&S eqn 514)
+     (https://personal.math.ubc.ca/~cbm/aands/page_228.htmA&S eqn 5.1.4)
      defined as
 
      E_n(z) = \int_1^\infty {e^{-zt} \over t^n} dt
@@ -4814,8 +4806,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_e1 z,  Next: Function e
      E_1(z) = \int_z^\infty {e^{-t} \over t} dt
 
      with \left| \arg z \right| < \pi.
-     (https//personalmathubcca/~cbm/aands/page_228htmA&S eqn 511) and
-     (https//dlmfnistgov/62E2DLMF 62E2)
+     (https://personal.math.ubc.ca/~cbm/aands/page_228.htmA&S eqn 5.1.1)
+     and (https://dlmf.nist.gov/6.2E2DLMF 6.2E2)
 
      This can be written in terms of other functions.  ‘expintrep’ for
      examples.
@@ -4835,8 +4827,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_ei x,  Next: Function e
      -\kern-10.5pt\int_{-\infty}^x {e^{t} \over t} dt
 
      with x real and x > 0.
-     (https//personalmathubcca/~cbm/aands/page_228htmA&S eqn 512) and
-     (https//dlmfnistgov/62E5DLMF 62E5)
+     (https://personal.math.ubc.ca/~cbm/aands/page_228.htmA&S eqn 5.1.2)
+     and (https://dlmf.nist.gov/6.2E5DLMF 6.2E5)
 
      This can be written in terms of other functions.  ‘expintrep’ for
      examples.
@@ -4854,8 +4846,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_li x,  Next: Function e
      li(x) = -\kern-10.5pt\int_0^x {dt \over \ln t}
 
      with x real and x > 1.
-     (https//personalmathubcca/~cbm/aands/page_228htmA&S eqn 513) and
-     (https//dlmfnistgov/62E8DLMF 62E8)
+     (https://personal.math.ubc.ca/~cbm/aands/page_228.htmA&S eqn 5.1.3)
+     and (https://dlmf.nist.gov/6.2E8DLMF 6.2E8)
 
      This can be written in terms of other functions.  ‘expintrep’ for
      examples.
@@ -4867,8 +4859,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_shi z,  Next: Function 
 
  -- Function: expintegral_shi (Z)
      The Exponential Integral Shi(z)
-     (https//personalmathubcca/~cbm/aands/page_231htmA&S eqn 523 and
-     https//dlmfnistgov/62#E15DLMF 62#E15) defined as
+     (https://personal.math.ubc.ca/~cbm/aands/page_231.htmA&S eqn 5.2.3
+     and https://dlmf.nist.gov/6.2#E15DLMF 6.2#E15) defined as
 
      {\rm Shi}(z) = \int_0^z {\sinh t \over t} dt
 
@@ -4884,8 +4876,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_si z,  Next: Variable e
 
  -- Function: expintegral_si (Z)
      The Exponential Integral Si(z)
-     (https//personalmathubcca/~cbm/aands/page_231htmA&S eqn 521 and
-     https//dlmfnistgov/62#E9DLMF 62#E9) defined as
+     (https://personal.math.ubc.ca/~cbm/aands/page_231.htmA&S eqn 5.2.1
+     and https://dlmf.nist.gov/6.2#E9DLMF 6.2#E9) defined as
 
      {\rm Si}(z) = \int_0^z {\sin t \over t} dt
 
@@ -5400,8 +5392,8 @@ File: maxima-core-docs.info,  Node: Function bessel_simplify expr,  Next: Functi
      Simplifies expressions containing Bessel functions ‘bessel_j’,
      ‘bessel_y’, ‘bessel_i’, ‘bessel_k’, ‘hankel_1’, ‘hankel_2’,
      ‘struve_h’ and ‘struve_005fl’.  Recurrence relations
-     https//personalmathubcca/~cbm/aands/page_361htmA&S eqn 9127 and
-     https//dlmfnistgov/106#iDLMF 106#i
+     https://personal.math.ubc.ca/~cbm/aands/page_361.htmA&S eqn 9.1.27
+     and https://dlmf.nist.gov/10.6#iDLMF 10.6#i
 
      are used to replace functions of highest order n by functions of
      order n-1 and n-2.
@@ -5473,7 +5465,7 @@ File: maxima-core-docs.info,  Node: Function expintegral_e_simplify expr,  Next:
  -- Function: expintegral_e_simplify (EXPR)
      Simplify expressions containing exponential integral
      ‘expintegral_e’ using the recurrence
-     https//personalmathubcca/~cbm/aands/page_229htmA&S eqn 5114.
+     https://personal.math.ubc.ca/~cbm/aands/page_229.htmA&S eqn 5.1.14.
 
      expintegral_e(n+1,z) = (1/n) * (exp(-z)-z*expintegral_e(n,z)) n =
      1,2,3 ....
@@ -5488,8 +5480,8 @@ File: maxima-core-docs.info,  Node: Function gauss_a a b c x,  Next: Function ga
      functions.  They represent any two independent solutions of the
      hypergeometric differential equation ‘x*(1-x) diff(y,x,2) +
      [c-(a+b+1)x] diff(y,x) - a*b*y = 0’ See
-     https//personalmathubcca/~cbm/aands/page_562htmA&S eqn 1551 and
-     https//dlmfnistgov/1510DLMF 1510.
+     https://personal.math.ubc.ca/~cbm/aands/page_562.htmA&S eqn 15.5.1
+     and https://dlmf.nist.gov/15.10DLMF 15.10.
 
      The only use of these functions is in solutions of ODEs returned by
      ‘odelin’ and ‘contrib_ode’.  The definition and use of these
@@ -5512,8 +5504,8 @@ File: maxima-core-docs.info,  Node: Function kummer_m a b x,  Next: Function kum
 
  -- Function: kummer_m (A, B, X)
      Kummer's M function, see
-     https//personalmathubcca/~cbm/aands/page_504htmA&S eqn 1312 and
-     https//dlmfnistgov/132DLMF 132.
+     https://personal.math.ubc.ca/~cbm/aands/page_504.htmA&S eqn 13.1.2
+     and https://dlmf.nist.gov/13.2DLMF 13.2.
 
      The only use of this function is in solutions of ODEs returned by
      ‘odelin’ and ‘contrib_ode’.  The definition and use of this
@@ -5529,8 +5521,8 @@ File: maxima-core-docs.info,  Node: Function kummer_u a b x,  Next: Function ode
 
  -- Function: kummer_u (A, B, X)
      Kummer's U function, see
-     https//personalmathubcca/~cbm/aands/page_504htmA&S eqn 1313 and
-     https//dlmfnistgov/1326DLMF 1326.
+     https://personal.math.ubc.ca/~cbm/aands/page_504.htmA&S eqn 13.1.3
+     and https://dlmf.nist.gov/13.2.6DLMF 13.2.6.
 
      See ‘kummer_005fm’.
 
@@ -7705,14 +7697,15 @@ File: maxima-core-docs.info,  Node: Function stirling1 n m,  Next: Function stir
      identities:
 
        1. stirling1(1,k) = kron_delta(1,k), k >= 0,(see
-          https//dlmfnistgov/268E2)
-       2. stirling1(n,n) = 1, n >= 0 (see https//dlmfnistgov/268E1)
+          https://dlmf.nist.gov/26.8.E2)
+       2. stirling1(n,n) = 1, n >= 0 (see https://dlmf.nist.gov/26.8.E1)
        3. stirling1(n,n-1) = -binomial(n,2), n >= 1, (see
-          https//dlmfnistgov/268E16)
+          https://dlmf.nist.gov/26.8.E16)
        4. stirling1(n,0) = kron_delta(n,0), n >=0 (see
-          https//dlmfnistgov/268E14 and https//dlmfnistgov/268E1)
+          https://dlmf.nist.gov/26.8.E14 and
+          https://dlmf.nist.gov/26.8.E1)
        5. stirling1(n,1) =(-1)^(n-1) (n-1)!, n >= 1 (see
-          https//dlmfnistgov/268E14)
+          https://dlmf.nist.gov/26.8.E14)
        6. stirling1(n,k) = 0, n >= 0 and k > n.
 
      These identities are applied when the arguments are literal
@@ -7742,15 +7735,16 @@ File: maxima-core-docs.info,  Node: Function stirling2 n m,  Next: Function subs
      ‘stirling2’ is a simplifying function.  Maxima knows the following
      identities.
 
-       1. stirling2(n,0) = 1, n >= 1 (see https//dlmfnistgov/268E17 and
-          stirling2(0,0) = 1)
-       2. stirling2(n,n) = 1, n >= 0, (see https//dlmfnistgov/268E4)
-       3. stirling2(n,1) = 1, n >= 1, (see https//dlmfnistgov/268E17 and
-          stirling2(0,1) = 0)
+       1. stirling2(n,0) = 1, n >= 1 (see https://dlmf.nist.gov/26.8.E17
+          and stirling2(0,0) = 1)
+       2. stirling2(n,n) = 1, n >= 0, (see
+          https://dlmf.nist.gov/26.8.E4)
+       3. stirling2(n,1) = 1, n >= 1, (see
+          https://dlmf.nist.gov/26.8.E17 and stirling2(0,1) = 0)
        4. stirling2(n,2) = 2^(n-1) -1, n >= 1, (see
-          https//dlmfnistgov/268E17)
+          https://dlmf.nist.gov/26.8.E17)
        5. stirling2(n,n-1) = binomial(n,2), n>= 1 (see
-          https//dlmfnistgov/268E16)
+          https://dlmf.nist.gov/26.8.E16)
        6. stirling2(n,k) = 0, n >= 0 and k > n.
 
      These identities are applied when the arguments are literal
@@ -8425,4 +8419,32 @@ File: maxima-core-docs.info,  Node: Command Line,  Next: Data Types and Structur
 * Variable stardisp::
 * Variable ttyoff::
 * Function with_default_2d_display expr::
+
+
+File: maxima-core-docs.info,  Node: Variable %edispflag,  Next: Variable absboxchar,  Up: Command Line
+
+ -- Variable: %edispflag
+     Default value: ‘false’
+
+     When ‘%edispflag’ is ‘true’, Maxima displays ‘%e’ to a negative
+     exponent as a quotient.  For example, ‘%e^-x’ is displayed as
+     ‘1/%e^x’.  See also ‘exptdispflag’.
+
+     Example:
+
+     maxima
+     
+     (%i1) %e^-10;
+                                    - 10
+     (%o1)                        %e
+     
+     (%i2) %edispflag:true$
+     
+     (%i3) %e^-10;
+                                    1
+     (%o3)                         ----
+                                     10
+                                   %e
+
+     See also: ‘exptdispflag’.
 

@@ -1,296 +1,5 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.3 from
+This is maxima-core-docs.info, produced by makeinfo version 7.1 from
 maxima-core-docs.texi.
-
-
-File: maxima-core-docs.info,  Node: Variable bernstein_explicit,  Next: Function bernstein_poly k n x,  Prev: Function bernstein_expand e [x1 x1 ... xn],  Up: bernstein
-
- -- Variable: bernstein_explicit
-     Default value: ‘false’
-
-     When either ‘k’ or ‘n’ are non integers, the option variable
-     ‘bernstein_explicit’ controls the expansion of ‘bernstein(k,n,x)’
-     into its explicit form; example:
-
-     (%i1) bernstein_poly(k,n,x);
-     (%o1)                bernstein_poly(k, n, x)
-     (%i2) bernstein_poly(k,n,x), bernstein_explicit : true;
-                                            n - k  k
-     (%o2)            binomial(n, k) (1 - x)      x
-
-     When both ‘k’ and ‘n’ are explicitly integers, ‘bernstein(k,n,x)’
-     _always_ expands to its explicit form.
-
-
-File: maxima-core-docs.info,  Node: Function bernstein_poly k n x,  Next: Function multibernstein_poly [k1k2... kp] [n1n2... np] [x1x2... xp],  Prev: Variable bernstein_explicit,  Up: bernstein
-
- -- Function: bernstein_poly (K, N, X)
-     Provided ‘k’ is not a negative integer, the Bernstein polynomials
-     are defined by ‘bernstein_poly(k,n,x) = binomial(n,k) x^k
-     (1-x)^(n-k)’; for a negative integer ‘k’, the Bernstein polynomial
-     ‘bernstein_poly(k,n,x)’ vanishes.  When either ‘k’ or ‘n’ are non
-     integers, the option variable ‘bernstein_explicit’ controls the
-     expansion of the Bernstein polynomials into its explicit form;
-     example:
-
-     (%i1) load("bernstein")$
-     
-     (%i2) bernstein_poly(k,n,x);
-     (%o2)                bernstein_poly(k, n, x)
-     (%i3) bernstein_poly(k,n,x), bernstein_explicit : true;
-                                            n - k  k
-     (%o3)            binomial(n, k) (1 - x)      x
-
-     The Bernstein polynomials have both a gradef property and an
-     integrate property:
-
-     (%i4) diff(bernstein_poly(k,n,x),x);
-     (%o4) (bernstein_poly(k - 1, n - 1, x)
-                                      - bernstein_poly(k, n - 1, x)) n
-     (%i5) integrate(bernstein_poly(k,n,x),x);
-     (%o5) 
-                                                                 k + 1
-      hypergeometric([k + 1, k - n], [k + 2], x) binomial(n, k) x
-      ----------------------------------------------------------------
-                                   k + 1
-
-     For numeric inputs, both real and complex, the Bernstein
-     polynomials evaluate to a numeric result:
-
-     (%i6) bernstein_poly(5,9, 1/2 + %i);
-                             39375 %i   39375
-     (%o6)                   -------- + -----
-                               128       256
-     (%i7) bernstein_poly(5,9, 0.5b0 + %i);
-     (%o7)           3.076171875b2 %i + 1.5380859375b2
-
-     To use ‘bernstein_poly’, first ‘load("bernstein")’.
-
-
-File: maxima-core-docs.info,  Node: Function multibernstein_poly [k1k2... kp] [n1n2... np] [x1x2... xp],  Prev: Function bernstein_poly k n x,  Up: bernstein
-
- -- Function: multibernstein_poly ([K1, K2, ..., KP], [N1, N2, ..., NP],
-          [X1, X2, ..., XP])
-     The multibernstein polynomial ‘multibernstein_poly ([k1, k2, ...,
-     kp], [n1, n2, ..., np], [x1, x2, ..., xp])’ is the product of
-     bernstein polynomials ‘bernstein_poly(k1, n1, x1)
-     bernstein_poly(k2, n2, x2) ... bernstein_poly(kp, np, xp)’.
-
-     To use ‘multibernstein_poly’, first ‘load("bernstein")’.
-
-
-File: maxima-core-docs.info,  Node: bitwise,  Next: clebsch_gordan,  Prev: bernstein,  Up: Maxima Core Documentation
-
-1.60 bitwise
-============
-
-* Menu:
-
-* Function bit_and int1 ...::
-* Function bit_length int::
-* Function bit_lsh int nBits::
-* Function bit_not int::
-* Function bit_onep int nBit::
-* Function bit_or int1 ...::
-* Function bit_rsh int nBits::
-* Function bit_xor int1 ...::
-
-
-File: maxima-core-docs.info,  Node: Function bit_and int1 ...,  Next: Function bit_length int,  Up: bitwise
-
- -- Function: bit_and (INT1, ...)
-     This function calculates a bitwise ‘and’ of two or more signed
-     integers.
-
-     (%i1) load("bitwise")$
-     
-     (%i2) bit_and(i,i);
-     (%o2)                           i
-     
-     
-     (%i3) bit_and(i,i,i);
-     (%o3)                           i
-     
-     
-     (%i4) bit_and(1,3);
-     (%o4)                           1
-     
-     
-     (%i5) bit_and(-7,7);
-     (%o5)                           1
-
-     If it is known if one of the parameters to ‘bit_and’ is even this
-     information is taken into consideration by the function.
-
-     (%i1) load("bitwise")$
-     
-     (%i2) declare(e,even,o,odd);
-     (%o2)                         done
-     
-     
-     (%i3) bit_and(1,e);
-     (%o3)                           0
-     
-     
-     (%i4) bit_and(1,o);
-     (%o4)                           1
-
-
-File: maxima-core-docs.info,  Node: Function bit_length int,  Next: Function bit_lsh int nBits,  Prev: Function bit_and int1 ...,  Up: bitwise
-
- -- Function: bit_length (INT)
-     determines how many bits a variable needs to be long in order to
-     store the number ‘int’.  This function only operates on positive
-     numbers.
-
-     (%i1) load("bitwise")$
-     
-     (%i2) bit_length(0);
-     (%o2)                           0
-     
-     
-     (%i3) bit_length(1);
-     (%o3)                           1
-     
-     
-     (%i4) bit_length(7);
-     (%o4)                           3
-     
-     
-     (%i5) bit_length(8);
-     (%o5)                           4
-
-
-File: maxima-core-docs.info,  Node: Function bit_lsh int nBits,  Next: Function bit_not int,  Prev: Function bit_length int,  Up: bitwise
-
- -- Function: bit_lsh (INT, NBITS)
-     This function shifts all bits of the signed integer ‘int’ to the
-     left by ‘nBits’ bits.  The width of the integer is extended by
-     ‘nBits’ for this process.  The result of ‘bit_lsh’ therefore is
-     ‘int * 2’.
-
-     (%i1) load("bitwise")$
-     
-     (%i2) bit_lsh(0,1);
-     (%o2)                           0
-     
-     
-     (%i3) bit_lsh(1,0);
-     (%o3)                           1
-     
-     
-     (%i4) bit_lsh(1,1);
-     (%o4)                           2
-     
-     
-     (%i5) bit_lsh(1,i);
-     (%o5)                     bit_lsh(1, i)
-     
-     
-     (%i6) bit_lsh(-3,1);
-     (%o6)                          - 6
-     
-     
-     (%i7) bit_lsh(-2,1);
-     (%o7)                          - 4
-
-
-File: maxima-core-docs.info,  Node: Function bit_not int,  Next: Function bit_onep int nBit,  Prev: Function bit_lsh int nBits,  Up: bitwise
-
- -- Function: bit_not (INT)
-     Inverts all bits of a signed integer.  The result of this action
-     reads ‘-int - 1’.
-
-     (%i1) load("bitwise")$
-     
-     (%i2) bit_not(i);
-     (%o2)                      bit_not(i)
-     
-     
-     (%i3) bit_not(bit_not(i));
-     (%o3)                           i
-     
-     
-     (%i4) bit_not(3);
-     (%o4)                          - 4
-     
-     
-     (%i5) bit_not(100);
-     (%o5)                         - 101
-     
-     
-     (%i6) bit_not(-101);
-     (%o6)                          100
-
-
-File: maxima-core-docs.info,  Node: Function bit_onep int nBit,  Next: Function bit_or int1 ...,  Prev: Function bit_not int,  Up: bitwise
-
- -- Function: bit_onep (INT, NBIT)
-     determines if bits ‘nBit’ is set in the signed integer ‘int’.
-
-     (%i1) load("bitwise")$
-     
-     (%i2) bit_onep(85,0);
-     (%o2)                         true
-     
-     
-     (%i3) bit_onep(85,1);
-     (%o3)                         false
-     
-     
-     (%i4) bit_onep(85,2);
-     (%o4)                         true
-     
-     
-     (%i5) bit_onep(85,3);
-     (%o5)                         false
-     
-     
-     (%i6) bit_onep(85,100);
-     (%o6)                         false
-     
-     
-     (%i7) bit_onep(i,100);
-     (%o7)                   bit_onep(i, 100)
-
-     For signed numbers the sign bit is interpreted to be more than
-     ‘nBit’ to the left of the leftmost bit of ‘int’ that reads ‘1’.
-
-     (%i1) load("bitwise")$
-     
-     (%i2) bit_onep(-2,0);
-     (%o2)                         false
-     
-     
-     (%i3) bit_onep(-2,1);
-     (%o3)                         true
-     
-     
-     (%i4) bit_onep(-2,2);
-     (%o4)                         true
-     
-     
-     (%i5) bit_onep(-2,3);
-     (%o5)                         true
-     
-     
-     (%i6) bit_onep(-2,4);
-     (%o6)                         true
-
-     If it is known if the number to be tested is even this information
-     is taken into consideration by the function.
-
-     (%i1) load("bitwise")$
-     
-     (%i2) declare(e,even,o,odd);
-     (%o2)                         done
-     
-     
-     (%i3) bit_onep(e,0);
-     (%o3)                         false
-     
-     
-     (%i4) bit_onep(o,0);
-     (%o4)                         true
 
 
 File: maxima-core-docs.info,  Node: Function bit_or int1 ...,  Next: Function bit_rsh int nBits,  Prev: Function bit_onep int nBit,  Up: bitwise
@@ -422,7 +131,7 @@ File: maxima-core-docs.info,  Node: clebsch_gordan,  Next: diag,  Prev: bitwise,
 * Function racah_w j1 j2 j5 j4 j3 j6::
 * Function wigner_3j j1 j2 j3 m1 m2 m3::
 * Function wigner_6j j1 j2 j3 j4 j5 j6::
-* Function wigner_9j a b c d e f g h i j::
+* Function wigner_9j a b c d e f g h i j ::
 
 
 File: maxima-core-docs.info,  Node: Function clebsch_gordan j1 j2 m1 m2 j m,  Next: Function racah_v a b c a1 b1 c1,  Up: clebsch_gordan
@@ -1333,7 +1042,7 @@ File: maxima-core-docs.info,  Node: Function ggf l,  Next: Variable GGFCFMAX,  U
      solution has been found, it returns with ‘done’.
 
      This function is controlled by global variables _GGFINFINITY_ and
-     _GGFCFMAX_.  See also _GGFINFINITY_ and _GGFCFMAX_.
+     _GGFCFMAX_. See also _GGFINFINITY_ and _GGFCFMAX_.
 
      To use this function write first ‘load("ggf")’.
 
@@ -1476,7 +1185,7 @@ File: maxima-core-docs.info,  Node: Function Lindstedt eq pvar torder ic,  Up: l
      ‘load("lindstedt")’.
 
 
-File: maxima-core-docs.info,  Node: makeOrders,  Next: operatingsystem 2,  Prev: lindstedt,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: makeOrders,  Next: ,  Prev: lindstedt,  Up: Maxima Core Documentation
 
 1.68 makeOrders
 ===============
@@ -1508,28 +1217,25 @@ File: maxima-core-docs.info,  Node: Function makeOrders indvarlist orderlist,  U
 
      To use this function write first ‘load("makeOrders")’.
 
-
-File: maxima-core-docs.info,  Node: operatingsystem 2,  Next: pytranslate,  Prev: makeOrders,  Up: Maxima Core Documentation
-
 1.69 operatingsystem
 ====================
 
 * Menu:
 
 * Function chdir dir::
-* Function getcurrentdirectory::
+* Function getcurrentdirectory ::
 * Function getenv env::
 * Function mkdir dir::
 * Function rmdir dir::
 
 
-File: maxima-core-docs.info,  Node: Function chdir dir,  Next: Function getcurrentdirectory,  Up: operatingsystem 2
+File: maxima-core-docs.info,  Node: Function chdir dir
 
  -- Function: chdir (DIR)
      Change to directory _dir_
 
 
-File: maxima-core-docs.info,  Node: Function getcurrentdirectory,  Next: Function getenv env,  Prev: Function chdir dir,  Up: operatingsystem 2
+File: maxima-core-docs.info,  Node: Function getcurrentdirectory
 
  -- Function: getcurrentdirectory ()
      returns the current working directory.
@@ -1539,7 +1245,7 @@ File: maxima-core-docs.info,  Node: Function getcurrentdirectory,  Next: Functio
      See also: ‘directory’.
 
 
-File: maxima-core-docs.info,  Node: Function getenv env,  Next: Function mkdir dir,  Prev: Function getcurrentdirectory,  Up: operatingsystem 2
+File: maxima-core-docs.info,  Node: Function getenv env
 
  -- Function: getenv (ENV)
      Get the value of the environment variable _env_
@@ -1551,19 +1257,19 @@ File: maxima-core-docs.info,  Node: Function getenv env,  Next: Function mkdir d
      (%o2) /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 
-File: maxima-core-docs.info,  Node: Function mkdir dir,  Next: Function rmdir dir,  Prev: Function getenv env,  Up: operatingsystem 2
+File: maxima-core-docs.info,  Node: Function mkdir dir
 
  -- Function: mkdir (DIR)
      Create directory _dir_
 
 
-File: maxima-core-docs.info,  Node: Function rmdir dir,  Prev: Function mkdir dir,  Up: operatingsystem 2
+File: maxima-core-docs.info,  Node: Function rmdir dir
 
  -- Function: rmdir (DIR)
      remove directory _dir_
 
 
-File: maxima-core-docs.info,  Node: pytranslate,  Next: quantum_computing,  Prev: operatingsystem 2,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: pytranslate,  Next: quantum_computing,  Prev: ,  Up: Maxima Core Documentation
 
 1.70 pytranslate
 ================
@@ -2891,7 +2597,7 @@ File: maxima-core-docs.info,  Node: Function wc_systematic expression [num],  Ne
 
      If an equation uses the following values with tolerances:
 
-          vals:[R_1=100+tol[1],R_2=100+tol[2]];
+     ‘vals:[R_1=100+tol[1],R_2=100+tol[2]];’
 
      ‘num=2’ will cause the following combinations of tolerances to be
      tested:  [image src="figures/wrstcse_ewc_2.png" alt="wrstcse_ewc_2" ] ‘num=3’ will cause the following combinations of
@@ -3091,13 +2797,10 @@ File: maxima-core-docs.info,  Node: Function wc_typicalvalues expression,  Prev:
      (%o5)            U_Out = 0.3333333333333333 U_In
 
 
-File: maxima-core-docs.info,  Node: Plotting,  Next: Plotting 2,  Prev: wrstcse,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Plotting,  Next: ,  Prev: wrstcse,  Up: Maxima Core Documentation
 
 1.74 Plotting
 =============
-
-
-File: maxima-core-docs.info,  Node: Plotting 2,  Next: descriptive,  Prev: Plotting,  Up: Maxima Core Documentation
 
 1.75 Plotting
 =============
@@ -3115,7 +2818,7 @@ File: maxima-core-docs.info,  Node: Plotting 2,  Next: descriptive,  Prev: Plott
 * Variable geomview_command::
 * Function get_plot_option keyword index::
 * Variable gnuplot::
-* Function gnuplot_close::
+* Function gnuplot_close ::
 * Variable gnuplot_command::
 * Variable gnuplot_curve_styles::
 * Variable gnuplot_curve_titles::
@@ -3130,12 +2833,12 @@ File: maxima-core-docs.info,  Node: Plotting 2,  Next: descriptive,  Prev: Plott
 * Variable gnuplot_postamble::
 * Variable gnuplot_preamble::
 * Variable gnuplot_ps_term_command::
-* Function gnuplot_replot::
-* Function gnuplot_reset::
-* Function gnuplot_restart::
+* Function gnuplot_replot ::
+* Function gnuplot_reset ::
+* Function gnuplot_restart ::
 * Variable gnuplot_script_file::
 * Function gnuplot_send s::
-* Function gnuplot_start::
+* Function gnuplot_start ::
 * Variable gnuplot_strings::
 * Variable gnuplot_svg_background::
 * Variable gnuplot_svg_term_command::
@@ -3167,7 +2870,7 @@ File: maxima-core-docs.info,  Node: Plotting 2,  Next: descriptive,  Prev: Plott
 * Function polar_to_xy::
 * Variable ps_file::
 * Function remove_plot_option name::
-* Function reset_plot_options::
+* Function reset_plot_options ::
 * Variable run_viewer::
 * Variable same_xy::
 * Variable same_xyz::
@@ -3196,7 +2899,7 @@ File: maxima-core-docs.info,  Node: Plotting 2,  Next: descriptive,  Prev: Plott
 * Variable ztics::
 
 
-File: maxima-core-docs.info,  Node: Variable adapt_depth,  Next: Variable axes,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable adapt_depth
 
  -- Variable: adapt_depth
      Default value: ‘5’
@@ -3212,7 +2915,7 @@ File: maxima-core-docs.info,  Node: Variable adapt_depth,  Next: Variable axes, 
      See also: ‘plot2d’, ‘nticks’.
 
 
-File: maxima-core-docs.info,  Node: Variable axes,  Next: Variable azimuth,  Prev: Variable adapt_depth,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable axes
 
  -- Variable: axes
      Default value: ‘true’
@@ -3227,7 +2930,7 @@ File: maxima-core-docs.info,  Node: Variable axes,  Next: Variable azimuth,  Pre
      false]’.
 
 
-File: maxima-core-docs.info,  Node: Variable azimuth,  Next: Variable color,  Prev: Variable axes,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable azimuth
 
  -- Variable: azimuth
      Default value: ‘30’
@@ -3244,7 +2947,7 @@ File: maxima-core-docs.info,  Node: Variable azimuth,  Next: Variable color,  Pr
      See also: ‘elevation’, ‘azimuth’.
 
 
-File: maxima-core-docs.info,  Node: Variable color,  Next: Variable color_bar,  Prev: Variable azimuth,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable color
 
  -- Variable: color
      In 2d plots it defines the color (or colors) for the various
@@ -3262,7 +2965,7 @@ File: maxima-core-docs.info,  Node: Variable color,  Next: Variable color_bar,  
      See also: ‘plot3d’.
 
 
-File: maxima-core-docs.info,  Node: Variable color_bar,  Next: Variable color_bar_tics,  Prev: Variable color,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable color_bar
 
  -- Variable: color_bar
      Default value: ‘false’ in plot3d, ‘true’ in mandelbrot and julia
@@ -3277,7 +2980,7 @@ File: maxima-core-docs.info,  Node: Variable color_bar,  Next: Variable color_ba
      See also: ‘plot3d’, ‘mandelbrot’, ‘julia’.
 
 
-File: maxima-core-docs.info,  Node: Variable color_bar_tics,  Next: Variable elevation,  Prev: Variable color_bar,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable color_bar_tics
 
  -- Variable: color_bar_tics
      Defines the values at which a mark and a number will be placed in
@@ -3291,7 +2994,7 @@ File: maxima-core-docs.info,  Node: Variable color_bar_tics,  Next: Variable ele
      ‘nocolor_bar_tics’ will not show any tics on the color bar.
 
 
-File: maxima-core-docs.info,  Node: Variable elevation,  Next: Variable geomview,  Prev: Variable color_bar_tics,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable elevation
 
  -- Variable: elevation
      Default value: ‘60’
@@ -3308,7 +3011,7 @@ File: maxima-core-docs.info,  Node: Variable elevation,  Next: Variable geomview
      See also: ‘elevation’, ‘azimuth’.
 
 
-File: maxima-core-docs.info,  Node: Variable geomview,  Next: Variable geomview_command,  Prev: Variable elevation,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable geomview
 
  -- Variable: geomview
      This is an abbreviation for ‘[plot_format, geomview]’.  See
@@ -3317,7 +3020,7 @@ File: maxima-core-docs.info,  Node: Variable geomview,  Next: Variable geomview_
      See also: ‘plot_format’.
 
 
-File: maxima-core-docs.info,  Node: Variable geomview_command,  Next: Function get_plot_option keyword index,  Prev: Variable geomview,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable geomview_command
 
  -- Variable: geomview_command
      This variable stores the name of the command used to run the
@@ -3337,7 +3040,7 @@ File: maxima-core-docs.info,  Node: Variable geomview_command,  Next: Function g
      See also: ‘gnuplot_command’, ‘xmaxima_plot_command’.
 
 
-File: maxima-core-docs.info,  Node: Function get_plot_option keyword index,  Next: Variable gnuplot,  Prev: Variable geomview_command,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function get_plot_option keyword index
 
  -- Function: get_plot_option (KEYWORD, INDEX)
      Returns the current default value of the option named _keyword_,
@@ -3352,7 +3055,7 @@ File: maxima-core-docs.info,  Node: Function get_plot_option keyword index,  Nex
      ‘Plotting-Options’.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot,  Next: Function gnuplot_close,  Prev: Function get_plot_option keyword index,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot
 
  -- Variable: gnuplot
      This is an abbreviation for ‘[plot_format, gnuplot]’.  See
@@ -3361,14 +3064,14 @@ File: maxima-core-docs.info,  Node: Variable gnuplot,  Next: Function gnuplot_cl
      See also: ‘plot_format’.
 
 
-File: maxima-core-docs.info,  Node: Function gnuplot_close,  Next: Variable gnuplot_command,  Prev: Variable gnuplot,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function gnuplot_close
 
  -- Function: gnuplot_close ()
      Closes the pipe to gnuplot which is used with the ‘gnuplot_pipes’
      format.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_command,  Next: Variable gnuplot_curve_styles,  Prev: Function gnuplot_close,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_command
 
  -- Variable: gnuplot_command
      This variable stores the name of the command used to run the
@@ -3388,7 +3091,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_command,  Next: Variable gn
      See also: ‘geomview_command’, ‘xmaxima_plot_command’.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_curve_styles,  Next: Variable gnuplot_curve_titles,  Prev: Variable gnuplot_command,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_curve_styles
 
  -- Variable: gnuplot_curve_styles
      This is an obsolete option that has been replaced by ‘style’.
@@ -3396,7 +3099,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_curve_styles,  Next: Variab
      See also: ‘style’.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_curve_titles,  Next: Variable gnuplot_default_term_command,  Prev: Variable gnuplot_curve_styles,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_curve_titles
 
  -- Variable: gnuplot_curve_titles
      This is an obsolete option that has been replaced by ‘legend’
@@ -3405,7 +3108,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_curve_titles,  Next: Variab
      See also: ‘legend’.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_default_term_command,  Next: Variable gnuplot_dumb_term_command,  Prev: Variable gnuplot_curve_titles,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_default_term_command
 
  -- Variable: gnuplot_default_term_command
      [gnuplot_default_term_command, _command_]
@@ -3415,7 +3118,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_default_term_command,  Next
      ‘"set term wxt size 640,480 font \",12\"; set term pop"’.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_dumb_term_command,  Next: Variable gnuplot_file_args,  Prev: Variable gnuplot_default_term_command,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_dumb_term_command
 
  -- Variable: gnuplot_dumb_term_command
      [gnuplot_dumb_term_command, _command_]
@@ -3426,7 +3129,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_dumb_term_command,  Next: V
      characters.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_file_args,  Next: Variable gnuplot_out_file,  Prev: Variable gnuplot_dumb_term_command,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_file_args
 
  -- Variable: gnuplot_file_args
      When a graphic file is going to be created using ‘gnuplot’, this
@@ -3440,14 +3143,14 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_file_args,  Next: Variable 
      directive "~s".
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_out_file,  Next: Variable gnuplot_pdf_term_command,  Prev: Variable gnuplot_file_args,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_out_file
 
  -- Variable: gnuplot_out_file
      It can be used to replace the default name for the file that
      contains the commands that will interpreted by gnuplot, when the
      terminal is set to ‘default’, or to replace the default name of the
      graphic file that gnuplot creates, when the terminal is different
-     from ‘default’.  If it contains one or more slashes, “/”, the name
+     from ‘default’.  If it contains one or more slashes, "/", the name
      of the file will be left as it is; otherwise, it will be appended
      to the path of the temporary directory.  The complete name of the
      files created by the plotting commands is always sent as output of
@@ -3455,7 +3158,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_out_file,  Next: Variable g
      semi-colon.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_pdf_term_command,  Next: Variable gnuplot_pipes,  Prev: Variable gnuplot_out_file,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_pdf_term_command
 
  -- Variable: gnuplot_pdf_term_command
      The gnuplot command to set the terminal type for the PDF terminal.
@@ -3464,7 +3167,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_pdf_term_command,  Next: Va
      See the gnuplot documentation for more information.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_pipes,  Next: Variable gnuplot_pm3d,  Prev: Variable gnuplot_pdf_term_command,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_pipes
 
  -- Variable: gnuplot_pipes
      This is an abbreviation for ‘[plot_format, gnuplot_pipes]’.  See
@@ -3473,14 +3176,14 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_pipes,  Next: Variable gnup
      See also: ‘plot_format’.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_pm3d,  Next: Variable gnuplot_png_term_command,  Prev: Variable gnuplot_pipes,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_pm3d
 
  -- Variable: gnuplot_pm3d
      With a value of ‘false’, it can be used to disable the use of PM3D
      mode, which is enabled by default.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_png_term_command,  Next: Variable gnuplot_postamble,  Prev: Variable gnuplot_pm3d,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_png_term_command
 
  -- Variable: gnuplot_png_term_command
      The gnuplot command to set the terminal type for the PNG terminal.
@@ -3489,7 +3192,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_png_term_command,  Next: Va
      information.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_postamble,  Next: Variable gnuplot_preamble,  Prev: Variable gnuplot_png_term_command,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_postamble
 
  -- Variable: gnuplot_postamble
      This option inserts gnuplot commands after other commands sent to
@@ -3500,7 +3203,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_postamble,  Next: Variable 
      See also: ‘gnuplot_preamble’.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_preamble,  Next: Variable gnuplot_ps_term_command,  Prev: Variable gnuplot_postamble,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_preamble
 
  -- Variable: gnuplot_preamble
      This option inserts gnuplot commands before any other commands sent
@@ -3511,7 +3214,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_preamble,  Next: Variable g
      See also: ‘gnuplot_postamble’.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_ps_term_command,  Next: Function gnuplot_replot,  Prev: Variable gnuplot_preamble,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_ps_term_command
 
  -- Variable: gnuplot_ps_term_command
      The gnuplot command to set the terminal type for the PostScript
@@ -3521,7 +3224,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_ps_term_command,  Next: Fun
      postscript’ for more information.
 
 
-File: maxima-core-docs.info,  Node: Function gnuplot_replot,  Next: Function gnuplot_reset,  Prev: Variable gnuplot_ps_term_command,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function gnuplot_replot
 
  -- Function: gnuplot_replot ()
      Updates the gnuplot window.  If ‘gnuplot_replot’ is called with a
@@ -3529,7 +3232,7 @@ File: maxima-core-docs.info,  Node: Function gnuplot_replot,  Next: Function gnu
      reploting the window.
 
 
-File: maxima-core-docs.info,  Node: Function gnuplot_reset,  Next: Function gnuplot_restart,  Prev: Function gnuplot_replot,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function gnuplot_reset
 
  -- Function: gnuplot_reset ()
      Resets the state of gnuplot used with the ‘gnuplot_pipes’ format.
@@ -3539,14 +3242,14 @@ File: maxima-core-docs.info,  Node: Function gnuplot_reset,  Next: Function gnup
      See also: ‘gnuplot_replot’.
 
 
-File: maxima-core-docs.info,  Node: Function gnuplot_restart,  Next: Variable gnuplot_script_file,  Prev: Function gnuplot_reset,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function gnuplot_restart
 
  -- Function: gnuplot_restart ()
      Closes the pipe to gnuplot which is used with the ‘gnuplot_pipes’
      format and opens a new pipe.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_script_file,  Next: Function gnuplot_send s,  Prev: Function gnuplot_restart,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_script_file
 
  -- Variable: gnuplot_script_file
      Creates a plot with ‘plot2d’, ‘plot3d’, ‘mandelbrot’ or ‘julia’
@@ -3560,7 +3263,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_script_file,  Next: Functio
      created in the temporary directory and deleted when Maxima is
      closed.
 
-     In this example, the script file name is set to “sin.gnuplot”, in
+     In this example, the script file name is set to "sin.gnuplot", in
      the current directory.
 
      maxima
@@ -3572,8 +3275,8 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_script_file,  Next: Functio
      default file name, _file_.  It constructs a full file name for the
      data file by interpolating a random 8-digit integer with a pad of
      zeros into the default file name (a 16-character random string
-     followed by “.gnuplot”).  The temporary directory is determined by
-     ‘maxima_tempdir’ (it is “/tmp” in this example).
+     followed by ".gnuplot").  The temporary directory is determined by
+     ‘maxima_tempdir’ (it is "/tmp" in this example).
 
      maxima
      
@@ -3595,7 +3298,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_script_file,  Next: Functio
      See also: ‘plot_format’, ‘maxima_tempdir’.
 
 
-File: maxima-core-docs.info,  Node: Function gnuplot_send s,  Next: Function gnuplot_start,  Prev: Variable gnuplot_script_file,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function gnuplot_send s
 
  -- Function: gnuplot_send (S)
      Sends the command _s_ to the gnuplot pipe.  If that pipe is not
@@ -3603,7 +3306,7 @@ File: maxima-core-docs.info,  Node: Function gnuplot_send s,  Next: Function gnu
      _s_ must be a string.
 
 
-File: maxima-core-docs.info,  Node: Function gnuplot_start,  Next: Variable gnuplot_strings,  Prev: Function gnuplot_send s,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function gnuplot_start
 
  -- Function: gnuplot_start ()
      Opens the pipe to gnuplot used for plotting with the
@@ -3611,11 +3314,11 @@ File: maxima-core-docs.info,  Node: Function gnuplot_start,  Next: Variable gnup
      before plotting.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_strings,  Next: Variable gnuplot_svg_background,  Prev: Function gnuplot_start,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_strings
 
  -- Variable: gnuplot_strings
      With a value of ‘true’, all strings used in labels and titles will
-     be interpreted by gnuplot as “enhanced” text, if the terminal being
+     be interpreted by gnuplot as "enhanced" text, if the terminal being
      used supports it.  In enhanced mode, some characters such as ^ and
      _ are not printed, but interpreted as formatting characters.  For a
      list of the formatting characters and their meaning, see the
@@ -3624,7 +3327,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_strings,  Next: Variable gn
      formatting characters.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_svg_background,  Next: Variable gnuplot_svg_term_command,  Prev: Variable gnuplot_strings,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_svg_background
 
  -- Variable: gnuplot_svg_background
      [gnuplot_svg_background, _color_]
@@ -3645,7 +3348,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_svg_background,  Next: Vari
      equivalent to ‘[gnuplot_svg_background, false]’.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_svg_term_command,  Next: Variable gnuplot_term,  Prev: Variable gnuplot_svg_background,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_svg_term_command
 
  -- Variable: gnuplot_svg_term_command
      The gnuplot command to set the terminal type for the SVG terminal.
@@ -3654,7 +3357,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_svg_term_command,  Next: Va
      information.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_term,  Next: Variable gnuplot_view_args,  Prev: Variable gnuplot_svg_term_command,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_term
 
  -- Variable: gnuplot_term
      Sets the output terminal type for gnuplot.  The argument
@@ -3670,7 +3373,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_term,  Next: Variable gnupl
      Gnuplot output is saved to a file ‘random-string.txt’ using "ASCII
      art" approximation to graphics.  If the option ‘gnuplot_out_file’
      is set to _filename_, the plot will be saved there, instead of the
-     default ‘random-string.gnuplot’.  The settings for the “dumb”
+     default ‘random-string.gnuplot’.  The settings for the "dumb"
      terminal of Gnuplot are given by the value of option
      ‘gnuplot_005fdumb_005fterm_005fcommand’.  If option ‘run_viewer’ is
      set to true and the plot_format is ‘gnuplot’ that ASCII
@@ -3701,7 +3404,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_term,  Next: Variable gnupl
      ‘gnuplot_dumb_term_command’, ‘run_viewer’.
 
 
-File: maxima-core-docs.info,  Node: Variable gnuplot_view_args,  Next: Variable grid,  Prev: Variable gnuplot_term,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable gnuplot_view_args
 
  -- Variable: gnuplot_view_args
      This variable is the format used to parse the argument that will be
@@ -3733,7 +3436,7 @@ File: maxima-core-docs.info,  Node: Variable gnuplot_view_args,  Next: Variable 
      of ~s, depending on your Lisp version).
 
 
-File: maxima-core-docs.info,  Node: Variable grid,  Next: Variable grid2d,  Prev: Variable gnuplot_view_args,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable grid
 
  -- Variable: grid
      Default value: ‘30’, ‘30’
@@ -3747,7 +3450,7 @@ File: maxima-core-docs.info,  Node: Variable grid,  Next: Variable grid2d,  Prev
      See also: ‘julia’, ‘mandelbrot’, ‘grid2d’.
 
 
-File: maxima-core-docs.info,  Node: Variable grid2d,  Next: Variable iterations,  Prev: Variable grid,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable grid2d
 
  -- Variable: grid2d
      Default value: ‘false’
@@ -3763,7 +3466,7 @@ File: maxima-core-docs.info,  Node: Variable grid2d,  Next: Variable iterations,
      See also: ‘xtics’, ‘ytics’, ‘grid’.
 
 
-File: maxima-core-docs.info,  Node: Variable iterations,  Next: Function julia x y ...options...,  Prev: Variable grid2d,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable iterations
 
  -- Variable: iterations
      Default value: ‘9’
@@ -3771,7 +3474,7 @@ File: maxima-core-docs.info,  Node: Variable iterations,  Next: Function julia x
      Number of iterations made by the programs mandelbrot and julia.
 
 
-File: maxima-core-docs.info,  Node: Function julia x y ...options...,  Next: Variable label,  Prev: Variable iterations,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function julia x y ...options...
 
  -- Function: julia (X, Y, ...OPTIONS...)
      Creates a graphic representation of the Julia set for the complex
@@ -3811,19 +3514,20 @@ File: maxima-core-docs.info,  Node: Function julia x y ...options...,  Next: Var
 
  [image src="figures/plotting4.png" alt="plotting4" ]
 
+
      plotting4
      See also: ‘grid’, ‘iterations’, ‘palette’, ‘yx_ratio’, ‘same_xy’,
      ‘color_bar_tics’.
 
 
-File: maxima-core-docs.info,  Node: Variable label,  Next: Variable legend,  Prev: Function julia x y ...options...,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable label
 
  -- Variable: label
      Writes one or several labels in the points with _x_, _y_
      coordinates indicated after each label.
 
 
-File: maxima-core-docs.info,  Node: Variable legend,  Next: Variable levels,  Prev: Variable label,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable legend
 
  -- Variable: legend
      It specifies the labels for the plots when various plots are shown.
@@ -3836,7 +3540,7 @@ File: maxima-core-docs.info,  Node: Variable legend,  Next: Variable levels,  Pr
      The keyword ‘nolegend’ is a synonym for ‘[legend, false]’.
 
 
-File: maxima-core-docs.info,  Node: Variable levels,  Next: Variable logx,  Prev: Variable legend,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable levels
 
  -- Variable: levels
      This option is used by ‘plot2d’ to do contour plots.  If only one
@@ -3856,7 +3560,7 @@ File: maxima-core-docs.info,  Node: Variable levels,  Next: Variable logx,  Prev
      See also: ‘plot2d’.
 
 
-File: maxima-core-docs.info,  Node: Variable logx,  Next: Variable logy,  Prev: Variable levels,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable logx
 
  -- Variable: logx
      Default value: ‘false’
@@ -3866,7 +3570,7 @@ File: maxima-core-docs.info,  Node: Variable logx,  Next: Variable logy,  Prev: 
      be used as synonyms for ‘[logx, true]’ and ‘[logx, false]’.
 
 
-File: maxima-core-docs.info,  Node: Variable logy,  Next: Function make_transform [var1 var2 var3] fx fy fz,  Prev: Variable logx,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable logy
 
  -- Variable: logy
      Default value: ‘false’
@@ -3876,7 +3580,7 @@ File: maxima-core-docs.info,  Node: Variable logy,  Next: Function make_transfor
      be used as synonyms for ‘[logy, true]’ and ‘[logy, false]’.
 
 
-File: maxima-core-docs.info,  Node: Function make_transform [var1 var2 var3] fx fy fz,  Next: Function mandelbrot options,  Prev: Variable logy,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function make_transform [var1 var2 var3] fx fy fz
 
  -- Function: make_transform ([VAR1, VAR2, VAR3], FX, FY, FZ)
      Returns a function suitable to be used in the option ‘transform_xy’
@@ -3893,7 +3597,7 @@ File: maxima-core-docs.info,  Node: Function make_transform [var1 var2 var3] fx 
      See also: ‘transform_xy’, ‘polar_to_xy’, ‘spherical_to_xyz’.
 
 
-File: maxima-core-docs.info,  Node: Function mandelbrot options,  Next: Variable mesh_lines_color,  Prev: Function make_transform [var1 var2 var3] fx fy fz,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function mandelbrot options
 
  -- Function: mandelbrot (OPTIONS)
      Creates a graphic representation of the Mandelbrot set.  This
@@ -3929,11 +3633,12 @@ File: maxima-core-docs.info,  Node: Function mandelbrot options,  Next: Variable
 
  [image src="figures/plotting5.png" alt="plotting5" ]
 
+
      plotting5
      See also: ‘grid’, ‘iterations’, ‘palette’, ‘yx_ratio’, ‘same_xy’.
 
 
-File: maxima-core-docs.info,  Node: Variable mesh_lines_color,  Next: Variable nticks,  Prev: Function mandelbrot options,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable mesh_lines_color
 
  -- Variable: mesh_lines_color
      Default value: ‘black’
@@ -3950,7 +3655,7 @@ File: maxima-core-docs.info,  Node: Variable mesh_lines_color,  Next: Variable n
      See also: ‘color’.
 
 
-File: maxima-core-docs.info,  Node: Variable nticks,  Next: Variable palette,  Prev: Variable mesh_lines_color,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable nticks
 
  -- Variable: nticks
      Default value: ‘29’
@@ -3963,7 +3668,7 @@ File: maxima-core-docs.info,  Node: Variable nticks,  Next: Variable palette,  P
      See also: ‘plot2d’, ‘plot3d’.
 
 
-File: maxima-core-docs.info,  Node: Variable palette,  Next: Variable pdf_file,  Prev: Variable nticks,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable palette
 
  -- Variable: palette
      It can consist of one palette or a list of several palettes.  Each
@@ -3999,13 +3704,13 @@ File: maxima-core-docs.info,  Node: Variable palette,  Next: Variable pdf_file, 
      See also: ‘mesh_lines_color’, ‘color’.
 
 
-File: maxima-core-docs.info,  Node: Variable pdf_file,  Next: Function plot2d expr range_x options,  Prev: Variable palette,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable pdf_file
 
  -- Variable: pdf_file
      Saves the plot into a PDF file with name equal to _file_name_,
      rather than showing it in the screen.  By default, the file will be
      created in the directory defined by the variable ‘maxima_tempdir’,
-     unless _file_name_ contains the character “/”, in which case it
+     unless _file_name_ contains the character "/", in which case it
      will be assumed to contain the complete path where the file should
      be created.  The value of ‘maxima_tempdir’ can be changed to save
      the file in a different directory.  When the option
@@ -4017,7 +3722,7 @@ File: maxima-core-docs.info,  Node: Variable pdf_file,  Next: Function plot2d ex
      See also: ‘maxima_tempdir’, ‘gnuplot_pdf_term_command’.
 
 
-File: maxima-core-docs.info,  Node: Function plot2d expr range_x options,  Next: Function plot3d expr x_range y_range ... options ...,  Prev: Variable pdf_file,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function plot2d expr range_x options
 
  -- Function: plot2d (EXPR, RANGE_X, OPTIONS)
      There are 5 types of plots that can be plotted by ‘plot2d’:
@@ -4132,6 +3837,7 @@ File: maxima-core-docs.info,  Node: Function plot2d expr range_x options,  Next:
 
  [image src="figures/plotting2.png" alt="plotting2" ]
 
+
      plotting2
      *Examples using options*.
 
@@ -4144,6 +3850,7 @@ File: maxima-core-docs.info,  Node: Function plot2d expr range_x options,  Next:
      plot2d: some values will be clipped.
 
  [image src="figures/plotting7.png" alt="plotting7" ]
+
 
      plotting7
      When the plot box is disabled, no labels are created for the axes.
@@ -4162,6 +3869,7 @@ File: maxima-core-docs.info,  Node: Function plot2d expr range_x options,  Next:
 
  [image src="figures/plotting8.png" alt="plotting8" ]
 
+
      plotting8
      A plot with a logarithmic scale in the vertical axis:
 
@@ -4169,6 +3877,7 @@ File: maxima-core-docs.info,  Node: Function plot2d expr range_x options,  Next:
      (%i1) plot2d (exp(3*s), [s, -2, 2], logy)$
 
  [image src="figures/plotting9.png" alt="plotting9" ]
+
 
      plotting9
      Plotting functions by name:
@@ -4183,6 +3892,7 @@ File: maxima-core-docs.info,  Node: Function plot2d expr range_x options,  Next:
      (%i3) plot2d ([F, G, H], [u, -1, 1], [y, -1.5, 1.5])$
 
  [image src="figures/plotting10.png" alt="plotting10" ]
+
 
      plotting10
      Plot of a circumference of radius 1 centered at the origin,
@@ -4199,6 +3909,7 @@ File: maxima-core-docs.info,  Node: Function plot2d expr range_x options,  Next:
 
  [image src="figures/plotting12.png" alt="plotting12" ]
 
+
      plotting12
      A plot of 200 random numbers between 0 and 9:
 
@@ -4207,9 +3918,10 @@ File: maxima-core-docs.info,  Node: Function plot2d expr range_x options,  Next:
 
  [image src="figures/plotting13.png" alt="plotting13" ]
 
+
      plotting13
      In the next example a table with three columns is saved in a file
-     “data.txt” which is then read and the second and third column are
+     "data.txt" which is then read and the second and third column are
      plotted on the two axes:
 
      maxima
@@ -4224,6 +3936,7 @@ File: maxima-core-docs.info,  Node: Function plot2d expr range_x options,  Next:
        [style,points], [point_type,diamond], [color,red])$
 
  [image src="figures/plotting15.png" alt="plotting15" ]
+
 
      plotting15
      A plot of discrete data points together with a continuous function:
@@ -4240,6 +3953,7 @@ File: maxima-core-docs.info,  Node: Function plot2d expr range_x options,  Next:
 
  [image src="figures/plotting16.png" alt="plotting16" ]
 
+
      plotting16
      See also the ‘Plotting Options’ section.
 
@@ -4247,7 +3961,7 @@ File: maxima-core-docs.info,  Node: Function plot2d expr range_x options,  Next:
      ‘label’, ‘yx_ratio’, ‘same_xy’, ‘nolegend’.
 
 
-File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... options ...,  Next: Variable plot_format,  Prev: Function plot2d expr range_x options,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... options ...
 
  -- Function: plot3d (EXPR, X_RANGE, Y_RANGE, ..., OPTIONS, ...)
      Displays a plot of one or more surfaces defined as functions of two
@@ -4268,6 +3982,7 @@ File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... opt
 
  [image src="figures/plotting17.png" alt="plotting17" ]
 
+
      plotting17
      Use of the ‘z’ option to limit a function that goes to infinity (in
      this case the function is minus infinity on the x and y axes); this
@@ -4280,6 +3995,7 @@ File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... opt
      log: encountered log(0).
 
  [image src="figures/plotting18.png" alt="plotting18" ]
+
 
      plotting18
      The infinite values of z can also be avoided by choosing a grid
@@ -4298,6 +4014,7 @@ File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... opt
 
  [image src="figures/plotting19.png" alt="plotting19" ]
 
+
      plotting19
      Two surfaces in the same plot.  Ranges specific to one of the
      surfaces can be given by placing each expression and its ranges in
@@ -4313,6 +4030,7 @@ File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... opt
 
  [image src="figures/plotting20.png" alt="plotting20" ]
 
+
      plotting20
      Plot of a Klein bottle, defined parametrically:
 
@@ -4326,8 +4044,9 @@ File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... opt
 
  [image src="figures/plotting21.png" alt="plotting21" ]
 
+
      plotting21
-     Plot of a “spherical harmonic” function, using the predefined
+     Plot of a "spherical harmonic" function, using the predefined
      transformation, ‘spherical_to_xyz’ to transform from spherical
      coordinates to rectangular coordinates.  See the documentation for
      ‘spherical_005fto_005fxyz’.
@@ -4338,6 +4057,7 @@ File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... opt
         [transform_xy, spherical_to_xyz], [grid, 30, 60], nolegend)$
 
  [image src="figures/plotting22.png" alt="plotting22" ]
+
 
      plotting22
      Use of the pre-defined function ‘polar_to_xy’ to transform from
@@ -4350,6 +4070,7 @@ File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... opt
          nolegend, [grid, 12, 80], [transform_xy, polar_to_xy])$
 
  [image src="figures/plotting23.png" alt="plotting23" ]
+
 
      plotting23
      Plot of a sphere using the transformation from spherical to
@@ -4366,6 +4087,7 @@ File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... opt
 
  [image src="figures/plotting24.png" alt="plotting24" ]
 
+
      plotting24
      Definition of a function of two-variables using a matrix.  Notice
      the single quote in the definition of the function, to prevent
@@ -4379,6 +4101,7 @@ File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... opt
 
  [image src="figures/plotting25.png" alt="plotting25" ]
 
+
      plotting25
      By setting the elevation equal to zero, a surface can be seen as a
      map in which each color represents a different level.
@@ -4391,6 +4114,7 @@ File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... opt
 
  [image src="figures/plotting26.png" alt="plotting26" ]
 
+
      plotting26
      See also ‘Plotting-Options’.
 
@@ -4398,7 +4122,7 @@ File: maxima-core-docs.info,  Node: Function plot3d expr x_range y_range ... opt
      ‘Plotting-Options’.
 
 
-File: maxima-core-docs.info,  Node: Variable plot_format,  Next: Variable plot_options,  Prev: Function plot3d expr x_range y_range ... options ...,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable plot_format
 
  -- Variable: plot_format
      Default value: ‘gnuplot’, in Windows systems, or ‘gnuplot_pipes’ in
@@ -4416,7 +4140,7 @@ File: maxima-core-docs.info,  Node: Variable plot_format,  Next: Variable plot_o
      See also: ‘Plotting-Formats’.
 
 
-File: maxima-core-docs.info,  Node: Variable plot_options,  Next: Variable plot_realpart,  Prev: Variable plot_format,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable plot_options
 
  -- Variable: plot_options
      This variable is being kept for compatibility with older versions
@@ -4429,7 +4153,7 @@ File: maxima-core-docs.info,  Node: Variable plot_options,  Next: Variable plot_
      ‘remove_plot_option’, ‘reset_plot_options’.
 
 
-File: maxima-core-docs.info,  Node: Variable plot_realpart,  Next: Variable plotepsilon,  Prev: Variable plot_options,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable plot_realpart
 
  -- Variable: plot_realpart
      Default value: ‘false’
@@ -4447,7 +4171,7 @@ File: maxima-core-docs.info,  Node: Variable plot_realpart,  Next: Variable plot
      synonym for ‘[plot_realpart, false]’.
 
 
-File: maxima-core-docs.info,  Node: Variable plotepsilon,  Next: Variable png_file,  Prev: Variable plot_realpart,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable plotepsilon
 
  -- Variable: plotepsilon
      Default value: 1e-6
@@ -4467,13 +4191,13 @@ File: maxima-core-docs.info,  Node: Variable plotepsilon,  Next: Variable png_fi
      See also: ‘plot2d’, ‘sample’.
 
 
-File: maxima-core-docs.info,  Node: Variable png_file,  Next: Variable point_type,  Prev: Variable plotepsilon,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable png_file
 
  -- Variable: png_file
      Saves the plot into a PNG graphics file with name equal to
      _file_name_, rather than showing it in the screen.  By default, the
      file will be created in the directory defined by the variable
-     ‘maxima_tempdir’, unless _file_name_ contains the character “/”, in
+     ‘maxima_tempdir’, unless _file_name_ contains the character "/", in
      which case it will be assumed to contain the complete path where
      the file should be created.  The value of ‘maxima_tempdir’ can be
      changed to save the file in a different directory.  When the option
@@ -4484,11 +4208,11 @@ File: maxima-core-docs.info,  Node: Variable png_file,  Next: Variable point_typ
      See also: ‘maxima_tempdir’, ‘gnuplot_png_term_command’.
 
 
-File: maxima-core-docs.info,  Node: Variable point_type,  Next: Function polar_to_xy,  Prev: Variable png_file,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable point_type
 
  -- Variable: point_type
      In gnuplot, each set of points to be plotted with the style
-     “points” or “linespoints” will be represented with objects taken
+     "points" or "linespoints" will be represented with objects taken
      from this list, in sequential order.  If there are more sets of
      points than objects in this list, they will be repeated
      sequentially.  The possible objects that can be used are: ‘bullet’,
@@ -4496,7 +4220,7 @@ File: maxima-core-docs.info,  Node: Variable point_type,  Next: Function polar_t
      ‘delta’, ‘wedge’, ‘nabla’, ‘diamond’, ‘lozenge’.
 
 
-File: maxima-core-docs.info,  Node: Function polar_to_xy,  Next: Function spherical_to_xyz,  Prev: Variable point_type,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function polar_to_xy,  Next: Function spherical_to_xyz,  Up: 
 
 1.75.1 Function: polar_to_xy
 ----------------------------
@@ -4509,13 +4233,13 @@ coordinates), and transform them into x and y coordinates.
 See also: ‘transform_xy’.
 
 
-File: maxima-core-docs.info,  Node: Variable ps_file,  Next: Function remove_plot_option name,  Prev: Function polar_to_xy,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable ps_file
 
  -- Variable: ps_file
      Saves the plot into a Postscript file with name equal to
      _file_name_, rather than showing it in the screen.  By default, the
      file will be created in the directory defined by the variable
-     ‘maxima_tempdir’, unless _file_name_ contains the character “/”, in
+     ‘maxima_tempdir’, unless _file_name_ contains the character "/", in
      which case it will be assumed to contain the complete path where
      the file should be created.  The value of ‘maxima_tempdir’ can be
      changed to save the file in a different directory.  When the option
@@ -4527,7 +4251,7 @@ File: maxima-core-docs.info,  Node: Variable ps_file,  Next: Function remove_plo
      See also: ‘maxima_tempdir’, ‘gnuplot_ps_term_command’.
 
 
-File: maxima-core-docs.info,  Node: Function remove_plot_option name,  Next: Function reset_plot_options,  Prev: Variable ps_file,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function remove_plot_option name
 
  -- Function: remove_plot_option (NAME)
      Removes the global value of an option.  The name of the option must
@@ -4539,7 +4263,7 @@ File: maxima-core-docs.info,  Node: Function remove_plot_option name,  Next: Fun
      See also: ‘set_plot_option’, ‘get_plot_option’, ‘Plotting-Options’.
 
 
-File: maxima-core-docs.info,  Node: Function reset_plot_options,  Next: Variable run_viewer,  Prev: Function remove_plot_option name,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function reset_plot_options
 
  -- Function: reset_plot_options ()
      Sets the default global values of the plotting options.  After
@@ -4547,7 +4271,7 @@ File: maxima-core-docs.info,  Node: Function reset_plot_options,  Next: Variable
      is used to recovered the same values as when Maxima was started.
 
 
-File: maxima-core-docs.info,  Node: Variable run_viewer,  Next: Variable same_xy,  Prev: Function reset_plot_options,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable run_viewer
 
  -- Variable: run_viewer
      Default value: ‘true’
@@ -4577,7 +4301,7 @@ File: maxima-core-docs.info,  Node: Variable run_viewer,  Next: Variable same_xy
      See also: ‘gnuplot_term’, ‘gnuplot_out_file’.
 
 
-File: maxima-core-docs.info,  Node: Variable same_xy,  Next: Variable same_xyz,  Prev: Variable run_viewer,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable same_xy
 
  -- Variable: same_xy
      It can be either true or false.  If true, the scales used in the x
@@ -4588,7 +4312,7 @@ File: maxima-core-docs.info,  Node: Variable same_xy,  Next: Variable same_xyz, 
      See also: ‘yx_ratio’.
 
 
-File: maxima-core-docs.info,  Node: Variable same_xyz,  Next: Variable sample,  Prev: Variable same_xy,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable same_xyz
 
  -- Variable: same_xyz
      It can be either true or false.  If true, the scales used in the 3
@@ -4596,7 +4320,7 @@ File: maxima-core-docs.info,  Node: Variable same_xyz,  Next: Variable sample,  
      are synonyms for ‘[same_xyz, true]’ and ‘[same_xyz, false]’.
 
 
-File: maxima-core-docs.info,  Node: Variable sample,  Next: Function set_plot_option option,  Prev: Variable same_xyz,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable sample
 
  -- Variable: sample
      Default value: ‘[sample, 47, 47]’
@@ -4616,7 +4340,7 @@ File: maxima-core-docs.info,  Node: Variable sample,  Next: Function set_plot_op
      See also: ‘plot2d’.
 
 
-File: maxima-core-docs.info,  Node: Function set_plot_option option,  Next: Function spherical_to_xyz,  Prev: Variable sample,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function set_plot_option option
 
  -- Function: set_plot_option (OPTION)
      Accepts any of the options listed in the section ‘Plotting
@@ -4652,7 +4376,7 @@ File: maxima-core-docs.info,  Node: Function set_plot_option option,  Next: Func
      ‘get_plot_option’, ‘grid’.
 
 
-File: maxima-core-docs.info,  Node: Function spherical_to_xyz,  Next: Variable style,  Prev: Function polar_to_xy,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Function spherical_to_xyz,  Prev: Function polar_to_xy,  Up: 
 
 1.75.2 Function: spherical_to_xyz
 ---------------------------------
@@ -4667,7 +4391,7 @@ x, y and z coordinates.
 See also: ‘transform_xy’, ‘plot3d’.
 
 
-File: maxima-core-docs.info,  Node: Variable style,  Next: Variable svg_file,  Prev: Function spherical_to_xyz,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable style
 
  -- Variable: style
      The styles that will be used for the various functions or sets of
@@ -4706,13 +4430,13 @@ File: maxima-core-docs.info,  Node: Variable style,  Next: Variable svg_file,  P
      See also: ‘color’, ‘point_type’.
 
 
-File: maxima-core-docs.info,  Node: Variable svg_file,  Next: Variable t,  Prev: Variable style,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable svg_file
 
  -- Variable: svg_file
      Saves the plot into an SVG file with name equal to _file_name_,
      rather than showing it in the screen.  By default, the file will be
      created in the directory defined by the variable ‘maxima_tempdir’,
-     unless _file_name_ contains the character “/”, in which case it
+     unless _file_name_ contains the character "/", in which case it
      will be assumed to contain the complete path where the file should
      be created.  The value of ‘maxima_tempdir’ can be changed to save
      the file in a different directory.  When the option
@@ -4723,19 +4447,19 @@ File: maxima-core-docs.info,  Node: Variable svg_file,  Next: Variable t,  Prev:
      See also: ‘maxima_tempdir’, ‘gnuplot_svg_term_command’.
 
 
-File: maxima-core-docs.info,  Node: Variable t,  Next: Variable title,  Prev: Variable svg_file,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable t
 
  -- Variable: t
      Default range for parametric plots.
 
 
-File: maxima-core-docs.info,  Node: Variable title,  Next: Variable transform_xy,  Prev: Variable t,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable title
 
  -- Variable: title
      Defines a title that will be written at the top of the plot.
 
 
-File: maxima-core-docs.info,  Node: Variable transform_xy,  Next: Variable window,  Prev: Variable title,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable transform_xy
 
  -- Variable: transform_xy
      Where _symbol_ is either ‘false’ or the result obtained by using
@@ -4748,7 +4472,7 @@ File: maxima-core-docs.info,  Node: Variable transform_xy,  Next: Variable windo
      See also: ‘make_transform’, ‘polar_to_xy’, ‘spherical_to_xyz’.
 
 
-File: maxima-core-docs.info,  Node: Variable window,  Next: Variable x,  Prev: Variable transform_xy,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable window
 
  -- Variable: window
      Opens the plot in window number _n_, instead of the default window
@@ -4756,7 +4480,7 @@ File: maxima-core-docs.info,  Node: Variable window,  Next: Variable x,  Prev: V
      will be replaced by the current plot.
 
 
-File: maxima-core-docs.info,  Node: Variable x,  Next: Variable xlabel,  Prev: Variable window,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable x
 
  -- Variable: x
      When used as the first option in a ‘plot2d’ command (or any of the
@@ -4769,7 +4493,7 @@ File: maxima-core-docs.info,  Node: Variable x,  Next: Variable xlabel,  Prev: V
      See also: ‘plot2d’, ‘plot3d’.
 
 
-File: maxima-core-docs.info,  Node: Variable xlabel,  Next: Variable xmaxima,  Prev: Variable x,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable xlabel
 
  -- Variable: xlabel
      Specifies the _string_ that will label the first axis; if this
@@ -4783,7 +4507,7 @@ File: maxima-core-docs.info,  Node: Variable xlabel,  Next: Variable xmaxima,  P
      See also: ‘plot2d’, ‘plot3d’.
 
 
-File: maxima-core-docs.info,  Node: Variable xmaxima,  Next: Variable xmaxima_plot_command,  Prev: Variable xlabel,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable xmaxima
 
  -- Variable: xmaxima
      This is an abbreviation for ‘[plot_format, xmaxima]’.  See
@@ -4792,7 +4516,7 @@ File: maxima-core-docs.info,  Node: Variable xmaxima,  Next: Variable xmaxima_pl
      See also: ‘plot_format’.
 
 
-File: maxima-core-docs.info,  Node: Variable xmaxima_plot_command,  Next: Variable xtics,  Prev: Variable xmaxima,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable xmaxima_plot_command
 
  -- Variable: xmaxima_plot_command
      This variable stores the name of the command used to run the
@@ -4811,7 +4535,7 @@ File: maxima-core-docs.info,  Node: Variable xmaxima_plot_command,  Next: Variab
      See also: ‘gnuplot_command’, ‘geomview_command’.
 
 
-File: maxima-core-docs.info,  Node: Variable xtics,  Next: Variable xy_scale,  Prev: Variable xmaxima_plot_command,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable xtics
 
  -- Variable: xtics
      Defines the values at which a mark and a number will be placed in
@@ -4827,7 +4551,7 @@ File: maxima-core-docs.info,  Node: Variable xtics,  Next: Variable xy_scale,  P
      ‘noxtics’ is a synonym for ‘[xtics, false]’
 
 
-File: maxima-core-docs.info,  Node: Variable xy_scale,  Next: Variable y,  Prev: Variable xtics,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable xy_scale
 
  -- Variable: xy_scale
      In a 2d plot, it defines the ratio of the total size of the Window
@@ -4843,7 +4567,7 @@ File: maxima-core-docs.info,  Node: Variable xy_scale,  Next: Variable y,  Prev:
      See also: ‘yx_ratio’.
 
 
-File: maxima-core-docs.info,  Node: Variable y,  Next: Variable ylabel,  Prev: Variable xy_scale,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable y
 
  -- Variable: y
      When used as one of the first two options in ‘plot3d’, it indicates
@@ -4854,11 +4578,11 @@ File: maxima-core-docs.info,  Node: Variable y,  Next: Variable ylabel,  Prev: V
      See also: ‘plot3d’.
 
 
-File: maxima-core-docs.info,  Node: Variable ylabel,  Next: Variable ytics,  Prev: Variable y,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable ylabel
 
  -- Variable: ylabel
      Specifies the _string_ that will label the second axis; if this
-     option is not used, that label will be “y”, when plotting explicit
+     option is not used, that label will be "y", when plotting explicit
      functions with ‘plot2d’, or the name of the second variable, when
      plotting surfaces with ‘plot3d’, or the second expression in the
      case of a parametric plot.  ‘noylabel’ is equivalent to ‘[ylabel,
@@ -4867,7 +4591,7 @@ File: maxima-core-docs.info,  Node: Variable ylabel,  Next: Variable ytics,  Pre
      See also: ‘plot2d’, ‘plot3d’.
 
 
-File: maxima-core-docs.info,  Node: Variable ytics,  Next: Variable yx_ratio,  Prev: Variable ylabel,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable ytics
 
  -- Variable: ytics
      Defines the values at which a mark and a number will be placed in
@@ -4883,7 +4607,7 @@ File: maxima-core-docs.info,  Node: Variable ytics,  Next: Variable yx_ratio,  P
      ‘noytics’ is a synonym for ‘[ytics, false]’
 
 
-File: maxima-core-docs.info,  Node: Variable yx_ratio,  Next: Variable z,  Prev: Variable ytics,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable yx_ratio
 
  -- Variable: yx_ratio
      In a 2d plot, the ratio between the vertical and the horizontal
@@ -4893,7 +4617,7 @@ File: maxima-core-docs.info,  Node: Variable yx_ratio,  Next: Variable z,  Prev:
      See also: ‘same_xy’.
 
 
-File: maxima-core-docs.info,  Node: Variable z,  Next: Variable zlabel,  Prev: Variable yx_ratio,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable z
 
  -- Variable: z
      Used in ‘plot3d’ to set the effective range of values of z that
@@ -4902,11 +4626,11 @@ File: maxima-core-docs.info,  Node: Variable z,  Next: Variable zlabel,  Prev: V
      See also: ‘plot3d’.
 
 
-File: maxima-core-docs.info,  Node: Variable zlabel,  Next: Variable zmin,  Prev: Variable z,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable zlabel
 
  -- Variable: zlabel
      Specifies the _string_ that will label the third axis, when using
-     ‘plot3d’.  If this option is not used, that label will be “z”, when
+     ‘plot3d’.  If this option is not used, that label will be "z", when
      plotting surfaces, or the third expression in the case of a
      parametric plot.  It can not be used with ‘set_plot_option’ and it
      will be ignored by ‘plot2d’.  ‘nozlabel’ is equivalent to ‘[zlabel,
@@ -4915,7 +4639,7 @@ File: maxima-core-docs.info,  Node: Variable zlabel,  Next: Variable zmin,  Prev
      See also: ‘plot3d’, ‘set_plot_option’, ‘plot2d’.
 
 
-File: maxima-core-docs.info,  Node: Variable zmin,  Next: Variable ztics,  Prev: Variable zlabel,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable zmin
 
  -- Variable: zmin
      In 3d plots, the value of z that will be at the bottom of the plot
@@ -4925,7 +4649,7 @@ File: maxima-core-docs.info,  Node: Variable zmin,  Next: Variable ztics,  Prev:
      leaving it to the graphic program to decide the value to use.
 
 
-File: maxima-core-docs.info,  Node: Variable ztics,  Prev: Variable zmin,  Up: Plotting 2
+File: maxima-core-docs.info,  Node: Variable ztics
 
  -- Variable: ztics
      Defines the values at which a mark and a number will be placed in
@@ -4941,7 +4665,7 @@ File: maxima-core-docs.info,  Node: Variable ztics,  Prev: Variable zmin,  Up: P
      ‘noztics’ is a synonym for ‘[ztics, false]’
 
 
-File: maxima-core-docs.info,  Node: descriptive,  Next: draw,  Prev: Plotting 2,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: descriptive,  Next: draw,  Prev: ,  Up: Maxima Core Documentation
 
 1.76 descriptive
 ================
@@ -4979,43 +4703,43 @@ File: maxima-core-docs.info,  Node: Function barsplot data1 data2 ... option_1 o
         •    • _box_width_ (default, ‘3/4’): relative width of
                rectangles.  This value must be in the range ‘[0,1]’.
 
-        •    • _grouping_ (default, ‘clustered’): indicates
-               how multiple samples are shown.  Valid values are:
-               ‘clustered’ and ‘stacked’.
+        •    • _grouping_ (default, ‘clustered’): indicates how multiple
+               samples are shown.  Valid values are: ‘clustered’ and
+               ‘stacked’.
 
-        •    • _groups_gap_ (default, ‘1’): a positive integer
-               number representing the gap between two consecutive
-               groups of bars.
+        •    • _groups_gap_ (default, ‘1’): a positive integer number
+               representing the gap between two consecutive groups of
+               bars.
 
-        •    • _bars_colors_ (default, ‘[]’): a list of colors
-               for multiple samples.  When there are more samples than
+        •    • _bars_colors_ (default, ‘[]’): a list of colors for
+               multiple samples.  When there are more samples than
                specified colors, the extra necessary colors are chosen
                at random.  See ‘color’ to learn more about them.
 
-        •    • _frequency_ (default, ‘absolute’): indicates
-               the scale of the ordinates.  Possible values are:
-               ‘absolute’, ‘relative’, and ‘percent’.
+        •    • _frequency_ (default, ‘absolute’): indicates the scale of
+               the ordinates.  Possible values are: ‘absolute’,
+               ‘relative’, and ‘percent’.
 
-        •    • _ordering_ (default, ‘orderlessp’): possible
-               values are ‘orderlessp’ or ‘ordergreatp’, indicating how
-               statistical outcomes should be ordered on the _x_-axis.
+        •    • _ordering_ (default, ‘orderlessp’): possible values are
+               ‘orderlessp’ or ‘ordergreatp’, indicating how statistical
+               outcomes should be ordered on the _x_-axis.
 
-        •    • _sample_keys_ (default, ‘[]’): a list with the
-               strings to be used in the legend.  When the list length
-               is other than 0 or the number of samples, an error
-               message is returned.
+        •    • _sample_keys_ (default, ‘[]’): a list with the strings to
+               be used in the legend.  When the list length is other
+               than 0 or the number of samples, an error message is
+               returned.
 
-        •    • _start_at_ (default, ‘0’): indicates where the
-               plot begins to be plotted on the x axis.
+        •    • _start_at_ (default, ‘0’): indicates where the plot
+               begins to be plotted on the x axis.
 
-        •    • All global ‘draw’ options, except ‘xtics’,
-               which is internally assigned by ‘barsplot’.  If you want
-               to set your own values for this option or want to build
-               complex scenes, make use of ‘barsplot_description’.  See
-               example below.
+        •    • All global ‘draw’ options, except ‘xtics’, which is
+               internally assigned by ‘barsplot’.  If you want to set
+               your own values for this option or want to build complex
+               scenes, make use of ‘barsplot_description’.  See example
+               below.
 
-        •    • The following local ‘Package-draw’ options:
-               ‘key’, ‘color_draw’, ‘fill_color’, ‘fill_density’ and
+        •    • The following local ‘Package-draw’ options: ‘key’,
+               ‘color_draw’, ‘fill_color’, ‘fill_density’ and
                ‘line_005fwidth’.  See also ‘barsplot’.
 
      There is also a function ‘wxbarsplot’ for creating embedded
@@ -5141,27 +4865,26 @@ File: maxima-core-docs.info,  Node: Function boxplot data,  Next: Function boxpl
 
      Available options are:
 
-        •    • _box_width_ (default, ‘3/4’): relative width of
-               boxes.  This value must be in the range ‘[0,1]’.
+        •    • _box_width_ (default, ‘3/4’): relative width of boxes.
+               This value must be in the range ‘[0,1]’.
 
-        •    • _box_orientation_ (default, ‘vertical’):
-               possible values: ‘vertical’ and ‘horizontal’.
+        •    • _box_orientation_ (default, ‘vertical’): possible values:
+               ‘vertical’ and ‘horizontal’.
 
-        •    • _range_ (default, ‘inf’): positive coefficient
-               of the interquartilic range to set outliers boundaries.
+        •    • _range_ (default, ‘inf’): positive coefficient of the
+               interquartilic range to set outliers boundaries.
 
-        •    • _outliers_size_ (default, ‘1’): circle size for
-               isolated outliers.
+        •    • _outliers_size_ (default, ‘1’): circle size for isolated
+               outliers.
 
-        •    • All ‘draw’ options, except ‘points_joined’,
-               ‘point_size’, ‘point_type’, ‘xtics’, ‘ytics’, ‘xrange’,
-               and ‘yrange’, which are internally assigned by ‘boxplot’.
-               If you want to set your own values for this options or
-               want to build complex scenes, make use of
-               ‘boxplot_description’.
+        •    • All ‘draw’ options, except ‘points_joined’, ‘point_size’,
+               ‘point_type’, ‘xtics’, ‘ytics’, ‘xrange’, and ‘yrange’,
+               which are internally assigned by ‘boxplot’.  If you want
+               to set your own values for this options or want to build
+               complex scenes, make use of ‘boxplot_description’.
 
-        •    • The following local ‘draw’ options: ‘key’,
-               ‘color’, and ‘line_width’.
+        •    • The following local ‘draw’ options: ‘key’, ‘color’, and
+               ‘line_width’.
 
      There is also a function ‘wxboxplot’ for creating embedded
      histograms in interfaces wxMaxima and iMaxima.
@@ -5226,9 +4949,9 @@ File: maxima-core-docs.info,  Node: Function histogram list,  Next: Function his
 
      Optional arguments:
 
-        •    • ‘nclasses’ (default, 10): the number of classes
-               (also called bins) in the histogram, or a list of two
-               numbers (the least and greatest values included in the
+        •    • ‘nclasses’ (default, 10): the number of classes (also
+               called bins) in the histogram, or a list of two numbers
+               (the least and greatest values included in the
                histogram), or a list of three numbers (the least and
                greatest values included in the histogram, and the number
                of classes), or a set containing the endpoints of the
@@ -5413,24 +5136,22 @@ File: maxima-core-docs.info,  Node: Function piechart list,  Next: Function piec
 
      Available options are:
 
-        •    • _sector_colors_ (default, ‘[]’): a list of
-               colors for sectors.  When there are more sectors than
-               specified colors, the extra necessary colors are chosen
-               at random.  See ‘color’ to learn more about them.
+        •    • _sector_colors_ (default, ‘[]’): a list of colors for
+               sectors.  When there are more sectors than specified
+               colors, the extra necessary colors are chosen at random.
+               See ‘color’ to learn more about them.
 
-        •    • _pie_center_ (default, ‘[0,0]’): diagram's
-               center.
+        •    • _pie_center_ (default, ‘[0,0]’): diagram's center.
 
         •    • _pie_radius_ (default, ‘1’): diagram's radius.
 
-        •    • All global ‘draw’ options, except ‘key’, which
-               is internally assigned by ‘piechart’.  If you want to set
+        •    • All global ‘draw’ options, except ‘key’, which is
+               internally assigned by ‘piechart’.  If you want to set
                your own values for this option or want to build complex
                scenes, make use of ‘piechart_description’.
 
-        •    • The following local ‘draw’ options: ‘key’,
-               ‘color’, ‘fill_density’ and ‘line_width’.  See also
-               ‘ellipse’
+        •    • The following local ‘draw’ options: ‘key’, ‘color’,
+               ‘fill_density’ and ‘line_width’.  See also ‘ellipse’
 
      There is also a function ‘wxpiechart’ for creating embedded
      histograms in interfaces wxMaxima and iMaxima.
@@ -5539,37 +5260,35 @@ File: maxima-core-docs.info,  Node: Function starplot data1 data2 ... option_1 o
 
      Available options are:
 
-        •    • _stars_colors_ (default, ‘[]’): a list of
-               colors for multiple samples.  When there are more samples
-               than specified colors, the extra necessary colors are
-               chosen at random.  See ‘color’ to learn more about them.
+        •    • _stars_colors_ (default, ‘[]’): a list of colors for
+               multiple samples.  When there are more samples than
+               specified colors, the extra necessary colors are chosen
+               at random.  See ‘color’ to learn more about them.
 
-        •    • _frequency_ (default, ‘absolute’): indicates
-               the scale of the radii.  Possible values are: ‘absolute’
-               and ‘relative’.
+        •    • _frequency_ (default, ‘absolute’): indicates the scale of
+               the radii.  Possible values are: ‘absolute’ and
+               ‘relative’.
 
-        •    • _ordering_ (default, ‘orderlessp’): possible
-               values are ‘orderlessp’ or ‘ordergreatp’, indicating how
-               statistical outcomes should be ordered.
+        •    • _ordering_ (default, ‘orderlessp’): possible values are
+               ‘orderlessp’ or ‘ordergreatp’, indicating how statistical
+               outcomes should be ordered.
 
-        •    • _sample_keys_ (default, ‘[]’): a list with the
-               strings to be used in the legend.  When the list length
-               is other than 0 or the number of samples, an error
-               message is returned.
+        •    • _sample_keys_ (default, ‘[]’): a list with the strings to
+               be used in the legend.  When the list length is other
+               than 0 or the number of samples, an error message is
+               returned.
 
-        •    • _star_center_ (default, ‘[0,0]’): diagram's
-               center.
+        •    • _star_center_ (default, ‘[0,0]’): diagram's center.
 
         •    • _star_radius_ (default, ‘1’): diagram's radius.
 
-        •    • All global ‘draw’ options, except
-               ‘points_joined’, ‘point_type’, and ‘key’, which are
-               internally assigned by ‘starplot’.  If you want to set
-               your own values for this options or want to build complex
-               scenes, make use of ‘starplot_description’.
+        •    • All global ‘draw’ options, except ‘points_joined’,
+               ‘point_type’, and ‘key’, which are internally assigned by
+               ‘starplot’.  If you want to set your own values for this
+               options or want to build complex scenes, make use of
+               ‘starplot_description’.
 
-        •    • The following local ‘draw’ option:
-               ‘line_width’.
+        •    • The following local ‘draw’ option: ‘line_width’.
 
      There is also a function ‘wxstarplot’ for creating embedded
      histograms in interfaces wxMaxima and iMaxima.
@@ -5607,8 +5326,8 @@ File: maxima-core-docs.info,  Node: Function stemplot data,  Prev: Function star
 
      The only available option is:
 
-        •    • _leaf_unit_ (default, ‘1’): indicates the unit
-               of the leaves; must be a power of 10.
+        •    • _leaf_unit_ (default, ‘1’): indicates the unit of the
+               leaves; must be a power of 10.
 
      Example:
 
@@ -5677,7 +5396,7 @@ File: maxima-core-docs.info,  Node: draw,  Next: drawdf,  Prev: descriptive,  Up
 * Variable data_file_name::
 * Variable delay::
 * Variable dimensions::
-* Function draw ...::
+* Function draw  ...::
 * Function draw2d argument_1 ...::
 * Function draw3d argument_1 ...::
 * Function draw_file graphic option ... graphic object ...::
@@ -5830,6 +5549,7 @@ File: maxima-core-docs.info,  Node: Variable allocation,  Next: Variable axis_3d
 
  [image src="figures/draw_allocation.png" alt="draw_allocation" ]
 
+
      draw_allocation
      Multiplot with selected dimensions.
 
@@ -5844,6 +5564,7 @@ File: maxima-core-docs.info,  Node: Variable allocation,  Next: Variable axis_3d
                explicit(x^2+y^2,x,-1,1,y,-1,1) ))$
 
  [image src="figures/draw_allocation2.png" alt="draw_allocation2" ]
+
 
      draw_allocation2
      See also option ‘columns’.
@@ -5869,6 +5590,7 @@ File: maxima-core-docs.info,  Node: Variable axis_3d,  Next: Variable axis_botto
 
  [image src="figures/draw_axis3d.png" alt="draw_axis3d" ]
 
+
      draw_axis3d
      See also ‘axis_bottom’, ‘axis_left’, ‘axis_top’, and ‘axis_right’
      for axis in 2d.
@@ -5892,6 +5614,7 @@ File: maxima-core-docs.info,  Node: Variable axis_bottom,  Next: Variable axis_l
                   explicit(x^3,x,-1,1))$
 
  [image src="figures/draw_axis_bottom.png" alt="draw_axis_bottom" ]
+
 
      draw_axis_bottom
      See also ‘axis_left’, ‘axis_top’, ‘axis_right’ and ‘axis_005f3d’.
@@ -6007,6 +5730,7 @@ File: maxima-core-docs.info,  Node: Function bars [x1 h1 w1] [x2 h2 w2 ...],  Ne
 
  [image src="figures/draw_bars.png" alt="draw_bars" ]
 
+
      draw_bars
      See also: ‘key’, ‘fill_color’, ‘fill_density’, ‘line_width’.
 
@@ -6033,6 +5757,7 @@ File: maxima-core-docs.info,  Node: Variable border,  Next: Variable boundaries_
                   polygon([[5,2],[9,2],[7,5]]) )$
 
  [image src="figures/draw_border.png" alt="draw_border" ]
+
 
      draw_border
      See also: ‘polygon’, ‘rectangle’, ‘ellipse’.
@@ -6076,6 +5801,7 @@ File: maxima-core-docs.info,  Node: Variable capping,  Next: Variable cbrange,  
 
  [image src="figures/draw_tube_extremes.png" alt="draw_tube_extremes" ]
 
+
      draw_tube_extremes
 
 
@@ -6107,6 +5833,7 @@ File: maxima-core-docs.info,  Node: Variable cbrange,  Next: Variable cbtics,  P
 
  [image src="figures/draw_cbrange.png" alt="draw_cbrange" ]
 
+
      draw_cbrange
      See also ‘enhanced3d’, ‘colorbox’ and ‘cbtics’.
 
@@ -6136,6 +5863,7 @@ File: maxima-core-docs.info,  Node: Variable cbtics,  Next: Variable colorbox,  
              explicit(x^2+y^2, x,-2,2,y,-2,2)) $
 
  [image src="figures/draw_cbtics.png" alt="draw_cbtics" ]
+
 
      draw_cbtics
      See also ‘enhanced3d’, ‘colorbox’ and ‘cbrange’.
@@ -6177,6 +5905,7 @@ File: maxima-core-docs.info,  Node: Variable colorbox,  Next: Variable columns, 
 
  [image src="figures/draw_colorbox2.png" alt="draw_colorbox2" ]
 
+
      draw_colorbox2
      See also ‘palette_005fdraw’.
 
@@ -6205,6 +5934,7 @@ File: maxima-core-docs.info,  Node: Variable columns,  Next: Variable contour,  
 
  [image src="figures/draw_columns.png" alt="draw_columns" ]
 
+
      draw_columns
 
 
@@ -6218,17 +5948,15 @@ File: maxima-core-docs.info,  Node: Variable contour,  Next: Variable contour_le
 
         •    • ‘none’: no contour lines are plotted.
 
-        •    • ‘base’: contour lines are projected on the xy
-               plane.
+        •    • ‘base’: contour lines are projected on the xy plane.
 
-        •    • ‘surface’: contour lines are plotted on the
-               surface.
+        •    • ‘surface’: contour lines are plotted on the surface.
 
-        •    • ‘both’: two contour lines are plotted: on the
-               xy plane and on the surface.
+        •    • ‘both’: two contour lines are plotted: on the xy plane
+               and on the surface.
 
-        •    • ‘map’: contour lines are projected on the xy
-               plane, and the view point is set just in the vertical.
+        •    • ‘map’: contour lines are projected on the xy plane, and
+               the view point is set just in the vertical.
 
      Since this is a global graphics option, its position in the scene
      description does not matter.
@@ -6242,6 +5970,7 @@ File: maxima-core-docs.info,  Node: Variable contour,  Next: Variable contour_le
 
  [image src="figures/draw_contour.png" alt="draw_contour" ]
 
+
      draw_contour
 
      (%i1) draw3d(explicit(20*exp(-x^2-y^2)-10,x,0,2,y,-3,3),
@@ -6250,6 +5979,7 @@ File: maxima-core-docs.info,  Node: Variable contour,  Next: Variable contour_le
            ) $
 
  [image src="figures/draw_contour2.png" alt="draw_contour2" ]
+
 
      draw_contour2
 
@@ -6263,19 +5993,19 @@ File: maxima-core-docs.info,  Node: Variable contour_levels,  Next: Function cyl
      ‘contour_levels’ can be set to a positive integer number, a list of
      three numbers or an arbitrary set of numbers:
 
-        •    • When option ‘contour_levels’ is bounded to
-               positive integer _n_, _n_ contour lines will be drawn at
-               equal intervals.  By default, five equally spaced
-               contours are plotted.
+        •    • When option ‘contour_levels’ is bounded to positive
+               integer _n_, _n_ contour lines will be drawn at equal
+               intervals.  By default, five equally spaced contours are
+               plotted.
 
-        •    • When option ‘contour_levels’ is bounded to a
-               list of length three of the form ‘[lowest,s,highest]’,
-               contour lines are plotted from ‘lowest’ to ‘highest’ in
-               steps of ‘s’.
+        •    • When option ‘contour_levels’ is bounded to a list of
+               length three of the form ‘[lowest,s,highest]’, contour
+               lines are plotted from ‘lowest’ to ‘highest’ in steps of
+               ‘s’.
 
-        •    • When option ‘contour_levels’ is bounded to a
-               set of numbers of the form ‘{n1, n2, ...}’, contour lines
-               are plotted at values ‘n1’, ‘n2’, ...
+        •    • When option ‘contour_levels’ is bounded to a set of
+               numbers of the form ‘{n1, n2, ...}’, contour lines are
+               plotted at values ‘n1’, ‘n2’, ...
 
      Since this is a global graphics option, its position in the scene
      description does not matter.
@@ -6333,6 +6063,7 @@ File: maxima-core-docs.info,  Node: Function cylindrical radius z minz maxz azi 
      (%i1) draw3d(cylindrical(1,z,-2,2,az,0,2*%pi))$
 
  [image src="figures/draw_cylindrical.png" alt="draw_cylindrical" ]
+
 
      draw_cylindrical
      See also: ‘xu_grid’, ‘yv_grid’, ‘line_type’, ‘key’,
@@ -6462,6 +6193,7 @@ File: maxima-core-docs.info,  Node: Function draw ...,  Next: Function draw2d ar
 
  [image src="figures/draw_intro2.png" alt="draw_intro2" ]
 
+
      draw_intro2
 
      (%i1) scene1: gr2d(title="A sinus",
@@ -6473,6 +6205,7 @@ File: maxima-core-docs.info,  Node: Function draw ...,  Next: Function draw2d ar
      (%i3) draw(scene1, scene2)$
 
  [image src="figures/draw_intro3.png" alt="draw_intro3" ]
+
 
      draw_intro3
      The following two draw sentences are equivalent:
@@ -6609,6 +6342,7 @@ File: maxima-core-docs.info,  Node: Function elevation_grid mat x0 y0 width heig
 
  [image src="figures/draw_elevation_grid.png" alt="draw_elevation_grid" ]
 
+
      draw_elevation_grid
      See also: ‘line_type’, ‘line_width’, ‘key’, ‘wired_surface’,
      ‘enhanced3d’, ‘elevation_grid’, ‘mesh’.
@@ -6647,6 +6381,7 @@ File: maxima-core-docs.info,  Node: Function ellipse xc yc a b ang1 ang2,  Next:
                   yrange      = [2,9] )$
 
  [image src="figures/draw_ellipse.png" alt="draw_ellipse" ]
+
 
      draw_ellipse
      See also: ‘nticks’, ‘transparent’, ‘fill_color’, ‘fill_density’,
@@ -6703,6 +6438,7 @@ File: maxima-core-docs.info,  Node: Variable enhanced3d,  Next: Variable error_t
 
  [image src="figures/draw_enhanced3d.png" alt="draw_enhanced3d" ]
 
+
      draw_enhanced3d
      ‘explicit’ object with coloring defined by the ‘[f(x,y), x, y]’
      model.  The names of the variables defined in the lists may be
@@ -6714,6 +6450,7 @@ File: maxima-core-docs.info,  Node: Variable enhanced3d,  Next: Variable error_t
               explicit(20*exp(-x^2-y^2)-10,x,-3,3,y,-3,3))$
 
  [image src="figures/draw_enhanced3d2.png" alt="draw_enhanced3d2" ]
+
 
      draw_enhanced3d2
      ‘parametric’ object with coloring defined by the ‘[f(x,y,z), x, y,
@@ -6727,6 +6464,7 @@ File: maxima-core-docs.info,  Node: Variable enhanced3d,  Next: Variable error_t
 
  [image src="figures/draw_enhanced3d3.png" alt="draw_enhanced3d3" ]
 
+
      draw_enhanced3d3
      ‘parametric’ object with coloring defined by the ‘[f(u), u]’ model.
      In this case, ‘(u-1)^2’ is a shortcut for ‘[(u-1)^2,u]’.
@@ -6738,6 +6476,7 @@ File: maxima-core-docs.info,  Node: Variable enhanced3d,  Next: Variable error_t
               parametric(cos(5*u)^2,sin(7*u),u-2,u,0,2))$
 
  [image src="figures/draw_enhanced3d4.png" alt="draw_enhanced3d4" ]
+
 
      draw_enhanced3d4
      ‘elevation_grid’ object with coloring defined by the ‘[f(x,y), x,
@@ -6754,6 +6493,7 @@ File: maxima-core-docs.info,  Node: Variable enhanced3d,  Next: Variable error_t
 
  [image src="figures/draw_enhanced3d5.png" alt="draw_enhanced3d5" ]
 
+
      draw_enhanced3d5
      ‘tube’ object with coloring defined by the ‘[f(x,y,z), x, y, z]’
      model.
@@ -6765,6 +6505,7 @@ File: maxima-core-docs.info,  Node: Variable enhanced3d,  Next: Variable error_t
               tube(cos(a), a, 0, 1, a, 0, 4*%pi) )$
 
  [image src="figures/draw_enhanced3d6.png" alt="draw_enhanced3d6" ]
+
 
      draw_enhanced3d6
      ‘tube’ object with coloring defined by the ‘[f(u), u]’ model.
@@ -6779,6 +6520,7 @@ File: maxima-core-docs.info,  Node: Variable enhanced3d,  Next: Variable error_t
 
  [image src="figures/draw_enhanced3d7.png" alt="draw_enhanced3d7" ]
 
+
      draw_enhanced3d7
      ‘implicit’ and ‘points’ objects with coloring defined by the
      ‘[f(x,y,z), x, y, z]’ model.
@@ -6791,6 +6533,7 @@ File: maxima-core-docs.info,  Node: Variable enhanced3d,  Next: Variable error_t
 
  [image src="figures/draw_enhanced3d9.png" alt="draw_enhanced3d9" ]
 
+
      draw_enhanced3d9
 
      (%i3) draw3d(
@@ -6800,6 +6543,7 @@ File: maxima-core-docs.info,  Node: Variable enhanced3d,  Next: Variable error_t
               points(m) ) $
 
  [image src="figures/draw_enhanced3d10.png" alt="draw_enhanced3d10" ]
+
 
      draw_enhanced3d10
      When points have a chronological nature, model ‘[f(k), k]’ is also
@@ -6814,6 +6558,7 @@ File: maxima-core-docs.info,  Node: Variable enhanced3d,  Next: Variable error_t
               points(m)) $
 
  [image src="figures/draw_enhanced3d11.png" alt="draw_enhanced3d11" ]
+
 
      draw_enhanced3d11
      See also: ‘enhanced3d’, ‘parametric’, ‘tube’, ‘elevation_grid’.
@@ -6869,6 +6614,7 @@ File: maxima-core-docs.info,  Node: Function errors [x1 x2 ...] [y1 y2 ...],  Ne
 
  [image src="figures/draw_errors.png" alt="draw_errors" ]
 
+
      draw_errors
      Vertical and horizontal error bars.
 
@@ -6879,6 +6625,7 @@ File: maxima-core-docs.info,  Node: Function errors [x1 x2 ...] [y1 y2 ...],  Ne
              errors([[1,2,1,2], [3,5,2,1], [10,3,1,1], [17,6,1/2,2]]));
 
  [image src="figures/draw_errors2.png" alt="draw_errors2" ]
+
 
      draw_errors2
      See also: ‘error_type’, ‘points_joined’, ‘line_width’, ‘key’,
@@ -6908,6 +6655,7 @@ File: maxima-core-docs.info,  Node: Function explicit expr var minval maxval,  N
 
  [image src="figures/draw_explicit.png" alt="draw_explicit" ]
 
+
      draw_explicit
 
      (%i2) draw2d(fill_color  = brown,
@@ -6915,6 +6663,7 @@ File: maxima-core-docs.info,  Node: Function explicit expr var minval maxval,  N
                   explicit(x^2,x,-3,3) )$
 
  [image src="figures/draw_explicit2.png" alt="draw_explicit2" ]
+
 
      draw_explicit2
      *3D*
@@ -6940,6 +6689,7 @@ File: maxima-core-docs.info,  Node: Function explicit expr var minval maxval,  N
                   surface_hide = true)$
 
  [image src="figures/draw_explicit3.png" alt="draw_explicit3" ]
+
 
      draw_explicit3
      See also ‘filled_func’ for filled functions.
@@ -7024,6 +6774,7 @@ File: maxima-core-docs.info,  Node: Variable filled_func,  Next: Variable font, 
 
  [image src="figures/draw_filledfunc.png" alt="draw_filledfunc" ]
 
+
      draw_filledfunc
      Region bounded by an ‘explicit’ object and the function defined by
      option ‘filled_func’.  Note that the variable in ‘filled_func’ must
@@ -7057,8 +6808,7 @@ File: maxima-core-docs.info,  Node: Variable font,  Next: Variable font_size,  P
      support libraries of the different terminals, each one with its own
      philosophy about it.  A brief summary follows:
 
-        •    • _x11_: Uses the normal x11 font server
-               mechanism.
+        •    • _x11_: Uses the normal x11 font server mechanism.
 
      Example:
 
@@ -7066,16 +6816,16 @@ File: maxima-core-docs.info,  Node: Variable font,  Next: Variable font_size,  P
                   font_size = 20,
                   label(["Arial font, size 20",1,1]))$
 
-        •    • _windows_: The windows terminal doesn't support
-               changing of fonts from inside the plot.  Once the plot
-               has been generated, the font can be changed
-               right-clicking on the menu of the graph window.
+        •    • _windows_: The windows terminal doesn't support changing
+               of fonts from inside the plot.  Once the plot has been
+               generated, the font can be changed right-clicking on the
+               menu of the graph window.
 
-        •    • _png, jpeg, gif_: The _libgd_ library uses the
-               font path stored in the environment variable
-               ‘GDFONTPATH’; in this case, it is only necessary to set
-               option ‘font’ to the font's name.  It is also possible to
-               give the complete path to the font file.
+        •    • _png, jpeg, gif_: The _libgd_ library uses the font path
+               stored in the environment variable ‘GDFONTPATH’; in this
+               case, it is only necessary to set option ‘font’ to the
+               font's name.  It is also possible to give the complete
+               path to the font file.
 
      Examples:
 
@@ -7206,13 +6956,14 @@ File: maxima-core-docs.info,  Node: Function geomap numlist,  Next: Function get
 
  [image src="figures/worldmap_geomap.png" alt="worldmap_geomap" ]
 
+
      worldmap_geomap
      The auxiliary package ‘worldmap’ sets the global variable
      ‘boundaries_array’ to real world boundaries in (longitude,
      latitude) coordinates.  These data are in the public domain and
      come from
 
-     https//webarchiveorg/web/20100310124019/http//www-cgerniesgojp/grid-e/gridtxt/grid19html.
+     https://web.archive.org/web/20100310124019/http://www-cger.nies.go.jp/grid-e/gridtxt/grid19.html.
      Package ‘worldmap’ defines also boundaries for countries,
      continents and coastlines as lists with the necessary components of
      ‘boundaries_array’ (see file ‘share/draw/worldmap.mac’ for more
@@ -7230,6 +6981,7 @@ File: maxima-core-docs.info,  Node: Function geomap numlist,  Next: Function get
                 c1,c2,c3,c4)$
 
  [image src="figures/worldmap_geomap2.png" alt="worldmap_geomap2" ]
+
 
      worldmap_geomap2
      Package ‘worldmap’ is also useful for plotting countries as
@@ -7253,6 +7005,7 @@ File: maxima-core-docs.info,  Node: Function geomap numlist,  Next: Function get
 
  [image src="figures/worldmap_geomap3.png" alt="worldmap_geomap3" ]
 
+
      worldmap_geomap3
      *3D*
 
@@ -7262,9 +7015,8 @@ File: maxima-core-docs.info,  Node: Function geomap numlist,  Next: Function get
 
      Available 3D projections:
 
-        •    • ‘[spherical_projection,x,y,z,r]’: projects map
-               boundaries on the sphere of radius _r_ centered at
-               (_x_,_y_,_z_).
+        •    • ‘[spherical_projection,x,y,z,r]’: projects map boundaries
+               on the sphere of radius _r_ centered at (_x_,_y_,_z_).
 
      (%i1) load("worldmap")$
      (%i2) draw3d(geomap(Australia), /* default projection */
@@ -7293,9 +7045,11 @@ File: maxima-core-docs.info,  Node: Function geomap numlist,  Next: Function get
 
  [image src="figures/worldmap_geomap6.png" alt="worldmap_geomap6" ]
 
+
      worldmap_geomap6
-     See also https//riotortouserssourceforgenet/Maxima/gnuplot/geomap/
-     for more elaborated examples.
+     See also
+     https://riotorto.users.sourceforge.net/Maxima/gnuplot/geomap/ for
+     more elaborated examples.
 
      See also: ‘line_width’, ‘line_type’, ‘make_poly_country’,
      ‘make_poly_continent’.
@@ -7373,6 +7127,7 @@ File: maxima-core-docs.info,  Node: Function gr2d argument_1 ...,  Next: Functio
 
  [image src="figures/draw_scene.png" alt="draw_scene" ]
 
+
      draw_scene
      See also: ‘bars’, ‘ellipse’, ‘explicit’, ‘image’, ‘implicit’,
      ‘label’, ‘parametric’, ‘points’, ‘polar’, ‘polygon’,
@@ -7445,6 +7200,7 @@ File: maxima-core-docs.info,  Node: Variable head_angle,  Next: Variable head_bo
 
  [image src="figures/draw_head_angle.png" alt="draw_head_angle" ]
 
+
      draw_head_angle
      See also ‘head_both’, ‘head_length’, and ‘head_005ftype’.
 
@@ -7471,6 +7227,7 @@ File: maxima-core-docs.info,  Node: Variable head_both,  Next: Variable head_len
                   vector([1,7],[6,0]) )$
 
  [image src="figures/draw_head_both.png" alt="draw_head_both" ]
+
 
      draw_head_both
      See also ‘head_length’, ‘head_angle’, and ‘head_005ftype’.
@@ -7502,6 +7259,7 @@ File: maxima-core-docs.info,  Node: Variable head_length,  Next: Variable head_t
 
  [image src="figures/draw_head_length.png" alt="draw_head_length" ]
 
+
      draw_head_length
      See also ‘head_both’, ‘head_angle’, and ‘head_005ftype’.
 
@@ -7532,6 +7290,7 @@ File: maxima-core-docs.info,  Node: Variable head_type,  Next: Function image im
                   vector([6,1],[5,5]))$
 
  [image src="figures/draw_head_type.png" alt="draw_head_type" ]
+
 
      draw_head_type
      See also ‘head_both’, ‘head_angle’, and ‘head_005flength’.
@@ -7594,11 +7353,13 @@ File: maxima-core-docs.info,  Node: Function image im x0 y0 width height,  Next:
 
  [image src="figures/draw_image.png" alt="draw_image" ]
 
+
      draw_image
 
      (%i3) draw2d(palette = gray, image(im,0,0,30,30))$
 
  [image src="figures/draw_image2.png" alt="draw_image2" ]
+
 
      draw_image2
 
@@ -7607,6 +7368,7 @@ File: maxima-core-docs.info,  Node: Function image im x0 y0 width height,  Next:
                   image(im,0,0,30,30))$
 
  [image src="figures/draw_image3.png" alt="draw_image3" ]
+
 
      draw_image3
      See also ‘colorbox’.
@@ -7624,6 +7386,7 @@ File: maxima-core-docs.info,  Node: Function image im x0 y0 width height,  Next:
 
  [image src="figures/draw_image4.png" alt="draw_image4" ]
 
+
      draw_image4
      Package ‘draw’ automatically loads package ‘picture’.  In this
      example, a level picture object is built by hand and then rendered.
@@ -7635,6 +7398,7 @@ File: maxima-core-docs.info,  Node: Function image im x0 y0 width height,  Next:
 
  [image src="figures/draw_image5.png" alt="draw_image5" ]
 
+
      draw_image5
 
      (%i3) /* gray palette */
@@ -7642,6 +7406,7 @@ File: maxima-core-docs.info,  Node: Function image im x0 y0 width height,  Next:
                   image(im,0,0,30,30))$
 
  [image src="figures/draw_image6.png" alt="draw_image6" ]
+
 
      draw_image6
      An xpm file is read and then rendered.
@@ -7652,7 +7417,7 @@ File: maxima-core-docs.info,  Node: Function image im x0 y0 width height,  Next:
      See also ‘make_level_picture’, ‘make_rgb_picture’ and
      ‘read_005fxpm’.
 
-     http//wwwtelefonicanet/web2/biomates/maxima/gpdraw/image
+     http://www.telefonica.net/web2/biomates/maxima/gpdraw/image
 
      contains more elaborated examples.
 
@@ -7688,6 +7453,7 @@ File: maxima-core-docs.info,  Node: Function implicit fcn x xmin xmax y ymin yma
 
  [image src="figures/draw_implicit.png" alt="draw_implicit" ]
 
+
      draw_implicit
      *3D*
 
@@ -7710,6 +7476,7 @@ File: maxima-core-docs.info,  Node: Function implicit fcn x xmin xmax y ymin yma
              surface_hide=true);
 
  [image src="figures/draw_implicit2.png" alt="draw_implicit2" ]
+
 
      draw_implicit2
      See also: ‘ip_grid’, ‘ip_grid_in’, ‘line_width’, ‘line_type’,
@@ -7750,6 +7517,7 @@ File: maxima-core-docs.info,  Node: Variable interpolate_color,  Next: Variable 
 
  [image src="figures/draw_interpolate_color.png" alt="draw_interpolate_color" ]
 
+
      draw_interpolate_color
 
      (%i2) draw3d(
@@ -7759,6 +7527,7 @@ File: maxima-core-docs.info,  Node: Variable interpolate_color,  Next: Variable 
 
  [image src="figures/draw_interpolate_color2.png" alt="draw_interpolate_color2" ]
 
+
      draw_interpolate_color2
 
      (%i3) draw3d(
@@ -7767,6 +7536,7 @@ File: maxima-core-docs.info,  Node: Variable interpolate_color,  Next: Variable 
              explicit(20*exp(-x^2-y^2)-10, x ,-3, 3, y, -3, 3)) $
 
  [image src="figures/draw_interpolate_color3.png" alt="draw_interpolate_color3" ]
+
 
      draw_interpolate_color3
      Color interpolation with the ‘mesh’ graphic object.
@@ -7782,6 +7552,7 @@ File: maxima-core-docs.info,  Node: Variable interpolate_color,  Next: Variable 
 
  [image src="figures/draw_interpolate_color4.png" alt="draw_interpolate_color4" ]
 
+
      draw_interpolate_color4
 
      (%i2) draw3d( 
@@ -7792,6 +7563,7 @@ File: maxima-core-docs.info,  Node: Variable interpolate_color,  Next: Variable 
                   [[-2,11,10],[6,9,5],[6,15,1], [20,15,2]])) $
 
  [image src="figures/draw_interpolate_color5.png" alt="draw_interpolate_color5" ]
+
 
      draw_interpolate_color5
 
@@ -7804,6 +7576,7 @@ File: maxima-core-docs.info,  Node: Variable interpolate_color,  Next: Variable 
                   [[-2,11,10],[6,9,5],[6,15,1], [20,15,2]])) $
 
  [image src="figures/draw_interpolate_color6.png" alt="draw_interpolate_color6" ]
+
 
      draw_interpolate_color6
      See also ‘enhanced3d’.
@@ -7842,9 +7615,9 @@ File: maxima-core-docs.info,  Node: Variable key,  Next: Variable key_pos,  Prev
 
      This option affects the following graphic objects:
 
-        •    • ‘gr2d’: ‘points’, ‘polygon’, ‘rectangle’,
-               ‘ellipse’, ‘vector’, ‘explicit’, ‘implicit’, ‘parametric’
-               and ‘polar’.
+        •    • ‘gr2d’: ‘points’, ‘polygon’, ‘rectangle’, ‘ellipse’,
+               ‘vector’, ‘explicit’, ‘implicit’, ‘parametric’ and
+               ‘polar’.
 
         •    • ‘gr3d’: ‘points’, ‘explicit’, ‘parametric’ and
                ‘parametric_005fsurface’.
@@ -7858,6 +7631,7 @@ File: maxima-core-docs.info,  Node: Variable key,  Next: Variable key_pos,  Prev
                   explicit(cos(x),x,0,10) )$
 
  [image src="figures/draw_key.png" alt="draw_key" ]
+
 
      draw_key
      See also: ‘points’, ‘polygon’, ‘rectangle’, ‘ellipse’, ‘vector’,
@@ -7898,6 +7672,7 @@ File: maxima-core-docs.info,  Node: Variable key_pos,  Next: Variable label_alig
 
  [image src="figures/draw_key_pos.png" alt="draw_key_pos" ]
 
+
      draw_key_pos
 
 
@@ -7927,8 +7702,467 @@ File: maxima-core-docs.info,  Node: Variable label_alignment,  Next: Variable la
 
  [image src="figures/draw_label_alignment.png" alt="draw_label_alignment" ]
 
+
      draw_label_alignment
      See also ‘label_orientation’, and ‘color’
 
      See also: ‘label_orientation’.
+
+
+File: maxima-core-docs.info,  Node: Variable label_orientation,  Next: Variable line_type,  Prev: Variable label_alignment,  Up: draw
+
+ -- Variable: label_orientation
+     Default value: ‘horizontal’
+
+     ‘label_orientation’ is used to specify orientation of labels.
+     Possible values are: ‘horizontal’, and ‘vertical’.
+
+     This option is relevant only for ‘label’ objects.
+
+     Example:
+
+     In this example, a dummy point is added to get an image.  Package
+     ‘draw’ needs always data to draw an scene.
+
+     (%i1) draw2d(xrange     = [0,10],
+                  yrange     = [0,10],
+                  point_size = 0,
+                  points([[5,5]]),
+                  color      = navy,
+                  label(["Horizontal orientation (default)",5,2]),
+                  label_orientation = 'vertical,
+                  color             = "#654321",
+                  label(["Vertical orientation",1,5]))$
+
+ [image src="figures/draw_label_orientation.png" alt="draw_label_orientation" ]
+
+
+     draw_label_orientation
+     See also ‘label_alignment’ and ‘color’
+
+     See also: ‘label_alignment’.
+
+
+File: maxima-core-docs.info,  Node: Variable line_type,  Next: Variable line_width,  Prev: Variable label_orientation,  Up: draw
+
+ -- Variable: line_type
+     Default value: ‘solid’
+
+     ‘line_type’ indicates how lines are displayed; possible values are
+     ‘solid’ and ‘dots’, both available in all terminals, and ‘dashes’,
+     ‘short_dashes’, ‘short_long_dashes’, ‘short_short_long_dashes’, and
+     ‘dot_dash’, which are not available in ‘png’, ‘jpg’, and ‘gif’
+     terminals.
+
+     This option affects the following graphic objects:
+
+        •    • ‘gr2d’: ‘points’, ‘polygon’, ‘rectangle’, ‘ellipse’,
+               ‘vector’, ‘explicit’, ‘implicit’, ‘parametric’ and
+               ‘polar’.
+
+        •    • ‘gr3d’: ‘points’, ‘explicit’, ‘parametric’ and
+               ‘parametric_005fsurface’.
+
+     Example:
+
+     (%i1) draw2d(line_type = dots,
+                  explicit(1 + x^2,x,-1,1),
+                  line_type = solid, /* default */
+                  explicit(2 + x^2,x,-1,1))$
+
+ [image src="figures/draw_line_type.png" alt="draw_line_type" ]
+
+
+     draw_line_type
+     See also ‘line_005fwidth’.
+
+     See also: ‘points’, ‘polygon’, ‘rectangle’, ‘ellipse’, ‘vector’,
+     ‘explicit’, ‘implicit’, ‘parametric’, ‘polar’,
+     ‘parametric_surface’, ‘line_width’.
+
+
+File: maxima-core-docs.info,  Node: Variable line_width,  Next: Variable logcb,  Prev: Variable line_type,  Up: draw
+
+ -- Variable: line_width
+     Default value: 1
+
+     ‘line_width’ is the width of plotted lines.  Its value must be a
+     positive number.
+
+     This option affects the following graphic objects:
+
+        •    • ‘gr2d’: ‘points’, ‘polygon’, ‘rectangle’, ‘ellipse’,
+               ‘vector’, ‘explicit’, ‘implicit’, ‘parametric’ and
+               ‘polar’.
+
+        •    • ‘gr3d’: ‘points’ and ‘parametric’.
+
+     Example:
+
+     (%i1) draw2d(explicit(x^2,x,-1,1), /* default width */
+                  line_width = 5.5,
+                  explicit(1 + x^2,x,-1,1),
+                  line_width = 10,
+                  explicit(2 + x^2,x,-1,1))$
+
+ [image src="figures/draw_line_width.png" alt="draw_line_width" ]
+
+
+     draw_line_width
+     See also ‘line_005ftype’.
+
+     See also: ‘points’, ‘polygon’, ‘rectangle’, ‘ellipse’, ‘vector’,
+     ‘explicit’, ‘implicit’, ‘parametric’, ‘polar’, ‘line_type’.
+
+
+File: maxima-core-docs.info,  Node: Variable logcb,  Next: Variable logx_secondary,  Prev: Variable line_width,  Up: draw
+
+ -- Variable: logcb
+     Default value: ‘false’
+
+     If ‘logcb’ is ‘true’, the tics in the colorbox will be drawn in the
+     logarithmic scale.
+
+     When ‘enhanced3d’ or ‘colorbox’ is ‘false’, option ‘logcb’ has no
+     effect.
+
+     Since this is a global graphics option, its position in the scene
+     description does not matter.
+
+     Example:
+
+     (%i1) draw3d (
+             enhanced3d = true,
+             color      = green,
+             logcb = true,
+             logz  = true,
+             palette = [-15,24,-9],
+             explicit(exp(x^2-y^2), x,-2,2,y,-2,2)) $
+
+ [image src="figures/draw_logcb.png" alt="draw_logcb" ]
+
+
+     draw_logcb
+     See also ‘enhanced3d’, ‘colorbox’ and ‘cbrange’.
+
+     See also: ‘logcb’, ‘enhanced3d’, ‘colorbox’, ‘cbrange’.
+
+
+File: maxima-core-docs.info,  Node: Variable logx_secondary,  Next: Variable logy_secondary,  Prev: Variable logcb,  Up: draw
+
+ -- Variable: logx_secondary
+     Default value: ‘false’
+
+     If ‘logx_secondary’ is ‘true’, the secondary _x_ axis will be drawn
+     in the logarithmic scale.
+
+     This option is relevant only for 2d scenes.
+
+     Since this is a global graphics option, its position in the scene
+     description does not matter.
+
+     Example:
+
+     (%i1) draw2d(
+             grid = true,
+             key="x^2, linear scale",
+             color=red,
+             explicit(x^2,x,1,100),
+             xaxis_secondary = true,
+             xtics_secondary = true,
+             logx_secondary  = true,
+             key = "x^2, logarithmic x scale",
+             color = blue,
+             explicit(x^2,x,1,100) )$
+
+ [image src="figures/draw_logx_secondary.png" alt="draw_logx_secondary" ]
+
+
+     draw_logx_secondary
+     See also ‘logx_draw’, ‘logy_draw’, ‘logy_secondary’, and ‘logz’.
+
+     See also: ‘logx_draw’, ‘logy_draw’, ‘logy_secondary’, ‘logz’.
+
+
+File: maxima-core-docs.info,  Node: Variable logy_secondary,  Next: Variable logz,  Prev: Variable logx_secondary,  Up: draw
+
+ -- Variable: logy_secondary
+     Default value: ‘false’
+
+     If ‘logy_secondary’ is ‘true’, the secondary _y_ axis will be drawn
+     in the logarithmic scale.
+
+     This option is relevant only for 2d scenes.
+
+     Since this is a global graphics option, its position in the scene
+     description does not matter.
+
+     Example:
+
+     (%i1) draw2d(
+             grid = true,
+             key="x^2, linear scale",
+             color=red,
+             explicit(x^2,x,1,100),
+             yaxis_secondary = true,
+             ytics_secondary = true,
+             logy_secondary  = true,
+             key = "x^2, logarithmic y scale",
+             color = blue,
+             explicit(x^2,x,1,100) )$
+
+     See also ‘logx_draw’, ‘logy_draw’, ‘logx_secondary’, and ‘logz’.
+
+     See also: ‘logx_draw’, ‘logy_draw’, ‘logx_secondary’, ‘logz’.
+
+
+File: maxima-core-docs.info,  Node: Variable logz,  Next: Function make_level_picture data,  Prev: Variable logy_secondary,  Up: draw
+
+ -- Variable: logz
+     Default value: ‘false’
+
+     If ‘logz’ is ‘true’, the _z_ axis will be drawn in the logarithmic
+     scale.
+
+     Since this is a global graphics option, its position in the scene
+     description does not matter.
+
+     Example:
+
+     (%i1) draw3d(logz = true,
+                  explicit(exp(u^2+v^2),u,-2,2,v,-2,2))$
+
+     See also ‘logx_draw’ and ‘logy_005fdraw’.
+
+     See also: ‘logx_draw’, ‘logy_draw’.
+
+
+File: maxima-core-docs.info,  Node: Function make_level_picture data,  Next: Function make_poly_continent continent_name,  Prev: Variable logz,  Up: draw
+
+ -- Function: make_level_picture (DATA)
+     Returns a levels _picture_ object.  ‘make_level_picture (data)’
+     builds the _picture_ object from matrix _data_.
+     ‘make_level_picture (data,width,height)’ builds the object from a
+     list of numbers; in this case, both the _width_ and the _height_
+     must be given.
+
+     The returned _picture_ object contains the following four parts:
+
+       1. symbol ‘level’
+       2. image width
+       3. image height
+       4. an integer array with pixel data ranging from 0 to 255.
+          Argument _data_ must contain only numbers ranged from 0 to
+          255; negative numbers are substituted by 0, and those which
+          are greater than 255 are set to 255.
+
+     Example:
+
+     Level picture from matrix.
+
+     (%i1) make_level_picture(matrix([3,2,5],[7,-9,3000]));
+     (%o1)         picture(level, 3, 2, {Array:  #(3 2 5 7 0 255)})
+
+     Level picture from numeric list.
+
+     (%i1) make_level_picture([-2,0,54,%pi],2,2);
+     (%o1)            picture(level, 2, 2, {Array:  #(0 0 54 3)})
+
+
+File: maxima-core-docs.info,  Node: Function make_poly_continent continent_name,  Next: Function make_poly_country country_name,  Prev: Function make_level_picture data,  Up: draw
+
+ -- Function: make_poly_continent (CONTINENT_NAME)
+     Makes the necessary polygons to draw a colored continent or a list
+     of countries.
+
+     Example:
+
+     (%i1) load("worldmap")$
+     (%i2) /* A continent */
+           make_poly_continent(Africa)$
+     (%i3) apply(draw2d, %)$
+
+ [image src="figures/worldmap_make_poly_continent.png" alt="worldmap_make_poly_continent" ]
+
+
+     worldmap_make_poly_continent
+
+     (%i4) /* A list of countries */
+           make_poly_continent([Germany,Denmark,Poland])$
+     (%i5) apply(draw2d, %)$
+
+ [image src="figures/worldmap_make_poly_continent2.png" alt="worldmap_make_poly_continent2" ]
+
+
+     worldmap_make_poly_continent2
+
+
+File: maxima-core-docs.info,  Node: Function make_poly_country country_name,  Next: Function make_polygon nlist,  Prev: Function make_poly_continent continent_name,  Up: draw
+
+ -- Function: make_poly_country (COUNTRY_NAME)
+     Makes the necessary polygons to draw a colored country.  If islands
+     exist, one country can be defined with more than just one polygon.
+
+     Example:
+
+     (%i1) load("worldmap")$
+     (%i2) make_poly_country(India)$
+     (%i3) apply(draw2d, %)$
+
+ [image src="figures/worldmap_make_poly_country.png" alt="worldmap_make_poly_country" ]
+
+
+     worldmap_make_poly_country
+
+
+File: maxima-core-docs.info,  Node: Function make_polygon nlist,  Next: Function make_rgb_picture redlevel greenlevel bluelevel,  Prev: Function make_poly_country country_name,  Up: draw
+
+ -- Function: make_polygon (NLIST)
+     Returns a ‘polygon’ object from boundary indices.  Argument _nlist_
+     is a list of components of ‘boundaries_array’.
+
+     Example:
+
+     Bhutan is defined by boundary numbers 171, 173 and 1143, so that
+     ‘make_polygon([171,173,1143])’ appends arrays of coordinates
+     ‘boundaries_array[171]’, ‘boundaries_array[173]’ and
+     ‘boundaries_array[1143]’ and returns a ‘polygon’ object suited to
+     be plotted by ‘draw’.  To avoid an error message, arrays must be
+     compatible in the sense that any two consecutive arrays have two
+     coordinates in the extremes in common.  In this example, the two
+     first components of ‘boundaries_array[171]’ are equal to the last
+     two coordinates of ‘boundaries_array[173]’, and the two first of
+     ‘boundaries_array[173]’ are equal to the two first of
+     ‘boundaries_array[1143]’; in conclusion, boundary numbers 171, 173
+     and 1143 (in this order) are compatible and the colored polygon can
+     be drawn.
+
+     (%i1) load("worldmap")$
+     (%i2) Bhutan;
+     (%o2)                        [[171, 173, 1143]]
+     (%i3) boundaries_array[171];
+     (%o3) {Array:  
+            #(88.750549 27.14727 88.806351 27.25305 88.901367 27.282221
+              88.917877 27.321039)}
+     (%i4) boundaries_array[173];
+     (%o4) {Array:
+            #(91.659554 27.76511 91.6008 27.66666 91.598022 27.62499
+              91.631348 27.536381 91.765533 27.45694 91.775253 27.4161 
+              92.007751 27.471939 92.11441 27.28583 92.015259 27.168051
+              92.015533 27.08083 92.083313 27.02277 92.112183 26.920271
+              92.069977 26.86194 91.997192 26.85194 91.915253 26.893881
+              91.916924 26.85416 91.8358 26.863331 91.712479 26.799999 
+              91.542191 26.80444 91.492188 26.87472 91.418854 26.873329
+              91.371353 26.800831 91.307457 26.778049 90.682457 26.77417
+              90.392197 26.903601 90.344131 26.894159 90.143044 26.75333
+              89.98996 26.73583 89.841919 26.70138 89.618301 26.72694 
+              89.636093 26.771111 89.360786 26.859989 89.22081 26.81472
+              89.110237 26.829161 88.921631 26.98777 88.873016 26.95499
+              88.867737 27.080549 88.843307 27.108601 88.750549 
+              27.14727)}
+     (%i5) boundaries_array[1143];
+     (%o5) {Array:  
+            #(91.659554 27.76511 91.666924 27.88888 91.65831 27.94805 
+              91.338028 28.05249 91.314972 28.096661 91.108856 27.971109
+              91.015808 27.97777 90.896927 28.05055 90.382462 28.07972
+              90.396088 28.23555 90.366074 28.257771 89.996353 28.32333
+              89.83165 28.24888 89.58609 28.139999 89.35997 27.87166 
+              89.225517 27.795 89.125793 27.56749 88.971077 27.47361
+              88.917877 27.321039)}
+     (%i6) Bhutan_polygon: make_polygon([171,173,1143])$
+     (%i7) draw2d(Bhutan_polygon)$
+
+ [image src="figures/worldmap_make_polygon.png" alt="worldmap_make_polygon" ]
+
+
+     worldmap_make_polygon
+
+
+File: maxima-core-docs.info,  Node: Function make_rgb_picture redlevel greenlevel bluelevel,  Next: Function mesh row_1 row_2 ...,  Prev: Function make_polygon nlist,  Up: draw
+
+ -- Function: make_rgb_picture (REDLEVEL, GREENLEVEL, BLUELEVEL)
+     Returns an rgb-coloured _picture_ object.  All three arguments must
+     be levels picture; with red, green and blue levels.
+
+     The returned _picture_ object contains the following four parts:
+
+       1. symbol ‘rgb’
+       2. image width
+       3. image height
+       4. an integer array of length _3_width_height_ with pixel data
+          ranging from 0 to 255.  Each pixel is represented by three
+          consecutive numbers (red, green, blue).
+
+     Example:
+
+     (%i1) red: make_level_picture(matrix([3,2],[7,260]));
+     (%o1)           picture(level, 2, 2, {Array:  #(3 2 7 255)})
+     (%i2) green: make_level_picture(matrix([54,23],[73,-9]));
+     (%o2)           picture(level, 2, 2, {Array:  #(54 23 73 0)})
+     (%i3) blue: make_level_picture(matrix([123,82],[45,32.5698]));
+     (%o3)          picture(level, 2, 2, {Array:  #(123 82 45 33)})
+     (%i4) make_rgb_picture(red,green,blue);
+     (%o4) picture(rgb, 2, 2, 
+                   {Array:  #(3 54 123 2 23 82 7 73 45 255 0 33)})
+
+
+File: maxima-core-docs.info,  Node: Function mesh row_1 row_2 ...,  Next: Function multiplot_mode term,  Prev: Function make_rgb_picture redlevel greenlevel bluelevel,  Up: draw
+
+ -- Function: mesh (ROW_1, ROW_2, ...)
+     Draws a quadrangular mesh in 3D.
+
+     *3D*
+
+     Argument _row_i_ is a list of _n_ 3D points of the form
+     ‘[[x_i1,y_i1,z_i1], ...,[x_in,y_in,z_in]]’, and all rows are of
+     equal length.  All these points define an arbitrary surface in 3D
+     and in some sense it's a generalization of the ‘elevation_grid’
+     object.
+
+     This object is affected by the following _graphic options_:
+     ‘line_type’, ‘line_width’, ‘color’, ‘key’, ‘wired_surface’,
+     ‘enhanced3d’ and ‘transform’.
+
+     Examples:
+
+     A simple example.
+
+     (%i1) draw3d( 
+              mesh([[1,1,3],   [7,3,1],[12,-2,4],[15,0,5]],
+                   [[2,7,8],   [4,3,1],[10,5,8], [12,7,1]],
+                   [[-2,11,10],[6,9,5],[6,15,1], [20,15,2]])) $
+
+ [image src="figures/draw_mesh.png" alt="draw_mesh" ]
+
+
+     draw_mesh
+     Plotting a triangle in 3D.
+
+     (%i1) draw3d(
+             line_width = 2,
+             mesh([[1,0,0],[0,1,0]],
+                  [[0,0,1],[0,0,1]])) $
+
+ [image src="figures/draw_mesh2.png" alt="draw_mesh2" ]
+
+
+     draw_mesh2
+     Two quadrilaterals.
+
+     (%i1) draw3d(
+             surface_hide = true,
+             line_width   = 3,
+             color = red,
+             mesh([[0,0,0], [0,1,0]],
+                  [[2,0,2], [2,2,2]]),
+             color = blue,
+             mesh([[0,0,2], [0,1,2]],
+                  [[2,0,4], [2,2,4]])) $
+
+ [image src="figures/draw_mesh3.png" alt="draw_mesh3" ]
+
+
+     draw_mesh3
+     See also: ‘line_type’, ‘line_width’, ‘color’, ‘key’,
+     ‘wired_surface’, ‘enhanced3d’, ‘transform’.
 

@@ -1,4 +1,4 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.3 from
+This is maxima-core-docs.info, produced by makeinfo version 7.1 from
 maxima-core-docs.texi.
 
 
@@ -205,13 +205,10 @@ File: maxima-core-docs.info,  Node: Function zeromatrixp M,  Prev: Function zero
      element of _e_.
 
 
-File: maxima-core-docs.info,  Node: NumberTheory,  Next: Data Types and Structures 2,  Prev: linearalgebra,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: NumberTheory,  Next: ,  Prev: linearalgebra,  Up: Maxima Core Documentation
 
 1.35 NumberTheory
 =================
-
-
-File: maxima-core-docs.info,  Node: Data Types and Structures 2,  Next: Elementary Functions 2,  Prev: NumberTheory,  Up: Maxima Core Documentation
 
 1.36 Data Types and Structures
 ==============================
@@ -222,14 +219,14 @@ File: maxima-core-docs.info,  Node: Data Types and Structures 2,  Next: Elementa
 * Function bfloatp expr::
 * Variable bftorat::
 * Variable bftrunc::
-* Function bigfloat_bits::
-* Function bigfloat_eps::
+* Function bigfloat_bits ::
+* Function bigfloat_eps ::
 * Function decode_float f::
 * Function evenp expr::
 * Function float expr::
 * Variable float2bf::
-* Function float_bits::
-* Function float_eps::
+* Function float_bits ::
+* Function float_eps ::
 * Function float_infinity_p x::
 * Function float_nan_p x::
 * Function float_precision f::
@@ -254,7 +251,7 @@ File: maxima-core-docs.info,  Node: Data Types and Structures 2,  Next: Elementa
 * Function unit_in_last_place n::
 
 
-File: maxima-core-docs.info,  Node: Function bfloat expr,  Next: Function bfloatp expr,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function bfloat expr
 
  -- Function: bfloat (EXPR)
      ‘bfloat’ replaces integers, rationals, floating point numbers, and
@@ -308,13 +305,13 @@ File: maxima-core-docs.info,  Node: Function bfloat expr,  Next: Function bfloat
      See also: ‘fpprec’, ‘float2bf’.
 
 
-File: maxima-core-docs.info,  Node: Function bfloatp expr,  Next: Variable bftorat,  Prev: Function bfloat expr,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function bfloatp expr
 
  -- Function: bfloatp (EXPR)
      Returns ‘true’ if _expr_ is a bigfloat number, otherwise ‘false’.
 
 
-File: maxima-core-docs.info,  Node: Variable bftorat,  Next: Variable bftrunc,  Prev: Function bfloatp expr,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Variable bftorat
 
  -- Variable: bftorat
      Default value: ‘false’
@@ -346,7 +343,7 @@ File: maxima-core-docs.info,  Node: Variable bftorat,  Next: Variable bftrunc,  
      See also: ‘ratepsilon’, ‘rationalize’.
 
 
-File: maxima-core-docs.info,  Node: Variable bftrunc,  Next: Function bigfloat_bits,  Prev: Variable bftorat,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Variable bftrunc
 
  -- Variable: bftrunc
      Default value: ‘true’
@@ -357,7 +354,7 @@ File: maxima-core-docs.info,  Node: Variable bftrunc,  Next: Function bigfloat_b
      ‘1.0B0’.
 
 
-File: maxima-core-docs.info,  Node: Function bigfloat_bits,  Next: Function bigfloat_eps,  Prev: Variable bftrunc,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function bigfloat_bits
 
  -- Function: bigfloat_bits ()
      Returns the number of bits of precision in a bigfloat number.  This
@@ -375,7 +372,7 @@ File: maxima-core-docs.info,  Node: Function bigfloat_bits,  Next: Function bigf
      See also: ‘fpprec’.
 
 
-File: maxima-core-docs.info,  Node: Function bigfloat_eps,  Next: Function decode_float f,  Prev: Function bigfloat_bits,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function bigfloat_eps
 
  -- Function: bigfloat_eps ()
      Returns the smallest bigfloat value, ‘eps’, such that ‘1+eps’ is
@@ -393,7 +390,7 @@ File: maxima-core-docs.info,  Node: Function bigfloat_eps,  Next: Function decod
      See also: ‘fpprec’.
 
 
-File: maxima-core-docs.info,  Node: Function decode_float f,  Next: Function evenp expr,  Prev: Function bigfloat_eps,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function decode_float f
 
  -- Function: decode_float (F)
      ‘decode_float’ takes a float _f_ and returns a list of three values
@@ -422,13 +419,13 @@ File: maxima-core-docs.info,  Node: Function decode_float f,  Next: Function eve
      (%o6)                               1.1e-5
 
      This is a relatively simple interface to Common Lisp
-     http//wwwlispworkscom/documentation/HyperSpec/Body/f_dec_flhtmdecode_float.
+     http://www.lispworks.com/documentation/HyperSpec/Body/f_dec_fl.htmdecode_float.
      However we return a signficand in the range ‘[1,2)’ instead of
      ‘[0.5, 1)’.  The former matches IEEE-754.  Of course, this is
      extended to support bfloats.
 
 
-File: maxima-core-docs.info,  Node: Function evenp expr,  Next: Function float expr,  Prev: Function decode_float f,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function evenp expr
 
  -- Function: evenp (EXPR)
      Returns ‘true’ if _expr_ is a literal even integer, otherwise
@@ -438,7 +435,7 @@ File: maxima-core-docs.info,  Node: Function evenp expr,  Next: Function float e
      declared ‘even’.
 
 
-File: maxima-core-docs.info,  Node: Function float expr,  Next: Variable float2bf,  Prev: Function evenp expr,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function float expr
 
  -- Function: float (EXPR)
      Converts integers, rational numbers and bigfloats in _expr_ to
@@ -449,7 +446,7 @@ File: maxima-core-docs.info,  Node: Function float expr,  Next: Variable float2b
      See also: ‘evflag’.
 
 
-File: maxima-core-docs.info,  Node: Variable float2bf,  Next: Function float_bits,  Prev: Function float expr,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Variable float2bf
 
  -- Variable: float2bf
      Default value: ‘true’
@@ -461,20 +458,20 @@ File: maxima-core-docs.info,  Node: Variable float2bf,  Next: Function float_bit
      See also: ‘float2bf’.
 
 
-File: maxima-core-docs.info,  Node: Function float_bits,  Next: Function float_eps,  Prev: Variable float2bf,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function float_bits
 
  -- Function: float_bits ()
      Returns the number of bits of precision of a floating-point number.
 
 
-File: maxima-core-docs.info,  Node: Function float_eps,  Next: Function float_infinity_p x,  Prev: Function float_bits,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function float_eps
 
  -- Function: float_eps ()
      Returns the smallest floating-point value, ‘eps’, such that ‘1+eps’
      is not equal to 1.
 
 
-File: maxima-core-docs.info,  Node: Function float_infinity_p x,  Next: Function float_nan_p x,  Prev: Function float_eps,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function float_infinity_p x
 
  -- Function: float_infinity_p (X)
      Returns ‘true’ if _x_ is floating point positive infinity or
@@ -496,7 +493,7 @@ File: maxima-core-docs.info,  Node: Function float_infinity_p x,  Next: Function
      precision floating point infinity, and not any other precision.
 
 
-File: maxima-core-docs.info,  Node: Function float_nan_p x,  Next: Function float_precision f,  Prev: Function float_infinity_p x,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function float_nan_p x
 
  -- Function: float_nan_p (X)
      Returns ‘true’ if _x_ is a floating point not-a-number (NaN) value,
@@ -514,7 +511,7 @@ File: maxima-core-docs.info,  Node: Function float_nan_p x,  Next: Function floa
      precision floating point not-a-number, and not any other precision.
 
 
-File: maxima-core-docs.info,  Node: Function float_precision f,  Next: Function float_sign f,  Prev: Function float_nan_p x,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function float_precision f
 
  -- Function: float_precision (F)
      Returns the number of bits of precision of a floating-point number,
@@ -527,7 +524,7 @@ File: maxima-core-docs.info,  Node: Function float_precision f,  Next: Function 
      See also: ‘fpprec’.
 
 
-File: maxima-core-docs.info,  Node: Function float_sign f,  Next: Function floatnump expr,  Prev: Function float_precision f,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function float_sign f
 
  -- Function: float_sign (F)
      Returns the sign of _f_.  It is +1 or -1 of the same type as _f_.
@@ -554,14 +551,14 @@ File: maxima-core-docs.info,  Node: Function float_sign f,  Next: Function float
       -- an error. To debug this try: debugmode(true);
 
 
-File: maxima-core-docs.info,  Node: Function floatnump expr,  Next: Variable fpprec,  Prev: Function float_sign f,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function floatnump expr
 
  -- Function: floatnump (EXPR)
      Returns ‘true’ if _expr_ is a floating point number, otherwise
      ‘false’.
 
 
-File: maxima-core-docs.info,  Node: Variable fpprec,  Next: Variable fpprintprec,  Prev: Function floatnump expr,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Variable fpprec
 
  -- Variable: fpprec
      Default value: 16
@@ -575,7 +572,7 @@ File: maxima-core-docs.info,  Node: Variable fpprec,  Next: Variable fpprintprec
      See also: ‘bfloat’, ‘fpprintprec’.
 
 
-File: maxima-core-docs.info,  Node: Variable fpprintprec,  Next: Function integer_decode_float f,  Prev: Variable fpprec,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Variable fpprintprec
 
  -- Variable: fpprintprec
      Default value: 0
@@ -601,7 +598,7 @@ File: maxima-core-docs.info,  Node: Variable fpprintprec,  Next: Function intege
      ‘fpprintprec’ cannot be 1.
 
 
-File: maxima-core-docs.info,  Node: Function integer_decode_float f,  Next: Function integerp expr,  Prev: Variable fpprintprec,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function integer_decode_float f
 
  -- Function: integer_decode_float (F)
      ‘integer_decode_float’ takes a float _f_ and returns a list of
@@ -649,13 +646,13 @@ File: maxima-core-docs.info,  Node: Function integer_decode_float f,  Next: Func
      exponent is not bounded.
 
      This is a relatively simple interface to Common Lisp
-     http//wwwlispworkscom/documentation/HyperSpec/Body/f_dec_flhtminteger_decode_float.
+     http://www.lispworks.com/documentation/HyperSpec/Body/f_dec_fl.htminteger_decode_float.
      However, the integer part can vary depending on the Lisp
      implementation; we return the same value, independent of the Lisp
      implementation.  Of course, this is extended to support bfloats.
 
 
-File: maxima-core-docs.info,  Node: Function integerp expr,  Next: Function is_power_of_two n,  Prev: Function integer_decode_float f,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function integerp expr
 
  -- Function: integerp (EXPR)
      Returns ‘true’ if _expr_ is a literal numeric integer, otherwise
@@ -686,7 +683,7 @@ File: maxima-core-docs.info,  Node: Function integerp expr,  Next: Function is_p
      (%o9)                         false
 
 
-File: maxima-core-docs.info,  Node: Function is_power_of_two n,  Next: Variable m1pbranch,  Prev: Function integerp expr,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function is_power_of_two n
 
  -- Function: is_power_of_two (N)
      ‘is_power_to_two’ returns ‘true’ if _n_ is a power of two and
@@ -725,7 +722,7 @@ File: maxima-core-docs.info,  Node: Function is_power_of_two n,  Next: Variable 
      (%o14)                               true
 
 
-File: maxima-core-docs.info,  Node: Variable m1pbranch,  Next: Function nonnegintegerp n,  Prev: Function is_power_of_two n,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Variable m1pbranch
 
  -- Variable: m1pbranch
      Default value: ‘false’
@@ -746,13 +743,13 @@ File: maxima-core-docs.info,  Node: Variable m1pbranch,  Next: Function nonnegin
      (-1)^(1/4)              sqrt(2)/2+%i*sqrt(2)/2
 
 
-File: maxima-core-docs.info,  Node: Function nonnegintegerp n,  Next: Function numberp expr,  Prev: Variable m1pbranch,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function nonnegintegerp n
 
  -- Function: nonnegintegerp (N)
      Return ‘true’ if and only if ‘n >= 0’ and _n_ is an integer.
 
 
-File: maxima-core-docs.info,  Node: Function numberp expr,  Next: Variable numer,  Prev: Function nonnegintegerp n,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function numberp expr
 
  -- Function: numberp (EXPR)
      Returns ‘true’ if _expr_ is a literal integer, rational number,
@@ -782,7 +779,7 @@ File: maxima-core-docs.info,  Node: Function numberp expr,  Next: Variable numer
      (%o7) [false, false, false, false, false, false, false, false]
 
 
-File: maxima-core-docs.info,  Node: Variable numer,  Next: Variable numer_pbranch,  Prev: Function numberp expr,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Variable numer
 
  -- Variable: numer
      ‘numer’ causes some mathematical functions (including
@@ -807,7 +804,7 @@ File: maxima-core-docs.info,  Node: Variable numer,  Next: Variable numer_pbranc
      See also: ‘float’, ‘%enumer’.
 
 
-File: maxima-core-docs.info,  Node: Variable numer_pbranch,  Next: Function numerval x_1 expr_1 ... var_n expr_n,  Prev: Variable numer,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Variable numer_pbranch
 
  -- Variable: numer_pbranch
      Default value: ‘false’
@@ -847,7 +844,7 @@ File: maxima-core-docs.info,  Node: Variable numer_pbranch,  Next: Function nume
      See also: ‘numer’.
 
 
-File: maxima-core-docs.info,  Node: Function numerval x_1 expr_1 ... var_n expr_n,  Next: Function oddp expr,  Prev: Variable numer_pbranch,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function numerval x_1 expr_1 ... var_n expr_n
 
  -- Function: numerval (X_1, EXPR_1, ..., VAR_N, EXPR_N)
      Declares the variables ‘x_1’, ..., _x_n_ to have numeric values
@@ -861,7 +858,7 @@ File: maxima-core-docs.info,  Node: Function numerval x_1 expr_1 ... var_n expr_
      See also: ‘ev’.
 
 
-File: maxima-core-docs.info,  Node: Function oddp expr,  Next: Variable ratepsilon,  Prev: Function numerval x_1 expr_1 ... var_n expr_n,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function oddp expr
 
  -- Function: oddp (EXPR)
      Returns ‘true’ if _expr_ is a literal odd integer, otherwise
@@ -871,7 +868,7 @@ File: maxima-core-docs.info,  Node: Function oddp expr,  Next: Variable ratepsil
      declared ‘odd’.
 
 
-File: maxima-core-docs.info,  Node: Variable ratepsilon,  Next: Function rationalize expr,  Prev: Function oddp expr,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Variable ratepsilon
 
  -- Variable: ratepsilon
      Default value: ‘2.0e-15’
@@ -883,7 +880,7 @@ File: maxima-core-docs.info,  Node: Variable ratepsilon,  Next: Function rationa
      See also: ‘bftorat’.
 
 
-File: maxima-core-docs.info,  Node: Function rationalize expr,  Next: Function ratnump expr,  Prev: Variable ratepsilon,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function rationalize expr
 
  -- Function: rationalize (EXPR)
      Convert all double floats and big floats in the Maxima expression
@@ -925,14 +922,14 @@ File: maxima-core-docs.info,  Node: Function rationalize expr,  Next: Function r
                     36028797018963968    562949953421312
 
 
-File: maxima-core-docs.info,  Node: Function ratnump expr,  Next: Function scale_float f n,  Prev: Function rationalize expr,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function ratnump expr
 
  -- Function: ratnump (EXPR)
      Returns ‘true’ if _expr_ is a literal integer or ratio of literal
      integers, otherwise ‘false’.
 
 
-File: maxima-core-docs.info,  Node: Function scale_float f n,  Next: Function unit_in_last_place n,  Prev: Function ratnump expr,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function scale_float f n
 
  -- Function: scale_float (F, N)
      ‘scale_float’ scales the float _f_ by the value ‘2^n’.  This is
@@ -963,25 +960,24 @@ File: maxima-core-docs.info,  Node: Function scale_float f n,  Next: Function un
       -- an error. To debug this try: debugmode(true);
 
      This is a relatively simple interface to Common Lisp
-     http//wwwlispworkscom/documentation/HyperSpec/Body/f_dec_flhtmscale_float.
+     http://www.lispworks.com/documentation/HyperSpec/Body/f_dec_fl.htmscale_float.
      Of course, this is extended to support bfloats.
 
 
-File: maxima-core-docs.info,  Node: Function unit_in_last_place n,  Prev: Function scale_float f n,  Up: Data Types and Structures 2
+File: maxima-core-docs.info,  Node: Function unit_in_last_place n
 
  -- Function: unit_in_last_place (N)
      ‘unit_in_last_place’ returns a value that is the gap between _n_
-     and the nearest other number.  See, for example,
-     https//peopleeecsberkeleyedu/~wkahan/LOG10HAFTXTKahan FOOTNOTE 1.
+     and the nearest other number.  See, for example, FOOTNOTE 1.
      ‘unit_in_last_place’ supports rational numbers, floating-point
      numbers and bigfloat numbers.  For integer, the result is always 1,
      and for rational numbers the result is always 0.
 
      The examples below assume
-     https//enwikipediaorg/wiki/IEEE_754IEEE-754 arithmetic that
+     https://en.wikipedia.org/wiki/IEEE_754IEEE-754 arithmetic that
      supports
-     https//enwikipediaorg/wiki/IEEE_754-1985#Denormalized_numbersdenormal
-     numbers.  Some lisps like https//clispsourceforgeio/Clisp do not
+     https://en.wikipedia.org/wiki/IEEE_754-1985#Denormalized_numbersdenormal
+     numbers.  Some lisps like https://clisp.sourceforge.io/Clisp do not
      have denormal numbers.
 
      (%i1) unit_in_last_place(0);
@@ -1010,9 +1006,6 @@ File: maxima-core-docs.info,  Node: Function unit_in_last_place n,  Prev: Functi
      (%o12)               1.5407439555097886824447823540679b-33
      (%i13) unit_in_last_place(100b0);
      (%o13)               1.972152263052529513529321413207b-31
-
-
-File: maxima-core-docs.info,  Node: Elementary Functions 2,  Next: Number Theory,  Prev: Data Types and Structures 2,  Up: Maxima Core Documentation
 
 1.37 Elementary Functions
 =========================
@@ -1044,7 +1037,7 @@ File: maxima-core-docs.info,  Node: Elementary Functions 2,  Next: Number Theory
 * Function truncate x::
 
 
-File: maxima-core-docs.info,  Node: Function abs z,  Next: Function cabs expr,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function abs z
 
  -- Function: abs (Z)
      The ‘abs’ function represents the mathematical absolute value
@@ -1159,7 +1152,7 @@ File: maxima-core-docs.info,  Node: Function abs z,  Next: Function cabs expr,  
      See also: ‘distribute_over’, ‘cabs’, ‘laplace’.
 
 
-File: maxima-core-docs.info,  Node: Function cabs expr,  Next: Function carg z,  Prev: Function abs z,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function cabs expr
 
  -- Function: cabs (EXPR)
      Calculates the absolute value of an expression representing a
@@ -1286,7 +1279,7 @@ File: maxima-core-docs.info,  Node: Function cabs expr,  Next: Function carg z, 
      ‘carg’, ‘conjugate’, ‘polarform’, ‘sqrt’, ‘sin’, ‘erf’, ‘bessel_j’.
 
 
-File: maxima-core-docs.info,  Node: Function carg z,  Next: Function ceiling x,  Prev: Function cabs expr,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function carg z
 
  -- Function: carg (Z)
      Returns the complex argument of _z_.  The complex argument is an
@@ -1362,7 +1355,7 @@ File: maxima-core-docs.info,  Node: Function carg z,  Next: Function ceiling x, 
      See also: ‘abs’, ‘polarform’, ‘rectform’, ‘realpart’, ‘imagpart’.
 
 
-File: maxima-core-docs.info,  Node: Function ceiling x,  Next: Function conjugate x,  Prev: Function carg z,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function ceiling x
 
  -- Function: ceiling (X)
      When _x_ is a real number, return the least integer that is greater
@@ -1483,7 +1476,7 @@ File: maxima-core-docs.info,  Node: Function ceiling x,  Next: Function conjugat
      See also: ‘fpprec’, ‘distribute_over’, ‘floor’.
 
 
-File: maxima-core-docs.info,  Node: Function conjugate x,  Next: Function entier x,  Prev: Function ceiling x,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function conjugate x
 
  -- Function: conjugate (X)
      Returns the complex conjugate of _x_.
@@ -1510,7 +1503,7 @@ File: maxima-core-docs.info,  Node: Function conjugate x,  Next: Function entier
      (%o5)                        yy + xx
 
 
-File: maxima-core-docs.info,  Node: Function entier x,  Next: Function fix x,  Prev: Function conjugate x,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function entier x
 
  -- Function: entier (X)
      Returns the largest integer less than or equal to _x_ where _x_ is
@@ -1520,13 +1513,13 @@ File: maxima-core-docs.info,  Node: Function entier x,  Next: Function fix x,  P
      See also: ‘fix’.
 
 
-File: maxima-core-docs.info,  Node: Function fix x,  Next: Function floor x,  Prev: Function entier x,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function fix x
 
  -- Function: fix (X)
      A synonym for ‘entier (x)’.
 
 
-File: maxima-core-docs.info,  Node: Function floor x,  Next: Function hstep x,  Prev: Function fix x,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function floor x
 
  -- Function: floor (X)
      When _x_ is a real number, return the largest integer that is less
@@ -1591,7 +1584,7 @@ File: maxima-core-docs.info,  Node: Function floor x,  Next: Function hstep x,  
      See also: ‘fpprec’, ‘distribute_over’, ‘ceiling’.
 
 
-File: maxima-core-docs.info,  Node: Function hstep x,  Next: Function imagpart expr,  Prev: Function floor x,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function hstep x
 
  -- Function: hstep (X)
      The Heaviside unit step function, equal to 0 if _x_ is negative,
@@ -1604,7 +1597,7 @@ File: maxima-core-docs.info,  Node: Function hstep x,  Next: Function imagpart e
      See also: ‘unit_step’.
 
 
-File: maxima-core-docs.info,  Node: Function imagpart expr,  Next: Function lmax L,  Prev: Function hstep x,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function imagpart expr
 
  -- Function: imagpart (EXPR)
      Returns the imaginary part of the expression _expr_.
@@ -1635,7 +1628,7 @@ File: maxima-core-docs.info,  Node: Function imagpart expr,  Next: Function lmax
      See also: ‘abs’, ‘carg’, ‘polarform’, ‘rectform’, ‘realpart’.
 
 
-File: maxima-core-docs.info,  Node: Function lmax L,  Next: Function lmin L,  Prev: Function imagpart expr,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function lmax L
 
  -- Function: lmax (L)
      When _L_ is a list or a set, return ‘apply ('max, args (L))’.  When
@@ -1645,7 +1638,7 @@ File: maxima-core-docs.info,  Node: Function lmax L,  Next: Function lmin L,  Pr
      See also: ‘lmin’, ‘max’.
 
 
-File: maxima-core-docs.info,  Node: Function lmin L,  Next: Function make_random_state n,  Prev: Function lmax L,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function lmin L
 
  -- Function: lmin (L)
      When _L_ is a list or a set, return ‘apply ('min, args (L))’.  When
@@ -1655,7 +1648,7 @@ File: maxima-core-docs.info,  Node: Function lmin L,  Next: Function make_random
      See also: ‘lmax’, ‘min’.
 
 
-File: maxima-core-docs.info,  Node: Function make_random_state n,  Next: Function max x_1 ... x_n,  Prev: Function lmin L,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function make_random_state n
 
  -- Function: make_random_state (N)
      A random state object represents the state of the random number
@@ -1674,7 +1667,7 @@ File: maxima-core-docs.info,  Node: Function make_random_state n,  Next: Functio
      the random number generator.
 
 
-File: maxima-core-docs.info,  Node: Function max x_1 ... x_n,  Next: Function min x_1 ... x_n,  Prev: Function make_random_state n,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function max x_1 ... x_n
 
  -- Function: max (X_1, ..., X_N)
      Return a simplified value for the numerical maximum of the
@@ -1726,7 +1719,7 @@ File: maxima-core-docs.info,  Node: Function max x_1 ... x_n,  Next: Function mi
      See also: ‘min’, ‘lmax’, ‘lmin’.
 
 
-File: maxima-core-docs.info,  Node: Function min x_1 ... x_n,  Next: Function polarform expr,  Prev: Function max x_1 ... x_n,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function min x_1 ... x_n
 
  -- Function: min (X_1, ..., X_N)
      Return a simplified value for the numerical minimum of the
@@ -1778,7 +1771,7 @@ File: maxima-core-docs.info,  Node: Function min x_1 ... x_n,  Next: Function po
      See also: ‘max’, ‘lmax’, ‘lmin’.
 
 
-File: maxima-core-docs.info,  Node: Function polarform expr,  Next: Function random x,  Prev: Function min x_1 ... x_n,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function polarform expr
 
  -- Function: polarform (EXPR)
      Returns an expression ‘r %e^(%i theta)’ equivalent to _expr_, such
@@ -1805,7 +1798,7 @@ File: maxima-core-docs.info,  Node: Function polarform expr,  Next: Function ran
      (%o3)                 sqrt(5) %e
 
 
-File: maxima-core-docs.info,  Node: Function random x,  Next: Function realpart expr,  Prev: Function polarform expr,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function random x
 
  -- Function: random (X)
      Returns a pseudorandom number.  If _x_ is an integer, ‘random (x)’
@@ -1870,7 +1863,7 @@ File: maxima-core-docs.info,  Node: Function random x,  Next: Function realpart 
      (%o13)                  32.28666704056853
 
 
-File: maxima-core-docs.info,  Node: Function realpart expr,  Next: Function rectform expr,  Prev: Function random x,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function realpart expr
 
  -- Function: realpart (EXPR)
      Returns the real part of _expr_.  ‘realpart’ and ‘imagpart’ will
@@ -1899,7 +1892,7 @@ File: maxima-core-docs.info,  Node: Function realpart expr,  Next: Function rect
      See also: ‘imagpart’.
 
 
-File: maxima-core-docs.info,  Node: Function rectform expr,  Next: Function round x,  Prev: Function realpart expr,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function rectform expr
 
  -- Function: rectform (EXPR)
      Returns an expression ‘a + b %i’ equivalent to _expr_, such that
@@ -1921,7 +1914,7 @@ File: maxima-core-docs.info,  Node: Function rectform expr,  Next: Function roun
      (%o3)                       2 %i + 1
 
 
-File: maxima-core-docs.info,  Node: Function round x,  Next: Function set_random_state s,  Prev: Function rectform expr,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function round x
 
  -- Function: round (X)
      When _x_ is a real number, returns the closest integer to _x_.
@@ -1934,7 +1927,7 @@ File: maxima-core-docs.info,  Node: Function round x,  Next: Function set_random
      See also: ‘floor’, ‘ceiling’, ‘distribute_over’.
 
 
-File: maxima-core-docs.info,  Node: Function set_random_state s,  Next: Function signum x,  Prev: Function round x,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function set_random_state s
 
  -- Function: set_random_state (S)
      Copies _s_ to the random number generator state.
@@ -1942,7 +1935,7 @@ File: maxima-core-docs.info,  Node: Function set_random_state s,  Next: Function
      ‘set_random_state’ always returns ‘done’.
 
 
-File: maxima-core-docs.info,  Node: Function signum x,  Next: Function truncate x,  Prev: Function set_random_state s,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function signum x
 
  -- Function: signum (X)
      For either real or complex numbers _x_, the signum function returns
@@ -1963,7 +1956,7 @@ File: maxima-core-docs.info,  Node: Function signum x,  Next: Function truncate 
      See also: ‘sign’, ‘distribute_over’.
 
 
-File: maxima-core-docs.info,  Node: Function truncate x,  Prev: Function signum x,  Up: Elementary Functions 2
+File: maxima-core-docs.info,  Node: Function truncate x
 
  -- Function: truncate (X)
      When _x_ is a real number, return the closest integer to _x_ not
@@ -1976,7 +1969,7 @@ File: maxima-core-docs.info,  Node: Function truncate x,  Prev: Function signum 
      See also: ‘floor’, ‘ceiling’, ‘distribute_over’.
 
 
-File: maxima-core-docs.info,  Node: Number Theory,  Next: Numerical 2,  Prev: Elementary Functions 2,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Number Theory,  Next: ,  Prev: ,  Up: Maxima Core Documentation
 
 1.38 Number Theory
 ==================
@@ -2159,17 +2152,16 @@ File: maxima-core-docs.info,  Node: Function cf expr,  Next: Function cfdisrep l
 
      Examples:
 
-        •    • _expr_ is an expression comprising continued
-               fractions and square roots of integers.
+        •    • _expr_ is an expression comprising continued fractions
+               and square roots of integers.
 
      (%i1) cf ([5, 3, 1]*[11, 9, 7] + [3, 7]/[4, 3, 2]);
      (%o1)               [59, 17, 2, 1, 1, 1, 27]
      (%i2) cf ((3/17)*[1, -2, 5]/sqrt(11) + (8/13));
      (%o2)        [0, 1, 1, 1, 3, 2, 1, 4, 1, 9, 1, 9, 2]
 
-        •    • ‘cflength’ controls how many periods of the
-               continued fraction are computed for algebraic, irrational
-               numbers.
+        •    • ‘cflength’ controls how many periods of the continued
+               fraction are computed for algebraic, irrational numbers.
 
      maxima
      (%i1) cflength: 1$
@@ -2182,9 +2174,8 @@ File: maxima-core-docs.info,  Node: Function cf expr,  Next: Function cfdisrep l
      (%i6) cf ((1 + sqrt(5))/2);
      (%o6)           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2]
 
-        •    • A continued fraction can be evaluated by
-               evaluating the arithmetic representation returned by
-               ‘cfdisrep’.
+        •    • A continued fraction can be evaluated by evaluating the
+               arithmetic representation returned by ‘cfdisrep’.
 
      maxima
      (%i1) cflength: 3$
@@ -2192,8 +2183,8 @@ File: maxima-core-docs.info,  Node: Function cf expr,  Next: Function cfdisrep l
      (%i3) ev (%, numer);
      (%o3)                  1.7317073170731707
 
-        •    • Maxima does not know about operations on
-               continued fractions outside of ‘cf’.
+        •    • Maxima does not know about operations on continued
+               fractions outside of ‘cf’.
 
      maxima
      (%i1) cf ([1,1,1,1,1,2] * 3);
@@ -3730,14 +3721,8 @@ File: maxima-core-docs.info,  Node: Variable zn_primroot_verbose,  Prev: Variabl
 
      See also: ‘zn_primroot’, ‘zn_primroot_limit’.
 
-
-File: maxima-core-docs.info,  Node: Numerical 2,  Next: Numerical 3,  Prev: Number Theory,  Up: Maxima Core Documentation
-
 1.39 Numerical
 ==============
-
-
-File: maxima-core-docs.info,  Node: Numerical 3,  Next: cobyla,  Prev: Numerical 2,  Up: Maxima Core Documentation
 
 1.40 Numerical
 ==============
@@ -3760,7 +3745,7 @@ File: maxima-core-docs.info,  Node: Numerical 3,  Next: cobyla,  Prev: Numerical
 * Function recttopolar a b::
 
 
-File: maxima-core-docs.info,  Node: Function bf_fft y,  Next: Function bf_inverse_fft y,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function bf_fft y
 
  -- Function: bf_fft (Y)
      Computes the forward complex fast Fourier transform.  This is the
@@ -3770,7 +3755,7 @@ File: maxima-core-docs.info,  Node: Function bf_fft y,  Next: Function bf_invers
      See also: ‘fft’.
 
 
-File: maxima-core-docs.info,  Node: Function bf_inverse_fft y,  Next: Function bf_inverse_real_fft y,  Prev: Function bf_fft y,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function bf_inverse_fft y
 
  -- Function: bf_inverse_fft (Y)
      Computes the inverse complex fast Fourier transform.  This is the
@@ -3780,7 +3765,7 @@ File: maxima-core-docs.info,  Node: Function bf_inverse_fft y,  Next: Function b
      See also: ‘inverse_fft’.
 
 
-File: maxima-core-docs.info,  Node: Function bf_inverse_real_fft y,  Next: Function bf_real_fft x,  Prev: Function bf_inverse_fft y,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function bf_inverse_real_fft y
 
  -- Function: bf_inverse_real_fft (Y)
      Computes the inverse fast Fourier transform with a real-valued
@@ -3788,7 +3773,7 @@ File: maxima-core-docs.info,  Node: Function bf_inverse_real_fft y,  Next: Funct
      ‘inverse_real_fft’.
 
 
-File: maxima-core-docs.info,  Node: Function bf_real_fft x,  Next: Function fft x,  Prev: Function bf_inverse_real_fft y,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function bf_real_fft x
 
  -- Function: bf_real_fft (X)
      Computes the forward fast Fourier transform of a real-valued input
@@ -3796,7 +3781,7 @@ File: maxima-core-docs.info,  Node: Function bf_real_fft x,  Next: Function fft 
      ‘real_fft’.
 
 
-File: maxima-core-docs.info,  Node: Function fft x,  Next: Function fftpack5_fft x,  Prev: Function bf_real_fft x,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function fft x
 
  -- Function: fft (X)
      Computes the complex fast Fourier transform.  _x_ is a list or
@@ -3948,7 +3933,7 @@ File: maxima-core-docs.info,  Node: Function fft x,  Next: Function fftpack5_fft
      ‘polartorect’, ‘bf_real_fft’, ‘fftpack5_fft’, ‘fftpack5_real_fft’.
 
 
-File: maxima-core-docs.info,  Node: Function fftpack5_fft x,  Next: Function fftpack5_inverse_fft y,  Prev: Function fft x,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function fftpack5_fft x
 
  -- Function: fftpack5_fft (X)
      Like ‘fft’ (‘fft’), this computes the fast Fourier transform of a
@@ -4003,14 +3988,14 @@ File: maxima-core-docs.info,  Node: Function fftpack5_fft x,  Next: Function fft
      See also: ‘fft’.
 
 
-File: maxima-core-docs.info,  Node: Function fftpack5_inverse_fft y,  Next: Function fftpack5_inverse_real_fft y n,  Prev: Function fftpack5_fft x,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function fftpack5_inverse_fft y
 
  -- Function: fftpack5_inverse_fft (Y)
      Computes the inverse complex Fourier transform, like ‘inverse_fft’,
      but is not constrained to be a power of two.
 
 
-File: maxima-core-docs.info,  Node: Function fftpack5_inverse_real_fft y n,  Next: Function fftpack5_real_fft x,  Prev: Function fftpack5_inverse_fft y,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function fftpack5_inverse_real_fft y n
 
  -- Function: fftpack5_inverse_real_fft (Y, N)
      Computes the inverse Fourier transform of _y_, which must have a
@@ -4021,7 +4006,7 @@ File: maxima-core-docs.info,  Node: Function fftpack5_inverse_real_fft y n,  Nex
      complex when _n_ is odd.
 
 
-File: maxima-core-docs.info,  Node: Function fftpack5_real_fft x,  Next: Function inverse_fft y,  Prev: Function fftpack5_inverse_real_fft y n,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function fftpack5_real_fft x
 
  -- Function: fftpack5_real_fft (X)
      Computes the fast Fourier transform of a real-valued sequence _x_,
@@ -4045,7 +4030,7 @@ File: maxima-core-docs.info,  Node: Function fftpack5_real_fft x,  Next: Functio
      for ‘fftpack5_inverse_real_fft’.
 
 
-File: maxima-core-docs.info,  Node: Function inverse_fft y,  Next: Function inverse_real_fft y,  Prev: Function fftpack5_real_fft x,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function inverse_fft y
 
  -- Function: inverse_fft (Y)
      Computes the inverse complex fast Fourier transform.  _y_ is a list
@@ -4124,7 +4109,7 @@ File: maxima-core-docs.info,  Node: Function inverse_fft y,  Next: Function inve
      See also: ‘bf_inverse_fft’, ‘fft’, ‘recttopolar’, ‘polartorect’.
 
 
-File: maxima-core-docs.info,  Node: Function inverse_real_fft y,  Next: Function polartorect r t,  Prev: Function inverse_fft y,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function inverse_real_fft y
 
  -- Function: inverse_real_fft (Y)
      Computes the inverse Fourier transform of _y_, which must have a
@@ -4135,7 +4120,7 @@ File: maxima-core-docs.info,  Node: Function inverse_real_fft y,  Next: Function
      (The first and last elements must be purely real.)
 
 
-File: maxima-core-docs.info,  Node: Function polartorect r t,  Next: Function real_fft x,  Prev: Function inverse_real_fft y,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function polartorect r t
 
  -- Function: polartorect (R, T)
      Translates complex values of the form r e^{i t} to the form a + b
@@ -4158,7 +4143,7 @@ File: maxima-core-docs.info,  Node: Function polartorect r t,  Next: Function re
      See also: ‘polartorect’, ‘recttopolar’, ‘fft’.
 
 
-File: maxima-core-docs.info,  Node: Function real_fft x,  Next: Function recttopolar a b,  Prev: Function polartorect r t,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function real_fft x
 
  -- Function: real_fft (X)
      Computes the fast Fourier transform of a real-valued sequence _x_.
@@ -4179,7 +4164,7 @@ File: maxima-core-docs.info,  Node: Function real_fft x,  Next: Function recttop
      See also: ‘inverse_fft’, ‘inverse_real_fft’.
 
 
-File: maxima-core-docs.info,  Node: Function recttopolar a b,  Prev: Function real_fft x,  Up: Numerical 3
+File: maxima-core-docs.info,  Node: Function recttopolar a b
 
  -- Function: recttopolar (A, B)
      Translates complex values of the form a + b i to the form r e^{i
@@ -4204,7 +4189,7 @@ File: maxima-core-docs.info,  Node: Function recttopolar a b,  Prev: Function re
      See also: ‘polartorect’, ‘fft’.
 
 
-File: maxima-core-docs.info,  Node: cobyla,  Next: colnew,  Prev: Numerical 3,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: cobyla,  Next: colnew,  Prev: ,  Up: Maxima Core Documentation
 
 1.41 cobyla
 ===========
@@ -4273,7 +4258,7 @@ File: maxima-core-docs.info,  Node: Function fmin_cobyla F X Y,  Prev: Function 
           constraints were probably not satisfied.  User should
           investigate the value of the constraints.
 
-     _MAXCV_ stands for “MAXimum Constraint Violation” and is the value
+     _MAXCV_ stands for "MAXimum Constraint Violation" and is the value
      of max(0.0, -c1(x), -c2(x),...-cm(x)) where ck(x) denotes the k'th
      constraint function.  (Note that maxima allows constraints of the
      form f(x) = g(x), which are internally converted to f(x)-g(x) >= 0
@@ -4342,35 +4327,35 @@ File: maxima-core-docs.info,  Node: Function colnew_expert ncomp m aleft aright 
 
         •    • 1, if the problem is nonlinear
 
-        •    • _ipar[2]_ ( = k ) Number of collocation points
-               per subinterval , where \max_j m_j \le k \le 7. If
+        •    • _ipar[2]_ ( = k ) Number of collocation points per
+               subinterval , where \max_j m_j \le k \le 7. If
                _ipar[2]_=0 then colnew sets k = \max\left(\max_i m_i +
                5, 5 - \max_i m_i\right).
 
-        •    • _ipar[3]_ ( = n ) Number of subintervals in the
-               initial mesh.  If _ipar[3]_ = 0 then colnew arbitrarily
-               sets n = 5.
+        •    • _ipar[3]_ ( = n ) Number of subintervals in the initial
+               mesh.  If _ipar[3]_ = 0 then colnew arbitrarily sets n =
+               5.
 
-        •    • _ipar[4]_ ( = ntol ) Number of solution and
-               derivative tolerances.  Require 0 < {\rm ntol} < m^*.
+        •    • _ipar[4]_ ( = ntol ) Number of solution and derivative
+               tolerances.  Require 0 < {\rm ntol} < m^*.
 
-        •    • _ipar[5]_ ( = ndimf ) The length of list
-               _fspace_.  Its size provides a constraint on _nmax_.
-               Choose ipar[5] according to the formula {\rm ipar[5]} \ge
-               {\rm nmax} \cdot {\rm nsizef} where {\rm nsizef} = 4 +
-               3m^* + (5 + {\rm kd})\times{\rm kdm} + (2m^* - {\rm
-               nrec})\times 2 m^*.
+        •    • _ipar[5]_ ( = ndimf ) The length of list _fspace_.  Its
+               size provides a constraint on _nmax_.  Choose ipar[5]
+               according to the formula {\rm ipar[5]} \ge {\rm nmax}
+               \cdot {\rm nsizef} where {\rm nsizef} = 4 + 3m^* + (5 +
+               {\rm kd})\times{\rm kdm} + (2m^* - {\rm nrec})\times 2
+               m^*.
 
-        •    • _ipar[6]_ ( = ndimi ) The length of list
-               _ispace_.  Its size provides a constraint on _nmax_, the
-               maximum number of subintervals.  Choose _ipar[6]_
-               according to the formula {\rm ipar[6]} = {\rm nmax}\times
-               {\rm nsizei} where {\rm nsizei} = 3 + {\rm kdm} with
-               \eqalign{ {\rm kdm} &= {\rm kd} + m^* \cr {\rm kd} &= k +
-               {\rm ncomp} \cr {\rm nrec} &= {\it number\, of\, right\,
-               end\, boundary\, conditions} \cr } \eqalign{ {\rm kdm} &=
-               {\rm kd} + m^* \cr {\rm kd} &= k + {\rm ncomp} \cr {\rm
-               nrec} &= {\it number\, of\, right\, end\, boundary\,
+        •    • _ipar[6]_ ( = ndimi ) The length of list _ispace_.  Its
+               size provides a constraint on _nmax_, the maximum number
+               of subintervals.  Choose _ipar[6]_ according to the
+               formula {\rm ipar[6]} = {\rm nmax}\times {\rm nsizei}
+               where {\rm nsizei} = 3 + {\rm kdm} with \eqalign{ {\rm
+               kdm} &= {\rm kd} + m^* \cr {\rm kd} &= k + {\rm ncomp}
+               \cr {\rm nrec} &= {\it number\, of\, right\, end\,
+               boundary\, conditions} \cr } \eqalign{ {\rm kdm} &= {\rm
+               kd} + m^* \cr {\rm kd} &= k + {\rm ncomp} \cr {\rm nrec}
+               &= {\it number\, of\, right\, end\, boundary\,
                conditions} \cr } .
 
         •    • _ipar[7]_ ( = iprint ) output control
@@ -4383,67 +4368,63 @@ File: maxima-core-docs.info,  Node: Function colnew_expert ncomp m aleft aright 
 
         •    • _ipar[8]_ ( = iread )
 
-             •    • 0, causes colnew to generate a
-                    uniform initial mesh.
+             •    • 0, causes colnew to generate a uniform initial mesh.
 
-             •    • 1, if the initial mesh is provided by
-                    the user.  it is defined in fspace as follows: the
-                    mesh aleft=x[1]<x[2]< ... <x[n]<x[n+1]=aright will
-                    occupy fspace[1], ..., fspace[n+1].  the user needs
-                    to supply only the interior mesh points fspace[j] =
+             •    • 1, if the initial mesh is provided by the user.  it
+                    is defined in fspace as follows: the mesh
+                    aleft=x[1]<x[2]< ... <x[n]<x[n+1]=aright will occupy
+                    fspace[1], ..., fspace[n+1].  the user needs to
+                    supply only the interior mesh points fspace[j] =
                     x[j], j = 2, ..., n.
 
-             •    • 2, if the initial mesh is supplied by
-                    the user as with _ipar[8]_=1, and in addition no
-                    adaptive mesh selection is to be done.
+             •    • 2, if the initial mesh is supplied by the user as
+                    with _ipar[8]_=1, and in addition no adaptive mesh
+                    selection is to be done.
 
         •    • _ipar[9]_ ( = iguess )
 
-             •    • 0, if no initial guess for the
-                    solution is provided
+             •    • 0, if no initial guess for the solution is provided
 
-             •    • 1, if an initial guess is provided by
-                    the user in subroutine guess.
+             •    • 1, if an initial guess is provided by the user in
+                    subroutine guess.
 
-             •    • 2, if an initial mesh and approximate
-                    solution coefficients are provided by the user in
-                    _fspace_.  (the former and new mesh are the same).
+             •    • 2, if an initial mesh and approximate solution
+                    coefficients are provided by the user in _fspace_.
+                    (the former and new mesh are the same).
 
-             •    • 3, if a former mesh and approximate
-                    solution coefficients are provided by the user in
-                    _fspace_, and the new mesh is to be taken twice as
-                    coarse; i.e.,every second point from the former
-                    mesh.
+             •    • 3, if a former mesh and approximate solution
+                    coefficients are provided by the user in _fspace_,
+                    and the new mesh is to be taken twice as coarse;
+                    i.e.,every second point from the former mesh.
 
-             •    • 4, if in addition to a former initial
-                    mesh and approximate solution coefficients, a new
-                    mesh is provided in _fspace_ as well.  (see
-                    description of output for further details on iguess
-                    = 2, 3, and 4.)
+             •    • 4, if in addition to a former initial mesh and
+                    approximate solution coefficients, a new mesh is
+                    provided in _fspace_ as well.  (see description of
+                    output for further details on iguess = 2, 3, and 4.)
 
         •    • _ipar[10]_
 
              •    • 0, if the problem is regular
 
-             •    • 1, if the first relax factor is
-                    =rstart, and the nonlinear iteration does not rely
-                    on past convergence (use for an extra sensitive
-                    nonlinear problem only).
+             •    • 1, if the first relax factor is =rstart, and the
+                    nonlinear iteration does not rely on past
+                    convergence (use for an extra sensitive nonlinear
+                    problem only).
 
-             •    • 2, if we are to return immediately
-                    upon (a) two successive nonconvergences, or (b)
-                    after obtaining error estimate for the first time.
+             •    • 2, if we are to return immediately upon (a) two
+                    successive nonconvergences, or (b) after obtaining
+                    error estimate for the first time.
 
-        •    • _ipar[11]_ ( = nfxpnt , the dimension of
-               fixpnt) The number of fixed points in the mesh other than
-               _aleft_ and _aright_.  The code requires that all side
-               condition points other than _aleft_ and _aright_ (see
-               description of _zeta_) must be included as fixed points
-               in _fixpnt_.  *ltol* -- A list of length _ntol=ipar[4]_.
-               _ltol[j]=k_ specifies that the j-th tolerance in _tol_
-               controls the error in the k-th component of z(u).  The
-               list _ltol_ must be ordered with 1 ≤ ltol[1] < ltol[2] <
-               ... < ltol[ntol] ≤ mstar.  *tol* -- An list of length
+        •    • _ipar[11]_ ( = nfxpnt , the dimension of fixpnt) The
+               number of fixed points in the mesh other than _aleft_ and
+               _aright_.  The code requires that all side condition
+               points other than _aleft_ and _aright_ (see description
+               of _zeta_) must be included as fixed points in _fixpnt_.
+               *ltol* -- A list of length _ntol=ipar[4]_.  _ltol[j]=k_
+               specifies that the j-th tolerance in _tol_ controls the
+               error in the k-th component of z(u).  The list _ltol_
+               must be ordered with 1 ≤ ltol[1] < ltol[2] < ... <
+               ltol[ntol] ≤ mstar.  *tol* -- An list of length
                _ntol=ipar[4]_.  _tol[j]_ is the error tolerance on the
                ltol[j]-th component of z(u).  Thus, the code attempts to
                satisfy for j=1,...,ntol on each subinterval
@@ -4701,34 +4682,32 @@ File: maxima-core-docs.info,  Node: Function cspline points,  Next: Function lag
      Computes the polynomial interpolation by the cubic splines method.
      Argument _points_ must be either:
 
-        •    • a two column matrix,
-               ‘p:matrix([2,4],[5,6],[9,3])’,
+        •    • a two column matrix, ‘p:matrix([2,4],[5,6],[9,3])’,
 
         •    • a list of pairs, ‘p: [[2,4],[5,6],[9,3]]’,
 
-        •    • a list of numbers, ‘p: [4,6,3]’, in which case
-               the abscissas will be assigned automatically to 1, 2, 3,
-               etc.
+        •    • a list of numbers, ‘p: [4,6,3]’, in which case the
+               abscissas will be assigned automatically to 1, 2, 3, etc.
 
      In the first two cases the pairs are ordered with respect to the
      first coordinate before making computations.
 
      There are three options to fit specific needs:
 
-        •    • ‘'d1’, default ‘'unknown’, is the first
-               derivative at x_1; if it is ‘'unknown’, the second
-               derivative at x_1 is made equal to 0 (natural cubic
-               spline); if it is equal to a number, the second
-               derivative is calculated based on this number.
+        •    • ‘'d1’, default ‘'unknown’, is the first derivative at
+               x_1; if it is ‘'unknown’, the second derivative at x_1 is
+               made equal to 0 (natural cubic spline); if it is equal to
+               a number, the second derivative is calculated based on
+               this number.
 
-        •    • ‘'dn’, default ‘'unknown’, is the first
-               derivative at x_n; if it is ‘'unknown’, the second
-               derivative at x_n is made equal to 0 (natural cubic
-               spline); if it is equal to a number, the second
-               derivative is calculated based on this number.
+        •    • ‘'dn’, default ‘'unknown’, is the first derivative at
+               x_n; if it is ‘'unknown’, the second derivative at x_n is
+               made equal to 0 (natural cubic spline); if it is equal to
+               a number, the second derivative is calculated based on
+               this number.
 
-        •    • ‘'varname’, default ‘'x’, is the name of the
-               independent variable.
+        •    • ‘'varname’, default ‘'x’, is the name of the independent
+               variable.
 
      See also ‘lagrange’, ‘linearinterpol’, and ‘ratinterpol’.
 
@@ -4795,9 +4774,11 @@ File: maxima-core-docs.info,  Node: Function cspline points,  Next: Function lag
 
  [image src="figures/interpol3.png" alt="interpol3" ]
 
+
      interpol3
 
  [image src="figures/interpol4.png" alt="interpol4" ]
+
 
      interpol4
      See also: ‘lagrange’, ‘linearinterpol’, ‘ratinterpol’.
@@ -4809,14 +4790,12 @@ File: maxima-core-docs.info,  Node: Function lagrange points,  Next: Function li
      Computes the polynomial interpolation by the Lagrangian method.
      Argument _points_ must be either:
 
-        •    • a two column matrix,
-               ‘p:matrix([2,4],[5,6],[9,3])’,
+        •    • a two column matrix, ‘p:matrix([2,4],[5,6],[9,3])’,
 
         •    • a list of pairs, ‘p: [[2,4],[5,6],[9,3]]’,
 
-        •    • a list of numbers, ‘p: [4,6,3]’, in which case
-               the abscissas will be assigned automatically to 1, 2, 3,
-               etc.
+        •    • a list of numbers, ‘p: [4,6,3]’, in which case the
+               abscissas will be assigned automatically to 1, 2, 3, etc.
 
      In the first two cases the pairs are ordered with respect to the
      first coordinate before making computations.
@@ -4888,6 +4867,7 @@ File: maxima-core-docs.info,  Node: Function lagrange points,  Next: Function li
 
  [image src="figures/interpol1.png" alt="interpol1" ]
 
+
      interpol1
      See also: ‘linearinterpol’, ‘cspline’, ‘ratinterpol’.
 
@@ -4898,14 +4878,12 @@ File: maxima-core-docs.info,  Node: Function linearinterpol points,  Next: Funct
      Computes the polynomial interpolation by the linear method.
      Argument _points_ must be either:
 
-        •    • a two column matrix,
-               ‘p:matrix([2,4],[5,6],[9,3])’,
+        •    • a two column matrix, ‘p:matrix([2,4],[5,6],[9,3])’,
 
         •    • a list of pairs, ‘p: [[2,4],[5,6],[9,3]]’,
 
-        •    • a list of numbers, ‘p: [4,6,3]’, in which case
-               the abscissas will be assigned automatically to 1, 2, 3,
-               etc.
+        •    • a list of numbers, ‘p: [4,6,3]’, in which case the
+               abscissas will be assigned automatically to 1, 2, 3, etc.
 
      In the first two cases the pairs are ordered with respect to the
      first coordinate before making computations.
@@ -4966,6 +4944,7 @@ File: maxima-core-docs.info,  Node: Function linearinterpol points,  Next: Funct
 
  [image src="figures/interpol2.png" alt="interpol2" ]
 
+
      interpol2
      See also: ‘lagrange’, ‘cspline’, ‘ratinterpol’.
 
@@ -4978,22 +4957,20 @@ File: maxima-core-docs.info,  Node: Function ratinterpol points numdeg,  Prev: F
      the denominator is calculated automatically.  Argument _points_
      must be either:
 
-        •    • a two column matrix,
-               ‘p:matrix([2,4],[5,6],[9,3])’,
+        •    • a two column matrix, ‘p:matrix([2,4],[5,6],[9,3])’,
 
         •    • a list of pairs, ‘p: [[2,4],[5,6],[9,3]]’,
 
-        •    • a list of numbers, ‘p: [4,6,3]’, in which case
-               the abscissas will be assigned automatically to 1, 2, 3,
-               etc.
+        •    • a list of numbers, ‘p: [4,6,3]’, in which case the
+               abscissas will be assigned automatically to 1, 2, 3, etc.
 
      In the first two cases the pairs are ordered with respect to the
      first coordinate before making computations.
 
      There is one option to fit specific needs:
 
-        •    • ‘'varname’, default ‘'x’, is the name of the
-               independent variable.
+        •    • ‘'varname’, default ‘'x’, is the name of the independent
+               variable.
 
      See also ‘lagrange’, ‘linearinterpol’, ‘cspline’,
      ‘minpack_lsquares’, and ‘Package-lbfgs’
@@ -5012,21 +4989,26 @@ File: maxima-core-docs.info,  Node: Function ratinterpol points numdeg,  Prev: F
 
  [image src="figures/interpol5.png" alt="interpol5" ]
 
+
      interpol5
 
  [image src="figures/interpol6.png" alt="interpol6" ]
+
 
      interpol6
 
  [image src="figures/interpol7.png" alt="interpol7" ]
 
+
      interpol7
 
  [image src="figures/interpol8.png" alt="interpol8" ]
 
+
      interpol8
 
  [image src="figures/interpol9.png" alt="interpol9" ]
+
 
      interpol9
      See also: ‘lagrange’, ‘linearinterpol’, ‘cspline’,
@@ -5742,7 +5724,7 @@ File: maxima-core-docs.info,  Node: Function lbfgs FOM X X0 epsilon iprint,  Nex
      large scale optimization".  _Mathematical Programming B_ 45:503-528
      (1989)
 
-     [2] https//wwwnetliborg/opt/lbfgs_umshar
+     [2] https://www.netlib.org/opt/lbfgs_um.shar
 
      Examples:
 
@@ -6474,20 +6456,18 @@ File: maxima-core-docs.info,  Node: Function rk_adaptive expr vars vars_initval 
 
      The following optional parameters are accepted:
 
-        •    • ‘maxstep=num’: The maximum step size to be
-               used.
+        •    • ‘maxstep=num’: The maximum step size to be used.
 
-        •    • ‘minstep=num’: The minimum step size to be
-               used.
+        •    • ‘minstep=num’: The minimum step size to be used.
 
-        •    • ‘timestep_initial=num’: The initial guess for
-               the optimum time step to start with.
+        •    • ‘timestep_initial=num’: The initial guess for the optimum
+               time step to start with.
 
-        •    • ‘maxabserr=num’: The maximum absolute error of
-               the resulting curves.
+        •    • ‘maxabserr=num’: The maximum absolute error of the
+               resulting curves.
 
-        •    • ‘maxrelerr=num’: The maximum relative error of
-               the resulting curves as a fallback for variables with big
+        •    • ‘maxrelerr=num’: The maximum relative error of the
+               resulting curves as a fallback for variables with big
                values for which ‘maxabserr’ might be too sensitive.
 
      See also ‘rk’.
@@ -6708,15 +6688,15 @@ File: maxima-core-docs.info,  Node: Other,  Next: Bug Detection and Reporting,  
 ==========
 
 
-File: maxima-core-docs.info,  Node: Bug Detection and Reporting,  Next: Elementary Functions 3,  Prev: Other,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Bug Detection and Reporting,  Next: ,  Prev: Other,  Up: Maxima Core Documentation
 
 1.54 Bug Detection and Reporting
 ================================
 
 * Menu:
 
-* Function bug_report::
-* Function build_info::
+* Function bug_report ::
+* Function build_info ::
 * Function run_testsuite [options]::
 * Variable share_testsuite_files::
 * Variable testsuite_files::
@@ -6726,7 +6706,7 @@ File: maxima-core-docs.info,  Node: Function bug_report,  Next: Function build_i
 
  -- Function: bug_report ()
      Prints out Maxima and Lisp version numbers, and gives a link to the
-     Maxima project https//sourceforgenet/p/maxima/bugsbug report web
+     Maxima project https://sourceforge.net/p/maxima/bugsbug report web
      page.  The version information is the same as reported by
      ‘build_005finfo’.
 
@@ -6758,20 +6738,19 @@ File: maxima-core-docs.info,  Node: Function build_info,  Next: Function run_tes
 
         •    • lisp_version Version of the Lisp implementation
 
-        •    • maxima_userdir User directory (value of
-               ‘maxima_userdir’)
+        •    • maxima_userdir User directory (value of ‘maxima_userdir’)
 
-        •    • maxima_tempdir Directory for temporary files
-               (value of ‘maxima_tempdir’)
+        •    • maxima_tempdir Directory for temporary files (value of
+               ‘maxima_tempdir’)
 
-        •    • maxima_objdir Directory for compiled files of
-               share packages (value of ‘maxima_objdir’)
+        •    • maxima_objdir Directory for compiled files of share
+               packages (value of ‘maxima_objdir’)
 
-        •    • maxima_frontend Name of user interface, if any
-               (value of ‘maxima_frontend’)
+        •    • maxima_frontend Name of user interface, if any (value of
+               ‘maxima_frontend’)
 
-        •    • maxima_frontend_version User interface version
-               when ‘maxima_frontend’ is present (value of
+        •    • maxima_frontend_version User interface version when
+               ‘maxima_frontend’ is present (value of
                ‘maxima_frontend_version’)
 
      See also ‘bug_005freport’.
@@ -6851,7 +6830,7 @@ File: maxima-core-docs.info,  Node: Function run_testsuite [options],  Next: Var
 
  -- Function: run_testsuite ([OPTIONS])
      Run the Maxima test suite.  Tests producing the desired answer are
-     considered “passes,” as are tests that do not produce the desired
+     considered "passes," as are tests that do not produce the desired
      answer, but are marked as known bugs.
 
      ‘run_testsuite’ takes the following optional keyword arguments
@@ -6922,9 +6901,6 @@ File: maxima-core-docs.info,  Node: Variable testsuite_files,  Prev: Variable sh
 
      See also: ‘run_testsuite’.
 
-
-File: maxima-core-docs.info,  Node: Elementary Functions 3,  Next: Groups,  Prev: Bug Detection and Reporting,  Up: Maxima Core Documentation
-
 1.55 Elementary Functions
 =========================
 
@@ -6934,7 +6910,7 @@ File: maxima-core-docs.info,  Node: Elementary Functions 3,  Next: Groups,  Prev
 * Variable %emode::
 * Variable %enumer::
 * Function exp x::
-* Function li s (z)::
+* Function li s::
 * Function log x::
 * Variable logabs::
 * Function logarc expr::
@@ -6947,7 +6923,7 @@ File: maxima-core-docs.info,  Node: Elementary Functions 3,  Next: Groups,  Prev
 * Function sqrt x::
 
 
-File: maxima-core-docs.info,  Node: Variable %e_to_numlog,  Next: Variable %emode,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Variable %e_to_numlog
 
  -- Variable: %e_to_numlog
      Default value: ‘false’
@@ -6959,7 +6935,7 @@ File: maxima-core-docs.info,  Node: Variable %e_to_numlog,  Next: Variable %emod
      command "contracts" expressions containing ‘log’.
 
 
-File: maxima-core-docs.info,  Node: Variable %emode,  Next: Variable %enumer,  Prev: Variable %e_to_numlog,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Variable %emode
 
  -- Variable: %emode
      Default value: ‘true’
@@ -7016,7 +6992,7 @@ File: maxima-core-docs.info,  Node: Variable %emode,  Next: Variable %enumer,  P
      (%o7)                     %e
 
 
-File: maxima-core-docs.info,  Node: Variable %enumer,  Next: Function exp x,  Prev: Variable %emode,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Variable %enumer
 
  -- Variable: %enumer
      Default value: ‘false’
@@ -7070,7 +7046,7 @@ File: maxima-core-docs.info,  Node: Variable %enumer,  Next: Function exp x,  Pr
      See also: ‘ev’, ‘numer’.
 
 
-File: maxima-core-docs.info,  Node: Function exp x,  Next: Function li s (z),  Prev: Variable %enumer,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Function exp x
 
  -- Function: exp (X)
      Represents the exponential function.  Instances of ‘exp (x)’ in
@@ -7108,7 +7084,7 @@ File: maxima-core-docs.info,  Node: Function exp x,  Next: Function li s (z),  P
      See also: ‘demoivre’, ‘%emode’, ‘%enumer’.
 
 
-File: maxima-core-docs.info,  Node: Function li s (z),  Next: Function log x,  Prev: Function exp x,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Function li s
 
  -- Function: li (<z>, S)
      Represents the polylogarithm function of order _s_ and argument
@@ -7194,7 +7170,7 @@ File: maxima-core-docs.info,  Node: Function li s (z),  Next: Function log x,  P
      map (lambda ([x], li [3] (x)), L);
 
 
-File: maxima-core-docs.info,  Node: Function log x,  Next: Variable logabs,  Prev: Function li s (z),  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Function log x
 
  -- Function: log (X)
      Represents the natural (base e) logarithm of _x_.
@@ -7223,7 +7199,7 @@ File: maxima-core-docs.info,  Node: Function log x,  Next: Variable logabs,  Pre
      containing ‘log’.
 
 
-File: maxima-core-docs.info,  Node: Variable logabs,  Next: Function logarc expr,  Prev: Function log x,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Variable logabs
 
  -- Variable: logabs
      Default value: ‘false’
@@ -7236,7 +7212,7 @@ File: maxima-core-docs.info,  Node: Variable logabs,  Next: Function logarc expr
      endpoints is often needed.
 
 
-File: maxima-core-docs.info,  Node: Function logarc expr,  Next: Variable logconcoeffp,  Prev: Variable logabs,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Function logarc expr
 
  -- Function: logarc (EXPR)
      The function ‘logarc(expr)’ carries out the replacement of inverse
@@ -7245,7 +7221,7 @@ File: maxima-core-docs.info,  Node: Function logarc expr,  Next: Variable logcon
      variable ‘logarc’.
 
 
-File: maxima-core-docs.info,  Node: Variable logconcoeffp,  Next: Function logcontract expr,  Prev: Function logarc expr,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Variable logconcoeffp
 
  -- Variable: logconcoeffp
      Default value: ‘false’
@@ -7258,7 +7234,7 @@ File: maxima-core-docs.info,  Node: Variable logconcoeffp,  Next: Function logco
      ‘log(sqrt(x))’.
 
 
-File: maxima-core-docs.info,  Node: Function logcontract expr,  Next: Variable logexpand,  Prev: Variable logconcoeffp,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Function logcontract expr
 
  -- Function: logcontract (EXPR)
      Recursively scans the expression _expr_, transforming
@@ -7284,7 +7260,7 @@ File: maxima-core-docs.info,  Node: Function logcontract expr,  Next: Variable l
      ‘log(sqrt(x))’.
 
 
-File: maxima-core-docs.info,  Node: Variable logexpand,  Next: Variable lognegint,  Prev: Function logcontract expr,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Variable logexpand
 
  -- Variable: logexpand
      Default value: ‘true’
@@ -7386,7 +7362,7 @@ File: maxima-core-docs.info,  Node: Variable logexpand,  Next: Variable lognegin
                                   i = 1
 
 
-File: maxima-core-docs.info,  Node: Variable lognegint,  Next: Variable logsimp,  Prev: Variable logexpand,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Variable lognegint
 
  -- Variable: lognegint
      Default value: ‘false’
@@ -7395,7 +7371,7 @@ File: maxima-core-docs.info,  Node: Variable lognegint,  Next: Variable logsimp,
      positive integer.
 
 
-File: maxima-core-docs.info,  Node: Variable logsimp,  Next: Function plog x,  Prev: Variable lognegint,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Variable logsimp
 
  -- Variable: logsimp
      Default value: ‘true’
@@ -7404,14 +7380,14 @@ File: maxima-core-docs.info,  Node: Variable logsimp,  Next: Function plog x,  P
      ‘log’'s is done.
 
 
-File: maxima-core-docs.info,  Node: Function plog x,  Next: Function sqrt x,  Prev: Variable logsimp,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Function plog x
 
  -- Function: plog (X)
      Represents the principal branch of the complex-valued natural
      logarithm with ‘-%pi < carg(x) <= +%pi’ .
 
 
-File: maxima-core-docs.info,  Node: Function sqrt x,  Prev: Function plog x,  Up: Elementary Functions 3
+File: maxima-core-docs.info,  Node: Function sqrt x
 
  -- Function: sqrt (X)
      The square root of _x_.  It is represented internally by ‘x^(1/2)’.
@@ -7420,7 +7396,7 @@ File: maxima-core-docs.info,  Node: Function sqrt x,  Prev: Function plog x,  Up
      See also: ‘rootscontract’, ‘radexpand’.
 
 
-File: maxima-core-docs.info,  Node: Groups,  Next: Miscellaneous Options,  Prev: Elementary Functions 3,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Groups,  Next: Miscellaneous Options,  Prev: ,  Up: Maxima Core Documentation
 
 1.56 Groups
 ===========
@@ -7491,7 +7467,7 @@ File: maxima-core-docs.info,  Node: Miscellaneous Options,  Next: augmented_lagr
 * Variable askexp::
 * Variable genindex::
 * Variable gensumnum::
-* Function gensym::
+* Function gensym ::
 * Variable packagefile::
 * Function remvalue name_1 ... name_n::
 * Function rncombine expr::
@@ -7732,9 +7708,9 @@ File: maxima-core-docs.info,  Node: Function augmented_lagrangian_method FOM xx 
      References:
 
      [1]
-     http//www-fpmcsanlgov/otc/Guide/OptWeb/continuous/constrained/nonlinearcon/auglaghtml
+     http://www-fp.mcs.anl.gov/otc/Guide/OptWeb/continuous/constrained/nonlinearcon/auglag.html
 
-     [2] http//wwwcsubcca/spider/ascher/542/chap10pdf
+     [2] http://www.cs.ubc.ca/spider/ascher/542/chap10.pdf
 
      Examples:
 
@@ -7860,4 +7836,295 @@ File: maxima-core-docs.info,  Node: Function bernstein_expand e [x1 x1 ... xn], 
      Maxima signals an error when the first argument isn't a polynomial.
 
      To use ‘bernstein_expand’, first ‘load("bernstein")’.
+
+
+File: maxima-core-docs.info,  Node: Variable bernstein_explicit,  Next: Function bernstein_poly k n x,  Prev: Function bernstein_expand e [x1 x1 ... xn],  Up: bernstein
+
+ -- Variable: bernstein_explicit
+     Default value: ‘false’
+
+     When either ‘k’ or ‘n’ are non integers, the option variable
+     ‘bernstein_explicit’ controls the expansion of ‘bernstein(k,n,x)’
+     into its explicit form; example:
+
+     (%i1) bernstein_poly(k,n,x);
+     (%o1)                bernstein_poly(k, n, x)
+     (%i2) bernstein_poly(k,n,x), bernstein_explicit : true;
+                                            n - k  k
+     (%o2)            binomial(n, k) (1 - x)      x
+
+     When both ‘k’ and ‘n’ are explicitly integers, ‘bernstein(k,n,x)’
+     _always_ expands to its explicit form.
+
+
+File: maxima-core-docs.info,  Node: Function bernstein_poly k n x,  Next: Function multibernstein_poly [k1k2... kp] [n1n2... np] [x1x2... xp],  Prev: Variable bernstein_explicit,  Up: bernstein
+
+ -- Function: bernstein_poly (K, N, X)
+     Provided ‘k’ is not a negative integer, the Bernstein polynomials
+     are defined by ‘bernstein_poly(k,n,x) = binomial(n,k) x^k
+     (1-x)^(n-k)’; for a negative integer ‘k’, the Bernstein polynomial
+     ‘bernstein_poly(k,n,x)’ vanishes.  When either ‘k’ or ‘n’ are non
+     integers, the option variable ‘bernstein_explicit’ controls the
+     expansion of the Bernstein polynomials into its explicit form;
+     example:
+
+     (%i1) load("bernstein")$
+     
+     (%i2) bernstein_poly(k,n,x);
+     (%o2)                bernstein_poly(k, n, x)
+     (%i3) bernstein_poly(k,n,x), bernstein_explicit : true;
+                                            n - k  k
+     (%o3)            binomial(n, k) (1 - x)      x
+
+     The Bernstein polynomials have both a gradef property and an
+     integrate property:
+
+     (%i4) diff(bernstein_poly(k,n,x),x);
+     (%o4) (bernstein_poly(k - 1, n - 1, x)
+                                      - bernstein_poly(k, n - 1, x)) n
+     (%i5) integrate(bernstein_poly(k,n,x),x);
+     (%o5) 
+                                                                 k + 1
+      hypergeometric([k + 1, k - n], [k + 2], x) binomial(n, k) x
+      ----------------------------------------------------------------
+                                   k + 1
+
+     For numeric inputs, both real and complex, the Bernstein
+     polynomials evaluate to a numeric result:
+
+     (%i6) bernstein_poly(5,9, 1/2 + %i);
+                             39375 %i   39375
+     (%o6)                   -------- + -----
+                               128       256
+     (%i7) bernstein_poly(5,9, 0.5b0 + %i);
+     (%o7)           3.076171875b2 %i + 1.5380859375b2
+
+     To use ‘bernstein_poly’, first ‘load("bernstein")’.
+
+
+File: maxima-core-docs.info,  Node: Function multibernstein_poly [k1k2... kp] [n1n2... np] [x1x2... xp],  Prev: Function bernstein_poly k n x,  Up: bernstein
+
+ -- Function: multibernstein_poly ([K1, K2, ..., KP], [N1, N2, ..., NP],
+          [X1, X2, ..., XP])
+     The multibernstein polynomial ‘multibernstein_poly ([k1, k2, ...,
+     kp], [n1, n2, ..., np], [x1, x2, ..., xp])’ is the product of
+     bernstein polynomials ‘bernstein_poly(k1, n1, x1)
+     bernstein_poly(k2, n2, x2) ... bernstein_poly(kp, np, xp)’.
+
+     To use ‘multibernstein_poly’, first ‘load("bernstein")’.
+
+
+File: maxima-core-docs.info,  Node: bitwise,  Next: clebsch_gordan,  Prev: bernstein,  Up: Maxima Core Documentation
+
+1.60 bitwise
+============
+
+* Menu:
+
+* Function bit_and int1 ...::
+* Function bit_length int::
+* Function bit_lsh int nBits::
+* Function bit_not int::
+* Function bit_onep int nBit::
+* Function bit_or int1 ...::
+* Function bit_rsh int nBits::
+* Function bit_xor int1 ...::
+
+
+File: maxima-core-docs.info,  Node: Function bit_and int1 ...,  Next: Function bit_length int,  Up: bitwise
+
+ -- Function: bit_and (INT1, ...)
+     This function calculates a bitwise ‘and’ of two or more signed
+     integers.
+
+     (%i1) load("bitwise")$
+     
+     (%i2) bit_and(i,i);
+     (%o2)                           i
+     
+     
+     (%i3) bit_and(i,i,i);
+     (%o3)                           i
+     
+     
+     (%i4) bit_and(1,3);
+     (%o4)                           1
+     
+     
+     (%i5) bit_and(-7,7);
+     (%o5)                           1
+
+     If it is known if one of the parameters to ‘bit_and’ is even this
+     information is taken into consideration by the function.
+
+     (%i1) load("bitwise")$
+     
+     (%i2) declare(e,even,o,odd);
+     (%o2)                         done
+     
+     
+     (%i3) bit_and(1,e);
+     (%o3)                           0
+     
+     
+     (%i4) bit_and(1,o);
+     (%o4)                           1
+
+
+File: maxima-core-docs.info,  Node: Function bit_length int,  Next: Function bit_lsh int nBits,  Prev: Function bit_and int1 ...,  Up: bitwise
+
+ -- Function: bit_length (INT)
+     determines how many bits a variable needs to be long in order to
+     store the number ‘int’.  This function only operates on positive
+     numbers.
+
+     (%i1) load("bitwise")$
+     
+     (%i2) bit_length(0);
+     (%o2)                           0
+     
+     
+     (%i3) bit_length(1);
+     (%o3)                           1
+     
+     
+     (%i4) bit_length(7);
+     (%o4)                           3
+     
+     
+     (%i5) bit_length(8);
+     (%o5)                           4
+
+
+File: maxima-core-docs.info,  Node: Function bit_lsh int nBits,  Next: Function bit_not int,  Prev: Function bit_length int,  Up: bitwise
+
+ -- Function: bit_lsh (INT, NBITS)
+     This function shifts all bits of the signed integer ‘int’ to the
+     left by ‘nBits’ bits.  The width of the integer is extended by
+     ‘nBits’ for this process.  The result of ‘bit_lsh’ therefore is
+     ‘int * 2’.
+
+     (%i1) load("bitwise")$
+     
+     (%i2) bit_lsh(0,1);
+     (%o2)                           0
+     
+     
+     (%i3) bit_lsh(1,0);
+     (%o3)                           1
+     
+     
+     (%i4) bit_lsh(1,1);
+     (%o4)                           2
+     
+     
+     (%i5) bit_lsh(1,i);
+     (%o5)                     bit_lsh(1, i)
+     
+     
+     (%i6) bit_lsh(-3,1);
+     (%o6)                          - 6
+     
+     
+     (%i7) bit_lsh(-2,1);
+     (%o7)                          - 4
+
+
+File: maxima-core-docs.info,  Node: Function bit_not int,  Next: Function bit_onep int nBit,  Prev: Function bit_lsh int nBits,  Up: bitwise
+
+ -- Function: bit_not (INT)
+     Inverts all bits of a signed integer.  The result of this action
+     reads ‘-int - 1’.
+
+     (%i1) load("bitwise")$
+     
+     (%i2) bit_not(i);
+     (%o2)                      bit_not(i)
+     
+     
+     (%i3) bit_not(bit_not(i));
+     (%o3)                           i
+     
+     
+     (%i4) bit_not(3);
+     (%o4)                          - 4
+     
+     
+     (%i5) bit_not(100);
+     (%o5)                         - 101
+     
+     
+     (%i6) bit_not(-101);
+     (%o6)                          100
+
+
+File: maxima-core-docs.info,  Node: Function bit_onep int nBit,  Next: Function bit_or int1 ...,  Prev: Function bit_not int,  Up: bitwise
+
+ -- Function: bit_onep (INT, NBIT)
+     determines if bits ‘nBit’ is set in the signed integer ‘int’.
+
+     (%i1) load("bitwise")$
+     
+     (%i2) bit_onep(85,0);
+     (%o2)                         true
+     
+     
+     (%i3) bit_onep(85,1);
+     (%o3)                         false
+     
+     
+     (%i4) bit_onep(85,2);
+     (%o4)                         true
+     
+     
+     (%i5) bit_onep(85,3);
+     (%o5)                         false
+     
+     
+     (%i6) bit_onep(85,100);
+     (%o6)                         false
+     
+     
+     (%i7) bit_onep(i,100);
+     (%o7)                   bit_onep(i, 100)
+
+     For signed numbers the sign bit is interpreted to be more than
+     ‘nBit’ to the left of the leftmost bit of ‘int’ that reads ‘1’.
+
+     (%i1) load("bitwise")$
+     
+     (%i2) bit_onep(-2,0);
+     (%o2)                         false
+     
+     
+     (%i3) bit_onep(-2,1);
+     (%o3)                         true
+     
+     
+     (%i4) bit_onep(-2,2);
+     (%o4)                         true
+     
+     
+     (%i5) bit_onep(-2,3);
+     (%o5)                         true
+     
+     
+     (%i6) bit_onep(-2,4);
+     (%o6)                         true
+
+     If it is known if the number to be tested is even this information
+     is taken into consideration by the function.
+
+     (%i1) load("bitwise")$
+     
+     (%i2) declare(e,even,o,odd);
+     (%o2)                         done
+     
+     
+     (%i3) bit_onep(e,0);
+     (%o3)                         false
+     
+     
+     (%i4) bit_onep(o,0);
+     (%o4)                         true
 

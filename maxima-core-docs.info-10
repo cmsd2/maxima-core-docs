@@ -1,1182 +1,5 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.3 from
+This is maxima-core-docs.info, produced by makeinfo version 7.1 from
 maxima-core-docs.texi.
-
-
-File: maxima-core-docs.info,  Node: Function plsquares Mat VarList depvars,  Prev: Function lsquares_residuals D x e a,  Up: lsquares
-
- -- Function: plsquares (MAT, VARLIST, DEPVARS)
-     Multivariable polynomial adjustment of a data table by the "least
-     squares" method.  _Mat_ is a matrix containing the data, _VarList_
-     is a list of variable names (one for each Mat column, but use "-"
-     instead of varnames to ignore Mat columns), _depvars_ is the name
-     of a dependent variable or a list with one or more names of
-     dependent variables (which names should be in _VarList_),
-     _maxexpon_ is the optional maximum exponent for each independent
-     variable (1 by default), and _maxdegree_ is the optional maximum
-     polynomial degree (_maxexpon_ by default); note that the sum of
-     exponents of each term must be equal or smaller than _maxdegree_,
-     and if ‘maxdgree = 0’ then no limit is applied.
-
-     If _depvars_ is the name of a dependent variable (not in a list),
-     ‘plsquares’ returns the adjusted polynomial.  If _depvars_ is a
-     list of one or more dependent variables, ‘plsquares’ returns a list
-     with the adjusted polynomial(s).  The Coefficients of Determination
-     are displayed in order to inform about the goodness of fit, which
-     ranges from 0 (no correlation) to 1 (exact correlation).  These
-     values are also stored in the global variable _DETCOEF_ (a list if
-     _depvars_ is a list).
-
-     A simple example of multivariable linear adjustment:
-
-     (%i1) load("plsquares")$
-     
-     (%i2) plsquares(matrix([1,2,0],[3,5,4],[4,7,9],[5,8,10]),
-                     [x,y,z],z);
-          Determination Coefficient for z = .9897039897039897
-                            11 y - 9 x - 14
-     (%o2)              z = ---------------
-                                   3
-
-     The same example without degree restrictions:
-
-     (%i3) plsquares(matrix([1,2,0],[3,5,4],[4,7,9],[5,8,10]),
-                     [x,y,z],z,1,0);
-          Determination Coefficient for z = 1.0
-                         x y + 23 y - 29 x - 19
-     (%o3)           z = ----------------------
-                                   6
-
-     How many diagonals does a N-sides polygon have?  What polynomial
-     degree should be used?
-
-     (%i4) plsquares(matrix([3,0],[4,2],[5,5],[6,9],[7,14],[8,20]),
-                     [N,diagonals],diagonals,5);
-          Determination Coefficient for diagonals = 1.0
-                                     2
-                                    N  - 3 N
-     (%o4)              diagonals = --------
-                                       2
-     (%i5) ev(%, N=9);   /* Testing for a 9 sides polygon */
-     (%o5)                 diagonals = 27
-
-     How many ways do we have to put two queens without they are
-     threatened into a n x n chessboard?
-
-     (%i6) plsquares(matrix([0,0],[1,0],[2,0],[3,8],[4,44]),
-                     [n,positions],[positions],4);
-          Determination Coefficient for [positions] = [1.0]
-     
-                              4       3      2
-                           3 n  - 10 n  + 9 n  - 2 n
-     (%o6)    [positions = -------------------------]
-                                       6
-     
-     (%i7) ev(%[1], n=8); /* Testing for a (8 x 8) chessboard */
-     (%o7)                positions = 1288
-
-     An example with six dependent variables:
-
-     (%i8) mtrx:matrix([0,0,0,0,0,1,1,1],[0,1,0,1,1,1,0,0],
-                       [1,0,0,1,1,1,0,0],[1,1,1,1,0,0,0,1])$
-     (%i8) plsquares(mtrx,[a,b,_And,_Or,_Xor,_Nand,_Nor,_Nxor],
-                          [_And,_Or,_Xor,_Nand,_Nor,_Nxor],1,0);
-           Determination Coefficient for
-     [_And, _Or, _Xor, _Nand, _Nor, _Nxor] =
-     [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
-     (%o2) [_And = a b, _Or = - a b + b + a,
-     _Xor = - 2 a b + b + a, _Nand = 1 - a b,
-     _Nor = a b - b - a + 1, _Nxor = 2 a b - b - a + 1]
-
-     To use this function write first ‘load("lsquares")’.
-
-
-File: maxima-core-docs.info,  Node: stats,  Next: Tensors,  Prev: lsquares,  Up: Maxima Core Documentation
-
-1.121 stats
-===========
-
-* Menu:
-
-* Function cdf_rank_sum x n m::
-* Function cdf_signed_rank x n::
-* Function inference_result title values numbers::
-* Function inferencep obj::
-* Function items_inference obj::
-* Function linear_regression x::
-* Function pdf_rank_sum x n m::
-* Function pdf_signed_rank x n::
-* Variable stats_numer::
-* Function take_inference n obj::
-* Function test_mean x::
-* Function test_means_difference x1 x2::
-* Function test_normality x::
-* Function test_proportion x n::
-* Function test_proportions_difference x1 n1 x2 n2::
-* Function test_rank_sum x1 x2::
-* Function test_sign x::
-* Function test_signed_rank x::
-* Function test_variance x::
-* Function test_variance_ratio x1 x2::
-
-
-File: maxima-core-docs.info,  Node: Function cdf_rank_sum x n m,  Next: Function cdf_signed_rank x n,  Up: stats
-
- -- Function: cdf_rank_sum (X, N, M)
-     Cumulative distribution function of the exact distribution of the
-     rank sum statistic.  Argument _x_ is a real number and _n_ and _m_
-     are both positive integers.
-
-     See also ‘test_005frank_005fsum’.
-
-     See also: ‘test_rank_sum’.
-
-
-File: maxima-core-docs.info,  Node: Function cdf_signed_rank x n,  Next: Function inference_result title values numbers,  Prev: Function cdf_rank_sum x n m,  Up: stats
-
- -- Function: cdf_signed_rank (X, N)
-     Cumulative distribution function of the exact distribution of the
-     signed rank statistic.  Argument _x_ is a real number and _n_ a
-     positive integer.
-
-     See also ‘test_005fsigned_005frank’.
-
-     See also: ‘test_signed_rank’.
-
-
-File: maxima-core-docs.info,  Node: Function inference_result title values numbers,  Next: Function inferencep obj,  Prev: Function cdf_signed_rank x n,  Up: stats
-
- -- Function: inference_result (TITLE, VALUES, NUMBERS)
-     Constructs an ‘inference_result’ object of the type returned by the
-     stats functions.  Argument _title_ is a string with the name of the
-     procedure; _values_ is a list with elements of the form ‘symbol =
-     value’ and _numbers_ is a list with positive integer numbers
-     ranging from one to ‘length(values)’, indicating which values will
-     be shown by default.
-
-     Example:
-
-     This is a simple example showing results concerning a rectangle.
-     The title of this object is the string ‘"Rectangle"’, it stores
-     five results, named ‘'base’, ‘'height’, ‘'diagonal’, ‘'area’, and
-     ‘'perimeter’, but only the first, second, fifth, and fourth will be
-     displayed.  The ‘'diagonal’ is stored in this object, but it is not
-     displayed; to access its value, make use of function
-     ‘take_inference’.
-
-     (%i1) load("inference_result")$
-     (%i2) b: 3$ h: 2$
-     (%i3) inference_result("Rectangle",
-                             ['base=b,
-                              'height=h,
-                              'diagonal=sqrt(b^2+h^2),
-                              'area=b*h,
-                              'perimeter=2*(b+h)],
-                             [1,2,5,4] );
-                             |   Rectangle
-                             |
-                             |    base = 3
-                             |
-     (%o3)                   |   height = 2
-                             |
-                             | perimeter = 10
-                             |
-                             |    area = 6
-     (%i4) take_inference('diagonal,%);
-     (%o4)                        sqrt(13)
-
-     See also ‘take_005finference’.
-
-     See also: ‘take_inference’.
-
-
-File: maxima-core-docs.info,  Node: Function inferencep obj,  Next: Function items_inference obj,  Prev: Function inference_result title values numbers,  Up: stats
-
- -- Function: inferencep (OBJ)
-     Returns ‘true’ or ‘false’, depending on whether _obj_ is an
-     ‘inference_result’ object or not.
-
-
-File: maxima-core-docs.info,  Node: Function items_inference obj,  Next: Function linear_regression x,  Prev: Function inferencep obj,  Up: stats
-
- -- Function: items_inference (OBJ)
-     Returns a list with the names of the items stored in _obj_, which
-     must be an ‘inference_result’ object.
-
-     Example:
-
-     The ‘inference_result’ object stores two values, named ‘'pi’ and
-     ‘'e’, but only the second is displayed.  The ‘items_inference’
-     function returns the names of all items, no matter they are
-     displayed or not.
-
-     (%i1) load("inference_result")$
-     (%i2) inference_result("Hi", ['pi=%pi,'e=%e],[2]);
-                                 |   Hi
-     (%o2)                       |
-                                 | e = %e
-     (%i3) items_inference(%);
-     (%o3)                        [pi, e]
-
-
-File: maxima-core-docs.info,  Node: Function linear_regression x,  Next: Function pdf_rank_sum x n m,  Prev: Function items_inference obj,  Up: stats
-
- -- Function: linear_regression (X)
-     Multivariate linear regression, y_i = b0 + b1*x_1i + b2*x_2i + ...
-     + bk*x_ki + u_i, where u_i are N(0,sigma) independent random
-     variables.  Argument _x_ must be a matrix with more than one
-     column.  The last column is considered as the responses (y_i).
-
-     Option:
-
-        •    • ‘'conflevel’, default ‘95/100’, confidence
-               level for the confidence intervals; it must be an
-               expression which takes a value in (0,1).
-
-     The output of function ‘linear_regression’ is an ‘inference_result’
-     Maxima object with the following results:
-
-       1. ‘'b_estimation’: regression coefficients estimates.
-       2. ‘'b_covariances’: covariance matrix of the regression
-          coefficients estimates.
-       3. ‘b_conf_int’: confidence intervals of the regression
-          coefficients.
-       4. ‘b_statistics’: statistics for testing coefficient.
-       5. ‘b_p_values’: p-values for coefficient tests.
-       6. ‘b_distribution’: probability distribution for coefficient
-          tests.
-       7. ‘v_estimation’: unbiased variance estimator.
-       8. ‘v_conf_int’: variance confidence interval.
-       9. ‘v_distribution’: probability distribution for variance test.
-       10. ‘residuals’: residuals.
-       11. ‘adc’: adjusted determination coefficient.
-       12. ‘aic’: Akaike's information criterion.
-       13. ‘bic’: Bayes's information criterion.
-
-     Only items 1, 4, 5, 6, 7, 8, 9 and 11 above, in this order, are
-     shown by default.  The rest remain hidden until the user makes use
-     of functions ‘items_inference’ and ‘take_inference’.
-
-     Example:
-
-     Fitting a linear model to a trivariate sample.  The last column is
-     considered as the responses (y_i).
-
-     (%i2) load("stats")$
-     (%i3) X:matrix(
-         [58,111,64],[84,131,78],[78,158,83],
-         [81,147,88],[82,121,89],[102,165,99],
-         [85,174,101],[102,169,102])$
-     (%i4) fpprintprec: 4$
-     (%i5) res: linear_regression(X);
-                  |       LINEAR REGRESSION MODEL         
-                  |                                       
-                  | b_estimation = [9.054, .5203, .2397]  
-                  |                                       
-                  | b_statistics = [.6051, 2.246, 1.74]   
-                  |                                       
-                  | b_p_values = [.5715, .07466, .1423]   
-                  |                                       
-     (%o5)        |   b_distribution = [student_t, 5]     
-                  |                                       
-                  |         v_estimation = 35.27          
-                  |                                       
-                  |     v_conf_int = [13.74, 212.2]       
-                  |                                       
-                  |      v_distribution = [chi2, 5]       
-                  |                                       
-                  |             adc = .7922               
-     (%i6) items_inference(res);
-     (%o6) [b_estimation, b_covariances, b_conf_int, b_statistics, 
-     b_p_values, b_distribution, v_estimation, v_conf_int, 
-     v_distribution, residuals, adc, aic, bic]
-     (%i7) take_inference('b_covariances, res);
-                       [  223.9    - 1.12   - .8532  ]
-                       [                             ]
-     (%o7)             [ - 1.12    .05367   - .02305 ]
-                       [                             ]
-                       [ - .8532  - .02305   .01898  ]
-     (%i8) take_inference('bic, res);
-     (%o8)                          30.98
-     (%i9) load("draw")$
-     (%i10) draw2d(
-         points_joined = true,
-         grid = true,
-         points(take_inference('residuals, res)) )$
-
-
-File: maxima-core-docs.info,  Node: Function pdf_rank_sum x n m,  Next: Function pdf_signed_rank x n,  Prev: Function linear_regression x,  Up: stats
-
- -- Function: pdf_rank_sum (X, N, M)
-     Probability density function of the exact distribution of the rank
-     sum statistic.  Argument _x_ is a real number and _n_ and _m_ are
-     both positive integers.
-
-     See also ‘test_005frank_005fsum’.
-
-     See also: ‘test_rank_sum’.
-
-
-File: maxima-core-docs.info,  Node: Function pdf_signed_rank x n,  Next: Variable stats_numer,  Prev: Function pdf_rank_sum x n m,  Up: stats
-
- -- Function: pdf_signed_rank (X, N)
-     Probability density function of the exact distribution of the
-     signed rank statistic.  Argument _x_ is a real number and _n_ a
-     positive integer.
-
-     See also ‘test_005fsigned_005frank’.
-
-     See also: ‘test_signed_rank’.
-
-
-File: maxima-core-docs.info,  Node: Variable stats_numer,  Next: Function take_inference n obj,  Prev: Function pdf_signed_rank x n,  Up: stats
-
- -- Variable: stats_numer
-     Default value: ‘true’
-
-     If ‘stats_numer’ is ‘true’, inference statistical functions return
-     their results in floating point numbers.  If it is ‘false’, results
-     are given in symbolic and rational format.
-
-
-File: maxima-core-docs.info,  Node: Function take_inference n obj,  Next: Function test_mean x,  Prev: Variable stats_numer,  Up: stats
-
- -- Function: take_inference (N, OBJ)
-     Returns the _n_-th value stored in _obj_ if _n_ is a positive
-     integer, or the item named _name_ if this is the name of an item.
-     If the first argument is a list of numbers and/or symbols, function
-     ‘take_inference’ returns a list with the corresponding results.
-
-     Example:
-
-     Given an ‘inference_result’ object, function ‘take_inference’ is
-     called in order to extract some information stored in it.
-
-     (%i1) load("inference_result")$
-     (%i2) b: 3$ h: 2$
-     (%i3) sol: inference_result("Rectangle",
-                                 ['base=b,
-                                  'height=h,
-                                  'diagonal=sqrt(b^2+h^2),
-                                  'area=b*h,
-                                  'perimeter=2*(b+h)],
-                                 [1,2,5,4] );
-                             |   Rectangle
-                             |
-                             |    base = 3
-                             |
-     (%o3)                   |   height = 2
-                             |
-                             | perimeter = 10
-                             |
-                             |    area = 6
-     (%i4) take_inference('base,sol);
-     (%o4)                           3
-     (%i5) take_inference(5,sol);
-     (%o5)                          10
-     (%i6) take_inference([1,'diagonal],sol);
-     (%o6)                     [3, sqrt(13)]
-     (%i7) take_inference(items_inference(sol),sol);
-     (%o7)                [3, 2, sqrt(13), 6, 10]
-
-     See also ‘inference_result’, and ‘take_005finference’.
-
-     See also: ‘inference_result’, ‘take_inference’.
-
-
-File: maxima-core-docs.info,  Node: Function test_mean x,  Next: Function test_means_difference x1 x2,  Prev: Function take_inference n obj,  Up: stats
-
- -- Function: test_mean (X)
-     This is the mean _t_-test.  Argument _x_ is a list or a column
-     matrix containing an one dimensional sample.  It also performs an
-     asymptotic test based on the _Central Limit Theorem_ if option
-     ‘'asymptotic’ is ‘true’.
-
-     Options:
-
-        •    • ‘'mean’, default ‘0’, is the mean value to be
-               checked.
-
-        •    • ‘'alternative’, default ‘'twosided’, is the
-               alternative hypothesis; valid values are: ‘'twosided’,
-               ‘'greater’ and ‘'less’.
-
-        •    • ‘'dev’, default ‘'unknown’, this is the value
-               of the standard deviation when it is known; valid values
-               are: ‘'unknown’ or a positive expression.
-
-        •    • ‘'conflevel’, default ‘95/100’, confidence
-               level for the confidence interval; it must be an
-               expression which takes a value in (0,1).
-
-        •    • ‘'asymptotic’, default ‘false’, indicates
-               whether it performs an exact _t_-test or an asymptotic
-               one based on the _Central Limit Theorem_; valid values
-               are ‘true’ and ‘false’.
-
-     The output of function ‘test_mean’ is an ‘inference_result’ Maxima
-     object showing the following results:
-
-       1. ‘'mean_estimate’: the sample mean.
-       2. ‘'conf_level’: confidence level selected by the user.
-       3. ‘'conf_interval’: confidence interval for the population mean.
-       4. ‘'method’: inference procedure.
-       5. ‘'hypotheses’: null and alternative hypotheses to be tested.
-       6. ‘'statistic’: value of the sample statistic used for testing
-          the null hypothesis.
-       7. ‘'distribution’: distribution of the sample statistic,
-          together with its parameter(s).
-       8. ‘'p_value’: p-value of the test.
-
-     Examples:
-
-     Performs an exact _t_-test with unknown variance.  The null
-     hypothesis is H_0: mean=50 against the one sided alternative H_1:
-     mean<50; according to the results, the p-value is too great, there
-     are no evidence for rejecting H_0.
-
-     (%i1) load("stats")$
-     (%i2) data: [78,64,35,45,45,75,43,74,42,42]$
-     (%i3) test_mean(data,'conflevel=0.9,'alternative='less,'mean=50);
-               |                 MEAN TEST
-               |
-               |            mean_estimate = 54.3
-               |
-               |              conf_level = 0.9
-               |
-               | conf_interval = [minf, 61.51314273502712]
-               |
-     (%o3)     |  method = Exact t-test. Unknown variance.
-               |
-               | hypotheses = H0: mean = 50 , H1: mean < 50
-               |
-               |       statistic = .8244705235071678
-               |
-               |       distribution = [student_t, 9]
-               |
-               |        p_value = .7845100411786889
-
-     This time Maxima performs an asymptotic test, based on the _Central
-     Limit Theorem_.  The null hypothesis is H_0: equal(mean, 50)
-     against the two sided alternative H_1: not equal(mean, 50);
-     according to the results, the p-value is very small, H_0 should be
-     rejected in favor of the alternative H_1.  Note that, as indicated
-     by the ‘Method’ component, this procedure should be applied to
-     large samples.
-
-     (%i1) load("stats")$
-     (%i2) test_mean([36,118,52,87,35,256,56,178,57,57,89,34,25,98,35,
-                   98,41,45,198,54,79,63,35,45,44,75,42,75,45,45,
-                   45,51,123,54,151],
-                   'asymptotic=true,'mean=50);
-               |                       MEAN TEST
-               |
-               |           mean_estimate = 74.88571428571429
-               |
-               |                   conf_level = 0.95
-               |
-               | conf_interval = [57.72848600856194, 92.04294256286663]
-               |
-     (%o2)     |    method = Large sample z-test. Unknown variance.
-               |
-               |       hypotheses = H0: mean = 50 , H1: mean # 50
-               |
-               |             statistic = 2.842831192874313
-               |
-               |             distribution = [normal, 0, 1]
-               |
-               |             p_value = .004471474652002261
-
-
-File: maxima-core-docs.info,  Node: Function test_means_difference x1 x2,  Next: Function test_normality x,  Prev: Function test_mean x,  Up: stats
-
- -- Function: test_means_difference (X1, X2)
-     This is the difference of means _t_-test for two samples.
-     Arguments _x1_ and _x2_ are lists or column matrices containing two
-     independent samples.  In case of different unknown variances (see
-     options ‘'dev1’, ‘'dev2’ and ‘'varequal’ below), the degrees of
-     freedom are computed by means of the Welch approximation.  It also
-     performs an asymptotic test based on the _Central Limit Theorem_ if
-     option ‘'asymptotic’ is set to ‘true’.
-
-     Options:
-
-        •    • 
-        •    • ‘'alternative’, default ‘'twosided’, is the
-               alternative hypothesis; valid values are: ‘'twosided’,
-               ‘'greater’ and ‘'less’.
-
-        •    • ‘'dev1’, default ‘'unknown’, this is the value
-               of the standard deviation of the _x1_ sample when it is
-               known; valid values are: ‘'unknown’ or a positive
-               expression.
-
-        •    • ‘'dev2’, default ‘'unknown’, this is the value
-               of the standard deviation of the _x2_ sample when it is
-               known; valid values are: ‘'unknown’ or a positive
-               expression.
-
-        •    • ‘'varequal’, default ‘false’, whether variances
-               should be considered to be equal or not; this option
-               takes effect only when ‘'dev1’ and/or ‘'dev2’ are
-               ‘'unknown’.
-
-        •    • ‘'conflevel’, default ‘95/100’, confidence
-               level for the confidence interval; it must be an
-               expression which takes a value in (0,1).
-
-        •    • ‘'asymptotic’, default ‘false’, indicates
-               whether it performs an exact _t_-test or an asymptotic
-               one based on the _Central Limit Theorem_; valid values
-               are ‘true’ and ‘false’.
-
-     The output of function ‘test_means_difference’ is an
-     ‘inference_result’ Maxima object showing the following results:
-
-       1. ‘'diff_estimate’: the difference of means estimate.
-       2. ‘'conf_level’: confidence level selected by the user.
-       3. ‘'conf_interval’: confidence interval for the difference of
-          means.
-       4. ‘'method’: inference procedure.
-       5. ‘'hypotheses’: null and alternative hypotheses to be tested.
-       6. ‘'statistic’: value of the sample statistic used for testing
-          the null hypothesis.
-       7. ‘'distribution’: distribution of the sample statistic,
-          together with its parameter(s).
-       8. ‘'p_value’: p-value of the test.
-
-     Examples:
-
-     The equality of means is tested with two small samples _x_ and _y_,
-     against the alternative H_1: m_1>m_2, being m_1 and m_2 the
-     populations means; variances are unknown and supposed to be
-     different.
-
-     (%i1) load("stats")$
-     (%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
-     (%i3) y: [1.2,6.9,38.7,20.4,17.2]$
-     (%i4) test_means_difference(x,y,'alternative='greater);
-                 |              DIFFERENCE OF MEANS TEST
-                 |
-                 |         diff_estimate = 20.31999999999999
-                 |
-                 |                 conf_level = 0.95
-                 |
-                 |    conf_interval = [- .04597417812882298, inf]
-                 |
-     (%o4)       |        method = Exact t-test. Welch approx.
-                 |
-                 | hypotheses = H0: mean1 = mean2 , H1: mean1 > mean2
-                 |
-                 |           statistic = 1.838004300728477
-                 |
-                 |    distribution = [student_t, 8.62758740184604]
-                 |
-                 |            p_value = .05032746527991905
-
-     The same test as before, but now variances are supposed to be
-     equal.
-
-     (%i1) load("stats")$
-     (%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
-     (%i3) y: matrix([1.2],[6.9],[38.7],[20.4],[17.2])$
-     (%i4) test_means_difference(x,y,'alternative='greater,
-                                                      'varequal=true);
-                 |              DIFFERENCE OF MEANS TEST
-                 |
-                 |         diff_estimate = 20.31999999999999
-                 |
-                 |                 conf_level = 0.95
-                 |
-                 |     conf_interval = [- .7722627696897568, inf]
-                 |
-     (%o4)       |   method = Exact t-test. Unknown equal variances
-                 |
-                 | hypotheses = H0: mean1 = mean2 , H1: mean1 > mean2
-                 |
-                 |           statistic = 1.765996124515009
-                 |
-                 |           distribution = [student_t, 9]
-                 |
-                 |            p_value = .05560320992529344
-
-
-File: maxima-core-docs.info,  Node: Function test_normality x,  Next: Function test_proportion x n,  Prev: Function test_means_difference x1 x2,  Up: stats
-
- -- Function: test_normality (X)
-     Shapiro-Wilk test for normality.  Argument _x_ is a list of
-     numbers, and sample size must be greater than 2 and less or equal
-     than 5000, otherwise, function ‘test_normality’ signals an error
-     message.
-
-     Reference:
-
-     [1] Algorithm AS R94, Applied Statistics (1995), vol.44, no.4,
-     547-551
-
-     The output of function ‘test_normality’ is an ‘inference_result’
-     Maxima object with the following results:
-
-       1. ‘'statistic’: value of the _W_ statistic.
-       2. ‘'p_value’: p-value under normal assumption.
-
-     Examples:
-
-     Checks for the normality of a population, based on a sample of size
-     9.
-
-     (%i1) load("stats")$
-     (%i2) x:[12,15,17,38,42,10,23,35,28]$
-     (%i3) test_normality(x);
-                            |      SHAPIRO - WILK TEST
-                            |
-     (%o3)                  | statistic = .9251055695162436
-                            |
-                            |  p_value = .4361763918860381
-
-
-File: maxima-core-docs.info,  Node: Function test_proportion x n,  Next: Function test_proportions_difference x1 n1 x2 n2,  Prev: Function test_normality x,  Up: stats
-
- -- Function: test_proportion (X, N)
-     Inferences on a proportion.  Argument _x_ is the number of
-     successes in _n_ trials in a Bernoulli experiment with unknown
-     probability.
-
-     Options:
-
-        •    • ‘'proportion’, default ‘1/2’, is the value of
-               the proportion to be checked.
-
-        •    • ‘'alternative’, default ‘'twosided’, is the
-               alternative hypothesis; valid values are: ‘'twosided’,
-               ‘'greater’ and ‘'less’.
-
-        •    • ‘'conflevel’, default ‘95/100’, confidence
-               level for the confidence interval; it must be an
-               expression which takes a value in (0,1).
-
-        •    • ‘'asymptotic’, default ‘false’, indicates
-               whether it performs an exact test based on the binomial
-               distribution, or an asymptotic one based on the _Central
-               Limit Theorem_; valid values are ‘true’ and ‘false’.
-
-        •    • ‘'correct’, default ‘true’, indicates whether
-               Yates correction is applied or not.
-
-     The output of function ‘test_proportion’ is an ‘inference_result’
-     Maxima object showing the following results:
-
-       1. ‘'sample_proportion’: the sample proportion.
-       2. ‘'conf_level’: confidence level selected by the user.
-       3. ‘'conf_interval’: Wilson confidence interval for the
-          proportion.
-       4. ‘'method’: inference procedure.
-       5. ‘'hypotheses’: null and alternative hypotheses to be tested.
-       6. ‘'statistic’: value of the sample statistic used for testing
-          the null hypothesis.
-       7. ‘'distribution’: distribution of the sample statistic,
-          together with its parameters.
-       8. ‘'p_value’: p-value of the test.
-
-     Examples:
-
-     Performs an exact test.  The null hypothesis is H_0: p=1/2 against
-     the one sided alternative H_1: p<1/2.
-
-     (%i1) load("stats")$
-     (%i2) test_proportion(45, 103, alternative = less);
-              |            PROPORTION TEST              
-              |                                         
-              | sample_proportion = .4368932038834951   
-              |                                         
-              |           conf_level = 0.95             
-              |                                         
-              | conf_interval = [0, 0.522714149150231]  
-              |                                         
-     (%o2)    |     method = Exact binomial test.       
-              |                                         
-              | hypotheses = H0: p = 0.5 , H1: p < 0.5  
-              |                                         
-              |             statistic = 45              
-              |                                         
-              |  distribution = [binomial, 103, 0.5]    
-              |                                         
-              |      p_value = .1184509388901454
-
-     A two sided asymptotic test.  Confidence level is 99/100.
-
-     (%i1) load("stats")$
-     (%i2) fpprintprec:7$
-     (%i3) test_proportion(45, 103, 
-                       conflevel = 99/100, asymptotic=true);
-           |                 PROPORTION TEST                  
-           |                                                  
-           |           sample_proportion = .43689             
-           |                                                  
-           |                conf_level = 0.99                 
-           |                                                  
-           |        conf_interval = [.31422, .56749]          
-           |                                                  
-     (%o3) | method = Asympthotic test with Yates correction.
-           |                                                  
-           |     hypotheses = H0: p = 0.5 , H1: p # 0.5       
-           |                                                  
-           |               statistic = .43689                 
-           |                                                  
-           |      distribution = [normal, 0.5, .048872]       
-           |                                                  
-           |                p_value = .19662
-
-
-File: maxima-core-docs.info,  Node: Function test_proportions_difference x1 n1 x2 n2,  Next: Function test_rank_sum x1 x2,  Prev: Function test_proportion x n,  Up: stats
-
- -- Function: test_proportions_difference (X1, N1, X2, N2)
-     Inferences on the difference of two proportions.  Argument _x1_ is
-     the number of successes in _n1_ trials in a Bernoulli experiment in
-     the first population, and _x2_ and _n2_ are the corresponding
-     values in the second population.  Samples are independent and the
-     test is asymptotic.
-
-     Options:
-
-        •    • ‘'alternative’, default ‘'twosided’, is the
-               alternative hypothesis; valid values are: ‘'twosided’
-               (‘p1 # p2’), ‘'greater’ (‘p1 > p2’) and ‘'less’ (‘p1 <
-               p2’).
-
-        •    • ‘'conflevel’, default ‘95/100’, confidence
-               level for the confidence interval; it must be an
-               expression which takes a value in (0,1).
-
-        •    • ‘'correct’, default ‘true’, indicates whether
-               Yates correction is applied or not.
-
-     The output of function ‘test_proportions_difference’ is an
-     ‘inference_result’ Maxima object showing the following results:
-
-       1. ‘'proportions’: list with the two sample proportions.
-       2. ‘'conf_level’: confidence level selected by the user.
-       3. ‘'conf_interval’: Confidence interval for the difference of
-          proportions ‘p1 - p2’.
-       4. ‘'method’: inference procedure and warning message in case of
-          any of the samples sizes is less than 10.
-       5. ‘'hypotheses’: null and alternative hypotheses to be tested.
-       6. ‘'statistic’: value of the sample statistic used for testing
-          the null hypothesis.
-       7. ‘'distribution’: distribution of the sample statistic,
-          together with its parameters.
-       8. ‘'p_value’: p-value of the test.
-
-     Examples:
-
-     A machine produced 10 defective articles in a batch of 250.  After
-     some maintenance work, it produces 4 defective in a batch of 150.
-     In order to know if the machine has improved, we test the null
-     hypothesis ‘H0:p1=p2’, against the alternative ‘H0:p1>p2’, where
-     ‘p1’ and ‘p2’ are the probabilities for one produced article to be
-     defective before and after maintenance.  According to the p value,
-     there is not enough evidence to accept the alternative.
-
-     (%i1) load("stats")$
-     (%i2) fpprintprec:7$
-     (%i3) test_proportions_difference(10, 250, 4, 150,
-                                     alternative = greater);
-           |       DIFFERENCE OF PROPORTIONS TEST         
-           |                                              
-           |       proportions = [0.04, .02666667]        
-           |                                              
-           |              conf_level = 0.95               
-           |                                              
-           |      conf_interval = [- .02172761, 1]        
-           |                                              
-     (%o3) | method = Asymptotic test. Yates correction.  
-           |                                              
-           |   hypotheses = H0: p1 = p2 , H1: p1 > p2     
-           |                                              
-           |            statistic = .01333333             
-           |                                              
-           |    distribution = [normal, 0, .01898069]     
-           |                                              
-           |             p_value = .2411936
-
-     Exact standard deviation of the asymptotic normal distribution when
-     the data are unknown.
-
-     (%i1) load("stats")$
-     (%i2) stats_numer: false$
-     (%i3) sol: test_proportions_difference(x1,n1,x2,n2)$
-     (%i4) last(take_inference('distribution,sol));
-                    1    1                  x2 + x1
-                   (-- + --) (x2 + x1) (1 - -------)
-                    n2   n1                 n2 + n1
-     (%o4)    sqrt(---------------------------------)
-                                n2 + n1
-
-
-File: maxima-core-docs.info,  Node: Function test_rank_sum x1 x2,  Next: Function test_sign x,  Prev: Function test_proportions_difference x1 n1 x2 n2,  Up: stats
-
- -- Function: test_rank_sum (X1, X2)
-     This is the Wilcoxon-Mann-Whitney test for comparing the medians of
-     two continuous populations.  The first two arguments _x1_ and _x2_
-     are lists or column matrices with the data of two independent
-     samples.  Performs normal approximation if any of the sample sizes
-     is greater than 10, or if there are ties.
-
-     Option:
-
-        •    • ‘'alternative’, default ‘'twosided’, is the
-               alternative hypothesis; valid values are: ‘'twosided’,
-               ‘'greater’ and ‘'less’.
-
-     The output of function ‘test_rank_sum’ is an ‘inference_result’
-     Maxima object with the following results:
-
-       1. ‘'method’: inference procedure.
-       2. ‘'hypotheses’: null and alternative hypotheses to be tested.
-       3. ‘'statistic’: value of the sample statistic used for testing
-          the null hypothesis.
-       4. ‘'distribution’: distribution of the sample statistic,
-          together with its parameters.
-       5. ‘'p_value’: p-value of the test.
-
-     Examples:
-
-     Checks whether populations have similar medians.  Samples sizes are
-     small and an exact test is made.
-
-     (%i1) load("stats")$
-     (%i2) x:[12,15,17,38,42,10,23,35,28]$
-     (%i3) y:[21,18,25,14,52,65,40,43]$
-     (%i4) test_rank_sum(x,y);
-                   |                 RANK SUM TEST
-                   |
-                   |              method = Exact test
-                   |
-                   | hypotheses = H0: med1 = med2 , H1: med1 # med2
-     (%o4)         |
-                   |                 statistic = 22
-                   |
-                   |        distribution = [rank_sum, 9, 8]
-                   |
-                   |          p_value = .1995886466474702
-
-     Now, with greater samples and ties, the procedure makes normal
-     approximation.  The alternative hypothesis is H_1: median1 <
-     median2.
-
-     (%i1) load("stats")$
-     (%i2) x: [39,42,35,13,10,23,15,20,17,27]$
-     (%i3) y: [20,52,66,19,41,32,44,25,14,39,43,35,19,56,27,15]$
-     (%i4) test_rank_sum(x,y,'alternative='less);
-                  |                  RANK SUM TEST
-                  |
-                  |          method = Asymptotic test. Ties
-                  |
-                  |  hypotheses = H0: med1 = med2 , H1: med1 < med2
-     (%o4)        |
-                  |                 statistic = 48.5
-                  |
-                  | distribution = [normal, 79.5, 18.95419580097078]
-                  |
-                  |           p_value = .05096985666598441
-
-
-File: maxima-core-docs.info,  Node: Function test_sign x,  Next: Function test_signed_rank x,  Prev: Function test_rank_sum x1 x2,  Up: stats
-
- -- Function: test_sign (X)
-     This is the non parametric sign test for the median of a continuous
-     population.  Argument _x_ is a list or a column matrix containing
-     an one dimensional sample.
-
-     Options:
-
-        •    • ‘'alternative’, default ‘'twosided’, is the
-               alternative hypothesis; valid values are: ‘'twosided’,
-               ‘'greater’ and ‘'less’.
-
-        •    • ‘'median’, default ‘0’, is the median value to
-               be checked.
-
-     The output of function ‘test_sign’ is an ‘inference_result’ Maxima
-     object showing the following results:
-
-       1. ‘'med_estimate’: the sample median.
-       2. ‘'method’: inference procedure.
-       3. ‘'hypotheses’: null and alternative hypotheses to be tested.
-       4. ‘'statistic’: value of the sample statistic used for testing
-          the null hypothesis.
-       5. ‘'distribution’: distribution of the sample statistic,
-          together with its parameter(s).
-       6. ‘'p_value’: p-value of the test.
-
-     Examples:
-
-     Checks whether the population from which the sample was taken has
-     median 6, against the alternative H_1: median > 6.
-
-     (%i1) load("stats")$
-     (%i2) x: [2,0.1,7,1.8,4,2.3,5.6,7.4,5.1,6.1,6]$
-     (%i3) test_sign(x,'median=6,'alternative='greater);
-                    |                  SIGN TEST
-                    |
-                    |              med_estimate = 5.1
-                    |
-                    |      method = Non parametric sign test.
-                    |
-     (%o3)          | hypotheses = H0: median = 6 , H1: median > 6
-                    |
-                    |                statistic = 7
-                    |
-                    |      distribution = [binomial, 10, 0.5]
-                    |
-                    |         p_value = .05468749999999989
-
-
-File: maxima-core-docs.info,  Node: Function test_signed_rank x,  Next: Function test_variance x,  Prev: Function test_sign x,  Up: stats
-
- -- Function: test_signed_rank (X)
-     This is the Wilcoxon signed rank test to make inferences about the
-     median of a continuous population.  Argument _x_ is a list or a
-     column matrix containing an one dimensional sample.  Performs
-     normal approximation if the sample size is greater than 20, or if
-     there are zeroes or ties.
-
-     See also ‘pdf_rank_test’ and ‘cdf_rank_test’
-
-     Options:
-
-        •    • ‘'median’, default ‘0’, is the median value to
-               be checked.
-
-        •    • ‘'alternative’, default ‘'twosided’, is the
-               alternative hypothesis; valid values are: ‘'twosided’,
-               ‘'greater’ and ‘'less’.
-
-     The output of function ‘test_signed_rank’ is an ‘inference_result’
-     Maxima object with the following results:
-
-       1. ‘'med_estimate’: the sample median.
-       2. ‘'method’: inference procedure.
-       3. ‘'hypotheses’: null and alternative hypotheses to be tested.
-       4. ‘'statistic’: value of the sample statistic used for testing
-          the null hypothesis.
-       5. ‘'distribution’: distribution of the sample statistic,
-          together with its parameter(s).
-       6. ‘'p_value’: p-value of the test.
-
-     Examples:
-
-     Checks the null hypothesis H_0: median = 15 against the alternative
-     H_1: median > 15.  This is an exact test, since there are no ties.
-
-     (%i1) load("stats")$
-     (%i2) x: [17.1,15.9,13.7,13.4,15.5,17.6]$
-     (%i3) test_signed_rank(x,median=15,alternative=greater);
-                      |             SIGNED RANK TEST
-                      |
-                      |           med_estimate = 15.7
-                      |
-                      |           method = Exact test
-                      |
-     (%o3)            | hypotheses = H0: med = 15 , H1: med > 15
-                      |
-                      |              statistic = 14
-                      |
-                      |     distribution = [signed_rank, 6]
-                      |
-                      |            p_value = 0.28125
-
-     Checks the null hypothesis H_0: equal(median, 2.5) against the
-     alternative H_1: not equal(median, 2.5).  This is an approximated
-     test, since there are ties.
-
-     (%i1) load("stats")$
-     (%i2) y:[1.9,2.3,2.6,1.9,1.6,3.3,4.2,4,2.4,2.9,1.5,3,2.9,4.2,3.1]$
-     (%i3) test_signed_rank(y,median=2.5);
-                  |                 SIGNED RANK TEST
-                  |
-                  |                med_estimate = 2.9
-                  |
-                  |          method = Asymptotic test. Ties
-                  |
-     (%o3)        |    hypotheses = H0: med = 2.5 , H1: med # 2.5
-                  |
-                  |                 statistic = 76.5
-                  |
-                  | distribution = [normal, 60.5, 17.58195097251724]
-                  |
-                  |           p_value = .3628097734643669
-
-
-File: maxima-core-docs.info,  Node: Function test_variance x,  Next: Function test_variance_ratio x1 x2,  Prev: Function test_signed_rank x,  Up: stats
-
- -- Function: test_variance (X)
-     This is the variance _chi^2_-test.  Argument _x_ is a list or a
-     column matrix containing an one dimensional sample taken from a
-     normal population.
-
-     Options:
-
-        •    • ‘'mean’, default ‘'unknown’, is the
-               population's mean, when it is known.
-
-        •    • ‘'alternative’, default ‘'twosided’, is the
-               alternative hypothesis; valid values are: ‘'twosided’,
-               ‘'greater’ and ‘'less’.
-
-        •    • ‘'variance’, default ‘1’, this is the variance
-               value (positive) to be checked.
-
-        •    • ‘'conflevel’, default ‘95/100’, confidence
-               level for the confidence interval; it must be an
-               expression which takes a value in (0,1).
-
-     The output of function ‘test_variance’ is an ‘inference_result’
-     Maxima object showing the following results:
-
-       1. ‘'var_estimate’: the sample variance.
-       2. ‘'conf_level’: confidence level selected by the user.
-       3. ‘'conf_interval’: confidence interval for the population
-          variance.
-       4. ‘'method’: inference procedure.
-       5. ‘'hypotheses’: null and alternative hypotheses to be tested.
-       6. ‘'statistic’: value of the sample statistic used for testing
-          the null hypothesis.
-       7. ‘'distribution’: distribution of the sample statistic,
-          together with its parameter.
-       8. ‘'p_value’: p-value of the test.
-
-     Examples:
-
-     It is tested whether the variance of a population with unknown mean
-     is equal to or greater than 200.
-
-     (%i1) load("stats")$
-     (%i2) x: [203,229,215,220,223,233,208,228,209]$
-     (%i3) test_variance(x,'alternative='greater,'variance=200);
-                  |                  VARIANCE TEST
-                  |
-                  |              var_estimate = 110.75
-                  |
-                  |                conf_level = 0.95
-                  |
-                  |     conf_interval = [57.13433376937479, inf]
-                  |
-     (%o3)        | method = Variance Chi-square test. Unknown mean.
-                  |
-                  |    hypotheses = H0: var = 200 , H1: var > 200
-                  |
-                  |                 statistic = 4.43
-                  |
-                  |             distribution = [chi2, 8]
-                  |
-                  |           p_value = .8163948512777689
-
-
-File: maxima-core-docs.info,  Node: Function test_variance_ratio x1 x2,  Prev: Function test_variance x,  Up: stats
-
- -- Function: test_variance_ratio (X1, X2)
-     This is the variance ratio _F_-test for two normal populations.
-     Arguments _x1_ and _x2_ are lists or column matrices containing two
-     independent samples.
-
-     Options:
-
-        •    • ‘'alternative’, default ‘'twosided’, is the
-               alternative hypothesis; valid values are: ‘'twosided’,
-               ‘'greater’ and ‘'less’.
-
-        •    • ‘'mean1’, default ‘'unknown’, when it is known,
-               this is the mean of the population from which _x1_ was
-               taken.
-
-        •    • ‘'mean2’, default ‘'unknown’, when it is known,
-               this is the mean of the population from which _x2_ was
-               taken.
-
-        •    • ‘'conflevel’, default ‘95/100’, confidence
-               level for the confidence interval of the ratio; it must
-               be an expression which takes a value in (0,1).
-
-     The output of function ‘test_variance_ratio’ is an
-     ‘inference_result’ Maxima object showing the following results:
-
-       1. ‘'ratio_estimate’: the sample variance ratio.
-       2. ‘'conf_level’: confidence level selected by the user.
-       3. ‘'conf_interval’: confidence interval for the variance ratio.
-       4. ‘'method’: inference procedure.
-       5. ‘'hypotheses’: null and alternative hypotheses to be tested.
-       6. ‘'statistic’: value of the sample statistic used for testing
-          the null hypothesis.
-       7. ‘'distribution’: distribution of the sample statistic,
-          together with its parameters.
-       8. ‘'p_value’: p-value of the test.
-
-     Examples:
-
-     The equality of the variances of two normal populations is checked
-     against the alternative that the first is greater than the second.
-
-     (%i1) load("stats")$
-     (%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
-     (%i3) y: [1.2,6.9,38.7,20.4,17.2]$
-     (%i4) test_variance_ratio(x,y,'alternative='greater);
-                   |              VARIANCE RATIO TEST
-                   |
-                   |       ratio_estimate = 2.316933391522034
-                   |
-                   |               conf_level = 0.95
-                   |
-                   |    conf_interval = [.3703504689507268, inf]
-                   |
-     (%o4)         | method = Variance ratio F-test. Unknown means.
-                   |
-                   | hypotheses = H0: var1 = var2 , H1: var1 > var2
-                   |
-                   |         statistic = 2.316933391522034
-                   |
-                   |            distribution = [f, 5, 4]
-                   |
-                   |          p_value = .2179269692254457
-
-
-File: maxima-core-docs.info,  Node: Tensors,  Next: affine,  Prev: stats,  Up: Maxima Core Documentation
-
-1.122 Tensors
-=============
-
-
-File: maxima-core-docs.info,  Node: affine,  Next: atensor,  Prev: Tensors,  Up: Maxima Core Documentation
-
-1.123 affine
-============
-
-* Menu:
-
-* Variable all_dotsimp_denoms::
-* Function check_overlaps n add_to_simps::
-* Function declare_weights x_1 w_1 ... x_n w_n::
-* Function dotsimp f::
-* Function extract_linear_equations [p_1 ... p_n] [m_1 ... m_n]::
-* Function fast_central_elements [x_1 ... x_n] n::
-* Function fast_linsolve [expr_1 ... expr_m] [x_1 ... x_n]::
-* Function grobner_basis [expr_1 ... expr_m]::
-* Function list_nc_monomials [p_1 ... p_n]::
-* Function mono [x_1 ... x_n] n::
-* Function monomial_dimensions n::
-* Function nc_degree p::
-* Function set_up_dot_simplifications eqns check_through_degree::
-
-
-File: maxima-core-docs.info,  Node: Variable all_dotsimp_denoms,  Next: Function check_overlaps n add_to_simps,  Up: affine
-
- -- Variable: all_dotsimp_denoms
-     Default value: ‘false’
-
-     When ‘all_dotsimp_denoms’ is a list, the denominators encountered
-     by ‘dotsimp’ are appended to the list.  ‘all_dotsimp_denoms’ may be
-     initialized to an empty list ‘[]’ before calling ‘dotsimp’.
-
-     By default, denominators are not collected by ‘dotsimp’.
 
 
 File: maxima-core-docs.info,  Node: Function check_overlaps n add_to_simps,  Next: Function declare_weights x_1 w_1 ... x_n w_n,  Prev: Variable all_dotsimp_denoms,  Up: affine
@@ -1555,7 +378,7 @@ File: maxima-core-docs.info,  Node: Function |,  Next: Function ~,  Prev: Functi
 1.125.1 Function: |
 -------------------
 
-The bar “|” is an infix operator which defines the contraction of a
+The bar "|" is an infix operator which defines the contraction of a
 vector on a form.  The vector should be given on the left.
 
 
@@ -1564,7 +387,7 @@ File: maxima-core-docs.info,  Node: Function ~,  Prev: Function |,  Up: cartan
 1.125.2 Function: ~
 -------------------
 
-The tilde “~” is an infix operator which denotes the exterior (wedge)
+The tilde "~" is an infix operator which denotes the exterior (wedge)
 product.  The canonical ordering of the products is determined by the
 order in which the coordinates were specified.  For example, if the
 coordinate list is specified as ‘[x,y,z]’, then the two-form ‘dy~dx’
@@ -1579,21 +402,21 @@ File: maxima-core-docs.info,  Node: ctensor,  Next: itensor,  Prev: cartan,  Up:
 * Menu:
 
 * Function bdvac f::
-* Function bimetric::
+* Function bimetric ::
 * Function cdisplay ten::
 * Variable cframe_flag::
 * Function cgeodesic dis::
-* Function checkdiv::
+* Function checkdiv ::
 * Function christof dis::
 * Function cmetric dis::
 * Variable cnonmet_flag::
-* Function cograd::
+* Function cograd ::
 * Function contortion tr::
-* Function contragrad::
-* Function csetup::
+* Function contragrad ::
+* Function csetup ::
 * Variable ct_coords::
 * Function ct_coordsys coordinate_system extra_arg::
-* Function ctaylor::
+* Function ctaylor ::
 * Variable ctaypov::
 * Variable ctaypt::
 * Variable ctayswitch::
@@ -1605,15 +428,15 @@ File: maxima-core-docs.info,  Node: ctensor,  Next: itensor,  Prev: cartan,  Up:
 * Function diagmatrixp M n::
 * Variable diagmetric::
 * Variable dim::
-* Function dscalar::
+* Function dscalar ::
 * Function einstein dis::
 * Variable fb::
 * Function findde A n::
 * Function frame_bracket fr fri diagframe::
 * Variable gdet::
-* Function init_ctensor::
-* Function invariant1::
-* Function invariant2::
+* Function init_ctensor ::
+* Function invariant1 ::
+* Function invariant2 ::
 * Variable kinvariant::
 * Variable kt::
 * Function leinstein dis::
@@ -1626,9 +449,9 @@ File: maxima-core-docs.info,  Node: ctensor,  Next: itensor,  Prev: cartan,  Up:
 * Function nonmetricity nm::
 * Variable np::
 * Variable npi::
-* Function nptetrad::
+* Function nptetrad ::
 * Function ntermst f::
-* Function petrov::
+* Function petrov ::
 * Variable ratchristof::
 * Variable rateinstein::
 * Variable ratriemann::
@@ -1637,8 +460,8 @@ File: maxima-core-docs.info,  Node: ctensor,  Next: itensor,  Prev: cartan,  Up:
 * Function ricci dis::
 * Variable riem::
 * Function riemann dis::
-* Function rinvariant::
-* Function scurvature::
+* Function rinvariant ::
+* Function scurvature ::
 * Function symmetricp M n::
 * Variable tensorkill::
 * Variable tr::
@@ -2418,7 +1241,7 @@ File: maxima-core-docs.info,  Node: Function findde A n,  Next: Function frame_b
  -- Function: findde (A, N)
      returns a list of the unique differential equations (expressions)
      corresponding to the elements of the _n_ dimensional square array
-     _A_.  Presently, _n_ may be 2 or 3.  ‘deindex’ is a global list
+     _A_. Presently, _n_ may be 2 or 3.  ‘deindex’ is a global list
      containing the indices of _A_ corresponding to these unique
      differential equations.  For the Einstein tensor (‘ein’), which is
      a two dimensional array, if computed for the metric in the example
@@ -2959,7 +1782,7 @@ File: maxima-core-docs.info,  Node: itensor,  Next: Trigonometry,  Prev: ctensor
 * Function icurvature [i j k] [h]::
 * Function idiff expr v_1 [n_1 [v_2 n_2]...]::
 * Function idim n::
-* Function idummy::
+* Function idummy ::
 * Variable idummyx::
 * Variable ifb::
 * Variable ifc1::
@@ -2968,7 +1791,7 @@ File: maxima-core-docs.info,  Node: itensor,  Next: Trigonometry,  Prev: ctensor
 * Variable ifgi::
 * Variable ifr::
 * Variable iframe_bracket_form::
-* Function iframes::
+* Function iframes ::
 * Variable ifri::
 * Function igeodesic_coords expr name::
 * Variable igeowedge_flag::
@@ -3173,10 +1996,10 @@ File: maxima-core-docs.info,  Node: Function conmetderiv expr tensor,  Next: Fun
 
  -- Function: conmetderiv (EXPR, TENSOR)
      Simplifies expressions containing ordinary derivatives of both
-     covariant and con­tra­va­ri­ant forms of the metric tensor (the current
-     restriction).  For example, ‘conmetderiv’ can relate the derivative
-     of the contravariant metric tensor with the Christoffel symbols as
-     seen from the following:
+     covariant and con­tra­va­ri­ant forms of the metric tensor (the
+     current restriction).  For example, ‘conmetderiv’ can relate the
+     derivative of the contravariant metric tensor with the Christoffel
+     symbols as seen from the following:
 
      (%i1) load("itensor");
      (%o1)      /share/tensor/itensor.lisp
@@ -4493,7 +3316,7 @@ File: maxima-core-docs.info,  Node: Function simpmetderiv expr,  Next: Function 
      when present, causes the function to stop after the first
      successful substitution in a product expression.  The
      ‘simpmetderiv’ function also makes use of the global variable
-     ‘flipflag’ which determines how to apply a “canonical” ordering to
+     ‘flipflag’ which determines how to apply a "canonical" ordering to
      the product indices.
 
      Put together, these capabilities can be used to achieve powerful
@@ -4586,13 +3409,10 @@ File: maxima-core-docs.info,  Node: Function undiff expr,  Prev: Function tentex
      See also: ‘idiff’.
 
 
-File: maxima-core-docs.info,  Node: Trigonometry,  Next: Elementary Functions 4,  Prev: itensor,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Trigonometry,  Next: ,  Prev: itensor,  Up: Maxima Core Documentation
 
 1.128 Trigonometry
 ==================
-
-
-File: maxima-core-docs.info,  Node: Elementary Functions 4,  Next: trigtools,  Prev: Trigonometry,  Up: Maxima Core Documentation
 
 1.129 Elementary Functions
 ==========================
@@ -4639,7 +3459,7 @@ File: maxima-core-docs.info,  Node: Elementary Functions 4,  Next: trigtools,  P
 * Function trigsimp expr::
 
 
-File: maxima-core-docs.info,  Node: Variable %iargs,  Next: Variable %piargs,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Variable %iargs
 
  -- Variable: %iargs
      Default value: ‘true’
@@ -4679,7 +3499,7 @@ File: maxima-core-docs.info,  Node: Variable %iargs,  Next: Variable %piargs,  U
      (%o3)                      %i sinh(x)
 
 
-File: maxima-core-docs.info,  Node: Variable %piargs,  Next: Function acos x,  Prev: Variable %iargs,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Variable %piargs
 
  -- Variable: %piargs
      Default value: ‘true’
@@ -4741,7 +3561,7 @@ File: maxima-core-docs.info,  Node: Variable %piargs,  Next: Function acos x,  P
      (%o2)                  [0, 1, 0, (- 1)   ]
 
 
-File: maxima-core-docs.info,  Node: Function acos x,  Next: Function acosh x,  Prev: Variable %piargs,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function acos x
 
  -- Function: acos (X)
      - Arc Cosine.
@@ -4753,7 +3573,7 @@ File: maxima-core-docs.info,  Node: Function acos x,  Next: Function acosh x,  P
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function acosh x,  Next: Function acot x,  Prev: Function acos x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function acosh x
 
  -- Function: acosh (X)
      - Hyperbolic Arc Cosine.
@@ -4765,7 +3585,7 @@ File: maxima-core-docs.info,  Node: Function acosh x,  Next: Function acot x,  P
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function acot x,  Next: Function acoth x,  Prev: Function acosh x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function acot x
 
  -- Function: acot (X)
      - Arc Cotangent.
@@ -4777,7 +3597,7 @@ File: maxima-core-docs.info,  Node: Function acot x,  Next: Function acoth x,  P
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function acoth x,  Next: Function acsc x,  Prev: Function acot x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function acoth x
 
  -- Function: acoth (X)
      - Hyperbolic Arc Cotangent.
@@ -4789,7 +3609,7 @@ File: maxima-core-docs.info,  Node: Function acoth x,  Next: Function acsc x,  P
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function acsc x,  Next: Function acsch x,  Prev: Function acoth x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function acsc x
 
  -- Function: acsc (X)
      - Arc Cosecant.
@@ -4801,7 +3621,7 @@ File: maxima-core-docs.info,  Node: Function acsc x,  Next: Function acsch x,  P
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function acsch x,  Next: Function asec x,  Prev: Function acsc x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function acsch x
 
  -- Function: acsch (X)
      - Hyperbolic Arc Cosecant.
@@ -4813,7 +3633,7 @@ File: maxima-core-docs.info,  Node: Function acsch x,  Next: Function asec x,  P
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function asec x,  Next: Function asech x,  Prev: Function acsch x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function asec x
 
  -- Function: asec (X)
      - Arc Secant.
@@ -4825,7 +3645,7 @@ File: maxima-core-docs.info,  Node: Function asec x,  Next: Function asech x,  P
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function asech x,  Next: Function asin x,  Prev: Function asec x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function asech x
 
  -- Function: asech (X)
      - Hyperbolic Arc Secant.
@@ -4837,7 +3657,7 @@ File: maxima-core-docs.info,  Node: Function asech x,  Next: Function asin x,  P
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function asin x,  Next: Function asinh x,  Prev: Function asech x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function asin x
 
  -- Function: asin (X)
      - Arc Sine.
@@ -4849,7 +3669,7 @@ File: maxima-core-docs.info,  Node: Function asin x,  Next: Function asinh x,  P
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function asinh x,  Next: Function atan x,  Prev: Function asin x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function asinh x
 
  -- Function: asinh (X)
      - Hyperbolic Arc Sine.
@@ -4861,7 +3681,7 @@ File: maxima-core-docs.info,  Node: Function asinh x,  Next: Function atan x,  P
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function atan x,  Next: Function atan2 y x,  Prev: Function asinh x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function atan x
 
  -- Function: atan (X)
      - Arc Tangent.
@@ -4875,7 +3695,7 @@ File: maxima-core-docs.info,  Node: Function atan x,  Next: Function atan2 y x, 
      ‘triginverses’, ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function atan2 y x,  Next: Function atanh x,  Prev: Function atan x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function atan2 y x
 
  -- Function: atan2 (Y, X)
      - yields the value of \tan^{-1}(y/x) in the interval -\pi to \pi
@@ -4891,7 +3711,7 @@ File: maxima-core-docs.info,  Node: Function atan2 y x,  Next: Function atanh x,
      ‘triginverses’, ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function atanh x,  Next: Variable atrig1,  Prev: Function atan2 y x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function atanh x
 
  -- Function: atanh (X)
      - Hyperbolic Arc Tangent.
@@ -4903,7 +3723,7 @@ File: maxima-core-docs.info,  Node: Function atanh x,  Next: Variable atrig1,  P
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Variable atrig1,  Next: Function cos x,  Prev: Function atanh x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Variable atrig1
 
  -- Variable: atrig1
      The ‘atrig1’ package contains several additional simplification
@@ -4914,7 +3734,7 @@ File: maxima-core-docs.info,  Node: Variable atrig1,  Next: Function cos x,  Pre
      ‘load("atrig1");’ to use them.
 
 
-File: maxima-core-docs.info,  Node: Function cos x,  Next: Function cosh x,  Prev: Variable atrig1,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function cos x
 
  -- Function: cos (X)
      - Cosine.
@@ -4926,7 +3746,7 @@ File: maxima-core-docs.info,  Node: Function cos x,  Next: Function cosh x,  Pre
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function cosh x,  Next: Function cot x,  Prev: Function cos x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function cosh x
 
  -- Function: cosh (X)
      - Hyperbolic Cosine.
@@ -4938,7 +3758,7 @@ File: maxima-core-docs.info,  Node: Function cosh x,  Next: Function cot x,  Pre
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function cot x,  Next: Function coth x,  Prev: Function cosh x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function cot x
 
  -- Function: cot (X)
      - Cotangent.
@@ -4950,7 +3770,7 @@ File: maxima-core-docs.info,  Node: Function cot x,  Next: Function coth x,  Pre
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function coth x,  Next: Function csc x,  Prev: Function cot x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function coth x
 
  -- Function: coth (X)
      - Hyperbolic Cotangent.
@@ -4962,7 +3782,7 @@ File: maxima-core-docs.info,  Node: Function coth x,  Next: Function csc x,  Pre
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function csc x,  Next: Function csch x,  Prev: Function coth x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function csc x
 
  -- Function: csc (X)
      - Cosecant.
@@ -4974,7 +3794,7 @@ File: maxima-core-docs.info,  Node: Function csc x,  Next: Function csch x,  Pre
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function csch x,  Next: Variable halfangles,  Prev: Function csc x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function csch x
 
  -- Function: csch (X)
      - Hyperbolic Cosecant.
@@ -4986,7 +3806,7 @@ File: maxima-core-docs.info,  Node: Function csch x,  Next: Variable halfangles,
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Variable halfangles,  Next: Variable ntrig,  Prev: Function csch x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Variable halfangles
 
  -- Variable: halfangles
      Default value: ‘false’
@@ -5044,7 +3864,7 @@ File: maxima-core-docs.info,  Node: Variable halfangles,  Next: Variable ntrig, 
                                  sqrt(2)
 
 
-File: maxima-core-docs.info,  Node: Variable ntrig,  Next: Function sec x,  Prev: Variable halfangles,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Variable ntrig
 
  -- Variable: ntrig
      The ‘ntrig’ package contains a set of simplification rules that are
@@ -5053,7 +3873,7 @@ File: maxima-core-docs.info,  Node: Variable ntrig,  Next: Function sec x,  Prev
      ‘tan’, ‘csc’, ‘sec’ and ‘cot’.
 
 
-File: maxima-core-docs.info,  Node: Function sec x,  Next: Function sech x,  Prev: Variable ntrig,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function sec x
 
  -- Function: sec (X)
      - Secant.
@@ -5065,7 +3885,7 @@ File: maxima-core-docs.info,  Node: Function sec x,  Next: Function sech x,  Pre
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function sech x,  Next: Function sin x,  Prev: Function sec x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function sech x
 
  -- Function: sech (X)
      - Hyperbolic Secant.
@@ -5077,7 +3897,7 @@ File: maxima-core-docs.info,  Node: Function sech x,  Next: Function sin x,  Pre
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function sin x,  Next: Function sinh x,  Prev: Function sech x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function sin x
 
  -- Function: sin (X)
      - Sine.
@@ -5089,7 +3909,7 @@ File: maxima-core-docs.info,  Node: Function sin x,  Next: Function sinh x,  Pre
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function sinh x,  Next: Function tan x,  Prev: Function sin x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function sinh x
 
  -- Function: sinh (X)
      - Hyperbolic Sine.
@@ -5101,7 +3921,7 @@ File: maxima-core-docs.info,  Node: Function sinh x,  Next: Function tan x,  Pre
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function tan x,  Next: Function tanh x,  Prev: Function sinh x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function tan x
 
  -- Function: tan (X)
      - Tangent.
@@ -5113,7 +3933,7 @@ File: maxima-core-docs.info,  Node: Function tan x,  Next: Function tanh x,  Pre
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function tanh x,  Next: Function trigexpand expr,  Prev: Function tan x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function tanh x
 
  -- Function: tanh (X)
      - Hyperbolic Tangent.
@@ -5125,7 +3945,7 @@ File: maxima-core-docs.info,  Node: Function tanh x,  Next: Function trigexpand 
      ‘trigsign’.
 
 
-File: maxima-core-docs.info,  Node: Function trigexpand expr,  Next: Variable trigexpandplus,  Prev: Function tanh x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function trigexpand expr
 
  -- Function: trigexpand (EXPR)
      Expands trigonometric and hyperbolic functions of sums of angles
@@ -5163,7 +3983,7 @@ File: maxima-core-docs.info,  Node: Function trigexpand expr,  Next: Variable tr
      ‘trigexpandtimes’.
 
 
-File: maxima-core-docs.info,  Node: Variable trigexpandplus,  Next: Variable trigexpandtimes,  Prev: Function trigexpand expr,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Variable trigexpandplus
 
  -- Variable: trigexpandplus
      Default value: ‘true’
@@ -5176,7 +3996,7 @@ File: maxima-core-docs.info,  Node: Variable trigexpandplus,  Next: Variable tri
      See also: ‘trigexpand’.
 
 
-File: maxima-core-docs.info,  Node: Variable trigexpandtimes,  Next: Variable triginverses,  Prev: Variable trigexpandplus,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Variable trigexpandtimes
 
  -- Variable: trigexpandtimes
      Default value: ‘true’
@@ -5189,7 +4009,7 @@ File: maxima-core-docs.info,  Node: Variable trigexpandtimes,  Next: Variable tr
      See also: ‘trigexpand’.
 
 
-File: maxima-core-docs.info,  Node: Variable triginverses,  Next: Function trigrat expr,  Prev: Variable trigexpandtimes,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Variable triginverses
 
  -- Variable: triginverses
      Default value: ‘true’
@@ -5207,7 +4027,7 @@ File: maxima-core-docs.info,  Node: Variable triginverses,  Next: Function trigr
      simplifications are turned off.
 
 
-File: maxima-core-docs.info,  Node: Function trigrat expr,  Next: Function trigreduce expr x,  Prev: Variable triginverses,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function trigrat expr
 
  -- Function: trigrat (EXPR)
      Gives a canonical simplified quasilinear form of a trigonometrical
@@ -5280,7 +4100,7 @@ File: maxima-core-docs.info,  Node: Function trigrat expr,  Next: Function trigr
       - 9)/4
 
 
-File: maxima-core-docs.info,  Node: Function trigreduce expr x,  Next: Variable trigsign,  Prev: Function trigrat expr,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function trigreduce expr x
 
  -- Function: trigreduce (EXPR, X)
      Combines products and powers of trigonometric and hyperbolic sin's
@@ -5300,7 +4120,7 @@ File: maxima-core-docs.info,  Node: Function trigreduce expr x,  Next: Variable 
      See also: ‘poissimp’.
 
 
-File: maxima-core-docs.info,  Node: Variable trigsign,  Next: Function trigsimp expr,  Prev: Function trigreduce expr x,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Variable trigsign
 
  -- Variable: trigsign
      Default value: ‘true’
@@ -5310,7 +4130,7 @@ File: maxima-core-docs.info,  Node: Variable trigsign,  Next: Function trigsimp 
      -\sin x only if ‘trigsign’ is ‘true’.
 
 
-File: maxima-core-docs.info,  Node: Function trigsimp expr,  Prev: Variable trigsign,  Up: Elementary Functions 4
+File: maxima-core-docs.info,  Node: Function trigsimp expr
 
  -- Function: trigsimp (EXPR)
      Employs the identities \sin\left(x\right)^2 + \cos\left(x\right)^2
@@ -5327,7 +4147,7 @@ File: maxima-core-docs.info,  Node: Function trigsimp expr,  Prev: Variable trig
      See also: ‘trigreduce’, ‘ratsimp’, ‘radcan’.
 
 
-File: maxima-core-docs.info,  Node: trigtools,  Next: Units,  Prev: Elementary Functions 4,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: trigtools,  Next: Units,  Prev: ,  Up: Maxima Core Documentation
 
 1.130 trigtools
 ===============
@@ -5382,7 +4202,7 @@ File: maxima-core-docs.info,  Node: Function atan_contract r,  Next: Function c2
      (%o2)              4 atan(-) - atan(---) = ---
                                5         239     4
 
-       4. see https//enwikipediaorg/wiki/Machin-like_formula
+       4. see https://en.wikipedia.org/wiki/Machin-like_formula
 
      maxima
      (%i1) load("trigtools")$
@@ -5492,6 +4312,7 @@ File: maxima-core-docs.info,  Node: Function c2sin x,  Next: Function c2trig x, 
      (%o2)                         false
 
  [image src="figures/trigtools-1.png" alt="figures/trigtools-1" ]
+
 
      figures/trigtools-1
 
@@ -5824,6 +4645,7 @@ File: maxima-core-docs.info,  Node: Function trigsolve x,  Next: Function trigva
 
  [image src="figures/trigtools-4.png" alt="figures/trigtools-4" ]
 
+
      figures/trigtools-4
 
      maxima
@@ -5833,6 +4655,7 @@ File: maxima-core-docs.info,  Node: Function trigsolve x,  Next: Function trigva
      (%i4) plot2d([lhs(eq)-rhs(eq)], [x,3.3,3.6])$
 
  [image src="figures/trigtools-5.png" alt="figures/trigtools-5" ]
+
 
      figures/trigtools-5
 
@@ -5946,6 +4769,7 @@ File: maxima-core-docs.info,  Node: Function trigsolve x,  Next: Function trigva
 
  [image src="figures/trigtools-6.png" alt="figures/trigtools-6" ]
 
+
      figures/trigtools-6
 
      maxima
@@ -5964,6 +4788,7 @@ File: maxima-core-docs.info,  Node: Function trigsolve x,  Next: Function trigva
      (%o5)                         false
 
  [image src="figures/trigtools-7.png" alt="figures/trigtools-7" ]
+
 
      figures/trigtools-7
      Equation we multiply by 2\sin x\cos 2x:
@@ -6118,8 +4943,7 @@ conventional rules for such operations.
 
    •    • (x ` a) + (y ` a) is equal to (x + y) ` a.
 
-   •    • (x ` a)^y is equal to x^y ` a^y when ‘y’ is
-          nondimensional.
+   •    • (x ` a)^y is equal to x^y ` a^y when ‘y’ is nondimensional.
 
 ‘ezunits’ does not require that units in a sum have the same dimensions;
 such terms are not added together, and no error is reported.
@@ -6676,6 +5500,7 @@ File: maxima-core-docs.info,  Node: Function natural_unit expr [v_1 ... v_n],  N
      ‘load ("ezunits")’ loads this function.
 
      Examples:
+
 
 
 File: maxima-core-docs.info,  Node: Function qty x,  Next: Function remove_constvalue a,  Prev: Function natural_unit expr [v_1 ... v_n],  Up: ezunits
@@ -7430,17 +6255,16 @@ Appendix A Function and variable index
 
 * %coerce_bag:                           Function %coerce_bag op expr.
                                                                 (line 3)
-* %f:                                    Function %f p q (%5Ba%5D%5Bb%5Dz).
-                                                                (line 3)
+* %f:                                    Function %f p q.       (line 3)
 * %format_piece:                         Function %format_piece piece nth.
                                                                 (line 3)
 * %if:                                   Function %if bool a b. (line 3)
-* %m:                                    Function %m k u (z).   (line 3)
-* %s:                                    Function %s u v (z).   (line 3)
+* %m:                                    Function %m k u.       (line 3)
+* %s:                                    Function %s u v.       (line 3)
 * %th:                                   Function %th i.        (line 3)
 * %union:                                Function %union soln_1 soln_2 soln_3 ....
                                                                 (line 3)
-* %w:                                    Function %w k u (z).   (line 3)
+* %w:                                    Function %w k u.       (line 3)
 * <:                                     Function < =.          (line 3)
 * abasep:                                Function abasep v.     (line 3)
 * abs:                                   Function abs z.        (line 3)
@@ -8822,8 +7646,7 @@ Appendix A Function and variable index
                                                                 (line 3)
 * julia_sin:                             Function julia_sin x y.
                                                                 (line 3)
-* kbateman:                              Function kbateman v (x).
-                                                                (line 3)
+* kbateman:                              Function kbateman v.   (line 3)
 * kdels:                                 Function kdels L1 L2.  (line 3)
 * kdelta:                                Function kdelta L1 L2. (line 3)
 * kill:                                  Function kill a_1 ... a_n.
@@ -8940,7 +7763,7 @@ Appendix A Function and variable index
 * lgtreillis:                            Function lgtreillis n m.
                                                                 (line 3)
 * lhs:                                   Function lhs expr.     (line 3)
-* li:                                    Function li s (z).     (line 3)
+* li:                                    Function li s.         (line 3)
 * lie_diff:                              Function lie_diff vector1 [vector2 form].
                                                                 (line 3)
 * liediff:                               Function liediff v ten.
@@ -9646,7 +8469,7 @@ Appendix A Function and variable index
 * properties:                            Function properties a. (line 3)
 * propvars:                              Function propvars prop.
                                                                 (line 3)
-* psi:                                   Function psi n (x).    (line 3)
+* psi:                                   Function psi n.        (line 3)
 * pslq_integer_relation:                 Function pslq_integer_relation L.
                                                                 (line 3)
 * psubst:                                Function psubst list expr.
@@ -10224,8 +9047,7 @@ Appendix A Function and variable index
                                                                 (line 3)
 * slength:                               Function slength string.
                                                                 (line 3)
-* slommel:                               Function slommel u v (z).
-                                                                (line 3)
+* slommel:                               Function slommel u v.  (line 3)
 * smake:                                 Function smake num char.
                                                                 (line 3)
 * small_rhombicosidodecahedron_graph:    Function small_rhombicosidodecahedron_graph.
@@ -10260,7 +9082,7 @@ Appendix A Function and variable index
                                                                 (line 3)
 * sparse6_import:                        Function sparse6_import fl.
                                                                 (line 3)
-* specint:                               Function specint exp-s_t_expr t.
+* specint:                               Function specint exp-stexpr t.
                                                                 (line 3)
 * spherical:                             Function spherical radius azi minazi maxazi zen minzen maxzen.
                                                                 (line 3)

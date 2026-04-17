@@ -1,1343 +1,8 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.3 from
+This is maxima-core-docs.info, produced by makeinfo version 7.1 from
 maxima-core-docs.texi.
 
 
-File: maxima-core-docs.info,  Node: Variable beta_args_sum_to_integer,  Next: Variable beta_expand,  Prev: Function beta a b,  Up: Special Functions 2
-
- -- Variable: beta_args_sum_to_integer
-     Default value: false
-
-     When ‘beta_args_sum_to_integer’ is ‘true’, Maxima simplifies
-     ‘beta’, when the arguments _a_ and _b_ sum to an integer.
-
-     ‘beta’ for examples.
-
-     See also: ‘beta_args_sum_to_integer’, ‘true’, ‘beta’.
-
-
-File: maxima-core-docs.info,  Node: Variable beta_expand,  Next: Function beta_incomplete a b z,  Prev: Variable beta_args_sum_to_integer,  Up: Special Functions 2
-
- -- Variable: beta_expand
-     Default value: false
-
-     When ‘beta_expand’ is ‘true’, ‘beta’ and related functions are
-     expanded for arguments like a+n or a-n, where n is an integer.
-
-     ‘beta’ for examples.
-
-     See also: ‘beta_expand’, ‘true’, ‘beta’.
-
-
-File: maxima-core-docs.info,  Node: Function beta_incomplete a b z,  Next: Function beta_incomplete_generalized a b z1 z2,  Prev: Variable beta_expand,  Up: Special Functions 2
-
- -- Function: beta_incomplete (A, B, Z)
-     The basic definition of the incomplete beta function
-     (https//dlmfnistgov/817E1DLMF 817E1 and
-     https//personalmathubcca/~cbm/aands/page_263htmA&S eqn 661) is
-
-     {\rm B}_z(a,b) = \int_0^z t^{a-1}(1-t)^{b-1}\; dt
-
-     {\rm B}_z(a,b) = \int_0^z t^{a-1}(1-t)^{b-1}\; dt
-
-     This definition is possible for {\rm Re}(a) > 0 and {\rm Re}(b) > 0
-     and |z| < 1. For other values the incomplete beta function can be
-     defined through a generalized hypergeometric function:
-
-     gamma(a) hypergeometric_generalized([a, 1 - b], [a + 1], z) z
-
-     (See https//functionswolframcom/GammaBetaErf/Beta3/ for a complete
-     definition of the incomplete beta function.)
-
-     For negative integers a = -n and positive integers b=m with m \le n
-     the incomplete beta function is defined through
-
-     z^{n-1}\sum_{k=0}^{m-1} {{(1-m)_k z^k} \over {k! (n-k)}}
-
-     z^{n-1}\sum_{k=0}^{m-1} {{(1-m)_k z^k} \over {k! (n-k)}}
-
-     Maxima uses this definition to simplify ‘beta_incomplete’ for _a_ a
-     negative integer.
-
-     For _a_ a positive integer, ‘beta_incomplete’ simplifies for any
-     argument _b_ and _z_ and for _b_ a positive integer for any
-     argument _a_ and _z_, with the exception of _a_ a negative integer.
-
-     For z=0 and {\rm Re}(a) > 0, ‘beta_incomplete’ has the specific
-     value zero.  For z=1 and {\rm Re}(b) > 0, ‘beta_incomplete’
-     simplifies to the beta function ‘beta’.
-
-     Maxima evaluates ‘beta_incomplete’ numerically for real and complex
-     values in float or bigfloat precision.  For the numerical
-     evaluation an expansion of the incomplete beta function in
-     continued fractions is used.
-
-     When the option variable ‘beta_expand’ is ‘true’, Maxima expands
-     expressions like ‘beta_005fincomplete’ and ‘beta_005fincomplete’
-     where n is a positive integer.
-
-     Maxima knows the derivatives of ‘beta_incomplete’ with respect to
-     the variables _a_, _b_ and _z_ and the integral with respect to the
-     variable _z_.
-
-     Examples:
-
-     Simplification for _a_ a positive integer:
-
-     maxima
-     
-     (%i1) beta_incomplete(2,b,z);
-                                     b
-                          1 - (1 - z)  (b z + 1)
-     (%o1)                ----------------------
-                                b (b + 1)
-
-     Simplification for _b_ a positive integer:
-
-     maxima
-     
-     (%i1) beta_incomplete(a,2,z);
-                                             a
-                            (a (1 - z) + 1) z
-     (%o1)                  ------------------
-                                a (a + 1)
-
-     Simplification for _a_ and _b_ a positive integer:
-
-     maxima
-     
-     (%i1) beta_incomplete(3,2,z);
-                                             3
-                            (3 (1 - z) + 1) z
-     (%o1)                  ------------------
-                                    12
-
-     _a_ is a negative integer and b\le -a, Maxima simplifies:
-
-     maxima
-     
-     (%i1) beta_incomplete(-3,1,z);
-                                     1
-     (%o1)                        - ----
-                                       3
-                                    3 z
-
-     For the specific values z=0 and z=1, Maxima simplifies:
-
-     maxima
-     (%i1) assume(a>0,b>0)$
-     
-     (%i2) beta_incomplete(a,b,0);
-     (%o2)                           0
-     
-     
-     (%i3) beta_incomplete(a,b,1);
-     (%o3)                      beta(a, b)
-
-     Numerical evaluation in float or bigfloat precision:
-
-     maxima
-     
-     (%i1) beta_incomplete(0.25,0.50,0.9);
-     (%o1)                   4.594959440269333
-     
-     (%i2) fpprec:25$
-     
-     (%i3) beta_incomplete(0.25,0.50,0.9b0);
-     (%o3)             4.594959440269324086971216b0
-
-     For abs(z)>1 ‘beta_incomplete’ returns a complex result:
-
-     maxima
-     
-     (%i1) beta_incomplete(0.25,0.50,1.7);
-     (%o1)       5.244115108584249 - 1.4551804778784403 %i
-
-     Results for more general complex arguments:
-
-     maxima
-     
-     (%i1) beta_incomplete(0.25+%i,1.0+%i,1.7+%i);
-     (%o1)      2.7269606756625384 - 0.38311757042691896 %i
-     
-     
-     (%i2) beta_incomplete(1/2,5/4*%i,2.8+%i);
-     (%o2)      13.046496351687155 %i - 5.8020679562699975
-
-     Expansion, when ‘beta_expand’ is ‘true’:
-
-     maxima
-     
-     (%i1) beta_incomplete(a+1,b,z),beta_expand:true;
-                                                     b  a
-                 a beta_incomplete(a, b, z)   (1 - z)  z
-     (%o1)       -------------------------- - -----------
-                           b + a                 b + a
-     
-     
-     (%i2) beta_incomplete(a-1,b,z),beta_expand:true;
-                                                           b  a - 1
-           beta_incomplete(a, b, z) (- b - a + 1)   (1 - z)  z
-     (%o2) -------------------------------------- - ---------------
-                           1 - a                         1 - a
-
-     Derivative and integral for ‘beta_incomplete’:
-
-     maxima
-     
-     (%i1) diff(beta_incomplete(a, b, z), z);
-                                   b - 1  a - 1
-     (%o1)                  (1 - z)      z
-     
-     
-     (%i2) integrate(beta_incomplete(a, b, z), z);
-     (%o2) beta_incomplete(a, b, z) z - beta_incomplete(a + 1, b, z)
-     
-     
-     (%i3) factor(diff(%, z));
-     (%o3)               beta_incomplete(a, b, z)
-
-     See also: ‘beta_incomplete’, ‘beta’, ‘beta_expand’, ‘true’.
-
-
-File: maxima-core-docs.info,  Node: Function beta_incomplete_generalized a b z1 z2,  Next: Function beta_incomplete_regularized a b z,  Prev: Function beta_incomplete a b z,  Up: Special Functions 2
-
- -- Function: beta_incomplete_generalized (A, B, Z1, Z2)
-     The basic definition of the generalized incomplete beta function is
-
-     \int_{z_1}^{z_2} t^{a-1}(1-t)^{b-1}\; dt
-
-     \int_{z_1}^{z_2} t^{a-1}(1-t)^{b-1}\; dt
-
-     Maxima simplifies ‘beta_incomplete_regularized’ for _a_ and _b_ a
-     positive integer.
-
-     For {\rm Re}(a) > 0 and z_1 = 0 or z_2 = 0, Maxima simplifies
-     ‘beta_incomplete_generalized’ to ‘beta_incomplete’.  For {\rm
-     Re}(b) > 0 and z_1 = 1 or z_2 = 1, Maxima simplifies to an
-     expression with ‘beta’ and ‘beta_incomplete’.
-
-     Maxima evaluates ‘beta_incomplete_regularized’ for real and complex
-     values in float and bigfloat precision.
-
-     When ‘beta_expand’ is ‘true’, Maxima expands
-     ‘beta_incomplete_generalized’ for a+n and a-n, _n_ a positive
-     integer.
-
-     Maxima knows the derivative of ‘beta_incomplete_generalized’ with
-     respect to the variables _a_, _b_, _z1_, and _z2_ and the integrals
-     with respect to the variables _z1_ and _z2_.
-
-     Examples:
-
-     Maxima simplifies ‘beta_incomplete_generalized’ for _a_ and _b_ a
-     positive integer:
-
-     maxima
-     
-     (%i1) beta_incomplete_generalized(2,b,z1,z2);
-                        b                      b
-                (1 - z1)  (b z1 + 1) - (1 - z2)  (b z2 + 1)
-     (%o1)      -------------------------------------------
-                                 b (b + 1)
-     
-     
-     (%i2) beta_incomplete_generalized(a,2,z1,z2);
-                                   a                      a
-                (a (1 - z2) + 1) z2  - (a (1 - z1) + 1) z1
-     (%o2)      -------------------------------------------
-                                 a (a + 1)
-     
-     
-     (%i3) beta_incomplete_generalized(3,2,z1,z2);
-                   2      2                       2      2
-           (1 - z1)  (3 z1  + 2 z1 + 1) - (1 - z2)  (3 z2  + 2 z2 + 1)
-     (%o3) -----------------------------------------------------------
-                                       12
-
-     Simplification for specific values z1=0, z2=0, z1=1, or z2=1:
-
-     maxima
-     (%i1) assume(a > 0, b > 0)$
-     
-     (%i2) beta_incomplete_generalized(a,b,z1,0);
-     (%o2)              - beta_incomplete(a, b, z1)
-     
-     
-     (%i3) beta_incomplete_generalized(a,b,0,z2);
-     (%o3)              - beta_incomplete(a, b, z2)
-     
-     
-     (%i4) beta_incomplete_generalized(a,b,z1,1);
-     (%o4)        beta(a, b) - beta_incomplete(a, b, z1)
-     
-     
-     (%i5) beta_incomplete_generalized(a,b,1,z2);
-     (%o5)        beta_incomplete(a, b, z2) - beta(a, b)
-
-     Numerical evaluation for real arguments in float or bigfloat
-     precision:
-
-     maxima
-     
-     (%i1) beta_incomplete_generalized(1/2,3/2,0.25,0.31);
-     (%o1)                  0.09638178086368676
-     
-     (%i2) fpprec:32$
-     
-     (%i3) beta_incomplete_generalized(1/2,3/2,0.25,0.31b0);
-     (%o3)         9.6381780863686935309170054689964b-2
-
-     Numerical evaluation for complex arguments in float or bigfloat
-     precision:
-
-     maxima
-     
-     (%i1) beta_incomplete_generalized(1/2+%i,3/2+%i,0.25,0.31);
-     (%o1)   - 0.09625463003205387 %i - 0.0033238477353540463
-     
-     (%i2) fpprec:20$
-     
-     (%i3) beta_incomplete_generalized(1/2+%i,3/2+%i,0.25,0.31b0);
-     (%o3) - 9.6254630032054178691b-2 %i - 3.3238477353543591914b-3
-
-     Expansion for a+n or a-n, _n_ a positive integer, when
-     ‘beta_expand’ is ‘true’:
-
-     maxima
-     (%i1) beta_expand:true$
-     
-     (%i2) beta_incomplete_generalized(a+1,b,z1,z2);
-                   b   a           b   a
-           (1 - z1)  z1  - (1 - z2)  z2
-     (%o2) -----------------------------
-                       b + a
-                           a beta_incomplete_generalized(a, b, z1, z2)
-                         + -------------------------------------------
-                                              b + a
-     
-     
-     (%i3) beta_incomplete_generalized(a-1,b,z1,z2);
-           beta_incomplete_generalized(a, b, z1, z2) (- b - a + 1)
-     (%o3) -------------------------------------------------------
-                                    1 - a
-                                         b   a - 1           b   a - 1
-                                 (1 - z2)  z2      - (1 - z1)  z1
-                               - -------------------------------------
-                                                 1 - a
-
-     Derivative wrt the variable _z1_ and integrals wrt _z1_ and _z2_:
-
-     maxima
-     
-     (%i1) diff(beta_incomplete_generalized(a,b,z1,z2),z1);
-                                    b - 1   a - 1
-     (%o1)                - (1 - z1)      z1
-     
-     
-     (%i2) integrate(beta_incomplete_generalized(a,b,z1,z2),z1);
-     (%o2) beta_incomplete_generalized(a, b, z1, z2) z1
-                                       + beta_incomplete(a + 1, b, z1)
-     
-     
-     (%i3) integrate(beta_incomplete_generalized(a,b,z1,z2),z2);
-     (%o3) beta_incomplete_generalized(a, b, z1, z2) z2
-                                       - beta_incomplete(a + 1, b, z2)
-
-     See also: ‘beta_incomplete_regularized’,
-     ‘beta_incomplete_generalized’, ‘beta_incomplete’, ‘beta’,
-     ‘beta_expand’, ‘true’.
-
-
-File: maxima-core-docs.info,  Node: Function beta_incomplete_regularized a b z,  Next: Function bffac expr n,  Prev: Function beta_incomplete_generalized a b z1 z2,  Up: Special Functions 2
-
- -- Function: beta_incomplete_regularized (A, B, Z)
-     The regularized incomplete beta function
-     (https//dlmfnistgov/817E2DLMF 817E2 and
-     https//personalmathubcca/~cbm/aands/page_263htmA&S eqn 662),
-     defined as
-
-     I_z(a,b) = {{\rm B}_z(a,b)\over {\rm B}(a,b)}
-
-     I_z(a,b) = {{\rm B}_z(a,b)\over {\rm B}(a,b)}
-
-     As for ‘beta_incomplete’ this definition is not complete.  See
-     https//functionswolframcom/GammaBetaErf/BetaRegularized/ for a
-     complete definition of ‘beta_incomplete_regularized’.
-
-     ‘beta_incomplete_regularized’ simplifies _a_ or _b_ a positive
-     integer.
-
-     For z=0 and {\rm Re}(a)>0, ‘beta_incomplete_regularized’ has the
-     specific value 0.  For z=1 and {\rm Re}(b) > 0,
-     ‘beta_incomplete_regularized’ simplifies to 1.
-
-     Maxima can evaluate ‘beta_incomplete_regularized’ for real and
-     complex arguments in float and bigfloat precision.
-
-     When ‘beta_expand’ is ‘true’, Maxima expands
-     ‘beta_incomplete_regularized’ for arguments a+n or a-n, where n is
-     an integer.
-
-     Maxima knows the derivatives of ‘beta_incomplete_regularized’ with
-     respect to the variables _a_, _b_, and _z_ and the integral with
-     respect to the variable _z_.
-
-     Examples:
-
-     Simplification for _a_ or _b_ a positive integer:
-
-     maxima
-     
-     (%i1) beta_incomplete_regularized(2,b,z);
-                                     b
-     (%o1)                1 - (1 - z)  (b z + 1)
-     
-     
-     (%i2) beta_incomplete_regularized(a,2,z);
-                                             a
-     (%o2)                  (a (1 - z) + 1) z
-     
-     
-     (%i3) beta_incomplete_regularized(3,2,z);
-                                             3
-     (%o3)                  (3 (1 - z) + 1) z
-
-     For the specific values z=0 and z=1, Maxima simplifies:
-
-     maxima
-     (%i1) assume(a>0,b>0)$
-     
-     (%i2) beta_incomplete_regularized(a,b,0);
-     (%o2)                           0
-     
-     
-     (%i3) beta_incomplete_regularized(a,b,1);
-     (%o3)                           1
-
-     Numerical evaluation for real and complex arguments in float and
-     bigfloat precision:
-
-     maxima
-     
-     (%i1) beta_incomplete_regularized(0.12,0.43,0.9);
-     (%o1)                  0.9114011367359802
-     
-     (%i2) fpprec:32$
-     
-     (%i3) beta_incomplete_regularized(0.12,0.43,0.9b0);
-     (%o3)         9.1140113673598029169207248506439b-1
-     
-     
-     (%i4) beta_incomplete_regularized(1+%i,3/3,1.5*%i);
-     (%o4)      0.2865367499935405 %i - 0.12299596333468409
-     
-     (%i5) fpprec:20$
-     
-     (%i6) beta_incomplete_regularized(1+%i,3/3,1.5b0*%i);
-     (%o6) 2.8653674999354031589b-1 %i - 1.2299596333468401976b-1
-
-     Expansion, when ‘beta_expand’ is ‘true’:
-
-     maxima
-     
-     (%i1) beta_incomplete_regularized(a+1,b,z);
-     (%o1)       beta_incomplete_regularized(a + 1, b, z)
-     
-     
-     (%i2) beta_incomplete_regularized(a-1,b,z);
-     (%o2)       beta_incomplete_regularized(a - 1, b, z)
-
-     The derivative and the integral wrt _z_:
-
-     maxima
-     
-     (%i1) diff(beta_incomplete_regularized(a,b,z),z);
-                                   b - 1  a - 1
-                            (1 - z)      z
-     (%o1)                  -------------------
-                                beta(a, b)
-     
-     
-     (%i2) integrate(beta_incomplete_regularized(a,b,z),z);
-     (%o2) beta_incomplete_regularized(a, b, z) z
-                            a beta_incomplete_regularized(a + 1, b, z)
-                          - ------------------------------------------
-                                              b + a
-
-     See also: ‘beta_incomplete’, ‘beta_incomplete_regularized’,
-     ‘beta_expand’, ‘true’.
-
-
-File: maxima-core-docs.info,  Node: Function bffac expr n,  Next: Function bfpsi n z fpprec,  Prev: Function beta_incomplete_regularized a b z,  Up: Special Functions 2
-
- -- Function: bffac (EXPR, N)
-     Bigfloat version of the factorial (shifted gamma) function.  The
-     second argument is how many digits to retain and return, it's a
-     good idea to request a couple of extra.
-
-     maxima
-     
-     (%i1) bffac(1/2,16);
-     (%o1)                 8.862269254527584b-1
-     
-     
-     (%i2) (1/2)!,numer;
-     (%o2)                   0.886226925452758
-     
-     
-     (%i3) bffac(1/2,32);
-     (%o3)          8.862269254527580136490837416707b-1
-
-
-File: maxima-core-docs.info,  Node: Function bfpsi n z fpprec,  Next: Function cbffac z fpprec,  Prev: Function bffac expr n,  Up: Special Functions 2
-
- -- Function: bfpsi (N, Z, FPPREC)
-     ‘bfpsi’ is the polygamma function of real argument _z_ and integer
-     order _n_.  See ‘polygamma’ for further information.  ‘bfpsi0’ is
-     the digamma function.  ‘bfpsi0’ is equivalent to ‘bfpsi’.
-
-     These functions return bigfloat values.  _fpprec_ is the bigfloat
-     precision of the return value.
-
-     maxima
-     
-     (%i1) bfpsi0(1/3, 15);
-     (%o1)                 - 3.13203378002081b0
-     
-     
-     (%i2) bfpsi0(1/3, 32);
-     (%o2)         - 3.1320337800208063229964190742873b0
-     
-     
-     (%i3) bfpsi(0,1/3,32);
-     (%o3)         - 3.1320337800208063229964190742873b0
-     
-     
-     (%i4) psi[0](1/3);
-                        3 log(3)      %pi
-     (%o4)            - -------- - --------- - %gamma
-                           2       2 sqrt(3)
-     
-     
-     (%i5) float(%);
-     (%o5)                  - 3.132033780020806
-
-     See also: ‘bfpsi’, ‘polygamma’, ‘bfpsi0’.
-
-
-File: maxima-core-docs.info,  Node: Function cbffac z fpprec,  Next: Function erf z,  Prev: Function bfpsi n z fpprec,  Up: Special Functions 2
-
- -- Function: cbffac (Z, FPPREC)
-     Complex bigfloat factorial.
-
-     ‘load ("bffac")’ loads this function.
-
-     maxima
-     
-     (%i1) cbffac(1+%i,16);
-     (%o1)    3.430658398165453b-1 %i + 6.529654964201666b-1
-     
-     
-     (%i2) (1+%i)!,numer;
-     (%o2)      0.3430658398165453 %i + 0.6529654964201667
-
-
-File: maxima-core-docs.info,  Node: Function erf z,  Next: Function erf_generalized z1 z2,  Prev: Function cbffac z fpprec,  Up: Special Functions 2
-
- -- Function: erf (Z)
-     The Error Function erf(z):
-
-     {\rm erf}\ z = {{2\over \sqrt{\pi}}} \int_0^z e^{-t^2}\, dt
-
-     {\rm erf}\ z = {{2\over \sqrt{\pi}}} \int_0^z e^{-t^2}\, dt
-
-     (https//personalmathubcca/~cbm/aands/page_297htmA&S eqn 711) and
-     (https//dlmfnistgov/72E1DLMF 72E1).
-
-     See also flag ‘erfflag’.  This can also be expressed in terms of a
-     hypergeometric function.  ‘hypergeometric_005frepresentation’.
-
-     See also: ‘erfflag’, ‘hypergeometric_representation’.
-
-
-File: maxima-core-docs.info,  Node: Function erf_generalized z1 z2,  Next: Variable erf_representation,  Prev: Function erf z,  Up: Special Functions 2
-
- -- Function: erf_generalized (Z1, Z2)
-     Generalized Error function Erf(z1,z2):
-
-     {\rm erf}(z_1, z_2) = {{2\over \sqrt{\pi}}} \int_{z_1}^{z_2}
-     e^{-t^2}\, dt
-
-     {\rm erf}(z_1, z_2) = {{2\over \sqrt{\pi}}} \int_{z_1}^{z_2}
-     e^{-t^2}\, dt
-
-     This can also be expressed in terms of a hypergeometric function.
-     ‘hypergeometric_005frepresentation’.
-
-     See also: ‘hypergeometric_representation’.
-
-
-File: maxima-core-docs.info,  Node: Variable erf_representation,  Next: Function erfc z,  Prev: Function erf_generalized z1 z2,  Up: Special Functions 2
-
- -- Variable: erf_representation
-     Default value: false
-
-     ‘erf_representation’ controls how the error functions are
-     represented.  It must be set to one of ‘false’, ‘erf’, ‘erfc’, or
-     ‘erfi’.  When set to ‘false’, the error functions are not modified.
-     When set to ‘erf’, all error functions (‘erfc’, ‘erfi’,
-     ‘erf_generalized’, ‘fresnel_s’ and ‘fresnel_c’) are converted to
-     ‘erf’ functions.  Similarly, ‘erfc’ converts error functions to
-     ‘erfc’.  Finally ‘erfi’ converts the functions to ‘erfi’.
-
-     Converting to ‘erf’:
-
-     maxima
-     
-     (%i1) erf_representation:erf;
-     (%o1)                          erf
-     
-     
-     (%i2) erfc(z);
-     (%o2)                      1 - erf(z)
-     
-     
-     (%i3) erfi(z);
-     (%o3)                    - %i erf(%i z)
-     
-     
-     (%i4) erf_generalized(z1,z2);
-     (%o4)                   erf(z2) - erf(z1)
-     
-     
-     (%i5) fresnel_c(z);
-                          sqrt(%pi) (%i + 1) z
-     (%o5) ((1 - %i) (erf(--------------------)
-                                   2
-                                             sqrt(%pi) (1 - %i) z
-                                    + %i erf(--------------------)))/4
-                                                      2
-     
-     
-     (%i6) fresnel_s(z);
-                          sqrt(%pi) (%i + 1) z
-     (%o6) ((%i + 1) (erf(--------------------)
-                                   2
-                                             sqrt(%pi) (1 - %i) z
-                                    - %i erf(--------------------)))/4
-                                                      2
-
-     Converting to ‘erfc’:
-
-     maxima
-     
-     (%i1) erf_representation:erfc;
-     (%o1)                         erfc
-     
-     
-     (%i2) erf(z);
-     (%o2)                      1 - erfc(z)
-     
-     
-     (%i3) erfc(z);
-     (%o3)                        erfc(z)
-     
-     
-     (%i4) erf_generalized(z1,z2);
-     (%o4)                  erfc(z1) - erfc(z2)
-     
-     
-     (%i5) fresnel_s(c);
-                             sqrt(%pi) (%i + 1) c
-     (%o5) ((%i + 1) (- erfc(--------------------)
-                                      2
-                                        sqrt(%pi) (1 - %i) c
-                         - %i (1 - erfc(--------------------)) + 1))/4
-                                                 2
-     
-     
-     (%i6) fresnel_c(c);
-                             sqrt(%pi) (%i + 1) c
-     (%o6) ((1 - %i) (- erfc(--------------------)
-                                      2
-                                        sqrt(%pi) (1 - %i) c
-                         + %i (1 - erfc(--------------------)) + 1))/4
-                                                 2
-
-     Converting to ‘erfc’:
-
-     maxima
-     
-     (%i1) erf_representation:erfi;
-     (%o1)                         erfi
-     
-     
-     (%i2) erf(z);
-     (%o2)                    - %i erfi(%i z)
-     
-     
-     (%i3) erfc(z);
-     (%o3)                   %i erfi(%i z) + 1
-     
-     
-     (%i4) erfi(z);
-     (%o4)                        erfi(z)
-     
-     
-     (%i5) erf_generalized(z1,z2);
-     (%o5)            %i erfi(%i z1) - %i erfi(%i z2)
-     
-     
-     (%i6) fresnel_s(z);
-                                sqrt(%pi) %i (%i + 1) z
-     (%o6) ((%i + 1) (- %i erfi(-----------------------)
-                                           2
-                                          sqrt(%pi) (1 - %i) %i z
-                                   - erfi(-----------------------)))/4
-                                                     2
-     
-     
-     (%i7) fresnel_c(z);
-                           sqrt(%pi) (1 - %i) %i z
-     (%o7) ((1 - %i) (erfi(-----------------------)
-                                      2
-                                          sqrt(%pi) %i (%i + 1) z
-                                - %i erfi(-----------------------)))/4
-                                                     2
-
-     See also: ‘erf_representation’, ‘false’, ‘erf’, ‘erfc’, ‘erfi’,
-     ‘erf_generalized’, ‘fresnel_s’, ‘fresnel_c’.
-
-
-File: maxima-core-docs.info,  Node: Function erfc z,  Next: Function erfi z,  Prev: Variable erf_representation,  Up: Special Functions 2
-
- -- Function: erfc (Z)
-     The Complementary Error Function erfc(z):
-
-     {\rm erfc}\ z = 1 - {\rm erf}\ z
-
-     {\rm erfc}\ z = 1 - {\rm erf}\ z
-
-     (https//personalmathubcca/~cbm/aands/page_297htmA&S eqn 712) and
-     (https//dlmfnistgov/72E2DLMF 72E2).
-
-     This can also be expressed in terms of a hypergeometric function.
-     ‘hypergeometric_005frepresentation’.
-
-     See also: ‘hypergeometric_representation’.
-
-
-File: maxima-core-docs.info,  Node: Function erfi z,  Next: Variable expand_hypergeometric,  Prev: Function erfc z,  Up: Special Functions 2
-
- -- Function: erfi (Z)
-     The Imaginary Error Function.
-
-     {\rm erfi}\ z = -i\, {\rm erf}(i z)
-
-     {\rm erfi}\ z = -i\, {\rm erf}(i z)
-
-
-File: maxima-core-docs.info,  Node: Variable expand_hypergeometric,  Next: Function fresnel_c z,  Prev: Function erfi z,  Up: Special Functions 2
-
- -- Variable: expand_hypergeometric
-     Default value: ‘false’
-
-     When ‘true’, ‘hypergeometric’ will return a polynomial if the
-     hypergeometric function represents a polynomial.
-
-     See also: ‘false’, ‘true’, ‘hypergeometric’.
-
-
-File: maxima-core-docs.info,  Node: Function fresnel_c z,  Next: Function fresnel_s z,  Prev: Variable expand_hypergeometric,  Up: Special Functions 2
-
- -- Function: fresnel_c (Z)
-     The Fresnel Integral
-
-     C(z) = \int_0^z \cos\left({\pi \over 2} t^2\right)\, dt
-
-     C(z) = \int_0^z \cos\left({\pi \over 2} t^2\right)\, dt
-
-     (https//personalmathubcca/~cbm/aands/page_300htmA&S eqn 731) and
-     (https//dlmfnistgov/72E7DLMF 72E7).
-
-     The simplification C(-x) = -C(x) is applied when flag ‘trigsign’ is
-     true.
-
-     The simplification C(ix) = iC(x) is applied when flag ‘%iargs’ is
-     true.
-
-     See flags ‘erf_representation’ and ‘hypergeometric_representation’.
-
-     See also: ‘trigsign’, ‘%iargs’, ‘erf_representation’,
-     ‘hypergeometric_representation’.
-
-
-File: maxima-core-docs.info,  Node: Function fresnel_s z,  Next: Function gamma z,  Prev: Function fresnel_c z,  Up: Special Functions 2
-
- -- Function: fresnel_s (Z)
-     The Fresnel Integral
-
-     S(z) = \int_0^z \sin\left({\pi \over 2} t^2\right)\, dt
-
-     S(z) = \int_0^z \sin\left({\pi \over 2} t^2\right)\, dt
-
-     (https//personalmathubcca/~cbm/aands/page_300htmA&S eqn 732) and
-     (https//dlmfnistgov/72E8DLMF 72E8).
-
-     The simplification S(-x) = -S(x) is applied when flag ‘trigsign’ is
-     true.
-
-     The simplification S(ix) = iS(x) is applied when flag ‘%iargs’ is
-     true.
-
-     See flags ‘erf_representation’ and ‘hypergeometric_representation’.
-
-     See also: ‘trigsign’, ‘%iargs’, ‘erf_representation’,
-     ‘hypergeometric_representation’.
-
-
-File: maxima-core-docs.info,  Node: Function gamma z,  Next: Variable gamma_expand,  Prev: Function fresnel_s z,  Up: Special Functions 2
-
- -- Function: gamma (Z)
-     The basic definition of the gamma function
-     (https//dlmfnistgov/52E1DLMF 52E1 and
-     https//personalmathubcca/~cbm/aands/page_255htmA&S eqn 611) is
-
-     \Gamma\left(z\right)=\int_{0}^{\infty }{t^{z-1}\,e^ {- t }\;dt}
-
-     \Gamma\left(z\right)=\int_{0}^{\infty }{t^{z-1}\,e^ {- t }\;dt}
-
-     Maxima simplifies ‘gamma’ for positive integer and positive and
-     negative rational numbers.  For half integral values the result is
-     a rational number times \sqrt{\pi}. The simplification for integer
-     values is controlled by ‘factlim’.  For integers greater than
-     ‘factlim’ the numerical result of the factorial function, which is
-     used to calculate ‘gamma’, will overflow.  The simplification for
-     rational numbers is controlled by ‘gammalim’ to avoid internal
-     overflow.  See ‘factlim’ and ‘gammalim’.
-
-     For negative integers ‘gamma’ is not defined.
-
-     Maxima can evaluate ‘gamma’ numerically for real and complex values
-     in float and bigfloat precision.
-
-     ‘gamma’ has mirror symmetry.
-
-     When ‘gamma_expand’ is ‘true’, Maxima expands ‘gamma’ for arguments
-     ‘z+n’ and ‘z-n’ where ‘n’ is an integer.
-
-     Maxima knows the derivative of ‘gamma’.
-
-     Examples:
-
-     Simplification for integer, half integral, and rational numbers:
-
-     maxima
-     
-     (%i1) map('gamma,[1,2,3,4,5,6,7,8,9]);
-     (%o1)        [1, 1, 2, 6, 24, 120, 720, 5040, 40320]
-     
-     
-     (%i2) map('gamma,[1/2,3/2,5/2,7/2]);
-                         sqrt(%pi)  3 sqrt(%pi)  15 sqrt(%pi)
-     (%o2)   [sqrt(%pi), ---------, -----------, ------------]
-                             2           4            8
-     
-     
-     (%i3) map('gamma,[2/3,5/3,7/3]);
-                                       2           1
-                               2 gamma(-)  4 gamma(-)
-                           2           3           3
-     (%o3)          [gamma(-), ----------, ----------]
-                           3       3           9
-
-     Numerical evaluation for real and complex values:
-
-     maxima
-     
-     (%i1) map('gamma,[2.5,2.5b0]);
-     (%o1)       [1.329340388179137, 1.329340388179137b0]
-     
-     
-     (%i2) map('gamma,[1.0+%i,1.0b0+%i]);
-     (%o2) [0.49801566811835596 - 0.15494982830181073 %i, 
-                       4.980156681183561b-1 - 1.549498283018107b-1 %i]
-
-     ‘gamma’ has mirror symmetry:
-
-     maxima
-     (%i1) declare(z,complex)$
-     
-     (%i2) conjugate(gamma(z));
-     (%o2)                  gamma(conjugate(z))
-
-     Maxima expands ‘gamma’ and ‘gamma’, when ‘gamma_expand’ is ‘true’:
-
-     maxima
-     (%i1) gamma_expand:true$
-     
-     (%i2) [gamma(z+1),gamma(z-1),gamma(z+2)/gamma(z+1)];
-                                    gamma(z)
-     (%o2)             [z gamma(z), --------, z + 1]
-                                     z - 1
-
-     The derivative of ‘gamma’:
-
-     maxima
-     
-     (%i1) diff(gamma(z),z);
-     (%o1)                   psi (z) gamma(z)
-                                0
-
-     See also ‘makegamma’.
-
-     The Euler-Mascheroni constant is ‘%gamma’.
-
-     See also: ‘gamma’, ‘factlim’, ‘gammalim’, ‘gamma_expand’, ‘true’,
-     ‘makegamma’, ‘%gamma’.
-
-
-File: maxima-core-docs.info,  Node: Variable gamma_expand,  Next: Function gamma_incomplete a z,  Prev: Function gamma z,  Up: Special Functions 2
-
- -- Variable: gamma_expand
-     Default value: ‘false’
-
-     ‘gamma_expand’ controls expansion of ‘gamma_incomplete’.  When
-     ‘gamma_expand’ is ‘true’, ‘gamma_005fincomplete’ is expanded in
-     terms of ‘z’, ‘exp’, and ‘gamma_incomplete’ or ‘erfc’ when
-     possible.
-
-     maxima
-     
-     (%i1) gamma_incomplete(2,z);
-     (%o1)                gamma_incomplete(2, z)
-     
-     
-     (%i2) gamma_expand:true;
-     (%o2)                         true
-     
-     
-     (%i3) gamma_incomplete(2,z);
-                                         - z
-     (%o3)                     (z + 1) %e
-     
-     
-     (%i4) gamma_incomplete(3/2,z);
-                            - z   sqrt(%pi) erfc(sqrt(z))
-     (%o4)        sqrt(z) %e    + -----------------------
-                                             2
-     
-     
-     (%i5) gamma_incomplete(4/3,z);
-                                                  1
-                                 gamma_incomplete(-, z)
-                     1/3   - z                    3
-     (%o5)          z    %e    + ----------------------
-                                           3
-     
-     
-     (%i6) gamma_incomplete(a+2,z);
-            a               - z
-     (%o6) z  (z + a + 1) %e    + a (a + 1) gamma_incomplete(a, z)
-     
-     
-     (%i7) gamma_incomplete(a-2, z);
-           gamma_incomplete(a, z)    a - 2         z            1
-     (%o7) ---------------------- - z      (--------------- + -----)
-              (1 - a) (2 - a)               (a - 2) (a - 1)   a - 2
-                                                                   - z
-                                                                 %e
-
-     See also: ‘false’, ‘gamma_expand’, ‘gamma_incomplete’, ‘true’,
-     ‘exp’, ‘erfc’.
-
-
-File: maxima-core-docs.info,  Node: Function gamma_incomplete a z,  Next: Function gamma_incomplete_generalized a z1 z1,  Prev: Variable gamma_expand,  Up: Special Functions 2
-
- -- Function: gamma_incomplete (A, Z)
-     The incomplete upper gamma function (https//dlmfnistgov/82E2DLMF
-     82E2 and https//personalmathubcca/~cbm/aands/page_260htmA&S eqn
-     653):
-
-     \Gamma\left(a , z\right)=\int_{z}^{\infty }{t^{a-1}\,e^ {- t }\;dt}
-
-     \Gamma\left(a , z\right)=\int_{z}^{\infty }{t^{a-1}\,e^ {- t }\;dt}
-
-     See also ‘gamma_expand’ for controlling how ‘gamma_incomplete’ is
-     expressed in terms of elementary functions and ‘erfc’.
-
-     Also see the related functions ‘gamma_incomplete_regularized’ and
-     ‘gamma_incomplete_generalized’.
-
-     See also: ‘gamma_expand’, ‘gamma_incomplete’, ‘erfc’,
-     ‘gamma_incomplete_regularized’, ‘gamma_incomplete_generalized’.
-
-
-File: maxima-core-docs.info,  Node: Function gamma_incomplete_generalized a z1 z1,  Next: Function gamma_incomplete_lower a z,  Prev: Function gamma_incomplete a z,  Up: Special Functions 2
-
- -- Function: gamma_incomplete_generalized (A, Z1, Z1)
-     The generalized incomplete gamma function.
-
-     \Gamma\left(a , z_{1},
-     z_{2}\right)=\int_{z_{1}}^{z_{2}}{t^{a-1}\,e^ {- t }\;dt}
-
-     \Gamma\left(a , z_{1},
-     z_{2}\right)=\int_{z_{1}}^{z_{2}}{t^{a-1}\,e^ {- t }\;dt}
-
-     Also see ‘gamma_incomplete’ and ‘gamma_incomplete_regularized’.
-
-     See also: ‘gamma_incomplete’, ‘gamma_incomplete_regularized’.
-
-
-File: maxima-core-docs.info,  Node: Function gamma_incomplete_lower a z,  Next: Function gamma_incomplete_regularized a z,  Prev: Function gamma_incomplete_generalized a z1 z1,  Up: Special Functions 2
-
- -- Function: gamma_incomplete_lower (A, Z)
-     The lower incomplete gamma function (https//dlmfnistgov/82E1DLMF
-     82E1 and https//personalmathubcca/~cbm/aands/page_260htmA&S eqn
-     652):
-
-     \gamma\left(a , z\right)=\int_{0}^{z}{t^{a-1}\,e^ {- t }\;dt}
-
-     \gamma\left(a , z\right)=\int_{0}^{z}{t^{a-1}\,e^ {- t }\;dt}
-
-     See also ‘gamma_incomplete’ (upper incomplete gamma function).
-
-     See also: ‘gamma_incomplete’.
-
-
-File: maxima-core-docs.info,  Node: Function gamma_incomplete_regularized a z,  Next: Variable gammalim,  Prev: Function gamma_incomplete_lower a z,  Up: Special Functions 2
-
- -- Function: gamma_incomplete_regularized (A, Z)
-     The regularized incomplete upper gamma function
-     (https//dlmfnistgov/82E4DLMF 82E4):
-
-     Q\left(a , z\right)={{\Gamma\left(a ,
-     z\right)}\over{\Gamma\left(a\right)}}
-
-     Q\left(a , z\right)={{\Gamma\left(a ,
-     z\right)}\over{\Gamma\left(a\right)}}
-
-     See also ‘gamma_expand’ for controlling how ‘gamma_incomplete’ is
-     expressed in terms of elementary functions and ‘erfc’.
-
-     Also see ‘gamma_incomplete’.
-
-     See also: ‘gamma_expand’, ‘gamma_incomplete’, ‘erfc’.
-
-
-File: maxima-core-docs.info,  Node: Variable gammalim,  Next: Function generalized_lambert_w k z,  Prev: Function gamma_incomplete_regularized a z,  Up: Special Functions 2
-
- -- Variable: gammalim
-     Default value: 10000
-
-     ‘gammalim’ controls simplification of the gamma function for
-     integral and rational number arguments.  If the absolute value of
-     the argument is not greater than ‘gammalim’, then simplification
-     will occur.  Note that the ‘factlim’ switch controls simplification
-     of the result of ‘gamma’ of an integer argument as well.
-
-     See also: ‘gammalim’, ‘factlim’, ‘gamma’.
-
-
-File: maxima-core-docs.info,  Node: Function generalized_lambert_w k z,  Next: Function hankel_1 v z,  Prev: Variable gammalim,  Up: Special Functions 2
-
- -- Function: generalized_lambert_w (K, Z)
-     The _k_-th branch of Lambert's W function W(z)
-     (https//dlmfnistgov/413DLMF 413), the solution of z=W(z)e^{W(z)}.
-
-     The principal branch, denoted W_p(z) in DLMF, is ‘lambert_005fw’
-     ‘=’ ‘generalized_005flambert_005fw’.
-
-     The other branch with real values, denoted W_m(z) in DLMF, is
-     ‘generalized_005flambert_005fw’.
-
-     See also: ‘lambert_w’, ‘generalized_lambert_w’.
-
-
-File: maxima-core-docs.info,  Node: Function hankel_1 v z,  Next: Function hankel_2 v z,  Prev: Function generalized_lambert_w k z,  Up: Special Functions 2
-
- -- Function: hankel_1 (V, Z)
-     The Hankel function of the first kind of order v and argument z.
-     See https//personalmathubcca/~cbm/aands/page_358htmA&S eqn 913 and
-     https//dlmfnistgov/104E3DLMF 104E3.
-
-     ‘hankel_1’ is defined as
-
-     H^{(1)}_v(z) = J_v(z) + i Y_v(z)
-
-     H^{(1)}_v(z) = J_v(z) + i Y_v(z)
-
-     Maxima evaluates ‘hankel_1’ numerically for a complex order v and
-     complex argument z in float precision.  The numerical evaluation in
-     bigfloat precision is not supported.
-
-     When ‘besselexpand’ is ‘true’, ‘hankel_1’ is expanded in terms of
-     elementary functions when the order v is half of an odd integer.
-     See ‘besselexpand’.
-
-     Maxima knows the derivative of ‘hankel_1’ wrt the argument z.
-
-     Examples:
-
-     Numerical evaluation:
-
-     maxima
-     
-     (%i1) hankel_1(1,0.5);
-     (%o1)      0.24226845767487384 - 1.4714723926702433 %i
-     
-     
-     (%i2) hankel_1(1,0.5+%i);
-     (%o2)     - 0.2558287994862166 %i - 0.23957560188301597
-
-     Expansion of ‘hankel_1’ when ‘besselexpand’ is ‘true’:
-
-     maxima
-     
-     (%i1) hankel_1(1/2,z),besselexpand:true;
-                    sqrt(2) sin(z) - sqrt(2) %i cos(z)
-     (%o1)          ----------------------------------
-                            sqrt(%pi) sqrt(z)
-
-     Derivative of ‘hankel_1’ wrt the argument z.  The derivative wrt
-     the order v is not supported.  Maxima returns a noun form:
-
-     maxima
-     
-     (%i1) diff(hankel_1(v,z),z);
-                  hankel_1(v - 1, z) - hankel_1(v + 1, z)
-     (%o1)        ---------------------------------------
-                                     2
-     
-     
-     (%i2) diff(hankel_1(v,z),v);
-                            d
-     (%o2)                  -- (hankel_1(v, z))
-                            dv
-
-     See also: ‘hankel_1’, ‘besselexpand’, ‘true’.
-
-
-File: maxima-core-docs.info,  Node: Function hankel_2 v z,  Next: Function hgfred a b t,  Prev: Function hankel_1 v z,  Up: Special Functions 2
-
- -- Function: hankel_2 (V, Z)
-     The Hankel function of the second kind of order v and argument z.
-     See https//personalmathubcca/~cbm/aands/page_358htmA&S eqn 914 and
-     https//dlmfnistgov/104E3DLMF 104E3.
-
-     ‘hankel_2’ is defined as
-
-     H^{(2)}_v(z) = J_v(z) - i Y_v(z)
-
-     H^{(2)}_v(z) = J_v(z) - i Y_v(z)
-
-     Maxima evaluates ‘hankel_2’ numerically for a complex order v and
-     complex argument z in float precision.  The numerical evaluation in
-     bigfloat precision is not supported.
-
-     When ‘besselexpand’ is ‘true’, ‘hankel_2’ is expanded in terms of
-     elementary functions when the order v is half of an odd integer.
-     See ‘besselexpand’.
-
-     Maxima knows the derivative of ‘hankel_2’ wrt the argument z.
-
-     For examples see ‘hankel_1’.
-
-     See also: ‘hankel_2’, ‘besselexpand’, ‘true’, ‘hankel_1’.
-
-
-File: maxima-core-docs.info,  Node: Function hgfred a b t,  Next: Function hypergeometric [a1 ... ap] [b1 ... bq] x,  Prev: Function hankel_2 v z,  Up: Special Functions 2
-
- -- Function: hgfred (A, B, T)
-     Simplify the generalized hypergeometric function in terms of other,
-     simpler, forms.  _a_ is a list of numerator parameters and _b_ is a
-     list of the denominator parameters.
-
-     If ‘hgfred’ cannot simplify the hypergeometric function, it returns
-     an expression of the form ‘_0025f’ where _p_ is the number of
-     elements in _a_, and _q_ is the number of elements in _b_.  This is
-     the usual _pF_q generalized hypergeometric function.
-
-     maxima
-     
-     (%i1) assume(not(equal(z,0)));
-     (%o1)                   [notequal(z, 0)]
-     
-     
-     (%i2) hgfred([v+1/2],[2*v+1],2*%i*z);
-                   v/2                               %i z
-                  4    bessel_j(v, z) gamma(v + 1) %e
-     (%o2)        ---------------------------------------
-                                     v
-                                    z
-     
-     
-     (%i3) hgfred([1,1],[2],z);
-                                 log(1 - z)
-     (%o3)                     - ----------
-                                     z
-     
-     
-     (%i4) hgfred([a,a+1/2],[3/2],z^2);
-                             1 - 2 a          1 - 2 a
-                      (z + 1)        - (1 - z)
-     (%o4)            -------------------------------
-                               2 (1 - 2 a) z
-
-     It can be beneficial to load orthopoly too as the following example
-     shows.  Note that _L_ is the generalized Laguerre polynomial.
-
-     maxima
-     (%i1) load("orthopoly")$
-     
-     (%i2) hgfred([-2],[a],z);
-                                2
-                               z        2 z
-     (%o2)                  --------- - --- + 1
-                            a (a + 1)    a
-     
-     
-     (%i3) ev(%);
-                                2
-                               z        2 z
-     (%o3)                  --------- - --- + 1
-                            a (a + 1)    a
-
-     See also: ‘hgfred’, ‘%f’.
-
-
-File: maxima-core-docs.info,  Node: Function hypergeometric [a1 ... ap] [b1 ... bq] x,  Next: Variable hypergeometric_representation,  Prev: Function hgfred a b t,  Up: Special Functions 2
-
- -- Function: hypergeometric ([A1, ..., AP], [B1, ..., BQ], X)
-     The hypergeometric function.  Unlike Maxima's ‘%f’ hypergeometric
-     function, the function ‘hypergeometric’ is a simplifying function;
-     also, ‘hypergeometric’ supports complex double and big floating
-     point evaluation.  For the Gauss hypergeometric function, that is p
-     = 2 and q = 1, floating point evaluation outside the unit circle is
-     supported, but in general, it is not supported.
-
-     When the option variable ‘expand_hypergeometric’ is ‘true’ (default
-     is ‘false’) and one of the arguments ‘a1’ through ‘ap’ is a
-     negative integer (a polynomial case), ‘hypergeometric’ returns an
-     expanded polynomial.
-
-     Examples:
-
-     maxima
-     
-     (%i1)  hypergeometric([],[],x);
-                                      x
-     (%o1)                          %e
-
-     Polynomial cases automatically expand when ‘expand_hypergeometric’
-     is true:
-
-     maxima
-     
-     (%i1) hypergeometric([-3],[7],x);
-     (%o1)             hypergeometric([- 3], [7], x)
-     
-     
-     (%i2) hypergeometric([-3],[7],x), expand_hypergeometric : true;
-                             3       2
-                            x     3 x    3 x
-     (%o2)                - --- + ---- - --- + 1
-                            504    56     7
-
-     Both double float and big float evaluation is supported:
-
-     maxima
-     
-     (%i1) hypergeometric([5.1],[7.1 + %i],0.42);
-     (%o1)      1.3462507863753337 - 0.0559061414208204 %i
-     
-     
-     (%i2) hypergeometric([5,6],[8], 5.7 - %i);
-     (%o2)    0.007375824009774945 - 0.0010498136885786736 %i
-     
-     
-     (%i3) hypergeometric([5,6],[8], 5.7b0 - %i), fpprec : 30;
-     (%o3) 7.37582400977494674506442010824b-3
-                               - 1.04981368857867315858055393376b-3 %i
-
-     See also: ‘%f’, ‘hypergeometric’, ‘expand_hypergeometric’, ‘true’,
-     ‘false’.
-
-
-File: maxima-core-docs.info,  Node: Variable hypergeometric_representation,  Next: Function hypergeometric_simp e,  Prev: Function hypergeometric [a1 ... ap] [b1 ... bq] x,  Up: Special Functions 2
-
- -- Variable: hypergeometric_representation
-     Default value: false
-
-     Enables transformation to a Hypergeometric representation for
-     ‘fresnel_s’ and ‘fresnel_c’ and other error functions.
-
-     maxima
-     
-     (%i1) hypergeometric_representation:true;
-     (%o1)                         true
-     
-     
-     (%i2) fresnel_s(z);
-                                                    2  4
-                                   3    3  7     %pi  z    3
-               %pi hypergeometric([-], [-, -], - -------) z
-                                   4    2  4       16
-     (%o2)     ---------------------------------------------
-                                     6
-     
-     
-     (%i3) fresnel_c(z);
-                                                  2  4
-                                 1    1  5     %pi  z
-     (%o3)       hypergeometric([-], [-, -], - -------) z
-                                 4    2  4       16
-     
-     
-     (%i4) erf(z);
-                                                        2
-                                         3    2      - z
-                  2 hypergeometric([1], [-], z ) z %e
-                                         2
-     (%o4)        ---------------------------------------
-                                 sqrt(%pi)
-     
-     
-     (%i5) erfi(z);
-                                       1    3    2
-                     2 hypergeometric([-], [-], z ) z
-                                       2    2
-     (%o5)           --------------------------------
-                                sqrt(%pi)
-     
-     
-     (%i6) erfc(z);
-                                                          2
-                                           3    2      - z
-                    2 hypergeometric([1], [-], z ) z %e
-                                           2
-     (%o6)      1 - ---------------------------------------
-                                   sqrt(%pi)
-     
-     
-     (%i7) erf_generalized(z1,z2);
-                                                    2
-                                  3     2       - z2
-           2 hypergeometric([1], [-], z2 ) z2 %e
-                                  2
-     (%o7) ------------------------------------------
-                           sqrt(%pi)
-                                                                     2
-                                                   3     2       - z1
-                            2 hypergeometric([1], [-], z1 ) z1 %e
-                                                   2
-                          - ------------------------------------------
-                                            sqrt(%pi)
-
-     See also: ‘fresnel_s’, ‘fresnel_c’.
-
-
-File: maxima-core-docs.info,  Node: Function hypergeometric_simp e,  Next: Function kbateman v (x),  Prev: Variable hypergeometric_representation,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function hypergeometric_simp e
 
  -- Function: hypergeometric_simp (E)
      ‘hypergeometric_simp’ simplifies hypergeometric functions by
@@ -1382,7 +47,7 @@ File: maxima-core-docs.info,  Node: Function hypergeometric_simp e,  Next: Funct
      ‘%w’, ‘%m’.
 
 
-File: maxima-core-docs.info,  Node: Function kbateman v (x),  Next: Function lambert_w z,  Prev: Function hypergeometric_simp e,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function kbateman v
 
  -- Function: kbateman (<x>, V)
      The Bateman k function
@@ -1463,18 +128,18 @@ File: maxima-core-docs.info,  Node: Function kbateman v (x),  Next: Function lam
      See also: ‘%w’, ‘kbateman’, ‘laplace’, ‘specint’.
 
 
-File: maxima-core-docs.info,  Node: Function lambert_w z,  Next: Function log_gamma z,  Prev: Function kbateman v (x),  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function lambert_w z
 
  -- Function: lambert_w (Z)
      The principal branch of Lambert's W function W(z)
-     (https//dlmfnistgov/413DLMF 413), the solution of
+     (https://dlmf.nist.gov/4.13DLMF 4.13), the solution of
 
      z = W(z)e^{W(z)}
 
      z = W(z)e^{W(z)}
 
 
-File: maxima-core-docs.info,  Node: Function log_gamma z,  Next: Function makefact expr,  Prev: Function lambert_w z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function log_gamma z
 
  -- Function: log_gamma (Z)
      The natural logarithm of the gamma function.
@@ -1493,7 +158,7 @@ File: maxima-core-docs.info,  Node: Function log_gamma z,  Next: Function makefa
      (%o3)                  0.5723649429247004
 
 
-File: maxima-core-docs.info,  Node: Function makefact expr,  Next: Function makegamma expr,  Prev: Function log_gamma z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function makefact expr
 
  -- Function: makefact (EXPR)
      Transforms instances of binomial, gamma, and beta functions in
@@ -1521,7 +186,7 @@ File: maxima-core-docs.info,  Node: Function makefact expr,  Next: Function make
      See also: ‘makegamma’.
 
 
-File: maxima-core-docs.info,  Node: Function makegamma expr,  Next: Variable maxpsifracdenom,  Prev: Function makefact expr,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function makegamma expr
 
  -- Function: makegamma (EXPR)
      Transforms instances of binomial, factorial, and beta functions in
@@ -1549,7 +214,7 @@ File: maxima-core-docs.info,  Node: Function makegamma expr,  Next: Variable max
      See also: ‘makefact’.
 
 
-File: maxima-core-docs.info,  Node: Variable maxpsifracdenom,  Next: Variable maxpsifracnum,  Prev: Function makegamma expr,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Variable maxpsifracdenom
 
  -- Variable: maxpsifracdenom
      Default value: 6
@@ -1590,7 +255,7 @@ File: maxima-core-docs.info,  Node: Variable maxpsifracdenom,  Next: Variable ma
      See also: ‘maxpsifracdenom’.
 
 
-File: maxima-core-docs.info,  Node: Variable maxpsifracnum,  Next: Variable maxpsinegint,  Prev: Variable maxpsifracdenom,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Variable maxpsifracnum
 
  -- Variable: maxpsifracnum
      Default value: 6
@@ -1631,7 +296,7 @@ File: maxima-core-docs.info,  Node: Variable maxpsifracnum,  Next: Variable maxp
      See also: ‘maxpsifracnum’.
 
 
-File: maxima-core-docs.info,  Node: Variable maxpsinegint,  Next: Variable maxpsiposint,  Prev: Variable maxpsifracnum,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Variable maxpsinegint
 
  -- Variable: maxpsinegint
      Default value: -10
@@ -1672,7 +337,7 @@ File: maxima-core-docs.info,  Node: Variable maxpsinegint,  Next: Variable maxps
      See also: ‘maxpsinegint’.
 
 
-File: maxima-core-docs.info,  Node: Variable maxpsiposint,  Next: Function numfactor expr,  Prev: Variable maxpsinegint,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Variable maxpsiposint
 
  -- Variable: maxpsiposint
      Default value: 20
@@ -1706,7 +371,7 @@ File: maxima-core-docs.info,  Node: Variable maxpsiposint,  Next: Function numfa
      See also: ‘maxpsiposint’.
 
 
-File: maxima-core-docs.info,  Node: Function numfactor expr,  Next: Function nzeta z,  Prev: Variable maxpsiposint,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function numfactor expr
 
  -- Function: numfactor (EXPR)
      Returns the numerical factor multiplying the expression _expr_,
@@ -1731,7 +396,7 @@ File: maxima-core-docs.info,  Node: Function numfactor expr,  Next: Function nze
      See also: ‘content’.
 
 
-File: maxima-core-docs.info,  Node: Function nzeta z,  Next: Function nzetai z,  Prev: Function numfactor expr,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function nzeta z
 
  -- Function: nzeta (Z)
      The Plasma Dispersion Function
@@ -1741,23 +406,24 @@ File: maxima-core-docs.info,  Node: Function nzeta z,  Next: Function nzetai z, 
      {\rm nzeta}(z) = i\sqrt{\pi}e^{-z^2}(1-{\rm erf}(-iz))
 
 
-File: maxima-core-docs.info,  Node: Function nzetai z,  Next: Function nzetar z,  Prev: Function nzeta z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function nzetai z
 
  -- Function: nzetai (Z)
      Returns ‘imagpart(nzeta(z))’.
 
 
-File: maxima-core-docs.info,  Node: Function nzetar z,  Next: Function parabolic_cylinder_d v z,  Prev: Function nzetai z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function nzetar z
 
  -- Function: nzetar (Z)
      Returns ‘realpart(nzeta(z))’.
 
 
-File: maxima-core-docs.info,  Node: Function parabolic_cylinder_d v z,  Next: Function psi n (x),  Prev: Function nzetar z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function parabolic_cylinder_d v z
 
  -- Function: parabolic_cylinder_d (V, Z)
      The parabolic cylinder function ‘parabolic_005fcylinder_005fd’.
-     (https//personalmathubcca/~cbm/aands/page_687htmA&S eqn 1931).
+     (https://personal.math.ubc.ca/~cbm/aands/page_687.htmA&S eqn
+     19.3.1).
 
      The solution of the Weber differential equation
 
@@ -1775,14 +441,14 @@ File: maxima-core-docs.info,  Node: Function parabolic_cylinder_d v z,  Next: Fu
      See also: ‘parabolic_cylinder_d’, ‘specint’, ‘prefer_d’, ‘true’.
 
 
-File: maxima-core-docs.info,  Node: Function psi n (x),  Next: Function scaled_bessel_i v z,  Prev: Function parabolic_cylinder_d v z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function psi n
 
  -- Function: psi (<x>, N)
-     ‘psi’ is the polygamma function (https//dlmfnistgov/52E2DLMF 52E2,
-     https//dlmfnistgov/515DLMF 515,
-     https//personalmathubcca/~cbm/aands/page_258htmA&S eqn 631 and
-     https//personalmathubcca/~cbm/aands/page_260htmA&S eqn 641) defined
-     by
+     ‘psi’ is the polygamma function (https://dlmf.nist.gov/5.2E2DLMF
+     5.2E2, https://dlmf.nist.gov/5.15DLMF 5.15,
+     https://personal.math.ubc.ca/~cbm/aands/page_258.htmA&S eqn 6.3.1
+     and https://personal.math.ubc.ca/~cbm/aands/page_260.htmA&S eqn
+     6.4.1) defined by
 
      \psi^{(n)}(x) = {d^{n+1}\over{dx^{n+1}}} \log\Gamma(x)
 
@@ -1837,7 +503,7 @@ File: maxima-core-docs.info,  Node: Function psi n (x),  Next: Function scaled_b
      ‘maxpsifracdenom’, ‘bfpsi’, ‘bffac’.
 
 
-File: maxima-core-docs.info,  Node: Function scaled_bessel_i v z,  Next: Function scaled_bessel_i0 z,  Prev: Function psi n (x),  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function scaled_bessel_i v z
 
  -- Function: scaled_bessel_i (V, Z)
      The scaled modified Bessel function of the first kind of order v
@@ -1854,7 +520,7 @@ File: maxima-core-docs.info,  Node: Function scaled_bessel_i v z,  Next: Functio
      z)’.
 
 
-File: maxima-core-docs.info,  Node: Function scaled_bessel_i0 z,  Next: Function scaled_bessel_i1 z,  Prev: Function scaled_bessel_i v z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function scaled_bessel_i0 z
 
  -- Function: scaled_bessel_i0 (Z)
      Identical to ‘scaled_005fbessel_005fi’.
@@ -1862,7 +528,7 @@ File: maxima-core-docs.info,  Node: Function scaled_bessel_i0 z,  Next: Function
      See also: ‘scaled_bessel_i’.
 
 
-File: maxima-core-docs.info,  Node: Function scaled_bessel_i1 z,  Next: Function sinc x,  Prev: Function scaled_bessel_i0 z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function scaled_bessel_i1 z
 
  -- Function: scaled_bessel_i1 (Z)
      Identical to ‘scaled_005fbessel_005fi’.
@@ -1870,7 +536,7 @@ File: maxima-core-docs.info,  Node: Function scaled_bessel_i1 z,  Next: Function
      See also: ‘scaled_bessel_i’.
 
 
-File: maxima-core-docs.info,  Node: Function sinc x,  Next: Function slommel u v (z),  Prev: Function scaled_bessel_i1 z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function sinc x
 
  -- Function: sinc (X)
      The function ‘sinc’ is defined by
@@ -1926,11 +592,11 @@ File: maxima-core-docs.info,  Node: Function sinc x,  Next: Function slommel u v
      See also: ‘sinc’, ‘%piargs’, ‘numer’.
 
 
-File: maxima-core-docs.info,  Node: Function slommel u v (z),  Next: Function struve_h v z,  Prev: Function sinc x,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function slommel u v
 
- -- Function: slommel (<z>, U V)
+ -- Function: slommel (<z>, U, V)
      Lommel's big S_{\mu,\nu}(z) function.
-     (https//dlmfnistgov/119E5DLMF 119E5)(G&R 8.570.2).
+     (https://dlmf.nist.gov/11.9.E5DLMF 11.9.E5)(G&R 8.570.2).
 
      Lommels big S function is another particular solution of the
      inhomogeneous Bessel differential equation (‘_0025s’) defined for
@@ -1953,7 +619,7 @@ File: maxima-core-docs.info,  Node: Function slommel u v (z),  Next: Function st
      See also: ‘%s’.
 
 
-File: maxima-core-docs.info,  Node: Function struve_h v z,  Next: Function struve_l v z,  Prev: Function slommel u v (z),  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function struve_h v z
 
  -- Function: struve_h (V, Z)
      The Struve Function H of order \nu and argument z:
@@ -1968,8 +634,8 @@ File: maxima-core-docs.info,  Node: Function struve_h v z,  Next: Function struv
      \Gamma\left(k + {3\over 2}\right) \Gamma\left(k + \nu + {3\over
      2}\right)}
 
-     (https//personalmathubcca/~cbm/aands/page_496htmA&S eqn 1213) and
-     (https//dlmfnistgov/112E1DLMF 112E1).
+     (https://personal.math.ubc.ca/~cbm/aands/page_496.htmA&S eqn
+     12.1.3) and (https://dlmf.nist.gov/11.2.E1DLMF 11.2.E1).
 
      When ‘besselexpand’ is ‘true’, ‘struve_h’ is expanded in terms of
      elementary functions when the order v is half of an odd integer.
@@ -1978,7 +644,7 @@ File: maxima-core-docs.info,  Node: Function struve_h v z,  Next: Function struv
      See also: ‘besselexpand’, ‘true’, ‘struve_h’.
 
 
-File: maxima-core-docs.info,  Node: Function struve_l v z,  Prev: Function struve_h v z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function struve_l v z
 
  -- Function: struve_l (V, Z)
      The Modified Struve Function L of order \nu and argument z:
@@ -1987,8 +653,8 @@ File: maxima-core-docs.info,  Node: Function struve_l v z,  Prev: Function struv
 
      {\bf L}_{\nu}(z) = -ie^{-{i\nu\pi\over 2}} {\bf H}_{\nu}(iz)
 
-     (https//personalmathubcca/~cbm/aands/page_498htmA&S eqn 1221) and
-     (https//dlmfnistgov/112E2DLMF 112E2).
+     (https://personal.math.ubc.ca/~cbm/aands/page_498.htmA&S eqn
+     12.2.1) and (https://dlmf.nist.gov/11.2.E2DLMF 11.2.E2).
 
      When ‘besselexpand’ is ‘true’, ‘struve_l’ is expanded in terms of
      elementary functions when the order v is half of an odd integer.
@@ -1997,13 +663,10 @@ File: maxima-core-docs.info,  Node: Function struve_l v z,  Prev: Function struv
      See also: ‘besselexpand’, ‘true’, ‘struve_l’.
 
 
-File: maxima-core-docs.info,  Node: Statistics,  Next: descriptive 2,  Prev: Special Functions 2,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Statistics,  Next: ,  Prev: ,  Up: Maxima Core Documentation
 
 1.117 Statistics
 ================
-
-
-File: maxima-core-docs.info,  Node: descriptive 2,  Next: distrib,  Prev: Statistics,  Up: Maxima Core Documentation
 
 1.118 descriptive
 =================
@@ -2048,7 +711,7 @@ File: maxima-core-docs.info,  Node: descriptive 2,  Next: distrib,  Prev: Statis
 * Function var1 list::
 
 
-File: maxima-core-docs.info,  Node: Function build_sample list,  Next: Function cdf_empirical list option...,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function build_sample list
 
  -- Function: build_sample (LIST)
      Builds a sample from a table of absolute frequencies.  The input
@@ -2112,7 +775,7 @@ File: maxima-core-docs.info,  Node: Function build_sample list,  Next: Function 
      (%i4) barsplot(sam2, grouping=stacked) $
 
 
-File: maxima-core-docs.info,  Node: Function cdf_empirical list option...,  Next: Function central_moment x k,  Prev: Function build_sample list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function cdf_empirical list option...
 
  -- Function: cdf_empirical (LIST, OPTION...)
      Empirical distribution function F(x).
@@ -2148,7 +811,7 @@ File: maxima-core-docs.info,  Node: Function cdf_empirical list option...,  Next
         explicit(F(z), z, -2, 12)) $
 
 
-File: maxima-core-docs.info,  Node: Function central_moment x k,  Next: Function continuous_freq data,  Prev: Function cdf_empirical list option...,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function central_moment x k
 
  -- Function: central_moment (X, K)
      Returns the central moment of order _k_.  _x_ must be a list or
@@ -2236,7 +899,7 @@ File: maxima-core-docs.info,  Node: Function central_moment x k,  Next: Function
      See also: ‘central_moment’, ‘mean’.
 
 
-File: maxima-core-docs.info,  Node: Function continuous_freq data,  Next: Function cor matrix,  Prev: Function central_moment x k,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function continuous_freq data
 
  -- Function: continuous_freq (DATA)
      Divides the range of _data_ into intervals, and counts how many
@@ -2329,15 +992,15 @@ File: maxima-core-docs.info,  Node: Function continuous_freq data,  Next: Functi
                                   [8, 8, 12, 12, 10, 8, 9, 8, 12, 13]]
 
 
-File: maxima-core-docs.info,  Node: Function cor matrix,  Next: Function cov X,  Prev: Function continuous_freq data,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function cor matrix
 
  -- Function: cor (MATRIX)
      The correlation matrix of the multivariate sample.
 
      Option:
 
-        •    • ‘'data’, default ‘'true’, indicates whether the
-               input matrix contains the sample data, in which case the
+        •    • ‘'data’, default ‘'true’, indicates whether the input
+               matrix contains the sample data, in which case the
                covariance matrix ‘cov1’ must be calculated, or not, and
                then the covariance matrix (symmetric) must be given,
                instead of the data.
@@ -2382,7 +1045,7 @@ File: maxima-core-docs.info,  Node: Function cor matrix,  Next: Function cov X, 
      See also: ‘cov’, ‘cov1’.
 
 
-File: maxima-core-docs.info,  Node: Function cov X,  Next: Function cov1 matrix,  Prev: Function cor matrix,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function cov X
 
  -- Function: cov (X)
      Returns the sample covariance matrix.  _X_ must be a matrix.
@@ -2460,7 +1123,7 @@ File: maxima-core-docs.info,  Node: Function cov X,  Next: Function cov1 matrix,
      See also: ‘cov1’.
 
 
-File: maxima-core-docs.info,  Node: Function cov1 matrix,  Next: Function cv list,  Prev: Function cov X,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function cov1 matrix
 
  -- Function: cov1 (MATRIX)
      The covariance matrix of the multivariate sample, defined as
@@ -2499,7 +1162,7 @@ File: maxima-core-docs.info,  Node: Function cov1 matrix,  Next: Function cv lis
      See also: ‘cov’.
 
 
-File: maxima-core-docs.info,  Node: Function cv list,  Next: Function discrete_freq data,  Prev: Function cov1 matrix,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function cv list
 
  -- Function: cv (LIST)
      Returns the variation coefficient, defined as the sample standard
@@ -2524,7 +1187,7 @@ File: maxima-core-docs.info,  Node: Function cv list,  Next: Function discrete_f
      See also: ‘std’, ‘mean’.
 
 
-File: maxima-core-docs.info,  Node: Function discrete_freq data,  Next: Function geometric_mean list,  Prev: Function cv list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function discrete_freq data
 
  -- Function: discrete_freq (DATA)
      Counts absolute frequencies in discrete samples, both numeric and
@@ -2564,7 +1227,7 @@ File: maxima-core-docs.info,  Node: Function discrete_freq data,  Next: Function
                                   [8, 8, 12, 12, 10, 8, 9, 8, 12, 13]]
 
 
-File: maxima-core-docs.info,  Node: Function geometric_mean list,  Next: Function global_variances matrix,  Prev: Function discrete_freq data,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function geometric_mean list
 
  -- Function: geometric_mean (LIST)
      The geometric mean, defined as
@@ -2598,7 +1261,7 @@ File: maxima-core-docs.info,  Node: Function geometric_mean list,  Next: Functio
      See also: ‘mean’, ‘harmonic_mean’.
 
 
-File: maxima-core-docs.info,  Node: Function global_variances matrix,  Next: Function harmonic_mean list,  Prev: Function geometric_mean list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function global_variances matrix
 
  -- Function: global_variances (MATRIX)
      Function ‘global_variances’ returns a list of global variance
@@ -2613,9 +1276,9 @@ File: maxima-core-docs.info,  Node: Function global_variances matrix,  Next: Fun
         •    • _generalized standard deviation_:
                ‘sqrt(determinant(S_1))’,
 
-        •    • _effective variance_ ‘determinant(S_1)^(1/p)’,
-               (defined in: Pena, D. (2002) _Analisis de datos
-               multivariantes_; McGraw-Hill, Madrid.)
+        •    • _effective variance_ ‘determinant(S_1)^(1/p)’, (defined
+               in: Pena, D. (2002) _Analisis de datos multivariantes_;
+               McGraw-Hill, Madrid.)
 
         •    • _effective standard deviation_:
                ‘determinant(S_1)^(1/(2*p))’.
@@ -2625,8 +1288,8 @@ File: maxima-core-docs.info,  Node: Function global_variances matrix,  Next: Fun
 
      Option:
 
-        •    • ‘'data’, default ‘'true’, indicates whether the
-               input matrix contains the sample data, in which case the
+        •    • ‘'data’, default ‘'true’, indicates whether the input
+               matrix contains the sample data, in which case the
                covariance matrix ‘cov1’ must be calculated, or not, and
                then the covariance matrix (symmetric) must be given,
                instead of the data.
@@ -2657,7 +1320,7 @@ File: maxima-core-docs.info,  Node: Function global_variances matrix,  Next: Fun
      See also: ‘cov’, ‘cov1’.
 
 
-File: maxima-core-docs.info,  Node: Function harmonic_mean list,  Next: Function km list option...,  Prev: Function global_variances matrix,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function harmonic_mean list
 
  -- Function: harmonic_mean (LIST)
      The harmonic mean, defined as
@@ -2693,7 +1356,7 @@ File: maxima-core-docs.info,  Node: Function harmonic_mean list,  Next: Function
      See also: ‘mean’, ‘geometric_mean’.
 
 
-File: maxima-core-docs.info,  Node: Function km list option...,  Next: Function kurtosis list,  Prev: Function harmonic_mean list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function km list option...
 
  -- Function: km (LIST, OPTION...)
      Kaplan Meier estimator of the survival, or reliability, function
@@ -2738,7 +1401,7 @@ File: maxima-core-docs.info,  Node: Function km list option...,  Next: Function 
                                      2
 
 
-File: maxima-core-docs.info,  Node: Function kurtosis list,  Next: Function list_correlations matrix,  Prev: Function km list option...,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function kurtosis list
 
  -- Function: kurtosis (LIST)
      The kurtosis coefficient, defined as
@@ -2773,14 +1436,14 @@ File: maxima-core-docs.info,  Node: Function kurtosis list,  Next: Function list
      See also: ‘mean’, ‘var’, ‘skewness’.
 
 
-File: maxima-core-docs.info,  Node: Function list_correlations matrix,  Next: Function mean x,  Prev: Function kurtosis list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function list_correlations matrix
 
  -- Function: list_correlations (MATRIX)
      Function ‘list_correlations’ returns a list of correlation
      measures:
 
-        •    • _precision matrix_: the inverse of the
-               covariance matrix S_1,
+        •    • _precision matrix_: the inverse of the covariance matrix
+               S_1,
 
      -1     ij
            S   = (s  )             
@@ -2811,8 +1474,8 @@ File: maxima-core-docs.info,  Node: Function list_correlations matrix,  Next: Fu
 
      Option:
 
-        •    • ‘'data’, default ‘'true’, indicates whether the
-               input matrix contains the sample data, in which case the
+        •    • ‘'data’, default ‘'true’, indicates whether the input
+               matrix contains the sample data, in which case the
                covariance matrix ‘cov1’ must be calculated, or not, and
                then the covariance matrix (symmetric) must be given,
                instead of the data.
@@ -2857,7 +1520,7 @@ File: maxima-core-docs.info,  Node: Function list_correlations matrix,  Next: Fu
      See also: ‘cov’, ‘cov1’.
 
 
-File: maxima-core-docs.info,  Node: Function mean x,  Next: Function mean_deviation list,  Prev: Function list_correlations matrix,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function mean x
 
  -- Function: mean (X)
      Returns the sample mean.  _x_ must be a list or matrix.
@@ -2958,7 +1621,7 @@ File: maxima-core-docs.info,  Node: Function mean x,  Next: Function mean_deviat
                      ww + vv      ww + vv      ww + vv
 
 
-File: maxima-core-docs.info,  Node: Function mean_deviation list,  Next: Function median list,  Prev: Function mean x,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function mean_deviation list
 
  -- Function: mean_deviation (LIST)
      The mean deviation, defined as
@@ -2994,7 +1657,7 @@ File: maxima-core-docs.info,  Node: Function mean_deviation list,  Next: Functio
      See also: ‘mean’.
 
 
-File: maxima-core-docs.info,  Node: Function median list,  Next: Function median_deviation list,  Prev: Function mean_deviation list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function median list
 
  -- Function: median (LIST)
      Once the sample is ordered, if the sample size is odd the median is
@@ -3023,7 +1686,7 @@ File: maxima-core-docs.info,  Node: Function median list,  Next: Function median
      See also: ‘quantile’.
 
 
-File: maxima-core-docs.info,  Node: Function median_deviation list,  Next: Function noncentral_moment x k,  Prev: Function median list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function median_deviation list
 
  -- Function: median_deviation (LIST)
      The median deviation, defined as
@@ -3060,7 +1723,7 @@ File: maxima-core-docs.info,  Node: Function median_deviation list,  Next: Funct
      See also: ‘mean’.
 
 
-File: maxima-core-docs.info,  Node: Function noncentral_moment x k,  Next: Function pearson_skewness list,  Prev: Function median_deviation list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function noncentral_moment x k
 
  -- Function: noncentral_moment (X, K)
      Returns the noncentral moment of order _k_.  _x_ must be a list or
@@ -3143,7 +1806,7 @@ File: maxima-core-docs.info,  Node: Function noncentral_moment x k,  Next: Funct
      See also: ‘central_moment’.
 
 
-File: maxima-core-docs.info,  Node: Function pearson_skewness list,  Next: Function principal_components matrix,  Prev: Function noncentral_moment x k,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function pearson_skewness list
 
  -- Function: pearson_skewness (LIST)
      Pearson's skewness coefficient, defined as
@@ -3176,7 +1839,7 @@ File: maxima-core-docs.info,  Node: Function pearson_skewness list,  Next: Funct
      See also: ‘mean’, ‘var’, ‘median’.
 
 
-File: maxima-core-docs.info,  Node: Function principal_components matrix,  Next: Function qrange x,  Prev: Function pearson_skewness list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function principal_components matrix
 
  -- Function: principal_components (MATRIX)
      Calculates the principal components of a multivariate sample.
@@ -3185,8 +1848,8 @@ File: maxima-core-docs.info,  Node: Function principal_components matrix,  Next:
 
      Option:
 
-        •    • ‘'data’, default ‘'true’, indicates whether the
-               input matrix contains the sample data, in which case the
+        •    • ‘'data’, default ‘'true’, indicates whether the input
+               matrix contains the sample data, in which case the
                covariance matrix ‘cov1’ must be calculated, or not, and
                then the covariance matrix (symmetric) must be given,
                instead of the data.
@@ -3196,8 +1859,8 @@ File: maxima-core-docs.info,  Node: Function principal_components matrix,  Next:
 
         •    • variances of the principal components,
 
-        •    • percentage of total variance explained by each
-               principal component,
+        •    • percentage of total variance explained by each principal
+               component,
 
         •    • rotation matrix.
 
@@ -3274,7 +1937,7 @@ File: maxima-core-docs.info,  Node: Function principal_components matrix,  Next:
      See also: ‘cov1’.
 
 
-File: maxima-core-docs.info,  Node: Function qrange x,  Next: Function quantile list p,  Prev: Function principal_components matrix,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function qrange x
 
  -- Function: qrange (X)
      Returns the interquartile range, defined as the difference between
@@ -3305,7 +1968,7 @@ File: maxima-core-docs.info,  Node: Function qrange x,  Next: Function quantile 
      See also: ‘quantile’.
 
 
-File: maxima-core-docs.info,  Node: Function quantile list p,  Next: Function quartile_skewness list,  Prev: Function qrange x,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function quantile list p
 
  -- Function: quantile (LIST, P)
      This is the _p_-quantile, with _p_ a number in [0, 1], of the
@@ -3336,7 +1999,7 @@ File: maxima-core-docs.info,  Node: Function quantile list p,  Next: Function qu
      See also: ‘Package-descriptive’.
 
 
-File: maxima-core-docs.info,  Node: Function quartile_skewness list,  Next: Function range list,  Prev: Function quantile list p,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function quartile_skewness list
 
  -- Function: quartile_skewness (LIST)
      The quartile skewness coefficient, defined as
@@ -3371,7 +2034,7 @@ File: maxima-core-docs.info,  Node: Function quartile_skewness list,  Next: Func
      See also: ‘quantile’.
 
 
-File: maxima-core-docs.info,  Node: Function range list,  Next: Function skewness list,  Prev: Function quartile_skewness list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function range list
 
  -- Function: range (LIST)
      The range is the difference between the extreme values.
@@ -3390,7 +2053,7 @@ File: maxima-core-docs.info,  Node: Function range list,  Next: Function skewnes
      (%o5)   [19.67, 20.96, 17.369999999999997, 24.38, 22.46]
 
 
-File: maxima-core-docs.info,  Node: Function skewness list,  Next: Function smax list,  Prev: Function range list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function skewness list
 
  -- Function: skewness (LIST)
      The skewness coefficient, defined as
@@ -3424,7 +2087,7 @@ File: maxima-core-docs.info,  Node: Function skewness list,  Next: Function smax
      See also: ‘mean’, ‘var’, ‘kurtosis’.
 
 
-File: maxima-core-docs.info,  Node: Function smax list,  Next: Function smin list,  Prev: Function skewness list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function smax list
 
  -- Function: smax (LIST)
      This is the maximum value of the sample _list_.  When the argument
@@ -3449,7 +2112,7 @@ File: maxima-core-docs.info,  Node: Function smax list,  Next: Function smin lis
      See also: ‘smax’, ‘smin’.
 
 
-File: maxima-core-docs.info,  Node: Function smin list,  Next: Function standardize list,  Prev: Function smax list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function smin list
 
  -- Function: smin (LIST)
      This is the minimum value of the sample _list_.  When the argument
@@ -3474,7 +2137,7 @@ File: maxima-core-docs.info,  Node: Function smin list,  Next: Function standard
      See also: ‘smin’, ‘smax’.
 
 
-File: maxima-core-docs.info,  Node: Function standardize list,  Next: Function std x,  Prev: Function smin list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function standardize list
 
  -- Function: standardize (LIST)
      Subtracts to each element of the list the sample mean and divides
@@ -3483,7 +2146,7 @@ File: maxima-core-docs.info,  Node: Function standardize list,  Next: Function s
      divides each component by the corresponding standard deviation.
 
 
-File: maxima-core-docs.info,  Node: Function std x,  Next: Function std1 list,  Prev: Function standardize list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function std x
 
  -- Function: std (X)
      Returns the sample standard deviation.  _x_ must be a list or
@@ -3526,7 +2189,7 @@ File: maxima-core-docs.info,  Node: Function std x,  Next: Function std1 list,  
      See also: ‘var’, ‘std1’.
 
 
-File: maxima-core-docs.info,  Node: Function std1 list,  Next: Function subsample data_matrix predicate_function,  Prev: Function std x,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function std1 list
 
  -- Function: std1 (LIST)
      This is the square root of the function ‘var1’, the variance with
@@ -3551,7 +2214,7 @@ File: maxima-core-docs.info,  Node: Function std1 list,  Next: Function subsampl
      See also: ‘var1’, ‘std’.
 
 
-File: maxima-core-docs.info,  Node: Function subsample data_matrix predicate_function,  Next: Function transform_sample matrix varlist exprlist,  Prev: Function std1 list,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function subsample data_matrix predicate_function
 
  -- Function: subsample (DATA_MATRIX, PREDICATE_FUNCTION)
      This is a sort of variant of the Maxima ‘submatrix’ function.  The
@@ -3678,7 +2341,7 @@ File: maxima-core-docs.info,  Node: Function subsample data_matrix predicate_fun
                                                                   13
 
 
-File: maxima-core-docs.info,  Node: Function transform_sample matrix varlist exprlist,  Next: Function var x,  Prev: Function subsample data_matrix predicate_function,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function transform_sample matrix varlist exprlist
 
  -- Function: transform_sample (MATRIX, VARLIST, EXPRLIST)
      Transforms the sample _matrix_, where each column is called
@@ -3717,7 +2380,7 @@ File: maxima-core-docs.info,  Node: Function transform_sample matrix varlist exp
                                        [ 1  5  2 ]
 
 
-File: maxima-core-docs.info,  Node: Function var x,  Next: Function var1 list,  Prev: Function transform_sample matrix varlist exprlist,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function var x
 
  -- Function: var (X)
      Returns the sample variance.  _x_ must be a list or matrix.
@@ -3821,7 +2484,7 @@ File: maxima-core-docs.info,  Node: Function var x,  Next: Function var1 list,  
      See also: ‘var1’.
 
 
-File: maxima-core-docs.info,  Node: Function var1 list,  Prev: Function var x,  Up: descriptive 2
+File: maxima-core-docs.info,  Node: Function var1 list
 
  -- Function: var1 (LIST)
      This is the sample variance, defined as
@@ -3855,7 +2518,7 @@ File: maxima-core-docs.info,  Node: Function var1 list,  Prev: Function var x,  
      See also: ‘var’.
 
 
-File: maxima-core-docs.info,  Node: distrib,  Next: lsquares,  Prev: descriptive 2,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: distrib,  Next: lsquares,  Prev: ,  Up: Maxima Core Documentation
 
 1.119 distrib
 =============
@@ -7959,7 +6622,7 @@ File: maxima-core-docs.info,  Node: Function lsquares_estimates D x e a,  Next: 
      equivalent minimum of the mean square error.
 
      The data _D_ must be a matrix.  Each row is one datum (which may be
-     called a ‘record' or ‘case' in some contexts), and each column
+     called a 'record' or 'case' in some contexts), and each column
      contains the values of one variable across all data.  The list of
      variables _x_ gives a name for each column of _D_, even the columns
      which do not enter the analysis.  The list of parameters _a_ gives
@@ -8441,4 +7104,1174 @@ File: maxima-core-docs.info,  Node: Function lsquares_residuals D x e a,  Next: 
                           13    13    13  13  13
      (%o4)               [--, - --, - --, --, --]
                           64    64    32  64  64
+
+
+File: maxima-core-docs.info,  Node: Function plsquares Mat VarList depvars,  Prev: Function lsquares_residuals D x e a,  Up: lsquares
+
+ -- Function: plsquares (MAT, VARLIST, DEPVARS)
+     Multivariable polynomial adjustment of a data table by the "least
+     squares" method.  _Mat_ is a matrix containing the data, _VarList_
+     is a list of variable names (one for each Mat column, but use "-"
+     instead of varnames to ignore Mat columns), _depvars_ is the name
+     of a dependent variable or a list with one or more names of
+     dependent variables (which names should be in _VarList_),
+     _maxexpon_ is the optional maximum exponent for each independent
+     variable (1 by default), and _maxdegree_ is the optional maximum
+     polynomial degree (_maxexpon_ by default); note that the sum of
+     exponents of each term must be equal or smaller than _maxdegree_,
+     and if ‘maxdgree = 0’ then no limit is applied.
+
+     If _depvars_ is the name of a dependent variable (not in a list),
+     ‘plsquares’ returns the adjusted polynomial.  If _depvars_ is a
+     list of one or more dependent variables, ‘plsquares’ returns a list
+     with the adjusted polynomial(s).  The Coefficients of Determination
+     are displayed in order to inform about the goodness of fit, which
+     ranges from 0 (no correlation) to 1 (exact correlation).  These
+     values are also stored in the global variable _DETCOEF_ (a list if
+     _depvars_ is a list).
+
+     A simple example of multivariable linear adjustment:
+
+     (%i1) load("plsquares")$
+     
+     (%i2) plsquares(matrix([1,2,0],[3,5,4],[4,7,9],[5,8,10]),
+                     [x,y,z],z);
+          Determination Coefficient for z = .9897039897039897
+                            11 y - 9 x - 14
+     (%o2)              z = ---------------
+                                   3
+
+     The same example without degree restrictions:
+
+     (%i3) plsquares(matrix([1,2,0],[3,5,4],[4,7,9],[5,8,10]),
+                     [x,y,z],z,1,0);
+          Determination Coefficient for z = 1.0
+                         x y + 23 y - 29 x - 19
+     (%o3)           z = ----------------------
+                                   6
+
+     How many diagonals does a N-sides polygon have?  What polynomial
+     degree should be used?
+
+     (%i4) plsquares(matrix([3,0],[4,2],[5,5],[6,9],[7,14],[8,20]),
+                     [N,diagonals],diagonals,5);
+          Determination Coefficient for diagonals = 1.0
+                                     2
+                                    N  - 3 N
+     (%o4)              diagonals = --------
+                                       2
+     (%i5) ev(%, N=9);   /* Testing for a 9 sides polygon */
+     (%o5)                 diagonals = 27
+
+     How many ways do we have to put two queens without they are
+     threatened into a n x n chessboard?
+
+     (%i6) plsquares(matrix([0,0],[1,0],[2,0],[3,8],[4,44]),
+                     [n,positions],[positions],4);
+          Determination Coefficient for [positions] = [1.0]
+     
+                              4       3      2
+                           3 n  - 10 n  + 9 n  - 2 n
+     (%o6)    [positions = -------------------------]
+                                       6
+     
+     (%i7) ev(%[1], n=8); /* Testing for a (8 x 8) chessboard */
+     (%o7)                positions = 1288
+
+     An example with six dependent variables:
+
+     (%i8) mtrx:matrix([0,0,0,0,0,1,1,1],[0,1,0,1,1,1,0,0],
+                       [1,0,0,1,1,1,0,0],[1,1,1,1,0,0,0,1])$
+     (%i8) plsquares(mtrx,[a,b,_And,_Or,_Xor,_Nand,_Nor,_Nxor],
+                          [_And,_Or,_Xor,_Nand,_Nor,_Nxor],1,0);
+           Determination Coefficient for
+     [_And, _Or, _Xor, _Nand, _Nor, _Nxor] =
+     [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+     (%o2) [_And = a b, _Or = - a b + b + a,
+     _Xor = - 2 a b + b + a, _Nand = 1 - a b,
+     _Nor = a b - b - a + 1, _Nxor = 2 a b - b - a + 1]
+
+     To use this function write first ‘load("lsquares")’.
+
+
+File: maxima-core-docs.info,  Node: stats,  Next: Tensors,  Prev: lsquares,  Up: Maxima Core Documentation
+
+1.121 stats
+===========
+
+* Menu:
+
+* Function cdf_rank_sum x n m::
+* Function cdf_signed_rank x n::
+* Function inference_result title values numbers::
+* Function inferencep obj::
+* Function items_inference obj::
+* Function linear_regression x::
+* Function pdf_rank_sum x n m::
+* Function pdf_signed_rank x n::
+* Variable stats_numer::
+* Function take_inference n obj::
+* Function test_mean x::
+* Function test_means_difference x1 x2::
+* Function test_normality x::
+* Function test_proportion x n::
+* Function test_proportions_difference x1 n1 x2 n2::
+* Function test_rank_sum x1 x2::
+* Function test_sign x::
+* Function test_signed_rank x::
+* Function test_variance x::
+* Function test_variance_ratio x1 x2::
+
+
+File: maxima-core-docs.info,  Node: Function cdf_rank_sum x n m,  Next: Function cdf_signed_rank x n,  Up: stats
+
+ -- Function: cdf_rank_sum (X, N, M)
+     Cumulative distribution function of the exact distribution of the
+     rank sum statistic.  Argument _x_ is a real number and _n_ and _m_
+     are both positive integers.
+
+     See also ‘test_005frank_005fsum’.
+
+     See also: ‘test_rank_sum’.
+
+
+File: maxima-core-docs.info,  Node: Function cdf_signed_rank x n,  Next: Function inference_result title values numbers,  Prev: Function cdf_rank_sum x n m,  Up: stats
+
+ -- Function: cdf_signed_rank (X, N)
+     Cumulative distribution function of the exact distribution of the
+     signed rank statistic.  Argument _x_ is a real number and _n_ a
+     positive integer.
+
+     See also ‘test_005fsigned_005frank’.
+
+     See also: ‘test_signed_rank’.
+
+
+File: maxima-core-docs.info,  Node: Function inference_result title values numbers,  Next: Function inferencep obj,  Prev: Function cdf_signed_rank x n,  Up: stats
+
+ -- Function: inference_result (TITLE, VALUES, NUMBERS)
+     Constructs an ‘inference_result’ object of the type returned by the
+     stats functions.  Argument _title_ is a string with the name of the
+     procedure; _values_ is a list with elements of the form ‘symbol =
+     value’ and _numbers_ is a list with positive integer numbers
+     ranging from one to ‘length(values)’, indicating which values will
+     be shown by default.
+
+     Example:
+
+     This is a simple example showing results concerning a rectangle.
+     The title of this object is the string ‘"Rectangle"’, it stores
+     five results, named ‘'base’, ‘'height’, ‘'diagonal’, ‘'area’, and
+     ‘'perimeter’, but only the first, second, fifth, and fourth will be
+     displayed.  The ‘'diagonal’ is stored in this object, but it is not
+     displayed; to access its value, make use of function
+     ‘take_inference’.
+
+     (%i1) load("inference_result")$
+     (%i2) b: 3$ h: 2$
+     (%i3) inference_result("Rectangle",
+                             ['base=b,
+                              'height=h,
+                              'diagonal=sqrt(b^2+h^2),
+                              'area=b*h,
+                              'perimeter=2*(b+h)],
+                             [1,2,5,4] );
+                             |   Rectangle
+                             |
+                             |    base = 3
+                             |
+     (%o3)                   |   height = 2
+                             |
+                             | perimeter = 10
+                             |
+                             |    area = 6
+     (%i4) take_inference('diagonal,%);
+     (%o4)                        sqrt(13)
+
+     See also ‘take_005finference’.
+
+     See also: ‘take_inference’.
+
+
+File: maxima-core-docs.info,  Node: Function inferencep obj,  Next: Function items_inference obj,  Prev: Function inference_result title values numbers,  Up: stats
+
+ -- Function: inferencep (OBJ)
+     Returns ‘true’ or ‘false’, depending on whether _obj_ is an
+     ‘inference_result’ object or not.
+
+
+File: maxima-core-docs.info,  Node: Function items_inference obj,  Next: Function linear_regression x,  Prev: Function inferencep obj,  Up: stats
+
+ -- Function: items_inference (OBJ)
+     Returns a list with the names of the items stored in _obj_, which
+     must be an ‘inference_result’ object.
+
+     Example:
+
+     The ‘inference_result’ object stores two values, named ‘'pi’ and
+     ‘'e’, but only the second is displayed.  The ‘items_inference’
+     function returns the names of all items, no matter they are
+     displayed or not.
+
+     (%i1) load("inference_result")$
+     (%i2) inference_result("Hi", ['pi=%pi,'e=%e],[2]);
+                                 |   Hi
+     (%o2)                       |
+                                 | e = %e
+     (%i3) items_inference(%);
+     (%o3)                        [pi, e]
+
+
+File: maxima-core-docs.info,  Node: Function linear_regression x,  Next: Function pdf_rank_sum x n m,  Prev: Function items_inference obj,  Up: stats
+
+ -- Function: linear_regression (X)
+     Multivariate linear regression, y_i = b0 + b1*x_1i + b2*x_2i + ...
+     + bk*x_ki + u_i, where u_i are N(0,sigma) independent random
+     variables.  Argument _x_ must be a matrix with more than one
+     column.  The last column is considered as the responses (y_i).
+
+     Option:
+
+        •    • ‘'conflevel’, default ‘95/100’, confidence level for the
+               confidence intervals; it must be an expression which
+               takes a value in (0,1).
+
+     The output of function ‘linear_regression’ is an ‘inference_result’
+     Maxima object with the following results:
+
+       1. ‘'b_estimation’: regression coefficients estimates.
+       2. ‘'b_covariances’: covariance matrix of the regression
+          coefficients estimates.
+       3. ‘b_conf_int’: confidence intervals of the regression
+          coefficients.
+       4. ‘b_statistics’: statistics for testing coefficient.
+       5. ‘b_p_values’: p-values for coefficient tests.
+       6. ‘b_distribution’: probability distribution for coefficient
+          tests.
+       7. ‘v_estimation’: unbiased variance estimator.
+       8. ‘v_conf_int’: variance confidence interval.
+       9. ‘v_distribution’: probability distribution for variance test.
+       10. ‘residuals’: residuals.
+       11. ‘adc’: adjusted determination coefficient.
+       12. ‘aic’: Akaike's information criterion.
+       13. ‘bic’: Bayes's information criterion.
+
+     Only items 1, 4, 5, 6, 7, 8, 9 and 11 above, in this order, are
+     shown by default.  The rest remain hidden until the user makes use
+     of functions ‘items_inference’ and ‘take_inference’.
+
+     Example:
+
+     Fitting a linear model to a trivariate sample.  The last column is
+     considered as the responses (y_i).
+
+     (%i2) load("stats")$
+     (%i3) X:matrix(
+         [58,111,64],[84,131,78],[78,158,83],
+         [81,147,88],[82,121,89],[102,165,99],
+         [85,174,101],[102,169,102])$
+     (%i4) fpprintprec: 4$
+     (%i5) res: linear_regression(X);
+                  |       LINEAR REGRESSION MODEL         
+                  |                                       
+                  | b_estimation = [9.054, .5203, .2397]  
+                  |                                       
+                  | b_statistics = [.6051, 2.246, 1.74]   
+                  |                                       
+                  | b_p_values = [.5715, .07466, .1423]   
+                  |                                       
+     (%o5)        |   b_distribution = [student_t, 5]     
+                  |                                       
+                  |         v_estimation = 35.27          
+                  |                                       
+                  |     v_conf_int = [13.74, 212.2]       
+                  |                                       
+                  |      v_distribution = [chi2, 5]       
+                  |                                       
+                  |             adc = .7922               
+     (%i6) items_inference(res);
+     (%o6) [b_estimation, b_covariances, b_conf_int, b_statistics, 
+     b_p_values, b_distribution, v_estimation, v_conf_int, 
+     v_distribution, residuals, adc, aic, bic]
+     (%i7) take_inference('b_covariances, res);
+                       [  223.9    - 1.12   - .8532  ]
+                       [                             ]
+     (%o7)             [ - 1.12    .05367   - .02305 ]
+                       [                             ]
+                       [ - .8532  - .02305   .01898  ]
+     (%i8) take_inference('bic, res);
+     (%o8)                          30.98
+     (%i9) load("draw")$
+     (%i10) draw2d(
+         points_joined = true,
+         grid = true,
+         points(take_inference('residuals, res)) )$
+
+
+File: maxima-core-docs.info,  Node: Function pdf_rank_sum x n m,  Next: Function pdf_signed_rank x n,  Prev: Function linear_regression x,  Up: stats
+
+ -- Function: pdf_rank_sum (X, N, M)
+     Probability density function of the exact distribution of the rank
+     sum statistic.  Argument _x_ is a real number and _n_ and _m_ are
+     both positive integers.
+
+     See also ‘test_005frank_005fsum’.
+
+     See also: ‘test_rank_sum’.
+
+
+File: maxima-core-docs.info,  Node: Function pdf_signed_rank x n,  Next: Variable stats_numer,  Prev: Function pdf_rank_sum x n m,  Up: stats
+
+ -- Function: pdf_signed_rank (X, N)
+     Probability density function of the exact distribution of the
+     signed rank statistic.  Argument _x_ is a real number and _n_ a
+     positive integer.
+
+     See also ‘test_005fsigned_005frank’.
+
+     See also: ‘test_signed_rank’.
+
+
+File: maxima-core-docs.info,  Node: Variable stats_numer,  Next: Function take_inference n obj,  Prev: Function pdf_signed_rank x n,  Up: stats
+
+ -- Variable: stats_numer
+     Default value: ‘true’
+
+     If ‘stats_numer’ is ‘true’, inference statistical functions return
+     their results in floating point numbers.  If it is ‘false’, results
+     are given in symbolic and rational format.
+
+
+File: maxima-core-docs.info,  Node: Function take_inference n obj,  Next: Function test_mean x,  Prev: Variable stats_numer,  Up: stats
+
+ -- Function: take_inference (N, OBJ)
+     Returns the _n_-th value stored in _obj_ if _n_ is a positive
+     integer, or the item named _name_ if this is the name of an item.
+     If the first argument is a list of numbers and/or symbols, function
+     ‘take_inference’ returns a list with the corresponding results.
+
+     Example:
+
+     Given an ‘inference_result’ object, function ‘take_inference’ is
+     called in order to extract some information stored in it.
+
+     (%i1) load("inference_result")$
+     (%i2) b: 3$ h: 2$
+     (%i3) sol: inference_result("Rectangle",
+                                 ['base=b,
+                                  'height=h,
+                                  'diagonal=sqrt(b^2+h^2),
+                                  'area=b*h,
+                                  'perimeter=2*(b+h)],
+                                 [1,2,5,4] );
+                             |   Rectangle
+                             |
+                             |    base = 3
+                             |
+     (%o3)                   |   height = 2
+                             |
+                             | perimeter = 10
+                             |
+                             |    area = 6
+     (%i4) take_inference('base,sol);
+     (%o4)                           3
+     (%i5) take_inference(5,sol);
+     (%o5)                          10
+     (%i6) take_inference([1,'diagonal],sol);
+     (%o6)                     [3, sqrt(13)]
+     (%i7) take_inference(items_inference(sol),sol);
+     (%o7)                [3, 2, sqrt(13), 6, 10]
+
+     See also ‘inference_result’, and ‘take_005finference’.
+
+     See also: ‘inference_result’, ‘take_inference’.
+
+
+File: maxima-core-docs.info,  Node: Function test_mean x,  Next: Function test_means_difference x1 x2,  Prev: Function take_inference n obj,  Up: stats
+
+ -- Function: test_mean (X)
+     This is the mean _t_-test.  Argument _x_ is a list or a column
+     matrix containing an one dimensional sample.  It also performs an
+     asymptotic test based on the _Central Limit Theorem_ if option
+     ‘'asymptotic’ is ‘true’.
+
+     Options:
+
+        •    • ‘'mean’, default ‘0’, is the mean value to be checked.
+
+        •    • ‘'alternative’, default ‘'twosided’, is the alternative
+               hypothesis; valid values are: ‘'twosided’, ‘'greater’ and
+               ‘'less’.
+
+        •    • ‘'dev’, default ‘'unknown’, this is the value of the
+               standard deviation when it is known; valid values are:
+               ‘'unknown’ or a positive expression.
+
+        •    • ‘'conflevel’, default ‘95/100’, confidence level for the
+               confidence interval; it must be an expression which takes
+               a value in (0,1).
+
+        •    • ‘'asymptotic’, default ‘false’, indicates whether it
+               performs an exact _t_-test or an asymptotic one based on
+               the _Central Limit Theorem_; valid values are ‘true’ and
+               ‘false’.
+
+     The output of function ‘test_mean’ is an ‘inference_result’ Maxima
+     object showing the following results:
+
+       1. ‘'mean_estimate’: the sample mean.
+       2. ‘'conf_level’: confidence level selected by the user.
+       3. ‘'conf_interval’: confidence interval for the population mean.
+       4. ‘'method’: inference procedure.
+       5. ‘'hypotheses’: null and alternative hypotheses to be tested.
+       6. ‘'statistic’: value of the sample statistic used for testing
+          the null hypothesis.
+       7. ‘'distribution’: distribution of the sample statistic,
+          together with its parameter(s).
+       8. ‘'p_value’: p-value of the test.
+
+     Examples:
+
+     Performs an exact _t_-test with unknown variance.  The null
+     hypothesis is H_0: mean=50 against the one sided alternative H_1:
+     mean<50; according to the results, the p-value is too great, there
+     are no evidence for rejecting H_0.
+
+     (%i1) load("stats")$
+     (%i2) data: [78,64,35,45,45,75,43,74,42,42]$
+     (%i3) test_mean(data,'conflevel=0.9,'alternative='less,'mean=50);
+               |                 MEAN TEST
+               |
+               |            mean_estimate = 54.3
+               |
+               |              conf_level = 0.9
+               |
+               | conf_interval = [minf, 61.51314273502712]
+               |
+     (%o3)     |  method = Exact t-test. Unknown variance.
+               |
+               | hypotheses = H0: mean = 50 , H1: mean < 50
+               |
+               |       statistic = .8244705235071678
+               |
+               |       distribution = [student_t, 9]
+               |
+               |        p_value = .7845100411786889
+
+     This time Maxima performs an asymptotic test, based on the _Central
+     Limit Theorem_.  The null hypothesis is H_0: equal(mean, 50)
+     against the two sided alternative H_1: not equal(mean, 50);
+     according to the results, the p-value is very small, H_0 should be
+     rejected in favor of the alternative H_1.  Note that, as indicated
+     by the ‘Method’ component, this procedure should be applied to
+     large samples.
+
+     (%i1) load("stats")$
+     (%i2) test_mean([36,118,52,87,35,256,56,178,57,57,89,34,25,98,35,
+                   98,41,45,198,54,79,63,35,45,44,75,42,75,45,45,
+                   45,51,123,54,151],
+                   'asymptotic=true,'mean=50);
+               |                       MEAN TEST
+               |
+               |           mean_estimate = 74.88571428571429
+               |
+               |                   conf_level = 0.95
+               |
+               | conf_interval = [57.72848600856194, 92.04294256286663]
+               |
+     (%o2)     |    method = Large sample z-test. Unknown variance.
+               |
+               |       hypotheses = H0: mean = 50 , H1: mean # 50
+               |
+               |             statistic = 2.842831192874313
+               |
+               |             distribution = [normal, 0, 1]
+               |
+               |             p_value = .004471474652002261
+
+
+File: maxima-core-docs.info,  Node: Function test_means_difference x1 x2,  Next: Function test_normality x,  Prev: Function test_mean x,  Up: stats
+
+ -- Function: test_means_difference (X1, X2)
+     This is the difference of means _t_-test for two samples.
+     Arguments _x1_ and _x2_ are lists or column matrices containing two
+     independent samples.  In case of different unknown variances (see
+     options ‘'dev1’, ‘'dev2’ and ‘'varequal’ below), the degrees of
+     freedom are computed by means of the Welch approximation.  It also
+     performs an asymptotic test based on the _Central Limit Theorem_ if
+     option ‘'asymptotic’ is set to ‘true’.
+
+     Options:
+
+        •    • 
+        •    • ‘'alternative’, default ‘'twosided’, is the alternative
+               hypothesis; valid values are: ‘'twosided’, ‘'greater’ and
+               ‘'less’.
+
+        •    • ‘'dev1’, default ‘'unknown’, this is the value of the
+               standard deviation of the _x1_ sample when it is known;
+               valid values are: ‘'unknown’ or a positive expression.
+
+        •    • ‘'dev2’, default ‘'unknown’, this is the value of the
+               standard deviation of the _x2_ sample when it is known;
+               valid values are: ‘'unknown’ or a positive expression.
+
+        •    • ‘'varequal’, default ‘false’, whether variances should be
+               considered to be equal or not; this option takes effect
+               only when ‘'dev1’ and/or ‘'dev2’ are ‘'unknown’.
+
+        •    • ‘'conflevel’, default ‘95/100’, confidence level for the
+               confidence interval; it must be an expression which takes
+               a value in (0,1).
+
+        •    • ‘'asymptotic’, default ‘false’, indicates whether it
+               performs an exact _t_-test or an asymptotic one based on
+               the _Central Limit Theorem_; valid values are ‘true’ and
+               ‘false’.
+
+     The output of function ‘test_means_difference’ is an
+     ‘inference_result’ Maxima object showing the following results:
+
+       1. ‘'diff_estimate’: the difference of means estimate.
+       2. ‘'conf_level’: confidence level selected by the user.
+       3. ‘'conf_interval’: confidence interval for the difference of
+          means.
+       4. ‘'method’: inference procedure.
+       5. ‘'hypotheses’: null and alternative hypotheses to be tested.
+       6. ‘'statistic’: value of the sample statistic used for testing
+          the null hypothesis.
+       7. ‘'distribution’: distribution of the sample statistic,
+          together with its parameter(s).
+       8. ‘'p_value’: p-value of the test.
+
+     Examples:
+
+     The equality of means is tested with two small samples _x_ and _y_,
+     against the alternative H_1: m_1>m_2, being m_1 and m_2 the
+     populations means; variances are unknown and supposed to be
+     different.
+
+     (%i1) load("stats")$
+     (%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
+     (%i3) y: [1.2,6.9,38.7,20.4,17.2]$
+     (%i4) test_means_difference(x,y,'alternative='greater);
+                 |              DIFFERENCE OF MEANS TEST
+                 |
+                 |         diff_estimate = 20.31999999999999
+                 |
+                 |                 conf_level = 0.95
+                 |
+                 |    conf_interval = [- .04597417812882298, inf]
+                 |
+     (%o4)       |        method = Exact t-test. Welch approx.
+                 |
+                 | hypotheses = H0: mean1 = mean2 , H1: mean1 > mean2
+                 |
+                 |           statistic = 1.838004300728477
+                 |
+                 |    distribution = [student_t, 8.62758740184604]
+                 |
+                 |            p_value = .05032746527991905
+
+     The same test as before, but now variances are supposed to be
+     equal.
+
+     (%i1) load("stats")$
+     (%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
+     (%i3) y: matrix([1.2],[6.9],[38.7],[20.4],[17.2])$
+     (%i4) test_means_difference(x,y,'alternative='greater,
+                                                      'varequal=true);
+                 |              DIFFERENCE OF MEANS TEST
+                 |
+                 |         diff_estimate = 20.31999999999999
+                 |
+                 |                 conf_level = 0.95
+                 |
+                 |     conf_interval = [- .7722627696897568, inf]
+                 |
+     (%o4)       |   method = Exact t-test. Unknown equal variances
+                 |
+                 | hypotheses = H0: mean1 = mean2 , H1: mean1 > mean2
+                 |
+                 |           statistic = 1.765996124515009
+                 |
+                 |           distribution = [student_t, 9]
+                 |
+                 |            p_value = .05560320992529344
+
+
+File: maxima-core-docs.info,  Node: Function test_normality x,  Next: Function test_proportion x n,  Prev: Function test_means_difference x1 x2,  Up: stats
+
+ -- Function: test_normality (X)
+     Shapiro-Wilk test for normality.  Argument _x_ is a list of
+     numbers, and sample size must be greater than 2 and less or equal
+     than 5000, otherwise, function ‘test_normality’ signals an error
+     message.
+
+     Reference:
+
+     [1] Algorithm AS R94, Applied Statistics (1995), vol.44, no.4,
+     547-551
+
+     The output of function ‘test_normality’ is an ‘inference_result’
+     Maxima object with the following results:
+
+       1. ‘'statistic’: value of the _W_ statistic.
+       2. ‘'p_value’: p-value under normal assumption.
+
+     Examples:
+
+     Checks for the normality of a population, based on a sample of size
+     9.
+
+     (%i1) load("stats")$
+     (%i2) x:[12,15,17,38,42,10,23,35,28]$
+     (%i3) test_normality(x);
+                            |      SHAPIRO - WILK TEST
+                            |
+     (%o3)                  | statistic = .9251055695162436
+                            |
+                            |  p_value = .4361763918860381
+
+
+File: maxima-core-docs.info,  Node: Function test_proportion x n,  Next: Function test_proportions_difference x1 n1 x2 n2,  Prev: Function test_normality x,  Up: stats
+
+ -- Function: test_proportion (X, N)
+     Inferences on a proportion.  Argument _x_ is the number of
+     successes in _n_ trials in a Bernoulli experiment with unknown
+     probability.
+
+     Options:
+
+        •    • ‘'proportion’, default ‘1/2’, is the value of the
+               proportion to be checked.
+
+        •    • ‘'alternative’, default ‘'twosided’, is the alternative
+               hypothesis; valid values are: ‘'twosided’, ‘'greater’ and
+               ‘'less’.
+
+        •    • ‘'conflevel’, default ‘95/100’, confidence level for the
+               confidence interval; it must be an expression which takes
+               a value in (0,1).
+
+        •    • ‘'asymptotic’, default ‘false’, indicates whether it
+               performs an exact test based on the binomial
+               distribution, or an asymptotic one based on the _Central
+               Limit Theorem_; valid values are ‘true’ and ‘false’.
+
+        •    • ‘'correct’, default ‘true’, indicates whether Yates
+               correction is applied or not.
+
+     The output of function ‘test_proportion’ is an ‘inference_result’
+     Maxima object showing the following results:
+
+       1. ‘'sample_proportion’: the sample proportion.
+       2. ‘'conf_level’: confidence level selected by the user.
+       3. ‘'conf_interval’: Wilson confidence interval for the
+          proportion.
+       4. ‘'method’: inference procedure.
+       5. ‘'hypotheses’: null and alternative hypotheses to be tested.
+       6. ‘'statistic’: value of the sample statistic used for testing
+          the null hypothesis.
+       7. ‘'distribution’: distribution of the sample statistic,
+          together with its parameters.
+       8. ‘'p_value’: p-value of the test.
+
+     Examples:
+
+     Performs an exact test.  The null hypothesis is H_0: p=1/2 against
+     the one sided alternative H_1: p<1/2.
+
+     (%i1) load("stats")$
+     (%i2) test_proportion(45, 103, alternative = less);
+              |            PROPORTION TEST              
+              |                                         
+              | sample_proportion = .4368932038834951   
+              |                                         
+              |           conf_level = 0.95             
+              |                                         
+              | conf_interval = [0, 0.522714149150231]  
+              |                                         
+     (%o2)    |     method = Exact binomial test.       
+              |                                         
+              | hypotheses = H0: p = 0.5 , H1: p < 0.5  
+              |                                         
+              |             statistic = 45              
+              |                                         
+              |  distribution = [binomial, 103, 0.5]    
+              |                                         
+              |      p_value = .1184509388901454
+
+     A two sided asymptotic test.  Confidence level is 99/100.
+
+     (%i1) load("stats")$
+     (%i2) fpprintprec:7$
+     (%i3) test_proportion(45, 103, 
+                       conflevel = 99/100, asymptotic=true);
+           |                 PROPORTION TEST                  
+           |                                                  
+           |           sample_proportion = .43689             
+           |                                                  
+           |                conf_level = 0.99                 
+           |                                                  
+           |        conf_interval = [.31422, .56749]          
+           |                                                  
+     (%o3) | method = Asympthotic test with Yates correction.
+           |                                                  
+           |     hypotheses = H0: p = 0.5 , H1: p # 0.5       
+           |                                                  
+           |               statistic = .43689                 
+           |                                                  
+           |      distribution = [normal, 0.5, .048872]       
+           |                                                  
+           |                p_value = .19662
+
+
+File: maxima-core-docs.info,  Node: Function test_proportions_difference x1 n1 x2 n2,  Next: Function test_rank_sum x1 x2,  Prev: Function test_proportion x n,  Up: stats
+
+ -- Function: test_proportions_difference (X1, N1, X2, N2)
+     Inferences on the difference of two proportions.  Argument _x1_ is
+     the number of successes in _n1_ trials in a Bernoulli experiment in
+     the first population, and _x2_ and _n2_ are the corresponding
+     values in the second population.  Samples are independent and the
+     test is asymptotic.
+
+     Options:
+
+        •    • ‘'alternative’, default ‘'twosided’, is the alternative
+               hypothesis; valid values are: ‘'twosided’ (‘p1 # p2’),
+               ‘'greater’ (‘p1 > p2’) and ‘'less’ (‘p1 < p2’).
+
+        •    • ‘'conflevel’, default ‘95/100’, confidence level for the
+               confidence interval; it must be an expression which takes
+               a value in (0,1).
+
+        •    • ‘'correct’, default ‘true’, indicates whether Yates
+               correction is applied or not.
+
+     The output of function ‘test_proportions_difference’ is an
+     ‘inference_result’ Maxima object showing the following results:
+
+       1. ‘'proportions’: list with the two sample proportions.
+       2. ‘'conf_level’: confidence level selected by the user.
+       3. ‘'conf_interval’: Confidence interval for the difference of
+          proportions ‘p1 - p2’.
+       4. ‘'method’: inference procedure and warning message in case of
+          any of the samples sizes is less than 10.
+       5. ‘'hypotheses’: null and alternative hypotheses to be tested.
+       6. ‘'statistic’: value of the sample statistic used for testing
+          the null hypothesis.
+       7. ‘'distribution’: distribution of the sample statistic,
+          together with its parameters.
+       8. ‘'p_value’: p-value of the test.
+
+     Examples:
+
+     A machine produced 10 defective articles in a batch of 250.  After
+     some maintenance work, it produces 4 defective in a batch of 150.
+     In order to know if the machine has improved, we test the null
+     hypothesis ‘H0:p1=p2’, against the alternative ‘H0:p1>p2’, where
+     ‘p1’ and ‘p2’ are the probabilities for one produced article to be
+     defective before and after maintenance.  According to the p value,
+     there is not enough evidence to accept the alternative.
+
+     (%i1) load("stats")$
+     (%i2) fpprintprec:7$
+     (%i3) test_proportions_difference(10, 250, 4, 150,
+                                     alternative = greater);
+           |       DIFFERENCE OF PROPORTIONS TEST         
+           |                                              
+           |       proportions = [0.04, .02666667]        
+           |                                              
+           |              conf_level = 0.95               
+           |                                              
+           |      conf_interval = [- .02172761, 1]        
+           |                                              
+     (%o3) | method = Asymptotic test. Yates correction.  
+           |                                              
+           |   hypotheses = H0: p1 = p2 , H1: p1 > p2     
+           |                                              
+           |            statistic = .01333333             
+           |                                              
+           |    distribution = [normal, 0, .01898069]     
+           |                                              
+           |             p_value = .2411936
+
+     Exact standard deviation of the asymptotic normal distribution when
+     the data are unknown.
+
+     (%i1) load("stats")$
+     (%i2) stats_numer: false$
+     (%i3) sol: test_proportions_difference(x1,n1,x2,n2)$
+     (%i4) last(take_inference('distribution,sol));
+                    1    1                  x2 + x1
+                   (-- + --) (x2 + x1) (1 - -------)
+                    n2   n1                 n2 + n1
+     (%o4)    sqrt(---------------------------------)
+                                n2 + n1
+
+
+File: maxima-core-docs.info,  Node: Function test_rank_sum x1 x2,  Next: Function test_sign x,  Prev: Function test_proportions_difference x1 n1 x2 n2,  Up: stats
+
+ -- Function: test_rank_sum (X1, X2)
+     This is the Wilcoxon-Mann-Whitney test for comparing the medians of
+     two continuous populations.  The first two arguments _x1_ and _x2_
+     are lists or column matrices with the data of two independent
+     samples.  Performs normal approximation if any of the sample sizes
+     is greater than 10, or if there are ties.
+
+     Option:
+
+        •    • ‘'alternative’, default ‘'twosided’, is the alternative
+               hypothesis; valid values are: ‘'twosided’, ‘'greater’ and
+               ‘'less’.
+
+     The output of function ‘test_rank_sum’ is an ‘inference_result’
+     Maxima object with the following results:
+
+       1. ‘'method’: inference procedure.
+       2. ‘'hypotheses’: null and alternative hypotheses to be tested.
+       3. ‘'statistic’: value of the sample statistic used for testing
+          the null hypothesis.
+       4. ‘'distribution’: distribution of the sample statistic,
+          together with its parameters.
+       5. ‘'p_value’: p-value of the test.
+
+     Examples:
+
+     Checks whether populations have similar medians.  Samples sizes are
+     small and an exact test is made.
+
+     (%i1) load("stats")$
+     (%i2) x:[12,15,17,38,42,10,23,35,28]$
+     (%i3) y:[21,18,25,14,52,65,40,43]$
+     (%i4) test_rank_sum(x,y);
+                   |                 RANK SUM TEST
+                   |
+                   |              method = Exact test
+                   |
+                   | hypotheses = H0: med1 = med2 , H1: med1 # med2
+     (%o4)         |
+                   |                 statistic = 22
+                   |
+                   |        distribution = [rank_sum, 9, 8]
+                   |
+                   |          p_value = .1995886466474702
+
+     Now, with greater samples and ties, the procedure makes normal
+     approximation.  The alternative hypothesis is H_1: median1 <
+     median2.
+
+     (%i1) load("stats")$
+     (%i2) x: [39,42,35,13,10,23,15,20,17,27]$
+     (%i3) y: [20,52,66,19,41,32,44,25,14,39,43,35,19,56,27,15]$
+     (%i4) test_rank_sum(x,y,'alternative='less);
+                  |                  RANK SUM TEST
+                  |
+                  |          method = Asymptotic test. Ties
+                  |
+                  |  hypotheses = H0: med1 = med2 , H1: med1 < med2
+     (%o4)        |
+                  |                 statistic = 48.5
+                  |
+                  | distribution = [normal, 79.5, 18.95419580097078]
+                  |
+                  |           p_value = .05096985666598441
+
+
+File: maxima-core-docs.info,  Node: Function test_sign x,  Next: Function test_signed_rank x,  Prev: Function test_rank_sum x1 x2,  Up: stats
+
+ -- Function: test_sign (X)
+     This is the non parametric sign test for the median of a continuous
+     population.  Argument _x_ is a list or a column matrix containing
+     an one dimensional sample.
+
+     Options:
+
+        •    • ‘'alternative’, default ‘'twosided’, is the alternative
+               hypothesis; valid values are: ‘'twosided’, ‘'greater’ and
+               ‘'less’.
+
+        •    • ‘'median’, default ‘0’, is the median value to be
+               checked.
+
+     The output of function ‘test_sign’ is an ‘inference_result’ Maxima
+     object showing the following results:
+
+       1. ‘'med_estimate’: the sample median.
+       2. ‘'method’: inference procedure.
+       3. ‘'hypotheses’: null and alternative hypotheses to be tested.
+       4. ‘'statistic’: value of the sample statistic used for testing
+          the null hypothesis.
+       5. ‘'distribution’: distribution of the sample statistic,
+          together with its parameter(s).
+       6. ‘'p_value’: p-value of the test.
+
+     Examples:
+
+     Checks whether the population from which the sample was taken has
+     median 6, against the alternative H_1: median > 6.
+
+     (%i1) load("stats")$
+     (%i2) x: [2,0.1,7,1.8,4,2.3,5.6,7.4,5.1,6.1,6]$
+     (%i3) test_sign(x,'median=6,'alternative='greater);
+                    |                  SIGN TEST
+                    |
+                    |              med_estimate = 5.1
+                    |
+                    |      method = Non parametric sign test.
+                    |
+     (%o3)          | hypotheses = H0: median = 6 , H1: median > 6
+                    |
+                    |                statistic = 7
+                    |
+                    |      distribution = [binomial, 10, 0.5]
+                    |
+                    |         p_value = .05468749999999989
+
+
+File: maxima-core-docs.info,  Node: Function test_signed_rank x,  Next: Function test_variance x,  Prev: Function test_sign x,  Up: stats
+
+ -- Function: test_signed_rank (X)
+     This is the Wilcoxon signed rank test to make inferences about the
+     median of a continuous population.  Argument _x_ is a list or a
+     column matrix containing an one dimensional sample.  Performs
+     normal approximation if the sample size is greater than 20, or if
+     there are zeroes or ties.
+
+     See also ‘pdf_rank_test’ and ‘cdf_rank_test’
+
+     Options:
+
+        •    • ‘'median’, default ‘0’, is the median value to be
+               checked.
+
+        •    • ‘'alternative’, default ‘'twosided’, is the alternative
+               hypothesis; valid values are: ‘'twosided’, ‘'greater’ and
+               ‘'less’.
+
+     The output of function ‘test_signed_rank’ is an ‘inference_result’
+     Maxima object with the following results:
+
+       1. ‘'med_estimate’: the sample median.
+       2. ‘'method’: inference procedure.
+       3. ‘'hypotheses’: null and alternative hypotheses to be tested.
+       4. ‘'statistic’: value of the sample statistic used for testing
+          the null hypothesis.
+       5. ‘'distribution’: distribution of the sample statistic,
+          together with its parameter(s).
+       6. ‘'p_value’: p-value of the test.
+
+     Examples:
+
+     Checks the null hypothesis H_0: median = 15 against the alternative
+     H_1: median > 15.  This is an exact test, since there are no ties.
+
+     (%i1) load("stats")$
+     (%i2) x: [17.1,15.9,13.7,13.4,15.5,17.6]$
+     (%i3) test_signed_rank(x,median=15,alternative=greater);
+                      |             SIGNED RANK TEST
+                      |
+                      |           med_estimate = 15.7
+                      |
+                      |           method = Exact test
+                      |
+     (%o3)            | hypotheses = H0: med = 15 , H1: med > 15
+                      |
+                      |              statistic = 14
+                      |
+                      |     distribution = [signed_rank, 6]
+                      |
+                      |            p_value = 0.28125
+
+     Checks the null hypothesis H_0: equal(median, 2.5) against the
+     alternative H_1: not equal(median, 2.5).  This is an approximated
+     test, since there are ties.
+
+     (%i1) load("stats")$
+     (%i2) y:[1.9,2.3,2.6,1.9,1.6,3.3,4.2,4,2.4,2.9,1.5,3,2.9,4.2,3.1]$
+     (%i3) test_signed_rank(y,median=2.5);
+                  |                 SIGNED RANK TEST
+                  |
+                  |                med_estimate = 2.9
+                  |
+                  |          method = Asymptotic test. Ties
+                  |
+     (%o3)        |    hypotheses = H0: med = 2.5 , H1: med # 2.5
+                  |
+                  |                 statistic = 76.5
+                  |
+                  | distribution = [normal, 60.5, 17.58195097251724]
+                  |
+                  |           p_value = .3628097734643669
+
+
+File: maxima-core-docs.info,  Node: Function test_variance x,  Next: Function test_variance_ratio x1 x2,  Prev: Function test_signed_rank x,  Up: stats
+
+ -- Function: test_variance (X)
+     This is the variance _chi^2_-test.  Argument _x_ is a list or a
+     column matrix containing an one dimensional sample taken from a
+     normal population.
+
+     Options:
+
+        •    • ‘'mean’, default ‘'unknown’, is the population's mean,
+               when it is known.
+
+        •    • ‘'alternative’, default ‘'twosided’, is the alternative
+               hypothesis; valid values are: ‘'twosided’, ‘'greater’ and
+               ‘'less’.
+
+        •    • ‘'variance’, default ‘1’, this is the variance value
+               (positive) to be checked.
+
+        •    • ‘'conflevel’, default ‘95/100’, confidence level for the
+               confidence interval; it must be an expression which takes
+               a value in (0,1).
+
+     The output of function ‘test_variance’ is an ‘inference_result’
+     Maxima object showing the following results:
+
+       1. ‘'var_estimate’: the sample variance.
+       2. ‘'conf_level’: confidence level selected by the user.
+       3. ‘'conf_interval’: confidence interval for the population
+          variance.
+       4. ‘'method’: inference procedure.
+       5. ‘'hypotheses’: null and alternative hypotheses to be tested.
+       6. ‘'statistic’: value of the sample statistic used for testing
+          the null hypothesis.
+       7. ‘'distribution’: distribution of the sample statistic,
+          together with its parameter.
+       8. ‘'p_value’: p-value of the test.
+
+     Examples:
+
+     It is tested whether the variance of a population with unknown mean
+     is equal to or greater than 200.
+
+     (%i1) load("stats")$
+     (%i2) x: [203,229,215,220,223,233,208,228,209]$
+     (%i3) test_variance(x,'alternative='greater,'variance=200);
+                  |                  VARIANCE TEST
+                  |
+                  |              var_estimate = 110.75
+                  |
+                  |                conf_level = 0.95
+                  |
+                  |     conf_interval = [57.13433376937479, inf]
+                  |
+     (%o3)        | method = Variance Chi-square test. Unknown mean.
+                  |
+                  |    hypotheses = H0: var = 200 , H1: var > 200
+                  |
+                  |                 statistic = 4.43
+                  |
+                  |             distribution = [chi2, 8]
+                  |
+                  |           p_value = .8163948512777689
+
+
+File: maxima-core-docs.info,  Node: Function test_variance_ratio x1 x2,  Prev: Function test_variance x,  Up: stats
+
+ -- Function: test_variance_ratio (X1, X2)
+     This is the variance ratio _F_-test for two normal populations.
+     Arguments _x1_ and _x2_ are lists or column matrices containing two
+     independent samples.
+
+     Options:
+
+        •    • ‘'alternative’, default ‘'twosided’, is the alternative
+               hypothesis; valid values are: ‘'twosided’, ‘'greater’ and
+               ‘'less’.
+
+        •    • ‘'mean1’, default ‘'unknown’, when it is known, this is
+               the mean of the population from which _x1_ was taken.
+
+        •    • ‘'mean2’, default ‘'unknown’, when it is known, this is
+               the mean of the population from which _x2_ was taken.
+
+        •    • ‘'conflevel’, default ‘95/100’, confidence level for the
+               confidence interval of the ratio; it must be an
+               expression which takes a value in (0,1).
+
+     The output of function ‘test_variance_ratio’ is an
+     ‘inference_result’ Maxima object showing the following results:
+
+       1. ‘'ratio_estimate’: the sample variance ratio.
+       2. ‘'conf_level’: confidence level selected by the user.
+       3. ‘'conf_interval’: confidence interval for the variance ratio.
+       4. ‘'method’: inference procedure.
+       5. ‘'hypotheses’: null and alternative hypotheses to be tested.
+       6. ‘'statistic’: value of the sample statistic used for testing
+          the null hypothesis.
+       7. ‘'distribution’: distribution of the sample statistic,
+          together with its parameters.
+       8. ‘'p_value’: p-value of the test.
+
+     Examples:
+
+     The equality of the variances of two normal populations is checked
+     against the alternative that the first is greater than the second.
+
+     (%i1) load("stats")$
+     (%i2) x: [20.4,62.5,61.3,44.2,11.1,23.7]$
+     (%i3) y: [1.2,6.9,38.7,20.4,17.2]$
+     (%i4) test_variance_ratio(x,y,'alternative='greater);
+                   |              VARIANCE RATIO TEST
+                   |
+                   |       ratio_estimate = 2.316933391522034
+                   |
+                   |               conf_level = 0.95
+                   |
+                   |    conf_interval = [.3703504689507268, inf]
+                   |
+     (%o4)         | method = Variance ratio F-test. Unknown means.
+                   |
+                   | hypotheses = H0: var1 = var2 , H1: var1 > var2
+                   |
+                   |         statistic = 2.316933391522034
+                   |
+                   |            distribution = [f, 5, 4]
+                   |
+                   |          p_value = .2179269692254457
+
+
+File: maxima-core-docs.info,  Node: Tensors,  Next: affine,  Prev: stats,  Up: Maxima Core Documentation
+
+1.122 Tensors
+=============
+
+
+File: maxima-core-docs.info,  Node: affine,  Next: atensor,  Prev: Tensors,  Up: Maxima Core Documentation
+
+1.123 affine
+============
+
+* Menu:
+
+* Variable all_dotsimp_denoms::
+* Function check_overlaps n add_to_simps::
+* Function declare_weights x_1 w_1 ... x_n w_n::
+* Function dotsimp f::
+* Function extract_linear_equations [p_1 ... p_n] [m_1 ... m_n]::
+* Function fast_central_elements [x_1 ... x_n] n::
+* Function fast_linsolve [expr_1 ... expr_m] [x_1 ... x_n]::
+* Function grobner_basis [expr_1 ... expr_m]::
+* Function list_nc_monomials [p_1 ... p_n]::
+* Function mono [x_1 ... x_n] n::
+* Function monomial_dimensions n::
+* Function nc_degree p::
+* Function set_up_dot_simplifications eqns check_through_degree::
+
+
+File: maxima-core-docs.info,  Node: Variable all_dotsimp_denoms,  Next: Function check_overlaps n add_to_simps,  Up: affine
+
+ -- Variable: all_dotsimp_denoms
+     Default value: ‘false’
+
+     When ‘all_dotsimp_denoms’ is a list, the denominators encountered
+     by ‘dotsimp’ are appended to the list.  ‘all_dotsimp_denoms’ may be
+     initialized to an empty list ‘[]’ before calling ‘dotsimp’.
+
+     By default, denominators are not collected by ‘dotsimp’.
 

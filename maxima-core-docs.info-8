@@ -1,958 +1,5 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.3 from
+This is maxima-core-docs.info, produced by makeinfo version 7.1 from
 maxima-core-docs.texi.
-
-
-File: maxima-core-docs.info,  Node: Function poistimes a b,  Next: Function poistrim,  Prev: Function poissubst a b c,  Up: Sums Products and Series
-
- -- Function: poistimes (A, B)
-     Is functionally identical to ‘intopois (a*b)’.
-
-
-File: maxima-core-docs.info,  Node: Function poistrim,  Next: Function powerseries expr x a,  Prev: Function poistimes a b,  Up: Sums Products and Series
-
- -- Function: poistrim ()
-     is a reserved function name which (if the user has defined it) gets
-     applied during Poisson multiplication.  It is a predicate function
-     of 6 arguments which are the coefficients of the _u_, _v_, ..., _z_
-     in a term.  Terms for which ‘poistrim’ is ‘true’ (for the
-     coefficients of that term) are eliminated during multiplication.
-
-
-File: maxima-core-docs.info,  Node: Function powerseries expr x a,  Next: Function printpois a,  Prev: Function poistrim,  Up: Sums Products and Series
-
- -- Function: powerseries (EXPR, X, A)
-     Returns the general form of the power series expansion for _expr_
-     in the variable _x_ about the point _a_ (which may be ‘inf’ for
-     infinity):
-
-     inf
-                ====
-                \               n
-                 >    b  (x - a)
-                /      n
-                ====
-                n = 0
-
-     If ‘powerseries’ is unable to expand _expr_, ‘taylor’ may give the
-     first several terms of the series.
-
-     When ‘verbose’ is ‘true’, ‘powerseries’ prints progress messages.
-
-     maxima
-     (%i1) verbose: true$
-     
-     (%i2) powerseries (log(sin(x)/x), x, 0);
-     trigreduce: failed to expand.
-     
-                                    sin(x)
-                                log(------)
-                                      x
-     
-     trigreduce: try again after applying rule:
-                                      d   sin(x)
-                                    / -- (------)
-                          sin(x)    | dx    x
-                      log(------) = | ----------- dx
-                            x       |   sin(x)
-                                    /   ------
-                                          x
-     
-     
-     powerseries: first simplification returned 
-         x
-        /
-        |  csc(g3955) sin(g3955) - g3955 cos(g3955) csc(g3955)
-      - |  --------------------------------------------------- dg3955
-        |                         g3955
-        /
-         0
-     
-     
-     powerseries: first simplification returned 
-                            g3955 cot(g3955) - 1
-                          - --------------------
-                                   g3955
-     
-     powerseries: attempt rational function expansion of
-                                     1
-                                   -----
-                                   g3955
-                 inf
-                 ____        i2  2 i2 - 1             2 i2
-                 \      (- 1)   2         bern(2 i2) x
-     (%o2)        >     ----------------------------------
-                 /                  i2 (2 i2)!
-                 ----
-                 i2 = 1
-
-
-File: maxima-core-docs.info,  Node: Function printpois a,  Next: Function product expr i i_0 i_1,  Prev: Function powerseries expr x a,  Up: Sums Products and Series
-
- -- Function: printpois (A)
-     Prints a Poisson series in a readable format.  In common with
-     ‘outofpois’, it will convert _a_ into a Poisson encoding first, if
-     necessary.
-
-
-File: maxima-core-docs.info,  Node: Function product expr i i_0 i_1,  Next: Variable psexpand,  Prev: Function printpois a,  Up: Sums Products and Series
-
- -- Function: product (EXPR, I, I_0, I_1)
-     Represents a product of the values of _expr_ as the index _i_
-     varies from _i_0_ to _i_1_.  The noun form ‘'product’ is displayed
-     as an uppercase letter pi.
-
-     ‘product’ evaluates _expr_ and lower and upper limits _i_0_ and
-     _i_1_, ‘product’ quotes (does not evaluate) the index _i_.
-
-     If the upper and lower limits differ by an integer, _expr_ is
-     evaluated for each value of the index _i_, and the result is an
-     explicit product.
-
-     Otherwise, the range of the index is indefinite.  Some rules are
-     applied to simplify the product.  When the global variable
-     ‘simpproduct’ is ‘true’, additional rules are applied.  In some
-     cases, simplification yields a result which is not a product;
-     otherwise, the result is a noun form ‘'product’.
-
-     See also ‘nouns’ and ‘evflag’.
-
-     Examples:
-
-     maxima
-     
-     (%i1) product (x + i*(i+1)/2, i, 1, 4);
-     (%o1)           (x + 1) (x + 3) (x + 6) (x + 10)
-     
-     
-     (%i2) product (i^2, i, 1, 7);
-     (%o2)                       25401600
-     
-     
-     (%i3) product (a[i], i, 1, 7);
-     (%o3)                 a  a  a  a  a  a  a
-                            1  2  3  4  5  6  7
-     
-     
-     (%i4) product (a(i), i, 1, 7);
-     (%o4)          a(1) a(2) a(3) a(4) a(5) a(6) a(7)
-     
-     
-     (%i5) product (a(i), i, 1, n);
-                                  n
-                                _____
-                                |   |
-     (%o5)                      |   | a(i)
-                                |   |
-                                i = 1
-     
-     
-     (%i6) product (k, k, 1, n);
-                                    n
-                                  _____
-                                  |   |
-     (%o6)                        |   | k
-                                  |   |
-                                  k = 1
-     
-     
-     (%i7) product (k, k, 1, n), simpproduct;
-     (%o7)                          n!
-     
-     
-     (%i8) product (integrate (x^k, x, 0, 1), k, 1, n);
-                                  n
-                                _____
-                                |   |   1
-     (%o8)                      |   | -----
-                                |   | k + 1
-                                k = 1
-     
-     
-     (%i9) product (if k <= 5 then a^k else b^k, k, 1, 10);
-                                   15  40
-     (%o9)                        a   b
-
-     See also: ‘nouns’, ‘evflag’.
-
-
-File: maxima-core-docs.info,  Node: Variable psexpand,  Next: Function remfun f expr,  Prev: Function product expr i i_0 i_1,  Up: Sums Products and Series
-
- -- Variable: psexpand
-     Default value: ‘false’
-
-     When ‘psexpand’ is ‘true’, an extended rational function expression
-     is displayed fully expanded.  The switch ‘ratexpand’ has the same
-     effect.
-
-     When ‘psexpand’ is ‘false’, a multivariate expression is displayed
-     just as in the rational function package.
-
-     When ‘psexpand’ is ‘multi’, then terms with the same total degree
-     in the variables are grouped together.
-
-
-File: maxima-core-docs.info,  Node: Function remfun f expr,  Next: Function revert expr x,  Prev: Variable psexpand,  Up: Sums Products and Series
-
- -- Function: remfun (F, EXPR)
-     ‘remfun (f, expr)’ replaces all occurrences of ‘f (arg)’ by _arg_
-     in _expr_.
-
-     ‘remfun (f, expr, x)’ replaces all occurrences of ‘f (arg)’ by
-     _arg_ in _expr_ only if _arg_ contains the variable _x_.
-
-
-File: maxima-core-docs.info,  Node: Function revert expr x,  Next: Variable simpproduct,  Prev: Function remfun f expr,  Up: Sums Products and Series
-
- -- Function: revert (EXPR, X)
-     These functions return the reversion of _expr_, a Taylor series
-     about zero in the variable _x_.  ‘revert’ returns a polynomial of
-     degree equal to the highest power in _expr_.  ‘revert2’ returns a
-     polynomial of degree _n_, which may be greater than, equal to, or
-     less than the degree of _expr_.
-
-     ‘load ("revert")’ loads these functions.
-
-     Examples:
-
-     maxima
-     (%i1) load ("revert")$
-     
-     (%i2) t: taylor (exp(x) - 1, x, 0, 6);
-                        2    3    4    5     6
-                       x    x    x    x     x
-     (%o2)/T/      x + -- + -- + -- + --- + --- + . . .
-                       2    6    24   120   720
-     
-     
-     (%i3) revert (t, x);
-                    6       5       4       3       2
-                10 x  - 12 x  + 15 x  - 20 x  + 30 x  - 60 x
-     (%o3)/R/ - --------------------------------------------
-                                     60
-     
-     
-     (%i4) ratexpand (%);
-                          6    5    4    3    2
-                         x    x    x    x    x
-     (%o4)             - -- + -- - -- + -- - -- + x
-                         6    5    4    3    2
-     
-     
-     (%i5) taylor (log(x+1), x, 0, 6);
-                         2    3    4    5    6
-                        x    x    x    x    x
-     (%o5)/T/       x - -- + -- - -- + -- - -- + . . .
-                        2    3    4    5    6
-     
-     
-     (%i6) ratsimp (revert (t, x) - taylor (log(x+1), x, 0, 6));
-     (%o6)                           0
-     
-     
-     (%i7) revert2 (t, x, 4);
-                               4    3    2
-                              x    x    x
-     (%o7)                  - -- + -- - -- + x
-                              4    3    2
-
-
-File: maxima-core-docs.info,  Node: Variable simpproduct,  Next: Variable simpsum,  Prev: Function revert expr x,  Up: Sums Products and Series
-
- -- Variable: simpproduct
-     Default value: ‘false’
-
-     When ‘simpproduct’ is ‘true’, the result of a ‘product’ is
-     simplified.  This simplification may sometimes be able to produce a
-     closed form.  If ‘simpproduct’ is ‘false’ or if the quoted form
-     ‘'product’ is used, the value is a product noun form which is a
-     representation of the pi notation used in mathematics.
-
-
-File: maxima-core-docs.info,  Node: Variable simpsum,  Next: Variable sinnpiflag,  Prev: Variable simpproduct,  Up: Sums Products and Series
-
- -- Variable: simpsum
-     Default value: ‘false’
-
-     When ‘simpsum’ is ‘true’, the result of a ‘sum’ is simplified.
-     This simplification may sometimes be able to produce a closed form.
-     If ‘simpsum’ is ‘false’ or if the quoted form ‘'sum’ is used, the
-     value is a sum noun form which is a representation of the sigma
-     notation used in mathematics.
-
-
-File: maxima-core-docs.info,  Node: Variable sinnpiflag,  Next: Function sum expr i i_0 i_1,  Prev: Variable simpsum,  Up: Sums Products and Series
-
- -- Variable: sinnpiflag
-     Default value: ‘true’
-
-     See ‘foursimp’.
-
-
-File: maxima-core-docs.info,  Node: Function sum expr i i_0 i_1,  Next: Function sumcontract expr,  Prev: Variable sinnpiflag,  Up: Sums Products and Series
-
- -- Function: sum (EXPR, I, I_0, I_1)
-     Represents a summation of the values of _expr_ as the index _i_
-     varies from _i_0_ to _i_1_.  The noun form ‘'sum’ is displayed as
-     an uppercase letter sigma.
-
-     ‘sum’ evaluates its summand _expr_ and lower and upper limits _i_0_
-     and _i_1_, ‘sum’ quotes (does not evaluate) the index _i_.
-
-     If the upper and lower limits differ by an integer, the summand
-     _expr_ is evaluated for each value of the summation index _i_, and
-     the result is an explicit sum.
-
-     Otherwise, the range of the index is indefinite.  Some rules are
-     applied to simplify the summation.  When the global variable
-     ‘simpsum’ is ‘true’, additional rules are applied.  In some cases,
-     simplification yields a result which is not a summation; otherwise,
-     the result is a noun form ‘'sum’.
-
-     When the ‘evflag’ (evaluation flag) ‘cauchysum’ is ‘true’, a
-     product of summations is expressed as a Cauchy product, in which
-     the index of the inner summation is a function of the index of the
-     outer one, rather than varying independently.
-
-     The global variable ‘genindex’ is the alphabetic prefix used to
-     generate the next index of summation, when an automatically
-     generated index is needed.
-
-     ‘gensumnum’ is the numeric suffix used to generate the next index
-     of summation, when an automatically generated index is needed.
-     When ‘gensumnum’ is ‘false’, an automatically-generated index is
-     only ‘genindex’ with no numeric suffix.
-
-     Note that ‘sum’ is slow for symbolic sums that result in many
-     terms, such as ‘sum(x^i, i, 1, 10000)’.  For such cases, using
-     ‘tree_reduce’ and ‘makelist’ is significantly faster, e.g.
-     ‘tree_reduce("+", makelist(x^i, i, 1, 10000))’.
-
-     See also ‘lsum’, ‘sumcontract’, ‘intosum’, ‘bashindices’,
-     ‘niceindices’, ‘nouns’, ‘evflag’, and ‘Package-zeilberger’
-
-     Examples:
-
-     maxima
-     
-     (%i1) sum (i^2, i, 1, 7);
-     (%o1)                          140
-     
-     
-     (%i2) sum (a[i], i, 1, 7);
-     (%o2)           a  + a  + a  + a  + a  + a  + a
-                      7    6    5    4    3    2    1
-     
-     
-     (%i3) sum (a(i), i, 1, 7);
-     (%o3)    a(7) + a(6) + a(5) + a(4) + a(3) + a(2) + a(1)
-     
-     
-     (%i4) sum (a(i), i, 1, n);
-                                 n
-                                ____
-                                \
-     (%o4)                       >    a(i)
-                                /
-                                ----
-                                i = 1
-     
-     
-     (%i5) sum (2^i + i^2, i, 0, n);
-                               n
-                              ____
-                              \       2    i
-     (%o5)                     >    (i  + 2 )
-                              /
-                              ----
-                              i = 0
-     
-     
-     (%i6) sum (2^i + i^2, i, 0, n), simpsum;
-                          3      2
-                       2 n  + 3 n  + n    n + 1
-     (%o6)             --------------- + 2      - 1
-                              6
-     
-     
-     (%i7) sum (1/3^i, i, 1, inf);
-                                 inf
-                                 ____
-                                 \     1
-     (%o7)                        >    --
-                                 /      i
-                                 ----  3
-                                 i = 1
-     
-     
-     (%i8) sum (1/3^i, i, 1, inf), simpsum;
-                                     1
-     (%o8)                           -
-                                     2
-     
-     
-     (%i9) sum (i^2, i, 1, 4) * sum (1/i^2, i, 1, inf);
-                                   inf
-                                   ____
-                                   \     1
-     (%o9)                      30  >    --
-                                   /      2
-                                   ----  i
-                                   i = 1
-     
-     
-     (%i10) sum (i^2, i, 1, 4) * sum (1/i^2, i, 1, inf), simpsum;
-                                       2
-     (%o10)                       5 %pi
-     
-     
-     (%i11) sum (integrate (x^k, x, 0, 1), k, 1, n);
-                                 n
-                                ____
-                                \       1
-     (%o11)                      >    -----
-                                /     k + 1
-                                ----
-                                k = 1
-     
-     
-     (%i12) sum (if k <= 5 then a^k else b^k, k, 1, 10);
-               10    9    8    7    6    5    4    3    2
-     (%o12)   b   + b  + b  + b  + b  + a  + a  + a  + a  + a
-
-     See also: ‘lsum’, ‘sumcontract’, ‘intosum’, ‘bashindices’,
-     ‘niceindices’, ‘nouns’, ‘evflag’, ‘Package-zeilberger’.
-
-
-File: maxima-core-docs.info,  Node: Function sumcontract expr,  Next: Variable sumexpand,  Prev: Function sum expr i i_0 i_1,  Up: Sums Products and Series
-
- -- Function: sumcontract (EXPR)
-     Combines all sums of an addition that have upper and lower bounds
-     that differ by constants.  The result is an expression containing
-     one summation for each set of such summations added to all
-     appropriate extra terms that had to be extracted to form this sum.
-     ‘sumcontract’ combines all compatible sums and uses one of the
-     indices from one of the sums if it can, and then try to form a
-     reasonable index if it cannot use any supplied.
-
-     It may be necessary to do an ‘intosum (expr)’ before the
-     ‘sumcontract’.
-
-
-File: maxima-core-docs.info,  Node: Variable sumexpand,  Next: Function taylor expr x a n,  Prev: Function sumcontract expr,  Up: Sums Products and Series
-
- -- Variable: sumexpand
-     Default value: ‘false’
-
-     When ‘sumexpand’ is ‘true’, products of sums and exponentiated sums
-     simplify to nested sums.
-
-     See also ‘cauchysum’.
-
-     Examples:
-
-     maxima
-     (%i1) sumexpand: true$
-     
-     (%i2) sum (f (i), i, 0, m) * sum (g (j), j, 0, n);
-                          m      n
-                         ____   ____
-                         \      \
-     (%o2)                >      >     f(i1) g(i2)
-                         /      /
-                         ----   ----
-                         i1 = 0 i2 = 0
-     
-     
-     (%i3) sum (f (i), i, 0, m)^2;
-                          m      m
-                         ____   ____
-                         \      \
-     (%o3)                >      >     f(i3) f(i4)
-                         /      /
-                         ----   ----
-                         i3 = 0 i4 = 0
-
-     See also: ‘cauchysum’.
-
-
-File: maxima-core-docs.info,  Node: Function taylor expr x a n,  Next: Variable taylor_logexpand,  Prev: Variable sumexpand,  Up: Sums Products and Series
-
- -- Function: taylor (EXPR, X, A, N)
-     ‘taylor (expr, x, a, n)’ expands the expression _expr_ in a
-     truncated Taylor or Laurent series in the variable _x_ around the
-     point _a_, containing terms through ‘(x - a)^n’.
-
-     If _expr_ is of the form ‘f(x)/g(x)’ and ‘g(x)’ has no terms up to
-     degree _n_ then ‘taylor’ attempts to expand ‘g(x)’ up to degree ‘2
-     n’.  If there are still no nonzero terms, ‘taylor’ doubles the
-     degree of the expansion of ‘g(x)’ so long as the degree of the
-     expansion is less than or equal to ‘n 2^taylordepth’.
-
-     ‘taylor (expr, [x_1, x_2, ...], a, n)’ returns a truncated power
-     series of degree _n_ in all variables _x_1_, _x_2_, ... about the
-     point ‘(a, a, ...)’.
-
-     ‘taylor (expr, [x_1, a_1, n_1], [x_2, a_2, n_2], ...)’ returns a
-     truncated power series in the variables _x_1_, _x_2_, ... about the
-     point ‘(a_1, a_2, ...)’, truncated at _n_1_, _n_2_, ...
-
-     ‘taylor (expr, [x_1, x_2, ...], [a_1, a_2, ...], [n_1, n_2, ...])’
-     returns a truncated power series in the variables _x_1_, _x_2_, ...
-     about the point ‘(a_1, a_2, ...)’, truncated at _n_1_, _n_2_, ...
-
-     ‘taylor (expr, [x, a, n, 'asymp])’ returns an expansion of _expr_
-     in negative powers of ‘x - a’.  The highest order term is ‘(x -
-     a)^-n’.
-
-     When ‘maxtayorder’ is ‘true’, then during algebraic manipulation of
-     (truncated) Taylor series, ‘taylor’ tries to retain as many terms
-     as are known to be correct.
-
-     When ‘psexpand’ is ‘true’, an extended rational function expression
-     is displayed fully expanded.  The switch ‘ratexpand’ has the same
-     effect.  When ‘psexpand’ is ‘false’, a multivariate expression is
-     displayed just as in the rational function package.  When
-     ‘psexpand’ is ‘multi’, then terms with the same total degree in the
-     variables are grouped together.
-
-     See also the ‘taylor_logexpand’ switch for controlling expansion.
-
-     Examples:
-
-     maxima
-     
-     (%i1) taylor (sqrt (sin(x) + a*x + 1), x, 0, 3);
-                                2             2
-                  (a + 1) x   (a  + 2 a + 1) x
-     (%o1)/T/ 1 + --------- - -----------------
-                      2               8
-                                        3      2             3
-                                    (3 a  + 9 a  + 9 a - 1) x
-                                  + -------------------------- + . . .
-                                                48
-     
-     
-     (%i2) %^2;
-                                         3
-                                        x
-     (%o2)/T/           1 + (a + 1) x - -- + . . .
-                                        6
-     
-     
-     (%i3) taylor (sqrt (x + 1), x, 0, 5);
-                            2    3      4      5
-                       x   x    x    5 x    7 x
-     (%o3)/T/      1 + - - -- + -- - ---- + ---- + . . .
-                       2   8    16   128    256
-     
-     
-     (%i4) %^2;
-     (%o4)/T/                  1 + x + . . .
-     
-     
-     (%i5) product ((1 + x^i)^2.5, i, 1, inf)/(1 + x^2);
-                              inf
-                             _____
-                             |   |   i     2.5
-                             |   | (x  + 1)
-                             |   |
-                             i = 1
-     (%o5)                   -----------------
-                                   2
-                                  x  + 1
-     
-     
-     (%i6) ev (taylor(%, x,  0, 3), keepfloat);
-                                    2           3
-     (%o6)/T/    1 + 2.5 x + 3.375 x  + 6.5625 x  + . . .
-     
-     
-     (%i7) taylor (1/log (x + 1), x, 0, 3);
-                                    2       3
-                      1   1   x    x    19 x
-     (%o7)/T/         - + - - -- + -- - ----- + . . .
-                      x   2   12   24    720
-     
-     
-     (%i8) taylor (cos(x) - sec(x), x, 0, 5);
-                                     4
-                                2   x
-     (%o8)/T/                - x  - -- + . . .
-                                    6
-     
-     
-     (%i9) taylor ((cos(x) - sec(x))^3, x, 0, 5);
-     (%o9)/T/                    0 + . . .
-     
-     
-     (%i10) taylor (1/(cos(x) - sec(x))^3, x, 0, 5);
-                                                    2          4
-                 1     1       11      347    6767 x    15377 x
-     (%o10)/T/ - -- + ---- + ------ - ----- - ------- - --------
-                  6      4        2   15120   604800    7983360
-                 x    2 x    120 x
-                                                               + . . .
-     
-     
-     (%i11) taylor (sqrt (1 - k^2*sin(x)^2), x, 0, 6);
-                    2  2       4      2   4
-                   k  x    (3 k  - 4 k ) x
-     (%o11)/T/ 1 - ----- - ----------------
-                     2            24
-                                         6       4       2   6
-                                    (45 k  - 60 k  + 16 k ) x
-                                  - -------------------------- + . . .
-                                               720
-     
-     
-     (%i12) taylor ((x + 1)^n, x, 0, 4);
-                           2       2     3      2         3
-                         (n  - n) x    (n  - 3 n  + 2 n) x
-     (%o12)/T/ 1 + n x + ----------- + --------------------
-                              2                 6
-                                    4      3       2         4
-                                  (n  - 6 n  + 11 n  - 6 n) x
-                                + ---------------------------- + . . .
-                                               24
-     
-     
-     (%i13) taylor (sin (y + x), x, 0, 3, y, 0, 3);
-                   3                      2
-                  y                      y
-     (%o13)/T/ (- -- + y + . . .) + (1 - -- + . . .) x
-                  6                      2
-                         3                       2
-                    y   y            2      1   y            3
-               + (- - + -- + . . .) x  + (- - + -- + . . .) x  + . . .
-                    2   12                  6   12
-     
-     
-     (%i14) taylor (sin (y + x), [x, y], 0, 3);
-                           3        2      2      3
-                          x  + 3 y x  + 3 y  x + y
-     (%o14)/T/  (y + x) - ------------------------- + . . .
-                                      6
-     
-     
-     (%i15) taylor (1/sin (y + x), x, 0, 3, y, 0, 3);
-                y   1               1    1
-     (%o15)/T/ (- + - + . . .) + (- -- + - + . . .) x
-                6   y                2   6
-                                    y
-                            1            2      1            3
-                         + (-- + . . .) x  + (- -- + . . .) x  + . . .
-                             3                   4
-                            y                   y
-     
-     
-     (%i16) taylor (1/sin (y + x), [x, y], 0, 3);
-                                  3         2       2        3
-                 1     x + y   7 x  + 21 y x  + 21 y  x + 7 y
-     (%o16)/T/ ----- + ----- + ------------------------------- + . . .
-               x + y     6                   360
-
-     See also: ‘taylor_logexpand’.
-
-
-File: maxima-core-docs.info,  Node: Variable taylor_logexpand,  Next: Variable taylor_order_coefficients,  Prev: Function taylor expr x a n,  Up: Sums Products and Series
-
- -- Variable: taylor_logexpand
-     Default value: ‘true’
-
-     ‘taylor_logexpand’ controls expansions of logarithms in ‘taylor’
-     series.
-
-     When ‘taylor_logexpand’ is ‘true’, all logarithms are expanded
-     fully so that zero-recognition problems involving logarithmic
-     identities do not disturb the expansion process.  However, this
-     scheme is not always mathematically correct since it ignores branch
-     information.
-
-     When ‘taylor_logexpand’ is set to ‘false’, then the only expansion
-     of logarithms that occur is that necessary to obtain a formal power
-     series.
-
-
-File: maxima-core-docs.info,  Node: Variable taylor_order_coefficients,  Next: Function taylor_simplifier expr,  Prev: Variable taylor_logexpand,  Up: Sums Products and Series
-
- -- Variable: taylor_order_coefficients
-     Default value: ‘true’
-
-     ‘taylor_order_coefficients’ controls the ordering of coefficients
-     in a Taylor series.
-
-     When ‘taylor_order_coefficients’ is ‘true’, coefficients of taylor
-     series are ordered canonically.
-
-
-File: maxima-core-docs.info,  Node: Function taylor_simplifier expr,  Next: Variable taylor_truncate_polynomials,  Prev: Variable taylor_order_coefficients,  Up: Sums Products and Series
-
- -- Function: taylor_simplifier (EXPR)
-     Simplifies coefficients of the power series _expr_.  ‘taylor’ calls
-     this function.
-
-
-File: maxima-core-docs.info,  Node: Variable taylor_truncate_polynomials,  Next: Variable taylordepth,  Prev: Function taylor_simplifier expr,  Up: Sums Products and Series
-
- -- Variable: taylor_truncate_polynomials
-     Default value: ‘true’
-
-     When ‘taylor_truncate_polynomials’ is ‘true’, polynomials are
-     truncated based upon the input truncation levels.
-
-     Otherwise, polynomials input to ‘taylor’ are considered to have
-     infinite precision.
-
-
-File: maxima-core-docs.info,  Node: Variable taylordepth,  Next: Function taylorinfo expr,  Prev: Variable taylor_truncate_polynomials,  Up: Sums Products and Series
-
- -- Variable: taylordepth
-     Default value: 3
-
-     If there are still no nonzero terms, ‘taylor’ doubles the degree of
-     the expansion of ‘g(x)’ so long as the degree of the expansion is
-     less than or equal to ‘n 2^taylordepth’.
-
-
-File: maxima-core-docs.info,  Node: Function taylorinfo expr,  Next: Function taylorp expr,  Prev: Variable taylordepth,  Up: Sums Products and Series
-
- -- Function: taylorinfo (EXPR)
-     Returns information about the Taylor series _expr_.  The return
-     value is a list of lists.  Each list comprises the name of a
-     variable, the point of expansion, and the degree of the expansion.
-
-     ‘taylorinfo’ returns ‘false’ if _expr_ is not a Taylor series.
-
-     Example:
-
-     maxima
-     
-     (%i1) taylor ((1 - y^2)/(1 - x), x, 0, 3, [y, a, inf]);
-                     2                         2
-     (%o1)/T/ ((1 - a ) - 2 a (y - a) - (y - a) )
-                  2                       2
-      + (- (y - a)  - 2 a (y - a) + (1 - a )) x
-                  2                       2    2
-      + (- (y - a)  - 2 a (y - a) + (1 - a )) x
-                  2                       2    3
-      + (- (y - a)  - 2 a (y - a) + (1 - a )) x  + . . .
-     
-     
-     (%i2) taylorinfo(%);
-     (%o2)               [[x, 0, 3], [y, a, inf]]
-
-
-File: maxima-core-docs.info,  Node: Function taylorp expr,  Next: Function taytorat expr,  Prev: Function taylorinfo expr,  Up: Sums Products and Series
-
- -- Function: taylorp (EXPR)
-     Returns ‘true’ if _expr_ is a Taylor series, and ‘false’ otherwise.
-
-
-File: maxima-core-docs.info,  Node: Function taytorat expr,  Next: Function totalfourier f x p,  Prev: Function taylorp expr,  Up: Sums Products and Series
-
- -- Function: taytorat (EXPR)
-     Converts _expr_ from ‘taylor’ form to canonical rational expression
-     (CRE) form.  The effect is the same as ‘rat (ratdisrep (expr))’,
-     but faster.
-
-
-File: maxima-core-docs.info,  Node: Function totalfourier f x p,  Next: Function trunc expr,  Prev: Function taytorat expr,  Up: Sums Products and Series
-
- -- Function: totalfourier (F, X, P)
-     Returns ‘fourexpand (foursimp (fourier (f, x, p)), x, p, 'inf)’.
-
-
-File: maxima-core-docs.info,  Node: Function trunc expr,  Next: Function unsum f n,  Prev: Function totalfourier f x p,  Up: Sums Products and Series
-
- -- Function: trunc (EXPR)
-     Annotates the internal representation of the general expression
-     _expr_ so that it is displayed as if its sums were truncated Taylor
-     series.  _expr_ is not otherwise modified.
-
-     Example:
-
-     maxima
-     
-     (%i1) expr: x^2 + x + 1;
-                                 2
-     (%o1)                      x  + x + 1
-     
-     
-     (%i2) trunc (expr);
-                                     2
-     (%o2)                  1 + x + x  + . . .
-     
-     
-     (%i3) is (expr = trunc (expr));
-     (%o3)                         true
-
-
-File: maxima-core-docs.info,  Node: Function unsum f n,  Next: Variable verbose,  Prev: Function trunc expr,  Up: Sums Products and Series
-
- -- Function: unsum (F, N)
-     Returns the first backward difference ‘f(n) - f(n - 1)’.  Thus
-     ‘unsum’ in a sense is the inverse of ‘sum’.
-
-     See also ‘nusum’.
-
-     Examples:
-
-     maxima
-     
-     (%i1) g(p) := p*4^n/binomial(2*n,n);
-                                          n
-                                       p 4
-     (%o1)               g(p) := ----------------
-                                 binomial(2 n, n)
-     
-     
-     (%i2) g(n^4);
-                                   n  4
-                                  4  n
-     (%o2)                   ----------------
-                             binomial(2 n, n)
-     
-     
-     (%i3) nusum (%, n, 0, n);
-              n              4        3       2
-           2 4  (n + 1) (63 n  + 112 n  + 18 n  - 22 n + 3)    2
-     (%o3) ------------------------------------------------ - ---
-                         693 binomial(2 n, n)                 231
-     
-     
-     (%i4) unsum (%, n);
-                                   n  4
-                                  4  n
-     (%o4)                   ----------------
-                             binomial(2 n, n)
-
-     See also: ‘nusum’.
-
-
-File: maxima-core-docs.info,  Node: Variable verbose,  Prev: Function unsum f n,  Up: Sums Products and Series
-
- -- Variable: verbose
-     Default value: ‘false’
-
-     When ‘verbose’ is ‘true’, ‘powerseries’ prints progress messages.
-
-
-File: maxima-core-docs.info,  Node: zeilberger,  Next: Simplification,  Prev: Sums Products and Series,  Up: Maxima Core Documentation
-
-1.103 zeilberger
-================
-
-* Menu:
-
-* Function AntiDifference F_k k::
-* Variable ev_point::
-* Function Gosper F_k k::
-* Variable Gosper_in_Zeilberger::
-* Function GosperSum F_k k a b::
-* Variable linear_solver::
-* Variable MAX_ORD::
-* Variable mod_big_prime::
-* Variable mod_test::
-* Variable mod_threshold::
-* Variable modular_linear_solver::
-* Function parGosper F_nk k n d::
-* Variable simplified_output::
-* Variable trivial_solutions::
-* Variable warnings::
-* Function Zeilberger F_nk k n::
-
-
-File: maxima-core-docs.info,  Node: Function AntiDifference F_k k,  Next: Variable ev_point,  Up: zeilberger
-
- -- Function: AntiDifference (F_K, K)
-     Returns the hypergeometric anti-difference of F_k, if it exists.
-
-     Otherwise ‘AntiDifference’ returns ‘no_hyp_antidifference’.
-
-
-File: maxima-core-docs.info,  Node: Variable ev_point,  Next: Function Gosper F_k k,  Prev: Function AntiDifference F_k k,  Up: zeilberger
-
- -- Variable: ev_point
-     Default value: ‘big_primes[10]’
-
-     ‘ev_point’ is the value at which the variable _n_ is evaluated when
-     executing the modular test in ‘parGosper’.
-
-
-File: maxima-core-docs.info,  Node: Function Gosper F_k k,  Next: Variable Gosper_in_Zeilberger,  Prev: Variable ev_point,  Up: zeilberger
-
- -- Function: Gosper (F_K, K)
-     Returns the rational certificate R(k) for F_k, that is, a rational
-     function such that F_k = R\left(k+1\right) \, F_{k+1} -
-     R\left(k\right) \, F_k, if it exists.  Otherwise, ‘Gosper’ returns
-     ‘no_hyp_sol’.
-
-
-File: maxima-core-docs.info,  Node: Variable Gosper_in_Zeilberger,  Next: Function GosperSum F_k k a b,  Prev: Function Gosper F_k k,  Up: zeilberger
-
- -- Variable: Gosper_in_Zeilberger
-     Default value: ‘true’
-
-     When ‘Gosper_in_Zeilberger’ is ‘true’, the ‘Zeilberger’ function
-     calls ‘Gosper’ before calling ‘parGosper’.  Otherwise, ‘Zeilberger’
-     goes immediately to ‘parGosper’.
-
-
-File: maxima-core-docs.info,  Node: Function GosperSum F_k k a b,  Next: Variable linear_solver,  Prev: Variable Gosper_in_Zeilberger,  Up: zeilberger
-
- -- Function: GosperSum (F_K, K, A, B)
-     Returns the summation of F_k from k = a to k = b if F_k has a
-     hypergeometric anti-difference.  Otherwise, ‘GosperSum’ returns
-     ‘nongosper_summable’.
-
-     Examples:
-
-     (%i1) load ("zeilberger")$
-     
-     (%i2) GosperSum ((-1)^k*k / (4*k^2 - 1), k, 1, n);
-                                n + 1      3
-                           (- 1)      (n + -)
-                                           2    1
-     (%o2)               - ------------------ - -
-                                       2        4
-                           2 (4 (n + 1)  - 1)
-     
-     
-     (%i3) GosperSum (1 / (4*k^2 - 1), k, 1, n);
-                                     3
-                               - n - -
-                                     2       1
-     (%o3)                  -------------- + -
-                                     2       2
-                            4 (n + 1)  - 1
-     
-     
-     (%i4) GosperSum (x^k, k, 1, n);
-                               n + 1
-                              x          x
-     (%o4)                    ------ - -----
-                              x - 1    x - 1
-     
-     
-     (%i5) GosperSum ((-1)^k*a! / (k!*(a - k)!), k, 1, n);
-                          n + 1
-                     (- 1)      a! (n + 1)         a!
-     (%o5)       - ------------------------- - ----------
-                   a (- n + a - 1)! (n + 1)!   (a - 1)! a
-     
-     
-     (%i6) GosperSum (k*k!, k, 1, n);
-     (%o6)                     (n + 1)! - 1
-     
-     
-     (%i7) GosperSum ((k + 1)*k! / (k + 1)!, k, 1, n);
-                       (n + 1) (n + 2) (n + 1)!
-     (%o7)             ------------------------ - 1
-                               (n + 2)!
-     
-     
-     (%i8) GosperSum (1 / ((a - k)!*k!), k, 1, n);
-     (%o8)                  NON_GOSPER_SUMMABLE
 
 
 File: maxima-core-docs.info,  Node: Variable linear_solver,  Next: Variable MAX_ORD,  Prev: Function GosperSum F_k k a b,  Up: zeilberger
@@ -1078,7 +125,7 @@ File: maxima-core-docs.info,  Node: Simplification,  Next: Rules and Patterns,  
 ====================
 
 
-File: maxima-core-docs.info,  Node: Rules and Patterns,  Next: Simplification 2,  Prev: Simplification,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Rules and Patterns,  Next: ,  Prev: Simplification,  Up: Maxima Core Documentation
 
 1.105 Rules and Patterns
 ========================
@@ -1088,7 +135,7 @@ File: maxima-core-docs.info,  Node: Rules and Patterns,  Next: Simplification 2,
 * Function apply1 expr rule_1 ... rule_n::
 * Function apply2 expr rule_1 ... rule_n::
 * Function applyb1 expr rule_1 ... rule_n::
-* Function clear_rules::
+* Function clear_rules ::
 * Variable current_let_rule_package::
 * Variable default_let_rule_package::
 * Function defmatch progname pattern x_1 ... x_n::
@@ -1097,7 +144,7 @@ File: maxima-core-docs.info,  Node: Rules and Patterns,  Next: Simplification 2,
 * Function let prod repl predname arg_1 ... arg_n::
 * Variable let_rule_packages::
 * Variable letrat::
-* Function letrules::
+* Function letrules ::
 * Function letsimp expr::
 * Function matchdeclare a_1 pred_1 ... a_n pred_n::
 * Variable maxapplydepth::
@@ -1411,16 +458,16 @@ File: maxima-core-docs.info,  Node: Function let prod repl predname arg_1 ... ar
      replaced by _repl_.  _prod_ is a product of positive or negative
      powers of the following terms:
 
-        •    • Atoms which ‘letsimp’ will search for literally
-               unless previous to calling ‘letsimp’ the ‘matchdeclare’
-               function is used to associate a predicate with the atom.
-               In this case ‘letsimp’ will match the atom to any term of
-               a product satisfying the predicate.
+        •    • Atoms which ‘letsimp’ will search for literally unless
+               previous to calling ‘letsimp’ the ‘matchdeclare’ function
+               is used to associate a predicate with the atom.  In this
+               case ‘letsimp’ will match the atom to any term of a
+               product satisfying the predicate.
 
-        •    • Kernels such as ‘sin(x)’, ‘n!’, ‘f(x,y)’, etc.
-               As with atoms above ‘letsimp’ will look for a literal
-               match unless ‘matchdeclare’ is used to associate a
-               predicate with the argument of the kernel.
+        •    • Kernels such as ‘sin(x)’, ‘n!’, ‘f(x,y)’, etc.  As with
+               atoms above ‘letsimp’ will look for a literal match
+               unless ‘matchdeclare’ is used to associate a predicate
+               with the argument of the kernel.
 
      A term to a positive power will only match a term having at least
      that power.  A term to a negative power on the other hand will only
@@ -2291,9 +1338,6 @@ File: maxima-core-docs.info,  Node: Function tellsimpafter pattern replacement, 
      See also: ‘matchdeclare’, ‘defmatch’, ‘defrule’, ‘tellsimp’, ‘let’,
      ‘kill’, ‘remrule’, ‘clear_rules’.
 
-
-File: maxima-core-docs.info,  Node: Simplification 2,  Next: simplification,  Prev: Rules and Patterns,  Up: Maxima Core Documentation
-
 1.106 Simplification
 ====================
 
@@ -2335,7 +1379,7 @@ File: maxima-core-docs.info,  Node: Simplification 2,  Next: simplification,  Pr
 * Function xthru expr::
 
 
-File: maxima-core-docs.info,  Node: Variable additive,  Next: Variable antisymmetric,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable additive
 
  -- Variable: additive
      If ‘declare(f,additive)’ has been executed, then:
@@ -2367,7 +1411,7 @@ File: maxima-core-docs.info,  Node: Variable additive,  Next: Variable antisymme
      (%o3)                 F3(c) + F3(b) + F3(a)
 
 
-File: maxima-core-docs.info,  Node: Variable antisymmetric,  Next: Function combine expr,  Prev: Variable additive,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable antisymmetric
 
  -- Variable: antisymmetric
      If ‘declare(h,antisymmetric)’ is done, this tells the simplifier
@@ -2414,7 +1458,7 @@ File: maxima-core-docs.info,  Node: Variable antisymmetric,  Next: Function comb
      See also: ‘symmetric’, ‘commutative’.
 
 
-File: maxima-core-docs.info,  Node: Function combine expr,  Next: Variable commutative,  Prev: Variable antisymmetric,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function combine expr
 
  -- Function: combine (EXPR)
      Simplifies the sum _expr_ by combining terms with the same
@@ -2440,7 +1484,7 @@ File: maxima-core-docs.info,  Node: Function combine expr,  Next: Variable commu
      See also: ‘rncombine’.
 
 
-File: maxima-core-docs.info,  Node: Variable commutative,  Next: Function define_opproperty property_name simplifier_fn,  Prev: Function combine expr,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable commutative
 
  -- Variable: commutative
      If ‘declare(h, commutative)’ is done, this tells the simplifier
@@ -2477,7 +1521,7 @@ File: maxima-core-docs.info,  Node: Variable commutative,  Next: Function define
      See also: ‘symmetric’.
 
 
-File: maxima-core-docs.info,  Node: Function define_opproperty property_name simplifier_fn,  Next: Function demoivre expr,  Prev: Variable commutative,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function define_opproperty property_name simplifier_fn
 
  -- Function: define_opproperty (PROPERTY_NAME, SIMPLIFIER_FN)
      Declares the symbol _property_name_ to be an operator property,
@@ -2530,7 +1574,7 @@ File: maxima-core-docs.info,  Node: Function define_opproperty property_name sim
      See also: ‘opproperties’.
 
 
-File: maxima-core-docs.info,  Node: Function demoivre expr,  Next: Function distrib expr,  Prev: Function define_opproperty property_name simplifier_fn,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function demoivre expr
 
  -- Function: demoivre (EXPR)
      The function ‘demoivre (expr)’ converts one expression without
@@ -2548,7 +1592,7 @@ File: maxima-core-docs.info,  Node: Function demoivre expr,  Next: Function dist
      true at the same time.
 
 
-File: maxima-core-docs.info,  Node: Function distrib expr,  Next: Variable distribute_over,  Prev: Function demoivre expr,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function distrib expr
 
  -- Function: distrib (EXPR)
      Distributes sums over products.  It differs from ‘expand’ in that
@@ -2580,7 +1624,7 @@ File: maxima-core-docs.info,  Node: Function distrib expr,  Next: Variable distr
                            b d + a d + b c + a c
 
 
-File: maxima-core-docs.info,  Node: Variable distribute_over,  Next: Variable domain,  Prev: Function distrib expr,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable distribute_over
 
  -- Variable: distribute_over
      Default value: ‘true’
@@ -2667,7 +1711,7 @@ File: maxima-core-docs.info,  Node: Variable distribute_over,  Next: Variable do
      See also: ‘properties’.
 
 
-File: maxima-core-docs.info,  Node: Variable domain,  Next: Variable evenfun,  Prev: Variable distribute_over,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable domain
 
  -- Variable: domain
      Default value: ‘real’
@@ -2676,7 +1720,7 @@ File: maxima-core-docs.info,  Node: Variable domain,  Next: Variable evenfun,  P
      (x^2)’ instead of returning ‘abs(x)’.
 
 
-File: maxima-core-docs.info,  Node: Variable evenfun,  Next: Function expand expr,  Prev: Variable domain,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable evenfun
 
  -- Variable: evenfun
      ‘declare(f, evenfun)’ or ‘declare(f, oddfun)’ tells Maxima to
@@ -2710,7 +1754,7 @@ File: maxima-core-docs.info,  Node: Variable evenfun,  Next: Function expand exp
      (%o6)                           0
 
 
-File: maxima-core-docs.info,  Node: Function expand expr,  Next: Function expandwrt expr x_1 ... x_n,  Prev: Variable evenfun,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function expand expr
 
  -- Function: expand (EXPR)
      Expand expression _expr_.  Products of sums and exponentiated sums
@@ -2826,7 +1870,7 @@ File: maxima-core-docs.info,  Node: Function expand expr,  Next: Function expand
      See also: ‘resimplify’, ‘ev’.
 
 
-File: maxima-core-docs.info,  Node: Function expandwrt expr x_1 ... x_n,  Next: Variable expandwrt_denom,  Prev: Function expand expr,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function expandwrt expr x_1 ... x_n
 
  -- Function: expandwrt (EXPR, X_1, ..., X_N)
      Expands expression ‘expr’ with respect to the variables _x_1_, ...,
@@ -2841,7 +1885,7 @@ File: maxima-core-docs.info,  Node: Function expandwrt expr x_1 ... x_n,  Next: 
      This function is autoloaded from ‘simplification/stopex.mac’.
 
 
-File: maxima-core-docs.info,  Node: Variable expandwrt_denom,  Next: Function expandwrt_factored expr x_1 ... x_n,  Prev: Function expandwrt expr x_1 ... x_n,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable expandwrt_denom
 
  -- Variable: expandwrt_denom
      Default value: ‘false’
@@ -2853,7 +1897,7 @@ File: maxima-core-docs.info,  Node: Variable expandwrt_denom,  Next: Function ex
      numerator will be expanded in that way.
 
 
-File: maxima-core-docs.info,  Node: Function expandwrt_factored expr x_1 ... x_n,  Next: Variable expon,  Prev: Variable expandwrt_denom,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function expandwrt_factored expr x_1 ... x_n
 
  -- Function: expandwrt_factored (EXPR, X_1, ..., X_N)
      is similar to ‘expandwrt’, but treats expressions that are products
@@ -2863,7 +1907,7 @@ File: maxima-core-docs.info,  Node: Function expandwrt_factored expr x_1 ... x_n
      This function is autoloaded from ‘simplification/stopex.mac’.
 
 
-File: maxima-core-docs.info,  Node: Variable expon,  Next: Function exponentialize expr,  Prev: Function expandwrt_factored expr x_1 ... x_n,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable expon
 
  -- Variable: expon
      Default value: 0
@@ -2874,7 +1918,7 @@ File: maxima-core-docs.info,  Node: Variable expon,  Next: Function exponentiali
      automatically expanded.
 
 
-File: maxima-core-docs.info,  Node: Function exponentialize expr,  Next: Variable expop,  Prev: Variable expon,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function exponentialize expr
 
  -- Function: exponentialize (EXPR)
      The function ‘exponentialize (expr)’ converts circular and
@@ -2890,7 +1934,7 @@ File: maxima-core-docs.info,  Node: Function exponentialize expr,  Next: Variabl
      time.
 
 
-File: maxima-core-docs.info,  Node: Variable expop,  Next: Variable lassociative,  Prev: Function exponentialize expr,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable expop
 
  -- Variable: expop
      Default value: 0
@@ -2903,7 +1947,7 @@ File: maxima-core-docs.info,  Node: Variable expop,  Next: Variable lassociative
      ‘maxposex’ is not less than n.
 
 
-File: maxima-core-docs.info,  Node: Variable lassociative,  Next: Variable linear,  Prev: Variable expop,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable lassociative
 
  -- Variable: lassociative
      ‘declare (g, lassociative)’ tells the Maxima simplifier that ‘g’ is
@@ -2915,7 +1959,7 @@ File: maxima-core-docs.info,  Node: Variable lassociative,  Next: Variable linea
      See also: ‘rassociative’.
 
 
-File: maxima-core-docs.info,  Node: Variable linear,  Next: Variable maxnegex,  Prev: Variable lassociative,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable linear
 
  -- Variable: linear
      One of Maxima's operator properties.  For univariate ‘f’ so
@@ -2978,7 +2022,7 @@ File: maxima-core-docs.info,  Node: Variable linear,  Next: Variable maxnegex,  
      ‘opproperties’.
 
 
-File: maxima-core-docs.info,  Node: Variable maxnegex,  Next: Variable maxposex,  Prev: Variable linear,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable maxnegex
 
  -- Variable: maxnegex
      Default value: 1000
@@ -2989,7 +2033,7 @@ File: maxima-core-docs.info,  Node: Variable maxnegex,  Next: Variable maxposex,
      See also: ‘maxposex’.
 
 
-File: maxima-core-docs.info,  Node: Variable maxposex,  Next: Variable multiplicative,  Prev: Variable maxnegex,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable maxposex
 
  -- Variable: maxposex
      Default value: 1000
@@ -3000,7 +2044,7 @@ File: maxima-core-docs.info,  Node: Variable maxposex,  Next: Variable multiplic
      See also: ‘maxnegex’.
 
 
-File: maxima-core-docs.info,  Node: Variable multiplicative,  Next: Function multthru expr,  Prev: Variable maxposex,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable multiplicative
 
  -- Variable: multiplicative
      ‘declare(f, multiplicative)’ tells the Maxima simplifier that ‘f’
@@ -3060,7 +2104,7 @@ File: maxima-core-docs.info,  Node: Variable multiplicative,  Next: Function mul
                              i = 1     i = 1
 
 
-File: maxima-core-docs.info,  Node: Function multthru expr,  Next: Variable negdistrib,  Prev: Variable multiplicative,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function multthru expr
 
  -- Function: multthru (EXPR)
      Multiplies a factor (which should be a sum) of _expr_ by the other
@@ -3120,7 +2164,7 @@ File: maxima-core-docs.info,  Node: Function multthru expr,  Next: Variable negd
      (%i8) expand (a.(b+c.(d+e)+f));
 
 
-File: maxima-core-docs.info,  Node: Variable negdistrib,  Next: Variable opproperties,  Prev: Function multthru expr,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable negdistrib
 
  -- Variable: negdistrib
      Default value: ‘true’
@@ -3152,7 +2196,7 @@ File: maxima-core-docs.info,  Node: Variable negdistrib,  Next: Variable opprope
      (%o4)                       - (y + x)
 
 
-File: maxima-core-docs.info,  Node: Variable opproperties,  Next: Variable outative,  Prev: Variable negdistrib,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable opproperties
 
  -- Variable: opproperties
      ‘opproperties’ is the list of the special operator properties
@@ -3173,7 +2217,7 @@ File: maxima-core-docs.info,  Node: Variable opproperties,  Next: Variable outat
      See also: ‘define_opproperty’.
 
 
-File: maxima-core-docs.info,  Node: Variable outative,  Next: Function radcan expr,  Prev: Variable opproperties,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable outative
 
  -- Variable: outative
      ‘declare(f, outative)’ tells the Maxima simplifier that constant
@@ -3218,7 +2262,7 @@ File: maxima-core-docs.info,  Node: Variable outative,  Next: Function radcan ex
      See also: ‘sum’, ‘integrate’, ‘limit’.
 
 
-File: maxima-core-docs.info,  Node: Function radcan expr,  Next: Variable radexpand,  Prev: Variable outative,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function radcan expr
 
  -- Function: radcan (EXPR)
      Simplifies _expr_, which can contain logs, exponentials, and
@@ -3253,7 +2297,7 @@ File: maxima-core-docs.info,  Node: Function radcan expr,  Next: Variable radexp
      (%o3)                       %e    - 1
 
 
-File: maxima-core-docs.info,  Node: Variable radexpand,  Next: Variable rassociative,  Prev: Function radcan expr,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable radexpand
 
  -- Variable: radexpand
      Default value: ‘true’
@@ -3266,20 +2310,19 @@ File: maxima-core-docs.info,  Node: Variable radexpand,  Next: Variable rassocia
 
      More particularly, consider ‘sqrt (x^2)’.
 
-        •    • If ‘radexpand’ is ‘all’ or ‘assume (x > 0)’ has
-               been executed, ‘sqrt(x^2)’ simplifies to ‘x’.
+        •    • If ‘radexpand’ is ‘all’ or ‘assume (x > 0)’ has been
+               executed, ‘sqrt(x^2)’ simplifies to ‘x’.
 
-        •    • If ‘radexpand’ is ‘true’ and ‘domain’ is ‘real’
-               (its default), ‘sqrt(x^2)’ simplifies to ‘abs(x)’.
+        •    • If ‘radexpand’ is ‘true’ and ‘domain’ is ‘real’ (its
+               default), ‘sqrt(x^2)’ simplifies to ‘abs(x)’.
 
-        •    • If ‘radexpand’ is ‘false’, or ‘radexpand’ is
-               ‘true’ and ‘domain’ is ‘complex’, ‘sqrt(x^2)’ is not
-               simplified.
+        •    • If ‘radexpand’ is ‘false’, or ‘radexpand’ is ‘true’ and
+               ‘domain’ is ‘complex’, ‘sqrt(x^2)’ is not simplified.
 
      Note that ‘domain’ only matters when ‘radexpand’ is ‘true’.
 
 
-File: maxima-core-docs.info,  Node: Variable rassociative,  Next: Function resimplify expr,  Prev: Variable radexpand,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable rassociative
 
  -- Variable: rassociative
      ‘declare (g, rassociative)’ tells the Maxima simplifier that ‘g’ is
@@ -3291,7 +2334,7 @@ File: maxima-core-docs.info,  Node: Variable rassociative,  Next: Function resim
      See also: ‘lassociative’.
 
 
-File: maxima-core-docs.info,  Node: Function resimplify expr,  Next: Function scsimp expr rule_1 ... rule_n,  Prev: Variable rassociative,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function resimplify expr
 
  -- Function: resimplify (EXPR)
      Resimplifies the expression _expr_ based on the current
@@ -3328,7 +2371,7 @@ File: maxima-core-docs.info,  Node: Function resimplify expr,  Next: Function sc
      (%o5)                           1
 
 
-File: maxima-core-docs.info,  Node: Function scsimp expr rule_1 ... rule_n,  Next: Variable simp,  Prev: Function resimplify expr,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function scsimp expr rule_1 ... rule_n
 
  -- Function: scsimp (EXPR, RULE_1, ..., RULE_N)
      Sequential Comparative Simplification (method due to Stoute).
@@ -3340,7 +2383,7 @@ File: maxima-core-docs.info,  Node: Function scsimp expr rule_1 ... rule_n,  Nex
      ‘example (scsimp)’ displays some examples.
 
 
-File: maxima-core-docs.info,  Node: Variable simp,  Next: Variable symmetric,  Prev: Function scsimp expr rule_1 ... rule_n,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable simp
 
  -- Variable: simp
      Default value: ‘true’
@@ -3400,7 +2443,7 @@ File: maxima-core-docs.info,  Node: Variable simp,  Next: Variable symmetric,  P
      See also: ‘ev’.
 
 
-File: maxima-core-docs.info,  Node: Variable symmetric,  Next: Function xthru expr,  Prev: Variable simp,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Variable symmetric
 
  -- Variable: symmetric
      ‘declare (h, symmetric)’ tells the Maxima simplifier that ‘h’ is a
@@ -3412,7 +2455,7 @@ File: maxima-core-docs.info,  Node: Variable symmetric,  Next: Function xthru ex
      See also: ‘commutative’.
 
 
-File: maxima-core-docs.info,  Node: Function xthru expr,  Prev: Variable symmetric,  Up: Simplification 2
+File: maxima-core-docs.info,  Node: Function xthru expr
 
  -- Function: xthru (EXPR)
      Combines all terms of _expr_ (which should be a sum) over a common
@@ -3446,7 +2489,7 @@ File: maxima-core-docs.info,  Node: Function xthru expr,  Prev: Variable symmetr
                                  (y + x)
 
 
-File: maxima-core-docs.info,  Node: simplification,  Next: Solving,  Prev: Simplification 2,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: simplification,  Next: Solving,  Prev: ,  Up: Maxima Core Documentation
 
 1.107 simplification
 ====================
@@ -3878,7 +2921,7 @@ File: maxima-core-docs.info,  Node: Solving,  Next: Equations,  Prev: simplifica
 =============
 
 
-File: maxima-core-docs.info,  Node: Equations,  Next: Numerical 4,  Prev: Solving,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Equations,  Next: ,  Prev: Solving,  Up: Maxima Core Documentation
 
 1.109 Equations
 ===============
@@ -4469,34 +3512,29 @@ File: maxima-core-docs.info,  Node: Function ieqn ie unk tech n guess,  Next: Va
 
      *Second-kind equations*
 
-        •    • ‘flfrnk2nd’: For fixed-limit, finite-rank
-               integrands.
+        •    • ‘flfrnk2nd’: For fixed-limit, finite-rank integrands.
 
-        •    • ‘vlfrnk’: For variable-limit, finite-rank
-               integrands.
+        •    • ‘vlfrnk’: For variable-limit, finite-rank integrands.
 
-        •    • ‘transform’: Laplace transform for convolution
-               types.
+        •    • ‘transform’: Laplace transform for convolution types.
 
-        •    • ‘fredseries’: Fredholm-Carleman series for
-               linear equations.
+        •    • ‘fredseries’: Fredholm-Carleman series for linear
+               equations.
 
-        •    • ‘tailor’: Taylor series for quasi-linear
-               variable-limit equations.
+        •    • ‘tailor’: Taylor series for quasi-linear variable-limit
+               equations.
 
         •    • ‘neumann’: Neumann series for quasi-second kind
                equations.
 
-        •    • ‘collocate’: Collocation using a power series
-               form for p(x) evaluated at equally spaced points.
+        •    • ‘collocate’: Collocation using a power series form for
+               p(x) evaluated at equally spaced points.
 
      *First-kind equations*
 
-        •    • ‘flfrnk1st’: For fixed-limit, finite-rank
-               integrands.
+        •    • ‘flfrnk1st’: For fixed-limit, finite-rank integrands.
 
-        •    • ‘vlfrnk’: For variable-limit, finite-rank
-               integrands.
+        •    • ‘vlfrnk’: For variable-limit, finite-rank integrands.
 
         •    • ‘abel’: For singular integrands
 
@@ -4504,8 +3542,8 @@ File: maxima-core-docs.info,  Node: Function ieqn ie unk tech n guess,  Next: Va
 
         •    • ‘collocate’: See above
 
-        •    • ‘firstkindseries’: Iteration technique similar
-               to neumann series.
+        •    • ‘firstkindseries’: Iteration technique similar to neumann
+               series.
 
      The default values for the 2nd thru 5th parameters in the calling
      form are:
@@ -5348,9 +4386,6 @@ File: maxima-core-docs.info,  Node: Variable solvetrigwarn,  Prev: Variable solv
 
      See also: ‘solve’.
 
-
-File: maxima-core-docs.info,  Node: Numerical 4,  Next: Operators 2,  Prev: Equations,  Up: Maxima Core Documentation
-
 1.110 Numerical
 ===============
 
@@ -5361,7 +4396,7 @@ File: maxima-core-docs.info,  Node: Numerical 4,  Next: Operators 2,  Prev: Equa
 * Function newton expr x x_0 eps::
 
 
-File: maxima-core-docs.info,  Node: Function find_root expr x a b [abserr relerr],  Next: Function horner expr x,  Up: Numerical 4
+File: maxima-core-docs.info,  Node: Function find_root expr x a b [abserr relerr]
 
  -- Function: find_root (EXPR, X, A, B, [ABSERR, RELERR])
      Finds a root of the expression _expr_ or the function _f_ over the
@@ -5469,7 +4504,7 @@ File: maxima-core-docs.info,  Node: Function find_root expr x a b [abserr relerr
      See also: ‘find_root’.
 
 
-File: maxima-core-docs.info,  Node: Function horner expr x,  Next: Function newton expr x x_0 eps,  Prev: Function find_root expr x a b [abserr relerr],  Up: Numerical 4
+File: maxima-core-docs.info,  Node: Function horner expr x
 
  -- Function: horner (EXPR, X)
      Returns a rearranged representation of _expr_ as in Horner's rule,
@@ -5508,7 +4543,7 @@ File: maxima-core-docs.info,  Node: Function horner expr x,  Next: Function newt
      See also: ‘stringout’.
 
 
-File: maxima-core-docs.info,  Node: Function newton expr x x_0 eps,  Prev: Function horner expr x,  Up: Numerical 4
+File: maxima-core-docs.info,  Node: Function newton expr x x_0 eps
 
  -- Function: newton (EXPR, X, X_0, EPS)
      Returns an approximate solution of ‘expr = 0’ by Newton's method,
@@ -5555,19 +4590,13 @@ File: maxima-core-docs.info,  Node: Function newton expr x x_0 eps,  Prev: Funct
 
      See also: ‘realroots’, ‘allroots’, ‘find_root’, ‘mnewton’.
 
-
-File: maxima-core-docs.info,  Node: Operators 2,  Next: solve_rec,  Prev: Numerical 4,  Up: Maxima Core Documentation
-
 1.111 Operators
 ===============
 
 * Menu:
 
-* Function: Function 4.
-* Function =: Function = 3.
-
-
-File: maxima-core-docs.info,  Node: Function 4,  Next: Function = 3,  Up: Operators 2
+* Function::
+* Function =::
 
 1.111.1 Function:
 -----------------
@@ -5606,9 +4635,6 @@ maxima
 (%o6)                         true
 
 See also: ‘=’.
-
-
-File: maxima-core-docs.info,  Node: Function = 3,  Prev: Function 4,  Up: Operators 2
 
 1.111.2 Function: =
 -------------------
@@ -5737,7 +4763,7 @@ See also: ‘solve’, ‘algsys’, ‘is’, ‘#’, ‘if’, ‘and’, ‘
 ‘lhs’, ‘equal’, ‘notequal’.
 
 
-File: maxima-core-docs.info,  Node: solve_rec,  Next: to_poly_solve,  Prev: Operators 2,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: solve_rec,  Next: to_poly_solve,  Prev: ,  Up: Maxima Core Documentation
 
 1.112 solve_rec
 ===============
@@ -6133,8 +5159,8 @@ inequations; for example the Fourier elimination code simplifies ‘abs(x)
           involving the operators ‘%and, %or’, and ‘not’ should be fully
           parenthesized.
 
-   •    • The Maxima operators ‘and’ and ‘or’ are both
-          short-circuited.  Thus ‘and’ isn't associative or commutative.
+   •    • The Maxima operators ‘and’ and ‘or’ are both short-circuited.
+          Thus ‘and’ isn't associative or commutative.
 
 *Limitations* The conjunction ‘%and’ simplifies inequations _locally,
 not globally_.  This means that conjunctions such as
@@ -6190,14 +5216,14 @@ File: maxima-core-docs.info,  Node: Function %if bool a b,  Next: Function %or, 
 
      *Notes*
 
-        •    • If the conditional is manifestly non-boolean,
-               Maxima returns a noun form:
+        •    • If the conditional is manifestly non-boolean, Maxima
+               returns a noun form:
 
      (%i3) %if(42,1,2);
      (%o3)                     %if(42, 1, 2)
 
-        •    • The Maxima operator ‘if’ is nary, the operator
-               ‘%if’ _isn't_ nary.
+        •    • The Maxima operator ‘if’ is nary, the operator ‘%if’
+               _isn't_ nary.
 
      *Limitations* The Fourier elimination code only simplifies
      nonlinear inequations that are readily convertible to an equivalent
@@ -6251,12 +5277,12 @@ true, so we have
    •    • The option variable ‘prederror’ does _not_ alter the
           simplification of ‘%or’ expressions.
 
-   •    • You should parenthesize compound expressions involving
-          the operators ‘%and, %or’, and ‘not’; the binding powers of
-          these operators might not match your expectations.
+   •    • You should parenthesize compound expressions involving the
+          operators ‘%and, %or’, and ‘not’; the binding powers of these
+          operators might not match your expectations.
 
-   •    • The Maxima operators ‘and’ and ‘or’ are both
-          short-circuited.  Thus ‘or’ isn't associative or commutative.
+   •    • The Maxima operators ‘and’ and ‘or’ are both short-circuited.
+          Thus ‘or’ isn't associative or commutative.
 
 *Limitations* The conjunction ‘%or’ simplifies inequations _locally, not
 globally_.  This means that conjunctions such as
@@ -6381,9 +5407,9 @@ File: maxima-core-docs.info,  Node: Function compose_functions l,  Next: Functio
 
      *Notes*
 
-        •    • When Maxima determines that a list member isn't
-               a symbol or a lambda form, ‘funmake’ (_not_
-               ‘compose_functions’) signals an error:
+        •    • When Maxima determines that a list member isn't a symbol
+               or a lambda form, ‘funmake’ (_not_ ‘compose_functions’)
+               signals an error:
 
      (%i5) compose_functions([a < b]);
      
@@ -6392,8 +5418,8 @@ File: maxima-core-docs.info,  Node: Function compose_functions l,  Next: Functio
      #0: compose_functions(l=[a < b])(to_poly_solve.mac line 40)
       -- an error. To debug this try: debugmode(true);
 
-        •    • To avoid name conflicts, the independent
-               variable is determined by the function ‘new_variable’.
+        •    • To avoid name conflicts, the independent variable is
+               determined by the function ‘new_variable’.
 
      (%i6) compose_functions([%g0]);
      (%o6)              lambda([%g154], %g0(%g154))
@@ -6428,13 +5454,13 @@ File: maxima-core-docs.info,  Node: Function dfloat x,  Next: Function elim l x,
 
      *Notes*
 
-        •    • The rectangular form of an expression might be
-               poorly suited for numerical evaluation-for example, the
+        •    • The rectangular form of an expression might be poorly
+               suited for numerical evaluation-for example, the
                rectangular form might needlessly involve the difference
                of floating point numbers (subtractive cancellation).
 
-        •    • The identifier ‘float’ is both an option
-               variable (default value false) and a function name.
+        •    • The identifier ‘float’ is both an option variable
+               (default value false) and a function name.
 
      *Related functions* ‘float, bfloat’
 
@@ -6485,17 +5511,17 @@ File: maxima-core-docs.info,  Node: Function elim l x,  Next: Function elim_allb
 
      *Notes*
 
-        •    • Unlike the related function ‘eliminate’, the
-               function ‘elim’ does _not_ invoke ‘solve’ when the number
-               of equations equals the number of variables.
+        •    • Unlike the related function ‘eliminate’, the function
+               ‘elim’ does _not_ invoke ‘solve’ when the number of
+               equations equals the number of variables.
 
-        •    • The function ‘elim’ works by applying
-               resultants; the option variable ‘resultant’ determines
-               which algorithm Maxima uses.  Using ‘sqfr’, Maxima
-               factors each resultant and suppresses multiple zeros.
+        •    • The function ‘elim’ works by applying resultants; the
+               option variable ‘resultant’ determines which algorithm
+               Maxima uses.  Using ‘sqfr’, Maxima factors each resultant
+               and suppresses multiple zeros.
 
-        •    • The ‘elim’ will triangularize a nonlinear set
-               of polynomial equations; the solution set of the
+        •    • The ‘elim’ will triangularize a nonlinear set of
+               polynomial equations; the solution set of the
                triangularized set _can_ be larger than that solution set
                of the untriangularized set.  Thus, the triangularized
                equations can have _spurious_ solutions.
@@ -7182,9 +6208,8 @@ File: maxima-core-docs.info,  Node: Function to_poly_solve e l [options],  Prev:
      Each optional argument to ‘to_poly_solve’ must be an equation;
      generally, the order of these options does not matter.
 
-        •    • ‘simpfuncs = l’, where ‘l’ is a list of
-               functions.  Apply the composition of the members of l to
-               each solution.
+        •    • ‘simpfuncs = l’, where ‘l’ is a list of functions.  Apply
+               the composition of the members of l to each solution.
 
      (%i1) to_poly_solve(x^2=%i,x);
                                     1/4             1/4
@@ -7218,12 +6243,11 @@ File: maxima-core-docs.info,  Node: Function to_poly_solve e l [options],  Prev:
      [x = .3411639019140089 - 1.161541399997251 %i], 
      [x = 1.161541399997251 %i + .3411639019140089])
 
-        •    • ‘use_grobner = true’ With this option, the
-               function ‘poly_reduced_grobner’ is applied to the
-               equations before attempting their solution.  Primarily,
-               this option provides a workaround for weakness in the
-               function ‘algsys’.  Here is an example of such a
-               workaround:
+        •    • ‘use_grobner = true’ With this option, the function
+               ‘poly_reduced_grobner’ is applied to the equations before
+               attempting their solution.  Primarily, this option
+               provides a workaround for weakness in the function
+               ‘algsys’.  Here is an example of such a workaround:
 
      (%i7) to_poly_solve([x^2+y^2=2^2,(x-1)^2+(y-1)^2=2^2],[x,y],
                          'use_grobner = true);
@@ -7236,20 +6260,20 @@ File: maxima-core-docs.info,  Node: Function to_poly_solve e l [options],  Prev:
      (%i8) to_poly_solve([x^2+y^2=2^2,(x-1)^2+(y-1)^2=2^2],[x,y]);
      (%o8)                       %union()
 
-        •    • ‘maxdepth = k’, where ‘k’ is a positive
-               integer.  This function controls the maximum recursion
-               depth for the solver.  The default value for ‘maxdepth’
-               is five.  When the recursions depth is exceeded, the
-               solver signals an error:
+        •    • ‘maxdepth = k’, where ‘k’ is a positive integer.  This
+               function controls the maximum recursion depth for the
+               solver.  The default value for ‘maxdepth’ is five.  When
+               the recursions depth is exceeded, the solver signals an
+               error:
 
      (%i9) to_poly_solve(cos(x) = x,x, 'maxdepth = 2);
      Unable to solve
      Unable to solve
      (%o9)        %solve([cos(x) = x], [x], maxdepth = 2)
 
-        •    • ‘parameters = l’, where ‘l’ is a list of
-               symbols.  The solver attempts to return a solution that
-               is valid for all members of the list ‘l’; for example:
+        •    • ‘parameters = l’, where ‘l’ is a list of symbols.  The
+               solver attempts to return a solution that is valid for
+               all members of the list ‘l’; for example:
 
      (%i10) to_poly_solve(a * x = x, x);
      (%o10)                   %union([x = 0])
@@ -7311,9 +6335,9 @@ File: maxima-core-docs.info,  Node: Function to_poly_solve e l [options],  Prev:
                                        2    2
      (%o1)           %union([x y = 8, y  + x  = - 3])
 
-        •    • For equations that involve complex conjugates,
-               the solver automatically appends the conjugate equations;
-               for example
+        •    • For equations that involve complex conjugates, the solver
+               automatically appends the conjugate equations; for
+               example
 
      (%i1) declare(x,complex)$
      
@@ -7329,10 +6353,10 @@ File: maxima-core-docs.info,  Node: Function to_poly_solve e l [options],  Prev:
      (%o4)        %union([x = - -------, y = - -------])
                                    2              2
 
-        •    • For an equation that involves the absolute
-               value function, the ‘to_poly_solve’ consults the fact
-               database to decide if the argument to the absolute value
-               is complex valued.  When
+        •    • For an equation that involves the absolute value
+               function, the ‘to_poly_solve’ consults the fact database
+               to decide if the argument to the absolute value is
+               complex valued.  When
 
      (%i1) to_poly_solve(abs(x) = 6, x);
      (%o1)              %union([x = - 6], [x = 6])
@@ -7356,13 +6380,10 @@ File: maxima-core-docs.info,  Node: Function to_poly_solve e l [options],  Prev:
      into other Maxima functions.
 
 
-File: maxima-core-docs.info,  Node: SpecialFunctions,  Next: Elliptic Functions 2,  Prev: to_poly_solve,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: SpecialFunctions,  Next: ,  Prev: to_poly_solve,  Up: Maxima Core Documentation
 
 1.114 SpecialFunctions
 ======================
-
-
-File: maxima-core-docs.info,  Node: Elliptic Functions 2,  Next: Special Functions 2,  Prev: SpecialFunctions,  Up: Maxima Core Documentation
 
 1.115 Elliptic Functions
 ========================
@@ -7394,12 +6415,12 @@ File: maxima-core-docs.info,  Node: Elliptic Functions 2,  Next: Special Functio
 * Function jacobi_sn u m::
 
 
-File: maxima-core-docs.info,  Node: Function inverse_jacobi_cd u m,  Next: Function inverse_jacobi_cs u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function inverse_jacobi_cd u m
 
  -- Function: inverse_jacobi_cd (U, M)
      The inverse of the Jacobian elliptic function {\rm cd}(u,m). For
      -1\le u \le 1, it can also be written
-     (https//dlmfnistgov/2215E15DLMF 2215E15):
+     (https://dlmf.nist.gov/22.15.E15DLMF 22.15.E15):
 
      {\rm inverse\_jacobi\_cd}(u, m) = \int_u^1 {dt\over
      \sqrt{(1-t^2)(1-mt^2)}}
@@ -7408,12 +6429,12 @@ File: maxima-core-docs.info,  Node: Function inverse_jacobi_cd u m,  Next: Funct
      \sqrt{(1-t^2)(1-mt^2)}}
 
 
-File: maxima-core-docs.info,  Node: Function inverse_jacobi_cs u m,  Next: Function inverse_jacobi_dc u m,  Prev: Function inverse_jacobi_cd u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function inverse_jacobi_cs u m
 
  -- Function: inverse_jacobi_cs (U, M)
      The inverse of the Jacobian elliptic function {\rm cs}(u,m). For
-     all u it can also be written (https//dlmfnistgov/2215E23DLMF
-     2215E23):
+     all u it can also be written (https://dlmf.nist.gov/22.15.E23DLMF
+     22.15.E23):
 
      {\rm inverse\_jacobi\_cs}(u, m) = \int_u^{\infty} {dt\over
      \sqrt{(1+t^2)(t^2+(1-m))}}
@@ -7422,12 +6443,12 @@ File: maxima-core-docs.info,  Node: Function inverse_jacobi_cs u m,  Next: Funct
      \sqrt{(1+t^2)(t^2+(1-m))}}
 
 
-File: maxima-core-docs.info,  Node: Function inverse_jacobi_dc u m,  Next: Function inverse_jacobi_dn u m,  Prev: Function inverse_jacobi_cs u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function inverse_jacobi_dc u m
 
  -- Function: inverse_jacobi_dc (U, M)
      The inverse of the Jacobian elliptic function {\rm dc}(u,m). For 1
-     \le u, it can also be written (https//dlmfnistgov/2215E18DLMF
-     2215E18):
+     \le u, it can also be written (https://dlmf.nist.gov/22.15.E18DLMF
+     22.15.E18):
 
      {\rm inverse\_jacobi\_dc}(u, m) = \int_1^u {dt\over
      \sqrt{(t^2-1)(t^2-m)}}
@@ -7436,12 +6457,12 @@ File: maxima-core-docs.info,  Node: Function inverse_jacobi_dc u m,  Next: Funct
      \sqrt{(t^2-1)(t^2-m)}}
 
 
-File: maxima-core-docs.info,  Node: Function inverse_jacobi_dn u m,  Next: Function inverse_jacobi_ds u m,  Prev: Function inverse_jacobi_dc u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function inverse_jacobi_dn u m
 
  -- Function: inverse_jacobi_dn (U, M)
      The inverse of the Jacobian elliptic function {\rm dn}(u,m). For
      \sqrt{1-m}\le u \le 1, it can also be written
-     (https//dlmfnistgov/2215E14DLMF 2215E14):
+     (https://dlmf.nist.gov/22.15.E14DLMF 22.15.E14):
 
      {\rm inverse\_jacobi\_dn}(u, m) = \int_u^1 {dt\over
      \sqrt{(1-t^2)(t^2-(1-m))}}
@@ -7450,12 +6471,12 @@ File: maxima-core-docs.info,  Node: Function inverse_jacobi_dn u m,  Next: Funct
      \sqrt{(1-t^2)(t^2-(1-m))}}
 
 
-File: maxima-core-docs.info,  Node: Function inverse_jacobi_ds u m,  Next: Function inverse_jacobi_nc u m,  Prev: Function inverse_jacobi_dn u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function inverse_jacobi_ds u m
 
  -- Function: inverse_jacobi_ds (U, M)
      The inverse of the Jacobian elliptic function {\rm ds}(u,m). For
      \sqrt{1-m}\le u, it can also be written
-     (https//dlmfnistgov/2215E22DLMF 2215E22):
+     (https://dlmf.nist.gov/22.15.E22DLMF 22.15.E22):
 
      {\rm inverse\_jacobi\_ds}(u, m) = \int_u^{\infty} {dt\over
      \sqrt{(t^2+m)(t^2-(1-m))}}
@@ -7464,12 +6485,12 @@ File: maxima-core-docs.info,  Node: Function inverse_jacobi_ds u m,  Next: Funct
      \sqrt{(t^2+m)(t^2-(1-m))}}
 
 
-File: maxima-core-docs.info,  Node: Function inverse_jacobi_nc u m,  Next: Function inverse_jacobi_nd u m,  Prev: Function inverse_jacobi_ds u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function inverse_jacobi_nc u m
 
  -- Function: inverse_jacobi_nc (U, M)
      The inverse of the Jacobian elliptic function {\rm nc}(u,m). For
-     1\le u, it can also be written (https//dlmfnistgov/2215E19DLMF
-     2215E19):
+     1\le u, it can also be written (https://dlmf.nist.gov/22.15.E19DLMF
+     22.15.E19):
 
      {\rm inverse\_jacobi\_nc}(u, m) = \int_1^u {dt\over
      \sqrt{(t^2-1)(m+(1-m)t^2)}}
@@ -7478,12 +6499,12 @@ File: maxima-core-docs.info,  Node: Function inverse_jacobi_nc u m,  Next: Funct
      \sqrt{(t^2-1)(m+(1-m)t^2)}}
 
 
-File: maxima-core-docs.info,  Node: Function inverse_jacobi_nd u m,  Next: Function inverse_jacobi_ns u m,  Prev: Function inverse_jacobi_nc u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function inverse_jacobi_nd u m
 
  -- Function: inverse_jacobi_nd (U, M)
      The inverse of the Jacobian elliptic function {\rm nd}(u,m). For
      1\le u \le 1/\sqrt{1-m}, it can also be written
-     (https//dlmfnistgov/2215E17DLMF 2215E17):
+     (https://dlmf.nist.gov/22.15.E17DLMF 22.15.E17):
 
      {\rm inverse\_jacobi\_nd}(u, m) = \int_1^u {dt\over
      \sqrt{(t^2-1)(1-(1-m)t^2)}}
@@ -7492,12 +6513,12 @@ File: maxima-core-docs.info,  Node: Function inverse_jacobi_nd u m,  Next: Funct
      \sqrt{(t^2-1)(1-(1-m)t^2)}}
 
 
-File: maxima-core-docs.info,  Node: Function inverse_jacobi_ns u m,  Next: Function inverse_jacobi_sc u m,  Prev: Function inverse_jacobi_nd u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function inverse_jacobi_ns u m
 
  -- Function: inverse_jacobi_ns (U, M)
      The inverse of the Jacobian elliptic function {\rm ns}(u,m). For 1
-     \le u, it can also be written (https//dlmfnistgov/2215E121DLMF
-     2215E121):
+     \le u, it can also be written (https://dlmf.nist.gov/22.15.E121DLMF
+     22.15.E121):
 
      {\rm inverse\_jacobi\_ns}(u, m) = \int_u^{\infty} {dt\over
      \sqrt{(1-t^2)(t^2-m)}}
@@ -7506,12 +6527,12 @@ File: maxima-core-docs.info,  Node: Function inverse_jacobi_ns u m,  Next: Funct
      \sqrt{(1-t^2)(t^2-m)}}
 
 
-File: maxima-core-docs.info,  Node: Function inverse_jacobi_sc u m,  Next: Function inverse_jacobi_sd u m,  Prev: Function inverse_jacobi_ns u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function inverse_jacobi_sc u m
 
  -- Function: inverse_jacobi_sc (U, M)
      The inverse of the Jacobian elliptic function {\rm sc}(u,m). For
-     all u it can also be written (https//dlmfnistgov/2215E20DLMF
-     2215E20):
+     all u it can also be written (https://dlmf.nist.gov/22.15.E20DLMF
+     22.15.E20):
 
      {\rm inverse\_jacobi\_sc}(u, m) = \int_0^u {dt\over
      \sqrt{(1+t^2)(1+(1-m)t^2)}}
@@ -7520,12 +6541,12 @@ File: maxima-core-docs.info,  Node: Function inverse_jacobi_sc u m,  Next: Funct
      \sqrt{(1+t^2)(1+(1-m)t^2)}}
 
 
-File: maxima-core-docs.info,  Node: Function inverse_jacobi_sd u m,  Next: Function jacobi_am u m,  Prev: Function inverse_jacobi_sc u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function inverse_jacobi_sd u m
 
  -- Function: inverse_jacobi_sd (U, M)
      The inverse of the Jacobian elliptic function {\rm sd}(u,m). For
      -1/\sqrt{1-m}\le u \le 1/\sqrt{1-m}, it can also be written
-     (https//dlmfnistgov/2215E16DLMF 2215E16):
+     (https://dlmf.nist.gov/22.15.E16DLMF 22.15.E16):
 
      {\rm inverse\_jacobi\_sd}(u, m) = \int_0^u {dt\over
      \sqrt{(1-(1-m)t^2)(1+mt^2)}}
@@ -7534,17 +6555,18 @@ File: maxima-core-docs.info,  Node: Function inverse_jacobi_sd u m,  Next: Funct
      \sqrt{(1-(1-m)t^2)(1+mt^2)}}
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_am u m,  Next: Function jacobi_cd u m,  Prev: Function inverse_jacobi_sd u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_am u m
 
  -- Function: jacobi_am (U, M)
      The Jacobi amplitude function, ‘jacobi_am’, is defined implicitly
-     by (see http//functionswolframcom/092402000101) z = {\rm am}(w, m)
-     where w = F(z,m) where F(z,m) is the incomplete elliptic integral
-     of the first kind (‘elliptic_005ff’).  It is defined for all real
-     and complex values of z and m.  In particular for real z and m with
-     |m|<1, {\rm am}(z,m) maps the entire real line to the entire real
-     line.  For other values of z and m, the following relationship is
-     used: {\rm am}(z,m) = \sin^{-1}({\rm jacobi\_sn}(z, m)).
+     by (see http://functions.wolfram.com/09.24.02.0001.01) z = {\rm
+     am}(w, m) where w = F(z,m) where F(z,m) is the incomplete elliptic
+     integral of the first kind (‘elliptic_005ff’).  It is defined for
+     all real and complex values of z and m.  In particular for real z
+     and m with |m|<1, {\rm am}(z,m) maps the entire real line to the
+     entire real line.  For other values of z and m, the following
+     relationship is used: {\rm am}(z,m) = \sin^{-1}({\rm jacobi\_sn}(z,
+     m)).
 
      Some examples:
 
@@ -7580,104 +6602,102 @@ File: maxima-core-docs.info,  Node: Function jacobi_am u m,  Next: Function jaco
      (%i1) plot2d([jacobi_am(x,.4),jacobi_am(x,.7),jacobi_am(x,.99),jacobi_am(x,.999999)],[x,0,10*%pi]);
      (%o1)                         false
 
-     Compare this plot with the plot from https//dlmfnistgov/2216ivDLMF
-     2216iv:
+     Compare this plot with the plot from
+     https://dlmf.nist.gov/22.16.ivDLMF 22.16.iv:
 
  [image src="figures/jacobi_am.png" alt="jacobi_am" ]
+
 
      jacobi_am
      See also: ‘jacobi_am’, ‘elliptic_f’.
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_cd u m,  Next: Function jacobi_cn u m,  Prev: Function jacobi_am u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_cd u m
 
  -- Function: jacobi_cd (U, M)
      The Jacobian elliptic function {\rm cd}(u,m) = {\rm cn}(u,m)/{\rm
      dn}(u,m).
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_cn u m,  Next: Function jacobi_cs u m,  Prev: Function jacobi_cd u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_cn u m
 
  -- Function: jacobi_cn (U, M)
      The Jacobian elliptic function {\rm cn}(u,m).
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_cs u m,  Next: Function jacobi_dc u m,  Prev: Function jacobi_cn u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_cs u m
 
  -- Function: jacobi_cs (U, M)
      The Jacobian elliptic function {\rm cs}(u,m) = {\rm cn}(u,m)/{\rm
      sn}(u,m).
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_dc u m,  Next: Function jacobi_dn u m,  Prev: Function jacobi_cs u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_dc u m
 
  -- Function: jacobi_dc (U, M)
      The Jacobian elliptic function {\rm dc}(u,m) = {\rm dn}(u,m)/{\rm
      cn}(u,m).
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_dn u m,  Next: Function jacobi_ds u m,  Prev: Function jacobi_dc u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_dn u m
 
  -- Function: jacobi_dn (U, M)
      The Jacobian elliptic function {\rm dn}(u,m).
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_ds u m,  Next: Function jacobi_nc u m,  Prev: Function jacobi_dn u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_ds u m
 
  -- Function: jacobi_ds (U, M)
      The Jacobian elliptic function {\rm ds}(u,m) = {\rm dn}(u,m)/{\rm
      sn}(u,m).
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_nc u m,  Next: Function jacobi_nd u m,  Prev: Function jacobi_ds u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_nc u m
 
  -- Function: jacobi_nc (U, M)
      The Jacobian elliptic function {\rm nc}(u,m) = 1/{\rm cn}(u,m).
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_nd u m,  Next: Function jacobi_ns u m,  Prev: Function jacobi_nc u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_nd u m
 
  -- Function: jacobi_nd (U, M)
      The Jacobian elliptic function {\rm nd}(u,m) = 1/{\rm dn}(u,m).
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_ns u m,  Next: Function jacobi_sc u m,  Prev: Function jacobi_nd u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_ns u m
 
  -- Function: jacobi_ns (U, M)
      The Jacobian elliptic function {\rm ns}(u,m) = 1/{\rm sn}(u,m).
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_sc u m,  Next: Function jacobi_sd u m,  Prev: Function jacobi_ns u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_sc u m
 
  -- Function: jacobi_sc (U, M)
      The Jacobian elliptic function {\rm sc}(u,m) = {\rm sn}(u,m)/{\rm
      cn}(u,m).
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_sd u m,  Next: Function jacobi_sn u m,  Prev: Function jacobi_sc u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_sd u m
 
  -- Function: jacobi_sd (U, M)
      The Jacobian elliptic function {\rm sd}(u,m) = {\rm sn}(u,m)/{\rm
      dn}(u,m).
 
 
-File: maxima-core-docs.info,  Node: Function jacobi_sn u m,  Prev: Function jacobi_sd u m,  Up: Elliptic Functions 2
+File: maxima-core-docs.info,  Node: Function jacobi_sn u m
 
  -- Function: jacobi_sn (U, M)
      The Jacobian elliptic function {\rm sn}(u,m).
-
-
-File: maxima-core-docs.info,  Node: Special Functions 2,  Next: Statistics,  Prev: Elliptic Functions 2,  Up: Maxima Core Documentation
 
 1.116 Special Functions
 =======================
 
 * Menu:
 
-* Function %f p q (%5Ba%5D%5Bb%5Dz)::
-* Function %m k u (z)::
-* Function %s u v (z)::
-* Function %w k u (z)::
+* Function %f p q::
+* Function %m k u::
+* Function %s u v::
+* Function %w k u::
 * Function airy_ai x::
 * Function airy_bi x::
 * Function airy_dai x::
@@ -7718,7 +6738,7 @@ File: maxima-core-docs.info,  Node: Special Functions 2,  Next: Statistics,  Pre
 * Function hypergeometric [a1 ... ap] [b1 ... bq] x::
 * Variable hypergeometric_representation::
 * Function hypergeometric_simp e::
-* Function kbateman v (x)::
+* Function kbateman v::
 * Function lambert_w z::
 * Function log_gamma z::
 * Function makefact expr::
@@ -7732,29 +6752,30 @@ File: maxima-core-docs.info,  Node: Special Functions 2,  Next: Statistics,  Pre
 * Function nzetai z::
 * Function nzetar z::
 * Function parabolic_cylinder_d v z::
-* Function psi n (x)::
+* Function psi n::
 * Function scaled_bessel_i v z::
 * Function scaled_bessel_i0 z::
 * Function scaled_bessel_i1 z::
 * Function sinc x::
-* Function slommel u v (z)::
+* Function slommel u v::
 * Function struve_h v z::
 * Function struve_l v z::
 
 
-File: maxima-core-docs.info,  Node: Function %f p q (%5Ba%5D%5Bb%5Dz),  Next: Function %m k u (z),  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function %f p q
 
- -- Function: %f (<%5Ba%5D>, %5BB%5D, Z, P Q)
+ -- Function: %f (<%5Ba%5D>, %5BB%5D, Z, P, Q)
      The _{p}F_{q}(a_1,a_2,...,a_p;b_1,b_2,...,b_q;z) hypergeometric
      function, where _a_ a list of length _p_ and _b_ a list of length
      _q_.
 
 
-File: maxima-core-docs.info,  Node: Function %m k u (z),  Next: Function %s u v (z),  Prev: Function %f p q (%5Ba%5D%5Bb%5Dz),  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function %m k u
 
- -- Function: %m (<z>, K U)
+ -- Function: %m (<z>, K, U)
      Whittaker M function
-     (https//personalmathubcca/~cbm/aands/page_505htmA&S eqn 13132):
+     (https://personal.math.ubc.ca/~cbm/aands/page_505.htmA&S eqn
+     13.1.32):
 
      M_{\kappa,\mu}(z) = e^{-{1\over 2}z} z^{{1\over 2} + \mu}
      M\left({1\over 2} + \mu - \kappa, 1 + 2\mu, z\right)
@@ -7766,7 +6787,7 @@ File: maxima-core-docs.info,  Node: Function %m k u (z),  Next: Function %s u v 
      equation.
 
      This can also be expressed by the series
-     (https//dlmfnistgov/1314E6DLMF 1314E6):
+     (https://dlmf.nist.gov/13.14.E6DLMF 13.14.E6):
 
      M_{\kappa,\mu}(z) = e^{-{1\over 2} z} z^{{1\over 2} + \mu}
      \sum_{s=0}^{\infty} {\left({1\over 2} + \mu - \kappa\right)_s \over
@@ -7777,11 +6798,11 @@ File: maxima-core-docs.info,  Node: Function %m k u (z),  Next: Function %s u v 
      (1 + 2\mu)_s s!} z^s
 
 
-File: maxima-core-docs.info,  Node: Function %s u v (z),  Next: Function %w k u (z),  Prev: Function %m k u (z),  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function %s u v
 
- -- Function: %s (<z>, U V)
+ -- Function: %s (<z>, U, V)
      Lommel's little s_{\mu,\nu}(z) function.
-     (https//dlmfnistgov/119E3DLMF 119E3)(G&R 8.570.1).
+     (https://dlmf.nist.gov/11.9.E3DLMF 11.9.E3)(G&R 8.570.1).
 
      This Lommel function is the particular solution of the
      inhomogeneous Bessel differential equation:
@@ -7811,11 +6832,12 @@ File: maxima-core-docs.info,  Node: Function %s u v (z),  Next: Function %w k u 
      \left(\mu+\nu+1\over 2\right)_k
 
 
-File: maxima-core-docs.info,  Node: Function %w k u (z),  Next: Function airy_ai x,  Prev: Function %s u v (z),  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function %w k u
 
- -- Function: %w (<z>, K U)
+ -- Function: %w (<z>, K, U)
      Whittaker W function
-     (https//personalmathubcca/~cbm/aands/page_505htmA&S eqn 13133):
+     (https://personal.math.ubc.ca/~cbm/aands/page_505.htmA&S eqn
+     13.1.33):
 
      W_{\kappa,\mu}(z) = e^{-{1\over 2}z} z^{{1\over 2} + \mu}
      U\left({1\over 2} + \mu - \kappa, 1+2\mu,z\right)
@@ -7827,31 +6849,31 @@ File: maxima-core-docs.info,  Node: Function %w k u (z),  Next: Function airy_ai
      hypergeometric equation.
 
 
-File: maxima-core-docs.info,  Node: Function airy_ai x,  Next: Function airy_bi x,  Prev: Function %w k u (z),  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function airy_ai x
 
  -- Function: airy_ai (X)
      The Airy function {\rm Ai}(x). See
-     https//personalmathubcca/~cbm/aands/page_446htmA&S eqn 1042 and
-     https//dlmfnistgov/9DLMF 9.
+     https://personal.math.ubc.ca/~cbm/aands/page_446.htmA&S eqn 10.4.2
+     and https://dlmf.nist.gov/9DLMF 9.
 
      See also ‘airy_bi’, ‘airy_dai’, and ‘airy_005fdbi’.
 
      See also: ‘airy_bi’, ‘airy_dai’, ‘airy_dbi’.
 
 
-File: maxima-core-docs.info,  Node: Function airy_bi x,  Next: Function airy_dai x,  Prev: Function airy_ai x,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function airy_bi x
 
  -- Function: airy_bi (X)
      The Airy function {\rm Bi}(x). See
-     https//personalmathubcca/~cbm/aands/page_446htmA&S eqn 1043 and
-     https//dlmfnistgov/9DLMF 9.
+     https://personal.math.ubc.ca/~cbm/aands/page_446.htmA&S eqn 10.4.3
+     and https://dlmf.nist.gov/9DLMF 9.
 
      See ‘airy_ai’, and ‘airy_005fdbi’.
 
      See also: ‘airy_ai’, ‘airy_dbi’.
 
 
-File: maxima-core-docs.info,  Node: Function airy_dai x,  Next: Function airy_dbi x,  Prev: Function airy_bi x,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function airy_dai x
 
  -- Function: airy_dai (X)
      The derivative of the Airy function {\rm Ai}(x):
@@ -7865,7 +6887,7 @@ File: maxima-core-docs.info,  Node: Function airy_dai x,  Next: Function airy_db
      See also: ‘airy_ai’.
 
 
-File: maxima-core-docs.info,  Node: Function airy_dbi x,  Next: Function bessel_i v z,  Prev: Function airy_dai x,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function airy_dbi x
 
  -- Function: airy_dbi (X)
      The derivative of the Airy function {\rm Bi}(x):
@@ -7879,12 +6901,13 @@ File: maxima-core-docs.info,  Node: Function airy_dbi x,  Next: Function bessel_
      See also: ‘airy_ai’, ‘airy_bi’.
 
 
-File: maxima-core-docs.info,  Node: Function bessel_i v z,  Next: Function bessel_j v z,  Prev: Function airy_dbi x,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function bessel_i v z
 
  -- Function: bessel_i (V, Z)
      The modified Bessel function of the first kind of order v and
-     argument z.  See https//personalmathubcca/~cbm/aands/page_375htmA&S
-     eqn 9610 and https//dlmfnistgov/1025E2DLMF 1025E2.
+     argument z.  See
+     https://personal.math.ubc.ca/~cbm/aands/page_375.htmA&S eqn 9.6.10
+     and https://dlmf.nist.gov/10.25.E2DLMF 10.25.E2.
 
      ‘bessel_i’ is defined as
 
@@ -7903,12 +6926,12 @@ File: maxima-core-docs.info,  Node: Function bessel_i v z,  Next: Function besse
      See also: ‘bessel_i’, ‘besselexpand’, ‘true’.
 
 
-File: maxima-core-docs.info,  Node: Function bessel_j v z,  Next: Function bessel_k v z,  Prev: Function bessel_i v z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function bessel_j v z
 
  -- Function: bessel_j (V, Z)
      The Bessel function of the first kind of order v and argument z.
-     See https//personalmathubcca/~cbm/aands/page_360htmA&S eqn 9110 and
-     https//dlmfnistgov/102E2DLMF 102E2.
+     See https://personal.math.ubc.ca/~cbm/aands/page_360.htmA&S eqn
+     9.1.10 and https://dlmf.nist.gov/10.2.E2DLMF 10.2.E2.
 
      ‘bessel_j’ is defined as
 
@@ -7927,12 +6950,13 @@ File: maxima-core-docs.info,  Node: Function bessel_j v z,  Next: Function besse
      See also: ‘bessel_j’, ‘besselexpand’, ‘true’.
 
 
-File: maxima-core-docs.info,  Node: Function bessel_k v z,  Next: Function bessel_y v z,  Prev: Function bessel_j v z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function bessel_k v z
 
  -- Function: bessel_k (V, Z)
      The modified Bessel function of the second kind of order v and
-     argument z.  See https//personalmathubcca/~cbm/aands/page_375htmA&S
-     eqn 962 and https//dlmfnistgov/1027E4DLMF 1027E4.
+     argument z.  See
+     https://personal.math.ubc.ca/~cbm/aands/page_375.htmA&S eqn 9.6.2
+     and https://dlmf.nist.gov/10.27.E4DLMF 10.27.E4.
 
      ‘bessel_k’ is defined as
 
@@ -7950,12 +6974,12 @@ File: maxima-core-docs.info,  Node: Function bessel_k v z,  Next: Function besse
      See also: ‘bessel_k’, ‘besselexpand’, ‘true’.
 
 
-File: maxima-core-docs.info,  Node: Function bessel_y v z,  Next: Variable besselexpand,  Prev: Function bessel_k v z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function bessel_y v z
 
  -- Function: bessel_y (V, Z)
      The Bessel function of the second kind of order v and argument z.
-     See https//personalmathubcca/~cbm/aands/page_358htmA&S eqn 912 and
-     https//dlmfnistgov/102E3DLMF 102E3.
+     See https://personal.math.ubc.ca/~cbm/aands/page_358.htmA&S eqn
+     9.1.2 and https://dlmf.nist.gov/10.2.E3DLMF 10.2.E3.
 
      ‘bessel_y’ is defined as
 
@@ -7973,7 +6997,7 @@ File: maxima-core-docs.info,  Node: Function bessel_y v z,  Next: Variable besse
      See also: ‘bessel_y’, ‘besselexpand’, ‘true’.
 
 
-File: maxima-core-docs.info,  Node: Variable besselexpand,  Next: Function beta a b,  Prev: Function bessel_y v z,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Variable besselexpand
 
  -- Variable: besselexpand
      Default value: ‘false’
@@ -8030,7 +7054,7 @@ File: maxima-core-docs.info,  Node: Variable besselexpand,  Next: Function beta 
      See also: ‘false’, ‘besselexpand’, ‘true’.
 
 
-File: maxima-core-docs.info,  Node: Function beta a b,  Next: Variable beta_args_sum_to_integer,  Prev: Variable besselexpand,  Up: Special Functions 2
+File: maxima-core-docs.info,  Node: Function beta a b
 
  -- Function: beta (A, B)
      The beta function is defined as
@@ -8039,8 +7063,8 @@ File: maxima-core-docs.info,  Node: Function beta a b,  Next: Variable beta_args
 
      {\rm B}(a, b) = {{\Gamma(a) \Gamma(b)}\over{\Gamma(a+b)}}
 
-     (https//dlmfnistgov/512E1DLMF 512E1 and
-     https//personalmathubcca/~cbm/aands/page_258htmA&S eqn 621).
+     (https://dlmf.nist.gov/5.12.E1DLMF 5.12.E1 and
+     https://personal.math.ubc.ca/~cbm/aands/page_258.htmA&S eqn 6.2.1).
 
      Maxima simplifies the beta function for positive integers and
      rational numbers, which sum to an integer.  When
@@ -8178,4 +7202,1342 @@ File: maxima-core-docs.info,  Node: Function beta a b,  Next: Variable beta_args
 
      See also: ‘beta_args_sum_to_integer’, ‘true’, ‘beta_expand’,
      ‘beta’, ‘log_gamma’, ‘makegamma’.
+
+
+File: maxima-core-docs.info,  Node: Variable beta_args_sum_to_integer
+
+ -- Variable: beta_args_sum_to_integer
+     Default value: false
+
+     When ‘beta_args_sum_to_integer’ is ‘true’, Maxima simplifies
+     ‘beta’, when the arguments _a_ and _b_ sum to an integer.
+
+     ‘beta’ for examples.
+
+     See also: ‘beta_args_sum_to_integer’, ‘true’, ‘beta’.
+
+
+File: maxima-core-docs.info,  Node: Variable beta_expand
+
+ -- Variable: beta_expand
+     Default value: false
+
+     When ‘beta_expand’ is ‘true’, ‘beta’ and related functions are
+     expanded for arguments like a+n or a-n, where n is an integer.
+
+     ‘beta’ for examples.
+
+     See also: ‘beta_expand’, ‘true’, ‘beta’.
+
+
+File: maxima-core-docs.info,  Node: Function beta_incomplete a b z
+
+ -- Function: beta_incomplete (A, B, Z)
+     The basic definition of the incomplete beta function
+     (https://dlmf.nist.gov/8.17.E1DLMF 8.17.E1 and
+     https://personal.math.ubc.ca/~cbm/aands/page_263.htmA&S eqn 6.6.1)
+     is
+
+     {\rm B}_z(a,b) = \int_0^z t^{a-1}(1-t)^{b-1}\; dt
+
+     {\rm B}_z(a,b) = \int_0^z t^{a-1}(1-t)^{b-1}\; dt
+
+     This definition is possible for {\rm Re}(a) > 0 and {\rm Re}(b) > 0
+     and |z| < 1. For other values the incomplete beta function can be
+     defined through a generalized hypergeometric function:
+
+     gamma(a) hypergeometric_generalized([a, 1 - b], [a + 1], z) z
+
+     (See https://functions.wolfram.com/GammaBetaErf/Beta3/ for a
+     complete definition of the incomplete beta function.)
+
+     For negative integers a = -n and positive integers b=m with m \le n
+     the incomplete beta function is defined through
+
+     z^{n-1}\sum_{k=0}^{m-1} {{(1-m)_k z^k} \over {k! (n-k)}}
+
+     z^{n-1}\sum_{k=0}^{m-1} {{(1-m)_k z^k} \over {k! (n-k)}}
+
+     Maxima uses this definition to simplify ‘beta_incomplete’ for _a_ a
+     negative integer.
+
+     For _a_ a positive integer, ‘beta_incomplete’ simplifies for any
+     argument _b_ and _z_ and for _b_ a positive integer for any
+     argument _a_ and _z_, with the exception of _a_ a negative integer.
+
+     For z=0 and {\rm Re}(a) > 0, ‘beta_incomplete’ has the specific
+     value zero.  For z=1 and {\rm Re}(b) > 0, ‘beta_incomplete’
+     simplifies to the beta function ‘beta’.
+
+     Maxima evaluates ‘beta_incomplete’ numerically for real and complex
+     values in float or bigfloat precision.  For the numerical
+     evaluation an expansion of the incomplete beta function in
+     continued fractions is used.
+
+     When the option variable ‘beta_expand’ is ‘true’, Maxima expands
+     expressions like ‘beta_005fincomplete’ and ‘beta_005fincomplete’
+     where n is a positive integer.
+
+     Maxima knows the derivatives of ‘beta_incomplete’ with respect to
+     the variables _a_, _b_ and _z_ and the integral with respect to the
+     variable _z_.
+
+     Examples:
+
+     Simplification for _a_ a positive integer:
+
+     maxima
+     
+     (%i1) beta_incomplete(2,b,z);
+                                     b
+                          1 - (1 - z)  (b z + 1)
+     (%o1)                ----------------------
+                                b (b + 1)
+
+     Simplification for _b_ a positive integer:
+
+     maxima
+     
+     (%i1) beta_incomplete(a,2,z);
+                                             a
+                            (a (1 - z) + 1) z
+     (%o1)                  ------------------
+                                a (a + 1)
+
+     Simplification for _a_ and _b_ a positive integer:
+
+     maxima
+     
+     (%i1) beta_incomplete(3,2,z);
+                                             3
+                            (3 (1 - z) + 1) z
+     (%o1)                  ------------------
+                                    12
+
+     _a_ is a negative integer and b\le -a, Maxima simplifies:
+
+     maxima
+     
+     (%i1) beta_incomplete(-3,1,z);
+                                     1
+     (%o1)                        - ----
+                                       3
+                                    3 z
+
+     For the specific values z=0 and z=1, Maxima simplifies:
+
+     maxima
+     (%i1) assume(a>0,b>0)$
+     
+     (%i2) beta_incomplete(a,b,0);
+     (%o2)                           0
+     
+     
+     (%i3) beta_incomplete(a,b,1);
+     (%o3)                      beta(a, b)
+
+     Numerical evaluation in float or bigfloat precision:
+
+     maxima
+     
+     (%i1) beta_incomplete(0.25,0.50,0.9);
+     (%o1)                   4.594959440269333
+     
+     (%i2) fpprec:25$
+     
+     (%i3) beta_incomplete(0.25,0.50,0.9b0);
+     (%o3)             4.594959440269324086971216b0
+
+     For abs(z)>1 ‘beta_incomplete’ returns a complex result:
+
+     maxima
+     
+     (%i1) beta_incomplete(0.25,0.50,1.7);
+     (%o1)       5.244115108584249 - 1.4551804778784403 %i
+
+     Results for more general complex arguments:
+
+     maxima
+     
+     (%i1) beta_incomplete(0.25+%i,1.0+%i,1.7+%i);
+     (%o1)      2.7269606756625384 - 0.38311757042691896 %i
+     
+     
+     (%i2) beta_incomplete(1/2,5/4*%i,2.8+%i);
+     (%o2)      13.046496351687155 %i - 5.8020679562699975
+
+     Expansion, when ‘beta_expand’ is ‘true’:
+
+     maxima
+     
+     (%i1) beta_incomplete(a+1,b,z),beta_expand:true;
+                                                     b  a
+                 a beta_incomplete(a, b, z)   (1 - z)  z
+     (%o1)       -------------------------- - -----------
+                           b + a                 b + a
+     
+     
+     (%i2) beta_incomplete(a-1,b,z),beta_expand:true;
+                                                           b  a - 1
+           beta_incomplete(a, b, z) (- b - a + 1)   (1 - z)  z
+     (%o2) -------------------------------------- - ---------------
+                           1 - a                         1 - a
+
+     Derivative and integral for ‘beta_incomplete’:
+
+     maxima
+     
+     (%i1) diff(beta_incomplete(a, b, z), z);
+                                   b - 1  a - 1
+     (%o1)                  (1 - z)      z
+     
+     
+     (%i2) integrate(beta_incomplete(a, b, z), z);
+     (%o2) beta_incomplete(a, b, z) z - beta_incomplete(a + 1, b, z)
+     
+     
+     (%i3) factor(diff(%, z));
+     (%o3)               beta_incomplete(a, b, z)
+
+     See also: ‘beta_incomplete’, ‘beta’, ‘beta_expand’, ‘true’.
+
+
+File: maxima-core-docs.info,  Node: Function beta_incomplete_generalized a b z1 z2
+
+ -- Function: beta_incomplete_generalized (A, B, Z1, Z2)
+     The basic definition of the generalized incomplete beta function is
+
+     \int_{z_1}^{z_2} t^{a-1}(1-t)^{b-1}\; dt
+
+     \int_{z_1}^{z_2} t^{a-1}(1-t)^{b-1}\; dt
+
+     Maxima simplifies ‘beta_incomplete_regularized’ for _a_ and _b_ a
+     positive integer.
+
+     For {\rm Re}(a) > 0 and z_1 = 0 or z_2 = 0, Maxima simplifies
+     ‘beta_incomplete_generalized’ to ‘beta_incomplete’.  For {\rm
+     Re}(b) > 0 and z_1 = 1 or z_2 = 1, Maxima simplifies to an
+     expression with ‘beta’ and ‘beta_incomplete’.
+
+     Maxima evaluates ‘beta_incomplete_regularized’ for real and complex
+     values in float and bigfloat precision.
+
+     When ‘beta_expand’ is ‘true’, Maxima expands
+     ‘beta_incomplete_generalized’ for a+n and a-n, _n_ a positive
+     integer.
+
+     Maxima knows the derivative of ‘beta_incomplete_generalized’ with
+     respect to the variables _a_, _b_, _z1_, and _z2_ and the integrals
+     with respect to the variables _z1_ and _z2_.
+
+     Examples:
+
+     Maxima simplifies ‘beta_incomplete_generalized’ for _a_ and _b_ a
+     positive integer:
+
+     maxima
+     
+     (%i1) beta_incomplete_generalized(2,b,z1,z2);
+                        b                      b
+                (1 - z1)  (b z1 + 1) - (1 - z2)  (b z2 + 1)
+     (%o1)      -------------------------------------------
+                                 b (b + 1)
+     
+     
+     (%i2) beta_incomplete_generalized(a,2,z1,z2);
+                                   a                      a
+                (a (1 - z2) + 1) z2  - (a (1 - z1) + 1) z1
+     (%o2)      -------------------------------------------
+                                 a (a + 1)
+     
+     
+     (%i3) beta_incomplete_generalized(3,2,z1,z2);
+                   2      2                       2      2
+           (1 - z1)  (3 z1  + 2 z1 + 1) - (1 - z2)  (3 z2  + 2 z2 + 1)
+     (%o3) -----------------------------------------------------------
+                                       12
+
+     Simplification for specific values z1=0, z2=0, z1=1, or z2=1:
+
+     maxima
+     (%i1) assume(a > 0, b > 0)$
+     
+     (%i2) beta_incomplete_generalized(a,b,z1,0);
+     (%o2)              - beta_incomplete(a, b, z1)
+     
+     
+     (%i3) beta_incomplete_generalized(a,b,0,z2);
+     (%o3)              - beta_incomplete(a, b, z2)
+     
+     
+     (%i4) beta_incomplete_generalized(a,b,z1,1);
+     (%o4)        beta(a, b) - beta_incomplete(a, b, z1)
+     
+     
+     (%i5) beta_incomplete_generalized(a,b,1,z2);
+     (%o5)        beta_incomplete(a, b, z2) - beta(a, b)
+
+     Numerical evaluation for real arguments in float or bigfloat
+     precision:
+
+     maxima
+     
+     (%i1) beta_incomplete_generalized(1/2,3/2,0.25,0.31);
+     (%o1)                  0.09638178086368676
+     
+     (%i2) fpprec:32$
+     
+     (%i3) beta_incomplete_generalized(1/2,3/2,0.25,0.31b0);
+     (%o3)         9.6381780863686935309170054689964b-2
+
+     Numerical evaluation for complex arguments in float or bigfloat
+     precision:
+
+     maxima
+     
+     (%i1) beta_incomplete_generalized(1/2+%i,3/2+%i,0.25,0.31);
+     (%o1)   - 0.09625463003205387 %i - 0.0033238477353540463
+     
+     (%i2) fpprec:20$
+     
+     (%i3) beta_incomplete_generalized(1/2+%i,3/2+%i,0.25,0.31b0);
+     (%o3) - 9.6254630032054178691b-2 %i - 3.3238477353543591914b-3
+
+     Expansion for a+n or a-n, _n_ a positive integer, when
+     ‘beta_expand’ is ‘true’:
+
+     maxima
+     (%i1) beta_expand:true$
+     
+     (%i2) beta_incomplete_generalized(a+1,b,z1,z2);
+                   b   a           b   a
+           (1 - z1)  z1  - (1 - z2)  z2
+     (%o2) -----------------------------
+                       b + a
+                           a beta_incomplete_generalized(a, b, z1, z2)
+                         + -------------------------------------------
+                                              b + a
+     
+     
+     (%i3) beta_incomplete_generalized(a-1,b,z1,z2);
+           beta_incomplete_generalized(a, b, z1, z2) (- b - a + 1)
+     (%o3) -------------------------------------------------------
+                                    1 - a
+                                         b   a - 1           b   a - 1
+                                 (1 - z2)  z2      - (1 - z1)  z1
+                               - -------------------------------------
+                                                 1 - a
+
+     Derivative wrt the variable _z1_ and integrals wrt _z1_ and _z2_:
+
+     maxima
+     
+     (%i1) diff(beta_incomplete_generalized(a,b,z1,z2),z1);
+                                    b - 1   a - 1
+     (%o1)                - (1 - z1)      z1
+     
+     
+     (%i2) integrate(beta_incomplete_generalized(a,b,z1,z2),z1);
+     (%o2) beta_incomplete_generalized(a, b, z1, z2) z1
+                                       + beta_incomplete(a + 1, b, z1)
+     
+     
+     (%i3) integrate(beta_incomplete_generalized(a,b,z1,z2),z2);
+     (%o3) beta_incomplete_generalized(a, b, z1, z2) z2
+                                       - beta_incomplete(a + 1, b, z2)
+
+     See also: ‘beta_incomplete_regularized’,
+     ‘beta_incomplete_generalized’, ‘beta_incomplete’, ‘beta’,
+     ‘beta_expand’, ‘true’.
+
+
+File: maxima-core-docs.info,  Node: Function beta_incomplete_regularized a b z
+
+ -- Function: beta_incomplete_regularized (A, B, Z)
+     The regularized incomplete beta function
+     (https://dlmf.nist.gov/8.17.E2DLMF 8.17.E2 and
+     https://personal.math.ubc.ca/~cbm/aands/page_263.htmA&S eqn 6.6.2),
+     defined as
+
+     I_z(a,b) = {{\rm B}_z(a,b)\over {\rm B}(a,b)}
+
+     I_z(a,b) = {{\rm B}_z(a,b)\over {\rm B}(a,b)}
+
+     As for ‘beta_incomplete’ this definition is not complete.  See
+     https://functions.wolfram.com/GammaBetaErf/BetaRegularized/ for a
+     complete definition of ‘beta_incomplete_regularized’.
+
+     ‘beta_incomplete_regularized’ simplifies _a_ or _b_ a positive
+     integer.
+
+     For z=0 and {\rm Re}(a)>0, ‘beta_incomplete_regularized’ has the
+     specific value 0.  For z=1 and {\rm Re}(b) > 0,
+     ‘beta_incomplete_regularized’ simplifies to 1.
+
+     Maxima can evaluate ‘beta_incomplete_regularized’ for real and
+     complex arguments in float and bigfloat precision.
+
+     When ‘beta_expand’ is ‘true’, Maxima expands
+     ‘beta_incomplete_regularized’ for arguments a+n or a-n, where n is
+     an integer.
+
+     Maxima knows the derivatives of ‘beta_incomplete_regularized’ with
+     respect to the variables _a_, _b_, and _z_ and the integral with
+     respect to the variable _z_.
+
+     Examples:
+
+     Simplification for _a_ or _b_ a positive integer:
+
+     maxima
+     
+     (%i1) beta_incomplete_regularized(2,b,z);
+                                     b
+     (%o1)                1 - (1 - z)  (b z + 1)
+     
+     
+     (%i2) beta_incomplete_regularized(a,2,z);
+                                             a
+     (%o2)                  (a (1 - z) + 1) z
+     
+     
+     (%i3) beta_incomplete_regularized(3,2,z);
+                                             3
+     (%o3)                  (3 (1 - z) + 1) z
+
+     For the specific values z=0 and z=1, Maxima simplifies:
+
+     maxima
+     (%i1) assume(a>0,b>0)$
+     
+     (%i2) beta_incomplete_regularized(a,b,0);
+     (%o2)                           0
+     
+     
+     (%i3) beta_incomplete_regularized(a,b,1);
+     (%o3)                           1
+
+     Numerical evaluation for real and complex arguments in float and
+     bigfloat precision:
+
+     maxima
+     
+     (%i1) beta_incomplete_regularized(0.12,0.43,0.9);
+     (%o1)                  0.9114011367359802
+     
+     (%i2) fpprec:32$
+     
+     (%i3) beta_incomplete_regularized(0.12,0.43,0.9b0);
+     (%o3)         9.1140113673598029169207248506439b-1
+     
+     
+     (%i4) beta_incomplete_regularized(1+%i,3/3,1.5*%i);
+     (%o4)      0.2865367499935405 %i - 0.12299596333468409
+     
+     (%i5) fpprec:20$
+     
+     (%i6) beta_incomplete_regularized(1+%i,3/3,1.5b0*%i);
+     (%o6) 2.8653674999354031589b-1 %i - 1.2299596333468401976b-1
+
+     Expansion, when ‘beta_expand’ is ‘true’:
+
+     maxima
+     
+     (%i1) beta_incomplete_regularized(a+1,b,z);
+     (%o1)       beta_incomplete_regularized(a + 1, b, z)
+     
+     
+     (%i2) beta_incomplete_regularized(a-1,b,z);
+     (%o2)       beta_incomplete_regularized(a - 1, b, z)
+
+     The derivative and the integral wrt _z_:
+
+     maxima
+     
+     (%i1) diff(beta_incomplete_regularized(a,b,z),z);
+                                   b - 1  a - 1
+                            (1 - z)      z
+     (%o1)                  -------------------
+                                beta(a, b)
+     
+     
+     (%i2) integrate(beta_incomplete_regularized(a,b,z),z);
+     (%o2) beta_incomplete_regularized(a, b, z) z
+                            a beta_incomplete_regularized(a + 1, b, z)
+                          - ------------------------------------------
+                                              b + a
+
+     See also: ‘beta_incomplete’, ‘beta_incomplete_regularized’,
+     ‘beta_expand’, ‘true’.
+
+
+File: maxima-core-docs.info,  Node: Function bffac expr n
+
+ -- Function: bffac (EXPR, N)
+     Bigfloat version of the factorial (shifted gamma) function.  The
+     second argument is how many digits to retain and return, it's a
+     good idea to request a couple of extra.
+
+     maxima
+     
+     (%i1) bffac(1/2,16);
+     (%o1)                 8.862269254527584b-1
+     
+     
+     (%i2) (1/2)!,numer;
+     (%o2)                   0.886226925452758
+     
+     
+     (%i3) bffac(1/2,32);
+     (%o3)          8.862269254527580136490837416707b-1
+
+
+File: maxima-core-docs.info,  Node: Function bfpsi n z fpprec
+
+ -- Function: bfpsi (N, Z, FPPREC)
+     ‘bfpsi’ is the polygamma function of real argument _z_ and integer
+     order _n_.  See ‘polygamma’ for further information.  ‘bfpsi0’ is
+     the digamma function.  ‘bfpsi0’ is equivalent to ‘bfpsi’.
+
+     These functions return bigfloat values.  _fpprec_ is the bigfloat
+     precision of the return value.
+
+     maxima
+     
+     (%i1) bfpsi0(1/3, 15);
+     (%o1)                 - 3.13203378002081b0
+     
+     
+     (%i2) bfpsi0(1/3, 32);
+     (%o2)         - 3.1320337800208063229964190742873b0
+     
+     
+     (%i3) bfpsi(0,1/3,32);
+     (%o3)         - 3.1320337800208063229964190742873b0
+     
+     
+     (%i4) psi[0](1/3);
+                        3 log(3)      %pi
+     (%o4)            - -------- - --------- - %gamma
+                           2       2 sqrt(3)
+     
+     
+     (%i5) float(%);
+     (%o5)                  - 3.132033780020806
+
+     See also: ‘bfpsi’, ‘polygamma’, ‘bfpsi0’.
+
+
+File: maxima-core-docs.info,  Node: Function cbffac z fpprec
+
+ -- Function: cbffac (Z, FPPREC)
+     Complex bigfloat factorial.
+
+     ‘load ("bffac")’ loads this function.
+
+     maxima
+     
+     (%i1) cbffac(1+%i,16);
+     (%o1)    3.430658398165453b-1 %i + 6.529654964201666b-1
+     
+     
+     (%i2) (1+%i)!,numer;
+     (%o2)      0.3430658398165453 %i + 0.6529654964201667
+
+
+File: maxima-core-docs.info,  Node: Function erf z
+
+ -- Function: erf (Z)
+     The Error Function erf(z):
+
+     {\rm erf}\ z = {{2\over \sqrt{\pi}}} \int_0^z e^{-t^2}\, dt
+
+     {\rm erf}\ z = {{2\over \sqrt{\pi}}} \int_0^z e^{-t^2}\, dt
+
+     (https://personal.math.ubc.ca/~cbm/aands/page_297.htmA&S eqn 7.1.1)
+     and (https://dlmf.nist.gov/7.2.E1DLMF 7.2.E1).
+
+     See also flag ‘erfflag’.  This can also be expressed in terms of a
+     hypergeometric function.  ‘hypergeometric_005frepresentation’.
+
+     See also: ‘erfflag’, ‘hypergeometric_representation’.
+
+
+File: maxima-core-docs.info,  Node: Function erf_generalized z1 z2
+
+ -- Function: erf_generalized (Z1, Z2)
+     Generalized Error function Erf(z1,z2):
+
+     {\rm erf}(z_1, z_2) = {{2\over \sqrt{\pi}}} \int_{z_1}^{z_2}
+     e^{-t^2}\, dt
+
+     {\rm erf}(z_1, z_2) = {{2\over \sqrt{\pi}}} \int_{z_1}^{z_2}
+     e^{-t^2}\, dt
+
+     This can also be expressed in terms of a hypergeometric function.
+     ‘hypergeometric_005frepresentation’.
+
+     See also: ‘hypergeometric_representation’.
+
+
+File: maxima-core-docs.info,  Node: Variable erf_representation
+
+ -- Variable: erf_representation
+     Default value: false
+
+     ‘erf_representation’ controls how the error functions are
+     represented.  It must be set to one of ‘false’, ‘erf’, ‘erfc’, or
+     ‘erfi’.  When set to ‘false’, the error functions are not modified.
+     When set to ‘erf’, all error functions (‘erfc’, ‘erfi’,
+     ‘erf_generalized’, ‘fresnel_s’ and ‘fresnel_c’) are converted to
+     ‘erf’ functions.  Similarly, ‘erfc’ converts error functions to
+     ‘erfc’.  Finally ‘erfi’ converts the functions to ‘erfi’.
+
+     Converting to ‘erf’:
+
+     maxima
+     
+     (%i1) erf_representation:erf;
+     (%o1)                          erf
+     
+     
+     (%i2) erfc(z);
+     (%o2)                      1 - erf(z)
+     
+     
+     (%i3) erfi(z);
+     (%o3)                    - %i erf(%i z)
+     
+     
+     (%i4) erf_generalized(z1,z2);
+     (%o4)                   erf(z2) - erf(z1)
+     
+     
+     (%i5) fresnel_c(z);
+                          sqrt(%pi) (%i + 1) z
+     (%o5) ((1 - %i) (erf(--------------------)
+                                   2
+                                             sqrt(%pi) (1 - %i) z
+                                    + %i erf(--------------------)))/4
+                                                      2
+     
+     
+     (%i6) fresnel_s(z);
+                          sqrt(%pi) (%i + 1) z
+     (%o6) ((%i + 1) (erf(--------------------)
+                                   2
+                                             sqrt(%pi) (1 - %i) z
+                                    - %i erf(--------------------)))/4
+                                                      2
+
+     Converting to ‘erfc’:
+
+     maxima
+     
+     (%i1) erf_representation:erfc;
+     (%o1)                         erfc
+     
+     
+     (%i2) erf(z);
+     (%o2)                      1 - erfc(z)
+     
+     
+     (%i3) erfc(z);
+     (%o3)                        erfc(z)
+     
+     
+     (%i4) erf_generalized(z1,z2);
+     (%o4)                  erfc(z1) - erfc(z2)
+     
+     
+     (%i5) fresnel_s(c);
+                             sqrt(%pi) (%i + 1) c
+     (%o5) ((%i + 1) (- erfc(--------------------)
+                                      2
+                                        sqrt(%pi) (1 - %i) c
+                         - %i (1 - erfc(--------------------)) + 1))/4
+                                                 2
+     
+     
+     (%i6) fresnel_c(c);
+                             sqrt(%pi) (%i + 1) c
+     (%o6) ((1 - %i) (- erfc(--------------------)
+                                      2
+                                        sqrt(%pi) (1 - %i) c
+                         + %i (1 - erfc(--------------------)) + 1))/4
+                                                 2
+
+     Converting to ‘erfc’:
+
+     maxima
+     
+     (%i1) erf_representation:erfi;
+     (%o1)                         erfi
+     
+     
+     (%i2) erf(z);
+     (%o2)                    - %i erfi(%i z)
+     
+     
+     (%i3) erfc(z);
+     (%o3)                   %i erfi(%i z) + 1
+     
+     
+     (%i4) erfi(z);
+     (%o4)                        erfi(z)
+     
+     
+     (%i5) erf_generalized(z1,z2);
+     (%o5)            %i erfi(%i z1) - %i erfi(%i z2)
+     
+     
+     (%i6) fresnel_s(z);
+                                sqrt(%pi) %i (%i + 1) z
+     (%o6) ((%i + 1) (- %i erfi(-----------------------)
+                                           2
+                                          sqrt(%pi) (1 - %i) %i z
+                                   - erfi(-----------------------)))/4
+                                                     2
+     
+     
+     (%i7) fresnel_c(z);
+                           sqrt(%pi) (1 - %i) %i z
+     (%o7) ((1 - %i) (erfi(-----------------------)
+                                      2
+                                          sqrt(%pi) %i (%i + 1) z
+                                - %i erfi(-----------------------)))/4
+                                                     2
+
+     See also: ‘erf_representation’, ‘false’, ‘erf’, ‘erfc’, ‘erfi’,
+     ‘erf_generalized’, ‘fresnel_s’, ‘fresnel_c’.
+
+
+File: maxima-core-docs.info,  Node: Function erfc z
+
+ -- Function: erfc (Z)
+     The Complementary Error Function erfc(z):
+
+     {\rm erfc}\ z = 1 - {\rm erf}\ z
+
+     {\rm erfc}\ z = 1 - {\rm erf}\ z
+
+     (https://personal.math.ubc.ca/~cbm/aands/page_297.htmA&S eqn 7.1.2)
+     and (https://dlmf.nist.gov/7.2.E2DLMF 7.2.E2).
+
+     This can also be expressed in terms of a hypergeometric function.
+     ‘hypergeometric_005frepresentation’.
+
+     See also: ‘hypergeometric_representation’.
+
+
+File: maxima-core-docs.info,  Node: Function erfi z
+
+ -- Function: erfi (Z)
+     The Imaginary Error Function.
+
+     {\rm erfi}\ z = -i\, {\rm erf}(i z)
+
+     {\rm erfi}\ z = -i\, {\rm erf}(i z)
+
+
+File: maxima-core-docs.info,  Node: Variable expand_hypergeometric
+
+ -- Variable: expand_hypergeometric
+     Default value: ‘false’
+
+     When ‘true’, ‘hypergeometric’ will return a polynomial if the
+     hypergeometric function represents a polynomial.
+
+     See also: ‘false’, ‘true’, ‘hypergeometric’.
+
+
+File: maxima-core-docs.info,  Node: Function fresnel_c z
+
+ -- Function: fresnel_c (Z)
+     The Fresnel Integral
+
+     C(z) = \int_0^z \cos\left({\pi \over 2} t^2\right)\, dt
+
+     C(z) = \int_0^z \cos\left({\pi \over 2} t^2\right)\, dt
+
+     (https://personal.math.ubc.ca/~cbm/aands/page_300.htmA&S eqn 7.3.1)
+     and (https://dlmf.nist.gov/7.2.E7DLMF 7.2.E7).
+
+     The simplification C(-x) = -C(x) is applied when flag ‘trigsign’ is
+     true.
+
+     The simplification C(ix) = iC(x) is applied when flag ‘%iargs’ is
+     true.
+
+     See flags ‘erf_representation’ and ‘hypergeometric_representation’.
+
+     See also: ‘trigsign’, ‘%iargs’, ‘erf_representation’,
+     ‘hypergeometric_representation’.
+
+
+File: maxima-core-docs.info,  Node: Function fresnel_s z
+
+ -- Function: fresnel_s (Z)
+     The Fresnel Integral
+
+     S(z) = \int_0^z \sin\left({\pi \over 2} t^2\right)\, dt
+
+     S(z) = \int_0^z \sin\left({\pi \over 2} t^2\right)\, dt
+
+     (https://personal.math.ubc.ca/~cbm/aands/page_300.htmA&S eqn 7.3.2)
+     and (https://dlmf.nist.gov/7.2.E8DLMF 7.2.E8).
+
+     The simplification S(-x) = -S(x) is applied when flag ‘trigsign’ is
+     true.
+
+     The simplification S(ix) = iS(x) is applied when flag ‘%iargs’ is
+     true.
+
+     See flags ‘erf_representation’ and ‘hypergeometric_representation’.
+
+     See also: ‘trigsign’, ‘%iargs’, ‘erf_representation’,
+     ‘hypergeometric_representation’.
+
+
+File: maxima-core-docs.info,  Node: Function gamma z
+
+ -- Function: gamma (Z)
+     The basic definition of the gamma function
+     (https://dlmf.nist.gov/5.2.E1DLMF 5.2.E1 and
+     https://personal.math.ubc.ca/~cbm/aands/page_255.htmA&S eqn 6.1.1)
+     is
+
+     \Gamma\left(z\right)=\int_{0}^{\infty }{t^{z-1}\,e^ {- t }\;dt}
+
+     \Gamma\left(z\right)=\int_{0}^{\infty }{t^{z-1}\,e^ {- t }\;dt}
+
+     Maxima simplifies ‘gamma’ for positive integer and positive and
+     negative rational numbers.  For half integral values the result is
+     a rational number times \sqrt{\pi}. The simplification for integer
+     values is controlled by ‘factlim’.  For integers greater than
+     ‘factlim’ the numerical result of the factorial function, which is
+     used to calculate ‘gamma’, will overflow.  The simplification for
+     rational numbers is controlled by ‘gammalim’ to avoid internal
+     overflow.  See ‘factlim’ and ‘gammalim’.
+
+     For negative integers ‘gamma’ is not defined.
+
+     Maxima can evaluate ‘gamma’ numerically for real and complex values
+     in float and bigfloat precision.
+
+     ‘gamma’ has mirror symmetry.
+
+     When ‘gamma_expand’ is ‘true’, Maxima expands ‘gamma’ for arguments
+     ‘z+n’ and ‘z-n’ where ‘n’ is an integer.
+
+     Maxima knows the derivative of ‘gamma’.
+
+     Examples:
+
+     Simplification for integer, half integral, and rational numbers:
+
+     maxima
+     
+     (%i1) map('gamma,[1,2,3,4,5,6,7,8,9]);
+     (%o1)        [1, 1, 2, 6, 24, 120, 720, 5040, 40320]
+     
+     
+     (%i2) map('gamma,[1/2,3/2,5/2,7/2]);
+                         sqrt(%pi)  3 sqrt(%pi)  15 sqrt(%pi)
+     (%o2)   [sqrt(%pi), ---------, -----------, ------------]
+                             2           4            8
+     
+     
+     (%i3) map('gamma,[2/3,5/3,7/3]);
+                                       2           1
+                               2 gamma(-)  4 gamma(-)
+                           2           3           3
+     (%o3)          [gamma(-), ----------, ----------]
+                           3       3           9
+
+     Numerical evaluation for real and complex values:
+
+     maxima
+     
+     (%i1) map('gamma,[2.5,2.5b0]);
+     (%o1)       [1.329340388179137, 1.329340388179137b0]
+     
+     
+     (%i2) map('gamma,[1.0+%i,1.0b0+%i]);
+     (%o2) [0.49801566811835596 - 0.15494982830181073 %i, 
+                       4.980156681183561b-1 - 1.549498283018107b-1 %i]
+
+     ‘gamma’ has mirror symmetry:
+
+     maxima
+     (%i1) declare(z,complex)$
+     
+     (%i2) conjugate(gamma(z));
+     (%o2)                  gamma(conjugate(z))
+
+     Maxima expands ‘gamma’ and ‘gamma’, when ‘gamma_expand’ is ‘true’:
+
+     maxima
+     (%i1) gamma_expand:true$
+     
+     (%i2) [gamma(z+1),gamma(z-1),gamma(z+2)/gamma(z+1)];
+                                    gamma(z)
+     (%o2)             [z gamma(z), --------, z + 1]
+                                     z - 1
+
+     The derivative of ‘gamma’:
+
+     maxima
+     
+     (%i1) diff(gamma(z),z);
+     (%o1)                   psi (z) gamma(z)
+                                0
+
+     See also ‘makegamma’.
+
+     The Euler-Mascheroni constant is ‘%gamma’.
+
+     See also: ‘gamma’, ‘factlim’, ‘gammalim’, ‘gamma_expand’, ‘true’,
+     ‘makegamma’, ‘%gamma’.
+
+
+File: maxima-core-docs.info,  Node: Variable gamma_expand
+
+ -- Variable: gamma_expand
+     Default value: ‘false’
+
+     ‘gamma_expand’ controls expansion of ‘gamma_incomplete’.  When
+     ‘gamma_expand’ is ‘true’, ‘gamma_005fincomplete’ is expanded in
+     terms of ‘z’, ‘exp’, and ‘gamma_incomplete’ or ‘erfc’ when
+     possible.
+
+     maxima
+     
+     (%i1) gamma_incomplete(2,z);
+     (%o1)                gamma_incomplete(2, z)
+     
+     
+     (%i2) gamma_expand:true;
+     (%o2)                         true
+     
+     
+     (%i3) gamma_incomplete(2,z);
+                                         - z
+     (%o3)                     (z + 1) %e
+     
+     
+     (%i4) gamma_incomplete(3/2,z);
+                            - z   sqrt(%pi) erfc(sqrt(z))
+     (%o4)        sqrt(z) %e    + -----------------------
+                                             2
+     
+     
+     (%i5) gamma_incomplete(4/3,z);
+                                                  1
+                                 gamma_incomplete(-, z)
+                     1/3   - z                    3
+     (%o5)          z    %e    + ----------------------
+                                           3
+     
+     
+     (%i6) gamma_incomplete(a+2,z);
+            a               - z
+     (%o6) z  (z + a + 1) %e    + a (a + 1) gamma_incomplete(a, z)
+     
+     
+     (%i7) gamma_incomplete(a-2, z);
+           gamma_incomplete(a, z)    a - 2         z            1
+     (%o7) ---------------------- - z      (--------------- + -----)
+              (1 - a) (2 - a)               (a - 2) (a - 1)   a - 2
+                                                                   - z
+                                                                 %e
+
+     See also: ‘false’, ‘gamma_expand’, ‘gamma_incomplete’, ‘true’,
+     ‘exp’, ‘erfc’.
+
+
+File: maxima-core-docs.info,  Node: Function gamma_incomplete a z
+
+ -- Function: gamma_incomplete (A, Z)
+     The incomplete upper gamma function
+     (https://dlmf.nist.gov/8.2.E2DLMF 8.2.E2 and
+     https://personal.math.ubc.ca/~cbm/aands/page_260.htmA&S eqn 6.5.3):
+
+     \Gamma\left(a , z\right)=\int_{z}^{\infty }{t^{a-1}\,e^ {- t }\;dt}
+
+     \Gamma\left(a , z\right)=\int_{z}^{\infty }{t^{a-1}\,e^ {- t }\;dt}
+
+     See also ‘gamma_expand’ for controlling how ‘gamma_incomplete’ is
+     expressed in terms of elementary functions and ‘erfc’.
+
+     Also see the related functions ‘gamma_incomplete_regularized’ and
+     ‘gamma_incomplete_generalized’.
+
+     See also: ‘gamma_expand’, ‘gamma_incomplete’, ‘erfc’,
+     ‘gamma_incomplete_regularized’, ‘gamma_incomplete_generalized’.
+
+
+File: maxima-core-docs.info,  Node: Function gamma_incomplete_generalized a z1 z1
+
+ -- Function: gamma_incomplete_generalized (A, Z1, Z1)
+     The generalized incomplete gamma function.
+
+     \Gamma\left(a , z_{1},
+     z_{2}\right)=\int_{z_{1}}^{z_{2}}{t^{a-1}\,e^ {- t }\;dt}
+
+     \Gamma\left(a , z_{1},
+     z_{2}\right)=\int_{z_{1}}^{z_{2}}{t^{a-1}\,e^ {- t }\;dt}
+
+     Also see ‘gamma_incomplete’ and ‘gamma_incomplete_regularized’.
+
+     See also: ‘gamma_incomplete’, ‘gamma_incomplete_regularized’.
+
+
+File: maxima-core-docs.info,  Node: Function gamma_incomplete_lower a z
+
+ -- Function: gamma_incomplete_lower (A, Z)
+     The lower incomplete gamma function
+     (https://dlmf.nist.gov/8.2.E1DLMF 8.2.E1 and
+     https://personal.math.ubc.ca/~cbm/aands/page_260.htmA&S eqn 6.5.2):
+
+     \gamma\left(a , z\right)=\int_{0}^{z}{t^{a-1}\,e^ {- t }\;dt}
+
+     \gamma\left(a , z\right)=\int_{0}^{z}{t^{a-1}\,e^ {- t }\;dt}
+
+     See also ‘gamma_incomplete’ (upper incomplete gamma function).
+
+     See also: ‘gamma_incomplete’.
+
+
+File: maxima-core-docs.info,  Node: Function gamma_incomplete_regularized a z
+
+ -- Function: gamma_incomplete_regularized (A, Z)
+     The regularized incomplete upper gamma function
+     (https://dlmf.nist.gov/8.2.E4DLMF 8.2.E4):
+
+     Q\left(a , z\right)={{\Gamma\left(a ,
+     z\right)}\over{\Gamma\left(a\right)}}
+
+     Q\left(a , z\right)={{\Gamma\left(a ,
+     z\right)}\over{\Gamma\left(a\right)}}
+
+     See also ‘gamma_expand’ for controlling how ‘gamma_incomplete’ is
+     expressed in terms of elementary functions and ‘erfc’.
+
+     Also see ‘gamma_incomplete’.
+
+     See also: ‘gamma_expand’, ‘gamma_incomplete’, ‘erfc’.
+
+
+File: maxima-core-docs.info,  Node: Variable gammalim
+
+ -- Variable: gammalim
+     Default value: 10000
+
+     ‘gammalim’ controls simplification of the gamma function for
+     integral and rational number arguments.  If the absolute value of
+     the argument is not greater than ‘gammalim’, then simplification
+     will occur.  Note that the ‘factlim’ switch controls simplification
+     of the result of ‘gamma’ of an integer argument as well.
+
+     See also: ‘gammalim’, ‘factlim’, ‘gamma’.
+
+
+File: maxima-core-docs.info,  Node: Function generalized_lambert_w k z
+
+ -- Function: generalized_lambert_w (K, Z)
+     The _k_-th branch of Lambert's W function W(z)
+     (https://dlmf.nist.gov/4.13DLMF 4.13), the solution of
+     z=W(z)e^{W(z)}.
+
+     The principal branch, denoted W_p(z) in DLMF, is ‘lambert_005fw’
+     ‘=’ ‘generalized_005flambert_005fw’.
+
+     The other branch with real values, denoted W_m(z) in DLMF, is
+     ‘generalized_005flambert_005fw’.
+
+     See also: ‘lambert_w’, ‘generalized_lambert_w’.
+
+
+File: maxima-core-docs.info,  Node: Function hankel_1 v z
+
+ -- Function: hankel_1 (V, Z)
+     The Hankel function of the first kind of order v and argument z.
+     See https://personal.math.ubc.ca/~cbm/aands/page_358.htmA&S eqn
+     9.1.3 and https://dlmf.nist.gov/10.4.E3DLMF 10.4.E3.
+
+     ‘hankel_1’ is defined as
+
+     H^{(1)}_v(z) = J_v(z) + i Y_v(z)
+
+     H^{(1)}_v(z) = J_v(z) + i Y_v(z)
+
+     Maxima evaluates ‘hankel_1’ numerically for a complex order v and
+     complex argument z in float precision.  The numerical evaluation in
+     bigfloat precision is not supported.
+
+     When ‘besselexpand’ is ‘true’, ‘hankel_1’ is expanded in terms of
+     elementary functions when the order v is half of an odd integer.
+     See ‘besselexpand’.
+
+     Maxima knows the derivative of ‘hankel_1’ wrt the argument z.
+
+     Examples:
+
+     Numerical evaluation:
+
+     maxima
+     
+     (%i1) hankel_1(1,0.5);
+     (%o1)      0.24226845767487384 - 1.4714723926702433 %i
+     
+     
+     (%i2) hankel_1(1,0.5+%i);
+     (%o2)     - 0.2558287994862166 %i - 0.23957560188301597
+
+     Expansion of ‘hankel_1’ when ‘besselexpand’ is ‘true’:
+
+     maxima
+     
+     (%i1) hankel_1(1/2,z),besselexpand:true;
+                    sqrt(2) sin(z) - sqrt(2) %i cos(z)
+     (%o1)          ----------------------------------
+                            sqrt(%pi) sqrt(z)
+
+     Derivative of ‘hankel_1’ wrt the argument z.  The derivative wrt
+     the order v is not supported.  Maxima returns a noun form:
+
+     maxima
+     
+     (%i1) diff(hankel_1(v,z),z);
+                  hankel_1(v - 1, z) - hankel_1(v + 1, z)
+     (%o1)        ---------------------------------------
+                                     2
+     
+     
+     (%i2) diff(hankel_1(v,z),v);
+                            d
+     (%o2)                  -- (hankel_1(v, z))
+                            dv
+
+     See also: ‘hankel_1’, ‘besselexpand’, ‘true’.
+
+
+File: maxima-core-docs.info,  Node: Function hankel_2 v z
+
+ -- Function: hankel_2 (V, Z)
+     The Hankel function of the second kind of order v and argument z.
+     See https://personal.math.ubc.ca/~cbm/aands/page_358.htmA&S eqn
+     9.1.4 and https://dlmf.nist.gov/10.4.E3DLMF 10.4.E3.
+
+     ‘hankel_2’ is defined as
+
+     H^{(2)}_v(z) = J_v(z) - i Y_v(z)
+
+     H^{(2)}_v(z) = J_v(z) - i Y_v(z)
+
+     Maxima evaluates ‘hankel_2’ numerically for a complex order v and
+     complex argument z in float precision.  The numerical evaluation in
+     bigfloat precision is not supported.
+
+     When ‘besselexpand’ is ‘true’, ‘hankel_2’ is expanded in terms of
+     elementary functions when the order v is half of an odd integer.
+     See ‘besselexpand’.
+
+     Maxima knows the derivative of ‘hankel_2’ wrt the argument z.
+
+     For examples see ‘hankel_1’.
+
+     See also: ‘hankel_2’, ‘besselexpand’, ‘true’, ‘hankel_1’.
+
+
+File: maxima-core-docs.info,  Node: Function hgfred a b t
+
+ -- Function: hgfred (A, B, T)
+     Simplify the generalized hypergeometric function in terms of other,
+     simpler, forms.  _a_ is a list of numerator parameters and _b_ is a
+     list of the denominator parameters.
+
+     If ‘hgfred’ cannot simplify the hypergeometric function, it returns
+     an expression of the form ‘_0025f’ where _p_ is the number of
+     elements in _a_, and _q_ is the number of elements in _b_.  This is
+     the usual _pF_q generalized hypergeometric function.
+
+     maxima
+     
+     (%i1) assume(not(equal(z,0)));
+     (%o1)                   [notequal(z, 0)]
+     
+     
+     (%i2) hgfred([v+1/2],[2*v+1],2*%i*z);
+                   v/2                               %i z
+                  4    bessel_j(v, z) gamma(v + 1) %e
+     (%o2)        ---------------------------------------
+                                     v
+                                    z
+     
+     
+     (%i3) hgfred([1,1],[2],z);
+                                 log(1 - z)
+     (%o3)                     - ----------
+                                     z
+     
+     
+     (%i4) hgfred([a,a+1/2],[3/2],z^2);
+                             1 - 2 a          1 - 2 a
+                      (z + 1)        - (1 - z)
+     (%o4)            -------------------------------
+                               2 (1 - 2 a) z
+
+     It can be beneficial to load orthopoly too as the following example
+     shows.  Note that _L_ is the generalized Laguerre polynomial.
+
+     maxima
+     (%i1) load("orthopoly")$
+     
+     (%i2) hgfred([-2],[a],z);
+                                2
+                               z        2 z
+     (%o2)                  --------- - --- + 1
+                            a (a + 1)    a
+     
+     
+     (%i3) ev(%);
+                                2
+                               z        2 z
+     (%o3)                  --------- - --- + 1
+                            a (a + 1)    a
+
+     See also: ‘hgfred’, ‘%f’.
+
+
+File: maxima-core-docs.info,  Node: Function hypergeometric [a1 ... ap] [b1 ... bq] x
+
+ -- Function: hypergeometric ([A1, ..., AP], [B1, ..., BQ], X)
+     The hypergeometric function.  Unlike Maxima's ‘%f’ hypergeometric
+     function, the function ‘hypergeometric’ is a simplifying function;
+     also, ‘hypergeometric’ supports complex double and big floating
+     point evaluation.  For the Gauss hypergeometric function, that is p
+     = 2 and q = 1, floating point evaluation outside the unit circle is
+     supported, but in general, it is not supported.
+
+     When the option variable ‘expand_hypergeometric’ is ‘true’ (default
+     is ‘false’) and one of the arguments ‘a1’ through ‘ap’ is a
+     negative integer (a polynomial case), ‘hypergeometric’ returns an
+     expanded polynomial.
+
+     Examples:
+
+     maxima
+     
+     (%i1)  hypergeometric([],[],x);
+                                      x
+     (%o1)                          %e
+
+     Polynomial cases automatically expand when ‘expand_hypergeometric’
+     is true:
+
+     maxima
+     
+     (%i1) hypergeometric([-3],[7],x);
+     (%o1)             hypergeometric([- 3], [7], x)
+     
+     
+     (%i2) hypergeometric([-3],[7],x), expand_hypergeometric : true;
+                             3       2
+                            x     3 x    3 x
+     (%o2)                - --- + ---- - --- + 1
+                            504    56     7
+
+     Both double float and big float evaluation is supported:
+
+     maxima
+     
+     (%i1) hypergeometric([5.1],[7.1 + %i],0.42);
+     (%o1)      1.3462507863753337 - 0.0559061414208204 %i
+     
+     
+     (%i2) hypergeometric([5,6],[8], 5.7 - %i);
+     (%o2)    0.007375824009774945 - 0.0010498136885786736 %i
+     
+     
+     (%i3) hypergeometric([5,6],[8], 5.7b0 - %i), fpprec : 30;
+     (%o3) 7.37582400977494674506442010824b-3
+                               - 1.04981368857867315858055393376b-3 %i
+
+     See also: ‘%f’, ‘hypergeometric’, ‘expand_hypergeometric’, ‘true’,
+     ‘false’.
+
+
+File: maxima-core-docs.info,  Node: Variable hypergeometric_representation
+
+ -- Variable: hypergeometric_representation
+     Default value: false
+
+     Enables transformation to a Hypergeometric representation for
+     ‘fresnel_s’ and ‘fresnel_c’ and other error functions.
+
+     maxima
+     
+     (%i1) hypergeometric_representation:true;
+     (%o1)                         true
+     
+     
+     (%i2) fresnel_s(z);
+                                                    2  4
+                                   3    3  7     %pi  z    3
+               %pi hypergeometric([-], [-, -], - -------) z
+                                   4    2  4       16
+     (%o2)     ---------------------------------------------
+                                     6
+     
+     
+     (%i3) fresnel_c(z);
+                                                  2  4
+                                 1    1  5     %pi  z
+     (%o3)       hypergeometric([-], [-, -], - -------) z
+                                 4    2  4       16
+     
+     
+     (%i4) erf(z);
+                                                        2
+                                         3    2      - z
+                  2 hypergeometric([1], [-], z ) z %e
+                                         2
+     (%o4)        ---------------------------------------
+                                 sqrt(%pi)
+     
+     
+     (%i5) erfi(z);
+                                       1    3    2
+                     2 hypergeometric([-], [-], z ) z
+                                       2    2
+     (%o5)           --------------------------------
+                                sqrt(%pi)
+     
+     
+     (%i6) erfc(z);
+                                                          2
+                                           3    2      - z
+                    2 hypergeometric([1], [-], z ) z %e
+                                           2
+     (%o6)      1 - ---------------------------------------
+                                   sqrt(%pi)
+     
+     
+     (%i7) erf_generalized(z1,z2);
+                                                    2
+                                  3     2       - z2
+           2 hypergeometric([1], [-], z2 ) z2 %e
+                                  2
+     (%o7) ------------------------------------------
+                           sqrt(%pi)
+                                                                     2
+                                                   3     2       - z1
+                            2 hypergeometric([1], [-], z1 ) z1 %e
+                                                   2
+                          - ------------------------------------------
+                                            sqrt(%pi)
+
+     See also: ‘fresnel_s’, ‘fresnel_c’.
 

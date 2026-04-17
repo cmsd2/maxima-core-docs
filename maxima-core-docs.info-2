@@ -1,33 +1,5 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.3 from
+This is maxima-core-docs.info, produced by makeinfo version 7.1 from
 maxima-core-docs.texi.
-
-
-File: maxima-core-docs.info,  Node: Variable %edispflag,  Next: Variable absboxchar,  Up: Command Line
-
- -- Variable: %edispflag
-     Default value: ‘false’
-
-     When ‘%edispflag’ is ‘true’, Maxima displays ‘%e’ to a negative
-     exponent as a quotient.  For example, ‘%e^-x’ is displayed as
-     ‘1/%e^x’.  See also ‘exptdispflag’.
-
-     Example:
-
-     maxima
-     
-     (%i1) %e^-10;
-                                    - 10
-     (%o1)                        %e
-     
-     (%i2) %edispflag:true$
-     
-     (%i3) %e^-10;
-                                    1
-     (%o3)                         ----
-                                     10
-                                   %e
-
-     See also: ‘exptdispflag’.
 
 
 File: maxima-core-docs.info,  Node: Variable absboxchar,  Next: Function declare_index_properties a [p_1 p_2 p_3 ...],  Prev: Variable %edispflag,  Up: Command Line
@@ -294,16 +266,18 @@ File: maxima-core-docs.info,  Node: Variable display2d_unicode,  Next: Variable 
 
  [image src="figures/maxima-unicode-display-variety-1.png" alt="maxima-unicode-display-variety-1" ]
 
+
      maxima-unicode-display-variety-1
      Same expressions, displayed using only ASCII characters
      (‘display2d_unicode’ equal to ‘false’), shown as an image:
 
  [image src="figures/maxima-unicode-display-variety-1-ascii.png" alt="maxima-unicode-display-variety-1-ascii" ]
 
+
      maxima-unicode-display-variety-1-ascii
      Footnotes:
 
-     [1] https//enwikipediaorg/wiki/Box-drawing_character
+     [1] https://en.wikipedia.org/wiki/Box-drawing_character
 
 
 File: maxima-core-docs.info,  Node: Variable display_format_internal,  Next: Variable display_index_separator,  Prev: Variable display2d_unicode,  Up: Command Line
@@ -1347,7 +1321,7 @@ File: maxima-core-docs.info,  Node: File Input and Output,  Next: alt-display,  
 * Function batch filename::
 * Variable batch_answers_from_file::
 * Function batchload filename::
-* Function closefile::
+* Function closefile ::
 * Function directory path::
 * Variable file_output_append::
 * Function file_search filename::
@@ -1361,7 +1335,7 @@ File: maxima-core-docs.info,  Node: File Input and Output,  Next: alt-display,  
 * Function fortran expr::
 * Variable fortspaces::
 * Function get_tex_environment op::
-* Function get_tex_environment_default::
+* Function get_tex_environment_default ::
 * Function load filename::
 * Variable load_pathname::
 * Function loadfile filename::
@@ -1573,7 +1547,7 @@ File: maxima-core-docs.info,  Node: Function file_search filename,  Next: Variab
      variables.
 
      ‘file_search’ first checks if the actual name passed exists, before
-     attempting to match it to “wildcard” file search patterns.  See
+     attempting to match it to "wildcard" file search patterns.  See
      ‘file_search_maxima’ concerning file search patterns.
 
      The argument _filename_ can be a path and file name, or just a file
@@ -1676,8 +1650,8 @@ File: maxima-core-docs.info,  Node: Variable file_search_maxima,  Next: Function
      Maxima tries to, say, ‘load("file")’.
 
      Further information about Common Lisp pathnames maybe be found in
-     http//wwwlispworkscom/documentation/HyperSpec/Body/19_bhtmCLHS
-     Section 192 Pathnames.
+     http://www.lispworks.com/documentation/HyperSpec/Body/19_b.htmCLHS
+     Section 19.2: Pathnames.
 
      See also: ‘load’, ‘demo’, ‘Introduction-for-Runtime-Environment’.
 
@@ -2036,19 +2010,16 @@ File: maxima-core-docs.info,  Node: Variable loadprint,  Next: Function pathname
 
      ‘loadprint’ tells whether to print a message when a file is loaded.
 
-        •    • When ‘loadprint’ is ‘true’, always print a
-               message.
+        •    • When ‘loadprint’ is ‘true’, always print a message.
 
-        •    • When ‘loadprint’ is ‘'loadfile’, print a
-               message only if a file is loaded by the function
-               ‘loadfile’.
+        •    • When ‘loadprint’ is ‘'loadfile’, print a message only if
+               a file is loaded by the function ‘loadfile’.
 
-        •    • When ‘loadprint’ is ‘'autoload’, print a
-               message only if a file is automatically loaded.  See
+        •    • When ‘loadprint’ is ‘'autoload’, print a message only if
+               a file is automatically loaded.  See
                ‘setup_005fautoload’.
 
-        •    • When ‘loadprint’ is ‘false’, never print a
-               message.
+        •    • When ‘loadprint’ is ‘false’, never print a message.
 
      See also: ‘setup_autoload’.
 
@@ -2554,7 +2525,7 @@ File: maxima-core-docs.info,  Node: alt-display,  Next: engineering-format,  Pre
 * Function info_display form::
 * Function mathml_display form::
 * Function multi_display_for_texinfo form::
-* Function reset_displays::
+* Function reset_displays ::
 * Function set_alt_display num display-function::
 * Function set_prompt fix expr::
 * Function tex_display form::
@@ -2577,7 +2548,7 @@ File: maxima-core-docs.info,  Node: Function alt_display_output_type form,  Next
      printed between matching PROMPT;>> and <<PROMPT; tags.
 
      Thanks to
-     https//sourceforgenet/p/maxima/mailman/maxima-discuss/thread/7792c096-7e07-842d-0c3a-b2f039ef1f15%40gmailcom/#msg37235035Eric
+     https://sourceforge.net/p/maxima/mailman/maxima-discuss/thread/7792c096-7e07-842d-0c3a-b2f039ef1f15%40gmail.com/#msg37235035Eric
      Stemmler.
 
      (%i1) (load("mactex-utilities"), load("alt-display.mac")) $
@@ -2780,12 +2751,13 @@ File: maxima-core-docs.info,  Node: Function set_prompt fix expr,  Next: Functio
 
  [image src="figures/color_terminal.png" alt="color_terminal" ]
 
+
      color_terminal
      Each prompt string starts with the ASCII escape character (27)
      followed by an open square bracket (91); each string ends with a
      lower-case m (109).  The webpages
-     https//miscflogisoftcom/bash/tip_colors_and_formatting and
-     https//wwwtldporg/HOWTO/Bash-Prompt-HOWTO/x329html provide
+     https://misc.flogisoft.com/bash/tip_colors_and_formatting and
+     https://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html provide
      information on how to use control strings to set the terminal
      colors.
 
@@ -3126,11 +3098,11 @@ File: maxima-core-docs.info,  Node: gentran,  Next: numericalio,  Prev: format, 
 * Variable genfloat::
 * Variable genstmtincr::
 * Variable genstmtno::
-* Function gentran stmt1 stmt2 ... stmtn [f1 f2 ... fm]::
+* Function gentran stmt1 stmt2 ... stmtn [f1 f2 ...  fm]::
 * Function gentran_off sw::
 * Function gentran_on sw::
 * Function gentranin f1 f2 ... fn [f1 f2 ... fm]::
-* Function gentraninshut::
+* Function gentraninshut ::
 * Variable gentranlang::
 * Variable gentranopt::
 * Function gentranout f1 f2 ... fn::
@@ -3139,7 +3111,7 @@ File: maxima-core-docs.info,  Node: gentran,  Next: numericalio,  Prev: format, 
 * Function gentranpush f1 f2 ... fn::
 * Variable gentranseg::
 * Function gentranshut f1 f2 ... fn::
-* Function literal arg1 arg2 ... argn::
+* Function literal arg1 arg2 ...  argn::
 * Function lrsetq var exp::
 * Function lsetq var exp::
 * Function markedvarp vname::
@@ -4003,7 +3975,7 @@ File: maxima-core-docs.info,  Node: stringproc,  Next: LinearAlgebra,  Prev: ope
 
 * Menu:
 
-* Function adjust_external_format::
+* Function adjust_external_format ::
 * Function alphacharp char::
 * Function alphanumericp char::
 * Function ascii int::
@@ -4024,12 +3996,12 @@ File: maxima-core-docs.info,  Node: stringproc,  Next: LinearAlgebra,  Prev: ope
 * Function flength stream::
 * Function flush_output stream::
 * Function fposition stream::
-* Function freshline::
+* Function freshline ::
 * Function get_output_stream_string stream::
 * Function lowercasep char::
 * Function make_string_input_stream string::
-* Function make_string_output_stream::
-* Function newline::
+* Function make_string_output_stream ::
+* Function newline ::
 * Function opena file::
 * Function openr file::
 * Function openw file::
@@ -4287,7 +4259,7 @@ File: maxima-core-docs.info,  Node: Function cint char,  Next: Function clessp c
      Converting a character to a code point via UTF-8-octets may serve
      as a workaround:
 
-          utf8_to_unicode(string_to_octets(character));
+     ‘utf8_to_unicode(string_to_octets(character));’
 
      See ‘utf8_005fto_005funicode’, ‘string_005fto_005foctets’.
 
@@ -4506,7 +4478,7 @@ File: maxima-core-docs.info,  Node: Function openr file,  Next: Function openw f
      about its encoding passing the correct string as the argument
      _encoding_ might help.  The available encodings and their names
      depend on the lisp being used.  For sbcl a list of suitable strings
-     can be found at http//wwwsbclorg/manual/#External-Formats.
+     can be found at http://www.sbcl.org/manual/#External-Formats.
 
      For binary input see
      ‘Functions-and-Variables-for-binary-input-and-output’ .  See also
@@ -4885,7 +4857,7 @@ File: maxima-core-docs.info,  Node: Function sposition char string,  Next: Funct
 File: maxima-core-docs.info,  Node: Function sprint expr_1 ... expr_n,  Next: Function sremove seq string,  Prev: Function sposition char string,  Up: stringproc
 
  -- Function: sprint (EXPR_1, ..., EXPR_N)
-     Evaluates and displays its arguments one after the other ‘on a
+     Evaluates and displays its arguments one after the other 'on a
      line' starting at the leftmost position.  The expressions are
      printed with a space character right next to the number, and it
      disregards line length.
@@ -5113,7 +5085,7 @@ File: maxima-core-docs.info,  Node: Function unicode arg,  Next: Function unicod
      Converting a code point to a character via UTF-8 octets may serve
      as a workaround:
 
-          octets_to_string(unicode_to_utf8(code_point));
+     ‘octets_to_string(unicode_to_utf8(code_point));’
 
      See ‘octets_005fto_005fstring’, ‘unicode_005fto_005futf8’.
 
@@ -6588,16 +6560,14 @@ File: maxima-core-docs.info,  Node: Function matrix row_1 ... row_n,  Next: Vari
                              [ - -    --    ]
                              [   a    b     ]
 
-        •    • Matrix to a scalar exponent, element by
-               element.
+        •    • Matrix to a scalar exponent, element by element.
 
      (%i7) x ^ 3;
                               [ 4913    27  ]
      (%o7)                    [             ]
                               [ - 512  1331 ]
 
-        •    • Scalar base to a matrix exponent, element by
-               element.
+        •    • Scalar base to a matrix exponent, element by element.
 
      (%i8) exp(y); 
                               [   %pi    %e ]
@@ -6606,8 +6576,8 @@ File: maxima-core-docs.info,  Node: Function matrix row_1 ... row_n,  Next: Vari
                               [    a     b  ]
                               [  %e    %e   ]
 
-        •    • Matrix base to a matrix exponent.  This is not
-               carried out element by element.  See also ‘matrixexp’.
+        •    • Matrix base to a matrix exponent.  This is not carried
+               out element by element.  See also ‘matrixexp’.
 
      (%i9) x ^ y;
                                      [ %pi  %e ]
@@ -6628,9 +6598,9 @@ File: maxima-core-docs.info,  Node: Function matrix row_1 ... row_n,  Next: Vari
      (%o11)          [                              ]
                      [  17 a - 8 b     11 b + 3 a   ]
 
-        •    • Noncommutative matrix exponentiation.  A scalar
-               base _b_ to a matrix power _M_ is carried out element by
-               element and so ‘b^^m’ is the same as ‘b^m’.
+        •    • Noncommutative matrix exponentiation.  A scalar base _b_
+               to a matrix power _M_ is carried out element by element
+               and so ‘b^^m’ is the same as ‘b^m’.
 
      (%i12) x ^^ 3;
                              [  3833   1719 ]
@@ -6644,9 +6614,8 @@ File: maxima-core-docs.info,  Node: Function matrix row_1 ... row_n,  Next: Vari
                               [    a     b  ]
                               [  %e    %e   ]
 
-        •    • A matrix raised to a -1 exponent with
-               noncommutative exponentiation is the matrix inverse, if
-               it exists.
+        •    • A matrix raised to a -1 exponent with noncommutative
+               exponentiation is the matrix inverse, if it exists.
 
      (%i14) x ^^ -1;
                               [ 11      3  ]
@@ -7522,7 +7491,7 @@ File: maxima-core-docs.info,  Node: Function identfor M,  Next: Function invert_
 
  -- Function: identfor (M)
      Return an identity matrix that has the same shape as the matrix
-     _M_. The diagonal entries of the identity matrix are the
+     _M_.  The diagonal entries of the identity matrix are the
      multiplicative identity of the field _fld_; the default for _fld_
      is _generalring_.
 
