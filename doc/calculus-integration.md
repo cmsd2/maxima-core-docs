@@ -1,5 +1,8 @@
 ## Integration
 
+<!-- category: Calculus -->
+<!-- keywords: at_difference -->
+<!-- signatures: at_difference(expr, x, a, b) -->
 ### Function: at_difference (expr, x, a, b)
 
 Returns the difference of *expr* evaluated with *x* equal to *b*
@@ -87,6 +90,9 @@ maxima
                   3
 ```
 
+<!-- category: Calculus -->
+<!-- keywords: changevar -->
+<!-- signatures: changevar(expr, f(x,y), y, x) -->
 ### Function: changevar (expr, f(x,y), y, x)
 
 Makes the change of variable given by `f(x,y) = 0` in all integrals
@@ -171,6 +177,9 @@ maxima
                         n = - 2
 ```
 
+<!-- category: Calculus -->
+<!-- keywords: dblint -->
+<!-- signatures: dblint(f, r, s, a, b) -->
 ### Function: dblint (f, r, s, a, b)
 
 A double-integral routine which was written in
@@ -218,6 +227,9 @@ in orders of magnitude speed improvement over interpreted code in many cases!
 `demo ("dblint")` executes a demonstration of `dblint` applied to an
 example problem.
 
+<!-- category: Calculus -->
+<!-- keywords: defint -->
+<!-- signatures: defint(expr, x, a, b) -->
 ### Function: defint (expr, x, a, b)
 
 Attempts to compute a definite integral.  `defint` is called by
@@ -234,6 +246,9 @@ numerical approximation of definite integrals.
 
 See also: `quad_qag`.
 
+<!-- category: Calculus -->
+<!-- keywords: erfflag -->
+<!-- signatures: erfflag -->
 ### Variable: erfflag
 
 Default value: `true`
@@ -243,6 +258,9 @@ When `erfflag` is `false`, prevents `risch` from introducing the
 `erf` function in the answer if there were none in the integrand to
 begin with.
 
+<!-- category: Calculus -->
+<!-- keywords: ilt -->
+<!-- signatures: ilt(expr, s, t) -->
 ### Function: ilt (expr, s, t)
 
 Computes the inverse Laplace transform of *expr* with
@@ -317,6 +335,9 @@ pos;
 
 See also: `pwilt`.
 
+<!-- category: Calculus -->
+<!-- keywords: intanalysis -->
+<!-- signatures: intanalysis -->
 ### Variable: intanalysis
 
 Default value: `true`
@@ -374,7 +395,10 @@ maxima
 
 See also: `ldefint`, `intanalysis`.
 
-### Function: integrate (integrate, expr, x, integrate, expr, x, a, b)
+<!-- category: Calculus -->
+<!-- keywords: integrate -->
+<!-- signatures: integrate(expr, x), integrate(expr, x, a, b) -->
+### Function: integrate (expr, x)
 
 Attempts to symbolically compute the integral of *expr* with respect to
 *x*.  `integrate (expr, x)` is an indefinite integral,
@@ -608,6 +632,9 @@ maxima
 
 See also: `quad_qag`, `residue`, `antid`, `inf`, `minf`, `beta`, `psi`, `ldefint`, `changevar`, `risch`, `evflag`, `depends`, `assume`, `gradef`, `grind`, `integrate_use_rootsof`.
 
+<!-- category: Calculus -->
+<!-- keywords: integrate_use_rootsof -->
+<!-- signatures: integrate_use_rootsof -->
 ### Variable: integrate_use_rootsof
 
 Default value: `false`
@@ -685,6 +712,9 @@ Sometimes this will help Maxima obtain a more useful result.
 
 See also: `integrate`.
 
+<!-- category: Calculus -->
+<!-- keywords: integration_constant -->
+<!-- signatures: integration_constant -->
 ### Variable: integration_constant
 
 Default value: `%c`
@@ -728,6 +758,9 @@ maxima
                            3
 ```
 
+<!-- category: Calculus -->
+<!-- keywords: integration_constant_counter -->
+<!-- signatures: integration_constant_counter -->
 ### Variable: integration_constant_counter
 
 Default value: 0
@@ -788,6 +821,9 @@ maxima
                           3
 ```
 
+<!-- category: Calculus -->
+<!-- keywords: laplace -->
+<!-- signatures: laplace(expr, t, s) -->
 ### Function: laplace (expr, t, s)
 
 Attempts to compute the Laplace transform of *expr* with respect to the 
@@ -931,6 +967,9 @@ maxima
 
 See also: `delta`, `exp`, `log`, `sin`, `cos`, `sinh`, `cosh`, `erf`, `integrate`, `sum`, `ilt`, `specint`, `bessel_j`, `bessel_i`, `unit_step`, `atvalue`, `depends`.
 
+<!-- category: Calculus -->
+<!-- keywords: ldefint -->
+<!-- signatures: ldefint(expr, x, a, b) -->
 ### Function: ldefint (expr, x, a, b)
 
 Attempts to compute the definite integral of *expr* by using `limit`
@@ -949,6 +988,9 @@ special cases.
 
 See also: `limit`, `integrate`.
 
+<!-- category: Calculus -->
+<!-- keywords: potential -->
+<!-- signatures: potential(givengradient) -->
 ### Function: potential (givengradient)
 
 The calculation makes use of the global variable `potentialzeroloc[0]`
@@ -967,6 +1009,9 @@ lower limit of integration.  The success of the integrations may
 depend upon their values and order.  `potentialzeroloc` is initially set
 to 0.
 
+<!-- category: Calculus -->
+<!-- keywords: prefer_d -->
+<!-- signatures: prefer_d -->
 ### Variable: prefer_d
 
 Default value: `false`
@@ -1011,6 +1056,9 @@ maxima
 
 See also: `specint`, `parabolic_cylinder_d`.
 
+<!-- category: Calculus -->
+<!-- keywords: pwilt -->
+<!-- signatures: pwilt(expr, s, t) -->
 ### Function: pwilt (expr, s, t)
 
 Computes the inverse Laplace transform of *expr* with
@@ -1044,7 +1092,10 @@ Two examples where `ilt` fails:
 
 See also: `ilt`.
 
-### Function: quad_control (parameter, value)
+<!-- category: Calculus -->
+<!-- keywords: quad_control -->
+<!-- signatures: quad_control(parameter, [value]) -->
+### Function: quad_control (parameter, [value])
 
 Control error handling for quadpack.  The parameter should be one of
 the following symbols:
@@ -1061,7 +1112,10 @@ If *value* is not given, then the current value of the
 *parameter* is returned.  If *value* is given, the value of
 *parameter* is set to the given value.
 
-### Function: quad_qag (quad_qag, f(x), x, a, b, key, epsrel, epsabs, limit, quad_qag, f, x, a, b, key, epsrel, epsabs, limit)
+<!-- category: Calculus -->
+<!-- keywords: quad_qag -->
+<!-- signatures: quad_qag(f(x), x, a, b, key, [epsrel, epsabs, limit]), quad_qag(f, x, a, b, key, [epsrel, epsabs, limit]) -->
+### Function: quad_qag (f(x), x, a, b, key, [epsrel, epsabs, limit])
 
 Integration of a general function over a finite interval.  `quad_qag`
 implements a simple globally adaptive integrator using the strategy of Aind
@@ -1157,7 +1211,10 @@ maxima
                                 9
 ```
 
-### Function: quad_qagi (quad_qagi, f(x), x, a, b, epsrel, epsabs, limit, quad_qagi, f, x, a, b, epsrel, epsabs, limit)
+<!-- category: Calculus -->
+<!-- keywords: quad_qagi -->
+<!-- signatures: quad_qagi(f(x), x, a, b, [epsrel, epsabs, limit]), quad_qagi(f, x, a, b, [epsrel, epsabs, limit]) -->
+### Function: quad_qagi (f(x), x, a, b, [epsrel, epsabs, limit])
 
 Integration of a general function over an infinite or semi-infinite interval.
 The interval is mapped onto a finite interval and
@@ -1265,7 +1322,10 @@ maxima
                                32
 ```
 
-### Function: quad_qagp (quad_qagp, f(x), x, a, b, points, epsrel, epsabs, limit, quad_qagp, f, x, a, b, points, epsrel, epsabs, limit)
+<!-- category: Calculus -->
+<!-- keywords: quad_qagp -->
+<!-- signatures: quad_qagp(f(x), x, a, b, points, [epsrel, epsabs, limit]), quad_qagp(f, x, a, b, points, [epsrel, epsabs, limit]) -->
+### Function: quad_qagp (f(x), x, a, b, points, [epsrel, epsabs, limit])
 
 Integration of a general function over a finite interval.
 `quad_qagp` implements globally adaptive interval subdivision with
@@ -1365,7 +1425,10 @@ more accurate and more efficient that `quad_005fqags`.
 
 See also: `quad_qags`.
 
-### Function: quad_qags (quad_qags, f(x), x, a, b, epsrel, epsabs, limit, quad_qags, f, x, a, b, epsrel, epsabs, limit)
+<!-- category: Calculus -->
+<!-- keywords: quad_qags -->
+<!-- signatures: quad_qags(f(x), x, a, b, [epsrel, epsabs, limit]), quad_qags(f, x, a, b, [epsrel, epsabs, limit]) -->
+### Function: quad_qags (f(x), x, a, b, [epsrel, epsabs, limit])
 
 Integration of a general function over a finite interval.
 `quad_qags` implements globally adaptive interval subdivision with
@@ -1449,7 +1512,10 @@ maxima
 
 Note that `quad_qags` is more accurate and efficient than `quad_qag` for this integrand.
 
-### Function: quad_qawc (quad_qawc, f(x), x, c, a, b, epsrel, epsabs, limit, quad_qawc, f, x, c, a, b, epsrel, epsabs, limit)
+<!-- category: Calculus -->
+<!-- keywords: quad_qawc -->
+<!-- signatures: quad_qawc(f(x), x, c, a, b, [epsrel, epsabs, limit]), quad_qawc(f, x, c, a, b, [epsrel, epsabs, limit]) -->
+### Function: quad_qawc (f(x), x, c, a, b, [epsrel, epsabs, limit])
 
 Computes the Cauchy principal value of $f(x)/(x - c)$ over a finite
 interval.  The strategy is globally adaptive, and modified
@@ -1557,7 +1623,10 @@ Principal Value
 (%o3)                 - 3.1301203374159177
 ```
 
-### Function: quad_qawf (quad_qawf, f(x), x, a, omega, trig, epsabs, limit, maxp1, limlst, quad_qawf, f, x, a, omega, trig, epsabs, limit, maxp1, limlst)
+<!-- category: Calculus -->
+<!-- keywords: quad_qawf -->
+<!-- signatures: quad_qawf(f(x), x, a, omega, trig, [epsabs, limit, maxp1, limlst]), quad_qawf(f, x, a, omega, trig, [epsabs, limit, maxp1, limlst]) -->
+### Function: quad_qawf (f(x), x, a, omega, trig, [epsabs, limit, maxp1, limlst])
 
 Calculates a Fourier cosine or Fourier sine transform on a semi-infinite
 interval using the Quadpack QAWF function.  The same approach as in
@@ -1655,7 +1724,10 @@ maxima
 (%o3)                  0.6901942235215714
 ```
 
-### Function: quad_qawo (quad_qawo, f(x), x, a, b, omega, trig, epsrel, epsabs, limit, maxp1, limlst, quad_qawo, f, x, a, b, omega, trig, epsrel, epsabs, limit, maxp1, limlst)
+<!-- category: Calculus -->
+<!-- keywords: quad_qawo -->
+<!-- signatures: quad_qawo(f(x), x, a, b, omega, trig, [epsrel, epsabs, limit, maxp1, limlst]), quad_qawo(f, x, a, b, omega, trig, [epsrel, epsabs, limit, maxp1, limlst]) -->
+### Function: quad_qawo (f(x), x, a, b, omega, trig, [epsrel, epsabs, limit, maxp1, limlst])
 
 Integration of 
 $\cos(\omega x) f(x)$
@@ -1766,7 +1838,10 @@ maxima
 (%i4) ev (%, alpha=2, numer);
 ```
 
-### Function: quad_qaws (quad_qaws, f(x), x, a, b, alpha, beta, wfun, epsrel, epsabs, limit, quad_qaws, f, x, a, b, alpha, beta, wfun, epsrel, epsabs, limit)
+<!-- category: Calculus -->
+<!-- keywords: quad_qaws -->
+<!-- signatures: quad_qaws(f(x), x, a, b, alpha, beta, wfun, [epsrel, epsabs, limit]), quad_qaws(f, x, a, b, alpha, beta, wfun, [epsrel, epsabs, limit]) -->
+### Function: quad_qaws (f(x), x, a, b, alpha, beta, wfun, [epsrel, epsabs, limit])
 
 Integration of $w(x) f(x)$ over a finite interval, where $w(x)$ is a
 certain algebraic or logarithmic function.  A globally adaptive subdivision
@@ -1863,6 +1938,9 @@ maxima
 (%o3)                   8.75009736167283
 ```
 
+<!-- category: Calculus -->
+<!-- keywords: residue -->
+<!-- signatures: residue(expr, z, z_0) -->
 ### Function: residue (expr, z, z_0)
 
 Computes the residue in the complex plane of the expression *expr* when the
@@ -1891,6 +1969,9 @@ maxima
                                 6
 ```
 
+<!-- category: Calculus -->
+<!-- keywords: risch -->
+<!-- signatures: risch(expr, x) -->
 ### Function: risch (expr, x)
 
 Integrates *expr* with respect to *x* using the
@@ -1929,7 +2010,10 @@ maxima
 
 See also: `integrate`.
 
-### Function: specint (exp, -, s*, t, *, expr, t)
+<!-- category: Calculus -->
+<!-- keywords: specint -->
+<!-- signatures: specint(exp(-s*t)*expr, t) -->
+### Function: specint (exp(-s*t)*expr, t)
 
 Compute the Laplace transform of *expr* with respect to the variable *t*.
 The integrand *expr* may contain special functions.   The
@@ -2078,6 +2162,9 @@ maxima
 
 See also: `prefer_d`, `parabolic_cylinder_d`, `laplace`, `gamma_incomplete`, `expintegral_e1`.
 
+<!-- category: Calculus -->
+<!-- keywords: tldefint -->
+<!-- signatures: tldefint(expr, x, a, b) -->
 ### Function: tldefint (expr, x, a, b)
 
 Equivalent to `ldefint` with `tlimswitch` set to `true`.

@@ -1,5 +1,8 @@
 ## odepack
 
+<!-- category: Calculus -->
+<!-- keywords: dlsode_init -->
+<!-- signatures: dlsode_init(fex, vars, method) -->
 ### Function: dlsode_init (fex, vars, method)
 
 This must be called before running the solver.  This function returns
@@ -40,6 +43,9 @@ an example of usage.
 
 See also: `dlsode_step`, `Getting-Started-with-ODEPACK`.
 
+<!-- category: Calculus -->
+<!-- keywords: dlsode_step -->
+<!-- signatures: dlsode_step(inity, t, tout, rtol, atol, istate, state) -->
 ### Function: dlsode_step (inity, t, tout, rtol, atol, istate, state)
 
 Performs one step of the solver, returning the values of the

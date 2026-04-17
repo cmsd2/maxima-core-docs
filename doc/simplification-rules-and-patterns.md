@@ -1,5 +1,8 @@
 ## Rules and Patterns
 
+<!-- category: Simplification -->
+<!-- keywords: apply1 -->
+<!-- signatures: apply1(expr, rule_1, ..., rule_n) -->
 ### Function: apply1 (expr, rule_1, ..., rule_n)
 
 Repeatedly applies *rule_1* to
@@ -19,6 +22,9 @@ See also `applyb1`, `apply2` and `let`.
 
 See also: `applyb1`, `apply2`, `let`.
 
+<!-- category: Simplification -->
+<!-- keywords: apply2 -->
+<!-- signatures: apply2(expr, rule_1, ..., rule_n) -->
 ### Function: apply2 (expr, rule_1, ..., rule_n)
 
 If *rule_1* fails on a given subexpression, then *rule_2* is
@@ -36,6 +42,9 @@ See also `apply1` and `let`.
 
 See also: `apply1`, `let`.
 
+<!-- category: Simplification -->
+<!-- keywords: applyb1 -->
+<!-- signatures: applyb1(expr, rule_1, ..., rule_n) -->
 ### Function: applyb1 (expr, rule_1, ..., rule_n)
 
 Repeatedly applies *rule_1* to the deepest subexpression of *expr*
@@ -58,11 +67,17 @@ See also `apply1`, `apply2` and `let`.
 
 See also: `apply1`, `apply2`, `let`.
 
+<!-- category: Simplification -->
+<!-- keywords: clear_rules -->
+<!-- signatures: clear_rules() -->
 ### Function: clear_rules ()
 
 Executes `kill (rules)` and then resets the next rule number to 1
 for addition `+`, multiplication `*`, and exponentiation `^`.
 
+<!-- category: Simplification -->
+<!-- keywords: current_let_rule_package -->
+<!-- signatures: current_let_rule_package -->
 ### Variable: current_let_rule_package
 
 Default value: `default_let_rule_package`
@@ -79,6 +94,9 @@ If a call such as `letsimp (expr, rule_pkg_name)` is made,
 the rule package `rule_pkg_name` is used for that function call only,
 and the value of `current_let_rule_package` is not changed.
 
+<!-- category: Simplification -->
+<!-- keywords: default_let_rule_package -->
+<!-- signatures: default_let_rule_package -->
 ### Variable: default_let_rule_package
 
 Default value: `default_let_rule_package`
@@ -89,7 +107,10 @@ Default value: `default_let_rule_package`
 is not explicitly set by the user with `let` or by changing the value of
 `current_let_rule_package`.
 
-### Function: defmatch (defmatch, progname, pattern, x_1, ..., x_n, defmatch, progname, pattern)
+<!-- category: Simplification -->
+<!-- keywords: defmatch -->
+<!-- signatures: defmatch(progname, pattern, x_1, ..., x_n), defmatch(progname, pattern) -->
+### Function: defmatch (progname, pattern, x_1, ..., x_n)
 
 Defines a function `progname(expr, x_1, ..., x_n)`
 which tests *expr* to see if it matches *pattern*.
@@ -277,6 +298,9 @@ maxima
 
 See also: `matchdeclare`, `defrule`, `tellsimp`, `tellsimpafter`.
 
+<!-- category: Simplification -->
+<!-- keywords: defrule -->
+<!-- signatures: defrule(rulename, pattern, replacement) -->
 ### Function: defrule (rulename, pattern, replacement)
 
 Defines and names a replacement rule for the given pattern.  If the rule named
@@ -292,7 +316,10 @@ treated as functions which transform an expression by one
 operation of the pattern match and replacement.
 If the match fails, the rule function returns `false`.
 
-### Function: disprule (disprule, rulename_1, ..., rulename_2, disprule, all)
+<!-- category: Simplification -->
+<!-- keywords: disprule -->
+<!-- signatures: disprule(rulename_1, ..., rulename_2), disprule(all) -->
+### Function: disprule (rulename_1, ..., rulename_2)
 
 Display rules with the names *rulename_1*, ..., *rulename_n*,
 as returned by `defrule`, `tellsimp`, or `tellsimpafter`,
@@ -354,7 +381,10 @@ maxima
 
 See also: `letrules`, `let`.
 
-### Function: let (let, prod, repl, predname, arg_1, ..., arg_n, let, prod, repl, predname, arg_1, ..., arg_n, package_name)
+<!-- category: Simplification -->
+<!-- keywords: let -->
+<!-- signatures: let(prod, repl, predname, arg_1, ..., arg_n), let([prod, repl, predname, arg_1, ..., arg_n], package_name) -->
+### Function: let (prod, repl, predname, arg_1, ..., arg_n)
 
 Defines a substitution rule for `letsimp` such that *prod* is replaced
 by *repl*.  *prod* is a product of positive or negative powers of the
@@ -463,6 +493,9 @@ maxima
 
 See also: `letrat`.
 
+<!-- category: Simplification -->
+<!-- keywords: let_rule_packages -->
+<!-- signatures: let_rule_packages -->
 ### Variable: let_rule_packages
 
 Default value: `[default_let_rule_package]`
@@ -471,6 +504,9 @@ Default value: `[default_let_rule_package]`
 `let_rule_packages` is a list of all user-defined let rule packages
 plus the default package `default_let_rule_package`.
 
+<!-- category: Simplification -->
+<!-- keywords: letrat -->
+<!-- signatures: letrat -->
 ### Variable: letrat
 
 Default value: `false`
@@ -516,7 +552,10 @@ maxima
 (%o6)                       (a - 1)!
 ```
 
-### Function: letrules (letrules, letrules, package_name)
+<!-- category: Simplification -->
+<!-- keywords: letrules -->
+<!-- signatures: letrules(), letrules(package_name) -->
+### Function: letrules ()
 
 Displays the rules in a rule package.
 `letrules ()` displays the rules in the current rule package.
@@ -533,7 +572,10 @@ See also `disprule`, which displays rules defined by `tellsimp` and
 
 See also: `disprule`, `tellsimp`, `tellsimpafter`.
 
-### Function: letsimp (letsimp, expr, letsimp, expr, package_name, letsimp, expr, package_name_1, ..., package_name_n)
+<!-- category: Simplification -->
+<!-- keywords: letsimp -->
+<!-- signatures: letsimp(expr), letsimp(expr, package_name), letsimp(expr, package_name_1, ..., package_name_n) -->
+### Function: letsimp (expr)
 
 Repeatedly applies the substitution rules defined by `let`
 until no further change is made to *expr*.
@@ -605,6 +647,9 @@ maxima
 
 See also: `let`, `subst`, `psubst`, `at`, `ratsubst`.
 
+<!-- category: Simplification -->
+<!-- keywords: matchdeclare -->
+<!-- signatures: matchdeclare(a_1, pred_1, ..., a_n, pred_n) -->
 ### Function: matchdeclare (a_1, pred_1, ..., a_n, pred_n)
 
 Associates a predicate *pred_k* 
@@ -886,6 +931,9 @@ maxima
                          floatnump(ff), lambda([x], x > 100)(gg)]
 ```
 
+<!-- category: Simplification -->
+<!-- keywords: maxapplydepth -->
+<!-- signatures: maxapplydepth -->
 ### Variable: maxapplydepth
 
 Default value: 10000
@@ -894,6 +942,9 @@ Default value: 10000
 `maxapplydepth` is the maximum depth to which `apply1`
 and `apply2` will delve.
 
+<!-- category: Simplification -->
+<!-- keywords: maxapplyheight -->
+<!-- signatures: maxapplyheight -->
 ### Variable: maxapplyheight
 
 Default value: 10000
@@ -902,7 +953,10 @@ Default value: 10000
 `maxapplyheight` is the maximum height to which `applyb1`
 will reach before giving up.
 
-### Function: remlet (remlet, prod, name, remlet, remlet, all, remlet, all, name)
+<!-- category: Simplification -->
+<!-- keywords: remlet -->
+<!-- signatures: remlet(prod, name), remlet(), remlet(all), remlet(all, name) -->
+### Function: remlet (prod, name)
 
 Deletes the substitution rule, `prod --> repl`, most
 recently defined by the `let` function.  If name is supplied the rule is
@@ -926,7 +980,10 @@ See also `remrule`, which removes a rule defined by `tellsimp` or
 
 See also: `remrule`, `tellsimp`, `tellsimpafter`.
 
-### Function: remrule (remrule, op, rulename, remrule, op, all)
+<!-- category: Simplification -->
+<!-- keywords: remrule -->
+<!-- signatures: remrule(op, rulename), remrule(op, all) -->
+### Function: remrule (op, rulename)
 
 Removes rules defined by `tellsimp` or `tellsimpafter`.
 
@@ -1022,6 +1079,9 @@ maxima
 
 See also: `remlet`, `let`.
 
+<!-- category: Simplification -->
+<!-- keywords: tellsimp -->
+<!-- signatures: tellsimp(pattern, replacement) -->
 ### Function: tellsimp (pattern, replacement)
 
 is similar to `tellsimpafter` but places
@@ -1140,6 +1200,9 @@ expt: undefined: 0
 (%o17)                     1 - cos (y)
 ```
 
+<!-- category: Simplification -->
+<!-- keywords: tellsimpafter -->
+<!-- signatures: tellsimpafter(pattern, replacement) -->
 ### Function: tellsimpafter (pattern, replacement)
 
 Defines a simplification rule which the Maxima simplifier applies after built-in

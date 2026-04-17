@@ -1,6 +1,9 @@
 ## Numerical
 
-### Function: find_root (find_root, expr, x, a, b, abserr, relerr, find_root, f, a, b, abserr, relerr, bf_find_root, expr, x, a, b, abserr, relerr, bf_find_root, f, a, b, abserr, relerr)
+<!-- category: Solving -->
+<!-- keywords: find_root, find_root_error, find_root_abs, find_root_rel -->
+<!-- signatures: find_root(expr, x, a, b, [abserr, relerr]), find_root(f, a, b, [abserr, relerr]), bf_find_root(expr, x, a, b, [abserr, relerr]), bf_find_root(f, a, b, [abserr, relerr]), find_root_error, find_root_abs, find_root_rel -->
+### Function: find_root (expr, x, a, b, [abserr, relerr])
 
 Finds a root of the expression *expr* or the function *f* over the
 closed interval $[a, b]$.  The expression *expr* may be an
@@ -146,7 +149,10 @@ maxima
 
 See also: `find_root`.
 
-### Function: horner (horner, expr, x, horner, expr)
+<!-- category: Solving -->
+<!-- keywords: horner -->
+<!-- signatures: horner(expr, x), horner(expr) -->
+### Function: horner (expr, x)
 
 Returns a rearranged representation of *expr* as in Horner’s rule, using
 *x* as the main variable if it is specified.  `x` may be omitted in
@@ -194,6 +200,9 @@ To enable the Lisp debugger set *debugger-hook* to nil.
 
 See also: `stringout`.
 
+<!-- category: Solving -->
+<!-- keywords: newton -->
+<!-- signatures: newton(expr, x, x_0, eps) -->
 ### Function: newton (expr, x, x_0, eps)
 
 Returns an approximate solution of `expr = 0` by Newton’s method,

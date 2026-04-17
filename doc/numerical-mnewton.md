@@ -1,6 +1,9 @@
 ## mnewton
 
-### Function: mnewton (mnewton, FuncList, VarList, GuessList, mnewton, FuncList, VarList, GuessList, DF)
+<!-- category: Numerical -->
+<!-- keywords: mnewton -->
+<!-- signatures: mnewton(FuncList, VarList, GuessList), mnewton(FuncList, VarList, GuessList, DF) -->
+### Function: mnewton (FuncList, VarList, GuessList)
 
 Approximate solution of multiple nonlinear equations by Newton’s method.
 
@@ -81,6 +84,9 @@ floats or bigfloats.
 
 See also: `newtonepsilon`, `newtonmaxiter`, `newtondebug`, `realroots`, `allroots`, `find_root`, `newton`.
 
+<!-- category: Numerical -->
+<!-- keywords: newtondebug -->
+<!-- signatures: newtondebug -->
 ### Variable: newtondebug
 
 Default value: `false`
@@ -89,6 +95,9 @@ Default value: `false`
 When `newtondebug` is `true`, 
 `mnewton` prints out debugging information while solving a problem.
 
+<!-- category: Numerical -->
+<!-- keywords: newtonepsilon -->
+<!-- signatures: newtonepsilon -->
 ### Variable: newtonepsilon
 
 Default value: `10.0^(-fpprec/2)`
@@ -107,6 +116,9 @@ See also `mnewton`.
 
 See also: `mnewton`.
 
+<!-- category: Numerical -->
+<!-- keywords: newtonmaxiter -->
+<!-- signatures: newtonmaxiter -->
 ### Variable: newtonmaxiter
 
 Default value: `50`

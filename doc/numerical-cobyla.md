@@ -1,6 +1,9 @@
 ## cobyla
 
-### Function: bf_fmin_cobyla (bf_fmin_cobyla, F, X, Y, bf_fmin_cobyla, F, X, Y, optional_args)
+<!-- category: Numerical -->
+<!-- keywords: bf_fmin_cobyla -->
+<!-- signatures: bf_fmin_cobyla(F, X, Y), bf_fmin_cobyla(F, X, Y, optional_args) -->
+### Function: bf_fmin_cobyla (F, X, Y)
 
 This function is identical to `fmin_cobyla`, except that bigfloat
 operations are used, and the default value for *rhoend* is
@@ -14,7 +17,10 @@ See `fmin_cobyla` for more information.
 
 See also: `fmin_cobyla`.
 
-### Function: fmin_cobyla (fmin_cobyla, F, X, Y, fmin_cobyla, F, X, Y, optional_args)
+<!-- category: Numerical -->
+<!-- keywords: fmin_cobyla -->
+<!-- signatures: fmin_cobyla(F, X, Y), fmin_cobyla(F, X, Y, optional_args) -->
+### Function: fmin_cobyla (F, X, Y)
 
 Returns an approximate minimum of the expression *F* with respect
 to the variables *X*, subject to an optional set of constraints.

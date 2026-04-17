@@ -1,5 +1,8 @@
 ## Elementary Functions
 
+<!-- category: Trigonometry -->
+<!-- keywords: %iargs -->
+<!-- signatures: %iargs -->
 ### Variable: %iargs
 
 Default value: `true`
@@ -75,6 +78,9 @@ maxima
 (%o3)                      %i sinh(x)
 ```
 
+<!-- category: Trigonometry -->
+<!-- keywords: %piargs -->
+<!-- signatures: %piargs -->
 ### Variable: %piargs
 
 Default value: `true`
@@ -193,6 +199,9 @@ maxima
 (%o2)                  [0, 1, 0, (- 1)   ]
 ```
 
+<!-- category: Trigonometry -->
+<!-- keywords: acos -->
+<!-- signatures: acos(x) -->
 ### Function: acos (x)
 
 – Arc Cosine.
@@ -204,6 +213,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: acosh -->
+<!-- signatures: acosh(x) -->
 ### Function: acosh (x)
 
 – Hyperbolic Arc Cosine.
@@ -215,6 +227,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: acot -->
+<!-- signatures: acot(x) -->
 ### Function: acot (x)
 
 – Arc Cotangent.
@@ -226,6 +241,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: acoth -->
+<!-- signatures: acoth(x) -->
 ### Function: acoth (x)
 
 – Hyperbolic Arc Cotangent.
@@ -237,6 +255,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: acsc -->
+<!-- signatures: acsc(x) -->
 ### Function: acsc (x)
 
 – Arc Cosecant.
@@ -248,6 +269,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: acsch -->
+<!-- signatures: acsch(x) -->
 ### Function: acsch (x)
 
 – Hyperbolic Arc Cosecant.
@@ -259,6 +283,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: asec -->
+<!-- signatures: asec(x) -->
 ### Function: asec (x)
 
 – Arc Secant.
@@ -270,6 +297,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: asech -->
+<!-- signatures: asech(x) -->
 ### Function: asech (x)
 
 – Hyperbolic Arc Secant.
@@ -281,6 +311,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: asin -->
+<!-- signatures: asin(x) -->
 ### Function: asin (x)
 
 – Arc Sine.
@@ -292,6 +325,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: asinh -->
+<!-- signatures: asinh(x) -->
 ### Function: asinh (x)
 
 – Hyperbolic Arc Sine.
@@ -303,6 +339,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: atan -->
+<!-- signatures: atan(x) -->
 ### Function: atan (x)
 
 – Arc Tangent.
@@ -317,6 +356,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `atan2`, `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: atan2 -->
+<!-- signatures: atan2(y, x) -->
 ### Function: atan2 (y, x)
 
 – yields the value of
@@ -341,6 +383,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `atan`, `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: atanh -->
+<!-- signatures: atanh(x) -->
 ### Function: atanh (x)
 
 – Hyperbolic Arc Tangent.
@@ -352,6 +397,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: atrig1 -->
+<!-- signatures: atrig1 -->
 ### Variable: atrig1
 
 The `atrig1` package contains several additional simplification rules
@@ -366,6 +414,9 @@ $\pi/2.$
 Corresponding angles in the other three quadrants are also available.
 Do `load("atrig1");` to use them.
 
+<!-- category: Trigonometry -->
+<!-- keywords: cos -->
+<!-- signatures: cos(x) -->
 ### Function: cos (x)
 
 – Cosine.
@@ -377,6 +428,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: cosh -->
+<!-- signatures: cosh(x) -->
 ### Function: cosh (x)
 
 – Hyperbolic Cosine.
@@ -388,6 +442,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: cot -->
+<!-- signatures: cot(x) -->
 ### Function: cot (x)
 
 – Cotangent.
@@ -399,6 +456,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: coth -->
+<!-- signatures: coth(x) -->
 ### Function: coth (x)
 
 – Hyperbolic Cotangent.
@@ -410,6 +470,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: csc -->
+<!-- signatures: csc(x) -->
 ### Function: csc (x)
 
 – Cosecant.
@@ -421,6 +484,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: csch -->
+<!-- signatures: csch(x) -->
 ### Function: csch (x)
 
 – Hyperbolic Cosecant.
@@ -432,6 +498,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: halfangles -->
+<!-- signatures: halfangles -->
 ### Variable: halfangles
 
 Default value: `false`
@@ -512,6 +581,9 @@ maxima
                             sqrt(2)
 ```
 
+<!-- category: Trigonometry -->
+<!-- keywords: ntrig -->
+<!-- signatures: ntrig -->
 ### Variable: ntrig
 
 The `ntrig` package contains a set of simplification rules that are
@@ -519,6 +591,9 @@ used to simplify trigonometric function whose arguments are of the form
 `f(n %pi/10)` where *f* is any of the functions
 `sin`, `cos`, `tan`, `csc`, `sec` and `cot`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: sec -->
+<!-- signatures: sec(x) -->
 ### Function: sec (x)
 
 – Secant.
@@ -530,6 +605,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: sech -->
+<!-- signatures: sech(x) -->
 ### Function: sech (x)
 
 – Hyperbolic Secant.
@@ -541,6 +619,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: sin -->
+<!-- signatures: sin(x) -->
 ### Function: sin (x)
 
 – Sine.
@@ -552,6 +633,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: sinh -->
+<!-- signatures: sinh(x) -->
 ### Function: sinh (x)
 
 – Hyperbolic Sine.
@@ -563,6 +647,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: tan -->
+<!-- signatures: tan(x) -->
 ### Function: tan (x)
 
 – Tangent.
@@ -574,6 +661,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: tanh -->
+<!-- signatures: tanh(x) -->
 ### Function: tanh (x)
 
 – Hyperbolic Tangent.
@@ -585,6 +675,9 @@ For variables that control simplification `_0025piargs`,
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: trigexpand -->
+<!-- signatures: trigexpand(expr) -->
 ### Function: trigexpand (expr)
 
 Expands trigonometric and hyperbolic functions of
@@ -633,6 +726,9 @@ maxima
 
 See also: `trigexpand`, `halfangles`, `trigexpandplus`, `trigexpandtimes`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: trigexpandplus -->
+<!-- signatures: trigexpandplus -->
 ### Variable: trigexpandplus
 
 Default value: `true`
@@ -646,6 +742,9 @@ Default value: `true`
 
 See also: `trigexpand`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: trigexpandtimes -->
+<!-- signatures: trigexpandtimes -->
 ### Variable: trigexpandtimes
 
 Default value: `true`
@@ -658,6 +757,9 @@ will take place only if `trigexpandtimes` is `true`.
 
 See also: `trigexpand`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: triginverses -->
+<!-- signatures: triginverses -->
 ### Variable: triginverses
 
 Default value: `true`
@@ -681,6 +783,9 @@ If `false`, both the
 `fun(arcfun(x))`
 simplifications are turned off.
 
+<!-- category: Trigonometry -->
+<!-- keywords: trigrat -->
+<!-- signatures: trigrat(expr) -->
 ### Function: trigrat (expr)
 
 Gives a canonical simplified quasilinear form of a trigonometrical expression;
@@ -771,7 +876,10 @@ maxima
  - 9)/4
 ```
 
-### Function: trigreduce (trigreduce, expr, x, trigreduce, expr)
+<!-- category: Trigonometry -->
+<!-- keywords: trigreduce -->
+<!-- signatures: trigreduce(expr, x), trigreduce(expr) -->
+### Function: trigreduce (expr, x)
 
 Combines products and powers of trigonometric
 and hyperbolic sin’s and cos’s of *x* into those of multiples of *x*.
@@ -797,6 +905,9 @@ maxima
 
 See also: `poissimp`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: trigsign -->
+<!-- signatures: trigsign -->
 ### Variable: trigsign
 
 Default value: `true`
@@ -810,6 +921,9 @@ become
 $-\sin x$
 only if `trigsign` is `true`.
 
+<!-- category: Trigonometry -->
+<!-- keywords: trigsimp -->
+<!-- signatures: trigsimp(expr) -->
 ### Function: trigsimp (expr)
 
 Employs the identities

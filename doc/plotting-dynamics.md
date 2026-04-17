@@ -1,5 +1,8 @@
 ## dynamics
 
+<!-- category: Plotting -->
+<!-- keywords: animation -->
+<!-- signatures: animation[animation, property, positions] -->
 ### Variable: animation
 
 *property* should be one of the following 4 object’s properties:
@@ -17,6 +20,9 @@ See also `object_005ftrack`.
 
 See also: `object_origin`, `object_scale`, `object_position`, `object_orientation`, `scene_tstep`, `object_track`.
 
+<!-- category: Plotting -->
+<!-- keywords: background -->
+<!-- signatures: background[background, color] -->
 ### Variable: background
 
 Default value: `black`
@@ -27,6 +33,9 @@ hexadecimal red-green-blue strings (see the `color` option of plot2d).
 
 See also: `color`.
 
+<!-- category: Plotting -->
+<!-- keywords: center -->
+<!-- signatures: center[center, point] -->
 ### Variable: center
 
 Default value: `[0, 0, 0]`
@@ -39,7 +48,10 @@ or cube it will be at half its height and in a sphere at its center.
 
 See also: `object_position`.
 
-### Function: chaosgame (x1, y1, ..., xm, ym, x0, y0, b, n, options, ..., ;)
+<!-- category: Plotting -->
+<!-- keywords: chaosgame -->
+<!-- signatures: chaosgame([[x1, y1]...[xm, ym]], [x0, y0], b, n, options, ...); -->
+### Function: chaosgame (([[x1, y1]...[xm, ym]], [x0, y0], b, n, options, ...);)
 
 Implements the so-called chaos game: the initial point (*x0*,
 *y0*) is plotted and then one of the *m* points
@@ -65,6 +77,9 @@ same as for `plot2d`.
 
 See also: `plot2d`.
 
+<!-- category: Plotting -->
+<!-- keywords: cone -->
+<!-- signatures: cone[cone, options] -->
 ### Variable: cone
 
 Creates a regular pyramid with height equal to 1 and a hexagonal base
@@ -91,6 +106,9 @@ axis when the play button is pressed.
 
 See also: `object_height`, `object_radius`, `object_resolution`, `object_orientation`, `object_center`.
 
+<!-- category: Plotting -->
+<!-- keywords: cube -->
+<!-- signatures: cube[cube, options] -->
 ### Variable: cube
 
 A cube with edges of 1 unit and faces parallel to the xy, xz and yz
@@ -101,6 +119,9 @@ the faces can be rotated with option `object_005forientation`.
 
 See also: `object_xlength`, `object_ylength`, `object_zlength`, `object_orientation`.
 
+<!-- category: Plotting -->
+<!-- keywords: cylinder -->
+<!-- signatures: cylinder[cylinder, options] -->
 ### Variable: cylinder
 
 Creates a regular prism with height equal to 1 and a hexagonal base with
@@ -115,6 +136,9 @@ be at the origin; use options `object_005forientation` and
 
 See also: `object_height`, `object_radius`, `object_resolution`, `object_orientation`, `object_center`.
 
+<!-- category: Plotting -->
+<!-- keywords: endphi -->
+<!-- signatures: endphi[endphi, angle] -->
 ### Variable: endphi
 
 Default value: `180`
@@ -132,6 +156,9 @@ See also `object_005fstartphi` and
 
 See also: `object_startphi`, `object_phiresolution`.
 
+<!-- category: Plotting -->
+<!-- keywords: endtheta -->
+<!-- signatures: endtheta[endtheta, angle] -->
 ### Variable: endtheta
 
 Default value: `360`
@@ -149,7 +176,10 @@ See also `object_005fstarttheta` and
 
 See also: `object_starttheta`, `object_thetaresolution`.
 
-### Function: evolution (F, y0, n, ..., options, ..., ;)
+<!-- category: Plotting -->
+<!-- keywords: evolution -->
+<!-- signatures: evolution(F, y0, n, ..., options, ...); -->
+### Function: evolution ((F, y0, n, ..., options, ...);)
 
 Draws *n+1* points in a two-dimensional graph, where the horizontal
 coordinates of the points are the integers 0, 1, 2, ..., *n*, and
@@ -184,7 +214,10 @@ depend on *y*, but any other variable can be used),
 
 See also: `plot2d`.
 
-### Function: evolution2d (F, G, u, v, u0, y0, n, options, ..., ;)
+<!-- category: Plotting -->
+<!-- keywords: evolution2d -->
+<!-- signatures: evolution2d([F, G], [u, v], [u0, y0], n, options, ...); -->
+### Function: evolution2d (([F, G], [u, v], [u0, y0], n, options, ...);)
 
 Shows, in a two-dimensional plot, the first *n+1* points in the
 sequence of points defined by the two-dimensional discrete dynamical
@@ -233,6 +266,9 @@ And an enlargement of a small region in that fractal:
 
 See also: `plot2d`.
 
+<!-- category: Plotting -->
+<!-- keywords: height -->
+<!-- signatures: height[height, pixels] -->
 ### Variable: height
 
 Default value: `500`
@@ -241,7 +277,10 @@ Default value: `500`
 The height, in pixels, of the graphics window. *pixels* must be a
 positive integer number.
 
-### Function: ifs (r1, ..., rm, A1, ..., Am, x1, y1, ..., xm, ym, x0, y0, n, options, ..., ;)
+<!-- category: Plotting -->
+<!-- keywords: ifs -->
+<!-- signatures: ifs([r1, ..., rm], [A1, ..., Am], [[x1, y1], ..., [xm, ym]], [x0, y0], n, options, ...); -->
+### Function: ifs (([r1, ..., rm], [A1, ..., Am], [[x1, y1], ..., [xm, ym]], [x0, y0], n, options, ...);)
 
 Implements the Iterated Function System method. This method is similar
 to the method described in the function `chaosgame`. but instead of
@@ -280,6 +319,9 @@ options are the same as for `plot2d`.
 
 See also: `chaosgame`, `plot2d`.
 
+<!-- category: Plotting -->
+<!-- keywords: linewidth -->
+<!-- signatures: linewidth[linewidth, value] -->
 ### Variable: linewidth
 
 Default value: `1`
@@ -290,6 +332,9 @@ used. *value* must be a positive number.
 
 See also: `object_wireframe`.
 
+<!-- category: Plotting -->
+<!-- keywords: opacity -->
+<!-- signatures: opacity[opacity, value] -->
 ### Variable: opacity
 
 Default value: `1`
@@ -299,7 +344,10 @@ Default value: `1`
 more transparent the object will become. The default value of 1 means a
 completely opaque object.
 
-### Function: orbits (F, y0, n1, n2, x, x0, xf, xstep, options, ..., ;)
+<!-- category: Plotting -->
+<!-- keywords: orbits -->
+<!-- signatures: orbits(F, y0, n1, n2, [x, x0, xf, xstep], options, ...); -->
+### Function: orbits ((F, y0, n1, n2, [x, x0, xf, xstep], options, ...);)
 
 Draws the orbits diagram for a family of one-dimensional
 discrete dynamical systems, with one parameter *x*; that kind of
@@ -346,6 +394,9 @@ To enlarge the region around the lower bifurcation near x `=` -1.25 use:
 
 See also: `plot2d`.
 
+<!-- category: Plotting -->
+<!-- keywords: orientation -->
+<!-- signatures: orientation[orientation, angles] -->
 ### Variable: orientation
 
 Default value: `[0, 0, 0]`
@@ -356,6 +407,9 @@ three axis. *angles* can be a list with 3 real numbers, or 3 real
 numbers separated by commas. **Example**: `[0, 0, 90]` rotates
 the x axis of the object to the y axis of the reference frame.
 
+<!-- category: Plotting -->
+<!-- keywords: origin -->
+<!-- signatures: origin[origin, point] -->
 ### Variable: origin
 
 Default value: `[0, 0, 0]`
@@ -365,6 +419,9 @@ The coordinates of the object’s origin, with respect to which its
 other dimensions are defined. *point* can be a list with 3
 real numbers, or 3 real numbers separated by commas.
 
+<!-- category: Plotting -->
+<!-- keywords: phiresolution -->
+<!-- signatures: phiresolution[phiresolution, num] -->
 ### Variable: phiresolution
 
 Default value: ``
@@ -380,6 +437,9 @@ See also `object_005fstartphi` and
 
 See also: `object_startphi`, `object_endphi`.
 
+<!-- category: Plotting -->
+<!-- keywords: pointsize -->
+<!-- signatures: pointsize[pointsize, value] -->
 ### Variable: pointsize
 
 Default value: `1`
@@ -390,6 +450,9 @@ used. *value* must be a positive number.
 
 See also: `object_points`.
 
+<!-- category: Plotting -->
+<!-- keywords: position -->
+<!-- signatures: position[position, point] -->
 ### Variable: position
 
 Default value: `[0, 0, 0]`
@@ -398,6 +461,9 @@ Default value: `[0, 0, 0]`
 The coordinates of the object’s position. *point* can be a list with 3
 real numbers, or 3 real numbers separated by commas.
 
+<!-- category: Plotting -->
+<!-- keywords: radius -->
+<!-- signatures: radius[radius, value] -->
 ### Variable: radius
 
 Default value: `0.5`
@@ -406,6 +472,9 @@ Default value: `0.5`
 The radius or a sphere or the distance from the axis to the base’s
 vertices in a cylinder or a cone. *value* must be a positive number.
 
+<!-- category: Plotting -->
+<!-- keywords: resolution -->
+<!-- signatures: resolution[resolution, number] -->
 ### Variable: resolution
 
 Default value: `6`
@@ -414,6 +483,9 @@ Default value: `6`
 *number* must be an integer greater than 2 that sets the number of
 edges in the base of a cone or a cylinder.
 
+<!-- category: Plotting -->
+<!-- keywords: restart -->
+<!-- signatures: restart[restart, value] -->
 ### Variable: restart
 
 Default value: `false`
@@ -423,6 +495,9 @@ A true value means that animations will restart automatically when the
 end of the list is reached. Writing just “restart” is equivalent to
 [restart, *true*].
 
+<!-- category: Plotting -->
+<!-- keywords: scale -->
+<!-- signatures: scale[scale, factors] -->
 ### Variable: scale
 
 Default value: `[1, 1, 1]`
@@ -435,7 +510,10 @@ enlarges the object to twice its size in the x direction, reduces the
 dimensions in the y direction to half and leaves the z dimensions
 unchanged.
 
-### Function: scene (objects, ..., options, ..., ;)
+<!-- category: Plotting -->
+<!-- keywords: scene -->
+<!-- signatures: scene(objects, ..., options, ...); -->
+### Function: scene ((objects, ..., options, ...);)
 
 Accepts an empty list or a list of several `scene_005fobjects`
 and `scene_005foptions`. The program launches Xmaxima, which
@@ -516,11 +594,17 @@ option of plot2d.
 
 See also: `scene_objects`, `scene_options`, `scene_elevation`, `scene_azimuth`, `object_options`, `color`.
 
+<!-- category: Plotting -->
+<!-- keywords: sphere -->
+<!-- signatures: sphere[sphere, options] -->
 ### Variable: sphere
 
 A sphere with default radius of 0.5 units and center at the origin.
 
-### Function: staircase (F, y0, n, options, ..., ;)
+<!-- category: Plotting -->
+<!-- keywords: staircase -->
+<!-- signatures: staircase(F, y0, n, options, ...); -->
+### Function: staircase ((F, y0, n, options, ...);)
 
 Draws a staircase diagram for the sequence defined by the recurrence
 relation
@@ -557,6 +641,9 @@ reached. The options are the same as for `plot2d`.
 
 See also: `evolution`, `plot2d`.
 
+<!-- category: Plotting -->
+<!-- keywords: startphi -->
+<!-- signatures: startphi[startphi, angle] -->
 ### Variable: startphi
 
 Default value: `0`
@@ -574,6 +661,9 @@ See also `object_005fendphi` and
 
 See also: `object_endphi`, `object_phiresolution`.
 
+<!-- category: Plotting -->
+<!-- keywords: starttheta -->
+<!-- signatures: starttheta[starttheta, angle] -->
 ### Variable: starttheta
 
 Default value: `0`
@@ -591,6 +681,9 @@ See also `object_005fendtheta` and
 
 See also: `object_endtheta`, `object_thetaresolution`.
 
+<!-- category: Plotting -->
+<!-- keywords: surface -->
+<!-- signatures: surface[surface] -->
 ### Variable: surface
 
 The surfaces of the object will be rendered and the lines and points of
@@ -600,6 +693,9 @@ the default behavior, which can be changed using either the option
 
 See also: `object_points`, `object_wireframe`.
 
+<!-- category: Plotting -->
+<!-- keywords: thetaresolution -->
+<!-- signatures: thetaresolution[thetaresolution, num] -->
 ### Variable: thetaresolution
 
 Default value: ``
@@ -615,6 +711,9 @@ See also `object_005fstarttheta` and
 
 See also: `object_starttheta`, `object_endtheta`.
 
+<!-- category: Plotting -->
+<!-- keywords: track -->
+<!-- signatures: track[track, positions] -->
 ### Variable: track
 
 *positions* should be a list of points. When the play button is
@@ -648,6 +747,9 @@ See also `object_005fanimation`.
 
 See also: `scene_tstep`, `object_animation`.
 
+<!-- category: Plotting -->
+<!-- keywords: tstep -->
+<!-- signatures: tstep[tstep, time] -->
 ### Variable: tstep
 
 Default value: `10`
@@ -656,6 +758,9 @@ Default value: `10`
 The amount of time, in mili-seconds, between iterations among
 consecutive animation frames. *time* must be a real number.
 
+<!-- category: Plotting -->
+<!-- keywords: width -->
+<!-- signatures: width[width, pixels] -->
 ### Variable: width
 
 Default value: `500`
@@ -664,6 +769,9 @@ Default value: `500`
 The width, in pixels, of the graphics window. *pixels* must be a
 positive integer number.
 
+<!-- category: Plotting -->
+<!-- keywords: windowname -->
+<!-- signatures: windowname[windowtitle, name] -->
 ### Variable: windowname
 
 Default value: `.scene`
@@ -673,6 +781,9 @@ Default value: `.scene`
 window created by Xmaxima for the `scene` graphics. The default
 value `.scene` implies that a new top level window will be created.
 
+<!-- category: Plotting -->
+<!-- keywords: windowtitle -->
+<!-- signatures: windowtitle[windowtitle, name] -->
 ### Variable: windowtitle
 
 Default value: `Xmaxima: scene`
@@ -681,6 +792,9 @@ Default value: `Xmaxima: scene`
 *name* must be a string that will be written in the title of the
 window created by `scene`.
 
+<!-- category: Plotting -->
+<!-- keywords: wireframe -->
+<!-- signatures: wireframe[wireframe] -->
 ### Variable: wireframe
 
 Only the edges of the triangulation used to render the surface will be
@@ -692,6 +806,9 @@ See also `object_005fsurface` and
 
 See also: `object_surface`, `object_points`.
 
+<!-- category: Plotting -->
+<!-- keywords: xlength -->
+<!-- signatures: xlength[xlength, length] -->
 ### Variable: xlength
 
 Default value: `1`
@@ -703,6 +820,9 @@ number. See also `object_005fylength` and
 
 See also: `object_ylength`, `object_zlength`.
 
+<!-- category: Plotting -->
+<!-- keywords: ylength -->
+<!-- signatures: ylength[ylength, length] -->
 ### Variable: ylength
 
 Default value: `1`
@@ -714,6 +834,9 @@ number. See also `object_005fxlength` and
 
 See also: `object_xlength`, `object_zlength`.
 
+<!-- category: Plotting -->
+<!-- keywords: zlength -->
+<!-- signatures: zlength[zlength, length] -->
 ### Variable: zlength
 
 Default value: `1`

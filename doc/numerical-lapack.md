@@ -1,6 +1,9 @@
 ## lapack
 
-### Function: dgeev (dgeev, A, dgeev, A, right_p, left_p)
+<!-- category: Numerical -->
+<!-- keywords: dgeev -->
+<!-- signatures: dgeev(A), dgeev(A, right_p, left_p) -->
+### Function: dgeev (A)
 
 Computes the eigenvalues and, optionally, the eigenvectors of a matrix *A*.
 All elements of *A* must be integer or floating point numbers.
@@ -128,7 +131,10 @@ maxima
 
 See also: `ctranspose`.
 
-### Function: dgemm (dgemm, A, B, dgemm, A, B, options)
+<!-- category: Numerical -->
+<!-- keywords: dgemm -->
+<!-- signatures: dgemm(A, B), dgemm(A, B, options) -->
+### Function: dgemm (A, B)
 
 Compute the product of two matrices and optionally add the product to
 a third matrix.
@@ -307,6 +313,9 @@ maxima
                         [ 111  134  157 ]
 ```
 
+<!-- category: Numerical -->
+<!-- keywords: dgeqrf -->
+<!-- signatures: dgeqrf(A) -->
 ### Function: dgeqrf (A)
 
 Computes the QR decomposition of the matrix *A*.
@@ -392,6 +401,9 @@ maxima
 (%o6)                      3.10862e-15
 ```
 
+<!-- category: Numerical -->
+<!-- keywords: dgesv -->
+<!-- signatures: dgesv(A, b) -->
 ### Function: dgesv (A, b)
 
 Computes the solution *x* of the linear equation
@@ -538,7 +550,10 @@ maxima
 (%o5)                 2.220446049250313e-16
 ```
 
-### Function: dgesvd (dgesvd, A, dgesvd, A, left_p, right_p)
+<!-- category: Numerical -->
+<!-- keywords: dgesvd -->
+<!-- signatures: dgesvd(A), dgesvd(A, left_p, right_p) -->
+### Function: dgesvd (A)
 
 Computes the singular value decomposition (SVD) of a matrix *A*,
 comprising the singular values and, optionally, the left and right singular vectors.
@@ -726,6 +741,9 @@ maxima
           [ - 5.55112e-17  5.55112e-17       1.0      ]
 ```
 
+<!-- category: Numerical -->
+<!-- keywords: dlange, zlange -->
+<!-- signatures: dlange(norm, A), zlange(norm, A) -->
 ### Function: dlange (norm, A)
 
 Computes a norm or norm-like function of the matrix *A*.  If
@@ -760,7 +778,10 @@ that is, the maximum of the sum of the absolute value of elements in each row.
 ${\bf A},$
 that is, the square root of the sum of squares of the matrix elements.
 
-### Function: zgeev (zgeev, A, zgeev, A, right_p, left_p)
+<!-- category: Numerical -->
+<!-- keywords: zgeev -->
+<!-- signatures: zgeev(A), zgeev(A, right_p, left_p) -->
+### Function: zgeev (A)
 
 Like `dgeev`, but the matrix
 ${\bf A}$
@@ -772,7 +793,10 @@ To make use of this function, you must load the LaPack package via
 
 See also: `dgeev`.
 
-### Function: zheev (zheev, A, zheev, A, eigvec_p)
+<!-- category: Numerical -->
+<!-- keywords: zheev -->
+<!-- signatures: zheev(A), zheev(A, eigvec_p) -->
+### Function: zheev (A)
 
 Like `dgeev`, but the matrix
 ${\bf A}$

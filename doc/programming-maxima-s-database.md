@@ -1,5 +1,8 @@
 ## Maxima’s Database
 
+<!-- category: Programming -->
+<!-- keywords: activate -->
+<!-- signatures: activate(context_1, ..., context_n) -->
 ### Function: activate (context_1, ..., context_n)
 
 Activates the contexts *context_1*, ..., *context_n*.
@@ -13,6 +16,9 @@ of contexts which are active by way of the `activate` function.
 
 See also: `activecontexts`.
 
+<!-- category: Programming -->
+<!-- keywords: activecontexts -->
+<!-- signatures: activecontexts -->
 ### Variable: activecontexts
 
 Default value: `[]`
@@ -24,6 +30,9 @@ they are subcontexts of the current context.
 
 See also: `activate`.
 
+<!-- category: Programming -->
+<!-- keywords: alphabetic -->
+<!-- signatures: alphabetic -->
 ### Variable: alphabetic
 
 `alphabetic` is a property type recognized by `declare`.
@@ -65,7 +74,10 @@ maxima
 
 See also: `declare`, `Identifiers`.
 
-### Function: askequal (askequal, expr1, expr2)
+<!-- category: Programming -->
+<!-- keywords: askequal -->
+<!-- signatures: askequal(expr1, expr2) -->
+### Function: askequal (expr1, expr2)
 
 `askequal(expr1, expr2)` attempts to determine from the
 `assume` database whether *expr1* is equal to *expr2*,
@@ -88,7 +100,10 @@ See also `equal`.
 
 See also: `equal`.
 
-### Function: askinteger (askinteger, expr, integer, askinteger, expr, askinteger, expr, even, askinteger, expr, odd)
+<!-- category: Programming -->
+<!-- keywords: askinteger -->
+<!-- signatures: askinteger(expr, integer), askinteger(expr), askinteger(expr, even), askinteger(expr, odd) -->
+### Function: askinteger (expr, integer)
 
 `askinteger (expr, integer)` attempts to determine from the
 `assume` database whether *expr* is an integer.
@@ -104,6 +119,9 @@ and attempt to install the information in the database if possible.
 likewise attempt to determine if *expr* is an even integer or odd integer,
 respectively.
 
+<!-- category: Programming -->
+<!-- keywords: asksign -->
+<!-- signatures: asksign(expr) -->
 ### Function: asksign (expr)
 
 First attempts to determine whether the specified
@@ -113,6 +131,9 @@ answer is recorded in the data base for the duration of the current
 computation.  The return value of `asksign` is one of `pos`,
 `neg`, or `zero`.
 
+<!-- category: Programming -->
+<!-- keywords: assume -->
+<!-- signatures: assume(pred_1, ..., pred_n) -->
 ### Function: assume (pred_1, ..., pred_n)
 
 Adds predicates *pred_1*, ..., *pred_n* to the current context.
@@ -216,6 +237,9 @@ maxima
 
 See also: `is`, `facts`, `forget`, `context`, `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: assume_pos -->
+<!-- signatures: assume_pos -->
 ### Variable: assume_pos
 
 Default value: `false`
@@ -249,6 +273,9 @@ difference `x - y` or a logarithm `log(x)`,
 even when `assume_pos` is `true` and `assume_pos_pred` is
 a function which returns `true` for all arguments.
 
+<!-- category: Programming -->
+<!-- keywords: assume_pos_pred -->
+<!-- signatures: assume_pos_pred -->
 ### Variable: assume_pos_pred
 
 Default value: `false`
@@ -379,6 +406,9 @@ p;
 
 See also: `assume`, `assume_pos`.
 
+<!-- category: Programming -->
+<!-- keywords: assumescalar -->
+<!-- signatures: assumescalar -->
 ### Variable: assumescalar
 
 Default value: `true`
@@ -408,6 +438,9 @@ expressions will behave like non-scalars.
 When `assumescalar` is `all`, such expressions will behave like
 scalars for all the operators listed above.
 
+<!-- category: Programming -->
+<!-- keywords: bindtest -->
+<!-- signatures: bindtest -->
 ### Variable: bindtest
 
 The command `declare(x, bindtest)` tells Maxima to trigger an error
@@ -445,6 +478,9 @@ maxima
 (%o5)                       bb + 1234
 ```
 
+<!-- category: Programming -->
+<!-- keywords: charfun -->
+<!-- signatures: charfun(p) -->
 ### Function: charfun (p)
 
 Return 0 when the predicate *p* evaluates to `false`; return 1 when
@@ -479,6 +515,9 @@ maxima
   charfun((- 1 < 0) and (0 < 1)), charfun((- 1 < 1) and (1 < 1))]
 ```
 
+<!-- category: Programming -->
+<!-- keywords: compare -->
+<!-- signatures: compare(x, y) -->
 ### Function: compare (x, y)
 
 Return a comparison operator *op* (`<`, `<=`, `>`, `>=`,
@@ -547,7 +586,10 @@ maxima
 
 The real domain of `acos (x^2 + 1)` is empty.
 
-### Function: constant ()
+<!-- category: Programming -->
+<!-- keywords: constant -->
+<!-- signatures: constant -->
+### Function: constant
 
 `declare(a, constant)` declares *a* to be a constant.  The
 declaration of a symbol to be constant does not prevent the assignment of a
@@ -589,6 +631,9 @@ maxima
 
 See also: `constantp`, `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: constantp -->
+<!-- signatures: constantp(expr) -->
 ### Function: constantp (expr)
 
 Returns `true` if *expr* is a constant expression, otherwise returns
@@ -655,6 +700,9 @@ maxima
 
 See also: `%pi`, `%e`, `%i`, `declare`, `constant`.
 
+<!-- category: Programming -->
+<!-- keywords: context -->
+<!-- signatures: context -->
 ### Variable: context
 
 Default value: `initial`
@@ -676,6 +724,9 @@ See `contexts` for a general description of the context mechanism.
 
 See also: `assume`, `forget`, `newcontext`, `contexts`.
 
+<!-- category: Programming -->
+<!-- keywords: contexts -->
+<!-- signatures: contexts -->
 ### Variable: contexts
 
 Default value: `[initial, global]`
@@ -715,6 +766,9 @@ See also `facts`, `newcontext`, `supcontext`,
 
 See also: `forget`, `kill`, `facts`, `newcontext`, `supcontext`, `killcontext`, `activate`, `deactivate`, `assume`.
 
+<!-- category: Programming -->
+<!-- keywords: csign -->
+<!-- signatures: csign(expr) -->
 ### Function: csign (expr)
 
 Attempts to determine the sign of *expr* on the basis of the facts
@@ -737,10 +791,16 @@ See also `sign`.
 
 See also: `sign`.
 
+<!-- category: Programming -->
+<!-- keywords: deactivate -->
+<!-- signatures: deactivate(context_1, ..., context_n) -->
 ### Function: deactivate (context_1, ..., context_n)
 
 Deactivates the specified contexts *context_1*, ..., *context_n*.
 
+<!-- category: Programming -->
+<!-- keywords: declare -->
+<!-- signatures: declare(a_1, p_1, a_2, p_2, ...) -->
 ### Function: declare (a_1, p_1, a_2, p_2, ...)
 
 Assigns the atom or list of atoms *a_i* the property or list of properties
@@ -830,6 +890,9 @@ for each separate description of a property.
 
 See also: `features`, `remove`, `additive`, `alphabetic`, `antisymmetric`, `commutative`, `symmetric`, `bindtest`, `constant`, `even`, `odd`, `evenfun`, `oddfun`, `evflag`, `evfun`, `feature`, `increasing`, `decreasing`, `integer`, `noninteger`, `integervalued`, `lassociative`, `rassociative`, `linear`, `mainvar`, `ordergreatp`, `multiplicative`, `nary`, `nonarray`, `nonscalar`, `noun`, `outative`, `posfun`, `rational`, `irrational`, `real`, `imaginary`, `complex`, `scalar`.
 
+<!-- category: Programming -->
+<!-- keywords: decreasing, increasing -->
+<!-- signatures: increasing -->
 ### Variable: decreasing
 
 The commands `declare(f, decreasing)` or
@@ -871,6 +934,9 @@ maxima
 
 See also: `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: equal -->
+<!-- signatures: equal(a, b) -->
 ### Function: equal (a, b)
 
 Represents equivalence, that is, equal value.
@@ -1092,6 +1158,9 @@ maxima
 
 See also: `is`, `ratsimp`, `prederror`, `if`, `and`, `or`, `not`, `notequal`.
 
+<!-- category: Programming -->
+<!-- keywords: even, odd -->
+<!-- signatures: odd -->
 ### Variable: even
 
 `declare(a, even)` or `declare(a, odd)` tells Maxima to
@@ -1134,7 +1203,10 @@ maxima
 
 See also: `evenp`, `oddp`, `integerp`, `declare`, `askinteger`.
 
-### Function: facts (facts, item, facts)
+<!-- category: Programming -->
+<!-- keywords: facts -->
+<!-- signatures: facts(item), facts() -->
+### Function: facts (item)
 
 If *item* is the name of a context, `facts (item)` returns a
 list of the facts in the specified context.
@@ -1147,6 +1219,9 @@ are active, but in a different context, are not listed.
 
 `facts ()` (i.e., without an argument) lists the current context.
 
+<!-- category: Programming -->
+<!-- keywords: feature -->
+<!-- signatures: feature -->
 ### Variable: feature
 
 Maxima understands two distinct types of features, system features and features
@@ -1161,6 +1236,9 @@ information about mathematical features.
 
 See also: `status`, `features`, `featurep`.
 
+<!-- category: Programming -->
+<!-- keywords: featurep -->
+<!-- signatures: featurep(a, f) -->
 ### Function: featurep (a, f)
 
 Attempts to determine whether the object *a* has the feature *f* on the
@@ -1193,6 +1271,9 @@ maxima
 
 See also: `declare`, `features`.
 
+<!-- category: Programming -->
+<!-- keywords: features -->
+<!-- signatures: features -->
 ### Variable: features
 
 Maxima recognizes certain mathematical properties of functions and variables.
@@ -1261,7 +1342,10 @@ maxima
 
 See also: `status`.
 
-### Function: forget (forget, pred_1, ..., pred_n, forget, L)
+<!-- category: Programming -->
+<!-- keywords: forget -->
+<!-- signatures: forget(pred_1, ..., pred_n), forget(L) -->
+### Function: forget (pred_1, ..., pred_n)
 
 Removes predicates established by `assume`.
 The predicates may be expressions equivalent to (but not necessarily identical
@@ -1273,6 +1357,9 @@ forgets each item on the list.
 
 See also: `assume`.
 
+<!-- category: Programming -->
+<!-- keywords: get -->
+<!-- signatures: get(a, i) -->
 ### Function: get (a, i)
 
 Retrieves the user property indicated by *i* associated with
@@ -1331,6 +1418,9 @@ x is not numeric.
 
 See also: `put`, `qput`.
 
+<!-- category: Programming -->
+<!-- keywords: integer, noninteger -->
+<!-- signatures: noninteger -->
 ### Variable: integer
 
 `declare(a, integer)` or `declare(a, noninteger)` tells
@@ -1366,6 +1456,9 @@ maxima
 
 See also: `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: integervalued -->
+<!-- signatures: integervalued -->
 ### Variable: integervalued
 
 `declare(f, integervalued)` tells Maxima to recognize *f* as an
@@ -1403,6 +1496,9 @@ maxima
 
 See also: `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: is -->
+<!-- signatures: is(expr) -->
 ### Function: is (expr)
 
 Attempts to determine whether the predicate *expr* is provable from the
@@ -1512,6 +1608,9 @@ maxima
 
 See also: `prederror`, `assume`, `facts`, `maybe`.
 
+<!-- category: Programming -->
+<!-- keywords: killcontext -->
+<!-- signatures: killcontext(context_1, ..., context_n) -->
 ### Function: killcontext (context_1, ..., context_n)
 
 Kills the contexts *context_1*, ..., *context_n*.
@@ -1534,6 +1633,9 @@ context, or by use of the function `activate`.
 
 See also: `activate`.
 
+<!-- category: Programming -->
+<!-- keywords: maybe -->
+<!-- signatures: maybe(expr) -->
 ### Function: maybe (expr)
 
 Attempts to determine whether the predicate *expr* is provable from the
@@ -1579,7 +1681,10 @@ maxima
 
 See also: `assume`, `facts`, `is`.
 
-### Function: newcontext (newcontext, name, newcontext)
+<!-- category: Programming -->
+<!-- keywords: newcontext -->
+<!-- signatures: newcontext(name), newcontext() -->
+### Function: newcontext (name)
 
 Creates a new, empty context, called *name*, which
 has `global` as its only subcontext.  The newly-created context
@@ -1592,7 +1697,10 @@ If *name* is not specified, a new name is created (via `gensym`) and returned.
 `newcontext` evaluates its argument.
 `newcontext` returns *name* (if specified) or the new context name.
 
-### Function: nonarray ()
+<!-- category: Programming -->
+<!-- keywords: nonarray -->
+<!-- signatures: nonarray -->
+### Function: nonarray
 
 The command `declare(a, nonarray)` tells Maxima to consider *a* not
 an array.  This declaration prevents multiple evaluation, if *a* is a
@@ -1632,6 +1740,9 @@ maxima
 
 See also: `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: nonscalar -->
+<!-- signatures: nonscalar -->
 ### Variable: nonscalar
 
 Makes atoms behave as does a list or matrix with respect to the dot operator.
@@ -1641,6 +1752,9 @@ See also `declare`.
 
 See also: `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: nonscalarp -->
+<!-- signatures: nonscalarp(expr) -->
 ### Function: nonscalarp (expr)
 
 Returns `true` if *expr* is a non-scalar, i.e., it contains
@@ -1651,6 +1765,9 @@ See also the predicate function `scalarp` and `declare`.
 
 See also: `scalarp`, `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: notequal -->
+<!-- signatures: notequal(a, b) -->
 ### Function: notequal (a, b)
 
 Represents the negation of `equal(a, b)`.
@@ -1715,6 +1832,9 @@ maxima
 (%o10)                        true
 ```
 
+<!-- category: Programming -->
+<!-- keywords: posfun -->
+<!-- signatures: posfun -->
 ### Variable: posfun
 
 `declare (f, posfun)` declares `f` to be a positive function.
@@ -1725,7 +1845,10 @@ See also `declare`.
 
 See also: `declare`.
 
-### Function: printprops (printprops, a, i, printprops, a_1, ..., a_n, i, printprops, all, i)
+<!-- category: Programming -->
+<!-- keywords: printprops -->
+<!-- signatures: printprops(a, i), printprops([a_1, ..., a_n], i), printprops(all, i) -->
+### Function: printprops (a, i)
 
 Displays the property with the indicator *i* associated with the atom
 *a*.  *a* may also be a list of atoms or the atom `all` in which
@@ -1736,11 +1859,17 @@ cannot otherwise be displayed, i.e.  for `atvalue`,
 
 See also: `atvalue`, `atomgrad`, `gradef`, `matchdeclare`.
 
+<!-- category: Programming -->
+<!-- keywords: properties -->
+<!-- signatures: properties(a) -->
 ### Function: properties (a)
 
 Returns a list of the names of all the properties associated with the atom
 *a*.
 
+<!-- category: Programming -->
+<!-- keywords: props -->
+<!-- signatures: props -->
 ### Variable: props
 
 Default value: `[]`
@@ -1753,6 +1882,9 @@ mentioned in `infolists`, such as specified by `atvalue`,
 
 See also: `infolists`, `atvalue`, `matchdeclare`, `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: propvars -->
+<!-- signatures: propvars(prop) -->
 ### Function: propvars (prop)
 
 Returns a list of those atoms on the `props` list which
@@ -1761,6 +1893,9 @@ returns a list of atoms which have atvalues.
 
 See also: `props`.
 
+<!-- category: Programming -->
+<!-- keywords: put -->
+<!-- signatures: put(atom, value, indicator) -->
 ### Function: put (atom, value, indicator)
 
 Assigns *value* to the property (specified by *indicator*) of
@@ -1816,6 +1951,9 @@ maxima
 
 See also: `rem`, `qput`, `get`.
 
+<!-- category: Programming -->
+<!-- keywords: qput -->
+<!-- signatures: qput(atom, value, indicator) -->
 ### Function: qput (atom, value, indicator)
 
 Assigns *value* to the property (specified by *indicator*) of
@@ -1873,6 +2011,9 @@ maxima
 
 See also: `put`, `get`.
 
+<!-- category: Programming -->
+<!-- keywords: rational, irrational -->
+<!-- signatures: irrational -->
 ### Variable: rational
 
 `declare(a, rational)` or `declare(a, irrational)` tells
@@ -1883,6 +2024,9 @@ See also `declare`.
 
 See also: `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: real, imaginary, complex -->
+<!-- signatures: imaginary, complex -->
 ### Variable: real
 
 `declare(a, real)`, `declare(a, imaginary)`, or
@@ -1894,6 +2038,9 @@ See also `declare`.
 
 See also: `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: rem -->
+<!-- signatures: rem(atom, indicator) -->
 ### Function: rem (atom, indicator)
 
 Removes the property indicated by *indicator* from *atom*.
@@ -1905,7 +2052,10 @@ when `rem` was called, or `false` if it had no such property.
 
 See also: `put`.
 
-### Function: remove (remove, a_1, p_1, ..., a_n, p_n, remove, a_1, ..., a_m, p_1, ..., p_n, ..., remove, ", a, ", operator, remove, a, transfun, remove, all, p)
+<!-- category: Programming -->
+<!-- keywords: remove -->
+<!-- signatures: remove(a_1, p_1, ..., a_n, p_n), remove([a_1, ..., a_m], [p_1, ..., p_n], ...), remove("a", operator), remove(a, transfun), remove(all, p) -->
+### Function: remove (a_1, p_1, ..., a_n, p_n)
 
 Removes properties associated with atoms.
 
@@ -1957,6 +2107,9 @@ property.  This behavior is unlike the more specific remove functions
 
 See also: `mode_declare`, `put`, `prefix`, `infix`, `function_nary`, `postfix`, `matchfix`, `nofix`, `remvalue`, `remarray`, `remfunction`, `remrule`.
 
+<!-- category: Programming -->
+<!-- keywords: scalar -->
+<!-- signatures: scalar -->
 ### Variable: scalar
 
 `declare(a, scalar)` tells Maxima to consider *a* a scalar
@@ -1967,6 +2120,9 @@ See also `declare`.
 
 See also: `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: scalarp -->
+<!-- signatures: scalarp(expr) -->
 ### Function: scalarp (expr)
 
 Returns `true` if *expr* is a number, constant, or variable declared
@@ -1978,6 +2134,9 @@ See also the predicate function `nonscalarp`.
 
 See also: `scalar`, `declare`, `nonscalarp`.
 
+<!-- category: Programming -->
+<!-- keywords: sign -->
+<!-- signatures: sign(expr) -->
 ### Function: sign (expr)
 
 Attempts to determine the sign of *expr* on the basis of the facts in the
@@ -1996,7 +2155,10 @@ See also `signum`.
 
 See also: `signum`.
 
-### Function: supcontext (supcontext, name, context, supcontext, name, supcontext)
+<!-- category: Programming -->
+<!-- keywords: supcontext -->
+<!-- signatures: supcontext(name, context), supcontext(name), supcontext() -->
+### Function: supcontext (name, context)
 
 Creates a new context, called *name*, which has *context* as a
 subcontext.  *context* must exist.
@@ -2011,11 +2173,17 @@ If *name* is not specified, a new name is created (via `gensym`) and returned.
 `supcontext` evaluates its argument.
 `supcontext` returns *name* (if specified) or the new context name.
 
+<!-- category: Programming -->
+<!-- keywords: unknown -->
+<!-- signatures: unknown(expr) -->
 ### Function: unknown (expr)
 
 Returns `true` if and only if *expr* contains an operator or function
 not recognized by the Maxima simplifier.
 
+<!-- category: Programming -->
+<!-- keywords: zeroequiv -->
+<!-- signatures: zeroequiv(expr, v) -->
 ### Function: zeroequiv (expr, v)
 
 Tests whether the expression *expr* in the variable *v* is equivalent

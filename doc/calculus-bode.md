@@ -1,6 +1,9 @@
 ## bode
 
-### Function: bode_gain (H, range, ..., plot_opts, ...)
+<!-- category: Calculus -->
+<!-- keywords: bode_gain -->
+<!-- signatures: bode_gain(H, range, ...plot_opts...) -->
+### Function: bode_gain (H, range, ...plot_opts...)
 
 Function to draw Bode gain plots.
 
@@ -58,7 +61,10 @@ To use this function write first `load("bode")`. See also `bode_005fphase`.
 
 See also: `bode_phase`.
 
-### Function: bode_phase (H, range, ..., plot_opts, ...)
+<!-- category: Calculus -->
+<!-- keywords: bode_phase -->
+<!-- signatures: bode_phase(H, range, ...plot_opts...) -->
+### Function: bode_phase (H, range, ...plot_opts...)
 
 Function to draw Bode phase plots.
 

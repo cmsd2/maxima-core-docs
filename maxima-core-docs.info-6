@@ -1,486 +1,10 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.1 from
+This is maxima-core-docs.info, produced by makeinfo version 7.3 from
 maxima-core-docs.texi.
 
 
-File: maxima-core-docs.info,  Node: Variable ratfac
+File: maxima-core-docs.info,  Node: Function tellrat p_1 ... p_n,  Next: Function totaldisrep expr,  Prev: Function sqfr expr,  Up: Polynomials 2
 
- -- Variable: ratfac
-     Default value: ‘false’
-
-     When ‘ratfac’ is ‘true’, canonical rational expressions (CRE) are
-     manipulated in a partially factored form.
-
-     During rational operations the expression is maintained as fully
-     factored as possible without calling ‘factor’.  This should always
-     save space and may save time in some computations.  The numerator
-     and denominator are made relatively prime, for example ‘factor
-     ((x^2 - 1)^4/(x + 1)^2)’ yields ‘(x - 1)^4 (x + 1)^2’, but the
-     factors within each part may not be relatively prime.
-
-     In the ‘ctensor’ (Component Tensor Manipulation) package, Ricci,
-     Einstein, Riemann, and Weyl tensors and the scalar curvature are
-     factored automatically when ‘ratfac’ is ‘true’.  _‘ratfac’ should
-     only be set for cases where the tensorial components are known to
-     consist of few terms._
-
-     The ‘ratfac’ and ‘ratweight’ schemes are incompatible and may not
-     both be used at the same time.
-
-
-File: maxima-core-docs.info,  Node: Function ratnumer expr
-
- -- Function: ratnumer (EXPR)
-     Returns the numerator of _expr_, after coercing _expr_ to a
-     canonical rational expression (CRE). The return value is a CRE.
-
-     _expr_ is coerced to a CRE by ‘rat’ if it is not already a CRE.
-     This conversion may change the form of _expr_ by putting all terms
-     over a common denominator.
-
-     ‘num’ is similar, but returns an ordinary expression instead of a
-     CRE. Also, ‘num’ does not attempt to place all terms over a common
-     denominator, and thus some expressions which are considered ratios
-     by ‘ratnumer’ are not considered ratios by ‘num’.
-
-
-File: maxima-core-docs.info,  Node: Function ratp expr
-
- -- Function: ratp (EXPR)
-     Returns ‘true’ if _expr_ is a canonical rational expression (CRE)
-     or extended CRE, otherwise ‘false’.
-
-     CRE are created by ‘rat’ and related functions.  Extended CRE are
-     created by ‘taylor’ and related functions.
-
-
-File: maxima-core-docs.info,  Node: Variable ratprint
-
- -- Variable: ratprint
-     Default value: ‘true’
-
-     When ‘ratprint’ is ‘true’, a message informing the user of the
-     conversion of floating point numbers to rational numbers is
-     displayed.
-
-
-File: maxima-core-docs.info,  Node: Function ratsimp ratsimp expr ratsimp expr x_1 ... x_n
-
- -- Function: ratsimp (RATSIMP, EXPR, RATSIMP, EXPR, X_1, ..., X_N)
-     Simplifies the expression _expr_ and all of its subexpressions,
-     including the arguments to non-rational functions.  The result is
-     returned as the quotient of two polynomials in a recursive form,
-     that is, the coefficients of the main variable are polynomials in
-     the other variables.  Variables may include non-rational functions
-     (e.g., ‘sin (x^2 + 1)’) and the arguments to any such functions are
-     also rationally simplified.
-
-     ‘ratsimp (expr, x_1, ..., x_n)’ enables rational simplification
-     with the specification of variable ordering as in ‘ratvars’.
-
-     When ‘ratsimpexpons’ is ‘true’, ‘ratsimp’ is applied to the
-     exponents of expressions during simplification.
-
-     See also ‘ratexpand’.  Note that ‘ratsimp’ is affected by some of
-     the flags which affect ‘ratexpand’.
-
-     Examples:
-
-     maxima
-     
-     (%i1) sin (x/(x^2 + x)) = exp ((log(x) + 1)^2 - log(x)^2);
-                                              2      2
-                        x         (log(x) + 1)  - log (x)
-     (%o1)        sin(------) = %e
-                       2
-                      x  + x
-     
-     
-     (%i2) ratsimp (%);
-                                  1          2
-     (%o2)                  sin(-----) = %e x
-                                x + 1
-     
-     
-     (%i3) ((x - 1)^(3/2) - (x + 1)*sqrt(x - 1))/sqrt((x - 1)*(x + 1));
-                            3/2
-                     (x - 1)    - sqrt(x - 1) (x + 1)
-     (%o3)           --------------------------------
-                          sqrt((x - 1) (x + 1))
-     
-     
-     (%i4) ratsimp (%);
-                                2 sqrt(x - 1)
-     (%o4)                    - -------------
-                                      2
-                                sqrt(x  - 1)
-     
-     
-     (%i5) x^(a + 1/a), ratsimpexpons: true;
-                                    2
-                                   a  + 1
-                                   ------
-                                     a
-     (%o5)                        x
-
-     See also: ‘ratexpand’.
-
-
-File: maxima-core-docs.info,  Node: Variable ratsimpexpons
-
- -- Variable: ratsimpexpons
-     Default value: ‘false’
-
-     When ‘ratsimpexpons’ is ‘true’, ‘ratsimp’ is applied to the
-     exponents of expressions during simplification.
-
-
-File: maxima-core-docs.info,  Node: Function ratsubst a b c
-
- -- Function: ratsubst (A, B, C)
-     Substitutes _a_ for _b_ in _c_ and returns the resulting
-     expression.
-
-     _b_ may be a sum, product, power, etc.
-
-     ‘ratsubst’ knows something of the meaning of expressions whereas
-     ‘subst’ does a purely syntactic substitution.  Thus ‘subst (a, x +
-     y, x + y + z)’ returns ‘x + y + z’ whereas ‘ratsubst’ returns ‘z +
-     a’.
-
-     When ‘radsubstflag’ is ‘true’, ‘ratsubst’ makes substitutions for
-     radicals in expressions which don't explicitly contain them.
-
-     ‘ratsubst’ ignores the value ‘true’ of the option variables
-     ‘keepfloat’, ‘float’, and ‘numer’.
-
-     Examples:
-
-     maxima
-     
-     (%i1) ratsubst (a, x*y^2, x^4*y^3 + x^4*y^8);
-                                   3      4
-     (%o1)                      a x  y + a
-     
-     
-     (%i2) cos(x)^4 + cos(x)^3 + cos(x)^2 + cos(x) + 1;
-                    4         3         2
-     (%o2)       cos (x) + cos (x) + cos (x) + cos(x) + 1
-     
-     
-     (%i3) ratsubst (1 - sin(x)^2, cos(x)^2, %);
-                 4           2                     2
-     (%o3)    sin (x) - 3 sin (x) + cos(x) (2 - sin (x)) + 3
-     
-     
-     (%i4) ratsubst (1 - cos(x)^2, sin(x)^2, sin(x)^4);
-                             4           2
-     (%o4)                cos (x) - 2 cos (x) + 1
-     
-     (%i5) radsubstflag: false$
-     
-     (%i6) ratsubst (u, sqrt(x), x);
-     (%o6)                           x
-     
-     (%i7) radsubstflag: true$
-     
-     (%i8) ratsubst (u, sqrt(x), x);
-                                     2
-     (%o8)                          u
-
-
-File: maxima-core-docs.info,  Node: Function ratvars ratvars x_1 ... x_n ratvars
-
- -- Function: ratvars (RATVARS, X_1, ..., X_N, RATVARS)
-     Declares main variables _x_1_, ..., _x_n_ for rational expressions.
-     _x_n_, if present in a rational expression, is considered the main
-     variable.  Otherwise, _x_[n-1]_ is considered the main variable if
-     present, and so on through the preceding variables to _x_1_, which
-     is considered the main variable only if none of the succeeding
-     variables are present.
-
-     If a variable in a rational expression is not present in the
-     ‘ratvars’ list, it is given a lower priority than _x_1_.
-
-     The arguments to ‘ratvars’ can be either variables or non-rational
-     functions such as ‘sin(x)’.
-
-     The variable ‘ratvars’ is a list of the arguments of the function
-     ‘ratvars’ when it was called most recently.  Each call to the
-     function ‘ratvars’ resets the list.  ‘ratvars ()’ clears the list.
-
-
-File: maxima-core-docs.info,  Node: Variable ratvarswitch
-
- -- Variable: ratvarswitch
-     Default value: ‘true’
-
-     Maxima keeps an internal list in the Lisp variable ‘VARLIST’ of the
-     main variables for rational expressions.  If ‘ratvarswitch’ is
-     ‘true’, every evaluation starts with a fresh list ‘VARLIST’.  This
-     is the default behavior.  Otherwise, the main variables from
-     previous evaluations are not removed from the internal list
-     ‘VARLIST’.
-
-     The main variables, which are declared with the function ‘ratvars’
-     are not affected by the option variable ‘ratvarswitch’.
-
-     Examples:
-
-     If ‘ratvarswitch’ is ‘true’, every evaluation starts with a fresh
-     list ‘VARLIST’.
-
-     maxima
-     (%i1) ratvarswitch:true$
-     
-     (%i2) rat(2*x+y^2);
-                                  2
-     (%o2)/R/                    y  + 2 x
-     
-     
-     (%i3) :lisp varlist
-     ($X $Y)
-     
-     
-     (%i3) rat(2*a+b^2);
-                                  2
-     (%o3)/R/                    b  + 2 a
-     
-     
-     (%i4) :lisp varlist
-     ($A $B)
-
-     If ‘ratvarswitch’ is ‘false’, the main variables from the last
-     evaluation are still present.
-
-     maxima
-     (%i1) ratvarswitch:false$
-     
-     (%i2) rat(2*x+y^2);
-                                  2
-     (%o2)/R/                    y  + 2 x
-     
-     
-     (%i3) :lisp varlist
-     ($X $Y)
-     
-     
-     (%i3) rat(2*a+b^2);
-                                  2
-     (%o3)/R/                    b  + 2 a
-     
-     
-     (%i4) :lisp varlist
-     ($A $B $X $Y)
-
-
-File: maxima-core-docs.info,  Node: Function ratweight ratweight x_1 w_1 ... x_n w_n ratweight
-
- -- Function: ratweight (RATWEIGHT, X_1, W_1, ..., X_N, W_N, RATWEIGHT)
-     Assigns a weight _w_i_ to the variable _x_i_.  This causes a term
-     to be replaced by 0 if its weight exceeds the value of the variable
-     ‘ratwtlvl’ (default yields no truncation).  The weight of a term is
-     the sum of the products of the weight of a variable in the term
-     times its power.  For example, the weight of ‘3 x_1^2 x_2’ is ‘2
-     w_1 + w_2’.  Truncation according to ‘ratwtlvl’ is carried out only
-     when multiplying or exponentiating canonical rational expressions
-     (CRE).
-
-     ‘ratweight ()’ returns the cumulative list of weight assignments.
-
-     Note: The ‘ratfac’ and ‘ratweight’ schemes are incompatible and may
-     not both be used at the same time.
-
-     Examples:
-
-     maxima
-     
-     (%i1) ratweight (a, 1, b, 1);
-     (%o1)                     [a, 1, b, 1]
-     
-     (%i2) expr1: rat(a + b + 1)$
-     
-     (%i3) expr1^2;
-                       2                  2
-     (%o3)/R/         b  + (2 a + 2) b + a  + 2 a + 1
-     
-     (%i4) ratwtlvl: 1$
-     
-     (%i5) expr1^2;
-     (%o5)/R/                  2 b + 2 a + 1
-
-
-File: maxima-core-docs.info,  Node: Variable ratweights
-
- -- Variable: ratweights
-     Default value: ‘[]’
-
-     ‘ratweights’ is the list of weights assigned by ‘ratweight’.  The
-     list is cumulative: each call to ‘ratweight’ places additional
-     items in the list.
-
-     ‘kill (ratweights)’ and ‘save (ratweights)’ both work as expected.
-
-
-File: maxima-core-docs.info,  Node: Variable ratwtlvl
-
- -- Variable: ratwtlvl
-     Default value: ‘false’
-
-     ‘ratwtlvl’ is used in combination with the ‘ratweight’ function to
-     control the truncation of canonical rational expressions (CRE). For
-     the default value of ‘false’, no truncation occurs.
-
-
-File: maxima-core-docs.info,  Node: Function remainder remainder p_1 p_2 remainder p_1 p_2 x_1 ... x_n
-
- -- Function: remainder (REMAINDER, P_1, P_2, REMAINDER, P_1, P_2, X_1,
-          ..., X_N)
-     Returns the remainder of the polynomial _p_1_ divided by the
-     polynomial _p_2_.  The arguments _x_1_, ..., _x_n_ are interpreted
-     as in ‘ratvars’.
-
-     ‘remainder’ returns the second element of the two-element list
-     returned by ‘divide’.
-
-
-File: maxima-core-docs.info,  Node: Function resultant p_1 p_2 x
-
- -- Function: resultant (P_1, P_2, X)
-     The function ‘resultant’ computes the resultant of the two
-     polynomials _p_1_ and _p_2_, eliminating the variable _x_.  The
-     resultant is a determinant of the coefficients of _x_ in _p_1_ and
-     _p_2_, which equals zero if and only if _p_1_ and _p_2_ have a
-     non-constant factor in common.
-
-     If _p_1_ or _p_2_ can be factored, it may be desirable to call
-     ‘factor’ before calling ‘resultant’.
-
-     The option variable ‘resultant’ controls which algorithm will be
-     used to compute the resultant.  See the option variable
-     ‘option_005fresultant’.
-
-     The function ‘bezout’ takes the same arguments as ‘resultant’ and
-     returns a matrix.  The determinant of the return value is the
-     desired resultant.
-
-     Examples:
-
-     maxima
-     
-     (%i1) resultant(2*x^2+3*x+1, 2*x^2+x+1, x);
-     (%o1)                           8
-     
-     
-     (%i2) resultant(x+1, x+1, x);
-     (%o2)                           0
-     
-     
-     (%i3) resultant((x+1)*x, (x+1), x);
-     (%o3)                           0
-     
-     
-     (%i4) resultant(a*x^2+b*x+1, c*x + 2, x);
-                              2
-     (%o4)                   c  - 2 b c + 4 a
-     
-     
-     (%i5) bezout(a*x^2+b*x+1, c*x+2, x);
-                             [ 2 a  2 b - c ]
-     (%o5)                   [              ]
-                             [  c      2    ]
-     
-     
-     (%i6) determinant(%);
-     (%o6)                   4 a - (2 b - c) c
-
-     See also: ‘factor’, ‘option_resultant’, ‘bezout’.
-
-
-File: maxima-core-docs.info,  Node: Variable savefactors
-
- -- Variable: savefactors
-     Default value: ‘false’
-
-     When ‘savefactors’ is ‘true’, causes the factors of an expression
-     which is a product of factors to be saved by certain functions in
-     order to speed up later factorizations of expressions containing
-     some of the same factors.
-
-
-File: maxima-core-docs.info,  Node: Function showratvars expr
-
- -- Function: showratvars (EXPR)
-     Returns a list of the canonical rational expression (CRE) variables
-     in expression ‘expr’.
-
-     See also ‘ratvars’.
-
-     See also: ‘ratvars’.
-
-
-File: maxima-core-docs.info,  Node: Function splitfield p x
-
- -- Function: splitfield (P, X)
-     Computes the splitting field of the polynomial p(x).  In the
-     generic case it is of degree n! in terms of the degree n of _p_,
-     but may be of lower order if the Galois group of _p_ is a strict
-     subgroup of the group of permutations of n elements.  The function
-     returns a primitive polynomial for this extension and the
-     expressions of the roots of _p_ as polynomials of a root of this
-     primitive polynomial.  The polynomial _f_ may be irreducible or
-     factorizable.
-
-     Examples:
-
-     (%i1) splitfield(x^3 + x + 1, x);
-                                                   4         2
-                   6         4         2       alg1  + 5 alg1  - 9 alg1 + 4
-     (%o1)/R/ [alg1  + 6 alg1  + 9 alg1  + 31, ----------------------------, 
-                                                            18
-                                      4         2          4         2
-                                  alg1  + 5 alg1  + 4  alg1  + 5 alg1  + 9 alg1 + 4
-                                - -------------------, ----------------------------]
-                                           9                        18
-     (%i2) splitfield(x^4 + 10*x^2 - 96*x - 71, x)[1];
-                  8           6           5            4             3
-     (%o2)/R/ alg2  + 148 alg2  - 576 alg2  + 9814 alg2  - 42624 alg2
-                                                         2
-                                            + 502260 alg2  + 1109952 alg2 + 18860337
-
-     In the first case we have the primitive polynomial of degree 6 and
-     the 3 roots of the third degree equations in terms of a variable
-     ‘alg1’ produced by the system.  In the second case the primitive
-     polynomial is of degree 8 instead of 24, because the Galois group
-     of the equation is reduced to D8 since there are relations between
-     the roots.
-
-
-File: maxima-core-docs.info,  Node: Function sqfr expr
-
- -- Function: sqfr (EXPR)
-     is similar to ‘factor’ except that the polynomial factors are
-     "square-free."  That is, they have factors only of degree one.
-     This algorithm, which is also used by the first stage of ‘factor’,
-     utilizes the fact that a polynomial has in common with its n'th
-     derivative all its factors of degree greater than n. Thus by taking
-     greatest common divisors with the polynomial of the derivatives
-     with respect to each variable in the polynomial, all factors of
-     degree greater than 1 can be found.
-
-     Example:
-
-     maxima
-     
-     (%i1) sqfr (4*x^4 + 4*x^3 - 3*x^2 - 4*x - 1);
-                                     2   2
-     (%o1)                  (2 x + 1)  (x  - 1)
-
-     See also: ‘factor’.
-
-
-File: maxima-core-docs.info,  Node: Function tellrat tellrat p_1 ... p_n tellrat
-
- -- Function: tellrat (TELLRAT, P_1, ..., P_N, TELLRAT)
+ -- Function: tellrat (P_1, ..., P_N)
      Adds to the ring of algebraic integers known to Maxima the elements
      which are the solutions of the polynomials _p_1_, ..., _p_n_.  Each
      argument _p_i_ is a polynomial with integer coefficients.
@@ -545,7 +69,7 @@ File: maxima-core-docs.info,  Node: Function tellrat tellrat p_1 ... p_n tellrat
      (%o6)                 [y  - x , a  + a + 1]
 
 
-File: maxima-core-docs.info,  Node: Function totaldisrep expr
+File: maxima-core-docs.info,  Node: Function totaldisrep expr,  Next: Function untellrat x_1 ... x_n,  Prev: Function tellrat p_1 ... p_n,  Up: Polynomials 2
 
  -- Function: totaldisrep (EXPR)
      Converts every subexpression of _expr_ from canonical rational
@@ -558,13 +82,13 @@ File: maxima-core-docs.info,  Node: Function totaldisrep expr
      CRE form.
 
 
-File: maxima-core-docs.info,  Node: Function untellrat x_1 ... x_n
+File: maxima-core-docs.info,  Node: Function untellrat x_1 ... x_n,  Prev: Function totaldisrep expr,  Up: Polynomials 2
 
  -- Function: untellrat (X_1, ..., X_N)
      Removes ‘tellrat’ properties from _x_1_, ..., _x_n_.
 
 
-File: maxima-core-docs.info,  Node: grobner,  Next: orthopoly,  Prev: ,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: grobner,  Next: orthopoly,  Prev: Polynomials 2,  Up: Maxima Core Documentation
 
 1.84 grobner
 ============
@@ -572,11 +96,11 @@ File: maxima-core-docs.info,  Node: grobner,  Next: orthopoly,  Prev: ,  Up: Max
 * Menu:
 
 * Function poly_add poly1 poly2 varlist::
-* Function poly_buchberger polylist_fl varlist::
+* Function poly_buchberger polylist_flvarlist::
 * Function poly_buchberger_criterion polylist varlist::
 * Variable poly_coefficient_ring::
 * Function poly_colon_ideal polylist1 polylist2 varlist::
-* Function poly_content poly  varlist::
+* Function poly_content polyvarlist::
 * Function poly_depends_p poly var varlist::
 * Function poly_elimination_ideal polylist number varlist::
 * Variable poly_elimination_order::
@@ -616,7 +140,7 @@ File: maxima-core-docs.info,  Node: grobner,  Next: orthopoly,  Prev: ,  Up: Max
 * Variable poly_top_reduction_only::
 
 
-File: maxima-core-docs.info,  Node: Function poly_add poly1 poly2 varlist,  Next: Function poly_buchberger polylist_fl varlist,  Up: grobner
+File: maxima-core-docs.info,  Node: Function poly_add poly1 poly2 varlist,  Next: Function poly_buchberger polylist_flvarlist,  Up: grobner
 
  -- Function: poly_add (POLY1, POLY2, VARLIST)
      Adds two polynomials _poly1_ and _poly2_.
@@ -626,14 +150,14 @@ File: maxima-core-docs.info,  Node: Function poly_add poly1 poly2 varlist,  Next
      (%o1)                              x  y + x
 
 
-File: maxima-core-docs.info,  Node: Function poly_buchberger polylist_fl varlist,  Next: Function poly_buchberger_criterion polylist varlist,  Prev: Function poly_add poly1 poly2 varlist,  Up: grobner
+File: maxima-core-docs.info,  Node: Function poly_buchberger polylist_flvarlist,  Next: Function poly_buchberger_criterion polylist varlist,  Prev: Function poly_add poly1 poly2 varlist,  Up: grobner
 
- -- Function: poly_buchberger (POLYLIST_FL, VARLIST)
+ -- Function: poly_buchberger (POLYLIST_FLVARLIST)
      ‘poly_buchberger’ performs the Buchberger algorithm on a list of
      polynomials and returns the resulting Groebner basis.
 
 
-File: maxima-core-docs.info,  Node: Function poly_buchberger_criterion polylist varlist,  Next: Variable poly_coefficient_ring,  Prev: Function poly_buchberger polylist_fl varlist,  Up: grobner
+File: maxima-core-docs.info,  Node: Function poly_buchberger_criterion polylist varlist,  Next: Variable poly_coefficient_ring,  Prev: Function poly_buchberger polylist_flvarlist,  Up: grobner
 
  -- Function: poly_buchberger_criterion (POLYLIST, VARLIST)
      Returns ‘true’ if _polylist_ is a Groebner basis with respect to
@@ -653,7 +177,7 @@ File: maxima-core-docs.info,  Node: Variable poly_coefficient_ring,  Next: Funct
      ‘ring_of_integers’ if desired.
 
 
-File: maxima-core-docs.info,  Node: Function poly_colon_ideal polylist1 polylist2 varlist,  Next: Function poly_content poly varlist,  Prev: Variable poly_coefficient_ring,  Up: grobner
+File: maxima-core-docs.info,  Node: Function poly_colon_ideal polylist1 polylist2 varlist,  Next: Function poly_content polyvarlist,  Prev: Variable poly_coefficient_ring,  Up: grobner
 
  -- Function: poly_colon_ideal (POLYLIST1, POLYLIST2, VARLIST)
      Returns the reduced Groebner basis of the colon ideal
@@ -663,16 +187,16 @@ File: maxima-core-docs.info,  Node: Function poly_colon_ideal polylist1 polylist
      where polylist1 and polylist2 are two lists of polynomials.
 
 
-File: maxima-core-docs.info,  Node: Function poly_content poly varlist,  Next: Function poly_depends_p poly var varlist,  Prev: Function poly_colon_ideal polylist1 polylist2 varlist,  Up: grobner
+File: maxima-core-docs.info,  Node: Function poly_content polyvarlist,  Next: Function poly_depends_p poly var varlist,  Prev: Function poly_colon_ideal polylist1 polylist2 varlist,  Up: grobner
 
- -- Function: poly_content (POLY, ., VARLIST)
+ -- Function: poly_content (POLY.VARLIST)
      ‘poly_content’ extracts the GCD of its coefficients
 
      (%i1) poly_content(35*y+21*x,[x,y]);
      (%o1)                                  7
 
 
-File: maxima-core-docs.info,  Node: Function poly_depends_p poly var varlist,  Next: Function poly_elimination_ideal polylist number varlist,  Prev: Function poly_content poly varlist,  Up: grobner
+File: maxima-core-docs.info,  Node: Function poly_depends_p poly var varlist,  Next: Function poly_elimination_ideal polylist number varlist,  Prev: Function poly_content polyvarlist,  Up: grobner
 
  -- Function: poly_depends_p (POLY, VAR, VARLIST)
      ‘poly_depends’ tests whether a polynomial depends on a variable
@@ -1107,11 +631,9 @@ File: maxima-core-docs.info,  Node: Function assoc_legendre_p n m x,  Next: Func
 
      P_n^m(x) = (-1)^m\left(1-x^2\right)^{m/2} {d^m\over dx^m} P_n(x)
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_779.htmA&S
-     eqn 22.5.37,
-     https://personal.math.ubc.ca/~cbm/aands/page_334.htmA&S eqn 8.6.6,
-     and https://personal.math.ubc.ca/~cbm/aands/page_333.htmA&S eqn
-     8.2.5.
+     Reference: https//personalmathubcca/~cbm/aands/page_779htmA&S eqn
+     22537, https//personalmathubcca/~cbm/aands/page_334htmA&S eqn 866,
+     and https//personalmathubcca/~cbm/aands/page_333htmA&S eqn 825.
 
      Some examples:
 
@@ -1186,8 +708,8 @@ File: maxima-core-docs.info,  Node: Function chebyshev_t n x,  Next: Function ch
  -- Function: chebyshev_t (N, X)
      The Chebyshev polynomial of the first kind of degree n, T_n(x).
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_779.htmA&S
-     eqn 22.5.47.
+     Reference: https//personalmathubcca/~cbm/aands/page_779htmA&S eqn
+     22547.
 
      The polynomials T_n(x) can be written in terms of a hypergeometric
      function:
@@ -1246,8 +768,8 @@ File: maxima-core-docs.info,  Node: Function chebyshev_u n x,  Next: Function ge
  -- Function: chebyshev_u (N, X)
      The Chebyshev polynomial of the second kind of degree n, U_n(x).
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_779.htmA&S
-     eqn 22.5.48.
+     Reference: https//personalmathubcca/~cbm/aands/page_779htmA&S eqn
+     22548.
 
      The polynomials U_n(x) can be written in terms of a hypergeometric
      function:
@@ -1338,8 +860,8 @@ File: maxima-core-docs.info,  Node: Function gen_laguerre n a x,  Next: Function
 
      \eqalign{ w(x) &= e^{-x}x^{\alpha} \cr \kappa_n &= n! }
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_780.htmA&S
-     eqn 22.5.54.
+     Reference: https//personalmathubcca/~cbm/aands/page_780htmA&S eqn
+     22554.
 
      Some examples:
 
@@ -1401,8 +923,8 @@ File: maxima-core-docs.info,  Node: Function hermite n x,  Next: Function interv
 
      \eqalign{ w(x) &= e^{-{x^2/2}} \cr \kappa_n &= (-1)^n }
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_780.htmA&S
-     eqn 22.5.55.
+     Reference: https//personalmathubcca/~cbm/aands/page_780htmA&S eqn
+     22555.
 
      Some examples:
 
@@ -1446,8 +968,8 @@ File: maxima-core-docs.info,  Node: Function jacobi_p n a b x,  Next: Function l
      however, the Jacobi polynomial weight (1 - x)^a (1 + x)^b isn't
      integrable for a \le -1 or b \le -1.
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_779.htmA&S
-     eqn 22.5.42.
+     Reference: https//personalmathubcca/~cbm/aands/page_779htmA&S eqn
+     22542.
 
      The polynomial may be defined in terms of hypergeometric functions:
 
@@ -1491,10 +1013,9 @@ File: maxima-core-docs.info,  Node: Function laguerre n x,  Next: Function legen
  -- Function: laguerre (N, X)
      The Laguerre polynomial, L_n(x) of degree n.
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_778.htmA&S
-     eqn 22.5.16 and
-     https://personal.math.ubc.ca/~cbm/aands/page_780.htmA&S eqn
-     22.5.54.
+     Reference: https//personalmathubcca/~cbm/aands/page_778htmA&S eqn
+     22516 and https//personalmathubcca/~cbm/aands/page_780htmA&S eqn
+     22554.
 
      These are related to the generalized Laguerre polynomial by
 
@@ -1539,10 +1060,9 @@ File: maxima-core-docs.info,  Node: Function legendre_p n x,  Next: Function leg
  -- Function: legendre_p (N, X)
      The Legendre polynomial of the first kind, P_n(x), of degree n.
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_779.htmA&S
-     eqn 22.5.50 and
-     https://personal.math.ubc.ca/~cbm/aands/page_779.htmA&S eqn
-     22.5.51.
+     Reference: https//personalmathubcca/~cbm/aands/page_779htmA&S eqn
+     22550 and https//personalmathubcca/~cbm/aands/page_779htmA&S eqn
+     22551.
 
      The Legendre polynomial is related to the Jacobi polynomials by
 
@@ -1699,8 +1219,8 @@ File: maxima-core-docs.info,  Node: Function pochhammer x n,  Next: Variable poc
 
  -- Function: pochhammer (X, N)
      The Pochhammer symbol, (x)_n. (See
-     https://personal.math.ubc.ca/~cbm/aands/page_256.htmA&S eqn 6.1.22
-     and https://dlmf.nist.gov/5.2.iiiDLMF 5.2.iii).
+     https//personalmathubcca/~cbm/aands/page_256htmA&S eqn 6122 and
+     https//dlmfnistgov/52iiiDLMF 52iii).
 
      For nonnegative integers _n_ with ‘n <= pochhammer_max_index’, the
      expression (x)_n evaluates to the product x(x+1)(x+2)\cdots(x+n-1)
@@ -1715,8 +1235,8 @@ File: maxima-core-docs.info,  Node: Function pochhammer x n,  Next: Variable poc
                            (1 - x) (2 - x) (3 - x)
 
      To convert a Pochhammer symbol into a quotient of gamma functions,
-     (see https://personal.math.ubc.ca/~cbm/aands/page_256.htmA&S eqn
-     6.1.22) use ‘makegamma’; for example
+     (see https//personalmathubcca/~cbm/aands/page_256htmA&S eqn 6122)
+     use ‘makegamma’; for example
 
      (%i1) makegamma (pochhammer (x, n));
                                gamma(x + n)
@@ -1749,8 +1269,8 @@ File: maxima-core-docs.info,  Node: Variable pochhammer_max_index,  Next: Functi
      (%o2)                         (x)
                                       4
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_256.htmA&S
-     eqn 6.1.16.
+     Reference: https//personalmathubcca/~cbm/aands/page_256htmA&S eqn
+     6116.
 
 
 File: maxima-core-docs.info,  Node: Function spherical_bessel_j n x,  Next: Function spherical_bessel_y n x,  Prev: Variable pochhammer_max_index,  Up: orthopoly
@@ -1758,10 +1278,9 @@ File: maxima-core-docs.info,  Node: Function spherical_bessel_j n x,  Next: Func
  -- Function: spherical_bessel_j (N, X)
      The spherical Bessel function of the first kind, j_n(x).
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_437.htmA&S
-     eqn 10.1.8 and
-     https://personal.math.ubc.ca/~cbm/aands/page_439.htmA&S eqn
-     10.1.15.
+     Reference: https//personalmathubcca/~cbm/aands/page_437htmA&S eqn
+     1018 and https//personalmathubcca/~cbm/aands/page_439htmA&S eqn
+     10115.
 
      It is related to the Bessel function by
 
@@ -1801,10 +1320,9 @@ File: maxima-core-docs.info,  Node: Function spherical_bessel_y n x,  Next: Func
  -- Function: spherical_bessel_y (N, X)
      The spherical Bessel function of the second kind, y_n(x).
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_437.htmA&S
-     eqn 10.1.9 and
-     https://personal.math.ubc.ca/~cbm/aands/page_439.htmA&S eqn
-     10.1.15.
+     Reference: https//personalmathubcca/~cbm/aands/page_437htmA&S eqn
+     1019 and https//personalmathubcca/~cbm/aands/page_439htmA&S eqn
+     10115.
 
      It is related to the Bessel function by
 
@@ -1842,8 +1360,8 @@ File: maxima-core-docs.info,  Node: Function spherical_hankel1 n x,  Next: Funct
  -- Function: spherical_hankel1 (N, X)
      The spherical Hankel function of the first kind, h_n^{(1)}(x).
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_439.htmA&S
-     eqn 10.1.36.
+     Reference: https//personalmathubcca/~cbm/aands/page_439htmA&S eqn
+     10136.
 
      This is defined by
 
@@ -1862,8 +1380,8 @@ File: maxima-core-docs.info,  Node: Function spherical_hankel2 n x,  Next: Funct
  -- Function: spherical_hankel2 (N, X)
      The spherical Hankel function of the second kind, h_n^{(2)}(x).
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_439.htmA&S
-     eqn 10.1.17.
+     Reference: https//personalmathubcca/~cbm/aands/page_439htmA&S eqn
+     10117.
 
      This is defined by
 
@@ -1898,10 +1416,10 @@ File: maxima-core-docs.info,  Node: Function spherical_harmonic n m theta phi,  
 
      The factor (-1)^m, frequently used in Quantum mechanics, is called
      the
-     https://en.wikipedia.org/wiki/Spherical_harmonics#Condon%E2%80%93Shortley_phaseCondon-Shortely
+     https//enwikipediaorg/wiki/Spherical_harmonics#Condon%E2%80%93Shortley_phaseCondon-Shortely
      phase.  Some references, including _NIST Digital Library of
      Mathematical Functions_ omit this factor; see
-     http://dlmf.nist.gov/14.30.E1.
+     http//dlmfnistgov/1430E1.
 
      Reference: Merzbacher 9.64.
 
@@ -1948,8 +1466,8 @@ File: maxima-core-docs.info,  Node: Function ultraspherical n a x,  Next: Functi
      The ultraspherical polynomial, C_n^{(a)}(x) (also known as the
      Gegenbauer polynomial).
 
-     Reference: https://personal.math.ubc.ca/~cbm/aands/page_779.htmA&S
-     eqn 22.5.46.
+     Reference: https//personalmathubcca/~cbm/aands/page_779htmA&S eqn
+     22546.
 
      These polynomials can be given in terms of Jacobi polynomials:
 
@@ -2116,29 +1634,32 @@ File: maxima-core-docs.info,  Node: Function ratp_lopow expr x,  Prev: Function 
      (%o5)                           0
 
 
-File: maxima-core-docs.info,  Node: Programming,  Next: ,  Prev: ratpow,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Programming,  Next: Command Line 2,  Prev: ratpow,  Up: Maxima Core Documentation
 
 1.87 Programming
 ================
+
+
+File: maxima-core-docs.info,  Node: Command Line 2,  Next: Data Types and Structures 3,  Prev: Programming,  Up: Maxima Core Documentation
 
 1.88 Command Line
 =================
 
 * Menu:
 
-* Function $ ::
+* Function $::
 * Variable %::
 * Variable %%::
 * Function %th i::
-* Function ; ::
-* Function ? ::
-* Function ?? ::
+* Function ;::
+* Function ?::
+* Function ??::
 * Variable _::
 * Variable __::
 * Function eval_string_lisp str::
 * Variable inchar::
 * Variable infolists::
-* Function kill kill a_1 ... a_n kill labels kill inlabels outlabels linelabels kill n kill m n kill values functions arrays ... kill all kill allbut a_1 ... a_n::
+* Function kill a_1 ... a_n::
 * Function labels symbol::
 * Variable linechar::
 * Variable linenum::
@@ -2146,42 +1667,44 @@ File: maxima-core-docs.info,  Node: Programming,  Next: ,  Prev: ratpow,  Up: Ma
 * Variable nolabels::
 * Variable optionset::
 * Variable outchar::
-* Function playback playback playback n playback m n playback m playback input playback slow playback time playback grind::
+* Function playback::
 * Variable prompt::
-* Function quit exit-code::
+* Function quit [exit-code]::
 * Function read expr_1 ... expr_n::
 * Function readonly expr_1 ... expr_n::
-* Function reset ::
+* Function reset::
 * Variable showtime::
-* Function to_lisp ::
+* Function to_lisp::
 * Variable values::
 
 
-File: maxima-core-docs.info,  Node: Function $
+File: maxima-core-docs.info,  Node: Function $,  Next: Function ;,  Up: Command Line 2
 
- -- Function: $ ()
-     The dollar sign ‘$’ terminates an input expression, and the most
-     recent output ‘%’ and an output label, e.g. ‘%o1’, are assigned the
-     result, but the result is not displayed.
+1.88.1 Function: $
+------------------
 
-     See also ‘_003b’.
+The dollar sign ‘$’ terminates an input expression, and the most recent
+output ‘%’ and an output label, e.g. ‘%o1’, are assigned the result, but
+the result is not displayed.
 
-     Example:
+See also ‘_003b’.
 
-     maxima
-     (%i1) 1 + 2 + 3 $
-     
-     (%i2) %;
-     (%o2)                           6
-     
-     
-     (%i3) %o1;
-     (%o3)                           6
+Example:
 
-     See also: ‘;’.
+maxima
+(%i1) 1 + 2 + 3 $
+
+(%i2) %;
+(%o2)                           6
+
+
+(%i3) %o1;
+(%o3)                           6
+
+See also: ‘;’.
 
 
-File: maxima-core-docs.info,  Node: Variable %
+File: maxima-core-docs.info,  Node: Variable %,  Next: Variable %%,  Prev: Function $,  Up: Command Line 2
 
  -- Variable: %
      ‘%’ is the output expression (e.g., ‘%o1’, ‘%o2’, ‘%o3’, ...) most
@@ -2199,7 +1722,7 @@ File: maxima-core-docs.info,  Node: Variable %
      See also: ‘batch’, ‘load’, ‘_’, ‘%%’, ‘%th’.
 
 
-File: maxima-core-docs.info,  Node: Variable %%
+File: maxima-core-docs.info,  Node: Variable %%,  Next: Function %th i,  Prev: Variable %,  Up: Command Line 2
 
  -- Variable: %%
      In compound statements, namely ‘block’, ‘lambda’, or ‘(s_1, ...,
@@ -2256,7 +1779,7 @@ File: maxima-core-docs.info,  Node: Variable %%
      See also: ‘block’, ‘lambda’, ‘batch’, ‘load’, ‘%’, ‘break’.
 
 
-File: maxima-core-docs.info,  Node: Function %th i
+File: maxima-core-docs.info,  Node: Function %th i,  Next: Function ;,  Prev: Variable %%,  Up: Command Line 2
 
  -- Function: %th (I)
      The value of the _i_'th previous output expression.  That is, if
@@ -2294,54 +1817,57 @@ File: maxima-core-docs.info,  Node: Function %th i
      See also: ‘batch’, ‘load’, ‘%’, ‘%%’.
 
 
-File: maxima-core-docs.info,  Node: Function ;
+File: maxima-core-docs.info,  Node: Function ;,  Next: Function ?,  Prev: Function $,  Up: Command Line 2
 
- -- Function: ; ()
-     The semicolon ‘;’ terminates an input expression, and the resulting
-     output is displayed.
+1.88.2 Function: ;
+------------------
 
-     See also ‘_0024’.
+The semicolon ‘;’ terminates an input expression, and the resulting
+output is displayed.
 
-     Example:
+See also ‘_0024’.
 
-     maxima
-     
-     (%i1) 1 + 2 + 3;
-     (%o1)                           6
+Example:
 
-     See also: ‘$’.
+maxima
 
-
-File: maxima-core-docs.info,  Node: Function ?
+(%i1) 1 + 2 + 3;
+(%o1)                           6
 
- -- Function: ? ()
-     As prefix to a function or variable name, ‘?’ signifies that the
-     name is a Lisp name, not a Maxima name.  For example, ‘?round’
-     signifies the Lisp function ‘ROUND’.  See ‘Lisp-and-Maxima’ for
-     more on this point.
-
-     The notation ‘? word’ (a question mark followed a word, separated
-     by whitespace) is equivalent to ‘describe("word")’.  The question
-     mark must occur at the beginning of an input line; otherwise it is
-     not recognized as a request for documentation.  See also
-     ‘describe’.
-
-     See also: ‘Lisp-and-Maxima’, ‘describe’.
+See also: ‘$’.
 
 
-File: maxima-core-docs.info,  Node: Function ??
+File: maxima-core-docs.info,  Node: Function ?,  Next: Function ??,  Prev: Function ;,  Up: Command Line 2
 
- -- Function: ?? ()
-     The notation ‘?? word’ (‘??’ followed a word, separated by
-     whitespace) is equivalent to ‘describe("word", inexact)’.  The
-     question mark must occur at the beginning of an input line;
-     otherwise it is not recognized as a request for documentation.  See
-     also ‘describe’.
+1.88.3 Function: ?
+------------------
 
-     See also: ‘describe’.
+As prefix to a function or variable name, ‘?’ signifies that the name is
+a Lisp name, not a Maxima name.  For example, ‘?round’ signifies the
+Lisp function ‘ROUND’.  See ‘Lisp-and-Maxima’ for more on this point.
+
+The notation ‘? word’ (a question mark followed a word, separated by
+whitespace) is equivalent to ‘describe("word")’.  The question mark must
+occur at the beginning of an input line; otherwise it is not recognized
+as a request for documentation.  See also ‘describe’.
+
+See also: ‘Lisp-and-Maxima’, ‘describe’.
 
 
-File: maxima-core-docs.info,  Node: Variable _
+File: maxima-core-docs.info,  Node: Function ??,  Next: Variable _,  Prev: Function ?,  Up: Command Line 2
+
+1.88.4 Function: ??
+-------------------
+
+The notation ‘?? word’ (‘??’ followed a word, separated by whitespace)
+is equivalent to ‘describe("word", inexact)’.  The question mark must
+occur at the beginning of an input line; otherwise it is not recognized
+as a request for documentation.  See also ‘describe’.
+
+See also: ‘describe’.
+
+
+File: maxima-core-docs.info,  Node: Variable _,  Next: Variable __,  Prev: Function ??,  Up: Command Line 2
 
  -- Variable: _
      ‘_’ is the most recent input expression (e.g., ‘%i1’, ‘%i2’, ‘%i3’,
@@ -2412,7 +1938,7 @@ File: maxima-core-docs.info,  Node: Variable _
      See also: ‘batch’, ‘load’, ‘__’, ‘%’.
 
 
-File: maxima-core-docs.info,  Node: Variable __
+File: maxima-core-docs.info,  Node: Variable __,  Next: Function eval_string_lisp str,  Prev: Variable _,  Up: Command Line 2
 
  -- Variable: __
      ‘__’ is the input expression currently being evaluated.  That is,
@@ -2466,7 +1992,7 @@ File: maxima-core-docs.info,  Node: Variable __
      See also: ‘batch’, ‘load’, ‘_’, ‘%’.
 
 
-File: maxima-core-docs.info,  Node: Function eval_string_lisp str
+File: maxima-core-docs.info,  Node: Function eval_string_lisp str,  Next: Variable inchar,  Prev: Variable __,  Up: Command Line 2
 
  -- Function: eval_string_lisp (STR)
      Sequentially read lisp forms from the string _str_ and evaluate
@@ -2509,7 +2035,7 @@ File: maxima-core-docs.info,  Node: Function eval_string_lisp str
      See also: ‘eval_string’.
 
 
-File: maxima-core-docs.info,  Node: Variable inchar
+File: maxima-core-docs.info,  Node: Variable inchar,  Next: Variable infolists,  Prev: Function eval_string_lisp str,  Up: Command Line 2
 
  -- Variable: inchar
      Default value: ‘%i’
@@ -2543,7 +2069,7 @@ File: maxima-core-docs.info,  Node: Variable inchar
      See also: ‘linenum’, ‘outchar’, ‘linechar’, ‘labels’.
 
 
-File: maxima-core-docs.info,  Node: Variable infolists
+File: maxima-core-docs.info,  Node: Variable infolists,  Next: Function kill a_1 ... a_n,  Prev: Variable inchar,  Up: Command Line 2
 
  -- Variable: infolists
      Default value: ‘[]’
@@ -2584,12 +2110,9 @@ File: maxima-core-docs.info,  Node: Variable infolists
      ‘matchdeclare’, ‘defstruct’, ‘let’, ‘default_let_rule_package’.
 
 
-File: maxima-core-docs.info,  Node: Function kill kill a_1 ... a_n kill labels kill inlabels outlabels linelabels kill n kill m n kill values functions arrays ... kill all kill allbut a_1 ... a_n
+File: maxima-core-docs.info,  Node: Function kill a_1 ... a_n,  Next: Function labels symbol,  Prev: Variable infolists,  Up: Command Line 2
 
- -- Function: kill (KILL, A_1, ..., A_N, KILL, LABELS, KILL, INLABELS,
-          OUTLABELS, LINELABELS, KILL, N, KILL, M, N, KILL, VALUES,
-          FUNCTIONS, ARRAYS, ..., KILL, ALL, KILL, ALLBUT, A_1, ...,
-          A_N)
+ -- Function: kill (A_1, ..., A_N)
      Removes all bindings (value, function, array, or rule) from the
      arguments _a_1_, ..., _a_n_.  An argument _a_k_ may be a symbol or
      a single array element.  When _a_k_ is a single array element,
@@ -2648,7 +2171,7 @@ File: maxima-core-docs.info,  Node: Function kill kill a_1 ... a_n kill labels k
      ‘remarray’, ‘remrule’, ‘assume’.
 
 
-File: maxima-core-docs.info,  Node: Function labels symbol
+File: maxima-core-docs.info,  Node: Function labels symbol,  Next: Variable linechar,  Prev: Function kill a_1 ... a_n,  Up: Command Line 2
 
  -- Function: labels (SYMBOL)
      Returns the list of input, output, or intermediate expression
@@ -2676,7 +2199,7 @@ File: maxima-core-docs.info,  Node: Function labels symbol
      ‘programmode’, ‘solve’, ‘ldisplay’, ‘infolists’.
 
 
-File: maxima-core-docs.info,  Node: Variable linechar
+File: maxima-core-docs.info,  Node: Variable linechar,  Next: Variable linenum,  Prev: Function labels symbol,  Up: Command Line 2
 
  -- Variable: linechar
      Default value: ‘%t’
@@ -2700,14 +2223,14 @@ File: maxima-core-docs.info,  Node: Variable linechar
      See also: ‘linenum’, ‘inchar’, ‘outchar’, ‘programmode’, ‘labels’.
 
 
-File: maxima-core-docs.info,  Node: Variable linenum
+File: maxima-core-docs.info,  Node: Variable linenum,  Next: Variable myoptions,  Prev: Variable linechar,  Up: Command Line 2
 
  -- Variable: linenum
      The line number of the current pair of input and output
      expressions.
 
 
-File: maxima-core-docs.info,  Node: Variable myoptions
+File: maxima-core-docs.info,  Node: Variable myoptions,  Next: Variable nolabels,  Prev: Variable linenum,  Up: Command Line 2
 
  -- Variable: myoptions
      Default value: ‘[]’
@@ -2716,7 +2239,7 @@ File: maxima-core-docs.info,  Node: Variable myoptions
      whether or not they get reset to their default value.
 
 
-File: maxima-core-docs.info,  Node: Variable nolabels
+File: maxima-core-docs.info,  Node: Variable nolabels,  Next: Variable optionset,  Prev: Variable myoptions,  Up: Command Line 2
 
  -- Variable: nolabels
      Default value: ‘false’
@@ -2739,7 +2262,7 @@ File: maxima-core-docs.info,  Node: Variable nolabels
      See also: ‘labels’, ‘batch’, ‘load’.
 
 
-File: maxima-core-docs.info,  Node: Variable optionset
+File: maxima-core-docs.info,  Node: Variable optionset,  Next: Variable outchar,  Prev: Variable nolabels,  Up: Command Line 2
 
  -- Variable: optionset
      Default value: ‘false’
@@ -2762,7 +2285,7 @@ File: maxima-core-docs.info,  Node: Variable optionset
      (%o2)                         true
 
 
-File: maxima-core-docs.info,  Node: Variable outchar
+File: maxima-core-docs.info,  Node: Variable outchar,  Next: Function playback,  Prev: Variable optionset,  Up: Command Line 2
 
  -- Variable: outchar
      Default value: ‘%o’
@@ -2796,11 +2319,9 @@ File: maxima-core-docs.info,  Node: Variable outchar
      See also: ‘linenum’, ‘inchar’, ‘linechar’, ‘labels’.
 
 
-File: maxima-core-docs.info,  Node: Function playback playback playback n playback m n playback m playback input playback slow playback time playback grind
+File: maxima-core-docs.info,  Node: Function playback,  Next: Variable prompt,  Prev: Variable outchar,  Up: Command Line 2
 
- -- Function: playback (PLAYBACK, PLAYBACK, N, PLAYBACK, M, N, PLAYBACK,
-          M, PLAYBACK, INPUT, PLAYBACK, SLOW, PLAYBACK, TIME, PLAYBACK,
-          GRIND)
+ -- Function: playback ()
      Displays input, output, and intermediate expressions, without
      recomputing them.  ‘playback’ only displays the expressions bound
      to labels; any other output (such as text printed by ‘print’ or
@@ -2847,7 +2368,7 @@ File: maxima-core-docs.info,  Node: Function playback playback playback n playba
      ‘grind’.
 
 
-File: maxima-core-docs.info,  Node: Variable prompt
+File: maxima-core-docs.info,  Node: Variable prompt,  Next: Function quit [exit-code],  Prev: Function playback,  Up: Command Line 2
 
  -- Variable: prompt
      Default value: ‘_’
@@ -2858,9 +2379,9 @@ File: maxima-core-docs.info,  Node: Variable prompt
      See also: ‘demo’, ‘break’.
 
 
-File: maxima-core-docs.info,  Node: Function quit exit-code
+File: maxima-core-docs.info,  Node: Function quit [exit-code],  Next: Function read expr_1 ... expr_n,  Prev: Variable prompt,  Up: Command Line 2
 
- -- Function: quit (EXIT-CODE)
+ -- Function: quit ([EXIT-CODE])
      Terminates the Maxima session.  Note that the function must be
      invoked as ‘quit();’ or ‘quit()$’, not ‘quit’ by itself.  ‘quit’
      supports returning an exit code to the shell for Lisps and OSes
@@ -2877,7 +2398,7 @@ File: maxima-core-docs.info,  Node: Function quit exit-code
      See also: ‘Debugging’.
 
 
-File: maxima-core-docs.info,  Node: Function read expr_1 ... expr_n
+File: maxima-core-docs.info,  Node: Function read expr_1 ... expr_n,  Next: Function readonly expr_1 ... expr_n,  Prev: Function quit [exit-code],  Up: Command Line 2
 
  -- Function: read (EXPR_1, ..., EXPR_N)
      Prints _expr_1_, ..., _expr_n_, then reads one expression from the
@@ -2900,7 +2421,7 @@ File: maxima-core-docs.info,  Node: Function read expr_1 ... expr_n
      See also: ‘readonly’.
 
 
-File: maxima-core-docs.info,  Node: Function readonly expr_1 ... expr_n
+File: maxima-core-docs.info,  Node: Function readonly expr_1 ... expr_n,  Next: Function reset,  Prev: Function read expr_1 ... expr_n,  Up: Command Line 2
 
  -- Function: readonly (EXPR_1, ..., EXPR_N)
      Prints _expr_1_, ..., _expr_n_, then reads one expression from the
@@ -2927,7 +2448,7 @@ File: maxima-core-docs.info,  Node: Function readonly expr_1 ... expr_n
      See also: ‘read’.
 
 
-File: maxima-core-docs.info,  Node: Function reset
+File: maxima-core-docs.info,  Node: Function reset,  Next: Variable showtime,  Prev: Function readonly expr_1 ... expr_n,  Up: Command Line 2
 
  -- Function: reset ()
      Resets many global variables and options, and some other variables,
@@ -2940,7 +2461,7 @@ File: maxima-core-docs.info,  Node: Function reset
      variables defined by ‘defmvar’ are not global variables or options.
 
 
-File: maxima-core-docs.info,  Node: Variable showtime
+File: maxima-core-docs.info,  Node: Variable showtime,  Next: Function to_lisp,  Prev: Function reset,  Up: Command Line 2
 
  -- Variable: showtime
      Default value: ‘false’
@@ -2956,7 +2477,7 @@ File: maxima-core-docs.info,  Node: Variable showtime
      See also: ‘time’, ‘playback’, ‘timer’.
 
 
-File: maxima-core-docs.info,  Node: Function to_lisp
+File: maxima-core-docs.info,  Node: Function to_lisp,  Next: Variable values,  Prev: Variable showtime,  Up: Command Line 2
 
  -- Function: to_lisp ()
      Enters the Lisp system under Maxima.  ‘(to-maxima)’ returns to
@@ -2988,7 +2509,7 @@ File: maxima-core-docs.info,  Node: Function to_lisp
      (%o3)                       x (x + 1)
 
 
-File: maxima-core-docs.info,  Node: Variable values
+File: maxima-core-docs.info,  Node: Variable values,  Prev: Function to_lisp,  Up: Command Line 2
 
  -- Variable: values
      Initial value: ‘[]’
@@ -3028,6 +2549,9 @@ File: maxima-core-docs.info,  Node: Variable values
 
      See also: ‘:’, ‘::’, ‘remove’, ‘remvalue’, ‘functions’.
 
+
+File: maxima-core-docs.info,  Node: Data Types and Structures 3,  Next: Debugging,  Prev: Command Line 2,  Up: Maxima Core Documentation
+
 1.89 Data Types and Structures
 ==============================
 
@@ -3039,24 +2563,24 @@ File: maxima-core-docs.info,  Node: Variable values
 * Variable %i::
 * Variable %phi::
 * Variable %pi::
-* Function @ ::
+* Function @::
 * Variable [::
-* Function accumulate accumulate op X X0 accumulate op X::
+* Function accumulate op X X0::
 * Function append list_1 ... list_n::
-* Function array array name dim_1 ... dim_n array name type dim_1 ... dim_n array name_1 ... name_m dim_1 ... dim_n::
-* Function arrayapply A i_1 ... i_n::
+* Function array name dim_1 ... dim_n::
+* Function arrayapply A [i_1 ... i_n]::
 * Function arrayinfo A::
-* Function arraymake A i_1 ... i_n::
+* Function arraymake A [i_1 ... i_n]::
 * Variable arrays::
-* Function arraysetapply A i_1 ... i_n x::
-* Function assoc assoc key e default assoc key e::
-* Function cons cons expr list cons expr_1 expr_2::
+* Function arraysetapply A [i_1 ... i_n] x::
+* Function assoc key e default::
+* Function cons expr list::
 * Function copylist list::
 * Function create_list form x_1 list_1 ... x_n list_n::
-* Function defstruct defstruct S a_1 ... a_n defstruct S a_1 = v_1 ... a_n = v_n::
-* Function delete delete expr_1 expr_2 delete expr_1 expr_2 n::
+* Function defstruct Sa_1 ... a_n::
+* Function delete expr_1 expr_2::
 * Function eighth expr::
-* Function endcons endcons expr list endcons expr_1 expr_2::
+* Function endcons expr list::
 * Variable false::
 * Function fifth expr::
 * Function fillarray A B::
@@ -3078,28 +2602,28 @@ File: maxima-core-docs.info,  Node: Variable values
 * Variable listarith::
 * Function listarray A::
 * Function listp expr::
-* Function lreduce lreduce F s lreduce F s s_0::
+* Function lreduce F s::
 * Function make_array type dim_1 ... dim_n::
-* Function makelist makelist makelist expr makelist expr n makelist expr i i_max makelist expr i i_0 i_max makelist expr i i_0 i_max step makelist expr x list::
+* Function makelist::
 * Function member expr_1 expr_2::
 * Variable minf::
 * Variable most_negative_float::
 * Variable most_positive_float::
-* Function new new S new S v_1 ... v_n::
+* Function new S::
 * Function ninth expr::
-* Function ordering ordering L ordering L P::
+* Function ordering L::
 * Function pop list::
 * Function push item list::
-* Function ranks ranks L P ties_method ranks L P ranks L::
+* Function ranks L P ties_method::
 * Function rearray A dim_1 ... dim_n::
-* Function remarray remarray A_1 ... A_n remarray all::
-* Function rest rest expr n rest expr::
+* Function remarray A_1 ... A_n::
+* Function rest expr n::
 * Function reverse list::
-* Function rreduce rreduce F s rreduce F s s_{n + 1}::
+* Function rreduce F s::
 * Function second expr::
 * Function seventh expr::
 * Function sixth expr::
-* Function sort sort L P sort L::
+* Function sort L P::
 * Variable structures::
 * Function sublist list p::
 * Function sublist_indices L P::
@@ -3108,17 +2632,17 @@ File: maxima-core-docs.info,  Node: Variable values
 * Function tenth expr::
 * Function third expr::
 * Variable translate_fast_arrays::
-* Function tree_reduce tree_reduce F s tree_reduce F s s_0::
+* Function tree_reduce F s::
 * Variable true::
 * Variable und::
 * Function unique L::
 * Variable use_fast_arrays::
-* Function xreduce xreduce F s xreduce F s s_0::
+* Function xreduce F s::
 * Variable zeroa::
 * Variable zerob::
 
 
-File: maxima-core-docs.info,  Node: Variable %catalan
+File: maxima-core-docs.info,  Node: Variable %catalan,  Next: Variable %e,  Up: Data Types and Structures 3
 
  -- Variable: %catalan
      ‘%catalan’ represents Catalan's constant, G, defined by
@@ -3130,25 +2654,25 @@ File: maxima-core-docs.info,  Node: Variable %catalan
      (It is also sometimes denoted by C).
 
      The numeric value of ‘%catalan’ is approximately 0.915965594177219.
-     (See https://dlmf.nist.gov/25.11.E40DLMF 25.11.E40).
+     (See https//dlmfnistgov/2511E40DLMF 2511E40).
 
 
-File: maxima-core-docs.info,  Node: Variable %e
+File: maxima-core-docs.info,  Node: Variable %e,  Next: Variable %gamma,  Prev: Variable %catalan,  Up: Data Types and Structures 3
 
  -- Variable: %e
      ‘%e’ represents the base of the natural logarithm, also known as
      Euler's number.  The numeric value of ‘%e’ is the double-precision
      floating-point value 2.718281828459045d0.  (See
-     https://personal.math.ubc.ca/~cbm/aands/page_67.htmA&S eqn 4.1.16,
-     https://personal.math.ubc.ca/~cbm/aands/page_67.htmA&S 4.1.17.)
+     https//personalmathubcca/~cbm/aands/page_67htmA&S eqn 4116,
+     https//personalmathubcca/~cbm/aands/page_67htmA&S 4117.)
 
 
-File: maxima-core-docs.info,  Node: Variable %gamma
+File: maxima-core-docs.info,  Node: Variable %gamma,  Next: Variable %i,  Prev: Variable %e,  Up: Data Types and Structures 3
 
  -- Variable: %gamma
      The Euler-Mascheroni constant, 0.5772156649015329....  It is
-     defined by (https://personal.math.ubc.ca/~cbm/aands/page_255.htmA&S
-     eqn 6.1.3 and https://dlmf.nist.gov/5.2.iiDLMF 5.2.ii)
+     defined by (https//personalmathubcca/~cbm/aands/page_255htmA&S eqn
+     613 and https//dlmfnistgov/52iiDLMF 52ii)
 
      \gamma = \lim_{n \rightarrow \infty} \left(\sum_{k=1}^n {1\over k}
      - \log n\right)
@@ -3157,13 +2681,13 @@ File: maxima-core-docs.info,  Node: Variable %gamma
      - \log n\right)
 
 
-File: maxima-core-docs.info,  Node: Variable %i
+File: maxima-core-docs.info,  Node: Variable %i,  Next: Variable %phi,  Prev: Variable %gamma,  Up: Data Types and Structures 3
 
  -- Variable: %i
      ‘%i’ represents the imaginary unit, \sqrt{-1}.
 
 
-File: maxima-core-docs.info,  Node: Variable %phi
+File: maxima-core-docs.info,  Node: Variable %phi,  Next: Variable %pi,  Prev: Variable %i,  Up: Data Types and Structures 3
 
  -- Variable: %phi
      ‘%phi’ represents the so-called _golden mean_, (1+\sqrt{5})/2. The
@@ -3236,7 +2760,7 @@ File: maxima-core-docs.info,  Node: Variable %phi
      See also: ‘fibtophi’, ‘ratsimp’.
 
 
-File: maxima-core-docs.info,  Node: Variable %pi
+File: maxima-core-docs.info,  Node: Variable %pi,  Next: Function @,  Prev: Variable %phi,  Up: Data Types and Structures 3
 
  -- Variable: %pi
      ‘%pi’ represents the ratio of the perimeter of a circle to its
@@ -3244,58 +2768,60 @@ File: maxima-core-docs.info,  Node: Variable %pi
      floating-point value 3.141592653589793d0.
 
 
-File: maxima-core-docs.info,  Node: Function @
+File: maxima-core-docs.info,  Node: Function @,  Next: Variable [,  Prev: Variable %pi,  Up: Data Types and Structures 3
 
- -- Function: @ ()
-     ‘@’ is the structure field access operator.  The expression ‘x@ a’
-     refers to the value of field _a_ of the structure instance _x_.
-     The field name is not evaluated.
+1.89.1 Function: @
+------------------
 
-     If the field _a_ in _x_ has not been assigned a value, ‘x@ a’
-     evaluates to itself.
+‘@’ is the structure field access operator.  The expression ‘x@ a’
+refers to the value of field _a_ of the structure instance _x_.  The
+field name is not evaluated.
 
-     ‘kill(x@ a)’ removes the value of field _a_ in _x_.
+If the field _a_ in _x_ has not been assigned a value, ‘x@ a’ evaluates
+to itself.
 
-     Examples:
+‘kill(x@ a)’ removes the value of field _a_ in _x_.
 
-     (%i1) defstruct (foo (x, y, z));
-     (%o1)                    [foo(x, y, z)]
-     (%i2) u : new (foo (123, a - b, %pi));
-     (%o2)           foo(x = 123, y = a - b, z = %pi)
-     (%i3) u@z;
-     (%o3)                          %pi
-     (%i4) u@z : %e;
-     (%o4)                          %e
-     (%i5) u;
-     (%o5)            foo(x = 123, y = a - b, z = %e)
-     (%i6) kill (u@z);
-     (%o6)                         done
-     (%i7) u;
-     (%o7)              foo(x = 123, y = a - b, z)
-     (%i8) u@z;
-     (%o8)                          u@z
+Examples:
 
-     The field name is not evaluated.
+(%i1) defstruct (foo (x, y, z));
+(%o1)                    [foo(x, y, z)]
+(%i2) u : new (foo (123, a - b, %pi));
+(%o2)           foo(x = 123, y = a - b, z = %pi)
+(%i3) u@z;
+(%o3)                          %pi
+(%i4) u@z : %e;
+(%o4)                          %e
+(%i5) u;
+(%o5)            foo(x = 123, y = a - b, z = %e)
+(%i6) kill (u@z);
+(%o6)                         done
+(%i7) u;
+(%o7)              foo(x = 123, y = a - b, z)
+(%i8) u@z;
+(%o8)                          u@z
 
-     (%i1) defstruct (bar (g, h));
-     (%o1)                      [bar(g, h)]
-     (%i2) x : new (bar);
-     (%o2)                       bar(g, h)
-     (%i3) x@h : 42;
-     (%o3)                          42
-     (%i4) h : 123;
-     (%o4)                          123
-     (%i5) x@h;
-     (%o5)                          42
-     (%i6) x@h : 19;
-     (%o6)                          19
-     (%i7) x;
-     (%o7)                    bar(g, h = 19)
-     (%i8) h;
-     (%o8)                          123
+The field name is not evaluated.
+
+(%i1) defstruct (bar (g, h));
+(%o1)                      [bar(g, h)]
+(%i2) x : new (bar);
+(%o2)                       bar(g, h)
+(%i3) x@h : 42;
+(%o3)                          42
+(%i4) h : 123;
+(%o4)                          123
+(%i5) x@h;
+(%o5)                          42
+(%i6) x@h : 19;
+(%o6)                          19
+(%i7) x;
+(%o7)                    bar(g, h = 19)
+(%i8) h;
+(%o8)                          123
 
 
-File: maxima-core-docs.info,  Node: Variable [
+File: maxima-core-docs.info,  Node: Variable [,  Next: Function accumulate op X X0,  Prev: Function @,  Up: Data Types and Structures 3
 
  -- Variable: [
      ‘[’ and ‘]’ mark the beginning and end, respectively, of a list.
@@ -3356,9 +2882,9 @@ File: maxima-core-docs.info,  Node: Variable [
      ‘Performance-considerations-for-Lists’, ‘Arrays’.
 
 
-File: maxima-core-docs.info,  Node: Function accumulate accumulate op X X0 accumulate op X
+File: maxima-core-docs.info,  Node: Function accumulate op X X0,  Next: Function append list_1 ... list_n,  Prev: Variable [,  Up: Data Types and Structures 3
 
- -- Function: accumulate (ACCUMULATE, OP, X, X0, ACCUMULATE, OP, X)
+ -- Function: accumulate (OP, X, X0)
      Returns a list comprising the partial results of _op_ applied to
      successive elements of the list _X_.
 
@@ -3410,7 +2936,7 @@ File: maxima-core-docs.info,  Node: Function accumulate accumulate op X X0 accum
      See also: ‘lreduce’.
 
 
-File: maxima-core-docs.info,  Node: Function append list_1 ... list_n
+File: maxima-core-docs.info,  Node: Function append list_1 ... list_n,  Next: Function array name dim_1 ... dim_n,  Prev: Function accumulate op X X0,  Up: Data Types and Structures 3
 
  -- Function: append (LIST_1, ..., LIST_N)
      Returns a single list of the elements of _list_1_ followed by the
@@ -3425,11 +2951,9 @@ File: maxima-core-docs.info,  Node: Function append list_1 ... list_n
      See also: ‘addrow’, ‘addcol’, ‘join’.
 
 
-File: maxima-core-docs.info,  Node: Function array array name dim_1 ... dim_n array name type dim_1 ... dim_n array name_1 ... name_m dim_1 ... dim_n
+File: maxima-core-docs.info,  Node: Function array name dim_1 ... dim_n,  Next: Function arrayapply A [i_1 ... i_n],  Prev: Function append list_1 ... list_n,  Up: Data Types and Structures 3
 
- -- Function: array (ARRAY, NAME, DIM_1, ..., DIM_N, ARRAY, NAME, TYPE,
-          DIM_1, ..., DIM_N, ARRAY, NAME_1, ..., NAME_M, DIM_1, ...,
-          DIM_N)
+ -- Function: array (NAME, DIM_1, ..., DIM_N)
      Creates an n-dimensional array.  n may be less than or equal to 5.
      The subscripts for the i'th dimension are the integers running from
      0 to _dim_i_.
@@ -3448,9 +2972,9 @@ File: maxima-core-docs.info,  Node: Function array array name dim_1 ... dim_n ar
      See also: ‘arraymake’, ‘arrayinfo’, ‘make_array’.
 
 
-File: maxima-core-docs.info,  Node: Function arrayapply A i_1 ... i_n
+File: maxima-core-docs.info,  Node: Function arrayapply A [i_1 ... i_n],  Next: Function arrayinfo A,  Prev: Function array name dim_1 ... dim_n,  Up: Data Types and Structures 3
 
- -- Function: arrayapply (A, I_1, ..., I_N)
+ -- Function: arrayapply (A, [I_1, ..., I_N])
      Evaluates ‘A [i_1, ..., i_n]’, where _A_ is an array and _i_1_,
      ..., _i_n_ are integers.
 
@@ -3460,7 +2984,7 @@ File: maxima-core-docs.info,  Node: Function arrayapply A i_1 ... i_n
      See also: ‘apply’.
 
 
-File: maxima-core-docs.info,  Node: Function arrayinfo A
+File: maxima-core-docs.info,  Node: Function arrayinfo A,  Next: Function arraymake A [i_1 ... i_n],  Prev: Function arrayapply A [i_1 ... i_n],  Up: Data Types and Structures 3
 
  -- Function: arrayinfo (A)
      Returns information about the array _A_. The argument _A_ may be a
@@ -3607,9 +3131,9 @@ File: maxima-core-docs.info,  Node: Function arrayinfo A
      ‘memoizing-functions’.
 
 
-File: maxima-core-docs.info,  Node: Function arraymake A i_1 ... i_n
+File: maxima-core-docs.info,  Node: Function arraymake A [i_1 ... i_n],  Next: Variable arrays,  Prev: Function arrayinfo A,  Up: Data Types and Structures 3
 
- -- Function: arraymake (A, I_1, ..., I_N)
+ -- Function: arraymake (A, [I_1, ..., I_N])
      Returns the expression ‘A[i_1, ..., i_n]’.  The result is an
      unevaluated array reference.
 
@@ -3683,7 +3207,7 @@ File: maxima-core-docs.info,  Node: Function arraymake A i_1 ... i_n
      See also: ‘funmake’.
 
 
-File: maxima-core-docs.info,  Node: Variable arrays
+File: maxima-core-docs.info,  Node: Variable arrays,  Next: Function arraysetapply A [i_1 ... i_n] x,  Prev: Function arraymake A [i_1 ... i_n],  Up: Data Types and Structures 3
 
  -- Variable: arrays
      Default value: ‘[]’
@@ -3727,18 +3251,18 @@ File: maxima-core-docs.info,  Node: Variable arrays
      ‘fillarray’, ‘listarray’, ‘rearray’.
 
 
-File: maxima-core-docs.info,  Node: Function arraysetapply A i_1 ... i_n x
+File: maxima-core-docs.info,  Node: Function arraysetapply A [i_1 ... i_n] x,  Next: Function assoc key e default,  Prev: Variable arrays,  Up: Data Types and Structures 3
 
- -- Function: arraysetapply (A, I_1, ..., I_N, X)
+ -- Function: arraysetapply (A, [I_1, ..., I_N], X)
      Assigns _x_ to ‘A[i_1, ..., i_n]’, where _A_ is an array and _i_1_,
      ..., _i_n_ are integers.
 
      ‘arraysetapply’ evaluates its arguments.
 
 
-File: maxima-core-docs.info,  Node: Function assoc assoc key e default assoc key e
+File: maxima-core-docs.info,  Node: Function assoc key e default,  Next: Function cons expr list,  Prev: Function arraysetapply A [i_1 ... i_n] x,  Up: Data Types and Structures 3
 
- -- Function: assoc (ASSOC, KEY, E, DEFAULT, ASSOC, KEY, E)
+ -- Function: assoc (KEY, E, DEFAULT)
      ‘assoc’ searches for _key_ as the first part of an argument of _e_
      and returns the second part of the first match, if any.
 
@@ -3781,9 +3305,9 @@ File: maxima-core-docs.info,  Node: Function assoc assoc key e default assoc key
      See also: ‘sublist’, ‘member’.
 
 
-File: maxima-core-docs.info,  Node: Function cons cons expr list cons expr_1 expr_2
+File: maxima-core-docs.info,  Node: Function cons expr list,  Next: Function copylist list,  Prev: Function assoc key e default,  Up: Data Types and Structures 3
 
- -- Function: cons (CONS, EXPR, LIST, CONS, EXPR_1, EXPR_2)
+ -- Function: cons (EXPR, LIST)
      ‘cons (expr, list)’ returns a new list constructed of the element
      _expr_ as its first element, followed by the elements of _list_.
      This is analogous to the Lisp language construction operation
@@ -3820,13 +3344,13 @@ File: maxima-core-docs.info,  Node: Function cons cons expr list cons expr_1 exp
      (%o2)                           0
 
 
-File: maxima-core-docs.info,  Node: Function copylist list
+File: maxima-core-docs.info,  Node: Function copylist list,  Next: Function create_list form x_1 list_1 ... x_n list_n,  Prev: Function cons expr list,  Up: Data Types and Structures 3
 
  -- Function: copylist (LIST)
      Returns a copy of the list _list_.
 
 
-File: maxima-core-docs.info,  Node: Function create_list form x_1 list_1 ... x_n list_n
+File: maxima-core-docs.info,  Node: Function create_list form x_1 list_1 ... x_n list_n,  Next: Function defstruct Sa_1 ... a_n,  Prev: Function copylist list,  Up: Data Types and Structures 3
 
  -- Function: create_list (FORM, X_1, LIST_1, ..., X_N, LIST_N)
      Create a list by evaluating _form_ with _x_1_ bound to each element
@@ -3857,10 +3381,9 @@ File: maxima-core-docs.info,  Node: Function create_list form x_1 list_1 ... x_n
      current value of ‘i’.
 
 
-File: maxima-core-docs.info,  Node: Function defstruct defstruct S a_1 ... a_n defstruct S a_1 = v_1 ... a_n = v_n
+File: maxima-core-docs.info,  Node: Function defstruct Sa_1 ... a_n,  Next: Function delete expr_1 expr_2,  Prev: Function create_list form x_1 list_1 ... x_n list_n,  Up: Data Types and Structures 3
 
- -- Function: defstruct (DEFSTRUCT, S, A_1, ..., A_N, DEFSTRUCT, S, A_1,
-          =, V_1, ..., A_N, =, V_N)
+ -- Function: defstruct (S(A_1, ..., A_N))
      Define a structure, which is a list of named fields _a_1_, ...,
      _a_n_ associated with a symbol _S_. An instance of a structure is
      just an expression which has operator _S_ and exactly ‘n’
@@ -3897,9 +3420,9 @@ File: maxima-core-docs.info,  Node: Function defstruct defstruct S a_1 ... a_n d
      (%o8)             [bar(v, w, x = 123, y = %pi)]
 
 
-File: maxima-core-docs.info,  Node: Function delete delete expr_1 expr_2 delete expr_1 expr_2 n
+File: maxima-core-docs.info,  Node: Function delete expr_1 expr_2,  Next: Function eighth expr,  Prev: Function defstruct Sa_1 ... a_n,  Up: Data Types and Structures 3
 
- -- Function: delete (DELETE, EXPR_1, EXPR_2, DELETE, EXPR_1, EXPR_2, N)
+ -- Function: delete (EXPR_1, EXPR_2)
      ‘delete(expr_1, expr_2)’ removes from _expr_2_ any arguments of its
      top-level operator which are the same (as determined by "=") as
      _expr_1_.  Note that "=" tests for formal equality, not
@@ -3970,7 +3493,7 @@ File: maxima-core-docs.info,  Node: Function delete delete expr_1 expr_2 delete 
      (%o6)                       [x  - y ]
 
 
-File: maxima-core-docs.info,  Node: Function eighth expr
+File: maxima-core-docs.info,  Node: Function eighth expr,  Next: Function endcons expr list,  Prev: Function delete expr_1 expr_2,  Up: Data Types and Structures 3
 
  -- Function: eighth (EXPR)
      Returns the 8th item of expression or list _expr_.  See ‘first’ for
@@ -3979,9 +3502,9 @@ File: maxima-core-docs.info,  Node: Function eighth expr
      See also: ‘first’.
 
 
-File: maxima-core-docs.info,  Node: Function endcons endcons expr list endcons expr_1 expr_2
+File: maxima-core-docs.info,  Node: Function endcons expr list,  Next: Variable false,  Prev: Function eighth expr,  Up: Data Types and Structures 3
 
- -- Function: endcons (ENDCONS, EXPR, LIST, ENDCONS, EXPR_1, EXPR_2)
+ -- Function: endcons (EXPR, LIST)
      ‘endcons (expr, list)’ returns a new list constructed of the
      elements of _list_ followed by _expr_.  The Maxima function
      ‘endcons’ can also be used where the second argument is other than
@@ -4014,14 +3537,14 @@ File: maxima-core-docs.info,  Node: Function endcons endcons expr list endcons e
      (%o2)                           0
 
 
-File: maxima-core-docs.info,  Node: Variable false
+File: maxima-core-docs.info,  Node: Variable false,  Next: Function fifth expr,  Prev: Function endcons expr list,  Up: Data Types and Structures 3
 
  -- Variable: false
      ‘false’ represents the Boolean constant of the same name.  Maxima
      implements ‘false’ by the value ‘NIL’ in Lisp.
 
 
-File: maxima-core-docs.info,  Node: Function fifth expr
+File: maxima-core-docs.info,  Node: Function fifth expr,  Next: Function fillarray A B,  Prev: Variable false,  Up: Data Types and Structures 3
 
  -- Function: fifth (EXPR)
      Returns the 5th item of expression or list _expr_.  See ‘first’ for
@@ -4030,7 +3553,7 @@ File: maxima-core-docs.info,  Node: Function fifth expr
      See also: ‘first’.
 
 
-File: maxima-core-docs.info,  Node: Function fillarray A B
+File: maxima-core-docs.info,  Node: Function fillarray A B,  Next: Function first expr,  Prev: Function fifth expr,  Up: Data Types and Structures 3
 
  -- Function: fillarray (A, B)
      Fills array _A_ from _B_, which is a list or an array.
@@ -4102,7 +3625,7 @@ File: maxima-core-docs.info,  Node: Function fillarray A B
      (%o4)   {Lisp Array: #2A((1 2) (3 4) (5 6) (7 8) (9 10))}
 
 
-File: maxima-core-docs.info,  Node: Function first expr
+File: maxima-core-docs.info,  Node: Function first expr,  Next: Function firstn expr count,  Prev: Function fillarray A B,  Up: Data Types and Structures 3
 
  -- Function: first (EXPR)
      Returns the first part of _expr_ which may result in the first
@@ -4146,7 +3669,7 @@ File: maxima-core-docs.info,  Node: Function first expr
      See also: ‘inflag’, ‘firstn’, ‘part’.
 
 
-File: maxima-core-docs.info,  Node: Function firstn expr count
+File: maxima-core-docs.info,  Node: Function firstn expr count,  Next: Function fourth expr,  Prev: Function first expr,  Up: Data Types and Structures 3
 
  -- Function: firstn (EXPR, COUNT)
      Returns the first _count_ arguments of _expr_, if _expr_ has at
@@ -4253,7 +3776,7 @@ File: maxima-core-docs.info,  Node: Function firstn expr count
      See also: ‘lastn’, ‘rest’.
 
 
-File: maxima-core-docs.info,  Node: Function fourth expr
+File: maxima-core-docs.info,  Node: Function fourth expr,  Next: Function has_key A L,  Prev: Function firstn expr count,  Up: Data Types and Structures 3
 
  -- Function: fourth (EXPR)
      Returns the 4th item of expression or list _expr_.  See ‘first’ for
@@ -4262,7 +3785,7 @@ File: maxima-core-docs.info,  Node: Function fourth expr
      See also: ‘first’.
 
 
-File: maxima-core-docs.info,  Node: Function has_key A L
+File: maxima-core-docs.info,  Node: Function has_key A L,  Next: Variable ind,  Prev: Function fourth expr,  Up: Data Types and Structures 3
 
  -- Function: has_key (A, L)
      Returns ‘true’ if the undeclared array or hash table _A_ has the
@@ -4352,7 +3875,7 @@ File: maxima-core-docs.info,  Node: Function has_key A L
      See also: ‘make_array’, ‘use_fast_arrays’, ‘arrayinfo’.
 
 
-File: maxima-core-docs.info,  Node: Variable ind
+File: maxima-core-docs.info,  Node: Variable ind,  Next: Variable inf,  Prev: Function has_key A L,  Up: Data Types and Structures 3
 
  -- Variable: ind
      ‘ind’ represents a bounded, indefinite result.
@@ -4367,19 +3890,19 @@ File: maxima-core-docs.info,  Node: Variable ind
      See also: ‘limit’.
 
 
-File: maxima-core-docs.info,  Node: Variable inf
+File: maxima-core-docs.info,  Node: Variable inf,  Next: Variable infinity,  Prev: Variable ind,  Up: Data Types and Structures 3
 
  -- Variable: inf
      ‘inf’ represents real positive infinity.
 
 
-File: maxima-core-docs.info,  Node: Variable infinity
+File: maxima-core-docs.info,  Node: Variable infinity,  Next: Function join l m,  Prev: Variable inf,  Up: Data Types and Structures 3
 
  -- Variable: infinity
      ‘infinity’ represents complex infinity.
 
 
-File: maxima-core-docs.info,  Node: Function join l m
+File: maxima-core-docs.info,  Node: Function join l m,  Next: Function last expr,  Prev: Variable infinity,  Up: Data Types and Structures 3
 
  -- Function: join (L, M)
      Creates a new list containing the elements of lists _l_ and _m_,
@@ -4409,7 +3932,7 @@ File: maxima-core-docs.info,  Node: Function join l m
      See also: ‘append’.
 
 
-File: maxima-core-docs.info,  Node: Function last expr
+File: maxima-core-docs.info,  Node: Function last expr,  Next: Function lastn expr count,  Prev: Function join l m,  Up: Data Types and Structures 3
 
  -- Function: last (EXPR)
      Returns the last part (term, row, element, etc.)  of the _expr_.
@@ -4419,7 +3942,7 @@ File: maxima-core-docs.info,  Node: Function last expr
      See also: ‘lastn’.
 
 
-File: maxima-core-docs.info,  Node: Function lastn expr count
+File: maxima-core-docs.info,  Node: Function lastn expr count,  Next: Variable least_negative_float,  Prev: Function last expr,  Up: Data Types and Structures 3
 
  -- Function: lastn (EXPR, COUNT)
      Returns the last _count_ arguments of _expr_, if _expr_ has at
@@ -4526,20 +4049,20 @@ File: maxima-core-docs.info,  Node: Function lastn expr count
      See also: ‘firstn’, ‘rest’.
 
 
-File: maxima-core-docs.info,  Node: Variable least_negative_float
+File: maxima-core-docs.info,  Node: Variable least_negative_float,  Next: Variable least_negative_normalized_float,  Prev: Function lastn expr count,  Up: Data Types and Structures 3
 
  -- Variable: least_negative_float
      The least negative floating-point number in Maxima.  That is, the
      negative floating-point number closest to 0.  It is approximately
      -4.94065e-324, when
-     https://en.wikipedia.org/wiki/Subnormal_numberdenormal numbers are
+     https//enwikipediaorg/wiki/Subnormal_numberdenormal numbers are
      supported.  Otherwise it is the same as
      ‘least_negative_normalized_float’.
 
      See also: ‘least_negative_normalized_float’.
 
 
-File: maxima-core-docs.info,  Node: Variable least_negative_normalized_float
+File: maxima-core-docs.info,  Node: Variable least_negative_normalized_float,  Next: Variable least_positive_float,  Prev: Variable least_negative_float,  Up: Data Types and Structures 3
 
  -- Variable: least_negative_normalized_float
      The least negative normalized floating-point number in Maxima.
@@ -4547,20 +4070,20 @@ File: maxima-core-docs.info,  Node: Variable least_negative_normalized_float
      0.  It is approximately -2.22507e-308.
 
 
-File: maxima-core-docs.info,  Node: Variable least_positive_float
+File: maxima-core-docs.info,  Node: Variable least_positive_float,  Next: Variable least_positive_normalized_float,  Prev: Variable least_negative_normalized_float,  Up: Data Types and Structures 3
 
  -- Variable: least_positive_float
      The least positive floating-point number in Maxima.  That is, the
      positive floating-point number closest to 0.  It is approximately
      4.94065e-324, when
-     https://en.wikipedia.org/wiki/Subnormal_numberdenormal numbers are
+     https//enwikipediaorg/wiki/Subnormal_numberdenormal numbers are
      supported.  Otherwise it is the same as
      ‘least_positive_normalized_float’.
 
      See also: ‘least_positive_normalized_float’.
 
 
-File: maxima-core-docs.info,  Node: Variable least_positive_normalized_float
+File: maxima-core-docs.info,  Node: Variable least_positive_normalized_float,  Next: Function length expr,  Prev: Variable least_positive_float,  Up: Data Types and Structures 3
 
  -- Variable: least_positive_normalized_float
      The least positive normalized floating-point number in Maxima.
@@ -4568,7 +4091,7 @@ File: maxima-core-docs.info,  Node: Variable least_positive_normalized_float
      0.  It is approximately 2.22507e-308.
 
 
-File: maxima-core-docs.info,  Node: Function length expr
+File: maxima-core-docs.info,  Node: Function length expr,  Next: Variable listarith,  Prev: Variable least_positive_normalized_float,  Up: Data Types and Structures 3
 
  -- Function: length (EXPR)
      Returns (by default) the number of parts in the external
@@ -4590,7 +4113,7 @@ File: maxima-core-docs.info,  Node: Function length expr
      See also: ‘dispform’, ‘inflag’, ‘exptdispflag’.
 
 
-File: maxima-core-docs.info,  Node: Variable listarith
+File: maxima-core-docs.info,  Node: Variable listarith,  Next: Function listarray A,  Prev: Function length expr,  Up: Data Types and Structures 3
 
  -- Variable: listarith
      Default value: ‘true’
@@ -4602,7 +4125,7 @@ File: maxima-core-docs.info,  Node: Variable listarith
      lists.
 
 
-File: maxima-core-docs.info,  Node: Function listarray A
+File: maxima-core-docs.info,  Node: Function listarray A,  Next: Function listp expr,  Prev: Variable listarith,  Up: Data Types and Structures 3
 
  -- Function: listarray (A)
      Returns a list of the elements of the array _A_. The argument _A_
@@ -4728,15 +4251,15 @@ File: maxima-core-docs.info,  Node: Function listarray A
      ‘hashed-arrays’, ‘memoizing-functions’, ‘arrayinfo’.
 
 
-File: maxima-core-docs.info,  Node: Function listp expr
+File: maxima-core-docs.info,  Node: Function listp expr,  Next: Function lreduce F s,  Prev: Function listarray A,  Up: Data Types and Structures 3
 
  -- Function: listp (EXPR)
      Returns ‘true’ if _expr_ is a list else ‘false’.
 
 
-File: maxima-core-docs.info,  Node: Function lreduce lreduce F s lreduce F s s_0
+File: maxima-core-docs.info,  Node: Function lreduce F s,  Next: Function make_array type dim_1 ... dim_n,  Prev: Function listp expr,  Up: Data Types and Structures 3
 
- -- Function: lreduce (LREDUCE, F, S, LREDUCE, F, S, S_0)
+ -- Function: lreduce (F, S)
      Extends the binary function _F_ to an n-ary function by
      composition, where _s_ is a list.
 
@@ -4781,7 +4304,7 @@ File: maxima-core-docs.info,  Node: Function lreduce lreduce F s lreduce F s s_0
      See also: ‘rreduce’, ‘xreduce’, ‘tree_reduce’.
 
 
-File: maxima-core-docs.info,  Node: Function make_array type dim_1 ... dim_n
+File: maxima-core-docs.info,  Node: Function make_array type dim_1 ... dim_n,  Next: Function makelist,  Prev: Function lreduce F s,  Up: Data Types and Structures 3
 
  -- Function: make_array (TYPE, DIM_1, ..., DIM_N)
      Creates and returns a Lisp array.  _type_ may be ‘any’, ‘flonum’,
@@ -4855,11 +4378,9 @@ File: maxima-core-docs.info,  Node: Function make_array type dim_1 ... dim_n
      See also: ‘array’.
 
 
-File: maxima-core-docs.info,  Node: Function makelist makelist makelist expr makelist expr n makelist expr i i_max makelist expr i i_0 i_max makelist expr i i_0 i_max step makelist expr x list
+File: maxima-core-docs.info,  Node: Function makelist,  Next: Function member expr_1 expr_2,  Prev: Function make_array type dim_1 ... dim_n,  Up: Data Types and Structures 3
 
- -- Function: makelist (MAKELIST, MAKELIST, EXPR, MAKELIST, EXPR, N,
-          MAKELIST, EXPR, I, I_MAX, MAKELIST, EXPR, I, I_0, I_MAX,
-          MAKELIST, EXPR, I, I_0, I_MAX, STEP, MAKELIST, EXPR, X, LIST)
+ -- Function: makelist ()
      The first form, ‘makelist ()’, creates an empty list.  The second
      form, ‘makelist (expr)’, creates a list with _expr_ as its single
      element.  ‘makelist (expr, n)’ creates a list of _n_ elements
@@ -4905,7 +4426,7 @@ File: maxima-core-docs.info,  Node: Function makelist makelist makelist expr mak
      (%o6)         [1, 4, 9, 1, 4, 9, 1, 4, 9, 1, 4, 9]
 
 
-File: maxima-core-docs.info,  Node: Function member expr_1 expr_2
+File: maxima-core-docs.info,  Node: Function member expr_1 expr_2,  Next: Variable minf,  Prev: Function makelist,  Up: Data Types and Structures 3
 
  -- Function: member (EXPR_1, EXPR_2)
      Returns ‘true’ if ‘is(expr_1 = a)’ for some element _a_ in
@@ -4958,29 +4479,29 @@ File: maxima-core-docs.info,  Node: Function member expr_1 expr_2
      See also: ‘elementp’.
 
 
-File: maxima-core-docs.info,  Node: Variable minf
+File: maxima-core-docs.info,  Node: Variable minf,  Next: Variable most_negative_float,  Prev: Function member expr_1 expr_2,  Up: Data Types and Structures 3
 
  -- Variable: minf
      ‘minf’ represents real minus (i.e., negative) infinity.
 
 
-File: maxima-core-docs.info,  Node: Variable most_negative_float
+File: maxima-core-docs.info,  Node: Variable most_negative_float,  Next: Variable most_positive_float,  Prev: Variable minf,  Up: Data Types and Structures 3
 
  -- Variable: most_negative_float
      The most negative floating-point number in Maxima.  It is
      approximately -1.79769e+308.
 
 
-File: maxima-core-docs.info,  Node: Variable most_positive_float
+File: maxima-core-docs.info,  Node: Variable most_positive_float,  Next: Function new S,  Prev: Variable most_negative_float,  Up: Data Types and Structures 3
 
  -- Variable: most_positive_float
      The most positive floating-point number in Maxima.  It is
      approximately 1.797693e+308.
 
 
-File: maxima-core-docs.info,  Node: Function new new S new S v_1 ... v_n
+File: maxima-core-docs.info,  Node: Function new S,  Next: Function ninth expr,  Prev: Variable most_positive_float,  Up: Data Types and Structures 3
 
- -- Function: new (NEW, S, NEW, S, V_1, ..., V_N)
+ -- Function: new (S)
      ‘new’ creates new instances of structures.
 
      ‘new(S)’ creates a new instance of structure _S_ in which each
@@ -5000,7 +4521,7 @@ File: maxima-core-docs.info,  Node: Function new new S new S v_1 ... v_n
      (%o3)            foo(w = 1, x = 2, y = 4, z = 8)
 
 
-File: maxima-core-docs.info,  Node: Function ninth expr
+File: maxima-core-docs.info,  Node: Function ninth expr,  Next: Function ordering L,  Prev: Function new S,  Up: Data Types and Structures 3
 
  -- Function: ninth (EXPR)
      Returns the 9th item of expression or list _expr_.  See ‘first’ for
@@ -5009,9 +4530,9 @@ File: maxima-core-docs.info,  Node: Function ninth expr
      See also: ‘first’.
 
 
-File: maxima-core-docs.info,  Node: Function ordering ordering L ordering L P
+File: maxima-core-docs.info,  Node: Function ordering L,  Next: Function pop list,  Prev: Function ninth expr,  Up: Data Types and Structures 3
 
- -- Function: ordering (ORDERING, L, ORDERING, L, P)
+ -- Function: ordering (L)
      Returns a permutation _O_ of the list _L_ such that ‘permute(O, L)’
      is equal to ‘sort(L, P)’.  That is, ‘ordering’ returns a
      permutation which sorts _L_ according to the predicate _P_.
@@ -5151,7 +4672,7 @@ File: maxima-core-docs.info,  Node: Function ordering ordering L ordering L P
      (%o7)                         true
 
 
-File: maxima-core-docs.info,  Node: Function pop list
+File: maxima-core-docs.info,  Node: Function pop list,  Next: Function push item list,  Prev: Function ordering L,  Up: Data Types and Structures 3
 
  -- Function: pop (LIST)
      ‘pop’ removes and returns the first element from the list _list_.
@@ -5162,7 +4683,7 @@ File: maxima-core-docs.info,  Node: Function pop list
      See also: ‘push’.
 
 
-File: maxima-core-docs.info,  Node: Function push item list
+File: maxima-core-docs.info,  Node: Function push item list,  Next: Function ranks L P ties_method,  Prev: Function pop list,  Up: Data Types and Structures 3
 
  -- Function: push (ITEM, LIST)
      ‘push’ prepends the item _item_ to the list _list_ and returns a
@@ -5217,9 +4738,9 @@ File: maxima-core-docs.info,  Node: Function push item list
      See also: ‘pop’.
 
 
-File: maxima-core-docs.info,  Node: Function ranks ranks L P ties_method ranks L P ranks L
+File: maxima-core-docs.info,  Node: Function ranks L P ties_method,  Next: Function rearray A dim_1 ... dim_n,  Prev: Function push item list,  Up: Data Types and Structures 3
 
- -- Function: ranks (RANKS, L, P, TIES_METHOD, RANKS, L, P, RANKS, L)
+ -- Function: ranks (L, P, TIES_METHOD)
      Returns the ranks of the elements of the list _L_ as ordered by the
      predicate _P_, and handling elements which are equivalent under _P_
      by _ties_method_.
@@ -5244,11 +4765,12 @@ File: maxima-core-docs.info,  Node: Function ranks ranks L P ties_method ranks L
 
         •    • ‘max_rank’ Rank is ‘n’ plus ‘m’.
 
-        •    • ‘distinct_ranks’ Let ‘L[j[1]], L[j[2]], ..., L[j[m]]’ be
-               the elements of _L_ which are equivalent to ‘L[i]’, such
-               that ‘j[1] < j[2] < ... < j[m]’.  That is, the equivalent
-               elements are indexed in the order in which they appear in
-               _L_. Rank is ‘n’ plus ‘k’ where ‘j[k] = i’.
+        •    • ‘distinct_ranks’ Let ‘L[j[1]], L[j[2]], ...,
+               L[j[m]]’ be the elements of _L_ which are equivalent to
+               ‘L[i]’, such that ‘j[1] < j[2] < ... < j[m]’.  That is,
+               the equivalent elements are indexed in the order in which
+               they appear in _L_. Rank is ‘n’ plus ‘k’ where ‘j[k] =
+               i’.
 
      When ‘L[i]’ is not equivalent to any other element, all four
      methods yield the same result, namely ‘n’ plus 1.
@@ -5402,7 +4924,7 @@ File: maxima-core-docs.info,  Node: Function ranks ranks L P ties_method ranks L
      (%o4)                         true
 
 
-File: maxima-core-docs.info,  Node: Function rearray A dim_1 ... dim_n
+File: maxima-core-docs.info,  Node: Function rearray A dim_1 ... dim_n,  Next: Function remarray A_1 ... A_n,  Prev: Function ranks L P ties_method,  Up: Data Types and Structures 3
 
  -- Function: rearray (A, DIM_1, ..., DIM_N)
      Changes the dimensions of an array.  The new array will be filled
@@ -5412,9 +4934,9 @@ File: maxima-core-docs.info,  Node: Function rearray A dim_1 ... dim_n
      type of the array cannot be changed.
 
 
-File: maxima-core-docs.info,  Node: Function remarray remarray A_1 ... A_n remarray all
+File: maxima-core-docs.info,  Node: Function remarray A_1 ... A_n,  Next: Function rest expr n,  Prev: Function rearray A dim_1 ... dim_n,  Up: Data Types and Structures 3
 
- -- Function: remarray (REMARRAY, A_1, ..., A_N, REMARRAY, ALL)
+ -- Function: remarray (A_1, ..., A_N)
      Removes arrays and array associated functions and frees the storage
      occupied.  The arguments may be declared arrays, ‘hashed arrays’,
      array functions, and subscripted functions.
@@ -5431,9 +4953,9 @@ File: maxima-core-docs.info,  Node: Function remarray remarray A_1 ... A_n remar
      See also: ‘hashed-arrays’, ‘arrays’, ‘memoizing-function’.
 
 
-File: maxima-core-docs.info,  Node: Function rest rest expr n rest expr
+File: maxima-core-docs.info,  Node: Function rest expr n,  Next: Function reverse list,  Prev: Function remarray A_1 ... A_n,  Up: Data Types and Structures 3
 
- -- Function: rest (REST, EXPR, N, REST, EXPR)
+ -- Function: rest (EXPR, N)
      Returns _expr_ with its first _n_ elements removed if _n_ is
      positive and its last ‘- n’ elements removed if _n_ is negative.
      If _n_ is 1 it may be omitted.  The first argument _expr_ may be a
@@ -5460,7 +4982,7 @@ File: maxima-core-docs.info,  Node: Function rest rest expr n rest expr
      See also: ‘firstn’, ‘lastn’.
 
 
-File: maxima-core-docs.info,  Node: Function reverse list
+File: maxima-core-docs.info,  Node: Function reverse list,  Next: Function rreduce F s,  Prev: Function rest expr n,  Up: Data Types and Structures 3
 
  -- Function: reverse (LIST)
      Reverses the order of the members of the _list_ (not the members
@@ -5472,9 +4994,9 @@ File: maxima-core-docs.info,  Node: Function reverse list
      See also: ‘sreverse’.
 
 
-File: maxima-core-docs.info,  Node: Function rreduce rreduce F s rreduce F s s_{n + 1}
+File: maxima-core-docs.info,  Node: Function rreduce F s,  Next: Function second expr,  Prev: Function reverse list,  Up: Data Types and Structures 3
 
- -- Function: rreduce (RREDUCE, F, S, RREDUCE, F, S, S_{N + 1})
+ -- Function: rreduce (F, S)
      Extends the binary function _F_ to an n-ary function by
      composition, where _s_ is a list.
 
@@ -5521,7 +5043,7 @@ File: maxima-core-docs.info,  Node: Function rreduce rreduce F s rreduce F s s_{
      See also: ‘lreduce’, ‘tree_reduce’, ‘xreduce’.
 
 
-File: maxima-core-docs.info,  Node: Function second expr
+File: maxima-core-docs.info,  Node: Function second expr,  Next: Function seventh expr,  Prev: Function rreduce F s,  Up: Data Types and Structures 3
 
  -- Function: second (EXPR)
      Returns the 2nd item of expression or list _expr_.  See ‘first’ for
@@ -5530,7 +5052,7 @@ File: maxima-core-docs.info,  Node: Function second expr
      See also: ‘first’.
 
 
-File: maxima-core-docs.info,  Node: Function seventh expr
+File: maxima-core-docs.info,  Node: Function seventh expr,  Next: Function sixth expr,  Prev: Function second expr,  Up: Data Types and Structures 3
 
  -- Function: seventh (EXPR)
      Returns the 7th item of expression or list _expr_.  See ‘first’ for
@@ -5539,7 +5061,7 @@ File: maxima-core-docs.info,  Node: Function seventh expr
      See also: ‘first’.
 
 
-File: maxima-core-docs.info,  Node: Function sixth expr
+File: maxima-core-docs.info,  Node: Function sixth expr,  Next: Function sort L P,  Prev: Function seventh expr,  Up: Data Types and Structures 3
 
  -- Function: sixth (EXPR)
      Returns the 6th item of expression or list _expr_.  See ‘first’ for
@@ -5548,9 +5070,9 @@ File: maxima-core-docs.info,  Node: Function sixth expr
      See also: ‘first’.
 
 
-File: maxima-core-docs.info,  Node: Function sort sort L P sort L
+File: maxima-core-docs.info,  Node: Function sort L P,  Next: Variable structures,  Prev: Function sixth expr,  Up: Data Types and Structures 3
 
- -- Function: sort (SORT, L, P, SORT, L)
+ -- Function: sort (L, P)
      ‘sort(L, P)’ sorts a list _L_ according to a predicate ‘P’ of two
      arguments which defines a strict weak order on the elements of _L_.
      If ‘P(a, b)’ is ‘true’, then ‘a’ appears before ‘b’ in the result.
@@ -5718,14 +5240,14 @@ File: maxima-core-docs.info,  Node: Function sort sort L P sort L
      See also: ‘orderlessp’.
 
 
-File: maxima-core-docs.info,  Node: Variable structures
+File: maxima-core-docs.info,  Node: Variable structures,  Next: Function sublist list p,  Prev: Function sort L P,  Up: Data Types and Structures 3
 
  -- Variable: structures
      ‘structures’ is the list of user-defined structures defined by
      ‘defstruct’.
 
 
-File: maxima-core-docs.info,  Node: Function sublist list p
+File: maxima-core-docs.info,  Node: Function sublist list p,  Next: Function sublist_indices L P,  Prev: Variable structures,  Up: Data Types and Structures 3
 
  -- Function: sublist (LIST, P)
      Returns the list of elements of _list_ for which the predicate ‘p’
@@ -5741,7 +5263,7 @@ File: maxima-core-docs.info,  Node: Function sublist list p
      (%o2)                       [2, 4, 6]
 
 
-File: maxima-core-docs.info,  Node: Function sublist_indices L P
+File: maxima-core-docs.info,  Node: Function sublist_indices L P,  Next: Function subvar x i,  Prev: Function sublist list p,  Up: Data Types and Structures 3
 
  -- Function: sublist_indices (L, P)
      Returns the indices of the elements ‘x’ of the list _L_ for which
@@ -5777,7 +5299,7 @@ File: maxima-core-docs.info,  Node: Function sublist_indices L P
      (%o6)                          [2]
 
 
-File: maxima-core-docs.info,  Node: Function subvar x i
+File: maxima-core-docs.info,  Node: Function subvar x i,  Next: Function subvarp expr,  Prev: Function sublist_indices L P,  Up: Data Types and Structures 3
 
  -- Function: subvar (X, I)
      Evaluates the subscripted expression ‘x[i]’.
@@ -5811,14 +5333,14 @@ File: maxima-core-docs.info,  Node: Function subvar x i
      (%o7)                          cc
 
 
-File: maxima-core-docs.info,  Node: Function subvarp expr
+File: maxima-core-docs.info,  Node: Function subvarp expr,  Next: Function tenth expr,  Prev: Function subvar x i,  Up: Data Types and Structures 3
 
  -- Function: subvarp (EXPR)
      Returns ‘true’ if _expr_ is a subscripted variable, for example
      ‘a[i]’.
 
 
-File: maxima-core-docs.info,  Node: Function tenth expr
+File: maxima-core-docs.info,  Node: Function tenth expr,  Next: Function third expr,  Prev: Function subvarp expr,  Up: Data Types and Structures 3
 
  -- Function: tenth (EXPR)
      Returns the 10th item of expression or list _expr_.  See ‘first’
@@ -5827,7 +5349,7 @@ File: maxima-core-docs.info,  Node: Function tenth expr
      See also: ‘first’.
 
 
-File: maxima-core-docs.info,  Node: Function third expr
+File: maxima-core-docs.info,  Node: Function third expr,  Next: Variable translate_fast_arrays,  Prev: Function tenth expr,  Up: Data Types and Structures 3
 
  -- Function: third (EXPR)
      Returns the 3rd item of expression or list _expr_.  See ‘first’ for
@@ -5836,7 +5358,7 @@ File: maxima-core-docs.info,  Node: Function third expr
      See also: ‘first’.
 
 
-File: maxima-core-docs.info,  Node: Variable translate_fast_arrays
+File: maxima-core-docs.info,  Node: Variable translate_fast_arrays,  Next: Function tree_reduce F s,  Prev: Function third expr,  Up: Data Types and Structures 3
 
  -- Variable: translate_fast_arrays
      Default value: ‘false’
@@ -5850,9 +5372,9 @@ File: maxima-core-docs.info,  Node: Variable translate_fast_arrays
      ‘use_fast_arrays’ were ‘false’.
 
 
-File: maxima-core-docs.info,  Node: Function tree_reduce tree_reduce F s tree_reduce F s s_0
+File: maxima-core-docs.info,  Node: Function tree_reduce F s,  Next: Variable true,  Prev: Variable translate_fast_arrays,  Up: Data Types and Structures 3
 
- -- Function: tree_reduce (TREE_REDUCE, F, S, TREE_REDUCE, F, S, S_0)
+ -- Function: tree_reduce (F, S)
      Extends the binary function _F_ to an n-ary function by
      composition, where _s_ is a set or list.
 
@@ -5885,14 +5407,14 @@ File: maxima-core-docs.info,  Node: Function tree_reduce tree_reduce F s tree_re
      (%o1)               f(f(f(a, b), f(c, d)), e)
 
 
-File: maxima-core-docs.info,  Node: Variable true
+File: maxima-core-docs.info,  Node: Variable true,  Next: Variable und,  Prev: Function tree_reduce F s,  Up: Data Types and Structures 3
 
  -- Variable: true
      ‘true’ represents the Boolean constant of the same name.  Maxima
      implements ‘true’ by the value ‘T’ in Lisp.
 
 
-File: maxima-core-docs.info,  Node: Variable und
+File: maxima-core-docs.info,  Node: Variable und,  Next: Function unique L,  Prev: Variable true,  Up: Data Types and Structures 3
 
  -- Variable: und
      ‘und’ represents an undefined result.
@@ -5907,7 +5429,7 @@ File: maxima-core-docs.info,  Node: Variable und
      See also: ‘limit’.
 
 
-File: maxima-core-docs.info,  Node: Function unique L
+File: maxima-core-docs.info,  Node: Function unique L,  Next: Variable use_fast_arrays,  Prev: Variable und,  Up: Data Types and Structures 3
 
  -- Function: unique (L)
      Returns the unique elements of the list _L_.
@@ -5923,7 +5445,7 @@ File: maxima-core-docs.info,  Node: Function unique L
      (%o1)              [1, 2, %e, %pi, [1], b + a]
 
 
-File: maxima-core-docs.info,  Node: Variable use_fast_arrays
+File: maxima-core-docs.info,  Node: Variable use_fast_arrays,  Next: Function xreduce F s,  Prev: Function unique L,  Up: Data Types and Structures 3
 
  -- Variable: use_fast_arrays
      Default value: ‘false’
@@ -5945,9 +5467,9 @@ File: maxima-core-docs.info,  Node: Variable use_fast_arrays
      See also: ‘hashed-arrays’, ‘make_array’, ‘translate_fast_arrays’.
 
 
-File: maxima-core-docs.info,  Node: Function xreduce xreduce F s xreduce F s s_0
+File: maxima-core-docs.info,  Node: Function xreduce F s,  Next: Variable zeroa,  Prev: Variable use_fast_arrays,  Up: Data Types and Structures 3
 
- -- Function: xreduce (XREDUCE, F, S, XREDUCE, F, S, S_0)
+ -- Function: xreduce (F, S)
      Extends the function _F_ to an n-ary function by composition, or,
      if _F_ is already n-ary, applies _F_ to _s_.  When _F_ is not
      n-ary, ‘xreduce’ is the same as ‘lreduce’.  The argument _s_ is a
@@ -5997,7 +5519,7 @@ File: maxima-core-docs.info,  Node: Function xreduce xreduce F s xreduce F s s_0
      (%o3)                 [[[[a, b], c], d], e]
 
 
-File: maxima-core-docs.info,  Node: Variable zeroa
+File: maxima-core-docs.info,  Node: Variable zeroa,  Next: Variable zerob,  Prev: Function xreduce F s,  Up: Data Types and Structures 3
 
  -- Variable: zeroa
      ‘zeroa’ represents an infinitesimal above zero.  ‘zeroa’ can be
@@ -6020,7 +5542,7 @@ File: maxima-core-docs.info,  Node: Variable zeroa
      See also: ‘zerob’, ‘limit’.
 
 
-File: maxima-core-docs.info,  Node: Variable zerob
+File: maxima-core-docs.info,  Node: Variable zerob,  Prev: Variable zeroa,  Up: Data Types and Structures 3
 
  -- Variable: zerob
      ‘zerob’ represents an infinitesimal below zero.  ‘zerob’ can be
@@ -6032,7 +5554,7 @@ File: maxima-core-docs.info,  Node: Variable zerob
      See also: ‘zeroa’, ‘limit’.
 
 
-File: maxima-core-docs.info,  Node: Debugging,  Next: Evaluation,  Prev: ,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Debugging,  Next: Evaluation,  Prev: Data Types and Structures 3,  Up: Maxima Core Documentation
 
 1.90 Debugging
 ==============
@@ -6044,15 +5566,15 @@ File: maxima-core-docs.info,  Node: Debugging,  Next: Evaluation,  Prev: ,  Up: 
 * Variable setcheck::
 * Variable setcheckbreak::
 * Variable setval::
-* Function timer f_1 ... f_n timer all timer::
+* Function timer f_1 ... f_n::
 * Variable timer_devalue::
-* Function timer_info f_1 ... f_n timer_info::
-* Function timer_reset timer_reset f_1 ... f_n timer_reset::
-* Function trace f_1 ... f_n trace all trace::
+* Function timer_info f_1 ... f_n::
+* Function timer_reset f_1 ... f_n::
+* Function trace f_1 ... f_n::
 * Variable trace_break_arg::
-* Function trace_options trace_options f option_1 ... option_n trace_options f::
-* Function untimer f_1 ... f_n untimer::
-* Function untrace untrace f_1 ... f_n untrace::
+* Function trace_options f option_1 ... option_n::
+* Function untimer f_1 ... f_n::
+* Function untrace f_1 ... f_n::
 
 
 File: maxima-core-docs.info,  Node: Variable debugmode,  Next: Variable refcheck,  Up: Debugging
@@ -6130,7 +5652,7 @@ File: maxima-core-docs.info,  Node: Variable setcheckbreak,  Next: Variable setv
      See also: ‘setcheck’, ‘setval’.
 
 
-File: maxima-core-docs.info,  Node: Variable setval,  Next: Function timer f_1 ... f_n timer all timer,  Prev: Variable setcheckbreak,  Up: Debugging
+File: maxima-core-docs.info,  Node: Variable setval,  Next: Function timer f_1 ... f_n,  Prev: Variable setcheckbreak,  Up: Debugging
 
  -- Variable: setval
      Holds the value to which a variable is about to be set when a
@@ -6142,9 +5664,9 @@ File: maxima-core-docs.info,  Node: Variable setval,  Next: Function timer f_1 .
      See also: ‘setcheckbreak’, ‘setval’, ‘setcheck’.
 
 
-File: maxima-core-docs.info,  Node: Function timer f_1 ... f_n timer all timer,  Next: Variable timer_devalue,  Prev: Variable setval,  Up: Debugging
+File: maxima-core-docs.info,  Node: Function timer f_1 ... f_n,  Next: Variable timer_devalue,  Prev: Variable setval,  Up: Debugging
 
- -- Function: timer (F_1, ..., F_N, TIMER, ALL, TIMER)
+ -- Function: timer (F_1, ..., F_N)
      Given functions _f_1_, ..., _f_n_, ‘timer’ puts each one on the
      list of functions for which timing statistics are collected.
      ‘timer(f)$ timer(g)$’ puts ‘f’ and then ‘g’ onto the list; the list
@@ -6172,7 +5694,7 @@ File: maxima-core-docs.info,  Node: Function timer f_1 ... f_n timer all timer, 
      See also: ‘timer_reset’, ‘timer_devalue’.
 
 
-File: maxima-core-docs.info,  Node: Variable timer_devalue,  Next: Function timer_info f_1 ... f_n timer_info,  Prev: Function timer f_1 ... f_n timer all timer,  Up: Debugging
+File: maxima-core-docs.info,  Node: Variable timer_devalue,  Next: Function timer_info f_1 ... f_n,  Prev: Function timer f_1 ... f_n,  Up: Debugging
 
  -- Variable: timer_devalue
      Default value: ‘false’
@@ -6188,9 +5710,9 @@ File: maxima-core-docs.info,  Node: Variable timer_devalue,  Next: Function time
      See also: ‘timer’, ‘timer_info’.
 
 
-File: maxima-core-docs.info,  Node: Function timer_info f_1 ... f_n timer_info,  Next: Function timer_reset timer_reset f_1 ... f_n timer_reset,  Prev: Variable timer_devalue,  Up: Debugging
+File: maxima-core-docs.info,  Node: Function timer_info f_1 ... f_n,  Next: Function timer_reset f_1 ... f_n,  Prev: Variable timer_devalue,  Up: Debugging
 
- -- Function: timer_info (F_1, ..., F_N, TIMER_INFO)
+ -- Function: timer_info (F_1, ..., F_N)
      Given functions _f_1_, ..., _f_n_, ‘timer_info’ returns a matrix
      containing timing information for each function.  With no
      arguments, ‘timer_info’ returns timing information for all
@@ -6211,9 +5733,9 @@ File: maxima-core-docs.info,  Node: Function timer_info f_1 ... f_n timer_info, 
      See also: ‘timer’, ‘timer_reset’.
 
 
-File: maxima-core-docs.info,  Node: Function timer_reset timer_reset f_1 ... f_n timer_reset,  Next: Function trace f_1 ... f_n trace all trace,  Prev: Function timer_info f_1 ... f_n timer_info,  Up: Debugging
+File: maxima-core-docs.info,  Node: Function timer_reset f_1 ... f_n,  Next: Function trace f_1 ... f_n,  Prev: Function timer_info f_1 ... f_n,  Up: Debugging
 
- -- Function: timer_reset (TIMER_RESET, F_1, ..., F_N, TIMER_RESET)
+ -- Function: timer_reset (F_1, ..., F_N)
      Given functions _f_1_, ..., _f_n_, ‘timer_reset’ sets the
      accumulated elapsed time for each function to zero.
 
@@ -6221,9 +5743,9 @@ File: maxima-core-docs.info,  Node: Function timer_reset timer_reset f_1 ... f_n
      for each function on the global timer list to zero.
 
 
-File: maxima-core-docs.info,  Node: Function trace f_1 ... f_n trace all trace,  Next: Variable trace_break_arg,  Prev: Function timer_reset timer_reset f_1 ... f_n timer_reset,  Up: Debugging
+File: maxima-core-docs.info,  Node: Function trace f_1 ... f_n,  Next: Variable trace_break_arg,  Prev: Function timer_reset f_1 ... f_n,  Up: Debugging
 
- -- Function: trace (F_1, ..., F_N, TRACE, ALL, TRACE)
+ -- Function: trace (F_1, ..., F_N)
      Given functions _f_1_, ..., _f_n_, ‘trace’ instructs Maxima to
      print out debugging information whenever those functions are
      called.  ‘trace(f)$ trace(g)$’ puts ‘f’ and then ‘g’ onto the list
@@ -6252,7 +5774,7 @@ File: maxima-core-docs.info,  Node: Function trace f_1 ... f_n trace all trace, 
      See also: ‘trace_options’.
 
 
-File: maxima-core-docs.info,  Node: Variable trace_break_arg,  Next: Function trace_options trace_options f option_1 ... option_n trace_options f,  Prev: Function trace f_1 ... f_n trace all trace,  Up: Debugging
+File: maxima-core-docs.info,  Node: Variable trace_break_arg,  Next: Function trace_options f option_1 ... option_n,  Prev: Function trace f_1 ... f_n,  Up: Debugging
 
  -- Variable: trace_break_arg
      When a traced function stops at a breakpoint, ‘trace_break_arg’ is
@@ -6263,10 +5785,9 @@ File: maxima-core-docs.info,  Node: Variable trace_break_arg,  Next: Function tr
      keyword ‘break’ of the function ‘trace_options’, which see.
 
 
-File: maxima-core-docs.info,  Node: Function trace_options trace_options f option_1 ... option_n trace_options f,  Next: Function untimer f_1 ... f_n untimer,  Prev: Variable trace_break_arg,  Up: Debugging
+File: maxima-core-docs.info,  Node: Function trace_options f option_1 ... option_n,  Next: Function untimer f_1 ... f_n,  Prev: Variable trace_break_arg,  Up: Debugging
 
- -- Function: trace_options (TRACE_OPTIONS, F, OPTION_1, ..., OPTION_N,
-          TRACE_OPTIONS, F)
+ -- Function: trace_options (F, OPTION_1, ..., OPTION_N)
      Sets the trace options for function _f_.  Any previous options are
      superseded.  ‘trace_options (f, ...)’ has no effect unless ‘trace
      (f)’ is also called (either before or after ‘trace_options’).
@@ -6278,39 +5799,40 @@ File: maxima-core-docs.info,  Node: Function trace_options trace_options f optio
      Specifying an option keyword with a predicate function _p_ as its
      argument makes the option conditional on the predicate.
 
-        •    • ‘noprint’, ‘noprint(p)’ Do not print a message at
-               function entry and exit.
+        •    • ‘noprint’, ‘noprint(p)’ Do not print a message
+               at function entry and exit.
 
-        •    • ‘break’, ‘break(p)’ Stop execution before the function is
-               entered, and after the function is exited.  See also
-               ‘break’.  The arguments of the function and its return
-               value are available as ‘trace_break_arg’ when entering
-               and exiting the function, respectively.
+        •    • ‘break’, ‘break(p)’ Stop execution before the
+               function is entered, and after the function is exited.
+               See also ‘break’.  The arguments of the function and its
+               return value are available as ‘trace_break_arg’ when
+               entering and exiting the function, respectively.
 
-        •    • ‘lisp_print’, ‘lisp_print(p)’ Display arguments and
-               return values as Lisp objects.
+        •    • ‘lisp_print’, ‘lisp_print(p)’ Display arguments
+               and return values as Lisp objects.
 
-        •    • ‘info’, ‘info(p)’ Display the return value of _p_ at
-               function entry and exit.  The function _p_ may also have
-               side effects, such as displaying output or modifying
-               global variables.
+        •    • ‘info’, ‘info(p)’ Display the return value of
+               _p_ at function entry and exit.  The function _p_ may
+               also have side effects, such as displaying output or
+               modifying global variables.
 
-        •    • ‘errorcatch’, ‘errorcatch(p)’ Catch errors, giving the
-               option to signal an error, retry the function call, or
-               specify a return value.
+        •    • ‘errorcatch’, ‘errorcatch(p)’ Catch errors,
+               giving the option to signal an error, retry the function
+               call, or specify a return value.
 
      The predicate function, if supplied, is called with four arguments.
 
-        •    • The recursion level for the function, an integer.
+        •    • The recursion level for the function, an
+               integer.
 
-        •    • Whether the function is being entered or exited,
-               indicated by a symbol, either ‘enter’ or ‘exit’,
+        •    • Whether the function is being entered or
+               exited, indicated by a symbol, either ‘enter’ or ‘exit’,
                respectively.
 
         •    • The name of the function, a symbol.
 
-        •    • The arguments of the traced function (on entering) or the
-               function return value (on exiting).
+        •    • The arguments of the traced function (on
+               entering) or the function return value (on exiting).
 
      If the predicate function returns ‘false’, the corresponding trace
      option is disabled; if any value other than ‘false’ value is
@@ -6427,9 +5949,9 @@ File: maxima-core-docs.info,  Node: Function trace_options trace_options f optio
      (%o5)                          720
 
 
-File: maxima-core-docs.info,  Node: Function untimer f_1 ... f_n untimer,  Next: Function untrace untrace f_1 ... f_n untrace,  Prev: Function trace_options trace_options f option_1 ... option_n trace_options f,  Up: Debugging
+File: maxima-core-docs.info,  Node: Function untimer f_1 ... f_n,  Next: Function untrace f_1 ... f_n,  Prev: Function trace_options f option_1 ... option_n,  Up: Debugging
 
- -- Function: untimer (F_1, ..., F_N, UNTIMER)
+ -- Function: untimer (F_1, ..., F_N)
      Given functions _f_1_, ..., _f_n_, ‘untimer’ removes each function
      from the timer list.
 
@@ -6443,9 +5965,9 @@ File: maxima-core-docs.info,  Node: Function untimer f_1 ... f_n untimer,  Next:
      statistics to zero and puts ‘f’ on the timer list again.
 
 
-File: maxima-core-docs.info,  Node: Function untrace untrace f_1 ... f_n untrace,  Prev: Function untimer f_1 ... f_n untimer,  Up: Debugging
+File: maxima-core-docs.info,  Node: Function untrace f_1 ... f_n,  Prev: Function untimer f_1 ... f_n,  Up: Debugging
 
- -- Function: untrace (UNTRACE, F_1, ..., F_N, UNTRACE)
+ -- Function: untrace (F_1, ..., F_N)
      Given functions _f_1_, ..., _f_n_, ‘untrace’ disables tracing
      enabled by the ‘trace’ function.  With no arguments, ‘untrace’
      disables tracing for all functions.
@@ -6461,8 +5983,8 @@ File: maxima-core-docs.info,  Node: Evaluation,  Next: Expressions,  Prev: Debug
 
 * Menu:
 
-* Function ' ::
-* Function '' ::
+* Function '::
+* Function ''::
 * Function ev expr arg_1 ... arg_n::
 * Variable eval::
 * Variable evflag::
@@ -6475,275 +5997,274 @@ File: maxima-core-docs.info,  Node: Evaluation,  Next: Expressions,  Prev: Debug
 
 File: maxima-core-docs.info,  Node: Function ',  Next: Function '',  Up: Evaluation
 
- -- Function: ' ()
-     The single quote operator ‘'’ prevents evaluation.
+1.91.1 Function: '
+------------------
 
-     Applied to a symbol, the single quote prevents evaluation of the
-     symbol.
+The single quote operator ‘'’ prevents evaluation.
 
-     Applied to a function call, the single quote prevents evaluation of
-     the function call, although the arguments of the function are still
-     evaluated (if evaluation is not otherwise prevented).  The result
-     is the noun form of the function call.
+Applied to a symbol, the single quote prevents evaluation of the symbol.
 
-     Applied to a parenthesized expression, the single quote prevents
-     evaluation of all symbols and function calls in the expression.
+Applied to a function call, the single quote prevents evaluation of the
+function call, although the arguments of the function are still
+evaluated (if evaluation is not otherwise prevented).  The result is the
+noun form of the function call.
 
-     E.g., ‘'(f(x))’ means do not evaluate the expression ‘f(x)’.
-     ‘'f(x)’ (with the single quote applied to ‘f’ instead of ‘f(x)’)
-     means return the noun form of ‘f’ applied to ‘[x]’.
+Applied to a parenthesized expression, the single quote prevents
+evaluation of all symbols and function calls in the expression.
 
-     The single quote does not prevent simplification.
+E.g., ‘'(f(x))’ means do not evaluate the expression ‘f(x)’.  ‘'f(x)’
+(with the single quote applied to ‘f’ instead of ‘f(x)’) means return
+the noun form of ‘f’ applied to ‘[x]’.
 
-     When the global flag ‘noundisp’ is ‘true’, nouns display with a
-     single quote.  This switch is always ‘true’ when displaying
-     function definitions.
+The single quote does not prevent simplification.
 
-     See also the quote-quote operator ‘quote_002dquote’ and ‘nouns’.
+When the global flag ‘noundisp’ is ‘true’, nouns display with a single
+quote.  This switch is always ‘true’ when displaying function
+definitions.
 
-     Examples:
+See also the quote-quote operator ‘quote_002dquote’ and ‘nouns’.
 
-     Applied to a symbol, the single quote prevents evaluation of the
-     symbol.
+Examples:
 
-     (%i1) aa: 1024;
-     (%o1)                         1024
-     (%i2) aa^2;
-     (%o2)                        1048576
-     (%i3) 'aa^2;
-                                      2
-     (%o3)                          aa
-     (%i4) ''%;
-     (%o4)                        1048576
+Applied to a symbol, the single quote prevents evaluation of the symbol.
 
-     Applied to a function call, the single quote prevents evaluation of
-     the function call.  The result is the noun form of the function
-     call.
+(%i1) aa: 1024;
+(%o1)                         1024
+(%i2) aa^2;
+(%o2)                        1048576
+(%i3) 'aa^2;
+                                 2
+(%o3)                          aa
+(%i4) ''%;
+(%o4)                        1048576
 
-     (%i1) x0: 5;
-     (%o1)                           5
-     (%i2) x1: 7;
-     (%o2)                           7
-     (%i3) integrate (x^2, x, x0, x1);
-                                    218
-     (%o3)                          ---
-                                     3
-     (%i4) 'integrate (x^2, x, x0, x1);
-     
-                                  7
-                                 /
-                                 [   2
-     (%o4)                       I  x  dx
-                                 ]
-                                 /
-                                  5
-     
-     (%i5) %, nouns;
-                                    218
-     (%o5)                          ---
-                                     3
+Applied to a function call, the single quote prevents evaluation of the
+function call.  The result is the noun form of the function call.
 
-     Applied to a parenthesized expression, the single quote prevents
-     evaluation of all symbols and function calls in the expression.
+(%i1) x0: 5;
+(%o1)                           5
+(%i2) x1: 7;
+(%o2)                           7
+(%i3) integrate (x^2, x, x0, x1);
+                               218
+(%o3)                          ---
+                                3
+(%i4) 'integrate (x^2, x, x0, x1);
 
-     (%i1) aa: 1024;
-     (%o1)                         1024
-     (%i2) bb: 19;
-     (%o2)                          19
-     (%i3) sqrt(aa) + bb;
-     (%o3)                          51
-     (%i4) '(sqrt(aa) + bb);
-     (%o4)                     bb + sqrt(aa)
-     (%i5) ''%;
-     (%o5)                          51
+                             7
+                            /
+                            [   2
+(%o4)                       I  x  dx
+                            ]
+                            /
+                             5
 
-     The single quote does not prevent simplification.
+(%i5) %, nouns;
+                               218
+(%o5)                          ---
+                                3
 
-     (%i1) sin (17 * %pi) + cos (17 * %pi);
-     (%o1)                          - 1
-     (%i2) '(sin (17 * %pi) + cos (17 * %pi));
-     (%o2)                          - 1
+Applied to a parenthesized expression, the single quote prevents
+evaluation of all symbols and function calls in the expression.
 
-     Maxima considers floating point operations by its in-built
-     mathematical functions to be a simplification.
+(%i1) aa: 1024;
+(%o1)                         1024
+(%i2) bb: 19;
+(%o2)                          19
+(%i3) sqrt(aa) + bb;
+(%o3)                          51
+(%i4) '(sqrt(aa) + bb);
+(%o4)                     bb + sqrt(aa)
+(%i5) ''%;
+(%o5)                          51
 
-     (%i1) sin(1.0);
-     (%o1)                          .8414709848078965
-     (%i2) '(sin(1.0));
-     (%o2)                          .8414709848078965
+The single quote does not prevent simplification.
 
-     When the global flag ‘noundisp’ is ‘true’, nouns display with a
-     single quote.
+(%i1) sin (17 * %pi) + cos (17 * %pi);
+(%o1)                          - 1
+(%i2) '(sin (17 * %pi) + cos (17 * %pi));
+(%o2)                          - 1
 
-     (%i1) x:%pi;
-     (%o1)                                 %pi
-     (%i2) bfloat(x);
-     (%o2)                         3.141592653589793b0
-     (%i3) sin(x);
-     (%o3)                                  0
-     (%i4) noundisp;
-     (%o4)                                false
-     (%i5) 'bfloat(x);
-     (%o5)                             bfloat(%pi)
-     (%i6) bfloat('x);
-     (%o6)                                  x
-     (%i7) 'sin(x);
-     (%o7)                                  0
-     (%i8) sin('x);
-     (%o8)                               sin(x)
-     (%i9) noundisp : not noundisp;
-     (%o9)                                true
-     (%i10) 'bfloat(x);
-     (%o10)                           'bfloat(%pi)
-     (%i11) bfloat('x);
-     (%o11)                                 x
-     (%i12) 'sin(x);
-     (%o12)                                 0
-     (%i13) sin('x);
-     (%o13)                              sin(x)
-     (%i14)
+Maxima considers floating point operations by its in-built mathematical
+functions to be a simplification.
 
-     See also: ‘noundisp’, ‘quote-quote’, ‘nouns’.
+(%i1) sin(1.0);
+(%o1)                          .8414709848078965
+(%i2) '(sin(1.0));
+(%o2)                          .8414709848078965
+
+When the global flag ‘noundisp’ is ‘true’, nouns display with a single
+quote.
+
+(%i1) x:%pi;
+(%o1)                                 %pi
+(%i2) bfloat(x);
+(%o2)                         3.141592653589793b0
+(%i3) sin(x);
+(%o3)                                  0
+(%i4) noundisp;
+(%o4)                                false
+(%i5) 'bfloat(x);
+(%o5)                             bfloat(%pi)
+(%i6) bfloat('x);
+(%o6)                                  x
+(%i7) 'sin(x);
+(%o7)                                  0
+(%i8) sin('x);
+(%o8)                               sin(x)
+(%i9) noundisp : not noundisp;
+(%o9)                                true
+(%i10) 'bfloat(x);
+(%o10)                           'bfloat(%pi)
+(%i11) bfloat('x);
+(%o11)                                 x
+(%i12) 'sin(x);
+(%o12)                                 0
+(%i13) sin('x);
+(%o13)                              sin(x)
+(%i14)
+
+See also: ‘noundisp’, ‘quote-quote’, ‘nouns’.
 
 
 File: maxima-core-docs.info,  Node: Function '',  Next: Function ev expr arg_1 ... arg_n,  Prev: Function ',  Up: Evaluation
 
- -- Function: '' ()
-     The quote-quote operator ‘''’ (two single quote marks) modifies
-     evaluation in input expressions.
+1.91.2 Function: "
+------------------
 
-     Applied to a general expression _expr_, quote-quote causes the
-     value of _expr_ to be substituted for _expr_ in the input
-     expression.
+The quote-quote operator ‘''’ (two single quote marks) modifies
+evaluation in input expressions.
 
-     Applied to the operator of an expression, quote-quote changes the
-     operator from a noun to a verb (if it is not already a verb).
+Applied to a general expression _expr_, quote-quote causes the value of
+_expr_ to be substituted for _expr_ in the input expression.
 
-     The quote-quote operator is applied by the input parser; it is not
-     stored as part of a parsed input expression.  The quote-quote
-     operator is always applied as soon as it is parsed, and cannot be
-     quoted.  Thus quote-quote causes evaluation when evaluation is
-     otherwise suppressed, such as in function definitions, lambda
-     expressions, and expressions quoted by single quote ‘'’.
+Applied to the operator of an expression, quote-quote changes the
+operator from a noun to a verb (if it is not already a verb).
 
-     Quote-quote is recognized by ‘batch’ and ‘load’.
+The quote-quote operator is applied by the input parser; it is not
+stored as part of a parsed input expression.  The quote-quote operator
+is always applied as soon as it is parsed, and cannot be quoted.  Thus
+quote-quote causes evaluation when evaluation is otherwise suppressed,
+such as in function definitions, lambda expressions, and expressions
+quoted by single quote ‘'’.
 
-     See also ‘ev’, the single-quote operator ‘quote’ and ‘nouns’.
+Quote-quote is recognized by ‘batch’ and ‘load’.
 
-     Examples:
+See also ‘ev’, the single-quote operator ‘quote’ and ‘nouns’.
 
-     Applied to a general expression _expr_, quote-quote causes the
-     value of _expr_ to be substituted for _expr_ in the input
-     expression.
+Examples:
 
-     (%i1) expand ((a + b)^3);
-                          3        2      2      3
-     (%o1)               b  + 3 a b  + 3 a  b + a
-     (%i2) [_, ''_];
-                              3    3        2      2      3
-     (%o2)     [expand((b + a) ), b  + 3 a b  + 3 a  b + a ]
-     (%i3) [%i1, ''%i1];
-                              3    3        2      2      3
-     (%o3)     [expand((b + a) ), b  + 3 a b  + 3 a  b + a ]
-     (%i4) [aa : cc, bb : dd, cc : 17, dd : 29];
-     (%o4)                   [cc, dd, 17, 29]
-     (%i5) foo_1 (x) := aa - bb * x;
-     (%o5)                 foo_1(x) := aa - bb x
-     (%i6) foo_1 (10);
-     (%o6)                      cc - 10 dd
-     (%i7) ''%;
-     (%o7)                         - 273
-     (%i8) ''(foo_1 (10));
-     (%o8)                         - 273
-     (%i9) foo_2 (x) := ''aa - ''bb * x;
-     (%o9)                 foo_2(x) := cc - dd x
-     (%i10) foo_2 (10);
-     (%o10)                        - 273
-     (%i11) [x0 : x1, x1 : x2, x2 : x3];
-     (%o11)                    [x1, x2, x3]
-     (%i12) x0;
-     (%o12)                         x1
-     (%i13) ''x0;
-     (%o13)                         x2
-     (%i14) '' ''x0;
-     (%o14)                         x3
+Applied to a general expression _expr_, quote-quote causes the value of
+_expr_ to be substituted for _expr_ in the input expression.
 
-     Applied to the operator of an expression, quote-quote changes the
-     operator from a noun to a verb (if it is not already a verb).
+(%i1) expand ((a + b)^3);
+                     3        2      2      3
+(%o1)               b  + 3 a b  + 3 a  b + a
+(%i2) [_, ''_];
+                         3    3        2      2      3
+(%o2)     [expand((b + a) ), b  + 3 a b  + 3 a  b + a ]
+(%i3) [%i1, ''%i1];
+                         3    3        2      2      3
+(%o3)     [expand((b + a) ), b  + 3 a b  + 3 a  b + a ]
+(%i4) [aa : cc, bb : dd, cc : 17, dd : 29];
+(%o4)                   [cc, dd, 17, 29]
+(%i5) foo_1 (x) := aa - bb * x;
+(%o5)                 foo_1(x) := aa - bb x
+(%i6) foo_1 (10);
+(%o6)                      cc - 10 dd
+(%i7) ''%;
+(%o7)                         - 273
+(%i8) ''(foo_1 (10));
+(%o8)                         - 273
+(%i9) foo_2 (x) := ''aa - ''bb * x;
+(%o9)                 foo_2(x) := cc - dd x
+(%i10) foo_2 (10);
+(%o10)                        - 273
+(%i11) [x0 : x1, x1 : x2, x2 : x3];
+(%o11)                    [x1, x2, x3]
+(%i12) x0;
+(%o12)                         x1
+(%i13) ''x0;
+(%o13)                         x2
+(%i14) '' ''x0;
+(%o14)                         x3
 
-     (%i1) declare (foo, noun);
-     (%o1)                         done
-     (%i2) foo (x) := x - 1729;
-     (%o2)                 ''foo(x) := x - 1729
-     (%i3) foo (100);
-     (%o3)                       foo(100)
-     (%i4) ''foo (100);
-     (%o4)                        - 1629
+Applied to the operator of an expression, quote-quote changes the
+operator from a noun to a verb (if it is not already a verb).
 
-     The quote-quote operator is applied by the input parser; it is not
-     stored as part of a parsed input expression.
+(%i1) declare (foo, noun);
+(%o1)                         done
+(%i2) foo (x) := x - 1729;
+(%o2)                 ''foo(x) := x - 1729
+(%i3) foo (100);
+(%o3)                       foo(100)
+(%i4) ''foo (100);
+(%o4)                        - 1629
 
-     (%i1) [aa : bb, cc : dd, bb : 1234, dd : 5678];
-     (%o1)                 [bb, dd, 1234, 5678]
-     (%i2) aa + cc;
-     (%o2)                        dd + bb
-     (%i3) display (_, op (_), args (_));
-                                _ = cc + aa
-     
-                              op(cc + aa) = +
-     
-                         args(cc + aa) = [cc, aa]
-     
-     (%o3)                         done
-     (%i4) ''(aa + cc);
-     (%o4)                         6912
-     (%i5) display (_, op (_), args (_));
-                                _ = dd + bb
-     
-                              op(dd + bb) = +
-     
-                         args(dd + bb) = [dd, bb]
-     
-     (%o5)                         done
+The quote-quote operator is applied by the input parser; it is not
+stored as part of a parsed input expression.
 
-     Quote-quote causes evaluation when evaluation is otherwise
-     suppressed, such as in function definitions, lambda expressions,
-     and expressions quoted by single quote ‘'’.
+(%i1) [aa : bb, cc : dd, bb : 1234, dd : 5678];
+(%o1)                 [bb, dd, 1234, 5678]
+(%i2) aa + cc;
+(%o2)                        dd + bb
+(%i3) display (_, op (_), args (_));
+                           _ = cc + aa
 
-     (%i1) foo_1a (x) := ''(integrate (log (x), x));
-     (%o1)               foo_1a(x) := x log(x) - x
-     (%i2) foo_1b (x) := integrate (log (x), x);
-     (%o2)           foo_1b(x) := integrate(log(x), x)
-     (%i3) dispfun (foo_1a, foo_1b);
-     (%t3)               foo_1a(x) := x log(x) - x
-     
-     (%t4)           foo_1b(x) := integrate(log(x), x)
-     
-     (%o4)                      [%t3, %t4]
-     (%i5) integrate (log (x), x);
-     (%o5)                     x log(x) - x
-     (%i6) foo_2a (x) := ''%;
-     (%o6)               foo_2a(x) := x log(x) - x
-     (%i7) foo_2b (x) := %;
-     (%o7)                    foo_2b(x) := %
-     (%i8) dispfun (foo_2a, foo_2b);
-     (%t8)               foo_2a(x) := x log(x) - x
-     
-     (%t9)                    foo_2b(x) := %
-     
-     (%o9)                      [%t7, %t8]
-     (%i10) F : lambda ([u], diff (sin (u), u));
-     (%o10)             lambda([u], diff(sin(u), u))
-     (%i11) G : lambda ([u], ''(diff (sin (u), u)));
-     (%o11)                  lambda([u], cos(u))
-     (%i12) '(sum (a[k], k, 1, 3) + sum (b[k], k, 1, 3));
-     (%o12)         sum(b , k, 1, 3) + sum(a , k, 1, 3)
-                         k                  k
-     (%i13) '(''(sum (a[k], k, 1, 3)) + ''(sum (b[k], k, 1, 3)));
-     (%o13)             b  + a  + b  + a  + b  + a
-                         3    3    2    2    1    1
+                         op(cc + aa) = +
 
-     See also: ‘batch’, ‘load’, ‘ev’, ‘quote’, ‘nouns’.
+                    args(cc + aa) = [cc, aa]
+
+(%o3)                         done
+(%i4) ''(aa + cc);
+(%o4)                         6912
+(%i5) display (_, op (_), args (_));
+                           _ = dd + bb
+
+                         op(dd + bb) = +
+
+                    args(dd + bb) = [dd, bb]
+
+(%o5)                         done
+
+Quote-quote causes evaluation when evaluation is otherwise suppressed,
+such as in function definitions, lambda expressions, and expressions
+quoted by single quote ‘'’.
+
+(%i1) foo_1a (x) := ''(integrate (log (x), x));
+(%o1)               foo_1a(x) := x log(x) - x
+(%i2) foo_1b (x) := integrate (log (x), x);
+(%o2)           foo_1b(x) := integrate(log(x), x)
+(%i3) dispfun (foo_1a, foo_1b);
+(%t3)               foo_1a(x) := x log(x) - x
+
+(%t4)           foo_1b(x) := integrate(log(x), x)
+
+(%o4)                      [%t3, %t4]
+(%i5) integrate (log (x), x);
+(%o5)                     x log(x) - x
+(%i6) foo_2a (x) := ''%;
+(%o6)               foo_2a(x) := x log(x) - x
+(%i7) foo_2b (x) := %;
+(%o7)                    foo_2b(x) := %
+(%i8) dispfun (foo_2a, foo_2b);
+(%t8)               foo_2a(x) := x log(x) - x
+
+(%t9)                    foo_2b(x) := %
+
+(%o9)                      [%t7, %t8]
+(%i10) F : lambda ([u], diff (sin (u), u));
+(%o10)             lambda([u], diff(sin(u), u))
+(%i11) G : lambda ([u], ''(diff (sin (u), u)));
+(%o11)                  lambda([u], cos(u))
+(%i12) '(sum (a[k], k, 1, 3) + sum (b[k], k, 1, 3));
+(%o12)         sum(b , k, 1, 3) + sum(a , k, 1, 3)
+                    k                  k
+(%i13) '(''(sum (a[k], k, 1, 3)) + ''(sum (b[k], k, 1, 3)));
+(%o13)             b  + a  + b  + a  + b  + a
+                    3    3    2    2    1    1
+
+See also: ‘batch’, ‘load’, ‘ev’, ‘quote’, ‘nouns’.
 
 
 File: maxima-core-docs.info,  Node: Function ev expr arg_1 ... arg_n,  Next: Variable eval,  Prev: Function '',  Up: Evaluation
@@ -6759,93 +6280,94 @@ File: maxima-core-docs.info,  Node: Function ev expr arg_1 ... arg_n,  Next: Var
        1. First the environment is set up by scanning the arguments
           which may be any or all of the following.
 
-        •    • ‘simp’ causes _expr_ to be simplified regardless of the
-               setting of the switch ‘simp’ which inhibits
-               simplification if ‘false’.
+        •    • ‘simp’ causes _expr_ to be simplified
+               regardless of the setting of the switch ‘simp’ which
+               inhibits simplification if ‘false’.
 
-        •    • ‘noeval’ suppresses the evaluation phase of ‘ev’ (see
-               step (4) below).  This is useful in conjunction with the
-               other switches and in causing _expr_ to be resimplified
-               without being reevaluated.
+        •    • ‘noeval’ suppresses the evaluation phase of
+               ‘ev’ (see step (4) below).  This is useful in conjunction
+               with the other switches and in causing _expr_ to be
+               resimplified without being reevaluated.
 
-        •    • ‘nouns’ causes the evaluation of noun forms (typically
-               unevaluated functions such as ‘'integrate’ or ‘'diff’) in
-               _expr_.
+        •    • ‘nouns’ causes the evaluation of noun forms
+               (typically unevaluated functions such as ‘'integrate’ or
+               ‘'diff’) in _expr_.
 
         •    • ‘expand’ causes expansion.
 
-        •    • ‘expand (m, n)’ causes expansion, setting the values of
-               ‘maxposex’ and ‘maxnegex’ to _m_ and _n_ respectively.
+        •    • ‘expand (m, n)’ causes expansion, setting the
+               values of ‘maxposex’ and ‘maxnegex’ to _m_ and _n_
+               respectively.
 
-        •    • ‘detout’ causes any matrix inverses computed in _expr_ to
-               have their determinant kept outside of the inverse rather
-               than dividing through each element.
+        •    • ‘detout’ causes any matrix inverses computed in
+               _expr_ to have their determinant kept outside of the
+               inverse rather than dividing through each element.
 
-        •    • ‘diff’ causes all differentiations indicated in _expr_ to
-               be performed.
+        •    • ‘diff’ causes all differentiations indicated in
+               _expr_ to be performed.
 
-        •    • ‘derivlist (x, y, z, ...)’ causes only differentiations
-               with respect to the indicated variables.  See also
-               ‘derivlist’.
+        •    • ‘derivlist (x, y, z, ...)’ causes only
+               differentiations with respect to the indicated variables.
+               See also ‘derivlist’.
 
-        •    • ‘risch’ causes integrals in _expr_ to be evaluated using
-               the Risch algorithm.  See ‘risch’.  The standard
-               integration routine is invoked when using the special
-               symbol ‘nouns’.
+        •    • ‘risch’ causes integrals in _expr_ to be
+               evaluated using the Risch algorithm.  See ‘risch’.  The
+               standard integration routine is invoked when using the
+               special symbol ‘nouns’.
 
-        •    • ‘float’ causes non-integral rational numbers to be
-               converted to floating point.
+        •    • ‘float’ causes non-integral rational numbers to
+               be converted to floating point.
 
-        •    • ‘numer’ causes some mathematical functions (including
-               exponentiation) with numerical arguments to be evaluated
-               in floating point.  It causes variables in _expr_ which
-               have been given numervals to be replaced by their values.
-               It also sets the ‘float’ switch on.
+        •    • ‘numer’ causes some mathematical functions
+               (including exponentiation) with numerical arguments to be
+               evaluated in floating point.  It causes variables in
+               _expr_ which have been given numervals to be replaced by
+               their values.  It also sets the ‘float’ switch on.
 
-        •    • ‘pred’ causes predicates (expressions which evaluate to
-               ‘true’ or ‘false’) to be evaluated.
+        •    • ‘pred’ causes predicates (expressions which
+               evaluate to ‘true’ or ‘false’) to be evaluated.
 
-        •    • ‘eval’ causes an extra post-evaluation of _expr_ to
-               occur.  (See step (5) below.)  ‘eval’ may occur multiple
-               times.  For each instance of ‘eval’, the expression is
-               evaluated again.
+        •    • ‘eval’ causes an extra post-evaluation of
+               _expr_ to occur.  (See step (5) below.)  ‘eval’ may occur
+               multiple times.  For each instance of ‘eval’, the
+               expression is evaluated again.
 
-        •    • ‘A’ where ‘A’ is an atom declared to be an evaluation
-               flag ‘evflag’ causes ‘A’ to be bound to ‘true’ during the
-               evaluation of _expr_.
+        •    • ‘A’ where ‘A’ is an atom declared to be an
+               evaluation flag ‘evflag’ causes ‘A’ to be bound to ‘true’
+               during the evaluation of _expr_.
 
-        •    • ‘V: expression’ (or alternately ‘V=expression’) causes
-               ‘V’ to be bound to the value of ‘expression’ during the
-               evaluation of _expr_.  Note that if ‘V’ is a Maxima
-               option, then ‘expression’ is used for its value during
-               the evaluation of _expr_.  If more than one argument to
-               ‘ev’ is of this type then the binding is done in
-               parallel.  If ‘V’ is a non-atomic expression then a
+        •    • ‘V: expression’ (or alternately ‘V=expression’)
+               causes ‘V’ to be bound to the value of ‘expression’
+               during the evaluation of _expr_.  Note that if ‘V’ is a
+               Maxima option, then ‘expression’ is used for its value
+               during the evaluation of _expr_.  If more than one
+               argument to ‘ev’ is of this type then the binding is done
+               in parallel.  If ‘V’ is a non-atomic expression then a
                substitution rather than a binding is performed.
 
-        •    • ‘F’ where ‘F’, a function name, has been declared to be
-               an evaluation function ‘evfun’ causes ‘F’ to be applied
-               to _expr_.
+        •    • ‘F’ where ‘F’, a function name, has been
+               declared to be an evaluation function ‘evfun’ causes ‘F’
+               to be applied to _expr_.
 
-        •    • Any other function names, e.g. ‘sum’, cause evaluation of
-               occurrences of those names in _expr_ as though they were
-               verbs.
+        •    • Any other function names, e.g. ‘sum’, cause
+               evaluation of occurrences of those names in _expr_ as
+               though they were verbs.
 
-        •    • In addition a function occurring in _expr_ (say ‘F(x)’)
-               may be defined locally for the purpose of this evaluation
-               of _expr_ by giving ‘F(x) := expression’ as an argument
-               to ‘ev’.
+        •    • In addition a function occurring in _expr_ (say
+               ‘F(x)’) may be defined locally for the purpose of this
+               evaluation of _expr_ by giving ‘F(x) := expression’ as an
+               argument to ‘ev’.
 
-        •    • If an atom not mentioned above or a subscripted variable
-               or subscripted expression was given as an argument, it is
-               evaluated and if the result is an equation or assignment
-               then the indicated binding or substitution is performed.
-               If the result is a list then the members of the list are
-               treated as if they were additional arguments given to
-               ‘ev’.  This permits a list of equations to be given
-               (e.g. ‘[X=1, Y=A**2]’) or a list of names of equations
-               (e.g., ‘[%t1, %t2]’ where ‘%t1’ and ‘%t2’ are equations)
-               such as that returned by ‘solve’.
+        •    • If an atom not mentioned above or a subscripted
+               variable or subscripted expression was given as an
+               argument, it is evaluated and if the result is an
+               equation or assignment then the indicated binding or
+               substitution is performed.  If the result is a list then
+               the members of the list are treated as if they were
+               additional arguments given to ‘ev’.  This permits a list
+               of equations to be given (e.g. ‘[X=1, Y=A**2]’) or a list
+               of names of equations (e.g., ‘[%t1, %t2]’ where ‘%t1’ and
+               ‘%t2’ are equations) such as that returned by ‘solve’.
 
      The arguments of ‘ev’ may be given in any order with the exception
      of substitution equations which are handled in sequence, left to
@@ -7149,12 +6671,12 @@ File: maxima-core-docs.info,  Node: Expressions,  Next: Function Definition,  Pr
 * Variable allbut::
 * Function args expr::
 * Function atom expr::
-* Function box box expr box expr a::
+* Function box expr::
 * Variable boxchar::
 * Function collapse expr::
 * Function copy e::
 * Function disolate expr x_1 ... x_n::
-* Function dispform dispform expr dispform expr all::
+* Function dispform expr::
 * Variable display_box_double_lines::
 * Function dpart expr n_1 ... n_k::
 * Variable exptisolate::
@@ -7175,7 +6697,7 @@ File: maxima-core-docs.info,  Node: Expressions,  Next: Function Definition,  Pr
 * Function nounify f::
 * Function nterms expr::
 * Function op expr::
-* Function operatorp operatorp expr op operatorp expr op_1 ... op_n::
+* Function operatorp expr op::
 * Variable opsubst::
 * Function optimize expr::
 * Variable optimprefix::
@@ -7186,8 +6708,8 @@ File: maxima-core-docs.info,  Node: Expressions,  Next: Function Definition,  Pr
 * Variable partswitch::
 * Function pickapart expr n::
 * Variable piece::
-* Function psubst psubst list expr psubst a b expr::
-* Function rembox rembox expr unlabelled rembox expr label rembox expr::
+* Function psubst list expr::
+* Function rembox expr unlabelled::
 * Function reveal expr depth::
 * Function sqrtdenest expr::
 * Function sublis list expr::
@@ -7197,7 +6719,7 @@ File: maxima-core-docs.info,  Node: Expressions,  Next: Function Definition,  Pr
 * Function substinpart x expr n_1 ... n_k::
 * Function substpart x expr n_1 ... n_k::
 * Function symbolp expr::
-* Function unorder ::
+* Function unorder::
 * Function verbify f::
 
 
@@ -7312,7 +6834,7 @@ File: maxima-core-docs.info,  Node: Function args expr,  Next: Function atom exp
      See also: ‘inflag’, ‘substpart’, ‘apply’, ‘funmake’, ‘op’.
 
 
-File: maxima-core-docs.info,  Node: Function atom expr,  Next: Function box box expr box expr a,  Prev: Function args expr,  Up: Expressions
+File: maxima-core-docs.info,  Node: Function atom expr,  Next: Function box expr,  Prev: Function args expr,  Up: Expressions
 
  -- Function: atom (EXPR)
      Returns ‘true’ if _expr_ is atomic (i.e. a number, name or string)
@@ -7320,9 +6842,9 @@ File: maxima-core-docs.info,  Node: Function atom expr,  Next: Function box box 
      ‘atom(sin(x))’ are ‘false’ (assuming ‘a[1]’ and ‘x’ are unbound).
 
 
-File: maxima-core-docs.info,  Node: Function box box expr box expr a,  Next: Variable boxchar,  Prev: Function atom expr,  Up: Expressions
+File: maxima-core-docs.info,  Node: Function box expr,  Next: Variable boxchar,  Prev: Function atom expr,  Up: Expressions
 
- -- Function: box (BOX, EXPR, BOX, EXPR, A)
+ -- Function: box (EXPR)
      Returns _expr_ enclosed in a box.  The return value is an
      expression with ‘box’ as the operator and _expr_ as the argument.
      A box is drawn on the display when ‘display2d’ is ‘true’.
@@ -7393,7 +6915,7 @@ File: maxima-core-docs.info,  Node: Function box box expr box expr a,  Next: Var
      ‘display_box_double_lines’.
 
 
-File: maxima-core-docs.info,  Node: Variable boxchar,  Next: Function collapse expr,  Prev: Function box box expr box expr a,  Up: Expressions
+File: maxima-core-docs.info,  Node: Variable boxchar,  Next: Function collapse expr,  Prev: Function box expr,  Up: Expressions
 
  -- Variable: boxchar
      Default value: ‘"’
@@ -7462,7 +6984,7 @@ File: maxima-core-docs.info,  Node: Function copy e,  Next: Function disolate ex
      This time, the assignment to _mm_ does not change the value of _m_.
 
 
-File: maxima-core-docs.info,  Node: Function disolate expr x_1 ... x_n,  Next: Function dispform dispform expr dispform expr all,  Prev: Function copy e,  Up: Expressions
+File: maxima-core-docs.info,  Node: Function disolate expr x_1 ... x_n,  Next: Function dispform expr,  Prev: Function copy e,  Up: Expressions
 
  -- Function: disolate (EXPR, X_1, ..., X_N)
      is similar to ‘isolate``(expr, x)’ except that it enables the user
@@ -7476,9 +6998,9 @@ File: maxima-core-docs.info,  Node: Function disolate expr x_1 ... x_n,  Next: F
      See also: ‘isolate’.
 
 
-File: maxima-core-docs.info,  Node: Function dispform dispform expr dispform expr all,  Next: Variable display_box_double_lines,  Prev: Function disolate expr x_1 ... x_n,  Up: Expressions
+File: maxima-core-docs.info,  Node: Function dispform expr,  Next: Variable display_box_double_lines,  Prev: Function disolate expr x_1 ... x_n,  Up: Expressions
 
- -- Function: dispform (DISPFORM, EXPR, DISPFORM, EXPR, ALL)
+ -- Function: dispform (EXPR)
      Returns the external representation of _expr_.
 
      ‘dispform(expr)’ returns the external representation with respect
@@ -7556,7 +7078,7 @@ File: maxima-core-docs.info,  Node: Function dispform dispform expr dispform exp
      See also: ‘part’, ‘inpart’, ‘inflag’.
 
 
-File: maxima-core-docs.info,  Node: Variable display_box_double_lines,  Next: Function dpart expr n_1 ... n_k,  Prev: Function dispform dispform expr dispform expr all,  Up: Expressions
+File: maxima-core-docs.info,  Node: Variable display_box_double_lines,  Next: Function dpart expr n_1 ... n_k,  Prev: Function dispform expr,  Up: Expressions
 
  -- Variable: display_box_double_lines
      Default value: ‘true’
@@ -8058,7 +7580,7 @@ File: maxima-core-docs.info,  Node: Function nterms expr,  Next: Function op exp
      _expr_ has (if it is a sum).
 
 
-File: maxima-core-docs.info,  Node: Function op expr,  Next: Function operatorp operatorp expr op operatorp expr op_1 ... op_n,  Prev: Function nterms expr,  Up: Expressions
+File: maxima-core-docs.info,  Node: Function op expr,  Next: Function operatorp expr op,  Prev: Function nterms expr,  Up: Expressions
 
  -- Function: op (EXPR)
      Returns the main operator of the expression _expr_.  This is
@@ -8134,10 +7656,9 @@ File: maxima-core-docs.info,  Node: Function op expr,  Next: Function operatorp 
      See also: ‘memoizing-function’, ‘inflag’, ‘args’.
 
 
-File: maxima-core-docs.info,  Node: Function operatorp operatorp expr op operatorp expr op_1 ... op_n,  Next: Variable opsubst,  Prev: Function op expr,  Up: Expressions
+File: maxima-core-docs.info,  Node: Function operatorp expr op,  Next: Variable opsubst,  Prev: Function op expr,  Up: Expressions
 
- -- Function: operatorp (OPERATORP, EXPR, OP, OPERATORP, EXPR, OP_1,
-          ..., OP_N)
+ -- Function: operatorp (EXPR, OP)
      ‘operatorp (expr, op)’ returns ‘true’ if _op_ is equal to the
      operator of _expr_.
 
@@ -8149,7 +7670,7 @@ File: maxima-core-docs.info,  Node: Function operatorp operatorp expr op operato
      See also: ‘inflag’.
 
 
-File: maxima-core-docs.info,  Node: Variable opsubst,  Next: Function optimize expr,  Prev: Function operatorp operatorp expr op operatorp expr op_1 ... op_n,  Up: Expressions
+File: maxima-core-docs.info,  Node: Variable opsubst,  Next: Function optimize expr,  Prev: Function operatorp expr op,  Up: Expressions
 
  -- Variable: opsubst
      Default value: ‘true’
@@ -8515,4 +8036,292 @@ File: maxima-core-docs.info,  Node: Function pickapart expr n,  Next: Variable p
                      3        2
 
      See also: ‘part’, ‘dpart’, ‘lpart’, ‘inpart’, ‘reveal’.
+
+
+File: maxima-core-docs.info,  Node: Variable piece,  Next: Function psubst list expr,  Prev: Function pickapart expr n,  Up: Expressions
+
+ -- Variable: piece
+     Holds the last expression selected when using the ‘part’ functions.
+
+     It is set during the execution of the function and thus may be
+     referred to in the function itself.
+
+     See also: ‘part’.
+
+
+File: maxima-core-docs.info,  Node: Function psubst list expr,  Next: Function rembox expr unlabelled,  Prev: Variable piece,  Up: Expressions
+
+ -- Function: psubst (LIST, EXPR)
+     ‘psubst(a, b, expr)’ is similar to ‘subst’.  See ‘subst’.
+
+     In distinction from ‘subst’ the function ‘psubst’ makes parallel
+     substitutions, if the first argument _list_ is a list of equations.
+
+     See also ‘sublis’ for making parallel substitutions and ‘let’ and
+     ‘letsimp’ for others ways to do substitutions.
+
+     Example:
+
+     The first example shows parallel substitution with ‘psubst’.  The
+     second example shows the result for the function ‘subst’, which
+     does a serial substitution.
+
+     maxima
+     
+     (%i1) psubst ([a^2=b, b=a], sin(a^2) + sin(b));
+     (%o1)                    sin(b) + sin(a)
+     
+     
+     (%i2) subst ([a^2=b, b=a], sin(a^2) + sin(b));
+     (%o2)                       2 sin(a)
+
+     See also: ‘subst’, ‘sublis’, ‘let’, ‘letsimp’.
+
+
+File: maxima-core-docs.info,  Node: Function rembox expr unlabelled,  Next: Function reveal expr depth,  Prev: Function psubst list expr,  Up: Expressions
+
+ -- Function: rembox (EXPR, UNLABELLED)
+     Removes boxes from _expr_.
+
+     ‘rembox (expr, unlabelled)’ removes all unlabelled boxes from
+     _expr_.
+
+     ‘rembox (expr, label)’ removes only boxes bearing _label_.
+
+     ‘rembox (expr)’ removes all boxes, labelled and unlabelled.
+
+     Boxes are drawn by the ‘box’, ‘dpart’, and ‘lpart’ functions.
+
+     Examples:
+
+     maxima
+     
+     (%i1) expr: (a*d - b*c)/h^2 + sin(%pi*x);
+                                       a d - b c
+     (%o1)                sin(%pi x) + ---------
+                                           2
+                                          h
+     
+     
+     (%i2) dpart (dpart (expr, 1, 1), 2, 2);
+                             """""""    a d - b c
+     (%o2)               sin("%pi x") + ---------
+                             """""""      """"
+                                          " 2"
+                                          "h "
+                                          """"
+     
+     
+     (%i3) expr2: lpart (BAR, lpart (FOO, %, 1), 2);
+                       FOO"""""""""""   BAR""""""""
+                       "    """"""" "   "a d - b c"
+     (%o3)             "sin("%pi x")" + "---------"
+                       "    """"""" "   "  """"   "
+                       """"""""""""""   "  " 2"   "
+                                        "  "h "   "
+                                        "  """"   "
+                                        """""""""""
+     
+     
+     (%i4) rembox (expr2, unlabelled);
+                                       BAR""""""""
+                        FOO"""""""""   "a d - b c"
+     (%o4)              "sin(%pi x)" + "---------"
+                        """"""""""""   "    2    "
+                                       "   h     "
+                                       """""""""""
+     
+     
+     (%i5) rembox (expr2, FOO);
+                                       BAR""""""""
+                            """""""    "a d - b c"
+     (%o5)              sin("%pi x") + "---------"
+                            """""""    "  """"   "
+                                       "  " 2"   "
+                                       "  "h "   "
+                                       "  """"   "
+                                       """""""""""
+     
+     
+     (%i6) rembox (expr2, BAR);
+                        FOO"""""""""""
+                        "    """"""" "   a d - b c
+     (%o6)              "sin("%pi x")" + ---------
+                        "    """"""" "     """"
+                        """"""""""""""     " 2"
+                                           "h "
+                                           """"
+     
+     
+     (%i7) rembox (expr2);
+                                       a d - b c
+     (%o7)                sin(%pi x) + ---------
+                                           2
+                                          h
+
+     See also: ‘box’, ‘dpart’, ‘lpart’.
+
+
+File: maxima-core-docs.info,  Node: Function reveal expr depth,  Next: Function sqrtdenest expr,  Prev: Function rembox expr unlabelled,  Up: Expressions
+
+ -- Function: reveal (EXPR, DEPTH)
+     Replaces parts of _expr_ at the specified integer _depth_ with
+     descriptive summaries.
+
+        •    • Sums and differences are replaced by ‘Sum(n)’
+               where _n_ is the number of operands of the sum.
+
+        •    • Products are replaced by ‘Product(n)’ where _n_
+               is the number of operands of the product.
+
+        •    • Exponentials are replaced by ‘Expt’.
+
+        •    • Quotients are replaced by ‘Quotient’.
+
+        •    • Unary negation is replaced by ‘Negterm’.
+
+        •    • Lists are replaced by ‘List(n)’ where _n_ is
+               the number of elements of the list.
+
+     When _depth_ is greater than or equal to the maximum depth of
+     _expr_, ‘reveal (expr, depth)’ returns _expr_ unmodified.
+
+     ‘reveal’ evaluates its arguments.  ‘reveal’ returns the summarized
+     expression.
+
+     Example:
+
+     maxima
+     
+     (%i1) e: expand ((a - b)^2)/expand ((exp(a) + exp(b))^2);
+                               2            2
+                              b  - 2 a b + a
+     (%o1)               -------------------------
+                             b + a     2 b     2 a
+                         2 %e      + %e    + %e
+     
+     
+     (%i2) reveal (e, 1);
+     (%o2)                       Quotient
+     
+     
+     (%i3) reveal (e, 2);
+                                  Sum(3)
+     (%o3)                        ------
+                                  Sum(3)
+     
+     
+     (%i4) reveal (e, 3);
+                          Expt + Negterm + Expt
+     (%o4)               ------------------------
+                         Product(2) + Expt + Expt
+     
+     
+     (%i5) reveal (e, 4);
+                            2                 2
+                           b  - Product(3) + a
+     (%o5)         ------------------------------------
+                              Product(2)     Product(2)
+                   2 Expt + %e           + %e
+     
+     
+     (%i6) reveal (e, 5);
+                              2            2
+                             b  - 2 a b + a
+     (%o6)              --------------------------
+                            Sum(2)     2 b     2 a
+                        2 %e       + %e    + %e
+     
+     
+     (%i7) reveal (e, 6);
+                               2            2
+                              b  - 2 a b + a
+     (%o7)               -------------------------
+                             b + a     2 b     2 a
+                         2 %e      + %e    + %e
+
+
+File: maxima-core-docs.info,  Node: Function sqrtdenest expr,  Next: Function sublis list expr,  Prev: Function reveal expr depth,  Up: Expressions
+
+ -- Function: sqrtdenest (EXPR)
+     Denests ‘sqrt’ of simple, numerical, binomial surds, where
+     possible.  E.g.
+
+     maxima
+     
+     (%i1) sqrt(sqrt(3)/2+1)/sqrt(11*sqrt(2)-12);
+                                  sqrt(3)
+                             sqrt(------- + 1)
+                                     2
+     (%o1)                 ---------------------
+                           sqrt(11 sqrt(2) - 12)
+     
+     
+     (%i2) sqrtdenest(%);
+                                sqrt(3)   1
+                                ------- + -
+                                   2      2
+     (%o2)                     -------------
+                                  1/4    3/4
+                               3 2    - 2
+
+     Sometimes it helps to apply ‘sqrtdenest’ more than once, on such as
+     ‘(19601-13860 sqrt(2))^(7/4)’.
+
+
+File: maxima-core-docs.info,  Node: Function sublis list expr,  Next: Variable sublis_apply_lambda,  Prev: Function sqrtdenest expr,  Up: Expressions
+
+ -- Function: sublis (LIST, EXPR)
+     Makes multiple parallel substitutions into an expression.  _list_
+     is a list of equations.  The left hand side of the equations must
+     be an atom.
+
+     The variable ‘sublis_apply_lambda’ controls simplification after
+     ‘sublis’.
+
+     See also ‘psubst’ for making parallel substitutions.
+
+     Example:
+
+     maxima
+     
+     (%i1) sublis ([a=b, b=a], sin(a) + cos(b));
+     (%o1)                    sin(b) + cos(a)
+
+     See also: ‘sublis_apply_lambda’, ‘psubst’.
+
+
+File: maxima-core-docs.info,  Node: Variable sublis_apply_lambda,  Next: Variable subnumsimp,  Prev: Function sublis list expr,  Up: Expressions
+
+ -- Variable: sublis_apply_lambda
+     Default value: ‘true’
+
+     Controls whether ‘lambda’'s substituted are applied in
+     simplification after ‘sublis’ is used or whether you have to do an
+     ‘ev’ to get things to apply.  ‘true’ means do the application.
+
+     See also: ‘ev’.
+
+
+File: maxima-core-docs.info,  Node: Variable subnumsimp,  Next: Function subst a b c,  Prev: Variable sublis_apply_lambda,  Up: Expressions
+
+ -- Variable: subnumsimp
+     Default value: ‘false’
+
+     If ‘true’ then the functions ‘subst’ and ‘psubst’ can substitute a
+     subscripted variable ‘f[x]’ with a number, when only the symbol ‘f’
+     is given.
+
+     See also ‘subst’.
+
+     subst: cannot substitute 100 for operator g in expression g x - an
+     error.  To debug this try: debugmode(true);
+
+     maxima
+     (%i1) subst(100,g,g[x]+2);
+     
+     (%i2) subst(100,g,g[x]+2),subnumsimp:true;
+     (%o2)                          102
+
+     See also: ‘subst’, ‘psubst’.
 

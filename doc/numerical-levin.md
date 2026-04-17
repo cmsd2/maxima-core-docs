@@ -1,5 +1,8 @@
 ## levin
 
+<!-- category: Numerical -->
+<!-- keywords: bflevin_u_sum -->
+<!-- signatures: bflevin_u_sum(a, n, n_0) -->
 ### Function: bflevin_u_sum (a, n, n_0)
 
 Estimate `sum(a(n), n, n_0, inf)` using the
@@ -24,7 +27,10 @@ See `Examples for levin` for examples.
 
 See also: `fpprec`, `levin_options`, `Examples-for-levin`.
 
-### Function: levin_options ()
+<!-- category: Numerical -->
+<!-- keywords: levin_options -->
+<!-- signatures: levin_options -->
+### Function: levin_options
 
 Function `bflevin_u_sum` attempts to return the sum of an infinite series
 with a precision given by the global variable `fpprec` using bigfloat arithmetic.
@@ -46,7 +52,10 @@ Note that the subscript values for `levin_options` are strings.
 
 See also: `bflevin_u_sum`, `fpprec`.
 
-### Function: levin_u_sum (levin_u_sum, a, n, n_0, nterms, mode, levin_u_sum, a, n, n_0, nterms)
+<!-- category: Numerical -->
+<!-- keywords: levin_u_sum -->
+<!-- signatures: levin_u_sum(a, n, n_0, nterms, mode), levin_u_sum(a, n, n_0, nterms) -->
+### Function: levin_u_sum (a, n, n_0, nterms, mode)
 
 Estimate `sum(a(n), n, n_0, inf)` using at most *nterms*
 terms using the Levin u-transform `levin_002d1973`.

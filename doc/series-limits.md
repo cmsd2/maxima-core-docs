@@ -1,6 +1,9 @@
 ## Limits
 
-### Function: gruntz (gruntz, expr, var, value, gruntz, expr, var, value, direction)
+<!-- category: Series -->
+<!-- keywords: gruntz -->
+<!-- signatures: gruntz(expr, var, value), gruntz(expr, var, value, direction) -->
+### Function: gruntz (expr, var, value)
 
 Compute limit of expression *expr* with respect to variable *var* at *value*.
 When *value* is not infinite (i.e., not `inf` or `minf`),
@@ -38,6 +41,9 @@ so, for example, it can’t handle `limit((-2)^x, x, inf)`.
 
 `gruntz` is one of the methods called from `limit`.
 
+<!-- category: Series -->
+<!-- keywords: lhospitallim -->
+<!-- signatures: lhospitallim -->
 ### Variable: lhospitallim
 
 Default value: 4
@@ -49,7 +55,10 @@ rule is used in `limit`.  This prevents infinite looping in cases like
 
 See also: `limit`.
 
-### Function: limit (limit, expr, x, val, dir, limit, expr, x, val, limit, expr)
+<!-- category: Series -->
+<!-- keywords: limit -->
+<!-- signatures: limit(expr, x, val, dir), limit(expr, x, val), limit(expr) -->
+### Function: limit (expr, x, val, dir)
 
 Computes the limit of *expr* as the real variable *x* approaches the
 value *val* from the direction *dir*.  *dir* may have the value
@@ -102,6 +111,9 @@ Manipulation", Ph.D. thesis, MAC TR-92, October 1971.
 
 See also: `minf`, `und`, `ind`, `infinity`, `lhospitallim`, `tlimswitch`, `limsubst`.
 
+<!-- category: Series -->
+<!-- keywords: limsubst -->
+<!-- signatures: limsubst -->
 ### Variable: limsubst
 
 Default value: `false`
@@ -113,11 +125,17 @@ to avoid bugs like `limit (f(n)/f(n+1), n, inf)` giving 1.  Setting
 
 See also: `limit`.
 
-### Function: tlimit (tlimit, expr, x, val, dir, tlimit, expr, x, val, tlimit, expr)
+<!-- category: Series -->
+<!-- keywords: tlimit -->
+<!-- signatures: tlimit(expr, x, val, dir), tlimit(expr, x, val), tlimit(expr) -->
+### Function: tlimit (expr, x, val, dir)
 
 Take the limit of the Taylor series expansion of `expr` in `x`
 at `val` from direction `dir`.
 
+<!-- category: Series -->
+<!-- keywords: tlimswitch -->
+<!-- signatures: tlimswitch -->
 ### Variable: tlimswitch
 
 Default value: `true`

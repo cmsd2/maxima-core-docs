@@ -1,5 +1,8 @@
 ## Data Types and Structures
 
+<!-- category: Programming -->
+<!-- keywords: %catalan, catalan, Catalan’s Constant -->
+<!-- signatures: %catalan -->
 ### Variable: %catalan
 
 `%catalan` represents Catalan’s constant, $G$, defined by
@@ -17,12 +20,18 @@ $$G = \sum_{n=0}^\infty {(-1)^n\over (2n+1)^2}$$
 The numeric value of `%catalan` is approximately
 0.915965594177219.  (See [https://dlmf.nist.gov/25.11.E40DLMF 25.11.E40]()).
 
+<!-- category: Programming -->
+<!-- keywords: %e, e, Euler’s number, Base of natural logarithm -->
+<!-- signatures: %e -->
 ### Variable: %e
 
 `%e` represents the base of the natural logarithm, also known as Euler’s
 number.  The numeric value of `%e` is the double-precision floating-point
 value 2.718281828459045d0.  (See [https://personal.math.ubc.ca/~cbm/aands/page_67.htmA&S eqn 4.1.16](), [https://personal.math.ubc.ca/~cbm/aands/page_67.htmA&S 4.1.17]().)
 
+<!-- category: Programming -->
+<!-- keywords: %gamma -->
+<!-- signatures: %gamma -->
 ### Variable: %gamma
 
 The Euler-Mascheroni constant, 0.5772156649015329.... It is defined by ([https://personal.math.ubc.ca/~cbm/aands/page_255.htmA&S eqn 6.1.3]() and [https://dlmf.nist.gov/5.2.iiDLMF 5.2.ii]())
@@ -32,11 +41,17 @@ $$\gamma = \lim_{n \rightarrow \infty} \left(\sum_{k=1}^n {1\over k} - \log n\ri
 
 $$\gamma = \lim_{n \rightarrow \infty} \left(\sum_{k=1}^n {1\over k} - \log n\right)$$
 
+<!-- category: Programming -->
+<!-- keywords: %i -->
+<!-- signatures: %i -->
 ### Variable: %i
 
 `%i` represents the imaginary unit, 
 $\sqrt{-1}.$
 
+<!-- category: Programming -->
+<!-- keywords: %phi -->
+<!-- signatures: %phi -->
 ### Variable: %phi
 
 `%phi` represents the so-called *golden mean*, 
@@ -134,13 +149,19 @@ After evaluating `tellrat (%phi^2 - %phi - 1)` and `algebraic: true`,
 
 See also: `fibtophi`, `ratsimp`.
 
+<!-- category: Programming -->
+<!-- keywords: %pi -->
+<!-- signatures: %pi -->
 ### Variable: %pi
 
 `%pi` represents the ratio of the perimeter of a circle to its diameter.
 The numeric value of `%pi` is the double-precision floating-point value
 3.141592653589793d0.
 
-### Function: @ ()
+<!-- category: Programming -->
+<!-- keywords: @ -->
+<!-- signatures: @ -->
+### Function: @
 
 `@` is the structure field access operator.
 The expression `x@ a` refers to the value of field *a* of the structure instance *x*.
@@ -221,6 +242,9 @@ The field name is not evaluated.
 (%o8)                          123
 ```
 
+<!-- category: Programming -->
+<!-- keywords: [, ] -->
+<!-- signatures: ] -->
 ### Variable: [
 
 `[` and `]` mark the beginning and end, respectively, of a list.
@@ -297,7 +321,10 @@ Examples:
 
 See also: `hashed-array`, `memoizing-function`, `Performance-considerations-for-Lists`, `Arrays`.
 
-### Function: accumulate (accumulate, op, X, X0, accumulate, op, X)
+<!-- category: Programming -->
+<!-- keywords: accumulate -->
+<!-- signatures: accumulate(op, X, X0), accumulate(op, X) -->
+### Function: accumulate (op, X, X0)
 
 Returns a list comprising the partial results of *op* applied to successive elements of the list *X*.
 
@@ -367,6 +394,9 @@ maxima
 
 See also: `lreduce`.
 
+<!-- category: Programming -->
+<!-- keywords: append -->
+<!-- signatures: append(list_1, ..., list_n) -->
 ### Function: append (list_1, ..., list_n)
 
 Returns a single list of the elements of *list_1* followed
@@ -382,7 +412,10 @@ Do `example(append);` for an example.
 
 See also: `addrow`, `addcol`, `join`.
 
-### Function: array (array, name, dim_1, ..., dim_n, array, name, type, dim_1, ..., dim_n, array, name_1, ..., name_m, dim_1, ..., dim_n)
+<!-- category: Programming -->
+<!-- keywords: array -->
+<!-- signatures: array(name, dim_1, ..., dim_n), array(name, type, dim_1, ..., dim_n), array([name_1, ..., name_m], dim_1, ..., dim_n) -->
+### Function: array (name, dim_1, ..., dim_n)
 
 Creates an $n$-dimensional array.  $n$ may be less than or equal to 5.
 The subscripts for the $i$’th dimension are the integers running from 0 to
@@ -407,7 +440,10 @@ See also `arraymake`, `arrayinfo` and `make_005farray`.
 
 See also: `arraymake`, `arrayinfo`, `make_array`.
 
-### Function: arrayapply (A, i_1, ..., i_n)
+<!-- category: Programming -->
+<!-- keywords: arrayapply -->
+<!-- signatures: arrayapply(A, [i_1, ..., i_n]) -->
+### Function: arrayapply (A, [i_1, ..., i_n])
 
 Evaluates `A [i_1, ..., i_n]`,
 where *A* is an array and *i_1*, ..., *i_n* are integers.
@@ -418,6 +454,9 @@ instead of a function.
 
 See also: `apply`.
 
+<!-- category: Programming -->
+<!-- keywords: arrayinfo -->
+<!-- signatures: arrayinfo(A) -->
 ### Function: arrayinfo (A)
 
 Returns information about the array *A*.
@@ -626,7 +665,10 @@ Using `arrayinfo` in order to convert an undeclared array to a declared array:
 
 See also: `hashed-array`, `memoizing-function`, `listarray`, `memoizing-functions`.
 
-### Function: arraymake (A, i_1, ..., i_n)
+<!-- category: Programming -->
+<!-- keywords: arraymake -->
+<!-- signatures: arraymake(A, [i_1, ..., i_n]) -->
+### Function: arraymake (A, [i_1, ..., i_n])
 
 Returns the expression `A[i_1, ..., i_n]`.
 The result is an unevaluated array reference.
@@ -720,6 +762,9 @@ Examples:
 
 See also: `funmake`.
 
+<!-- category: Programming -->
+<!-- keywords: arrays -->
+<!-- signatures: arrays -->
 ### Variable: arrays
 
 Default value: `[]`
@@ -777,7 +822,10 @@ Examples:
 
 See also: `array`, `hashed-arrays`, `memoizing-functions`, `define`, `make_array`, `arrayapply`, `arrayinfo`, `arraymake`, `fillarray`, `listarray`, `rearray`.
 
-### Function: arraysetapply (A, i_1, ..., i_n, x)
+<!-- category: Programming -->
+<!-- keywords: arraysetapply -->
+<!-- signatures: arraysetapply(A, [i_1, ..., i_n], x) -->
+### Function: arraysetapply (A, [i_1, ..., i_n], x)
 
 Assigns *x* to `A[i_1, ..., i_n]`,
 where *A* is an array and *i_1*, ..., *i_n* are integers.
@@ -785,7 +833,10 @@ where *A* is an array and *i_1*, ..., *i_n* are integers.
 
 `arraysetapply` evaluates its arguments.
 
-### Function: assoc (assoc, key, e, default, assoc, key, e)
+<!-- category: Programming -->
+<!-- keywords: assoc -->
+<!-- signatures: assoc(key, e, default), assoc(key, e) -->
+### Function: assoc (key, e, default)
 
 `assoc` searches for *key* as the first part of an argument of *e*
 and returns the second part of the first match, if any.
@@ -859,7 +910,10 @@ Otherwise, `false` is returned.
 
 See also: `sublist`, `member`.
 
-### Function: cons (cons, expr, list, cons, expr_1, expr_2)
+<!-- category: Programming -->
+<!-- keywords: cons -->
+<!-- signatures: cons(expr, list), cons(expr_1, expr_2) -->
+### Function: cons (expr, list)
 
 `cons (expr, list)` returns a new list constructed of the element 
 *expr* as its first element, followed by the elements of *list*. This is 
@@ -911,10 +965,16 @@ to a nonlist sometimes gives a surprising result; for example
 (%o2)                           0
 ```
 
+<!-- category: Programming -->
+<!-- keywords: copylist -->
+<!-- signatures: copylist(list) -->
 ### Function: copylist (list)
 
 Returns a copy of the list *list*.
 
+<!-- category: Programming -->
+<!-- keywords: create_list -->
+<!-- signatures: create_list(form, x_1, list_1, ..., x_n, list_n) -->
 ### Function: create_list (form, x_1, list_1, ..., x_n, list_n)
 
 Create a list by evaluating *form* with *x_1* bound to
@@ -970,7 +1030,10 @@ upper bounds for the iteration.
 Note that the limits or list for the `j` variable can
 depend on the current value of `i`.
 
-### Function: defstruct (defstruct, S, a_1, ..., a_n, defstruct, S, a_1, =, v_1, ..., a_n, =, v_n)
+<!-- category: Programming -->
+<!-- keywords: defstruct -->
+<!-- signatures: defstruct(S(a_1, ..., a_n)), defstruct(S(a_1=v_1, ..., a_n=v_n)) -->
+### Function: defstruct (S(a_1, ..., a_n))
 
 Define a structure, which is a list of named fields *a_1*, ...,
 *a_n* associated with a symbol *S*.
@@ -1025,7 +1088,10 @@ Examples:
 (%o8)             [bar(v, w, x = 123, y = %pi)]
 ```
 
-### Function: delete (delete, expr_1, expr_2, delete, expr_1, expr_2, n)
+<!-- category: Programming -->
+<!-- keywords: delete -->
+<!-- signatures: delete(expr_1, expr_2), delete(expr_1, expr_2, n) -->
+### Function: delete (expr_1, expr_2)
 
 `delete(expr_1, expr_2)`
 removes from *expr_2* any arguments of its top-level operator
@@ -1154,6 +1220,9 @@ Arguments which are `equal` but not "=" are not removed.
 (%o6)                       [x  - y ]
 ```
 
+<!-- category: Programming -->
+<!-- keywords: eighth -->
+<!-- signatures: eighth(expr) -->
 ### Function: eighth (expr)
 
 Returns the 8th item of expression or list *expr*.
@@ -1161,7 +1230,10 @@ See `first` for more details.
 
 See also: `first`.
 
-### Function: endcons (endcons, expr, list, endcons, expr_1, expr_2)
+<!-- category: Programming -->
+<!-- keywords: endcons -->
+<!-- signatures: endcons(expr, list), endcons(expr_1, expr_2) -->
+### Function: endcons (expr, list)
 
 `endcons (expr, list)` returns a new list constructed of the elements of 
 *list* followed by *expr*. The Maxima function `endcons` can also be used where 
@@ -1209,11 +1281,17 @@ to a nonlist sometimes gives a surprising result; for example
 (%o2)                           0
 ```
 
+<!-- category: Programming -->
+<!-- keywords: false -->
+<!-- signatures: false -->
 ### Variable: false
 
 `false` represents the Boolean constant of the same name.
 Maxima implements `false` by the value `NIL` in Lisp.
 
+<!-- category: Programming -->
+<!-- keywords: fifth -->
+<!-- signatures: fifth(expr) -->
 ### Function: fifth (expr)
 
 Returns the 5th item of expression or list *expr*.
@@ -1221,6 +1299,9 @@ See `first` for more details.
 
 See also: `first`.
 
+<!-- category: Programming -->
+<!-- keywords: fillarray -->
+<!-- signatures: fillarray(A, B) -->
 ### Function: fillarray (A, B)
 
 Fills array *A* from *B*, which is a list or an array.
@@ -1329,6 +1410,9 @@ Multiple-dimension arrays are filled in row-major order.
 (%o4)   {Lisp Array: #2A((1 2) (3 4) (5 6) (7 8) (9 10))}
 ```
 
+<!-- category: Programming -->
+<!-- keywords: first -->
+<!-- signatures: first(expr) -->
 ### Function: first (expr)
 
 Returns the first part of *expr* which may result in the first element of a
@@ -1381,6 +1465,9 @@ See also `firstn` and `part`.
 
 See also: `inflag`, `firstn`, `part`.
 
+<!-- category: Programming -->
+<!-- keywords: firstn -->
+<!-- signatures: firstn(expr, count) -->
 ### Function: firstn (expr, count)
 
 Returns the first *count* arguments of *expr*, if *expr* has at least *count* arguments.
@@ -1544,6 +1631,9 @@ Note that `firstn(expr, 1)` is not the same as `first(expr)`.
 
 See also: `lastn`, `rest`.
 
+<!-- category: Programming -->
+<!-- keywords: fourth -->
+<!-- signatures: fourth(expr) -->
 ### Function: fourth (expr)
 
 Returns the 4th item of expression or list *expr*.
@@ -1551,6 +1641,9 @@ See `first` for more details.
 
 See also: `first`.
 
+<!-- category: Programming -->
+<!-- keywords: has_key -->
+<!-- signatures: has_key(A, L) -->
 ### Function: has_key (A, L)
 
 Returns `true` if the undeclared array or hash table *A* has the key or keys (i.e., subscripts) *L*,
@@ -1679,6 +1772,9 @@ maxima
 
 See also: `make_array`, `use_fast_arrays`, `arrayinfo`.
 
+<!-- category: Programming -->
+<!-- keywords: ind -->
+<!-- signatures: ind -->
 ### Variable: ind
 
 `ind` represents a bounded, indefinite result.
@@ -1701,14 +1797,23 @@ Example:
 
 See also: `limit`.
 
+<!-- category: Programming -->
+<!-- keywords: inf -->
+<!-- signatures: inf -->
 ### Variable: inf
 
 `inf` represents real positive infinity.
 
+<!-- category: Programming -->
+<!-- keywords: infinity -->
+<!-- signatures: infinity -->
 ### Variable: infinity
 
 `infinity` represents complex infinity.
 
+<!-- category: Programming -->
+<!-- keywords: join -->
+<!-- signatures: join(l, m) -->
 ### Function: join (l, m)
 
 Creates a new list containing the elements of lists *l* and *m*,
@@ -1750,6 +1855,9 @@ Examples:
 
 See also: `append`.
 
+<!-- category: Programming -->
+<!-- keywords: last -->
+<!-- signatures: last(expr) -->
 ### Function: last (expr)
 
 Returns the last part (term, row, element, etc.) of the *expr*.
@@ -1759,6 +1867,9 @@ See also `lastn`.
 
 See also: `lastn`.
 
+<!-- category: Programming -->
+<!-- keywords: lastn -->
+<!-- signatures: lastn(expr, count) -->
 ### Function: lastn (expr, count)
 
 Returns the last *count* arguments of *expr*, if *expr* has at least *count* arguments.
@@ -1922,6 +2033,9 @@ Note that `lastn(expr, 1)` is not the same as `last(expr)`.
 
 See also: `firstn`, `rest`.
 
+<!-- category: Programming -->
+<!-- keywords: least_negative_float -->
+<!-- signatures: least_negative_float -->
 ### Variable: least_negative_float
 
 The least negative floating-point number in Maxima.  That is, the
@@ -1933,12 +2047,18 @@ are supported.  Otherwise it is the same as
 
 See also: `least_negative_normalized_float`.
 
+<!-- category: Programming -->
+<!-- keywords: least_negative_normalized_float -->
+<!-- signatures: least_negative_normalized_float -->
 ### Variable: least_negative_normalized_float
 
 The least negative normalized floating-point number in Maxima.  That
 is, the negative normalized floating-point number closest to 0.  It is
 approximately -2.22507e-308.
 
+<!-- category: Programming -->
+<!-- keywords: least_positive_float -->
+<!-- signatures: least_positive_float -->
 ### Variable: least_positive_float
 
 The least positive floating-point number in Maxima.  That is, the
@@ -1950,12 +2070,18 @@ are supported.  Otherwise it is the same as
 
 See also: `least_positive_normalized_float`.
 
+<!-- category: Programming -->
+<!-- keywords: least_positive_normalized_float -->
+<!-- signatures: least_positive_normalized_float -->
 ### Variable: least_positive_normalized_float
 
 The least positive normalized floating-point number in Maxima.  That
 is, the positive normalized floating-point number closest to 0.  It is
 approximately 2.22507e-308.
 
+<!-- category: Programming -->
+<!-- keywords: length -->
+<!-- signatures: length(expr) -->
 ### Function: length (expr)
 
 Returns (by default) the number of parts in the external
@@ -1977,6 +2103,9 @@ is calculated outside the loop instead.
 
 See also: `dispform`, `inflag`, `exptdispflag`.
 
+<!-- category: Programming -->
+<!-- keywords: listarith -->
+<!-- signatures: listarith -->
 ### Variable: listarith
 
 Default value: `true` 
@@ -1987,6 +2116,9 @@ when `true`, list-matrix operations are contagious causing lists to be
 converted to matrices yielding a result which is always a matrix.  However,
 list-list operations should return lists.
 
+<!-- category: Programming -->
+<!-- keywords: listarray -->
+<!-- signatures: listarray(A) -->
 ### Function: listarray (A)
 
 Returns a list of the elements of the array *A*.
@@ -2160,11 +2292,17 @@ Examples:
 
 See also: `hashed-array`, `memoizing-function`, `orderless`, `hashed-arrays`, `memoizing-functions`, `arrayinfo`.
 
+<!-- category: Programming -->
+<!-- keywords: listp -->
+<!-- signatures: listp(expr) -->
 ### Function: listp (expr)
 
 Returns `true` if *expr* is a list else `false`.
 
-### Function: lreduce (lreduce, F, s, lreduce, F, s, s_0)
+<!-- category: Programming -->
+<!-- keywords: lreduce -->
+<!-- signatures: lreduce(F, s), lreduce(F, s, s_0) -->
+### Function: lreduce (F, s)
 
 Extends the binary function *F* to an n-ary function by composition,
 where *s* is a list.
@@ -2239,6 +2377,9 @@ Examples:
 
 See also: `rreduce`, `xreduce`, `tree_reduce`.
 
+<!-- category: Programming -->
+<!-- keywords: make_array -->
+<!-- signatures: make_array(type, dim_1, ..., dim_n) -->
 ### Function: make_array (type, dim_1, ..., dim_n)
 
 Creates and returns a Lisp array.  *type* may
@@ -2341,7 +2482,10 @@ IMP) -1 $Z))
 
 See also: `array`.
 
-### Function: makelist (makelist, makelist, expr, makelist, expr, n, makelist, expr, i, i_max, makelist, expr, i, i_0, i_max, makelist, expr, i, i_0, i_max, step, makelist, expr, x, list)
+<!-- category: Programming -->
+<!-- keywords: makelist -->
+<!-- signatures: makelist(), makelist(expr), makelist(expr, n), makelist(expr, i, i_max), makelist(expr, i, i_0, i_max), makelist(expr, i, i_0, i_max, step), makelist(expr, x, list) -->
+### Function: makelist ()
 
 The first form, `makelist ()`, creates an empty list. The second form,
 `makelist (expr)`, creates a list with *expr* as its single
@@ -2404,6 +2548,9 @@ Examples:
 (%o6)         [1, 4, 9, 1, 4, 9, 1, 4, 9, 1, 4, 9]
 ```
 
+<!-- category: Programming -->
+<!-- keywords: member -->
+<!-- signatures: member(expr_1, expr_2) -->
 ### Function: member (expr_1, expr_2)
 
 Returns `true` if `is(expr_1 = a)`
@@ -2475,21 +2622,33 @@ Examples:
 
 See also: `elementp`.
 
+<!-- category: Programming -->
+<!-- keywords: minf -->
+<!-- signatures: minf -->
 ### Variable: minf
 
 `minf` represents real minus (i.e., negative) infinity.
 
+<!-- category: Programming -->
+<!-- keywords: most_negative_float -->
+<!-- signatures: most_negative_float -->
 ### Variable: most_negative_float
 
 The most negative floating-point number in Maxima.  It is
 approximately -1.79769e+308.
 
+<!-- category: Programming -->
+<!-- keywords: most_positive_float -->
+<!-- signatures: most_positive_float -->
 ### Variable: most_positive_float
 
 The most positive floating-point number in Maxima.  It is
 approximately 1.797693e+308.
 
-### Function: new (new, S, new, S, v_1, ..., v_n)
+<!-- category: Programming -->
+<!-- keywords: new -->
+<!-- signatures: new(S), new(S(v_1, ..., v_n)) -->
+### Function: new (S)
 
 `new` creates new instances of structures.
 
@@ -2521,6 +2680,9 @@ Examples:
 (%o3)            foo(w = 1, x = 2, y = 4, z = 8)
 ```
 
+<!-- category: Programming -->
+<!-- keywords: ninth -->
+<!-- signatures: ninth(expr) -->
 ### Function: ninth (expr)
 
 Returns the 9th item of expression or list *expr*.
@@ -2528,7 +2690,10 @@ See `first` for more details.
 
 See also: `first`.
 
-### Function: ordering (ordering, L, ordering, L, P)
+<!-- category: Programming -->
+<!-- keywords: ordering -->
+<!-- signatures: ordering(L), ordering(L, P) -->
+### Function: ordering (L)
 
 Returns a permutation *O* of the list *L* such that
 `permute(O, L)` is equal to `sort(L, P)`.
@@ -2725,6 +2890,9 @@ maxima
 (%o7)                         true
 ```
 
+<!-- category: Programming -->
+<!-- keywords: pop -->
+<!-- signatures: pop(list) -->
 ### Function: pop (list)
 
 `pop` removes and returns the first element from the list *list*. The argument
@@ -2733,6 +2901,9 @@ not bound to a nonempty list, Maxima signals an error. For examples, see `push`.
 
 See also: `push`.
 
+<!-- category: Programming -->
+<!-- keywords: push -->
+<!-- signatures: push(item, list) -->
 ### Function: push (item, list)
 
 `push` prepends the item *item* to the list *list* and returns a copy of the new list. 
@@ -2804,7 +2975,10 @@ Examples:
 
 See also: `pop`.
 
-### Function: ranks (ranks, L, P, ties_method, ranks, L, P, ranks, L)
+<!-- category: Programming -->
+<!-- keywords: ranks -->
+<!-- signatures: ranks(L, P, ties_method), ranks(L, P), ranks(L) -->
+### Function: ranks (L, P, ties_method)
 
 Returns the ranks of the elements of the list *L* as ordered by the predicate *P*,
 and handling elements which are equivalent under *P* by *ties_method*.
@@ -3065,6 +3239,9 @@ maxima
 (%o4)                         true
 ```
 
+<!-- category: Programming -->
+<!-- keywords: rearray -->
+<!-- signatures: rearray(A, dim_1, ..., dim_n) -->
 ### Function: rearray (A, dim_1, ..., dim_n)
 
 Changes the dimensions of an array.
@@ -3075,7 +3252,10 @@ the remaining elements are filled with
 depending on the type of the array.  The type of the array cannot be
 changed.
 
-### Function: remarray (remarray, A_1, ..., A_n, remarray, all)
+<!-- category: Programming -->
+<!-- keywords: remarray -->
+<!-- signatures: remarray(A_1, ..., A_n), remarray(all) -->
+### Function: remarray (A_1, ..., A_n)
 
 Removes arrays and array associated functions and frees the storage occupied.
 The arguments may be declared arrays, `hashed arrays`, array
@@ -3096,7 +3276,10 @@ desired to clear the cache of a `memoizing-function`.
 
 See also: `hashed-arrays`, `arrays`, `memoizing-function`.
 
-### Function: rest (rest, expr, n, rest, expr)
+<!-- category: Programming -->
+<!-- keywords: rest -->
+<!-- signatures: rest(expr, n), rest(expr) -->
+### Function: rest (expr, n)
 
 Returns *expr* with its first *n* elements removed if *n*
 is positive and its last `- n` elements removed if *n*
@@ -3131,6 +3314,9 @@ See also `firstn` and `lastn`.
 
 See also: `firstn`, `lastn`.
 
+<!-- category: Programming -->
+<!-- keywords: reverse -->
+<!-- signatures: reverse(list) -->
 ### Function: reverse (list)
 
 Reverses the order of the members of the *list* (not
@@ -3142,7 +3328,10 @@ See also `sreverse`.
 
 See also: `sreverse`.
 
-### Function: rreduce (rreduce, F, s, rreduce, F, s, s_{n + 1})
+<!-- category: Programming -->
+<!-- keywords: rreduce -->
+<!-- signatures: rreduce(F, s), rreduce(F, s, s_{n + 1}) -->
+### Function: rreduce (F, s)
 
 Extends the binary function *F* to an n-ary function by composition,
 where *s* is a list.
@@ -3219,6 +3408,9 @@ Examples:
 
 See also: `lreduce`, `tree_reduce`, `xreduce`.
 
+<!-- category: Programming -->
+<!-- keywords: second -->
+<!-- signatures: second(expr) -->
 ### Function: second (expr)
 
 Returns the 2nd item of expression or list *expr*.
@@ -3226,6 +3418,9 @@ See `first` for more details.
 
 See also: `first`.
 
+<!-- category: Programming -->
+<!-- keywords: seventh -->
+<!-- signatures: seventh(expr) -->
 ### Function: seventh (expr)
 
 Returns the 7th item of expression or list *expr*.
@@ -3233,6 +3428,9 @@ See `first` for more details.
 
 See also: `first`.
 
+<!-- category: Programming -->
+<!-- keywords: sixth -->
+<!-- signatures: sixth(expr) -->
 ### Function: sixth (expr)
 
 Returns the 6th item of expression or list *expr*.
@@ -3240,7 +3438,10 @@ See `first` for more details.
 
 See also: `first`.
 
-### Function: sort (sort, L, P, sort, L)
+<!-- category: Programming -->
+<!-- keywords: sort -->
+<!-- signatures: sort(L, P), sort(L) -->
+### Function: sort (L, P)
 
 `sort(L, P)` sorts a list *L* according to a predicate `P` of two arguments
 which defines a strict weak order on the elements of *L*.
@@ -3476,10 +3677,16 @@ and all other elements the same as `orderlessp`.
 
 See also: `orderlessp`.
 
+<!-- category: Programming -->
+<!-- keywords: structures -->
+<!-- signatures: structures -->
 ### Variable: structures
 
 `structures` is the list of user-defined structures defined by `defstruct`.
 
+<!-- category: Programming -->
+<!-- keywords: sublist -->
+<!-- signatures: sublist(list, p) -->
 ### Function: sublist (list, p)
 
 Returns the list of elements of *list* for which the predicate `p`
@@ -3503,6 +3710,9 @@ Example:
 (%o2)                       [2, 4, 6]
 ```
 
+<!-- category: Programming -->
+<!-- keywords: sublist_indices -->
+<!-- signatures: sublist_indices(L, P) -->
 ### Function: sublist_indices (L, P)
 
 Returns the indices of the elements `x` of the list *L* for which
@@ -3553,6 +3763,9 @@ Examples:
 (%o6)                          [2]
 ```
 
+<!-- category: Programming -->
+<!-- keywords: subvar -->
+<!-- signatures: subvar(x, i) -->
 ### Function: subvar (x, i)
 
 Evaluates the subscripted expression `x[i]`.
@@ -3601,11 +3814,17 @@ Examples:
 (%o7)                          cc
 ```
 
+<!-- category: Programming -->
+<!-- keywords: subvarp -->
+<!-- signatures: subvarp(expr) -->
 ### Function: subvarp (expr)
 
 Returns `true` if *expr* is a subscripted variable, for example
 `a[i]`.
 
+<!-- category: Programming -->
+<!-- keywords: tenth -->
+<!-- signatures: tenth(expr) -->
 ### Function: tenth (expr)
 
 Returns the 10th item of expression or list *expr*.
@@ -3613,6 +3832,9 @@ See `first` for more details.
 
 See also: `first`.
 
+<!-- category: Programming -->
+<!-- keywords: third -->
+<!-- signatures: third(expr) -->
 ### Function: third (expr)
 
 Returns the 3rd item of expression or list *expr*.
@@ -3620,6 +3842,9 @@ See `first` for more details.
 
 See also: `first`.
 
+<!-- category: Programming -->
+<!-- keywords: translate_fast_arrays -->
+<!-- signatures: translate_fast_arrays -->
 ### Variable: translate_fast_arrays
 
 Default value: `false`
@@ -3634,7 +3859,10 @@ When `translate_fast_arrays` is `false`,
 the Maxima-to-Lisp translator generates code that assumes arrays are properties,
 as if `use_fast_arrays` were `false`.
 
-### Function: tree_reduce (tree_reduce, F, s, tree_reduce, F, s, s_0)
+<!-- category: Programming -->
+<!-- keywords: tree_reduce -->
+<!-- signatures: tree_reduce(F, s), tree_reduce(F, s, s_0) -->
+### Function: tree_reduce (F, s)
 
 Extends the binary function *F* to an n-ary function by composition,
 where *s* is a set or list.
@@ -3688,11 +3916,17 @@ Examples:
 (%o1)               f(f(f(a, b), f(c, d)), e)
 ```
 
+<!-- category: Programming -->
+<!-- keywords: true -->
+<!-- signatures: true -->
 ### Variable: true
 
 `true` represents the Boolean constant of the same name.
 Maxima implements `true` by the value `T` in Lisp.
 
+<!-- category: Programming -->
+<!-- keywords: und -->
+<!-- signatures: und -->
 ### Variable: und
 
 `und` represents an undefined result.
@@ -3715,6 +3949,9 @@ Example:
 
 See also: `limit`.
 
+<!-- category: Programming -->
+<!-- keywords: unique -->
+<!-- signatures: unique(L) -->
 ### Function: unique (L)
 
 Returns the unique elements of the list *L*.
@@ -3740,6 +3977,9 @@ Example:
 (%o1)              [1, 2, %e, %pi, [1], b + a]
 ```
 
+<!-- category: Programming -->
+<!-- keywords: use_fast_arrays -->
+<!-- signatures: use_fast_arrays -->
 ### Variable: use_fast_arrays
 
 Default value: `false`
@@ -3764,7 +4004,10 @@ See also `translate_005ffast_005farrays`.
 
 See also: `hashed-arrays`, `make_array`, `translate_fast_arrays`.
 
-### Function: xreduce (xreduce, F, s, xreduce, F, s, s_0)
+<!-- category: Programming -->
+<!-- keywords: xreduce -->
+<!-- signatures: xreduce(F, s), xreduce(F, s, s_0) -->
+### Function: xreduce (F, s)
 
 Extends the function *F* to an n-ary function by composition,
 or, if *F* is already n-ary, applies *F* to *s*.
@@ -3840,6 +4083,9 @@ Examples:
 (%o3)                 [[[[a, b], c], d], e]
 ```
 
+<!-- category: Programming -->
+<!-- keywords: zeroa -->
+<!-- signatures: zeroa -->
 ### Variable: zeroa
 
 `zeroa` represents an infinitesimal above zero.  `zeroa` can be used
@@ -3872,6 +4118,9 @@ Example:
 
 See also: `zerob`, `limit`.
 
+<!-- category: Programming -->
+<!-- keywords: zerob -->
+<!-- signatures: zerob -->
 ### Variable: zerob
 
 `zerob` represents an infinitesimal below zero.  `zerob` can be used

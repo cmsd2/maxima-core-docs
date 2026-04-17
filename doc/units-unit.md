@@ -1,5 +1,8 @@
 ## unit
 
+<!-- category: Units -->
+<!-- keywords: %unitexpand -->
+<!-- signatures: %unitexpand -->
 ### Variable: %unitexpand
 
 Default value: `2`
@@ -8,6 +11,9 @@ Default value: `2`
 This is the value supplied to `metricexpandall` during the initial loading
 of *unit*.
 
+<!-- category: Units -->
+<!-- keywords: convert -->
+<!-- signatures: convert(expr, list) -->
 ### Function: convert (expr, list)
 
 When resetting the global environment is overkill, there is the `convert`
@@ -112,6 +118,9 @@ See also `setunits` and `uforget`. To use this function write first `load("unit"
 
 See also: `setunits`, `uforget`.
 
+<!-- category: Units -->
+<!-- keywords: metricexpandall -->
+<!-- signatures: metricexpandall(x) -->
 ### Function: metricexpandall (x)
 
 Rebuilds global unit lists automatically creating all desired metric units.
@@ -135,6 +144,9 @@ very large number of units, but `metricexpandall` can be used to
 rebuild the list in a more or less complete fashion. The relevant variable
 in the *unit.mac* file is *%unitexpand*.
 
+<!-- category: Units -->
+<!-- keywords: setunits -->
+<!-- signatures: setunits(list) -->
 ### Function: setunits (list)
 
 By default, the *unit* package does not use any derived dimensions, but will
@@ -304,6 +316,9 @@ See also `uforget`. To use this function write first `load("unit")`.
 
 See also: `uforget`.
 
+<!-- category: Units -->
+<!-- keywords: uforget -->
+<!-- signatures: uforget(list) -->
 ### Function: uforget (list)
 
 By default, the *unit* package converts all units to the
@@ -346,6 +361,9 @@ See also `setunits`. To use this function write first `load("unit")`.
 
 See also: `setunits`.
 
+<!-- category: Units -->
+<!-- keywords: usersetunits -->
+<!-- signatures: usersetunits -->
 ### Variable: usersetunits
 
 Default value: none

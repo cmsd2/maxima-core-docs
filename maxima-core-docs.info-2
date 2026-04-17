@@ -1,194 +1,5 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.1 from
+This is maxima-core-docs.info, produced by makeinfo version 7.3 from
 maxima-core-docs.texi.
-
-
-File: maxima-core-docs.info,  Node: Function perms perms n perms n i perms n i j,  Next: Function perms_lex perms_lex n perms_lex n i perms_lex n i j,  Prev: Function permp p,  Up: combinatorics
-
- -- Function: perms (PERMS, N, PERMS, N, I, PERMS, N, I, J)
-     ‘perms(n)’ returns a list of all _n_-degree permutations in the
-     so-called Trotter-Johnson order.
-
-     ‘perms(n, i)’ returns the _n_-degree permutation which is at the
-     _i_th position (from 1 to _n_!)  in the Trotter-Johnson ordering of
-     the permutations.
-
-     ‘perms(n, i, j)’ returns a list of the _n_-degree permutations
-     between positions _i_ and _j_ in the Trotter-Johnson ordering of
-     the permutations.
-
-     The sequence of permutations in Trotter-Johnson order starts with
-     the identity permutation and each consecutive permutation can be
-     obtained from the previous one a by single adjacent transposition.
-
-     See also ‘perm_next’, ‘perm_rank’ and ‘perm_005funrank’.
-
-     Examples:
-
-     (%i1) load("combinatorics")$
-     
-     (%i2) perms (4);
-     (%o2) [[1, 2, 3, 4], [1, 2, 4, 3], [1, 4, 2, 3], [4, 1, 2, 3], 
-     [4, 1, 3, 2], [1, 4, 3, 2], [1, 3, 4, 2], [1, 3, 2, 4], 
-     [3, 1, 2, 4], [3, 1, 4, 2], [3, 4, 1, 2], [4, 3, 1, 2], 
-     [4, 3, 2, 1], [3, 4, 2, 1], [3, 2, 4, 1], [3, 2, 1, 4], 
-     [2, 3, 1, 4], [2, 3, 4, 1], [2, 4, 3, 1], [4, 2, 3, 1], 
-     [4, 2, 1, 3], [2, 4, 1, 3], [2, 1, 4, 3], [2, 1, 3, 4]]
-     
-     
-     (%i3) perms (4, 12);
-     (%o3)                     [[4, 3, 1, 2]]
-     
-     
-     (%i4) perms (4, 12, 14);
-     (%o4)       [[4, 3, 1, 2], [4, 3, 2, 1], [3, 4, 2, 1]]
-
-     See also: ‘perm_next’, ‘perm_rank’, ‘perm_unrank’.
-
-
-File: maxima-core-docs.info,  Node: Function perms_lex perms_lex n perms_lex n i perms_lex n i j,  Next: Function permult p_1 ... p_m,  Prev: Function perms perms n perms n i perms n i j,  Up: combinatorics
-
- -- Function: perms_lex (PERMS_LEX, N, PERMS_LEX, N, I, PERMS_LEX, N, I,
-          J)
-     ‘perms_lex(n)’ returns a list of all _n_-degree permutations in the
-     so-called lexicographic order.
-
-     ‘perms_lex(n, i)’ returns the _n_-degree permutation which is at
-     the _i_th position (from 1 to _n_!)  in the lexicographic ordering
-     of the permutations.
-
-     ‘perms_lex(n, i, j)’ returns a list of the _n_-degree permutations
-     between positions _i_ and _j_ in the lexicographic ordering of the
-     permutations.
-
-     The sequence of permutations in lexicographic order starts with all
-     the permutations with the lowest index, 1, followed by all
-     permutations starting with the following index, 2, and so on.  The
-     permutations starting by an index _i_ are the permutations of the
-     first _n_ integers different from _i_ and they are also placed in
-     lexicographic order, where the permutations with the lowest of
-     those integers are placed first and so on.
-
-     See also ‘perm_lex_next’, ‘perm_lex_rank’ and
-     ‘perm_005flex_005funrank’.
-
-     Examples:
-
-     (%i1) load("combinatorics")$
-     
-     (%i2) perms_lex (4);
-     (%o2) [[1, 2, 3, 4], [1, 2, 4, 3], [1, 3, 2, 4], [1, 3, 4, 2], 
-     [1, 4, 2, 3], [1, 4, 3, 2], [2, 1, 3, 4], [2, 1, 4, 3], 
-     [2, 3, 1, 4], [2, 3, 4, 1], [2, 4, 1, 3], [2, 4, 3, 1], 
-     [3, 1, 2, 4], [3, 1, 4, 2], [3, 2, 1, 4], [3, 2, 4, 1], 
-     [3, 4, 1, 2], [3, 4, 2, 1], [4, 1, 2, 3], [4, 1, 3, 2], 
-     [4, 2, 1, 3], [4, 2, 3, 1], [4, 3, 1, 2], [4, 3, 2, 1]]
-     
-     
-     (%i3) perms_lex (4, 12);
-     (%o3)                     [[2, 4, 3, 1]]
-     
-     
-     (%i4) perms_lex (4, 12, 14);
-     (%o4)       [[2, 4, 3, 1], [3, 1, 2, 4], [3, 1, 4, 2]]
-
-     See also: ‘perm_lex_next’, ‘perm_lex_rank’, ‘perm_lex_unrank’.
-
-
-File: maxima-core-docs.info,  Node: Function permult p_1 ... p_m,  Next: Function permute p l,  Prev: Function perms_lex perms_lex n perms_lex n i perms_lex n i j,  Up: combinatorics
-
- -- Function: permult (P_1, ..., P_M)
-     Returns the product of two or more permutations _p_1_, ..., _p_m_.
-
-     Example:
-
-     (%i1) load("combinatorics")$
-     
-     (%i2) permult ([2,3,1], [3,1,2], [2,1,3]);
-     (%o2)                        [2, 1, 3]
-
-
-File: maxima-core-docs.info,  Node: Function permute p l,  Next: Function random_perm n,  Prev: Function permult p_1 ... p_m,  Up: combinatorics
-
- -- Function: permute (P, L)
-     Applies the permutation _p_ to the elements of the list (or set)
-     _l_.
-
-     Example:
-
-     (%i1) load("combinatorics")$
-     
-     (%i2) lis1: [a,b*c^2,4,z,x/y,1/2,ff23(x),0];
-                             2        x  1
-     (%o2)            [a, b c , 4, z, -, -, ff23(x), 0]
-                                      y  2
-     
-     
-     (%i3) permute ([4, 6, 3, 1, 7, 5, 2, 8], lis1);
-                          1                 x     2
-     (%o3)            [z, -, 4, a, ff23(x), -, b c , 0]
-                          2                 y
-
-
-File: maxima-core-docs.info,  Node: Function random_perm n,  Prev: Function permute p l,  Up: combinatorics
-
- -- Function: random_perm (N)
-     Returns a random permutation of degree _n_.
-
-     See also ‘random_005fpermutation’.
-
-     Example:
-
-     (%i1) load("combinatorics")$
-     
-     (%i2) random_perm (7);
-     (%o2)                  [6, 3, 4, 7, 5, 1, 2]
-
-     See also: ‘random_permutation’.
-
-
-File: maxima-core-docs.info,  Node: IO,  Next: Command Line,  Prev: combinatorics,  Up: Maxima Core Documentation
-
-1.20 IO
-=======
-
-
-File: maxima-core-docs.info,  Node: Command Line,  Next: Data Types and Structures,  Prev: IO,  Up: Maxima Core Documentation
-
-1.21 Command Line
-=================
-
-* Menu:
-
-* Variable %edispflag::
-* Variable absboxchar::
-* Function declare_index_properties declare_index_properties a p_1 p_2 p_3 ... declare_index_properties a b c ... p_1 p_2 p_3 ...::
-* Function disp expr_1 expr_2 ...::
-* Function display expr_1 expr_2 ...::
-* Variable display2d::
-* Variable display2d_unicode::
-* Variable display_format_internal::
-* Variable display_index_separator::
-* Function dispterms expr::
-* Function expt a b::
-* Variable exptdispflag::
-* Function get_index_properties a::
-* Function grind expr::
-* Variable ibase::
-* Function ldisp expr_1 ... expr_n::
-* Function ldisplay expr_1 ... expr_n::
-* Variable leftjust::
-* Variable linel::
-* Variable lispdisp::
-* Variable negsumdispflag::
-* Variable obase::
-* Variable pfeformat::
-* Variable powerdisp::
-* Function print expr_1 ... expr_n::
-* Function remove_index_properties a b c ...::
-* Variable sqrtdispflag::
-* Variable stardisp::
-* Variable ttyoff::
-* Function with_default_2d_display expr::
 
 
 File: maxima-core-docs.info,  Node: Variable %edispflag,  Next: Variable absboxchar,  Up: Command Line
@@ -219,7 +30,7 @@ File: maxima-core-docs.info,  Node: Variable %edispflag,  Next: Variable absboxc
      See also: ‘exptdispflag’.
 
 
-File: maxima-core-docs.info,  Node: Variable absboxchar,  Next: Function declare_index_properties declare_index_properties a p_1 p_2 p_3 ... declare_index_properties a b c ... p_1 p_2 p_3 ...,  Prev: Variable %edispflag,  Up: Command Line
+File: maxima-core-docs.info,  Node: Variable absboxchar,  Next: Function declare_index_properties a [p_1 p_2 p_3 ...],  Prev: Variable %edispflag,  Up: Command Line
 
  -- Variable: absboxchar
      Default value: ‘!’
@@ -239,11 +50,9 @@ File: maxima-core-docs.info,  Node: Variable absboxchar,  Next: Function declare
      (%o2)                       |x  + 1|
 
 
-File: maxima-core-docs.info,  Node: Function declare_index_properties declare_index_properties a p_1 p_2 p_3 ... declare_index_properties a b c ... p_1 p_2 p_3 ...,  Next: Function disp expr_1 expr_2 ...,  Prev: Variable absboxchar,  Up: Command Line
+File: maxima-core-docs.info,  Node: Function declare_index_properties a [p_1 p_2 p_3 ...],  Next: Function disp expr_1 expr_2 ...,  Prev: Variable absboxchar,  Up: Command Line
 
- -- Function: declare_index_properties (DECLARE_INDEX_PROPERTIES, A,
-          P_1, P_2, P_3, ..., DECLARE_INDEX_PROPERTIES, A, B, C, ...,
-          P_1, P_2, P_3, ...)
+ -- Function: declare_index_properties (A, [P_1, P_2, P_3, ...])
      Declares the properties of indices applied to the symbol _a_ or
      each of the of symbols _a_, _b_, _c_, ....  If multiple symbols are
      given, the whole list of properties applies to each symbol.
@@ -347,7 +156,7 @@ File: maxima-core-docs.info,  Node: Function declare_index_properties declare_in
      See also: ‘display2d’.
 
 
-File: maxima-core-docs.info,  Node: Function disp expr_1 expr_2 ...,  Next: Function display expr_1 expr_2 ...,  Prev: Function declare_index_properties declare_index_properties a p_1 p_2 p_3 ... declare_index_properties a b c ... p_1 p_2 p_3 ...,  Up: Command Line
+File: maxima-core-docs.info,  Node: Function disp expr_1 expr_2 ...,  Next: Function display expr_1 expr_2 ...,  Prev: Function declare_index_properties a [p_1 p_2 p_3 ...],  Up: Command Line
 
  -- Function: disp (EXPR_1, EXPR_2, ...)
      is like ‘display’ but only the value of the arguments are displayed
@@ -485,18 +294,16 @@ File: maxima-core-docs.info,  Node: Variable display2d_unicode,  Next: Variable 
 
  [image src="figures/maxima-unicode-display-variety-1.png" alt="maxima-unicode-display-variety-1" ]
 
-
      maxima-unicode-display-variety-1
      Same expressions, displayed using only ASCII characters
      (‘display2d_unicode’ equal to ‘false’), shown as an image:
 
  [image src="figures/maxima-unicode-display-variety-1-ascii.png" alt="maxima-unicode-display-variety-1-ascii" ]
 
-
      maxima-unicode-display-variety-1-ascii
      Footnotes:
 
-     [1] https://en.wikipedia.org/wiki/Box-drawing_character
+     [1] https//enwikipediaorg/wiki/Box-drawing_character
 
 
 File: maxima-core-docs.info,  Node: Variable display_format_internal,  Next: Variable display_index_separator,  Prev: Variable display2d_unicode,  Up: Command Line
@@ -1537,13 +1344,13 @@ File: maxima-core-docs.info,  Node: File Input and Output,  Next: alt-display,  
 * Menu:
 
 * Function appendfile filename::
-* Function batch batch filename batch filename option batch S batch S option::
+* Function batch filename::
 * Variable batch_answers_from_file::
-* Function batchload batchload filename batchload S::
-* Function closefile ::
+* Function batchload filename::
+* Function closefile::
 * Function directory path::
 * Variable file_output_append::
-* Function file_search file_search filename file_search filename pathlist::
+* Function file_search filename::
 * Variable file_search_cache::
 * Variable file_search_maxima::
 * Function file_type filename::
@@ -1554,23 +1361,23 @@ File: maxima-core-docs.info,  Node: File Input and Output,  Next: alt-display,  
 * Function fortran expr::
 * Variable fortspaces::
 * Function get_tex_environment op::
-* Function get_tex_environment_default ::
+* Function get_tex_environment_default::
 * Function load filename::
 * Variable load_pathname::
 * Function loadfile filename::
 * Variable loadprint::
 * Function pathname_directory pathname::
 * Function printfile path::
-* Function save save filename name_1 name_2 name_3 ... save filename values functions labels ... save filename m n save filename name_1 = expr_1 ... save filename all save filename name_1 = expr_1 name_2 = expr_2 ...::
-* Function stringout stringout filename expr_1 expr_2 expr_3 ... stringout filename m n stringout filename input stringout filename functions stringout filename values::
-* Function tex tex expr tex expr destination tex expr false tex label tex label destination tex label false::
+* Function save filename name_1 name_2 name_3 ...::
+* Function stringout filename expr_1 expr_2 expr_3 ...::
+* Function tex expr::
 * Function tex1 e::
-* Function texput texput a s texput a f texput a s operator_type texput a s_1 s_2 matchfix texput a s_1 s_2 s_3 matchfix::
-* Function with_stdout with_stdout f expr_1 expr_2 expr_3 ... with_stdout s expr_1 expr_2 expr_3 ...::
+* Function texput a s::
+* Function with_stdout f expr_1 expr_2 expr_3 ...::
 * Function writefile filename::
 
 
-File: maxima-core-docs.info,  Node: Function appendfile filename,  Next: Function batch batch filename batch filename option batch S batch S option,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function appendfile filename,  Next: Function batch filename,  Up: File Input and Output
 
  -- Function: appendfile (FILENAME)
      Appends a console transcript to _filename_.  ‘appendfile’ is the
@@ -1583,10 +1390,9 @@ File: maxima-core-docs.info,  Node: Function appendfile filename,  Next: Functio
      See also: ‘writefile’, ‘closefile’.
 
 
-File: maxima-core-docs.info,  Node: Function batch batch filename batch filename option batch S batch S option,  Next: Variable batch_answers_from_file,  Prev: Function appendfile filename,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function batch filename,  Next: Variable batch_answers_from_file,  Prev: Function appendfile filename,  Up: File Input and Output
 
- -- Function: batch (BATCH, FILENAME, BATCH, FILENAME, OPTION, BATCH, S,
-          BATCH, S, OPTION)
+ -- Function: batch (FILENAME)
      ‘batch(filename)’ reads Maxima expressions from _filename_ and
      evaluates them.  ‘batch’ searches for _filename_ in the list
      ‘file_005fsearch_005fmaxima’.  See also ‘file_005fsearch’.
@@ -1659,7 +1465,7 @@ File: maxima-core-docs.info,  Node: Function batch batch filename batch filename
      ‘askinteger’, ‘batch_answers_from_file’, ‘load’, ‘batchload’.
 
 
-File: maxima-core-docs.info,  Node: Variable batch_answers_from_file,  Next: Function batchload batchload filename batchload S,  Prev: Function batch batch filename batch filename option batch S batch S option,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Variable batch_answers_from_file,  Next: Function batchload filename,  Prev: Function batch filename,  Up: File Input and Output
 
  -- Variable: batch_answers_from_file
      Default value: ‘false’
@@ -1688,9 +1494,9 @@ File: maxima-core-docs.info,  Node: Variable batch_answers_from_file,  Next: Fun
      See also: ‘command_line_options’, ‘run_testsuite’.
 
 
-File: maxima-core-docs.info,  Node: Function batchload batchload filename batchload S,  Next: Function closefile,  Prev: Variable batch_answers_from_file,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function batchload filename,  Next: Function closefile,  Prev: Variable batch_answers_from_file,  Up: File Input and Output
 
- -- Function: batchload (BATCHLOAD, FILENAME, BATCHLOAD, S)
+ -- Function: batchload (FILENAME)
      Reads Maxima expressions from input file _filename_ or input stream
      _S_ and evaluates them, without displaying the input or output
      expressions and without assigning labels to output expressions.
@@ -1714,7 +1520,7 @@ File: maxima-core-docs.info,  Node: Function batchload batchload filename batchl
      See also: ‘print’, ‘describe’, ‘%’, ‘%th’, ‘batch’, ‘load’.
 
 
-File: maxima-core-docs.info,  Node: Function closefile,  Next: Function directory path,  Prev: Function batchload batchload filename batchload S,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function closefile,  Next: Function directory path,  Prev: Function batchload filename,  Up: File Input and Output
 
  -- Function: closefile ()
      Closes the transcript file opened by ‘writefile’ or ‘appendfile’.
@@ -1737,7 +1543,7 @@ File: maxima-core-docs.info,  Node: Function directory path,  Next: Variable fil
      implementation-specific behavior.
 
 
-File: maxima-core-docs.info,  Node: Variable file_output_append,  Next: Function file_search file_search filename file_search filename pathlist,  Prev: Function directory path,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Variable file_output_append,  Next: Function file_search filename,  Prev: Function directory path,  Up: File Input and Output
 
  -- Variable: file_output_append
      Default value: ‘false’
@@ -1756,10 +1562,9 @@ File: maxima-core-docs.info,  Node: Variable file_output_append,  Next: Function
      See also: ‘save’, ‘stringout’, ‘with_stdout’, ‘tex’, ‘appendfile’.
 
 
-File: maxima-core-docs.info,  Node: Function file_search file_search filename file_search filename pathlist,  Next: Variable file_search_cache,  Prev: Variable file_output_append,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function file_search filename,  Next: Variable file_search_cache,  Prev: Variable file_output_append,  Up: File Input and Output
 
- -- Function: file_search (FILE_SEARCH, FILENAME, FILE_SEARCH, FILENAME,
-          PATHLIST)
+ -- Function: file_search (FILENAME)
      ‘file_search’ searches for the file _filename_ and returns the path
      to the file (as a string) if it can be found; otherwise
      ‘file_search’ returns ‘false’.  ‘file_search (filename)’ searches
@@ -1768,7 +1573,7 @@ File: maxima-core-docs.info,  Node: Function file_search file_search filename fi
      variables.
 
      ‘file_search’ first checks if the actual name passed exists, before
-     attempting to match it to "wildcard" file search patterns.  See
+     attempting to match it to “wildcard” file search patterns.  See
      ‘file_search_maxima’ concerning file search patterns.
 
      The argument _filename_ can be a path and file name, or just a file
@@ -1804,7 +1609,7 @@ File: maxima-core-docs.info,  Node: Function file_search file_search filename fi
      ‘file_search_demo’, ‘load’, ‘file_search_cache’.
 
 
-File: maxima-core-docs.info,  Node: Variable file_search_cache,  Next: Variable file_search_maxima,  Prev: Function file_search file_search filename file_search filename pathlist,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Variable file_search_cache,  Next: Variable file_search_maxima,  Prev: Function file_search filename,  Up: File Input and Output
 
  -- Variable: file_search_cache
      Default value: ‘auto’
@@ -1871,8 +1676,8 @@ File: maxima-core-docs.info,  Node: Variable file_search_maxima,  Next: Function
      Maxima tries to, say, ‘load("file")’.
 
      Further information about Common Lisp pathnames maybe be found in
-     http://www.lispworks.com/documentation/HyperSpec/Body/19_b.htmCLHS
-     Section 19.2: Pathnames.
+     http//wwwlispworkscom/documentation/HyperSpec/Body/19_bhtmCLHS
+     Section 192 Pathnames.
 
      See also: ‘load’, ‘demo’, ‘Introduction-for-Runtime-Environment’.
 
@@ -2231,16 +2036,19 @@ File: maxima-core-docs.info,  Node: Variable loadprint,  Next: Function pathname
 
      ‘loadprint’ tells whether to print a message when a file is loaded.
 
-        •    • When ‘loadprint’ is ‘true’, always print a message.
+        •    • When ‘loadprint’ is ‘true’, always print a
+               message.
 
-        •    • When ‘loadprint’ is ‘'loadfile’, print a message only if
-               a file is loaded by the function ‘loadfile’.
+        •    • When ‘loadprint’ is ‘'loadfile’, print a
+               message only if a file is loaded by the function
+               ‘loadfile’.
 
-        •    • When ‘loadprint’ is ‘'autoload’, print a message only if
-               a file is automatically loaded.  See
+        •    • When ‘loadprint’ is ‘'autoload’, print a
+               message only if a file is automatically loaded.  See
                ‘setup_005fautoload’.
 
-        •    • When ‘loadprint’ is ‘false’, never print a message.
+        •    • When ‘loadprint’ is ‘false’, never print a
+               message.
 
      See also: ‘setup_autoload’.
 
@@ -2266,7 +2074,7 @@ File: maxima-core-docs.info,  Node: Function pathname_directory pathname,  Next:
      (%o3)                          txt
 
 
-File: maxima-core-docs.info,  Node: Function printfile path,  Next: Function save save filename name_1 name_2 name_3 ... save filename values functions labels ... save filename m n save filename name_1 = expr_1 ... save filename all save filename name_1 = expr_1 name_2 = expr_2 ...,  Prev: Function pathname_directory pathname,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function printfile path,  Next: Function save filename name_1 name_2 name_3 ...,  Prev: Function pathname_directory pathname,  Up: File Input and Output
 
  -- Function: printfile (PATH)
      Prints the file named by _path_ to the console.  _path_ may be a
@@ -2283,13 +2091,9 @@ File: maxima-core-docs.info,  Node: Function printfile path,  Next: Function sav
      See also: ‘file_search_usage’, ‘filename_merge’.
 
 
-File: maxima-core-docs.info,  Node: Function save save filename name_1 name_2 name_3 ... save filename values functions labels ... save filename m n save filename name_1 = expr_1 ... save filename all save filename name_1 = expr_1 name_2 = expr_2 ...,  Next: Function stringout stringout filename expr_1 expr_2 expr_3 ... stringout filename m n stringout filename input stringout filename functions stringout filename values,  Prev: Function printfile path,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function save filename name_1 name_2 name_3 ...,  Next: Function stringout filename expr_1 expr_2 expr_3 ...,  Prev: Function printfile path,  Up: File Input and Output
 
- -- Function: save (SAVE, FILENAME, NAME_1, NAME_2, NAME_3, ..., SAVE,
-          FILENAME, VALUES, FUNCTIONS, LABELS, ..., SAVE, FILENAME, M,
-          N, SAVE, FILENAME, NAME_1, =, EXPR_1, ..., SAVE, FILENAME,
-          ALL, SAVE, FILENAME, NAME_1, =, EXPR_1, NAME_2, =, EXPR_2,
-          ...)
+ -- Function: save (FILENAME, NAME_1, NAME_2, NAME_3, ...)
      Stores the current values of _name_1_, _name_2_, _name_3_, ..., in
      _filename_.  The arguments are the names of variables, functions,
      or other objects.  If a name has no value or function associated
@@ -2343,11 +2147,9 @@ File: maxima-core-docs.info,  Node: Function save save filename name_1 name_2 na
      ‘myoptions’.
 
 
-File: maxima-core-docs.info,  Node: Function stringout stringout filename expr_1 expr_2 expr_3 ... stringout filename m n stringout filename input stringout filename functions stringout filename values,  Next: Function tex tex expr tex expr destination tex expr false tex label tex label destination tex label false,  Prev: Function save save filename name_1 name_2 name_3 ... save filename values functions labels ... save filename m n save filename name_1 = expr_1 ... save filename all save filename name_1 = expr_1 name_2 = expr_2 ...,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function stringout filename expr_1 expr_2 expr_3 ...,  Next: Function tex expr,  Prev: Function save filename name_1 name_2 name_3 ...,  Up: File Input and Output
 
- -- Function: stringout (STRINGOUT, FILENAME, EXPR_1, EXPR_2, EXPR_3,
-          ..., STRINGOUT, FILENAME, M, N, STRINGOUT, FILENAME, INPUT,
-          STRINGOUT, FILENAME, FUNCTIONS, STRINGOUT, FILENAME, VALUES)
+ -- Function: stringout (FILENAME, EXPR_1, EXPR_2, EXPR_3, ...)
      ‘stringout’ writes expressions to a file in the same form the
      expressions would be typed for input.  The file can then be used as
      input for the ‘batch’ or ‘demo’ commands, and it may be edited for
@@ -2392,10 +2194,9 @@ File: maxima-core-docs.info,  Node: Function stringout stringout filename expr_1
      ‘grind’, ‘functions’, ‘values’.
 
 
-File: maxima-core-docs.info,  Node: Function tex tex expr tex expr destination tex expr false tex label tex label destination tex label false,  Next: Function tex1 e,  Prev: Function stringout stringout filename expr_1 expr_2 expr_3 ... stringout filename m n stringout filename input stringout filename functions stringout filename values,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function tex expr,  Next: Function tex1 e,  Prev: Function stringout filename expr_1 expr_2 expr_3 ...,  Up: File Input and Output
 
- -- Function: tex (TEX, EXPR, TEX, EXPR, DESTINATION, TEX, EXPR, FALSE,
-          TEX, LABEL, TEX, LABEL, DESTINATION, TEX, LABEL, FALSE)
+ -- Function: tex (EXPR)
      Prints a representation of an expression suitable for the TeX
      document preparation system.  The result is a fragment of a
      document, which can be copied into a larger document but not
@@ -2462,7 +2263,7 @@ File: maxima-core-docs.info,  Node: Function tex tex expr tex expr destination t
      See also: ‘tex1’, ‘texput’.
 
 
-File: maxima-core-docs.info,  Node: Function tex1 e,  Next: Function texput texput a s texput a f texput a s operator_type texput a s_1 s_2 matchfix texput a s_1 s_2 s_3 matchfix,  Prev: Function tex tex expr tex expr destination tex expr false tex label tex label destination tex label false,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function tex1 e,  Next: Function texput a s,  Prev: Function tex expr,  Up: File Input and Output
 
  -- Function: tex1 (E)
      Returns a string which represents the TeX output for the
@@ -2481,11 +2282,9 @@ File: maxima-core-docs.info,  Node: Function tex1 e,  Next: Function texput texp
      See also: ‘tex’, ‘texput’.
 
 
-File: maxima-core-docs.info,  Node: Function texput texput a s texput a f texput a s operator_type texput a s_1 s_2 matchfix texput a s_1 s_2 s_3 matchfix,  Next: Function with_stdout with_stdout f expr_1 expr_2 expr_3 ... with_stdout s expr_1 expr_2 expr_3 ...,  Prev: Function tex1 e,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function texput a s,  Next: Function with_stdout f expr_1 expr_2 expr_3 ...,  Prev: Function tex1 e,  Up: File Input and Output
 
- -- Function: texput (TEXPUT, A, S, TEXPUT, A, F, TEXPUT, A, S,
-          OPERATOR_TYPE, TEXPUT, A, S_1, S_2, MATCHFIX, TEXPUT, A, S_1,
-          S_2, S_3, MATCHFIX)
+ -- Function: texput (A, S)
      Assign the TeX output for the atom _a_, which can be a symbol or
      the name of an operator.
 
@@ -2677,10 +2476,9 @@ File: maxima-core-docs.info,  Node: Function texput texput a s texput a f texput
      See also: ‘tex’, ‘tex1’.
 
 
-File: maxima-core-docs.info,  Node: Function with_stdout with_stdout f expr_1 expr_2 expr_3 ... with_stdout s expr_1 expr_2 expr_3 ...,  Next: Function writefile filename,  Prev: Function texput texput a s texput a f texput a s operator_type texput a s_1 s_2 matchfix texput a s_1 s_2 s_3 matchfix,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function with_stdout f expr_1 expr_2 expr_3 ...,  Next: Function writefile filename,  Prev: Function texput a s,  Up: File Input and Output
 
- -- Function: with_stdout (WITH_STDOUT, F, EXPR_1, EXPR_2, EXPR_3, ...,
-          WITH_STDOUT, S, EXPR_1, EXPR_2, EXPR_3, ...)
+ -- Function: with_stdout (F, EXPR_1, EXPR_2, EXPR_3, ...)
      Evaluates _expr_1_, _expr_2_, _expr_3_, ... and writes any output
      thus generated to a file _f_ or output stream _s_.  The evaluated
      expressions are not written to the output.  Output may be generated
@@ -2711,7 +2509,7 @@ File: maxima-core-docs.info,  Node: Function with_stdout with_stdout f expr_1 ex
      ‘writefile’, ‘display2d’.
 
 
-File: maxima-core-docs.info,  Node: Function writefile filename,  Prev: Function with_stdout with_stdout f expr_1 expr_2 expr_3 ... with_stdout s expr_1 expr_2 expr_3 ...,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Function writefile filename,  Prev: Function with_stdout f expr_1 expr_2 expr_3 ...,  Up: File Input and Output
 
  -- Function: writefile (FILENAME)
      Begins writing a transcript of the Maxima session to _filename_.
@@ -2752,17 +2550,17 @@ File: maxima-core-docs.info,  Node: alt-display,  Next: engineering-format,  Pre
 * Menu:
 
 * Function alt_display_output_type form::
-* Function define_alt_display function input expr::
+* Function define_alt_display functioninput expr::
 * Function info_display form::
 * Function mathml_display form::
 * Function multi_display_for_texinfo form::
-* Function reset_displays ::
+* Function reset_displays::
 * Function set_alt_display num display-function::
 * Function set_prompt fix expr::
 * Function tex_display form::
 
 
-File: maxima-core-docs.info,  Node: Function alt_display_output_type form,  Next: Function define_alt_display function input expr,  Up: alt-display
+File: maxima-core-docs.info,  Node: Function alt_display_output_type form,  Next: Function define_alt_display functioninput expr,  Up: alt-display
 
  -- Function: alt_display_output_type (FORM)
      Determine the type of output to be printed.  _Form_ must be a lisp
@@ -2779,7 +2577,7 @@ File: maxima-core-docs.info,  Node: Function alt_display_output_type form,  Next
      printed between matching PROMPT;>> and <<PROMPT; tags.
 
      Thanks to
-     https://sourceforge.net/p/maxima/mailman/maxima-discuss/thread/7792c096-7e07-842d-0c3a-b2f039ef1f15%40gmail.com/#msg37235035Eric
+     https//sourceforgenet/p/maxima/mailman/maxima-discuss/thread/7792c096-7e07-842d-0c3a-b2f039ef1f15%40gmailcom/#msg37235035Eric
      Stemmler.
 
      (%i1) (load("mactex-utilities"), load("alt-display.mac")) $
@@ -2804,9 +2602,9 @@ File: maxima-core-docs.info,  Node: Function alt_display_output_type form,  Next
      See also: ‘set_prompt’.
 
 
-File: maxima-core-docs.info,  Node: Function define_alt_display function input expr,  Next: Function info_display form,  Prev: Function alt_display_output_type form,  Up: alt-display
+File: maxima-core-docs.info,  Node: Function define_alt_display functioninput expr,  Next: Function info_display form,  Prev: Function alt_display_output_type form,  Up: alt-display
 
- -- Function: define_alt_display (FUNCTION, INPUT, EXPR)
+ -- Function: define_alt_display (FUNCTION(INPUT), EXPR)
      This function is similar to ‘define’: it evaluates its arguments
      and expands into a function definition.  The _function_ is a
      function of a single input _input_.  For convenience, a
@@ -2846,7 +2644,7 @@ File: maxima-core-docs.info,  Node: Function define_alt_display function input e
      recursion in ‘displa’.
 
 
-File: maxima-core-docs.info,  Node: Function info_display form,  Next: Function mathml_display form,  Prev: Function define_alt_display function input expr,  Up: alt-display
+File: maxima-core-docs.info,  Node: Function info_display form,  Next: Function mathml_display form,  Prev: Function define_alt_display functioninput expr,  Up: alt-display
 
  -- Function: info_display (FORM)
      This is an alias for the default 1-d display function.  It may be
@@ -2982,13 +2780,12 @@ File: maxima-core-docs.info,  Node: Function set_prompt fix expr,  Next: Functio
 
  [image src="figures/color_terminal.png" alt="color_terminal" ]
 
-
      color_terminal
      Each prompt string starts with the ASCII escape character (27)
      followed by an open square bracket (91); each string ends with a
      lower-case m (109).  The webpages
-     https://misc.flogisoft.com/bash/tip_colors_and_formatting and
-     https://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html provide
+     https//miscflogisoftcom/bash/tip_colors_and_formatting and
+     https//wwwtldporg/HOWTO/Bash-Prompt-HOWTO/x329html provide
      information on how to use control strings to set the terminal
      colors.
 
@@ -3197,10 +2994,10 @@ File: maxima-core-docs.info,  Node: format,  Next: gentran,  Prev: f90,  Up: Max
 * Function %coerce_bag op expr::
 * Function %format_piece piece nth::
 * Function format expr template1 ...::
-* Function function_arguments expr functions ...::
-* Function function_calls expr functions ...::
+* Function function_arguments expr functions...::
+* Function function_calls expr functions...::
 * Function get_coef clist k1 ...::
-* Function matching_parts expr predicate args ...::
+* Function matching_parts expr predicate args...::
 * Function partition_poly expr test v1 ...::
 * Function partition_series expr test v O::
 * Function partition_Taylor expr test v O::
@@ -3231,7 +3028,7 @@ File: maxima-core-docs.info,  Node: Function %format_piece piece nth,  Next: Fun
      can be selected by specifying _nth_.
 
 
-File: maxima-core-docs.info,  Node: Function format expr template1 ...,  Next: Function function_arguments expr functions ...,  Prev: Function %format_piece piece nth,  Up: format
+File: maxima-core-docs.info,  Node: Function format expr template1 ...,  Next: Function function_arguments expr functions...,  Prev: Function %format_piece piece nth,  Up: format
 
  -- Function: format (EXPR, TEMPLATE1, ...)
      Each ‘template’ indicates the desired form for an expression;
@@ -3248,20 +3045,20 @@ File: maxima-core-docs.info,  Node: Function format expr template1 ...,  Next: F
      as a fraction's numerator and denominator.
 
 
-File: maxima-core-docs.info,  Node: Function function_arguments expr functions ...,  Next: Function function_calls expr functions ...,  Prev: Function format expr template1 ...,  Up: format
+File: maxima-core-docs.info,  Node: Function function_arguments expr functions...,  Next: Function function_calls expr functions...,  Prev: Function format expr template1 ...,  Up: format
 
- -- Function: function_arguments (EXPR, FUNCTIONS, ...)
+ -- Function: function_arguments (EXPR, FUNCTIONS...)
      Returns a list of all argument lists for calls to _functions_ in
      _expr_.
 
 
-File: maxima-core-docs.info,  Node: Function function_calls expr functions ...,  Next: Function get_coef clist k1 ...,  Prev: Function function_arguments expr functions ...,  Up: format
+File: maxima-core-docs.info,  Node: Function function_calls expr functions...,  Next: Function get_coef clist k1 ...,  Prev: Function function_arguments expr functions...,  Up: format
 
- -- Function: function_calls (EXPR, FUNCTIONS, ...)
+ -- Function: function_calls (EXPR, FUNCTIONS...)
      Returns a list of all calls in _expr_ involving any of _functions_.
 
 
-File: maxima-core-docs.info,  Node: Function get_coef clist k1 ...,  Next: Function matching_parts expr predicate args ...,  Prev: Function function_calls expr functions ...,  Up: format
+File: maxima-core-docs.info,  Node: Function get_coef clist k1 ...,  Next: Function matching_parts expr predicate args...,  Prev: Function function_calls expr functions...,  Up: format
 
  -- Function: get_coef (CLIST, K1, ...)
      Gets the coefficient from the coefficient list _clist_
@@ -3271,14 +3068,14 @@ File: maxima-core-docs.info,  Node: Function get_coef clist k1 ...,  Next: Funct
      remaining keys are matched to multipliers.
 
 
-File: maxima-core-docs.info,  Node: Function matching_parts expr predicate args ...,  Next: Function partition_poly expr test v1 ...,  Prev: Function get_coef clist k1 ...,  Up: format
+File: maxima-core-docs.info,  Node: Function matching_parts expr predicate args...,  Next: Function partition_poly expr test v1 ...,  Prev: Function get_coef clist k1 ...,  Up: format
 
- -- Function: matching_parts (EXPR, PREDICATE, ARGS, ...)
+ -- Function: matching_parts (EXPR, PREDICATE, ARGS...)
      Returns a list of all subexpressions of _expr_ for which the
      application ‘predicate(piece,args ... )’ returns ‘true’.
 
 
-File: maxima-core-docs.info,  Node: Function partition_poly expr test v1 ...,  Next: Function partition_series expr test v O,  Prev: Function matching_parts expr predicate args ...,  Up: format
+File: maxima-core-docs.info,  Node: Function partition_poly expr test v1 ...,  Next: Function partition_series expr test v O,  Prev: Function matching_parts expr predicate args...,  Up: format
 
  -- Function: partition_poly (EXPR, TEST, V1, ...)
      Partitions _expr_ into two polynomials; the first is made of those
@@ -3329,11 +3126,11 @@ File: maxima-core-docs.info,  Node: gentran,  Next: numericalio,  Prev: format, 
 * Variable genfloat::
 * Variable genstmtincr::
 * Variable genstmtno::
-* Function gentran stmt1 stmt2 ... stmtn [f1 f2 ...  fm]::
+* Function gentran stmt1 stmt2 ... stmtn [f1 f2 ... fm]::
 * Function gentran_off sw::
 * Function gentran_on sw::
-* Function gentranin f1 f2 ... fn f1 f2 ... fm::
-* Function gentraninshut ::
+* Function gentranin f1 f2 ... fn [f1 f2 ... fm]::
+* Function gentraninshut::
 * Variable gentranlang::
 * Variable gentranopt::
 * Function gentranout f1 f2 ... fn::
@@ -3342,7 +3139,7 @@ File: maxima-core-docs.info,  Node: gentran,  Next: numericalio,  Prev: format, 
 * Function gentranpush f1 f2 ... fn::
 * Variable gentranseg::
 * Function gentranshut f1 f2 ... fn::
-* Function literal arg1 arg2 ...  argn::
+* Function literal arg1 arg2 ... argn::
 * Function lrsetq var exp::
 * Function lsetq var exp::
 * Function markedvarp vname::
@@ -3495,15 +3292,15 @@ File: maxima-core-docs.info,  Node: Function gentran_off sw,  Next: Function gen
      Turns the given switch, _sw_, off.
 
 
-File: maxima-core-docs.info,  Node: Function gentran_on sw,  Next: Function gentranin f1 f2 ... fn f1 f2 ... fm,  Prev: Function gentran_off sw,  Up: gentran
+File: maxima-core-docs.info,  Node: Function gentran_on sw,  Next: Function gentranin f1 f2 ... fn [f1 f2 ... fm],  Prev: Function gentran_off sw,  Up: gentran
 
  -- Function: gentran_on (SW)
      Turns on the mode switch _sw_.
 
 
-File: maxima-core-docs.info,  Node: Function gentranin f1 f2 ... fn f1 f2 ... fm,  Next: Function gentraninshut,  Prev: Function gentran_on sw,  Up: gentran
+File: maxima-core-docs.info,  Node: Function gentranin f1 f2 ... fn [f1 f2 ... fm],  Next: Function gentraninshut,  Prev: Function gentran_on sw,  Up: gentran
 
- -- Function: gentranin (F1, F2, ..., FN, F1, F2, ..., FM)
+ -- Function: gentranin (F1, F2, ..., FN, [F1, F2, ..., FM])
      gentranin processes mixed-language template files consisting of
      active parts (delimited by <<...>>) containing Maxima statements,
      including calls to gentran, and passive parts, assumed to contain
@@ -3540,7 +3337,7 @@ File: maxima-core-docs.info,  Node: Function gentranin f1 f2 ... fn f1 f2 ... fm
      name(s) of (all) file(s) written to by this command.
 
 
-File: maxima-core-docs.info,  Node: Function gentraninshut,  Next: Variable gentranlang,  Prev: Function gentranin f1 f2 ... fn f1 f2 ... fm,  Up: gentran
+File: maxima-core-docs.info,  Node: Function gentraninshut,  Next: Variable gentranlang,  Prev: Function gentranin f1 f2 ... fn [f1 f2 ... fm],  Up: gentran
 
  -- Function: gentraninshut ()
      A cleanup function to close input files in case where gentranin
@@ -3859,16 +3656,16 @@ File: maxima-core-docs.info,  Node: numericalio,  Next: operatingsystem,  Prev: 
 * Function opena_binary file_name::
 * Function openr_binary file_name::
 * Function openw_binary file_name::
-* Function read_array read_array S A read_array S A separator_flag::
+* Function read_array S A::
 * Function read_binary_array S A::
-* Function read_binary_list read_binary_list S read_binary_list S L::
+* Function read_binary_list S::
 * Function read_binary_matrix S M::
-* Function read_hashed_array read_hashed_array S A read_hashed_array S A separator_flag::
-* Function read_list read_list S read_list S L read_list S separator_flag read_list S L separator_flag::
-* Function read_matrix read_matrix S read_matrix S M read_matrix S separator_flag read_matrix S M separator_flag::
-* Function read_nested_list read_nested_list S read_nested_list S separator_flag::
+* Function read_hashed_array S A::
+* Function read_list S::
+* Function read_matrix S::
+* Function read_nested_list S::
 * Function write_binary_data X D::
-* Function write_data write_data X D write_data X D separator_flag::
+* Function write_data X D::
 
 
 File: maxima-core-docs.info,  Node: Function assume_external_byte_order byte_order_flag,  Next: Function opena_binary file_name,  Up: numericalio
@@ -3902,7 +3699,7 @@ File: maxima-core-docs.info,  Node: Function openr_binary file_name,  Next: Func
      See also: ‘openw_binary’, ‘openr’.
 
 
-File: maxima-core-docs.info,  Node: Function openw_binary file_name,  Next: Function read_array read_array S A read_array S A separator_flag,  Prev: Function openr_binary file_name,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function openw_binary file_name,  Next: Function read_array S A,  Prev: Function openr_binary file_name,  Up: numericalio
 
  -- Function: openw_binary (FILE_NAME)
      Returns an output stream of 8-bit unsigned bytes to write the file
@@ -3913,10 +3710,9 @@ File: maxima-core-docs.info,  Node: Function openw_binary file_name,  Next: Func
      See also: ‘openr_binary’, ‘opena_binary’, ‘openw’.
 
 
-File: maxima-core-docs.info,  Node: Function read_array read_array S A read_array S A separator_flag,  Next: Function read_binary_array S A,  Prev: Function openw_binary file_name,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function read_array S A,  Next: Function read_binary_array S A,  Prev: Function openw_binary file_name,  Up: numericalio
 
- -- Function: read_array (READ_ARRAY, S, A, READ_ARRAY, S, A,
-          SEPARATOR_FLAG)
+ -- Function: read_array (S, A)
      Reads the source _S_ into the array _A_, until _A_ is full or the
      source is exhausted.  Input data are read into the array in
      row-major order; the input need not conform to the dimensions of
@@ -3938,7 +3734,7 @@ File: maxima-core-docs.info,  Node: Function read_array read_array S A read_arra
      ‘read_binary_array’, ‘read_nested_list’.
 
 
-File: maxima-core-docs.info,  Node: Function read_binary_array S A,  Next: Function read_binary_list read_binary_list S read_binary_list S L,  Prev: Function read_array read_array S A read_array S A separator_flag,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function read_binary_array S A,  Next: Function read_binary_list S,  Prev: Function read_array S A,  Up: numericalio
 
  -- Function: read_binary_array (S, A)
      Reads binary 8-byte floating point numbers from the source _S_ into
@@ -3956,10 +3752,9 @@ File: maxima-core-docs.info,  Node: Function read_binary_array S A,  Next: Funct
      See also: ‘read_array’.
 
 
-File: maxima-core-docs.info,  Node: Function read_binary_list read_binary_list S read_binary_list S L,  Next: Function read_binary_matrix S M,  Prev: Function read_binary_array S A,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function read_binary_list S,  Next: Function read_binary_matrix S M,  Prev: Function read_binary_array S A,  Up: numericalio
 
- -- Function: read_binary_list (READ_BINARY_LIST, S, READ_BINARY_LIST,
-          S, L)
+ -- Function: read_binary_list (S)
      ‘read_binary_list(S)’ reads the entire content of the source _S_ as
      a sequence of binary 8-byte floating point numbers, and returns it
      as a list.  The source _S_ may be a file name or a stream.
@@ -3976,7 +3771,7 @@ File: maxima-core-docs.info,  Node: Function read_binary_list read_binary_list S
      See also: ‘read_list’.
 
 
-File: maxima-core-docs.info,  Node: Function read_binary_matrix S M,  Next: Function read_hashed_array read_hashed_array S A read_hashed_array S A separator_flag,  Prev: Function read_binary_list read_binary_list S read_binary_list S L,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function read_binary_matrix S M,  Next: Function read_hashed_array S A,  Prev: Function read_binary_list S,  Up: numericalio
 
  -- Function: read_binary_matrix (S, M)
      Reads binary 8-byte floating point numbers from the source _S_ into
@@ -3993,10 +3788,9 @@ File: maxima-core-docs.info,  Node: Function read_binary_matrix S M,  Next: Func
      See also: ‘read_matrix’.
 
 
-File: maxima-core-docs.info,  Node: Function read_hashed_array read_hashed_array S A read_hashed_array S A separator_flag,  Next: Function read_list read_list S read_list S L read_list S separator_flag read_list S L separator_flag,  Prev: Function read_binary_matrix S M,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function read_hashed_array S A,  Next: Function read_list S,  Prev: Function read_binary_matrix S M,  Up: numericalio
 
- -- Function: read_hashed_array (READ_HASHED_ARRAY, S, A,
-          READ_HASHED_ARRAY, S, A, SEPARATOR_FLAG)
+ -- Function: read_hashed_array (S, A)
      Reads the source _S_ and returns its entire content as a
      ‘hashed-array’.  The source _S_ may be a file name or a stream.
 
@@ -4020,10 +3814,9 @@ File: maxima-core-docs.info,  Node: Function read_hashed_array read_hashed_array
      ‘read_list’, ‘read_nested_list’.
 
 
-File: maxima-core-docs.info,  Node: Function read_list read_list S read_list S L read_list S separator_flag read_list S L separator_flag,  Next: Function read_matrix read_matrix S read_matrix S M read_matrix S separator_flag read_matrix S M separator_flag,  Prev: Function read_hashed_array read_hashed_array S A read_hashed_array S A separator_flag,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function read_list S,  Next: Function read_matrix S,  Prev: Function read_hashed_array S A,  Up: numericalio
 
- -- Function: read_list (READ_LIST, S, READ_LIST, S, L, READ_LIST, S,
-          SEPARATOR_FLAG, READ_LIST, S, L, SEPARATOR_FLAG)
+ -- Function: read_list (S)
      ‘read_list(S)’ reads the source _S_ and returns its entire content
      as a flat list.
 
@@ -4046,11 +3839,9 @@ File: maxima-core-docs.info,  Node: Function read_list read_list S read_list S L
      ‘read_binary_list’, ‘read_hashed_array’.
 
 
-File: maxima-core-docs.info,  Node: Function read_matrix read_matrix S read_matrix S M read_matrix S separator_flag read_matrix S M separator_flag,  Next: Function read_nested_list read_nested_list S read_nested_list S separator_flag,  Prev: Function read_list read_list S read_list S L read_list S separator_flag read_list S L separator_flag,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function read_matrix S,  Next: Function read_nested_list S,  Prev: Function read_list S,  Up: numericalio
 
- -- Function: read_matrix (READ_MATRIX, S, READ_MATRIX, S, M,
-          READ_MATRIX, S, SEPARATOR_FLAG, READ_MATRIX, S, M,
-          SEPARATOR_FLAG)
+ -- Function: read_matrix (S)
      ‘read_matrix(S)’ reads the source _S_ and returns its entire
      content as a matrix.  The size of the matrix is inferred from the
      input data; each line of the file becomes one row of the matrix.
@@ -4085,10 +3876,9 @@ File: maxima-core-docs.info,  Node: Function read_matrix read_matrix S read_matr
      ‘read_binary_matrix’, ‘write_data’, ‘read_nested_list’.
 
 
-File: maxima-core-docs.info,  Node: Function read_nested_list read_nested_list S read_nested_list S separator_flag,  Next: Function write_binary_data X D,  Prev: Function read_matrix read_matrix S read_matrix S M read_matrix S separator_flag read_matrix S M separator_flag,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function read_nested_list S,  Next: Function write_binary_data X D,  Prev: Function read_matrix S,  Up: numericalio
 
- -- Function: read_nested_list (READ_NESTED_LIST, S, READ_NESTED_LIST,
-          S, SEPARATOR_FLAG)
+ -- Function: read_nested_list (S)
      Reads the source _S_ and returns its entire content as a nested
      list.  The source _S_ may be a file name or a stream.
 
@@ -4110,7 +3900,7 @@ File: maxima-core-docs.info,  Node: Function read_nested_list read_nested_list S
      ‘read_hashed_array’.
 
 
-File: maxima-core-docs.info,  Node: Function write_binary_data X D,  Next: Function write_data write_data X D write_data X D separator_flag,  Prev: Function read_nested_list read_nested_list S read_nested_list S separator_flag,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function write_binary_data X D,  Next: Function write_data X D,  Prev: Function read_nested_list S,  Up: numericalio
 
  -- Function: write_binary_data (X, D)
      Writes the object _X_, comprising binary 8-byte IEEE 754
@@ -4138,10 +3928,9 @@ File: maxima-core-docs.info,  Node: Function write_binary_data X D,  Next: Funct
      See also: ‘write_data’.
 
 
-File: maxima-core-docs.info,  Node: Function write_data write_data X D write_data X D separator_flag,  Prev: Function write_binary_data X D,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function write_data X D,  Prev: Function write_binary_data X D,  Up: numericalio
 
- -- Function: write_data (WRITE_DATA, X, D, WRITE_DATA, X, D,
-          SEPARATOR_FLAG)
+ -- Function: write_data (X, D)
      Writes the object _X_ to the destination _D_.
 
      ‘write_data’ writes a matrix in row-major order, with one line per
@@ -4214,7 +4003,7 @@ File: maxima-core-docs.info,  Node: stringproc,  Next: LinearAlgebra,  Prev: ope
 
 * Menu:
 
-* Function adjust_external_format ::
+* Function adjust_external_format::
 * Function alphacharp char::
 * Function alphanumericp char::
 * Function ascii int::
@@ -4234,51 +4023,51 @@ File: maxima-core-docs.info,  Node: stringproc,  Next: LinearAlgebra,  Prev: ope
 * Function eval_string str::
 * Function flength stream::
 * Function flush_output stream::
-* Function fposition fposition stream fposition stream pos::
-* Function freshline freshline freshline stream::
+* Function fposition stream::
+* Function freshline::
 * Function get_output_stream_string stream::
 * Function lowercasep char::
-* Function make_string_input_stream make_string_input_stream string make_string_input_stream string start make_string_input_stream string start end::
-* Function make_string_output_stream ::
-* Function newline newline newline stream::
+* Function make_string_input_stream string::
+* Function make_string_output_stream::
+* Function newline::
 * Function opena file::
-* Function openr openr file openr file encoding::
+* Function openr file::
 * Function openw file::
 * Function parse_string str::
-* Function printf printf dest string printf dest string expr_1 ... expr_n::
+* Function printf dest string::
 * Function readbyte stream::
 * Function readchar stream::
 * Function readline stream::
 * Function scopy string::
-* Function sdowncase sdowncase string sdowncase string start sdowncase string start end::
+* Function sdowncase string::
 * Function sequal string_1 string_2::
 * Function sequalignore string_1 string_2::
 * Function sexplode string::
-* Function simplode simplode list simplode list delim::
+* Function simplode list::
 * Function sinsert seq string pos::
-* Function sinvertcase sinvertcase string sinvertcase string start sinvertcase string start end::
+* Function sinvertcase string::
 * Function slength string::
 * Function smake num char::
-* Function smismatch smismatch string_1 string_2 smismatch string_1 string_2 test::
+* Function smismatch string_1 string_2::
 * Variable space::
-* Function split split string split string delim split string delim multiple::
+* Function split string::
 * Function sposition char string::
 * Function sprint expr_1 ... expr_n::
-* Function sremove sremove seq string sremove seq string test sremove seq string test start sremove seq string test start end::
-* Function sremovefirst sremovefirst seq string sremovefirst seq string test sremovefirst seq string test start sremovefirst seq string test start end::
+* Function sremove seq string::
+* Function sremovefirst seq string::
 * Function sreverse string::
-* Function ssearch ssearch seq string ssearch seq string test ssearch seq string test start ssearch seq string test start end::
-* Function ssort ssort string ssort string test::
-* Function ssubst ssubst new old string ssubst new old string test ssubst new old string test start ssubst new old string test start end::
-* Function ssubstfirst ssubstfirst new old string ssubstfirst new old string test ssubstfirst new old string test start ssubstfirst new old string test start end::
+* Function ssearch seq string::
+* Function ssort string::
+* Function ssubst new old string::
+* Function ssubstfirst new old string::
 * Function strim seq string::
 * Function striml seq string::
 * Function strimr seq string::
 * Function stringp obj::
-* Function substring substring string start substring string start end::
-* Function supcase supcase string supcase string start supcase string start end::
+* Function substring string start::
+* Function supcase string::
 * Variable tab::
-* Function tokens tokens string tokens string test::
+* Function tokens string::
 * Function unicode arg::
 * Function unicode_to_utf8 code_point::
 * Function uppercasep char::
@@ -4498,7 +4287,7 @@ File: maxima-core-docs.info,  Node: Function cint char,  Next: Function clessp c
      Converting a character to a code point via UTF-8-octets may serve
      as a workaround:
 
-     ‘utf8_to_unicode(string_to_octets(character));’
+          utf8_to_unicode(string_to_octets(character));
 
      See ‘utf8_005fto_005funicode’, ‘string_005fto_005foctets’.
 
@@ -4586,7 +4375,7 @@ File: maxima-core-docs.info,  Node: Function flength stream,  Next: Function flu
      See also: ‘writebyte’.
 
 
-File: maxima-core-docs.info,  Node: Function flush_output stream,  Next: Function fposition fposition stream fposition stream pos,  Prev: Function flength stream,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function flush_output stream,  Next: Function fposition stream,  Prev: Function flength stream,  Up: stringproc
 
  -- Function: flush_output (STREAM)
      Flushes _stream_ where _stream_ has to be an output stream to a
@@ -4597,9 +4386,9 @@ File: maxima-core-docs.info,  Node: Function flush_output stream,  Next: Functio
      See also: ‘writebyte’.
 
 
-File: maxima-core-docs.info,  Node: Function fposition fposition stream fposition stream pos,  Next: Function freshline freshline freshline stream,  Prev: Function flush_output stream,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function fposition stream,  Next: Function freshline,  Prev: Function flush_output stream,  Up: stringproc
 
- -- Function: fposition (FPOSITION, STREAM, FPOSITION, STREAM, POS)
+ -- Function: fposition (STREAM)
      Returns the current position in _stream_, if _pos_ is not used.  If
      _pos_ is used, ‘fposition’ sets the position in _stream_.  _stream_
      has to be a stream from or to a file and _pos_ has to be a positive
@@ -4609,9 +4398,9 @@ File: maxima-core-docs.info,  Node: Function fposition fposition stream fpositio
      i.e. the first element in _stream_ is in position 1.
 
 
-File: maxima-core-docs.info,  Node: Function freshline freshline freshline stream,  Next: Function get_output_stream_string stream,  Prev: Function fposition fposition stream fposition stream pos,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function freshline,  Next: Function get_output_stream_string stream,  Prev: Function fposition stream,  Up: stringproc
 
- -- Function: freshline (FRESHLINE, FRESHLINE, STREAM)
+ -- Function: freshline ()
      Writes a new line to the standard output stream if the position is
      not at the beginning of a line and returns ‘true’.  Using the
      optional argument _stream_ the new line is written to that stream.
@@ -4623,7 +4412,7 @@ File: maxima-core-docs.info,  Node: Function freshline freshline freshline strea
      See also: ‘newline’.
 
 
-File: maxima-core-docs.info,  Node: Function get_output_stream_string stream,  Next: Function lowercasep char,  Prev: Function freshline freshline freshline stream,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function get_output_stream_string stream,  Next: Function lowercasep char,  Prev: Function freshline,  Up: stringproc
 
  -- Function: get_output_stream_string (STREAM)
      Returns a string containing all the characters currently present in
@@ -4635,7 +4424,7 @@ File: maxima-core-docs.info,  Node: Function get_output_stream_string stream,  N
      See also: ‘make_string_output_stream’.
 
 
-File: maxima-core-docs.info,  Node: Function lowercasep char,  Next: Function make_string_input_stream make_string_input_stream string make_string_input_stream string start make_string_input_stream string start end,  Prev: Function get_output_stream_string stream,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function lowercasep char,  Next: Function make_string_input_stream string,  Prev: Function get_output_stream_string stream,  Up: stringproc
 
  -- Function: lowercasep (CHAR)
      Returns ‘true’ if _char_ is a lowercase character.
@@ -4645,11 +4434,9 @@ File: maxima-core-docs.info,  Node: Function lowercasep char,  Next: Function ma
      See also: ‘alphacharp’.
 
 
-File: maxima-core-docs.info,  Node: Function make_string_input_stream make_string_input_stream string make_string_input_stream string start make_string_input_stream string start end,  Next: Function make_string_output_stream,  Prev: Function lowercasep char,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function make_string_input_stream string,  Next: Function make_string_output_stream,  Prev: Function lowercasep char,  Up: stringproc
 
- -- Function: make_string_input_stream (MAKE_STRING_INPUT_STREAM,
-          STRING, MAKE_STRING_INPUT_STREAM, STRING, START,
-          MAKE_STRING_INPUT_STREAM, STRING, START, END)
+ -- Function: make_string_input_stream (STRING)
      Returns an input stream which contains parts of _string_ and an end
      of file.  Without optional arguments the stream contains the entire
      string and is positioned in front of the first character.  _start_
@@ -4663,7 +4450,7 @@ File: maxima-core-docs.info,  Node: Function make_string_input_stream make_strin
      (%i3) close(istream)$
 
 
-File: maxima-core-docs.info,  Node: Function make_string_output_stream,  Next: Function newline newline newline stream,  Prev: Function make_string_input_stream make_string_input_stream string make_string_input_stream string start make_string_input_stream string start end,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function make_string_output_stream,  Next: Function newline,  Prev: Function make_string_input_stream string,  Up: stringproc
 
  -- Function: make_string_output_stream ()
      Returns an output stream that accepts characters.  Characters
@@ -4687,9 +4474,9 @@ File: maxima-core-docs.info,  Node: Function make_string_output_stream,  Next: F
      See also: ‘get_output_stream_string’.
 
 
-File: maxima-core-docs.info,  Node: Function newline newline newline stream,  Next: Function opena file,  Prev: Function make_string_output_stream,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function newline,  Next: Function opena file,  Prev: Function make_string_output_stream,  Up: stringproc
 
- -- Function: newline (NEWLINE, NEWLINE, STREAM)
+ -- Function: newline ()
      Writes a new line to the standard output stream.  Using the
      optional argument _stream_ the new line is written to that stream.
      There are some cases, where ‘newline()’ does not work as expected.
@@ -4699,7 +4486,7 @@ File: maxima-core-docs.info,  Node: Function newline newline newline stream,  Ne
      See also: ‘sprint’.
 
 
-File: maxima-core-docs.info,  Node: Function opena file,  Next: Function openr openr file openr file encoding,  Prev: Function newline newline newline stream,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function opena file,  Next: Function openr file,  Prev: Function newline,  Up: stringproc
 
  -- Function: opena (FILE)
      Returns a character output stream to _file_.  If an existing file
@@ -4711,15 +4498,15 @@ File: maxima-core-docs.info,  Node: Function opena file,  Next: Function openr o
      See also: ‘Functions-and-Variables-for-binary-input-and-output’.
 
 
-File: maxima-core-docs.info,  Node: Function openr openr file openr file encoding,  Next: Function openw file,  Prev: Function opena file,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function openr file,  Next: Function openw file,  Prev: Function opena file,  Up: stringproc
 
- -- Function: openr (OPENR, FILE, OPENR, FILE, ENCODING)
+ -- Function: openr (FILE)
      Returns a character input stream to _file_.  ‘openr’ assumes that
      _file_ already exists.  If reading the file results in a lisp error
      about its encoding passing the correct string as the argument
      _encoding_ might help.  The available encodings and their names
      depend on the lisp being used.  For sbcl a list of suitable strings
-     can be found at http://www.sbcl.org/manual/#External-Formats.
+     can be found at http//wwwsbclorg/manual/#External-Formats.
 
      For binary input see
      ‘Functions-and-Variables-for-binary-input-and-output’ .  See also
@@ -4734,7 +4521,7 @@ File: maxima-core-docs.info,  Node: Function openr openr file openr file encodin
      ‘close’, ‘openw’.
 
 
-File: maxima-core-docs.info,  Node: Function openw file,  Next: Function parse_string str,  Prev: Function openr openr file openr file encoding,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function openw file,  Next: Function parse_string str,  Prev: Function openr file,  Up: stringproc
 
  -- Function: openw (FILE)
      Returns a character output stream to _file_.  If _file_ does not
@@ -4750,7 +4537,7 @@ File: maxima-core-docs.info,  Node: Function openw file,  Next: Function parse_s
      ‘close’, ‘openr’.
 
 
-File: maxima-core-docs.info,  Node: Function parse_string str,  Next: Function printf printf dest string printf dest string expr_1 ... expr_n,  Prev: Function openw file,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function parse_string str,  Next: Function printf dest string,  Prev: Function openw file,  Up: stringproc
 
  -- Function: parse_string (STR)
      Parse the string _str_ as a Maxima expression (do not evaluate it).
@@ -4773,10 +4560,9 @@ File: maxima-core-docs.info,  Node: Function parse_string str,  Next: Function p
      See also: ‘eval_string’.
 
 
-File: maxima-core-docs.info,  Node: Function printf printf dest string printf dest string expr_1 ... expr_n,  Next: Function readbyte stream,  Prev: Function parse_string str,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function printf dest string,  Next: Function readbyte stream,  Prev: Function parse_string str,  Up: stringproc
 
- -- Function: printf (PRINTF, DEST, STRING, PRINTF, DEST, STRING,
-          EXPR_1, ..., EXPR_N)
+ -- Function: printf (DEST, STRING)
      Produces formatted output by outputting the characters of
      control-string _string_ and observing that a tilde introduces a
      directive.  The character after the tilde, possibly preceded by
@@ -4898,7 +4684,7 @@ File: maxima-core-docs.info,  Node: Function printf printf dest string printf de
      See also: ‘concat’, ‘sconcat’, ‘string’, ‘simplode’.
 
 
-File: maxima-core-docs.info,  Node: Function readbyte stream,  Next: Function readchar stream,  Prev: Function printf printf dest string printf dest string expr_1 ... expr_n,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function readbyte stream,  Next: Function readchar stream,  Prev: Function printf dest string,  Up: stringproc
 
  -- Function: readbyte (STREAM)
      Removes and returns the first byte in _stream_ which must be a
@@ -4942,22 +4728,21 @@ File: maxima-core-docs.info,  Node: Function readline stream,  Next: Function sc
      end of the file is encountered.
 
 
-File: maxima-core-docs.info,  Node: Function scopy string,  Next: Function sdowncase sdowncase string sdowncase string start sdowncase string start end,  Prev: Function readline stream,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function scopy string,  Next: Function sdowncase string,  Prev: Function readline stream,  Up: stringproc
 
  -- Function: scopy (STRING)
      Returns a copy of _string_ as a new string.
 
 
-File: maxima-core-docs.info,  Node: Function sdowncase sdowncase string sdowncase string start sdowncase string start end,  Next: Function sequal string_1 string_2,  Prev: Function scopy string,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function sdowncase string,  Next: Function sequal string_1 string_2,  Prev: Function scopy string,  Up: stringproc
 
- -- Function: sdowncase (SDOWNCASE, STRING, SDOWNCASE, STRING, START,
-          SDOWNCASE, STRING, START, END)
+ -- Function: sdowncase (STRING)
      Like ‘supcase’ but uppercase characters are converted to lowercase.
 
      See also: ‘supcase’.
 
 
-File: maxima-core-docs.info,  Node: Function sequal string_1 string_2,  Next: Function sequalignore string_1 string_2,  Prev: Function sdowncase sdowncase string sdowncase string start sdowncase string start end,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function sequal string_1 string_2,  Next: Function sequalignore string_1 string_2,  Prev: Function sdowncase string,  Up: stringproc
 
  -- Function: sequal (STRING_1, STRING_2)
      Returns ‘true’ if _string_1_ and _string_2_ contain the same
@@ -4975,15 +4760,15 @@ File: maxima-core-docs.info,  Node: Function sequalignore string_1 string_2,  Ne
      See also: ‘alphacharp’.
 
 
-File: maxima-core-docs.info,  Node: Function sexplode string,  Next: Function simplode simplode list simplode list delim,  Prev: Function sequalignore string_1 string_2,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function sexplode string,  Next: Function simplode list,  Prev: Function sequalignore string_1 string_2,  Up: stringproc
 
  -- Function: sexplode (STRING)
      ‘sexplode’ is an alias for function ‘charlist’.
 
 
-File: maxima-core-docs.info,  Node: Function simplode simplode list simplode list delim,  Next: Function sinsert seq string pos,  Prev: Function sexplode string,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function simplode list,  Next: Function sinsert seq string pos,  Prev: Function sexplode string,  Up: stringproc
 
- -- Function: simplode (SIMPLODE, LIST, SIMPLODE, LIST, DELIM)
+ -- Function: simplode (LIST)
      ‘simplode’ takes a list of expressions and concatenates them into a
      string.  If no delimiter _delim_ is specified, ‘simplode’ uses no
      delimiter.  _delim_ can be any string.
@@ -5002,7 +4787,7 @@ File: maxima-core-docs.info,  Node: Function simplode simplode list simplode lis
      See also: ‘concat’, ‘sconcat’, ‘string’, ‘printf’.
 
 
-File: maxima-core-docs.info,  Node: Function sinsert seq string pos,  Next: Function sinvertcase sinvertcase string sinvertcase string start sinvertcase string start end,  Prev: Function simplode simplode list simplode list delim,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function sinsert seq string pos,  Next: Function sinvertcase string,  Prev: Function simplode list,  Up: stringproc
 
  -- Function: sinsert (SEQ, STRING, POS)
      Returns a string that is a concatenation of ‘substring(string, 1,
@@ -5018,10 +4803,9 @@ File: maxima-core-docs.info,  Node: Function sinsert seq string pos,  Next: Func
      (%o3)                  A hollow submarine.
 
 
-File: maxima-core-docs.info,  Node: Function sinvertcase sinvertcase string sinvertcase string start sinvertcase string start end,  Next: Function slength string,  Prev: Function sinsert seq string pos,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function sinvertcase string,  Next: Function slength string,  Prev: Function sinsert seq string pos,  Up: stringproc
 
- -- Function: sinvertcase (SINVERTCASE, STRING, SINVERTCASE, STRING,
-          START, SINVERTCASE, STRING, START, END)
+ -- Function: sinvertcase (STRING)
      Returns _string_ except that each character from position _start_
      to _end_ is inverted.  If _end_ is not given, all characters from
      _start_ to the end of _string_ are replaced.
@@ -5032,13 +4816,13 @@ File: maxima-core-docs.info,  Node: Function sinvertcase sinvertcase string sinv
      (%o1)                      SiNVERTcASE
 
 
-File: maxima-core-docs.info,  Node: Function slength string,  Next: Function smake num char,  Prev: Function sinvertcase sinvertcase string sinvertcase string start sinvertcase string start end,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function slength string,  Next: Function smake num char,  Prev: Function sinvertcase string,  Up: stringproc
 
  -- Function: slength (STRING)
      Returns the number of characters in _string_.
 
 
-File: maxima-core-docs.info,  Node: Function smake num char,  Next: Function smismatch smismatch string_1 string_2 smismatch string_1 string_2 test,  Prev: Function slength string,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function smake num char,  Next: Function smismatch string_1 string_2,  Prev: Function slength string,  Up: stringproc
 
  -- Function: smake (NUM, CHAR)
      Returns a new string with a number of _num_ characters _char_.
@@ -5049,10 +4833,9 @@ File: maxima-core-docs.info,  Node: Function smake num char,  Next: Function smi
      (%o1)                          www
 
 
-File: maxima-core-docs.info,  Node: Function smismatch smismatch string_1 string_2 smismatch string_1 string_2 test,  Next: Variable space,  Prev: Function smake num char,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function smismatch string_1 string_2,  Next: Variable space,  Prev: Function smake num char,  Up: stringproc
 
- -- Function: smismatch (SMISMATCH, STRING_1, STRING_2, SMISMATCH,
-          STRING_1, STRING_2, TEST)
+ -- Function: smismatch (STRING_1, STRING_2)
      Returns the position of the first character of _string_1_ at which
      _string_1_ and _string_2_ differ or ‘false’.  Default test function
      for matching is ‘sequal’.  If ‘smismatch’ should ignore case, use
@@ -5064,16 +4847,15 @@ File: maxima-core-docs.info,  Node: Function smismatch smismatch string_1 string
      (%o1)                           6
 
 
-File: maxima-core-docs.info,  Node: Variable space,  Next: Function split split string split string delim split string delim multiple,  Prev: Function smismatch smismatch string_1 string_2 smismatch string_1 string_2 test,  Up: stringproc
+File: maxima-core-docs.info,  Node: Variable space,  Next: Function split string,  Prev: Function smismatch string_1 string_2,  Up: stringproc
 
  -- Variable: space
      The space character.
 
 
-File: maxima-core-docs.info,  Node: Function split split string split string delim split string delim multiple,  Next: Function sposition char string,  Prev: Variable space,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function split string,  Next: Function sposition char string,  Prev: Variable space,  Up: stringproc
 
- -- Function: split (SPLIT, STRING, SPLIT, STRING, DELIM, SPLIT, STRING,
-          DELIM, MULTIPLE)
+ -- Function: split (STRING)
      Returns the list of all tokens in _string_.  Each token is an
      unparsed string.  ‘split’ uses _delim_ as delimiter.  If _delim_ is
      not given, the space character is the default delimiter.
@@ -5090,7 +4872,7 @@ File: maxima-core-docs.info,  Node: Function split split string split string del
      (%o2)               [first, , third, fourth]
 
 
-File: maxima-core-docs.info,  Node: Function sposition char string,  Next: Function sprint expr_1 ... expr_n,  Prev: Function split split string split string delim split string delim multiple,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function sposition char string,  Next: Function sprint expr_1 ... expr_n,  Prev: Function split string,  Up: stringproc
 
  -- Function: sposition (CHAR, STRING)
      Returns the position of the first character in _string_ which
@@ -5100,10 +4882,10 @@ File: maxima-core-docs.info,  Node: Function sposition char string,  Next: Funct
      See also: ‘ssearch’.
 
 
-File: maxima-core-docs.info,  Node: Function sprint expr_1 ... expr_n,  Next: Function sremove sremove seq string sremove seq string test sremove seq string test start sremove seq string test start end,  Prev: Function sposition char string,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function sprint expr_1 ... expr_n,  Next: Function sremove seq string,  Prev: Function sposition char string,  Up: stringproc
 
  -- Function: sprint (EXPR_1, ..., EXPR_N)
-     Evaluates and displays its arguments one after the other 'on a
+     Evaluates and displays its arguments one after the other ‘on a
      line' starting at the leftmost position.  The expressions are
      printed with a space character right next to the number, and it
      disregards line length.
@@ -5122,11 +4904,9 @@ File: maxima-core-docs.info,  Node: Function sprint expr_1 ... expr_n,  Next: Fu
      6765 10946 17711
 
 
-File: maxima-core-docs.info,  Node: Function sremove sremove seq string sremove seq string test sremove seq string test start sremove seq string test start end,  Next: Function sremovefirst sremovefirst seq string sremovefirst seq string test sremovefirst seq string test start sremovefirst seq string test start end,  Prev: Function sprint expr_1 ... expr_n,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function sremove seq string,  Next: Function sremovefirst seq string,  Prev: Function sprint expr_1 ... expr_n,  Up: stringproc
 
- -- Function: sremove (SREMOVE, SEQ, STRING, SREMOVE, SEQ, STRING, TEST,
-          SREMOVE, SEQ, STRING, TEST, START, SREMOVE, SEQ, STRING, TEST,
-          START, END)
+ -- Function: sremove (SEQ, STRING)
      Returns a string like _string_ but without all substrings matching
      _seq_.  Default test function for matching is ‘sequal’.  If
      ‘sremove’ should ignore case while searching for _seq_, use
@@ -5141,16 +4921,14 @@ File: maxima-core-docs.info,  Node: Function sremove sremove seq string sremove 
      (%o2)                    I like coffee.
 
 
-File: maxima-core-docs.info,  Node: Function sremovefirst sremovefirst seq string sremovefirst seq string test sremovefirst seq string test start sremovefirst seq string test start end,  Next: Function sreverse string,  Prev: Function sremove sremove seq string sremove seq string test sremove seq string test start sremove seq string test start end,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function sremovefirst seq string,  Next: Function sreverse string,  Prev: Function sremove seq string,  Up: stringproc
 
- -- Function: sremovefirst (SREMOVEFIRST, SEQ, STRING, SREMOVEFIRST,
-          SEQ, STRING, TEST, SREMOVEFIRST, SEQ, STRING, TEST, START,
-          SREMOVEFIRST, SEQ, STRING, TEST, START, END)
+ -- Function: sremovefirst (SEQ, STRING)
      Like ‘sremove’ except that only the first substring that matches
      _seq_ is removed.
 
 
-File: maxima-core-docs.info,  Node: Function sreverse string,  Next: Function ssearch ssearch seq string ssearch seq string test ssearch seq string test start ssearch seq string test start end,  Prev: Function sremovefirst sremovefirst seq string sremovefirst seq string test sremovefirst seq string test start sremovefirst seq string test start end,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function sreverse string,  Next: Function ssearch seq string,  Prev: Function sremovefirst seq string,  Up: stringproc
 
  -- Function: sreverse (STRING)
      Returns a string with all the characters of _string_ in reverse
@@ -5161,11 +4939,9 @@ File: maxima-core-docs.info,  Node: Function sreverse string,  Next: Function ss
      See also: ‘reverse’.
 
 
-File: maxima-core-docs.info,  Node: Function ssearch ssearch seq string ssearch seq string test ssearch seq string test start ssearch seq string test start end,  Next: Function ssort ssort string ssort string test,  Prev: Function sreverse string,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function ssearch seq string,  Next: Function ssort string,  Prev: Function sreverse string,  Up: stringproc
 
- -- Function: ssearch (SSEARCH, SEQ, STRING, SSEARCH, SEQ, STRING, TEST,
-          SSEARCH, SEQ, STRING, TEST, START, SSEARCH, SEQ, STRING, TEST,
-          START, END)
+ -- Function: ssearch (SEQ, STRING)
      Returns the position of the first substring of _string_ that
      matches the string _seq_.  Default test function for matching is
      ‘sequal’.  If ‘ssearch’ should ignore case, use ‘sequalignore’ as
@@ -5178,9 +4954,9 @@ File: maxima-core-docs.info,  Node: Function ssearch ssearch seq string ssearch 
      (%o1)                                  4
 
 
-File: maxima-core-docs.info,  Node: Function ssort ssort string ssort string test,  Next: Function ssubst ssubst new old string ssubst new old string test ssubst new old string test start ssubst new old string test start end,  Prev: Function ssearch ssearch seq string ssearch seq string test ssearch seq string test start ssearch seq string test start end,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function ssort string,  Next: Function ssubst new old string,  Prev: Function ssearch seq string,  Up: stringproc
 
- -- Function: ssort (SSORT, STRING, SSORT, STRING, TEST)
+ -- Function: ssort (STRING)
      Returns a string that contains all characters from _string_ in an
      order such there are no two successive characters _c_ and _d_ such
      that ‘test (c, d)’ is ‘false’ and ‘test (d, c)’ is ‘true’.  Default
@@ -5196,11 +4972,9 @@ File: maxima-core-docs.info,  Node: Function ssort ssort string ssort string tes
      (%o2)                 ytsoonnMlkIiedda.'
 
 
-File: maxima-core-docs.info,  Node: Function ssubst ssubst new old string ssubst new old string test ssubst new old string test start ssubst new old string test start end,  Next: Function ssubstfirst ssubstfirst new old string ssubstfirst new old string test ssubstfirst new old string test start ssubstfirst new old string test start end,  Prev: Function ssort ssort string ssort string test,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function ssubst new old string,  Next: Function ssubstfirst new old string,  Prev: Function ssort string,  Up: stringproc
 
- -- Function: ssubst (SSUBST, NEW, OLD, STRING, SSUBST, NEW, OLD,
-          STRING, TEST, SSUBST, NEW, OLD, STRING, TEST, START, SSUBST,
-          NEW, OLD, STRING, TEST, START, END)
+ -- Function: ssubst (NEW, OLD, STRING)
      Returns a string like _string_ except that all substrings matching
      _old_ are replaced by _new_.  _old_ and _new_ need not to be of the
      same length.  Default test function for matching is ‘sequal’.  If
@@ -5216,16 +4990,14 @@ File: maxima-core-docs.info,  Node: Function ssubst ssubst new old string ssubst
      (%o2)         I like Indian food. I like green tea.
 
 
-File: maxima-core-docs.info,  Node: Function ssubstfirst ssubstfirst new old string ssubstfirst new old string test ssubstfirst new old string test start ssubstfirst new old string test start end,  Next: Function strim seq string,  Prev: Function ssubst ssubst new old string ssubst new old string test ssubst new old string test start ssubst new old string test start end,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function ssubstfirst new old string,  Next: Function strim seq string,  Prev: Function ssubst new old string,  Up: stringproc
 
- -- Function: ssubstfirst (SSUBSTFIRST, NEW, OLD, STRING, SSUBSTFIRST,
-          NEW, OLD, STRING, TEST, SSUBSTFIRST, NEW, OLD, STRING, TEST,
-          START, SSUBSTFIRST, NEW, OLD, STRING, TEST, START, END)
+ -- Function: ssubstfirst (NEW, OLD, STRING)
      Like ‘subst’ except that only the first substring that matches
      _old_ is replaced.
 
 
-File: maxima-core-docs.info,  Node: Function strim seq string,  Next: Function striml seq string,  Prev: Function ssubstfirst ssubstfirst new old string ssubstfirst new old string test ssubstfirst new old string test start ssubstfirst new old string test start end,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function strim seq string,  Next: Function striml seq string,  Prev: Function ssubstfirst new old string,  Up: stringproc
 
  -- Function: strim (SEQ, STRING)
      Returns a string like _string_, but with all characters that appear
@@ -5252,16 +5024,15 @@ File: maxima-core-docs.info,  Node: Function strimr seq string,  Next: Function 
      Like ‘strim’ except that only the right end of _string_ is trimmed.
 
 
-File: maxima-core-docs.info,  Node: Function stringp obj,  Next: Function substring substring string start substring string start end,  Prev: Function strimr seq string,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function stringp obj,  Next: Function substring string start,  Prev: Function strimr seq string,  Up: stringproc
 
  -- Function: stringp (OBJ)
      Returns ‘true’ if _obj_ is a string.  See introduction for example.
 
 
-File: maxima-core-docs.info,  Node: Function substring substring string start substring string start end,  Next: Function supcase supcase string supcase string start supcase string start end,  Prev: Function stringp obj,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function substring string start,  Next: Function supcase string,  Prev: Function stringp obj,  Up: stringproc
 
- -- Function: substring (SUBSTRING, STRING, START, SUBSTRING, STRING,
-          START, END)
+ -- Function: substring (STRING, START)
      Returns the substring of _string_ beginning at position _start_ and
      ending at position _end_.  The character at position _end_ is not
      included.  If _end_ is not given, the substring contains the rest
@@ -5276,10 +5047,9 @@ File: maxima-core-docs.info,  Node: Function substring substring string start su
      (%o2)                          in
 
 
-File: maxima-core-docs.info,  Node: Function supcase supcase string supcase string start supcase string start end,  Next: Variable tab,  Prev: Function substring substring string start substring string start end,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function supcase string,  Next: Variable tab,  Prev: Function substring string start,  Up: stringproc
 
- -- Function: supcase (SUPCASE, STRING, SUPCASE, STRING, START, SUPCASE,
-          STRING, START, END)
+ -- Function: supcase (STRING)
      Returns _string_ except that lowercase characters from position
      _start_ to _end_ are replaced by the corresponding uppercase ones.
      If _end_ is not given, all lowercase characters from _start_ to the
@@ -5291,15 +5061,15 @@ File: maxima-core-docs.info,  Node: Function supcase supcase string supcase stri
      (%o1)                        English
 
 
-File: maxima-core-docs.info,  Node: Variable tab,  Next: Function tokens tokens string tokens string test,  Prev: Function supcase supcase string supcase string start supcase string start end,  Up: stringproc
+File: maxima-core-docs.info,  Node: Variable tab,  Next: Function tokens string,  Prev: Function supcase string,  Up: stringproc
 
  -- Variable: tab
      The tab character.
 
 
-File: maxima-core-docs.info,  Node: Function tokens tokens string tokens string test,  Next: Function unicode arg,  Prev: Variable tab,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function tokens string,  Next: Function unicode arg,  Prev: Variable tab,  Up: stringproc
 
- -- Function: tokens (TOKENS, STRING, TOKENS, STRING, TEST)
+ -- Function: tokens (STRING)
      Returns a list of tokens, which have been extracted from _string_.
      The tokens are substrings whose characters satisfy a certain test
      function.  If test is not given, _constituent_ is used as the
@@ -5318,7 +5088,7 @@ File: maxima-core-docs.info,  Node: Function tokens tokens string tokens string 
      (%o3)                      [5, 10, 24]
 
 
-File: maxima-core-docs.info,  Node: Function unicode arg,  Next: Function unicode_to_utf8 code_point,  Prev: Function tokens tokens string tokens string test,  Up: stringproc
+File: maxima-core-docs.info,  Node: Function unicode arg,  Next: Function unicode_to_utf8 code_point,  Prev: Function tokens string,  Up: stringproc
 
  -- Function: unicode (ARG)
      Returns the character defined by _arg_ which might be a Unicode
@@ -5343,7 +5113,7 @@ File: maxima-core-docs.info,  Node: Function unicode arg,  Next: Function unicod
      Converting a code point to a character via UTF-8 octets may serve
      as a workaround:
 
-     ‘octets_to_string(unicode_to_utf8(code_point));’
+          octets_to_string(unicode_to_utf8(code_point));
 
      See ‘octets_005fto_005fstring’, ‘unicode_005fto_005futf8’.
 
@@ -5487,10 +5257,10 @@ File: maxima-core-docs.info,  Node: Matrices and Linear Algebra,  Next: linearal
 * Function addcol M list_1 ... list_n::
 * Function addrow M list_1 ... list_n::
 * Function adjoint M::
-* Function augcoefmatrix eqn_1 ... eqn_m x_1 ... x_n::
-* Function cauchy_matrix cauchy_matrix x_1 x_2 ... x_m y_1 y_2 ... y_n cauchy_matrix x_1 x_2 ... x_n::
+* Function augcoefmatrix [eqn_1 ... eqn_m] [x_1 ... x_n]::
+* Function cauchy_matrix [x_1 x_2 ... x_m] [y_1 y_2 ... y_n]::
 * Function charpoly M x::
-* Function coefmatrix eqn_1 ... eqn_m x_1 ... x_n::
+* Function coefmatrix [eqn_1 ... eqn_m] [x_1 ... x_n]::
 * Function col M i::
 * Function columnvector L::
 * Function copymatrix M::
@@ -5498,9 +5268,9 @@ File: maxima-core-docs.info,  Node: Matrices and Linear Algebra,  Next: linearal
 * Variable detout::
 * Function diagmatrix n x::
 * Variable display_determinant_bars::
-* Function display_matrix_brackets ::
-* Function display_matrix_padding_horizontal ::
-* Function display_matrix_padding_vertical ::
+* Function display_matrix_brackets::
+* Function display_matrix_padding_horizontal::
+* Function display_matrix_padding_vertical::
 * Variable doallmxops::
 * Variable domxexpt::
 * Variable domxmxops::
@@ -5522,8 +5292,8 @@ File: maxima-core-docs.info,  Node: Matrices and Linear Algebra,  Next: linearal
 * Function eigenvectors M::
 * Function ematrix m n x i j::
 * Function entermatrix m n::
-* Function genmatrix genmatrix a i_2 j_2 i_1 j_1 genmatrix a i_2 j_2 i_1 genmatrix a i_2 j_2::
-* Function gramschmidt gramschmidt x gramschmidt x F::
+* Function genmatrix a i_2 j_2 i_1 j_1::
+* Function gramschmidt x::
 * Function ident n::
 * Function innerproduct x y::
 * Function invert M::
@@ -5534,7 +5304,7 @@ File: maxima-core-docs.info,  Node: Matrices and Linear Algebra,  Next: linearal
 * Variable matrix_element_add::
 * Variable matrix_element_mult::
 * Variable matrix_element_transpose::
-* Function matrixexp matrixexp M matrixexp M n matrixexp M V::
+* Function matrixexp M::
 * Function matrixmap f M::
 * Function matrixp expr::
 * Function mattrace M::
@@ -5551,7 +5321,7 @@ File: maxima-core-docs.info,  Node: Matrices and Linear Algebra,  Next: linearal
 * Function setelmx x i j M::
 * Function similaritytransform M::
 * Variable sparse::
-* Function submatrix submatrix i_1 ... i_m M j_1 ... j_n submatrix i_1 ... i_m M submatrix M j_1 ... j_n::
+* Function submatrix i_1 ... i_m M j_1 ... j_n::
 * Function transpose M::
 * Function triangularize M::
 * Function uniteigenvectors M::
@@ -5584,16 +5354,16 @@ File: maxima-core-docs.info,  Node: Function addrow M list_1 ... list_n,  Next: 
      See also: ‘addcol’, ‘append’.
 
 
-File: maxima-core-docs.info,  Node: Function adjoint M,  Next: Function augcoefmatrix eqn_1 ... eqn_m x_1 ... x_n,  Prev: Function addrow M list_1 ... list_n,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function adjoint M,  Next: Function augcoefmatrix [eqn_1 ... eqn_m] [x_1 ... x_n],  Prev: Function addrow M list_1 ... list_n,  Up: Matrices and Linear Algebra
 
  -- Function: adjoint (M)
      Returns the adjoint of the matrix _M_. The adjoint matrix is the
      transpose of the matrix of cofactors of _M_.
 
 
-File: maxima-core-docs.info,  Node: Function augcoefmatrix eqn_1 ... eqn_m x_1 ... x_n,  Next: Function cauchy_matrix cauchy_matrix x_1 x_2 ... x_m y_1 y_2 ... y_n cauchy_matrix x_1 x_2 ... x_n,  Prev: Function adjoint M,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function augcoefmatrix [eqn_1 ... eqn_m] [x_1 ... x_n],  Next: Function cauchy_matrix [x_1 x_2 ... x_m] [y_1 y_2 ... y_n],  Prev: Function adjoint M,  Up: Matrices and Linear Algebra
 
- -- Function: augcoefmatrix (EQN_1, ..., EQN_M, X_1, ..., X_N)
+ -- Function: augcoefmatrix ([EQN_1, ..., EQN_M], [X_1, ..., X_N])
      Returns the augmented coefficient matrix for the variables _x_1_,
      ..., _x_n_ of the system of linear equations _eqn_1_, ..., _eqn_m_.
      This is the coefficient matrix with a column adjoined for the
@@ -5609,10 +5379,9 @@ File: maxima-core-docs.info,  Node: Function augcoefmatrix eqn_1 ... eqn_m x_1 .
                             [ a    b      c   ]
 
 
-File: maxima-core-docs.info,  Node: Function cauchy_matrix cauchy_matrix x_1 x_2 ... x_m y_1 y_2 ... y_n cauchy_matrix x_1 x_2 ... x_n,  Next: Function charpoly M x,  Prev: Function augcoefmatrix eqn_1 ... eqn_m x_1 ... x_n,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function cauchy_matrix [x_1 x_2 ... x_m] [y_1 y_2 ... y_n],  Next: Function charpoly M x,  Prev: Function augcoefmatrix [eqn_1 ... eqn_m] [x_1 ... x_n],  Up: Matrices and Linear Algebra
 
- -- Function: cauchy_matrix (CAUCHY_MATRIX, X_1, X_2, ..., X_M, Y_1,
-          Y_2, ..., Y_N, CAUCHY_MATRIX, X_1, X_2, ..., X_N)
+ -- Function: cauchy_matrix ([X_1, X_2, ..., X_M], [Y_1, Y_2, ..., Y_N])
      Returns a ‘n’ by _m_ Cauchy matrix with the elements _a[i,j]_ =
      1/(_x_i_+_y_i_).  The second argument of ‘cauchy_matrix’ is
      optional.  For this case the elements of the Cauchy matrix are
@@ -5645,7 +5414,7 @@ File: maxima-core-docs.info,  Node: Function cauchy_matrix cauchy_matrix x_1 x_2
                            [ x2 + x1   2 x2   ]
 
 
-File: maxima-core-docs.info,  Node: Function charpoly M x,  Next: Function coefmatrix eqn_1 ... eqn_m x_1 ... x_n,  Prev: Function cauchy_matrix cauchy_matrix x_1 x_2 ... x_m y_1 y_2 ... y_n cauchy_matrix x_1 x_2 ... x_n,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function charpoly M x,  Next: Function coefmatrix [eqn_1 ... eqn_m] [x_1 ... x_n],  Prev: Function cauchy_matrix [x_1 x_2 ... x_m] [y_1 y_2 ... y_n],  Up: Matrices and Linear Algebra
 
  -- Function: charpoly (M, X)
      Returns the characteristic polynomial for the matrix _M_ with
@@ -5699,9 +5468,9 @@ File: maxima-core-docs.info,  Node: Function charpoly M x,  Next: Function coefm
                                                sqrt(5)       sqrt(5)
 
 
-File: maxima-core-docs.info,  Node: Function coefmatrix eqn_1 ... eqn_m x_1 ... x_n,  Next: Function col M i,  Prev: Function charpoly M x,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function coefmatrix [eqn_1 ... eqn_m] [x_1 ... x_n],  Next: Function col M i,  Prev: Function charpoly M x,  Up: Matrices and Linear Algebra
 
- -- Function: coefmatrix (EQN_1, ..., EQN_M, X_1, ..., X_N)
+ -- Function: coefmatrix ([EQN_1, ..., EQN_M], [X_1, ..., X_N])
      Returns the coefficient matrix for the variables _x_1_, ..., _x_n_
      of the system of linear equations _eqn_1_, ..., _eqn_m_.
 
@@ -5713,7 +5482,7 @@ File: maxima-core-docs.info,  Node: Function coefmatrix eqn_1 ... eqn_m x_1 ... 
                                [ a    b   ]
 
 
-File: maxima-core-docs.info,  Node: Function col M i,  Next: Function columnvector L,  Prev: Function coefmatrix eqn_1 ... eqn_m x_1 ... x_n,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function col M i,  Next: Function columnvector L,  Prev: Function coefmatrix [eqn_1 ... eqn_m] [x_1 ... x_n],  Up: Matrices and Linear Algebra
 
  -- Function: col (M, I)
      Returns the _i_'th column of the matrix _M_. The return value is a
@@ -5920,106 +5689,111 @@ File: maxima-core-docs.info,  Node: Variable display_determinant_bars,  Next: Fu
 
 File: maxima-core-docs.info,  Node: Function display_matrix_brackets,  Next: Function display_matrix_padding_horizontal,  Prev: Variable display_determinant_bars,  Up: Matrices and Linear Algebra
 
- -- Function: display_matrix_brackets ()
-     Default value: ‘true’
+1.33.1 Function: display_matrix_brackets
+----------------------------------------
 
-     When ‘display_matrix_brackets’ is ‘true’, matrices are displayed
-     with brackets (square braces) to the left and right.
+Default value: ‘true’
 
-     When ‘display_matrix_brackets’ is ‘false’, matrices are not
-     displayed with brackets; only the matrix elements are displayed.
+When ‘display_matrix_brackets’ is ‘true’, matrices are displayed with
+brackets (square braces) to the left and right.
+
+When ‘display_matrix_brackets’ is ‘false’, matrices are not displayed
+with brackets; only the matrix elements are displayed.
 
 
 File: maxima-core-docs.info,  Node: Function display_matrix_padding_horizontal,  Next: Function display_matrix_padding_vertical,  Prev: Function display_matrix_brackets,  Up: Matrices and Linear Algebra
 
- -- Function: display_matrix_padding_horizontal ()
-     Default value: ‘true’
+1.33.2 Function: display_matrix_padding_horizontal
+--------------------------------------------------
 
-     When ‘display_matrix_padding_horizontal’ is ‘true’, matrices are
-     displayed with spaces between successive columns, and a space
-     before the first column and a space after the last column.
+Default value: ‘true’
 
-     When ‘display_matrix_padding_horizontal’ is ‘false’, matrices are
-     not displayed with spaces between successive columns, and no space
-     before the first column and no space after the last column.
-     Successive columns are immediately adjacent to each other, and the
-     first column is immediately adjacent to the left bracket, and the
-     last column is immediately adjacent to the right bracket, if the
-     brackets are present (see ‘display_matrix_brackets’).
+When ‘display_matrix_padding_horizontal’ is ‘true’, matrices are
+displayed with spaces between successive columns, and a space before the
+first column and a space after the last column.
 
-     See also ‘display_005fmatrix_005fpadding_005fvertical’.
+When ‘display_matrix_padding_horizontal’ is ‘false’, matrices are not
+displayed with spaces between successive columns, and no space before
+the first column and no space after the last column.  Successive columns
+are immediately adjacent to each other, and the first column is
+immediately adjacent to the left bracket, and the last column is
+immediately adjacent to the right bracket, if the brackets are present
+(see ‘display_matrix_brackets’).
 
-     Examples:
+See also ‘display_005fmatrix_005fpadding_005fvertical’.
 
-     maxima
-     
-     (%i1) display_matrix_padding_horizontal;
-     (%o1)                         true
-     (%i2) foo: matrix ([a, b, c], [d, e, f], [g, h, i]);
-                                ┌         ┐
-                                │ a  b  c │
-                                │         │
-     (%o2)                      │ d  e  f │
-                                │         │
-                                │ g  h  i │
-                                └         ┘
-     
-     
-     (%i3) display_matrix_padding_horizontal: false;
-     (%o3)                         false
-     (%i4) foo;
-                                   ┌   ┐
-                                   │abc│
-                                   │   │
-     (%o4)                         │def│
-                                   │   │
-                                   │ghi│
-                                   └   ┘
+Examples:
 
-     See also: ‘display_matrix_brackets’,
-     ‘display_matrix_padding_vertical’.
+maxima
+
+(%i1) display_matrix_padding_horizontal;
+(%o1)                         true
+(%i2) foo: matrix ([a, b, c], [d, e, f], [g, h, i]);
+                           ┌         ┐
+                           │ a  b  c │
+                           │         │
+(%o2)                      │ d  e  f │
+                           │         │
+                           │ g  h  i │
+                           └         ┘
+
+
+(%i3) display_matrix_padding_horizontal: false;
+(%o3)                         false
+(%i4) foo;
+                              ┌   ┐
+                              │abc│
+                              │   │
+(%o4)                         │def│
+                              │   │
+                              │ghi│
+                              └   ┘
+
+See also: ‘display_matrix_brackets’, ‘display_matrix_padding_vertical’.
 
 
 File: maxima-core-docs.info,  Node: Function display_matrix_padding_vertical,  Next: Variable doallmxops,  Prev: Function display_matrix_padding_horizontal,  Up: Matrices and Linear Algebra
 
- -- Function: display_matrix_padding_vertical ()
-     Default value: ‘true’
+1.33.3 Function: display_matrix_padding_vertical
+------------------------------------------------
 
-     When ‘display_matrix_padding_vertical’ is ‘true’, matrices are
-     displayed with an empty line between successive rows.
+Default value: ‘true’
 
-     When ‘display_matrix_padding_vertical’ is ‘false’, matrices are not
-     displayed with an empty line between successive rows; successive
-     rows are immediately adjacent to each other.
+When ‘display_matrix_padding_vertical’ is ‘true’, matrices are displayed
+with an empty line between successive rows.
 
-     See also ‘display_005fmatrix_005fpadding_005fhorizontal’.
+When ‘display_matrix_padding_vertical’ is ‘false’, matrices are not
+displayed with an empty line between successive rows; successive rows
+are immediately adjacent to each other.
 
-     Examples:
+See also ‘display_005fmatrix_005fpadding_005fhorizontal’.
 
-     maxima
-     
-     (%i1) display_matrix_padding_vertical;
-     (%o1)                         true
-     (%i2) foo: matrix ([a, b, c], [d, e, f], [g, h, i]);
-                                ┌         ┐
-                                │ a  b  c │
-                                │         │
-     (%o2)                      │ d  e  f │
-                                │         │
-                                │ g  h  i │
-                                └         ┘
-     
-     
-     (%i3) display_matrix_padding_vertical: false;
-     (%o3)                         false
-     (%i4) foo;
-                                ┌         ┐
-                                │ a  b  c │
-     (%o4)                      │ d  e  f │
-                                │ g  h  i │
-                                └         ┘
+Examples:
 
-     See also: ‘display_matrix_padding_horizontal’.
+maxima
+
+(%i1) display_matrix_padding_vertical;
+(%o1)                         true
+(%i2) foo: matrix ([a, b, c], [d, e, f], [g, h, i]);
+                           ┌         ┐
+                           │ a  b  c │
+                           │         │
+(%o2)                      │ d  e  f │
+                           │         │
+                           │ g  h  i │
+                           └         ┘
+
+
+(%i3) display_matrix_padding_vertical: false;
+(%o3)                         false
+(%i4) foo;
+                           ┌         ┐
+                           │ a  b  c │
+(%o4)                      │ d  e  f │
+                           │ g  h  i │
+                           └         ┘
+
+See also: ‘display_matrix_padding_horizontal’.
 
 
 File: maxima-core-docs.info,  Node: Variable doallmxops,  Next: Variable domxexpt,  Prev: Function display_matrix_padding_vertical,  Up: Matrices and Linear Algebra
@@ -6432,7 +6206,7 @@ File: maxima-core-docs.info,  Node: Function ematrix m n x i j,  Next: Function 
      for the ‘[i, j]’ element which is _x_.
 
 
-File: maxima-core-docs.info,  Node: Function entermatrix m n,  Next: Function genmatrix genmatrix a i_2 j_2 i_1 j_1 genmatrix a i_2 j_2 i_1 genmatrix a i_2 j_2,  Prev: Function ematrix m n x i j,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function entermatrix m n,  Next: Function genmatrix a i_2 j_2 i_1 j_1,  Prev: Function ematrix m n x i j,  Up: Matrices and Linear Algebra
 
  -- Function: entermatrix (M, N)
      Returns an _m_ by _n_ matrix, reading the elements interactively.
@@ -6474,10 +6248,9 @@ File: maxima-core-docs.info,  Node: Function entermatrix m n,  Next: Function ge
                      [    0         0      (b + a)  ]
 
 
-File: maxima-core-docs.info,  Node: Function genmatrix genmatrix a i_2 j_2 i_1 j_1 genmatrix a i_2 j_2 i_1 genmatrix a i_2 j_2,  Next: Function gramschmidt gramschmidt x gramschmidt x F,  Prev: Function entermatrix m n,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function genmatrix a i_2 j_2 i_1 j_1,  Next: Function gramschmidt x,  Prev: Function entermatrix m n,  Up: Matrices and Linear Algebra
 
- -- Function: genmatrix (GENMATRIX, A, I_2, J_2, I_1, J_1, GENMATRIX, A,
-          I_2, J_2, I_1, GENMATRIX, A, I_2, J_2)
+ -- Function: genmatrix (A, I_2, J_2, I_1, J_1)
      Returns a matrix generated from _a_, taking element ‘a[i_1, j_1]’
      as the upper-left element and ‘a[i_2, j_2]’ as the lower-right
      element of the matrix.  Here _a_ is a declared array (created by
@@ -6554,9 +6327,9 @@ File: maxima-core-docs.info,  Node: Function genmatrix genmatrix a i_2 j_2 i_1 j
      ‘define’.
 
 
-File: maxima-core-docs.info,  Node: Function gramschmidt gramschmidt x gramschmidt x F,  Next: Function ident n,  Prev: Function genmatrix genmatrix a i_2 j_2 i_1 j_1 genmatrix a i_2 j_2 i_1 genmatrix a i_2 j_2,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function gramschmidt x,  Next: Function ident n,  Prev: Function genmatrix a i_2 j_2 i_1 j_1,  Up: Matrices and Linear Algebra
 
- -- Function: gramschmidt (GRAMSCHMIDT, X, GRAMSCHMIDT, X, F)
+ -- Function: gramschmidt (X)
      Carries out the Gram-Schmidt orthogonalization algorithm on _x_,
      which is either a matrix or a list of lists.  _x_ is not modified
      by ‘gramschmidt’.  The inner product employed by ‘gramschmidt’ is
@@ -6624,7 +6397,7 @@ File: maxima-core-docs.info,  Node: Function gramschmidt gramschmidt x gramschmi
      See also: ‘innerproduct’, ‘factor’.
 
 
-File: maxima-core-docs.info,  Node: Function ident n,  Next: Function innerproduct x y,  Prev: Function gramschmidt gramschmidt x gramschmidt x F,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function ident n,  Next: Function innerproduct x y,  Prev: Function gramschmidt x,  Up: Matrices and Linear Algebra
 
  -- Function: ident (N)
      Returns an _n_ by _n_ identity matrix.
@@ -6815,14 +6588,16 @@ File: maxima-core-docs.info,  Node: Function matrix row_1 ... row_n,  Next: Vari
                              [ - -    --    ]
                              [   a    b     ]
 
-        •    • Matrix to a scalar exponent, element by element.
+        •    • Matrix to a scalar exponent, element by
+               element.
 
      (%i7) x ^ 3;
                               [ 4913    27  ]
      (%o7)                    [             ]
                               [ - 512  1331 ]
 
-        •    • Scalar base to a matrix exponent, element by element.
+        •    • Scalar base to a matrix exponent, element by
+               element.
 
      (%i8) exp(y); 
                               [   %pi    %e ]
@@ -6831,8 +6606,8 @@ File: maxima-core-docs.info,  Node: Function matrix row_1 ... row_n,  Next: Vari
                               [    a     b  ]
                               [  %e    %e   ]
 
-        •    • Matrix base to a matrix exponent.  This is not carried
-               out element by element.  See also ‘matrixexp’.
+        •    • Matrix base to a matrix exponent.  This is not
+               carried out element by element.  See also ‘matrixexp’.
 
      (%i9) x ^ y;
                                      [ %pi  %e ]
@@ -6853,9 +6628,9 @@ File: maxima-core-docs.info,  Node: Function matrix row_1 ... row_n,  Next: Vari
      (%o11)          [                              ]
                      [  17 a - 8 b     11 b + 3 a   ]
 
-        •    • Noncommutative matrix exponentiation.  A scalar base _b_
-               to a matrix power _M_ is carried out element by element
-               and so ‘b^^m’ is the same as ‘b^m’.
+        •    • Noncommutative matrix exponentiation.  A scalar
+               base _b_ to a matrix power _M_ is carried out element by
+               element and so ‘b^^m’ is the same as ‘b^m’.
 
      (%i12) x ^^ 3;
                              [  3833   1719 ]
@@ -6869,8 +6644,9 @@ File: maxima-core-docs.info,  Node: Function matrix row_1 ... row_n,  Next: Vari
                               [    a     b  ]
                               [  %e    %e   ]
 
-        •    • A matrix raised to a -1 exponent with noncommutative
-               exponentiation is the matrix inverse, if it exists.
+        •    • A matrix raised to a -1 exponent with
+               noncommutative exponentiation is the matrix inverse, if
+               it exists.
 
      (%i14) x ^^ -1;
                               [ 11      3  ]
@@ -6990,7 +6766,7 @@ File: maxima-core-docs.info,  Node: Variable matrix_element_mult,  Next: Variabl
      See also: ‘matrix_element_add’, ‘matrix_element_transpose’.
 
 
-File: maxima-core-docs.info,  Node: Variable matrix_element_transpose,  Next: Function matrixexp matrixexp M matrixexp M n matrixexp M V,  Prev: Variable matrix_element_mult,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Variable matrix_element_transpose,  Next: Function matrixexp M,  Prev: Variable matrix_element_mult,  Up: Matrices and Linear Algebra
 
  -- Variable: matrix_element_transpose
      Default value: ‘false’
@@ -7053,9 +6829,9 @@ File: maxima-core-docs.info,  Node: Variable matrix_element_transpose,  Next: Fu
      See also: ‘matrix_element_mult’, ‘transpose’, ‘matrix_element_add’.
 
 
-File: maxima-core-docs.info,  Node: Function matrixexp matrixexp M matrixexp M n matrixexp M V,  Next: Function matrixmap f M,  Prev: Variable matrix_element_transpose,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function matrixexp M,  Next: Function matrixmap f M,  Prev: Variable matrix_element_transpose,  Up: Matrices and Linear Algebra
 
- -- Function: matrixexp (MATRIXEXP, M, MATRIXEXP, M, N, MATRIXEXP, M, V)
+ -- Function: matrixexp (M)
      Calculates the matrix exponential e^{M\cdot V}
 
      .  Instead of the vector _V_ a number _n_ can be specified as the
@@ -7070,7 +6846,7 @@ File: maxima-core-docs.info,  Node: Function matrixexp matrixexp M matrixexp M n
      e^M=\sum_{k=0}^\infty{\left(\frac{M^k}{k!}\right)}
 
 
-File: maxima-core-docs.info,  Node: Function matrixmap f M,  Next: Function matrixp expr,  Prev: Function matrixexp matrixexp M matrixexp M n matrixexp M V,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function matrixmap f M,  Next: Function matrixp expr,  Prev: Function matrixexp M,  Up: Matrices and Linear Algebra
 
  -- Function: matrixmap (F, M)
      Returns a matrix with element ‘i,j’ equal to ‘f(M[i,j])’.
@@ -7325,7 +7101,7 @@ File: maxima-core-docs.info,  Node: Function similaritytransform M,  Next: Varia
      ‘simtran’ is a synonym for ‘similaritytransform’.
 
 
-File: maxima-core-docs.info,  Node: Variable sparse,  Next: Function submatrix submatrix i_1 ... i_m M j_1 ... j_n submatrix i_1 ... i_m M submatrix M j_1 ... j_n,  Prev: Function similaritytransform M,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Variable sparse,  Next: Function submatrix i_1 ... i_m M j_1 ... j_n,  Prev: Function similaritytransform M,  Up: Matrices and Linear Algebra
 
  -- Variable: sparse
      Default value: ‘false’
@@ -7335,15 +7111,14 @@ File: maxima-core-docs.info,  Node: Variable sparse,  Next: Function submatrix s
      determinants.
 
 
-File: maxima-core-docs.info,  Node: Function submatrix submatrix i_1 ... i_m M j_1 ... j_n submatrix i_1 ... i_m M submatrix M j_1 ... j_n,  Next: Function transpose M,  Prev: Variable sparse,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function submatrix i_1 ... i_m M j_1 ... j_n,  Next: Function transpose M,  Prev: Variable sparse,  Up: Matrices and Linear Algebra
 
- -- Function: submatrix (SUBMATRIX, I_1, ..., I_M, M, J_1, ..., J_N,
-          SUBMATRIX, I_1, ..., I_M, M, SUBMATRIX, M, J_1, ..., J_N)
+ -- Function: submatrix (I_1, ..., I_M, M, J_1, ..., J_N)
      Returns a new matrix composed of the matrix _M_ with rows _i_1_,
      ..., _i_m_ deleted, and columns _j_1_, ..., _j_n_ deleted.
 
 
-File: maxima-core-docs.info,  Node: Function transpose M,  Next: Function triangularize M,  Prev: Function submatrix submatrix i_1 ... i_m M j_1 ... j_n submatrix i_1 ... i_m M submatrix M j_1 ... j_n,  Up: Matrices and Linear Algebra
+File: maxima-core-docs.info,  Node: Function transpose M,  Next: Function triangularize M,  Prev: Function submatrix i_1 ... i_m M j_1 ... j_n,  Up: Matrices and Linear Algebra
 
  -- Function: transpose (M)
      Returns the transpose of _M_.
@@ -7494,19 +7269,19 @@ File: maxima-core-docs.info,  Node: linearalgebra,  Next: NumberTheory,  Prev: M
 
 * Function addmatrices f M_1 ... M_n::
 * Function blockmatrixp M::
-* Function cholesky cholesky M cholesky M field::
+* Function cholesky M::
 * Function columnop M i j theta::
 * Function columnspace M::
 * Function columnswap M i j::
 * Function ctranspose M::
 * Function diag_matrix d_1 d_2 ... d_n::
 * Function dotproduct u v::
-* Function eigens_by_jacobi eigens_by_jacobi A eigens_by_jacobi A field_type::
+* Function eigens_by_jacobi A::
 * Function get_lu_factors x::
-* Function hankel hankel col hankel col row::
+* Function hankel col::
 * Function hessian f x::
 * Function hilbert_matrix n::
-* Function identfor identfor M identfor M fld::
+* Function identfor M::
 * Function invert_by_lu M rng generalring::
 * Function jacobian f x::
 * Function kronecker_product A B::
@@ -7514,9 +7289,9 @@ File: maxima-core-docs.info,  Node: linearalgebra,  Next: NumberTheory,  Prev: M
 * Function locate_matrix_entry M r_1 c_1 r_2 c_2 f rel::
 * Function lu_backsub M b::
 * Function lu_factor M field::
-* Function mat_cond mat_cond M 1 mat_cond M inf::
+* Function mat_cond M 1::
 * Function mat_fullunblocker M::
-* Function mat_norm mat_norm M 1 mat_norm M inf mat_norm M frobenius::
+* Function mat_norm M 1::
 * Function mat_trace M::
 * Function mat_unblocker M::
 * Function matrix_size M::
@@ -7527,9 +7302,9 @@ File: maxima-core-docs.info,  Node: linearalgebra,  Next: NumberTheory,  Prev: M
 * Function ptriangularize M v::
 * Function rowop M i j theta::
 * Function rowswap M i j::
-* Function toeplitz toeplitz col toeplitz col row::
-* Function vandermonde_matrix x_1 ... x_n::
-* Function zerofor zerofor M zerofor M fld::
+* Function toeplitz col::
+* Function vandermonde_matrix [x_1 ... x_n]::
+* Function zerofor M::
 * Function zeromatrixp M::
 
 
@@ -7548,4 +7323,496 @@ File: maxima-core-docs.info,  Node: Function addmatrices f M_1 ... M_n,  Next: F
      (%o3) matrix([7,8],[9,10])
      (%i4) addmatrices('max,m1,m2,5*m1);
      (%o4) matrix([7,10],[15,20])
+
+
+File: maxima-core-docs.info,  Node: Function blockmatrixp M,  Next: Function cholesky M,  Prev: Function addmatrices f M_1 ... M_n,  Up: linearalgebra
+
+ -- Function: blockmatrixp (M)
+     Return true if and only if _M_ is a matrix and every entry of _M_
+     is a matrix.
+
+
+File: maxima-core-docs.info,  Node: Function cholesky M,  Next: Function columnop M i j theta,  Prev: Function blockmatrixp M,  Up: linearalgebra
+
+ -- Function: cholesky (M)
+     Return the Cholesky factorization of the matrix selfadjoint (or
+     hermitian) matrix _M_. The second argument defaults to
+     'generalring.'  For a description of the possible values for
+     _field_, see ‘lu_factor’.
+
+
+File: maxima-core-docs.info,  Node: Function columnop M i j theta,  Next: Function columnspace M,  Prev: Function cholesky M,  Up: linearalgebra
+
+ -- Function: columnop (M, I, J, THETA)
+     If _M_ is a matrix, return the matrix that results from doing the
+     column operation ‘C_i <- C_i - theta * C_j’.  If _M_ doesn't have a
+     row _i_ or _j_, signal an error.
+
+
+File: maxima-core-docs.info,  Node: Function columnspace M,  Next: Function columnswap M i j,  Prev: Function columnop M i j theta,  Up: linearalgebra
+
+ -- Function: columnspace (M)
+     If _M_ is a matrix, return ‘span (v_1, ..., v_n)’, where the set
+     ‘{v_1, ..., v_n}’ is a basis for the column space of _M_. The span
+     of the empty set is ‘{0}’.  Thus, when the column space has only
+     one member, return ‘span ()’.
+
+
+File: maxima-core-docs.info,  Node: Function columnswap M i j,  Next: Function ctranspose M,  Prev: Function columnspace M,  Up: linearalgebra
+
+ -- Function: columnswap (M, I, J)
+     If _M_ is a matrix, swap columns _i_ and _j_.  If _M_ doesn't have
+     a column _i_ or _j_, signal an error.
+
+
+File: maxima-core-docs.info,  Node: Function ctranspose M,  Next: Function diag_matrix d_1 d_2 ... d_n,  Prev: Function columnswap M i j,  Up: linearalgebra
+
+ -- Function: ctranspose (M)
+     Return the complex conjugate transpose of the matrix _M_. The
+     function ‘ctranspose’ uses ‘matrix_element_transpose’ to transpose
+     each matrix element.
+
+
+File: maxima-core-docs.info,  Node: Function diag_matrix d_1 d_2 ... d_n,  Next: Function dotproduct u v,  Prev: Function ctranspose M,  Up: linearalgebra
+
+ -- Function: diag_matrix (D_1, D_2, ..., D_N)
+     Return a diagonal matrix with diagonal entries _d_1_, _d_2_, ...,
+     _d_n_.  When the diagonal entries are matrices, the zero entries of
+     the returned matrix are zero matrices of the appropriate size; for
+     example:
+
+     (%i1) diag_matrix(diag_matrix(1,2),diag_matrix(3,4));
+     
+                                 [ [ 1  0 ]  [ 0  0 ] ]
+                                 [ [      ]  [      ] ]
+                                 [ [ 0  2 ]  [ 0  0 ] ]
+     (%o1)                       [                    ]
+                                 [ [ 0  0 ]  [ 3  0 ] ]
+                                 [ [      ]  [      ] ]
+                                 [ [ 0  0 ]  [ 0  4 ] ]
+     (%i2) diag_matrix(p,q);
+     
+                                        [ p  0 ]
+     (%o2)                              [      ]
+                                        [ 0  q ]
+
+
+File: maxima-core-docs.info,  Node: Function dotproduct u v,  Next: Function eigens_by_jacobi A,  Prev: Function diag_matrix d_1 d_2 ... d_n,  Up: linearalgebra
+
+ -- Function: dotproduct (U, V)
+     Return the dotproduct of vectors _u_ and _v_.  This is the same as
+     ‘conjugate (transpose (u)) . v’.  The arguments _u_ and _v_ must be
+     column vectors.
+
+
+File: maxima-core-docs.info,  Node: Function eigens_by_jacobi A,  Next: Function get_lu_factors x,  Prev: Function dotproduct u v,  Up: linearalgebra
+
+ -- Function: eigens_by_jacobi (A)
+     Computes the eigenvalues and eigenvectors of _A_ by the method of
+     Jacobi rotations.  _A_ must be a symmetric matrix (but it need not
+     be positive definite nor positive semidefinite).  _field_type_
+     indicates the computational field, either ‘floatfield’ or
+     ‘bigfloatfield’.  If _field_type_ is not specified, it defaults to
+     ‘floatfield’.
+
+     The elements of _A_ must be numbers or expressions which evaluate
+     to numbers via ‘float’ or ‘bfloat’ (depending on _field_type_).
+
+     Examples:
+
+     (%i1) S: matrix([1/sqrt(2), 1/sqrt(2)],[-1/sqrt(2), 1/sqrt(2)]);
+                          [     1         1    ]
+                          [  -------   ------- ]
+                          [  sqrt(2)   sqrt(2) ]
+     (%o1)                [                    ]
+                          [      1        1    ]
+                          [ - -------  ------- ]
+                          [   sqrt(2)  sqrt(2) ]
+     (%i2) L : matrix ([sqrt(3), 0], [0, sqrt(5)]);
+                           [ sqrt(3)     0    ]
+     (%o2)                 [                  ]
+                           [    0     sqrt(5) ]
+     (%i3) M : S . L . transpose (S);
+                 [ sqrt(5)   sqrt(3)  sqrt(5)   sqrt(3) ]
+                 [ ------- + -------  ------- - ------- ]
+                 [    2         2        2         2    ]
+     (%o3)       [                                      ]
+                 [ sqrt(5)   sqrt(3)  sqrt(5)   sqrt(3) ]
+                 [ ------- - -------  ------- + ------- ]
+                 [    2         2        2         2    ]
+     (%i4) eigens_by_jacobi (M);
+     The largest percent change was 0.1454972243679
+     The largest percent change was 0.0
+     number of sweeps: 2
+     number of rotations: 1
+     (%o4) [[1.732050807568877, 2.23606797749979], 
+                             [  0.70710678118655   0.70710678118655 ]
+                             [                                      ]]
+                             [ - 0.70710678118655  0.70710678118655 ]
+     (%i5) float ([[sqrt(3), sqrt(5)], S]);
+     (%o5) [[1.732050807568877, 2.23606797749979], 
+                             [  0.70710678118655   0.70710678118655 ]
+                             [                                      ]]
+                             [ - 0.70710678118655  0.70710678118655 ]
+     (%i6) eigens_by_jacobi (M, bigfloatfield);
+     The largest percent change was 1.454972243679028b-1
+     The largest percent change was 0.0b0
+     number of sweeps: 2
+     number of rotations: 1
+     (%o6) [[1.732050807568877b0, 2.23606797749979b0], 
+                     [  7.071067811865475b-1   7.071067811865475b-1 ]
+                     [                                              ]]
+                     [ - 7.071067811865475b-1  7.071067811865475b-1 ]
+
+
+File: maxima-core-docs.info,  Node: Function get_lu_factors x,  Next: Function hankel col,  Prev: Function eigens_by_jacobi A,  Up: linearalgebra
+
+ -- Function: get_lu_factors (X)
+     When ‘x = lu_factor (A)’, then ‘get_lu_factors’ returns a list of
+     the form ‘[P, L, U]’, where _P_ is a permutation matrix, _L_ is
+     lower triangular with ones on the diagonal, and _U_ is upper
+     triangular, and ‘A = P L U’.
+
+
+File: maxima-core-docs.info,  Node: Function hankel col,  Next: Function hessian f x,  Prev: Function get_lu_factors x,  Up: linearalgebra
+
+ -- Function: hankel (COL)
+     Return a Hankel matrix _H_. The first column of _H_ is _col_;
+     except for the first entry, the last row of _H_ is _row_.  The
+     default for _row_ is the zero vector with the same length as _col_.
+
+
+File: maxima-core-docs.info,  Node: Function hessian f x,  Next: Function hilbert_matrix n,  Prev: Function hankel col,  Up: linearalgebra
+
+ -- Function: hessian (F, X)
+     Returns the Hessian matrix of _f_ with respect to the list of
+     variables _x_.  The ‘(i, j)’-th element of the Hessian matrix is
+     ‘diff(f, x[i], 1, x[j], 1)’.
+
+     Examples:
+
+     (%i1) hessian (x * sin (y), [x, y]);
+                          [   0       cos(y)   ]
+     (%o1)                [                    ]
+                          [ cos(y)  - x sin(y) ]
+     (%i2) depends (F, [a, b]);
+     (%o2)                       [F(a, b)]
+     (%i3) hessian (F, [a, b]);
+                             [   2      2   ]
+                             [  d F    d F  ]
+                             [  ---   ----- ]
+                             [    2   da db ]
+                             [  da          ]
+     (%o3)                   [              ]
+                             [   2      2   ]
+                             [  d F    d F  ]
+                             [ -----   ---  ]
+                             [ da db     2  ]
+                             [         db   ]
+
+
+File: maxima-core-docs.info,  Node: Function hilbert_matrix n,  Next: Function identfor M,  Prev: Function hessian f x,  Up: linearalgebra
+
+ -- Function: hilbert_matrix (N)
+     Return the _n_ by _n_ Hilbert matrix.  When _n_ isn't a positive
+     integer, signal an error.
+
+
+File: maxima-core-docs.info,  Node: Function identfor M,  Next: Function invert_by_lu M rng generalring,  Prev: Function hilbert_matrix n,  Up: linearalgebra
+
+ -- Function: identfor (M)
+     Return an identity matrix that has the same shape as the matrix
+     _M_. The diagonal entries of the identity matrix are the
+     multiplicative identity of the field _fld_; the default for _fld_
+     is _generalring_.
+
+     The first argument _M_ should be a square matrix or a non-matrix.
+     When _M_ is a matrix, each entry of _M_ can be a square matrix -
+     thus _M_ can be a blocked Maxima matrix.  The matrix can be blocked
+     to any (finite) depth.
+
+     See also ‘zerofor’
+
+     See also: ‘zerofor’.
+
+
+File: maxima-core-docs.info,  Node: Function invert_by_lu M rng generalring,  Next: Function jacobian f x,  Prev: Function identfor M,  Up: linearalgebra
+
+ -- Function: invert_by_lu (M, (RNG GENERALRING))
+     Invert a matrix _M_ by using the LU factorization.  The LU
+     factorization is done using the ring _rng_.
+
+
+File: maxima-core-docs.info,  Node: Function jacobian f x,  Next: Function kronecker_product A B,  Prev: Function invert_by_lu M rng generalring,  Up: linearalgebra
+
+ -- Function: jacobian (F, X)
+     Returns the Jacobian matrix of the list of functions _f_ with
+     respect to the list of variables _x_.  The ‘(i, j)’-th element of
+     the Jacobian matrix is ‘diff(f[i], x[j])’.
+
+     Examples:
+
+     (%i1) jacobian ([sin (u - v), sin (u * v)], [u, v]);
+                       [ cos(v - u)  - cos(v - u) ]
+     (%o1)             [                          ]
+                       [ v cos(u v)   u cos(u v)  ]
+     (%i2) depends ([F, G], [y, z]);
+     (%o2)                  [F(y, z), G(y, z)]
+     (%i3) jacobian ([F, G], [y, z]);
+                                [ dF  dF ]
+                                [ --  -- ]
+                                [ dy  dz ]
+     (%o3)                      [        ]
+                                [ dG  dG ]
+                                [ --  -- ]
+                                [ dy  dz ]
+
+
+File: maxima-core-docs.info,  Node: Function kronecker_product A B,  Next: Function linalg_rank M,  Prev: Function jacobian f x,  Up: linearalgebra
+
+ -- Function: kronecker_product (A, B)
+     Return the Kronecker product of the matrices _A_ and _B_.
+
+
+File: maxima-core-docs.info,  Node: Function linalg_rank M,  Next: Function locate_matrix_entry M r_1 c_1 r_2 c_2 f rel,  Prev: Function kronecker_product A B,  Up: linearalgebra
+
+ -- Function: linalg_rank (M)
+     Return the rank of the matrix _M_. This function is equivalent to
+     function ‘rank’, but it uses a different algorithm: it finds the
+     ‘columnspace’ of the matrix and counts its elements, since the rank
+     of a matrix is the dimension of its column space.
+
+     (%i1) linalg_rank(matrix([1,2],[2,4]));
+     (%o1)                           1
+     
+     
+     (%i2) linalg_rank(matrix([1,b],[c,d]));
+     (%o2)                           2
+
+     See also: ‘rank’, ‘columnspace’.
+
+
+File: maxima-core-docs.info,  Node: Function locate_matrix_entry M r_1 c_1 r_2 c_2 f rel,  Next: Function lu_backsub M b,  Prev: Function linalg_rank M,  Up: linearalgebra
+
+ -- Function: locate_matrix_entry (M, R_1, C_1, R_2, C_2, F, REL)
+     The first argument must be a matrix; the arguments _r_1_ through
+     _c_2_ determine a sub-matrix of _M_ that consists of rows _r_1_
+     through _r_2_ and columns _c_1_ through _c_2_.
+
+     Find an entry in the sub-matrix _M_ that satisfies some property.
+     Three cases:
+
+       1. ‘rel = 'bool’ and _f_ a predicate:
+
+     Scan the sub-matrix from left to right then top to bottom, and
+     return the index of the first entry that satisfies the predicate
+     _f_.  If no matrix entry satisfies _f_, return ‘false’.
+
+       2. ‘rel = 'max’ and _f_ real-valued:
+
+     Scan the sub-matrix looking for an entry that maximizes _f_.
+     Return the index of a maximizing entry.
+
+       3. ‘rel = 'min’ and _f_ real-valued:
+
+     Scan the sub-matrix looking for an entry that minimizes _f_.
+     Return the index of a minimizing entry.
+
+
+File: maxima-core-docs.info,  Node: Function lu_backsub M b,  Next: Function lu_factor M field,  Prev: Function locate_matrix_entry M r_1 c_1 r_2 c_2 f rel,  Up: linearalgebra
+
+ -- Function: lu_backsub (M, B)
+     When ‘M = lu_factor (A, field)’, then ‘lu_backsub (M, b)’ solves
+     the linear system ‘A x = b’.
+
+     The _n_ by _m_ matrix ‘b’, with _n_ the number of rows of the
+     matrix ‘A’, contains one right hand side per column.  If there is
+     only one right hand side then ‘b’ must be a _n_ by 1 matrix.
+
+     Each column of the matrix ‘x=lu_backsub (M, b)’ is the solution
+     corresponding to the respective column of ‘b’.
+
+     Examples:
+
+     (%i1) A : matrix ([1 - z, 3], [3, 8 - z]);
+                                    [ 1 - z    3   ]
+     (%o1)                          [              ]
+                                    [   3    8 - z ]
+     (%i2) M : lu_factor (A,generalring);
+                    [ 1 - z          3         ]
+                    [                          ]
+     (%o2)         [[   3              9       ], [1, 2], generalring]
+                    [ -----  (- z) - ----- + 8 ]
+                    [ 1 - z          1 - z     ]
+     (%i3) b : matrix([a],[c]);
+                                          [ a ]
+     (%o3)                                [   ]
+                                          [ c ]
+     (%i4) x : lu_backsub(M,b);
+                                [               3 a     ]
+                                [       3 (c - -----)   ]
+                                [              1 - z    ]
+                                [ a - ----------------- ]
+                                [               9       ]
+                                [     (- z) - ----- + 8 ]
+                                [             1 - z     ]
+                                [ --------------------- ]
+     (%o4)                      [         1 - z         ]
+                                [                       ]
+                                [            3 a        ]
+                                [       c - -----       ]
+                                [           1 - z       ]
+                                [   -----------------   ]
+                                [             9         ]
+                                [   (- z) - ----- + 8   ]
+                                [           1 - z       ]
+     (%i5) ratsimp(A . x - b);
+                                          [ 0 ]
+     (%o5)                                [   ]
+                                          [ 0 ]
+     (%i6) B : matrix([a,d],[c,f]);
+                                        [ a  d ]
+     (%o6)                              [      ]
+                                        [ c  f ]
+     (%i7) x : lu_backsub(M,B);
+                    [               3 a                    3 d     ]
+                    [       3 (c - -----)          3 (f - -----)   ]
+                    [              1 - z                  1 - z    ]
+                    [ a - -----------------  d - ----------------- ]
+                    [               9                      9       ]
+                    [     (- z) - ----- + 8      (- z) - ----- + 8 ]
+                    [             1 - z                  1 - z     ]
+                    [ ---------------------  --------------------- ]
+     (%o7)          [         1 - z                  1 - z         ]
+                    [                                              ]
+                    [            3 a                    3 d        ]
+                    [       c - -----              f - -----       ]
+                    [           1 - z                  1 - z       ]
+                    [   -----------------      -----------------   ]
+                    [             9                      9         ]
+                    [   (- z) - ----- + 8      (- z) - ----- + 8   ]
+                    [           1 - z                  1 - z       ]
+     (%i8) ratsimp(A . x - B);
+                                        [ 0  0 ]
+     (%o8)                              [      ]
+                                        [ 0  0 ]
+
+
+File: maxima-core-docs.info,  Node: Function lu_factor M field,  Next: Function mat_cond M 1,  Prev: Function lu_backsub M b,  Up: linearalgebra
+
+ -- Function: lu_factor (M, FIELD)
+     Return a list of the form ‘[LU, perm, fld]’, or ‘[LU, perm, fld,
+     lower-cnd upper-cnd]’, where
+
+       1. The matrix _LU_ contains the factorization of _M_ in a packed
+          form.  Packed form means three things: First, the rows of _LU_
+          are permuted according to the list _perm_.  If, for example,
+          _perm_ is the list ‘[3,2,1]’, the actual first row of the _LU_
+          factorization is the third row of the matrix _LU_. Second, the
+          lower triangular factor of m is the lower triangular part of
+          _LU_ with the diagonal entries replaced by all ones.  Third,
+          the upper triangular factor of _M_ is the upper triangular
+          part of _LU_.
+
+       2. When the field is either ‘floatfield’ or ‘complexfield’, the
+          numbers _lower-cnd_ and _upper-cnd_ are lower and upper bounds
+          for the infinity norm condition number of _M_. For all fields,
+          the condition number might not be estimated; for such fields,
+          ‘lu_factor’ returns a two item list.  Both the lower and upper
+          bounds can differ from their true values by arbitrarily large
+          factors.  (See also ‘mat_cond’.)
+
+     The argument _M_ must be a square matrix.
+
+     The optional argument _fld_ must be a symbol that determines a ring
+     or field.  The pre-defined fields and rings are:
+
+       a. ‘generalring’ - the ring of Maxima expressions,
+
+       b. ‘floatfield’ - the field of floating point numbers of the type
+          double,
+
+       c. ‘complexfield’ - the field of complex floating point numbers
+          of the type double,
+
+       d. ‘crering’ - the ring of Maxima CRE expressions,
+
+       e. ‘rationalfield’ - the field of rational numbers,
+
+       f. ‘runningerror’ - track the all floating point rounding errors,
+
+       g. ‘noncommutingring’ - the ring of Maxima expressions where
+          multiplication is the non-commutative dot operator.
+
+     When the field is ‘floatfield’, ‘complexfield’, or ‘runningerror’,
+     the algorithm uses partial pivoting; for all other fields, rows are
+     switched only when needed to avoid a zero pivot.
+
+     Floating point addition arithmetic isn't associative, so the
+     meaning of 'field' differs from the mathematical definition.
+
+     A member of the field ‘runningerror’ is a two member Maxima list of
+     the form ‘[x,n]’,where _x_ is a floating point number and ‘n’ is an
+     integer.  The relative difference between the 'true' value of ‘x’
+     and ‘x’ is approximately bounded by the machine epsilon times ‘n’.
+     The running error bound drops some terms that of the order the
+     square of the machine epsilon.
+
+     There is no user-interface for defining a new field.  A user that
+     is familiar with Common Lisp should be able to define a new field.
+     To do this, a user must define functions for the arithmetic
+     operations and functions for converting from the field
+     representation to Maxima and back.  Additionally, for ordered
+     fields (where partial pivoting will be used), a user must define
+     functions for the magnitude and for comparing field members.  After
+     that all that remains is to define a Common Lisp structure ‘mring’.
+     The file ‘mring’ has many examples.
+
+     To compute the factorization, the first task is to convert each
+     matrix entry to a member of the indicated field.  When conversion
+     isn't possible, the factorization halts with an error message.
+     Members of the field needn't be Maxima expressions.  Members of the
+     ‘complexfield’, for example, are Common Lisp complex numbers.  Thus
+     after computing the factorization, the matrix entries must be
+     converted to Maxima expressions.
+
+     See also ‘get_lu_factors’.
+
+     Examples:
+
+     (%i1) w[i,j] := random (1.0) + %i * random (1.0);
+     (%o1)          w     := random(1.) + %i random(1.)
+                     i, j
+     (%i2) showtime : true$
+     Evaluation took 0.00 seconds (0.00 elapsed)
+     (%i3) M : genmatrix (w, 100, 100)$
+     Evaluation took 7.40 seconds (8.23 elapsed)
+     (%i4) lu_factor (M, complexfield)$
+     Evaluation took 28.71 seconds (35.00 elapsed)
+     (%i5) lu_factor (M, generalring)$
+     Evaluation took 109.24 seconds (152.10 elapsed)
+     (%i6) showtime : false$
+     
+     (%i7) M : matrix ([1 - z, 3], [3, 8 - z]); 
+                             [ 1 - z    3   ]
+     (%o7)                   [              ]
+                             [   3    8 - z ]
+     (%i8) lu_factor (M, generalring);
+               [ 1 - z         3        ]
+               [                        ]
+     (%o8)    [[   3            9       ], [1, 2], generalring]
+               [ -----  - z - ----- + 8 ]
+               [ 1 - z        1 - z     ]
+     (%i9) get_lu_factors (%);
+                       [   1    0 ]  [ 1 - z         3        ]
+             [ 1  0 ]  [          ]  [                        ]
+     (%o9)  [[      ], [   3      ], [                9       ]]
+             [ 0  1 ]  [ -----  1 ]  [   0    - z - ----- + 8 ]
+                       [ 1 - z    ]  [              1 - z     ]
+     (%i10) %[1] . %[2] . %[3];
+                             [ 1 - z    3   ]
+     (%o10)                  [              ]
+                             [   3    8 - z ]
+
+     See also: ‘mat_cond’, ‘get_lu_factors’.
 

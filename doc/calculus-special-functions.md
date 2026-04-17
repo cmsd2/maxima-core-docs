@@ -1,5 +1,8 @@
 ## Special Functions
 
+<!-- category: Calculus -->
+<!-- keywords: expintegral_chi -->
+<!-- signatures: expintegral_chi(z) -->
 ### Function: expintegral_chi (z)
 
 The Exponential Integral Chi(z) ([https://personal.math.ubc.ca/~cbm/aands/page_231.htmA&S eqn 5.2.4]()
@@ -22,6 +25,9 @@ This can be written in terms of other functions.  `expintrep` for examples.
 
 See also: `expintrep`.
 
+<!-- category: Calculus -->
+<!-- keywords: expintegral_ci -->
+<!-- signatures: expintegral_ci(z) -->
 ### Function: expintegral_ci (z)
 
 The Exponential Integral Ci(z) ([https://personal.math.ubc.ca/~cbm/aands/page_231.htmA&S eqn 5.2.2]()
@@ -44,6 +50,9 @@ This can be written in terms of other functions.  `expintrep` for examples.
 
 See also: `expintrep`.
 
+<!-- category: Calculus -->
+<!-- keywords: expintegral_e -->
+<!-- signatures: expintegral_e(n, z) -->
 ### Function: expintegral_e (n, z)
 
 The Exponential Integral En(z) ([https://personal.math.ubc.ca/~cbm/aands/page_228.htmA&S eqn 5.1.4]()) defined as
@@ -67,6 +76,9 @@ or `erf`.  `expintexpand` for examples.
 
 See also: `erfc`, `erf`, `expintexpand`.
 
+<!-- category: Calculus -->
+<!-- keywords: expintegral_e1 -->
+<!-- signatures: expintegral_e1(z) -->
 ### Function: expintegral_e1 (z)
 
 The Exponential Integral E1(z) defined as
@@ -89,6 +101,9 @@ This can be written in terms of other functions.  `expintrep` for examples.
 
 See also: `expintrep`.
 
+<!-- category: Calculus -->
+<!-- keywords: expintegral_ei -->
+<!-- signatures: expintegral_ei(x) -->
 ### Function: expintegral_ei (x)
 
 The Exponential Integral Ei(x) defined as
@@ -111,6 +126,9 @@ This can be written in terms of other functions.  `expintrep` for examples.
 
 See also: `expintrep`.
 
+<!-- category: Calculus -->
+<!-- keywords: expintegral_li -->
+<!-- signatures: expintegral_li(x) -->
 ### Function: expintegral_li (x)
 
 The Exponential Integral li(x) defined as
@@ -131,6 +149,9 @@ This can be written in terms of other functions.  `expintrep` for examples.
 
 See also: `expintrep`.
 
+<!-- category: Calculus -->
+<!-- keywords: expintegral_shi -->
+<!-- signatures: expintegral_shi(z) -->
 ### Function: expintegral_shi (z)
 
 The Exponential Integral Shi(z) ([https://personal.math.ubc.ca/~cbm/aands/page_231.htmA&S eqn 5.2.3]()
@@ -149,6 +170,9 @@ This can be written in terms of other functions.  `expintrep` for examples.
 
 See also: `expintrep`.
 
+<!-- category: Calculus -->
+<!-- keywords: expintegral_si -->
+<!-- signatures: expintegral_si(z) -->
 ### Function: expintegral_si (z)
 
 The Exponential Integral Si(z) ([https://personal.math.ubc.ca/~cbm/aands/page_231.htmA&S eqn 5.2.1]()
@@ -167,6 +191,9 @@ This can be written in terms of other functions.  `expintrep` for examples.
 
 See also: `expintrep`.
 
+<!-- category: Calculus -->
+<!-- keywords: expintexpand -->
+<!-- signatures: expintexpand -->
 ### Variable: expintexpand
 
 Default value: false
@@ -218,6 +245,9 @@ maxima
 
 See also: `expintegral_e`, `erfc`, `erf`, `expintegral_ei`.
 
+<!-- category: Calculus -->
+<!-- keywords: expintrep -->
+<!-- signatures: expintrep -->
 ### Variable: expintrep
 
 Default value: `false`

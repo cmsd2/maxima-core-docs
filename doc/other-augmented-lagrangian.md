@@ -1,6 +1,9 @@
 ## augmented_lagrangian
 
-### Function: augmented_lagrangian_method (augmented_lagrangian_method, FOM, xx, C, yy, augmented_lagrangian_method, FOM, xx, C, yy, optional_args, augmented_lagrangian_method, FOM, grad, xx, C, yy, augmented_lagrangian_method, FOM, grad, xx, C, yy, optional_args)
+<!-- category: Other -->
+<!-- keywords: augmented_lagrangian_method -->
+<!-- signatures: augmented_lagrangian_method(FOM, xx, C, yy), augmented_lagrangian_method(FOM, xx, C, yy, optional_args), augmented_lagrangian_method([FOM, grad], xx, C, yy), augmented_lagrangian_method([FOM, grad], xx, C, yy, optional_args) -->
+### Function: augmented_lagrangian_method (FOM, xx, C, yy)
 
 Returns an approximate minimum of the expression *FOM*
 with respect to the variables *xx*,

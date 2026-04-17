@@ -1,5 +1,8 @@
 ## Elementary Functions
 
+<!-- category: Other -->
+<!-- keywords: %e_to_numlog -->
+<!-- signatures: %e_to_numlog -->
 ### Variable: %e_to_numlog
 
 Default value: `false`
@@ -11,6 +14,9 @@ that the `radcan` command also does this transformation, and more
 complicated transformations of this ilk as well.  The `logcontract`
 command "contracts" expressions containing `log`.
 
+<!-- category: Other -->
+<!-- keywords: %emode -->
+<!-- signatures: %emode -->
 ### Variable: %emode
 
 Default value: `true`
@@ -84,6 +90,9 @@ maxima
 (%o7)                     %e
 ```
 
+<!-- category: Other -->
+<!-- keywords: %enumer -->
+<!-- signatures: %enumer -->
 ### Variable: %enumer
 
 Default value: `false`
@@ -154,6 +163,9 @@ maxima
 
 See also: `ev`, `numer`.
 
+<!-- category: Other -->
+<!-- keywords: exp -->
+<!-- signatures: exp(x) -->
 ### Function: exp (x)
 
 Represents the exponential function.  Instances of `exp (x)` in input
@@ -204,7 +216,10 @@ maxima
 
 See also: `demoivre`, `%emode`, `%enumer`.
 
-### Function: li (s, z)
+<!-- category: Other -->
+<!-- keywords: li -->
+<!-- signatures: li[s](z) -->
+### Function: li ([s](z))
 
 Represents the polylogarithm function of order *s* and argument *z*,
 defined by the infinite series
@@ -319,6 +334,9 @@ Is x - 1 positive, negative or zero?
 map (lambda ([x], li [3] (x)), L);
 ```
 
+<!-- category: Other -->
+<!-- keywords: log -->
+<!-- signatures: log(x) -->
 ### Function: log (x)
 
 Represents the natural (base $e$) logarithm of *x*.
@@ -348,6 +366,9 @@ should be noted that the `radcan` command also does this transformation,
 and more complicated transformations of this as well. The `logcontract` 
 command "contracts" expressions containing `log`.
 
+<!-- category: Other -->
+<!-- keywords: logabs -->
+<!-- signatures: logabs -->
 ### Variable: logabs
 
 Default value: `false`
@@ -360,6 +381,9 @@ if `logabs` is `true`, but in terms of `log(...)` if
 setting is used, because here "evaluation" of the indefinite integral at the
 endpoints is often needed.
 
+<!-- category: Other -->
+<!-- keywords: logarc -->
+<!-- signatures: logarc(expr) -->
 ### Function: logarc (expr)
 
 The function `logarc(expr)` carries out the replacement of
@@ -367,6 +391,9 @@ inverse circular and hyperbolic functions with equivalent logarithmic
 functions for an expression *expr* without setting the global
 variable `logarc`.
 
+<!-- category: Other -->
+<!-- keywords: logconcoeffp -->
+<!-- signatures: logconcoeffp -->
 ### Variable: logconcoeffp
 
 Default value: `false`
@@ -378,6 +405,9 @@ predicate function of one argument.  E.g. if you like to generate
 SQRTs, you can do `logconcoeffp:'logconfun$ logconfun(m):=featurep(m,integer) or ratnump(m)$` .  Then
 `logcontract(1/2*log(x));` will give `log(sqrt(x))`.
 
+<!-- category: Other -->
+<!-- keywords: logcontract -->
+<!-- signatures: logcontract(expr) -->
 ### Function: logcontract (expr)
 
 Recursively scans the expression *expr*, transforming
@@ -409,6 +439,9 @@ control which coefficients are contracted by setting the option
 E.g. if you like to generate SQRTs, you can do `logconcoeffp:'logconfun$ logconfun(m):=featurep(m,integer) or ratnump(m)$` .  Then
 `logcontract(1/2*log(x));` will give `log(sqrt(x))`.
 
+<!-- category: Other -->
+<!-- keywords: logexpand -->
+<!-- signatures: logexpand -->
 ### Variable: logexpand
 
 Default value: `true`
@@ -561,6 +594,9 @@ maxima
                              i = 1
 ```
 
+<!-- category: Other -->
+<!-- keywords: lognegint -->
+<!-- signatures: lognegint -->
 ### Variable: lognegint
 
 Default value: `false`
@@ -569,6 +605,9 @@ Default value: `false`
 If `true` implements the rule
 `log(-n) -> log(n)+%i*%pi` for `n` a positive integer.
 
+<!-- category: Other -->
+<!-- keywords: logsimp -->
+<!-- signatures: logsimp -->
 ### Variable: logsimp
 
 Default value: `true`
@@ -577,11 +616,17 @@ Default value: `true`
 If `false` then no simplification of `%e` to a
 power containing `log`’s is done.
 
+<!-- category: Other -->
+<!-- keywords: plog -->
+<!-- signatures: plog(x) -->
 ### Function: plog (x)
 
 Represents the principal branch of the complex-valued natural
 logarithm with `-%pi < carg(x) <= +%pi` .
 
+<!-- category: Other -->
+<!-- keywords: sqrt -->
+<!-- signatures: sqrt(x) -->
 ### Function: sqrt (x)
 
 The square root of *x*.  It is represented internally by

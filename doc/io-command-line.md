@@ -1,5 +1,8 @@
 ## Command Line
 
+<!-- category: IO -->
+<!-- keywords: %edispflag -->
+<!-- signatures: %edispflag -->
 ### Variable: %edispflag
 
 Default value: `false`
@@ -37,6 +40,9 @@ maxima
 
 See also: `exptdispflag`.
 
+<!-- category: IO -->
+<!-- keywords: absboxchar -->
+<!-- signatures: absboxchar -->
 ### Variable: absboxchar
 
 Default value: `!`
@@ -66,7 +72,10 @@ maxima
 (%o2)                       |x  + 1|
 ```
 
-### Function: declare_index_properties (declare_index_properties, a, p_1, p_2, p_3, ..., declare_index_properties, a, b, c, ..., p_1, p_2, p_3, ...)
+<!-- category: IO -->
+<!-- keywords: declare_index_properties, postsubscript, postsuperscript, presuperscript, presubscript -->
+<!-- signatures: declare_index_properties(a, [p_1, p_2, p_3, ...]), declare_index_properties([a, b, c, ...], [p_1, p_2, p_3, ...]), postsubscript, postsuperscript, presuperscript, presubscript -->
+### Function: declare_index_properties (a, [p_1, p_2, p_3, ...])
 
 Declares the properties of indices applied to the symbol *a*
 or each of the of symbols *a*, *b*, *c*, ....
@@ -208,6 +217,9 @@ A[w,x]$
 
 See also: `display2d`.
 
+<!-- category: IO -->
+<!-- keywords: disp -->
+<!-- signatures: disp(expr_1, expr_2, ...) -->
 ### Function: disp (expr_1, expr_2, ...)
 
 is like `display` but only the value of the arguments are displayed rather
@@ -245,6 +257,9 @@ maxima
 
 See also: `display`, `ldisp`, `print`.
 
+<!-- category: IO -->
+<!-- keywords: display -->
+<!-- signatures: display(expr_1, expr_2, ...) -->
 ### Function: display (expr_1, expr_2, ...)
 
 Displays equations whose left side is *expr_i* unevaluated, and whose right
@@ -285,6 +300,9 @@ maxima
 
 See also: `for`, `ldisplay`, `disp`, `ldisp`.
 
+<!-- category: IO -->
+<!-- keywords: display2d -->
+<!-- signatures: display2d -->
 ### Variable: display2d
 
 Default value: `true`
@@ -352,6 +370,9 @@ maxima
 
 See also: `stringdisp`, `leftjust`.
 
+<!-- category: IO -->
+<!-- keywords: display2d_unicode -->
+<!-- signatures: display2d_unicode -->
 ### Variable: display2d_unicode
 
 Default value: `true`
@@ -396,6 +417,9 @@ Footnotes:
 
 [1] [https://en.wikipedia.org/wiki/Box-drawing_character]()
 
+<!-- category: IO -->
+<!-- keywords: display_format_internal -->
+<!-- signatures: display_format_internal -->
 ### Variable: display_format_internal
 
 Default value: `false`
@@ -428,6 +452,9 @@ X*4/3;    ---        - X
 
 See also: `inpart`, `part`.
 
+<!-- category: IO -->
+<!-- keywords: display_index_separator -->
+<!-- signatures: display_index_separator -->
 ### Variable: display_index_separator
 
 When a symbol *A* has index display properties declared via `declare_index_properties`,
@@ -672,6 +699,9 @@ maxima
 
 See also: `put`, `get`, `declare_index_properties`.
 
+<!-- category: IO -->
+<!-- keywords: dispterms -->
+<!-- signatures: dispterms(expr) -->
 ### Function: dispterms (expr)
 
 Displays *expr* in parts one below the other.  That is, first the operator
@@ -709,6 +739,9 @@ maxima
 (%o1)                         done
 ```
 
+<!-- category: IO -->
+<!-- keywords: expt, ncexpt -->
+<!-- signatures: expt(a, b), ncexpt(a, b) -->
 ### Function: expt (a, b)
 
 If an exponential expression is too wide to be displayed as
@@ -721,6 +754,9 @@ If an exponential expression is too wide to be displayed as
 
 `expt` and `ncexpt` are not recognized in input.
 
+<!-- category: IO -->
+<!-- keywords: exptdispflag -->
+<!-- signatures: exptdispflag -->
 ### Variable: exptdispflag
 
 Default value: `true`
@@ -765,6 +801,9 @@ maxima
 
 See also: `%edispflag`.
 
+<!-- category: IO -->
+<!-- keywords: get_index_properties -->
+<!-- signatures: get_index_properties(a) -->
 ### Function: get_index_properties (a)
 
 Returns the properties for *a* established by `declare_index_properties`.
@@ -774,6 +813,9 @@ See also `remove_005findex_005fproperties`.
 
 See also: `remove_index_properties`.
 
+<!-- category: IO -->
+<!-- keywords: grind -->
+<!-- signatures: grind(expr) -->
 ### Function: grind (expr)
 
 The function `grind` prints *expr* to the console in a form suitable
@@ -930,6 +972,9 @@ n do (for j from i+1 thru n do L[i,j]:0),L)
 
 See also: `string`.
 
+<!-- category: IO -->
+<!-- keywords: ibase -->
+<!-- signatures: ibase -->
 ### Variable: ibase
 
 Default value: `10`
@@ -1058,6 +1103,9 @@ maxima
 
 See also: `obase`.
 
+<!-- category: IO -->
+<!-- keywords: ldisp -->
+<!-- signatures: ldisp(expr_1, ..., expr_n) -->
 ### Function: ldisp (expr_1, ..., expr_n)
 
 Displays expressions *expr_1*, ..., *expr_n* to the console as
@@ -1114,6 +1162,9 @@ maxima
 
 See also: `disp`, `display`, `ldisplay`.
 
+<!-- category: IO -->
+<!-- keywords: ldisplay -->
+<!-- signatures: ldisplay(expr_1, ..., expr_n) -->
 ### Function: ldisplay (expr_1, ..., expr_n)
 
 Displays expressions *expr_1*, ..., *expr_n* to the console as
@@ -1173,6 +1224,9 @@ maxima
 
 See also: `ldisp`, `display`, `disp`.
 
+<!-- category: IO -->
+<!-- keywords: leftjust -->
+<!-- signatures: leftjust -->
 ### Variable: leftjust
 
 Default value: `false`
@@ -1210,6 +1264,9 @@ maxima
 
 See also: `display2d`.
 
+<!-- category: IO -->
+<!-- keywords: linel -->
+<!-- signatures: linel -->
 ### Variable: linel
 
 Default value: `79`
@@ -1223,6 +1280,9 @@ printed by built-in Maxima functions, such as error messages and the output of
 
 See also: `describe`.
 
+<!-- category: IO -->
+<!-- keywords: lispdisp -->
+<!-- signatures: lispdisp -->
 ### Variable: lispdisp
 
 Default value: `false`
@@ -1256,6 +1316,9 @@ maxima
 (%o4)                      ?foo + ?bar
 ```
 
+<!-- category: IO -->
+<!-- keywords: negsumdispflag -->
+<!-- signatures: negsumdispflag -->
 ### Variable: negsumdispflag
 
 Default value: `true`
@@ -1267,6 +1330,9 @@ check in display for the difference of two expressions to not be done.  One
 application is that thus `a + %i*b` and `a - %i*b` may both be
 displayed the same way.
 
+<!-- category: IO -->
+<!-- keywords: obase -->
+<!-- signatures: obase -->
 ### Variable: obase
 
 Default value: `10`
@@ -1338,6 +1404,9 @@ maxima
 
 See also: `ibase`.
 
+<!-- category: IO -->
+<!-- keywords: pfeformat -->
+<!-- signatures: pfeformat -->
 ### Variable: pfeformat
 
 Default value: `false`
@@ -1385,6 +1454,9 @@ maxima
 (%o6)                     (1/8) (b + a)
 ```
 
+<!-- category: IO -->
+<!-- keywords: powerdisp -->
+<!-- signatures: powerdisp -->
 ### Variable: powerdisp
 
 Default value: `false`
@@ -1430,6 +1502,9 @@ maxima
 (%o4)                     x  + x  + x
 ```
 
+<!-- category: IO -->
+<!-- keywords: print -->
+<!-- signatures: print(expr_1, ..., expr_n) -->
 ### Function: print (expr_1, ..., expr_n)
 
 Evaluates and displays *expr_1*, ..., *expr_n* one after another,
@@ -1483,6 +1558,9 @@ maxima
 
 See also: `display`, `disp`, `ldisplay`, `ldisp`, `printfile`.
 
+<!-- category: IO -->
+<!-- keywords: remove_index_properties -->
+<!-- signatures: remove_index_properties(a, b, c, ...) -->
 ### Function: remove_index_properties (a, b, c, ...)
 
 Removes the properties established by `declare_index_properties`.
@@ -1491,6 +1569,9 @@ All index properties are removed from each symbol *a*, *b*, *c*, ....
 
 `remove_index_properties` quotes (does not evaluate) its arguments.
 
+<!-- category: IO -->
+<!-- keywords: sqrtdispflag -->
+<!-- signatures: sqrtdispflag -->
 ### Variable: sqrtdispflag
 
 Default value: `true`
@@ -1499,6 +1580,9 @@ Default value: `true`
 When `sqrtdispflag` is `false`, causes `sqrt` to display with
 exponent 1/2.
 
+<!-- category: IO -->
+<!-- keywords: stardisp -->
+<!-- signatures: stardisp -->
 ### Variable: stardisp
 
 Default value: `false`
@@ -1507,6 +1591,9 @@ Default value: `false`
 When `stardisp` is `true`, multiplication is
 displayed with an asterisk `*` between operands.
 
+<!-- category: IO -->
+<!-- keywords: ttyoff -->
+<!-- signatures: ttyoff -->
 ### Variable: ttyoff
 
 Default value: `false`
@@ -1521,6 +1608,9 @@ of `describe`, is not affected by `ttyoff`.
 
 See also: `labels`, `describe`.
 
+<!-- category: IO -->
+<!-- keywords: with_default_2d_display -->
+<!-- signatures: with_default_2d_display(expr) -->
 ### Function: with_default_2d_display (expr)
 
 While maxima by default realizes 2d Output using ASCII-Art some frontend

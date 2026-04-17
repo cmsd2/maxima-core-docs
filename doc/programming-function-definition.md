@@ -1,6 +1,9 @@
 ## Function Definition
 
-### Function: apply (F, arg_1, ..., arg_n)
+<!-- category: Programming -->
+<!-- keywords: apply -->
+<!-- signatures: apply(F, [arg_1, ..., arg_n]) -->
+### Function: apply (F, [arg_1, ..., arg_n])
 
 Constructs and evaluates an expression `F(arg_1, ..., arg_n)`.
 The function arguments `[arg_1, ..., arg_n]` may
@@ -173,7 +176,10 @@ maxima
 
 See also: `memoizing-function`, `funmake`, `args`.
 
-### Function: block (block, v_1, ..., v_m, expr_1, ..., expr_n, block, expr_1, ..., expr_n)
+<!-- category: Programming -->
+<!-- keywords: block -->
+<!-- signatures: block([v_1, ..., v_m], expr_1, ..., expr_n), block(expr_1, ..., expr_n) -->
+### Function: block ([v_1, ..., v_m], expr_1, ..., expr_n)
 
 The function `block` allows to make the variables *v_1*, ...,
 *v_m* to be local for a sequence of commands. If these variables
@@ -245,12 +251,18 @@ See also `return` and `go`.
 
 See also: `return`, `go`.
 
+<!-- category: Programming -->
+<!-- keywords: break -->
+<!-- signatures: break(expr_1, ..., expr_n) -->
 ### Function: break (expr_1, ..., expr_n)
 
 Evaluates and prints *expr_1*, ..., *expr_n* and then
 causes a Maxima break at which point the user can examine and change
 his environment.  Upon typing `exit;` the computation resumes.
 
+<!-- category: Programming -->
+<!-- keywords: buildq -->
+<!-- signatures: buildq(L, expr) -->
 ### Function: buildq (L, expr)
 
 Substitutes variables named by the list *L* into the expression *expr*,
@@ -441,6 +453,9 @@ maxima
 (%o3)                       3 (b + a)
 ```
 
+<!-- category: Programming -->
+<!-- keywords: catch -->
+<!-- signatures: catch(expr_1, ..., expr_n) -->
 ### Function: catch (expr_1, ..., expr_n)
 
 Evaluates *expr_1*, ..., *expr_n* one by one; if any
@@ -482,7 +497,10 @@ The function `g` returns a list of `f` of each element of `l` if
 `l` consists only of non-negative numbers; otherwise, `g` "catches"
 the first negative element of `l` and "throws" it up.
 
-### Function: compfile (compfile, filename, f_1, ..., f_n, compfile, filename, functions, compfile, filename, all)
+<!-- category: Programming -->
+<!-- keywords: compfile -->
+<!-- signatures: compfile(filename, f_1, ..., f_n), compfile(filename, functions), compfile(filename, all) -->
+### Function: compfile (filename, f_1, ..., f_n)
 
 Translates Maxima functions into Lisp and writes the translated code into the
 file *filename*.
@@ -504,7 +522,10 @@ See also `translate`, `translate_file`, and `compile_005ffile`.
 
 See also: `translate`, `translate_file`, `compile_file`.
 
-### Function: compile (compile, f_1, ..., f_n, compile, functions, compile, all)
+<!-- category: Programming -->
+<!-- keywords: compile -->
+<!-- signatures: compile(f_1, ..., f_n), compile(functions), compile(all) -->
+### Function: compile (f_1, ..., f_n)
 
 Translates Maxima functions *f_1*, ..., *f_n* into Lisp, evaluates
 the Lisp translations, and calls the Lisp function `COMPILE` on each
@@ -540,7 +561,10 @@ The compiler might warn about undeclared variables if text could either be
 
 See also: `mode_declare`.
 
-### Function: compile_file (compile_file, filename, compile_file, filename, compiled_filename, compile_file, filename, compiled_filename, lisp_filename)
+<!-- category: Programming -->
+<!-- keywords: compile_file -->
+<!-- signatures: compile_file(filename), compile_file(filename, compiled_filename), compile_file(filename, compiled_filename, lisp_filename) -->
+### Function: compile_file (filename)
 
 Translates the Maxima file *filename* into Lisp, and executes the Lisp compiler.
 The compiled code is not loaded into Maxima.
@@ -579,6 +603,9 @@ flags (`tr_numer`, etc.) have no effect on the translation.
 
 `compile_file` evaluates its arguments.
 
+<!-- category: Programming -->
+<!-- keywords: declare_translated -->
+<!-- signatures: declare_translated(f_1, f_2, ...) -->
 ### Function: declare_translated (f_1, f_2, ...)
 
 When translating a file of Maxima code
@@ -590,7 +617,10 @@ does which does not yet have a Lisp function value, will have one at
 call time.  `(MFUNCTION-CALL fn arg1 arg2 ...)` is generated when
 the translator does not know `fn` is going to be a Lisp function.
 
-### Function: define (define, f, x_1, ..., x_n, expr, define, f, x_1, ..., x_n, expr, define, f, x_1, ..., x_n, y_1, ..., y_m, expr, define, funmake, f, x_1, ..., x_n, expr, define, arraymake, f, x_1, ..., x_n, expr, define, ev, expr_1, expr_2)
+<!-- category: Programming -->
+<!-- keywords: define -->
+<!-- signatures: define(f(x_1, ..., x_n), expr), define(f[x_1, ..., x_n], expr), define(f[x_1, ..., x_n](y_1, ..., y_m), expr), define(funmake(f, [x_1, ..., x_n]), expr), define(arraymake(f, [x_1, ..., x_n]), expr), define(ev(expr_1), expr_2) -->
+### Function: define (f(x_1, ..., x_n), expr)
 
 Defines a function named *f* with arguments *x_1*, ..., *x_n*
 and function body *expr*.  `define` always evaluates its second
@@ -755,6 +785,9 @@ maxima
 
 See also: `memoizing-function`, `:=`, `::=`.
 
+<!-- category: Programming -->
+<!-- keywords: define_variable -->
+<!-- signatures: define_variable(name, default_value, mode) -->
 ### Function: define_variable (name, default_value, mode)
 
 Introduces a global variable into the Maxima environment.
@@ -939,7 +972,10 @@ maxima
 
 See also: `mode_declare`.
 
-### Function: dispfun (dispfun, f_1, ..., f_n, dispfun, all)
+<!-- category: Programming -->
+<!-- keywords: dispfun -->
+<!-- signatures: dispfun(f_1, ..., f_n), dispfun(all) -->
+### Function: dispfun (f_1, ..., f_n)
 
 Displays the definition of the user-defined functions *f_1*, ...,
 *f_n*.  Each argument may be the name of a macro (defined with `::=`),
@@ -1054,6 +1090,9 @@ maxima
                                 5             10
 ```
 
+<!-- category: Programming -->
+<!-- keywords: fullmap -->
+<!-- signatures: fullmap(f, expr_1, ...) -->
 ### Function: fullmap (f, expr_1, ...)
 
 Similar to `map`, but `fullmap` keeps mapping down all subexpressions
@@ -1089,6 +1128,9 @@ maxima
 (%o3)                     g(b c) + g(a)
 ```
 
+<!-- category: Programming -->
+<!-- keywords: fullmapl -->
+<!-- signatures: fullmapl(f, list_1, ...) -->
 ### Function: fullmapl (f, list_1, ...)
 
 Similar to `fullmap`, but `fullmapl` only maps onto lists and
@@ -1109,6 +1151,9 @@ maxima
 (%o1)                [[a + 3, 4], [4, 3.5]]
 ```
 
+<!-- category: Programming -->
+<!-- keywords: functions -->
+<!-- signatures: functions -->
 ### Variable: functions
 
 Default value: `[]`
@@ -1194,6 +1239,9 @@ maxima
 
 See also: `Memoizing-functions`.
 
+<!-- category: Programming -->
+<!-- keywords: fundef -->
+<!-- signatures: fundef(f) -->
 ### Function: fundef (f)
 
 Returns the definition of the function *f*.
@@ -1229,7 +1277,10 @@ and assigns the definition to the label.
 
 See also: `memoizing-function`.
 
-### Function: funmake (F, arg_1, ..., arg_n)
+<!-- category: Programming -->
+<!-- keywords: funmake -->
+<!-- signatures: funmake(F, [arg_1, ..., arg_n]) -->
+### Function: funmake (F, [arg_1, ..., arg_n])
 
 Returns an expression `F(arg_1, ..., arg_n)`.
 The return value is simplified, but not evaluated,
@@ -1421,7 +1472,10 @@ maxima
 
 See also: `memoizing-functions`, `apply`, `args`.
 
-### Function: lambda (lambda, x_1, ..., x_m, expr_1, ..., expr_n, lambda, L, expr_1, ..., expr_n, lambda, x_1, ..., x_m, L, expr_1, ..., expr_n)
+<!-- category: Programming -->
+<!-- keywords: lambda -->
+<!-- signatures: lambda([x_1, ..., x_m], expr_1, ..., expr_n), lambda([[L]], expr_1, ..., expr_n), lambda([x_1, ..., x_m, [L]], expr_1, ..., expr_n) -->
+### Function: lambda ([x_1, ..., x_m], expr_1, ..., expr_n)
 
 Defines and returns a lambda expression (that is, an anonymous function).
 The function may have required arguments *x_1*, ..., *x_m* and/or
@@ -1667,6 +1721,9 @@ maxima
 (%o4)                  z + y + x + %e + 46
 ```
 
+<!-- category: Programming -->
+<!-- keywords: local -->
+<!-- signatures: local(v_1, ..., v_n) -->
 ### Function: local (v_1, ..., v_n)
 
 Saves the properties associated with the symbols *v_1*, ..., *v_n*,
@@ -1724,6 +1781,9 @@ maxima
 (%o4)                         - 99
 ```
 
+<!-- category: Programming -->
+<!-- keywords: macroexpand -->
+<!-- signatures: macroexpand(expr) -->
 ### Function: macroexpand (expr)
 
 Returns the macro expansion of *expr* without evaluating it,
@@ -1785,6 +1845,9 @@ maxima
 
 See also: `::=`, `macros`, `macroexpand1`.
 
+<!-- category: Programming -->
+<!-- keywords: macroexpand1 -->
+<!-- signatures: macroexpand1(expr) -->
 ### Function: macroexpand1 (expr)
 
 Returns the macro expansion of *expr* without evaluating it,
@@ -1844,6 +1907,9 @@ maxima
 
 See also: `::=`, `macros`, `macroexpand`.
 
+<!-- category: Programming -->
+<!-- keywords: macroexpansion -->
+<!-- signatures: macroexpansion -->
 ### Variable: macroexpansion
 
 Default value: `false`
@@ -2072,6 +2138,9 @@ x + 99 is equal to x
                             a b + 99
 ```
 
+<!-- category: Programming -->
+<!-- keywords: macros -->
+<!-- signatures: macros -->
 ### Variable: macros
 
 Default value: `[]`
@@ -2087,6 +2156,9 @@ See also `infolists`.
 
 See also: `infolists`.
 
+<!-- category: Programming -->
+<!-- keywords: mode_check_errorp -->
+<!-- signatures: mode_check_errorp -->
 ### Variable: mode_check_errorp
 
 Default value: `false`
@@ -2095,6 +2167,9 @@ Default value: `false`
 When `mode_check_errorp` is `true`, `mode_declare` calls
 error.
 
+<!-- category: Programming -->
+<!-- keywords: mode_check_warnp -->
+<!-- signatures: mode_check_warnp -->
 ### Variable: mode_check_warnp
 
 Default value: `true`
@@ -2104,6 +2179,9 @@ Default value: `true`
 When `mode_check_warnp` is `true`, mode errors are
 described.
 
+<!-- category: Programming -->
+<!-- keywords: mode_checkp -->
+<!-- signatures: mode_checkp -->
 ### Variable: mode_checkp
 
 Default value: `true`
@@ -2144,6 +2222,9 @@ maxima
 
 See also: `mode_declare`.
 
+<!-- category: Programming -->
+<!-- keywords: mode_declare, modedeclare -->
+<!-- signatures: mode_declare(y_1, mode_1, ..., y_n, mode_n), modedeclare(y_1, mode_1, ..., y_n, mode_n) -->
 ### Function: mode_declare (y_1, mode_1, ..., y_n, mode_n)
 
 A `mode_declare` informs the compiler which type (lisp programmers name the type:
@@ -2277,6 +2358,9 @@ maxima
 
 See also: `mode_checkp`, `mode_check_errorp`, `mode_check_warnp`, `mode_identity`, `define_variable`.
 
+<!-- category: Programming -->
+<!-- keywords: mode_identity -->
+<!-- signatures: mode_identity(arg_1, arg_2) -->
 ### Function: mode_identity (arg_1, arg_2)
 
 `mode_identity` works similar to `mode_declare`, but is used for
@@ -2324,7 +2408,10 @@ of a list that is guaranteed to be filled with numbers.
 
 See also: `mode_declare`.
 
-### Function: remfunction (remfunction, f_1, ..., f_n, remfunction, all)
+<!-- category: Programming -->
+<!-- keywords: remfunction -->
+<!-- signatures: remfunction(f_1, ..., f_n), remfunction(all) -->
+### Function: remfunction (f_1, ..., f_n)
 
 Unbinds the function definitions of the symbols *f_1*, ..., *f_n*.
 The arguments may be the names of ordinary functions (created by `:=` or
@@ -2347,6 +2434,9 @@ which there is no function definition.
 
 See also: `:=`, `define`, `::=`, `memoizing-functions`, `remarray`.
 
+<!-- category: Programming -->
+<!-- keywords: savedef -->
+<!-- signatures: savedef -->
 ### Variable: savedef
 
 Default value: `true`
@@ -2360,6 +2450,9 @@ displayed by `dispfun` and allows the function to be edited.
 When `savedef` is `false`, the names of translated functions are
 removed from the `functions` list.
 
+<!-- category: Programming -->
+<!-- keywords: splice -->
+<!-- signatures: splice(a) -->
 ### Function: splice (a)
 
 Splices (interpolates) the list named by the atom *a* into an expression,
@@ -2413,6 +2506,9 @@ maxima
 (%o4)                   <>1, %pi, z - y<>
 ```
 
+<!-- category: Programming -->
+<!-- keywords: tr_array_as_ref -->
+<!-- signatures: tr_array_as_ref -->
 ### Variable: tr_array_as_ref
 
 Default value: `true`
@@ -2428,6 +2524,9 @@ otherwise array names appear as literal symbols in translated code.
 `tr_array_as_ref` has no effect if `translate_fast_arrays` is
 `true`.
 
+<!-- category: Programming -->
+<!-- keywords: tr_bound_function_applyp -->
+<!-- signatures: tr_bound_function_applyp -->
 ### Variable: tr_bound_function_applyp
 
 Default value: `true`
@@ -2476,6 +2575,9 @@ note: instead I'll translate it as: apply(f,[3])
 (%o8)                           9
 ```
 
+<!-- category: Programming -->
+<!-- keywords: tr_file_tty_messagesp -->
+<!-- signatures: tr_file_tty_messagesp -->
 ### Variable: tr_file_tty_messagesp
 
 Default value: `false`
@@ -2486,6 +2588,9 @@ When `tr_file_tty_messagesp` is `true`, messages generated by
 and inserted into the UNLISP file.  When `false`, messages about
 translation of the file are only inserted into the UNLISP file.
 
+<!-- category: Programming -->
+<!-- keywords: tr_float_can_branch_complex -->
+<!-- signatures: tr_float_can_branch_complex -->
 ### Variable: tr_float_can_branch_complex
 
 Default value: `true`
@@ -2502,6 +2607,9 @@ even if `x` is of mode `float` (as set by `mode_declare`).
 When `false` then `acos(x)` is of mode
 `float` if and only if `x` is of mode `float`.
 
+<!-- category: Programming -->
+<!-- keywords: tr_function_call_default -->
+<!-- signatures: tr_function_call_default -->
 ### Variable: tr_function_call_default
 
 Default value: `general`
@@ -2517,6 +2625,9 @@ There is no need to turn this off.  With the default settings, no warning
 messages implies full compatibility of translated and compiled code with the
 Maxima interpreter.
 
+<!-- category: Programming -->
+<!-- keywords: tr_numer -->
+<!-- signatures: tr_numer -->
 ### Variable: tr_numer
 
 Default value: `false`
@@ -2525,6 +2636,9 @@ Default value: `false`
 When `tr_numer` is `true`, `numer` properties are used for
 atoms which have them, e.g. `%pi`.
 
+<!-- category: Programming -->
+<!-- keywords: tr_optimize_max_loop -->
+<!-- signatures: tr_optimize_max_loop -->
 ### Variable: tr_optimize_max_loop
 
 Default value: 100
@@ -2535,6 +2649,9 @@ macro-expansion and optimization pass of the translator will loop in
 considering a form.  This is to catch macro expansion errors, and
 non-terminating optimization properties.
 
+<!-- category: Programming -->
+<!-- keywords: tr_state_vars -->
+<!-- signatures: tr_state_vars -->
 ### Variable: tr_state_vars
 
 Default value:
@@ -2556,6 +2673,9 @@ trying to debug the translator.  By comparing the translated product
 to what should have been produced for a given state, it is possible to
 track down bugs.
 
+<!-- category: Programming -->
+<!-- keywords: tr_warn_bad_function_calls -->
+<!-- signatures: tr_warn_bad_function_calls -->
 ### Variable: tr_warn_bad_function_calls
 
 Default value: `true`
@@ -2565,6 +2685,9 @@ Default value: `true`
 when function calls are being made which may not be correct due to
 improper declarations that were made at translate time.
 
+<!-- category: Programming -->
+<!-- keywords: tr_warn_fexpr -->
+<!-- signatures: tr_warn_fexpr -->
 ### Variable: tr_warn_fexpr
 
 Default value: `compfile`
@@ -2574,6 +2697,9 @@ Default value: `compfile`
 encountered.  FEXPRs should not normally be output in translated code,
 all legitimate special program forms are translated.
 
+<!-- category: Programming -->
+<!-- keywords: tr_warn_meval -->
+<!-- signatures: tr_warn_meval -->
 ### Variable: tr_warn_meval
 
 Default value: `compfile`
@@ -2582,6 +2708,9 @@ Default value: `compfile`
 - Gives a warning if the function `meval` gets called.  If `meval` is
 called that indicates problems in the translation.
 
+<!-- category: Programming -->
+<!-- keywords: tr_warn_mode -->
+<!-- signatures: tr_warn_mode -->
 ### Variable: tr_warn_mode
 
 Default value: `all`
@@ -2590,6 +2719,9 @@ Default value: `all`
 - Gives a warning when variables are
 assigned values inappropriate for their mode.
 
+<!-- category: Programming -->
+<!-- keywords: tr_warn_undeclared -->
+<!-- signatures: tr_warn_undeclared -->
 ### Variable: tr_warn_undeclared
 
 Default value: `compile`
@@ -2598,6 +2730,9 @@ Default value: `compile`
 - Determines when to send
 warnings about undeclared variables to the TTY.
 
+<!-- category: Programming -->
+<!-- keywords: tr_warn_undefined_variable -->
+<!-- signatures: tr_warn_undefined_variable -->
 ### Variable: tr_warn_undefined_variable
 
 Default value: `all`
@@ -2606,12 +2741,18 @@ Default value: `all`
 - Gives a warning when
 undefined global variables are seen.
 
+<!-- category: Programming -->
+<!-- keywords: tr_warnings_get -->
+<!-- signatures: tr_warnings_get() -->
 ### Function: tr_warnings_get ()
 
 Prints a list of warnings which have been given by
 the translator during the current translation.
 
-### Function: translate (translate, f_1, ..., f_n, translate, functions, translate, all)
+<!-- category: Programming -->
+<!-- keywords: translate -->
+<!-- signatures: translate(f_1, ..., f_n), translate(functions), translate(all) -->
+### Function: translate (f_1, ..., f_n)
 
 Translates the user-defined functions *f_1*, ..., *f_n* from the
 Maxima language into Lisp and evaluates the Lisp translations.
@@ -2679,7 +2820,10 @@ translated version.
 The result returned by `translate` is a list of the names of the
 functions translated.
 
-### Function: translate_file (translate_file, maxima_filename, translate_file, maxima_filename, lisp_filename)
+<!-- category: Programming -->
+<!-- keywords: translate_file -->
+<!-- signatures: translate_file(maxima_filename), translate_file(maxima_filename, lisp_filename) -->
+### Function: translate_file (maxima_filename)
 
 Translates a file of Maxima code into a file of Lisp code.
 `translate_file` returns a list of three filenames:
@@ -2754,6 +2898,9 @@ and `tr_005fwarn_005fundefined_005fvariable`.
 
 See also: `tr_bound_function_applyp`, `tr_file_tty_messagesp`, `tr_float_can_branch_complex`, `tr_function_call_default`, `tr_numer`, `tr_optimize_max_loop`, `tr_state_vars`, `tr_warnings_get`, `tr_warn_fexpr`, `tr_warn_meval`, `tr_warn_mode`, `tr_warn_undeclared`, `tr_warn_undefined_variable`.
 
+<!-- category: Programming -->
+<!-- keywords: transrun -->
+<!-- signatures: transrun -->
 ### Variable: transrun
 
 Default value: `true`

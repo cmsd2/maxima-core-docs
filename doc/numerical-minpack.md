@@ -1,6 +1,9 @@
 ## minpack
 
-### Function: minpack_lsquares (flist, varlist, guess, 'tolerance, =, tolerance, 'jacobian, =, jacobian)
+<!-- category: Numerical -->
+<!-- keywords: minpack_lsquares -->
+<!-- signatures: minpack_lsquares(flist, varlist, guess, ['tolerance=tolerance, 'jacobian=jacobian]) -->
+### Function: minpack_lsquares (flist, varlist, guess, ['tolerance=tolerance, 'jacobian=jacobian])
 
 Compute the point that minimizes the sum of the squares of the
 functions in the list *flist*.  The variables are in the list
@@ -106,7 +109,10 @@ maxima
 
 See also: `jacobian`.
 
-### Function: minpack_solve (flist, varlist, guess, 'tolerance, =, tolerance, 'jacobian, =, jacobian)
+<!-- category: Numerical -->
+<!-- keywords: minpack_solve -->
+<!-- signatures: minpack_solve(flist, varlist, guess, ['tolerance=tolerance, 'jacobian=jacobian]) -->
+### Function: minpack_solve (flist, varlist, guess, ['tolerance=tolerance, 'jacobian=jacobian])
 
 Solve a system of `n` equations in `n` unknowns.
 The `n` equations are given in the list *flist*, and the

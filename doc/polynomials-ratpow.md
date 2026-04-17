@@ -1,5 +1,8 @@
 ## ratpow
 
+<!-- category: Polynomials -->
+<!-- keywords: ratp_coeffs -->
+<!-- signatures: ratp_coeffs(expr, x) -->
 ### Function: ratp_coeffs (expr, x)
 
 Returns the powers and coefficients of *x* in `ratnumer(expr)` as a list of length-2 lists;
@@ -21,6 +24,9 @@ returned coefficients are in CRE form except for numbers.
 (%o2)/R/         [[3, 4], [1, 1], [0, sqrt(x)]]
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: ratp_dense_coeffs -->
+<!-- signatures: ratp_dense_coeffs(expr, x) -->
 ### Function: ratp_dense_coeffs (expr, x)
 
 Returns the coefficients of powers of *x* in `ratnumer(expr)` from highest to lowest;
@@ -39,6 +45,9 @@ returned coefficients are in CRE form except for numbers.
 (%o2)/R/               [4, 0, 1, sqrt(x)]
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: ratp_hipow -->
+<!-- signatures: ratp_hipow(expr, x) -->
 ### Function: ratp_hipow (expr, x)
 
 Returns the highest power of *x* in `ratnumer(expr)`
@@ -61,6 +70,9 @@ Returns the highest power of *x* in `ratnumer(expr)`
 (%o3)                           5
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: ratp_lopow -->
+<!-- signatures: ratp_lopow(expr, x) -->
 ### Function: ratp_lopow (expr, x)
 
 Returns the lowest power of *x* in `ratnumer(expr)`

@@ -1,5 +1,8 @@
 ## Help
 
+<!-- category: Programming -->
+<!-- keywords: apropos -->
+<!-- signatures: apropos(name) -->
 ### Function: apropos (name)
 
 Searches for Maxima names which have *name* appearing anywhere
@@ -53,6 +56,9 @@ The number of symbols in the current Maxima session. This will vary.
 (%o3)                                2338
 ```
 
+<!-- category: Programming -->
+<!-- keywords: browser -->
+<!-- signatures: browser -->
 ### Variable: browser
 
 This specifies the command to use to open an HTML file.  This is a
@@ -77,6 +83,9 @@ See also `output_format_for_help`, and `url_005fbase`.
 
 See also: `output_format_for_help`, `url_base`.
 
+<!-- category: Programming -->
+<!-- keywords: demo -->
+<!-- signatures: demo(filename) -->
 ### Function: demo (filename)
 
 Evaluates Maxima expressions in *filename* and displays the results.
@@ -122,7 +131,10 @@ _
 
 See also: `file_search_demo`, `file_search`.
 
-### Function: describe (describe, string, describe, string, exact, describe, string, inexact)
+<!-- category: Programming -->
+<!-- keywords: describe -->
+<!-- signatures: describe(string), describe(string, exact), describe(string, inexact) -->
+### Function: describe (string)
 
 `describe(string)` is equivalent to
 `describe(string, exact)`.
@@ -204,7 +216,10 @@ respectively.
 
 See also: `output_format_for_help`, `browser`, `url_base`, `Documentation`.
 
-### Function: example (example, topic, example)
+<!-- category: Programming -->
+<!-- keywords: example -->
+<!-- signatures: example(topic), example() -->
+### Function: example (topic)
 
 `example (topic)` displays some examples of *topic*, which is a
 symbol or a string.  To get examples for operators like `if`, `do`,
@@ -252,6 +267,9 @@ Examples:
 
 See also: `manual_demo`.
 
+<!-- category: Programming -->
+<!-- keywords: manual_demo -->
+<!-- signatures: manual_demo -->
 ### Variable: manual_demo
 
 Default value: `"manual.demo"`
@@ -262,6 +280,9 @@ the function `example`.  See `example`.
 
 See also: `example`.
 
+<!-- category: Programming -->
+<!-- keywords: output_format_for_help -->
+<!-- signatures: output_format_for_help -->
 ### Variable: output_format_for_help
 
 Default value: `text`
@@ -291,6 +312,9 @@ See also `browser`, and `url_005fbase`.
 
 See also: `browser`, `url_base`.
 
+<!-- category: Programming -->
+<!-- keywords: url_base -->
+<!-- signatures: url_base -->
 ### Variable: url_base
 
 When displaying help using a browser, `url_base` defines the URL to

@@ -1,6 +1,9 @@
 ## Operators
 
-### Function: # ()
+<!-- category: Solving -->
+<!-- keywords: # -->
+<!-- signatures: # -->
+### Function: #
 
 Represents the negation of syntactic equality `_003d`.
 
@@ -52,7 +55,10 @@ maxima
 
 See also: `=`.
 
-### Function: = ()
+<!-- category: Solving -->
+<!-- keywords: = -->
+<!-- signatures: = -->
+### Function: =
 
 The equation operator.
 

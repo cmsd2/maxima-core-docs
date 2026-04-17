@@ -1,5 +1,8 @@
 ## engineering-format
 
+<!-- category: IO -->
+<!-- keywords: engineering_format_floats -->
+<!-- signatures: engineering_format_floats -->
 ### Variable: engineering_format_floats
 
 Default value: `true` 
@@ -35,6 +38,9 @@ See also `fpprintprec` and `float`.
 
 See also: `fpprintprec`, `float`.
 
+<!-- category: IO -->
+<!-- keywords: engineering_format_max -->
+<!-- signatures: engineering_format_max -->
 ### Variable: engineering_format_max
 
 Default value: `0.0` 
@@ -45,6 +51,9 @@ See also `engineering_format_min` and `engineering_005fformat_005ffloats`.
 
 See also: `engineering_format_min`, `engineering_format_floats`.
 
+<!-- category: IO -->
+<!-- keywords: engineering_format_min -->
+<!-- signatures: engineering_format_min -->
 ### Variable: engineering_format_min
 
 Default value: `0.0` 

@@ -1,5 +1,8 @@
 ## stringproc
 
+<!-- category: Programming -->
+<!-- keywords: regex_compile -->
+<!-- signatures: regex_compile(pattern) -->
 ### Function: regex_compile (pattern)
 
 Compile regex string in *pattern* to an internal form that is
@@ -18,7 +21,10 @@ will speed up matching.
 (%o1)         Structure [COMPILED-REGEX for "c.r"]
 ```
 
-### Function: regex_match (regex_match, regex, str, regex_match, regex, str, start, regex_match, regex, str, start, end)
+<!-- category: Programming -->
+<!-- keywords: regex_match -->
+<!-- signatures: regex_match(regex, str), regex_match(regex, str, start), regex_match(regex, str, start, end) -->
+### Function: regex_match (regex, str)
 
 `regex_match` is very similar to `regex_match_pos` except
 that it returns the matching substrings instead of the indices of the
@@ -151,7 +157,10 @@ Alternate subpatterns can be separated by `|`.
 The first element is the full match `"fi"`; the second shows
 that we matched `"i"` for the cluster.
 
-### Function: regex_match_pos (regex_match_pos, regex, str, regex_match_pos, regex, str, start, regex_match_pos, regex, str, start, end)
+<!-- category: Programming -->
+<!-- keywords: regex_match_pos -->
+<!-- signatures: regex_match_pos(regex, str), regex_match_pos(regex, str, start), regex_match_pos(regex, str, start, end) -->
+### Function: regex_match_pos (regex, str)
 
 Return a list consisting of a list of the start and end positions of
 *str* where the first match of *regex* occurred.  If no match
@@ -215,6 +224,9 @@ The first element is for the full match.  Each subsequent element of
 the list is the substring that matches the *cluster* enclosed in
 parenthesis in the given regular expression.
 
+<!-- category: Programming -->
+<!-- keywords: regex_split -->
+<!-- signatures: regex_split(regex, str) -->
 ### Function: regex_split (regex, str)
 
 Returns a list of strings where *str* has been split into
@@ -231,6 +243,9 @@ separating the substrings.
 (%o1)                  [split, pea, soup]
 ```
 
+<!-- category: Programming -->
+<!-- keywords: regex_subst -->
+<!-- signatures: regex_subst(replacement, pattern, str) -->
 ### Function: regex_subst (replacement, pattern, str)
 
 Returns a string where every occurrence of *pattern* has been
@@ -246,6 +261,9 @@ replaced by *replacement* in the string *str*.
 (%o1)              liberty egality fraternity
 ```
 
+<!-- category: Programming -->
+<!-- keywords: regex_subst_first -->
+<!-- signatures: regex_subst_first(replacement, pattern, str) -->
 ### Function: regex_subst_first (replacement, pattern, str)
 
 Returns a string where the first occurrence of *pattern* in
@@ -279,6 +297,9 @@ specifies that the first submatch is used as the replacement text.
 (%o2)    the *nina*, the _pinta_, and the _santa maria_
 ```
 
+<!-- category: Programming -->
+<!-- keywords: string_to_regex -->
+<!-- signatures: string_to_regex(str) -->
 ### Function: string_to_regex (str)
 
 Returns a regex string where any special reqex characters in *str*

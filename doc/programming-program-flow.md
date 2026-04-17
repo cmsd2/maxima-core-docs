@@ -1,6 +1,9 @@
 ## Program Flow
 
-### Function: backtrace (backtrace, backtrace, n)
+<!-- category: Programming -->
+<!-- keywords: backtrace -->
+<!-- signatures: backtrace(), backtrace(n) -->
+### Function: backtrace ()
 
 Prints the call stack, that is, the list of functions which
 called the currently active function.
@@ -72,7 +75,10 @@ maxima
                                49
 ```
 
-### Function: do ()
+<!-- category: Programming -->
+<!-- keywords: do, while, unless, for, from, thru, step, next, in -->
+<!-- signatures: while, unless, for, from, thru, step, next, in -->
+### Function: do
 
 The `do` statement is used for performing iteration. The general
 form of the `do` statements maxima supports is:
@@ -510,6 +516,9 @@ maxima
 
 See also: `makelist`, `Performance-considerations-for-Lists`, `block`.
 
+<!-- category: Programming -->
+<!-- keywords: errcatch -->
+<!-- signatures: errcatch(expr_1, ..., expr_n) -->
 ### Function: errcatch (expr_1, ..., expr_n)
 
 Evaluates *expr_1*, ..., *expr_n* one by one and
@@ -528,12 +537,18 @@ See also `errormsg`.
 
 See also: `errormsg`.
 
+<!-- category: Programming -->
+<!-- keywords: errexp1 -->
+<!-- signatures: errexp1 -->
 ### Variable: errexp1
 
 See `error_005fsyms`.
 
 See also: `error_syms`.
 
+<!-- category: Programming -->
+<!-- keywords: error -->
+<!-- signatures: error(expr_1, ..., expr_n) -->
 ### Function: error (expr_1, ..., expr_n)
 
 Evaluates and prints *expr_1*, ..., *expr_n*,
@@ -550,6 +565,9 @@ and the remaining elements are the values of any non-string arguments.
 `errormsg()` formats and prints `error`.
 This is effectively reprinting the most recent error message.
 
+<!-- category: Programming -->
+<!-- keywords: error_size -->
+<!-- signatures: error_size -->
 ### Variable: error_size
 
 Default value: 60
@@ -611,6 +629,9 @@ Example expression is --------------
 
 See also: `error_syms`, `error`.
 
+<!-- category: Programming -->
+<!-- keywords: error_syms -->
+<!-- signatures: error_syms -->
 ### Variable: error_syms
 
 Default value: `[errexp1, errexp2, errexp3]`
@@ -631,6 +652,9 @@ See also `error` and `error_005fsize`.
 
 See also: `error_size`, `error`.
 
+<!-- category: Programming -->
+<!-- keywords: errormsg -->
+<!-- signatures: errormsg() -->
 ### Function: errormsg ()
 
 Reprints the most recent error message.
@@ -639,6 +663,9 @@ and `errormsg` formats and prints it.
 
 See also: `errormsg`.
 
+<!-- category: Programming -->
+<!-- keywords: garbage_collect -->
+<!-- signatures: garbage_collect() -->
 ### Function: garbage_collect ()
 
 Tries to manually trigger the lisp’s garbage collection. This rarely is necessary
@@ -649,6 +676,9 @@ garbage collection.
 If maxima knows how to do manually trigger the garbage collection for the
 current lisp `garbage_collect` returns `true`, else `false`.
 
+<!-- category: Programming -->
+<!-- keywords: go -->
+<!-- signatures: go(tag) -->
 ### Function: go (tag)
 
 is used within a `block` to transfer control to the statement
@@ -669,7 +699,10 @@ other than the one containing the `go`.
 
 See also: `block`.
 
-### Function: if ()
+<!-- category: Programming -->
+<!-- keywords: if -->
+<!-- signatures: if -->
+### Function: if
 
 Represents conditional evaluation.  Various forms of `if` expressions are
 recognized.
@@ -734,6 +767,9 @@ as follows.
 | or | `or` | logical infix |
 | not | `not` | logical infix |
 
+<!-- category: Programming -->
+<!-- keywords: map -->
+<!-- signatures: map(f, expr_1, ..., expr_n) -->
 ### Function: map (f, expr_1, ..., expr_n)
 
 Returns an expression whose leading operator is the same as that of the
@@ -797,6 +833,9 @@ maxima
 
 See also: `maperror`, `partfrac`, `scanmap`, `maplist`, `outermap`, `matrixmap`, `apply`.
 
+<!-- category: Programming -->
+<!-- keywords: mapatom -->
+<!-- signatures: mapatom(expr) -->
 ### Function: mapatom (expr)
 
 Returns `true` if and only if *expr* is treated by the mapping
@@ -804,6 +843,9 @@ routines as an atom.  "Mapatoms" are atoms, numbers
 (including rational numbers), subscripted variables and structure
 references.
 
+<!-- category: Programming -->
+<!-- keywords: maperror -->
+<!-- signatures: maperror -->
 ### Variable: maperror
 
 Default value: `true`
@@ -828,6 +870,9 @@ not all the same type of object.
 If `maperror` is `true` then an error message
 is displayed in the above two instances.
 
+<!-- category: Programming -->
+<!-- keywords: maplist -->
+<!-- signatures: maplist(f, expr_1, ..., expr_n) -->
 ### Function: maplist (f, expr_1, ..., expr_n)
 
 Returns a list of the applications of *f* to the parts of the expressions
@@ -841,6 +886,9 @@ which returns an expression with the same main operator as *expr_i* has
 
 See also: `map`, `apply`.
 
+<!-- category: Programming -->
+<!-- keywords: mapprint -->
+<!-- signatures: mapprint -->
 ### Variable: mapprint
 
 Default value: `true`
@@ -856,6 +904,9 @@ If `mapprint` is `false`, these messages are suppressed.
 
 See also: `map`, `maplist`, `fullmap`, `apply`, `mapprint`.
 
+<!-- category: Programming -->
+<!-- keywords: outermap -->
+<!-- signatures: outermap(f, a_1, ..., a_n) -->
 ### Function: outermap (f, a_1, ..., a_n)
 
 Applies the function *f* to each one of the elements of the outer product
@@ -1065,6 +1116,9 @@ maxima
 
 See also: `cartesian_product`, `map`, `maplist`, `apply`.
 
+<!-- category: Programming -->
+<!-- keywords: prederror -->
+<!-- signatures: prederror -->
 ### Variable: prederror
 
 Default value: `false`
@@ -1082,6 +1136,9 @@ See also `is` and `maybe`.
 
 See also: `is`, `maybe`.
 
+<!-- category: Programming -->
+<!-- keywords: return -->
+<!-- signatures: return(value) -->
 ### Function: return (value)
 
 May be used to exit explicitly from the current `block`, `while`,
@@ -1154,7 +1211,10 @@ See also `for`, `while`, `do` and `block`.
 
 See also: `block`, `while`, `for`, `do`.
 
-### Function: scanmap (scanmap, f, expr, scanmap, f, expr, bottomup, scanmap, f, expr, topdown)
+<!-- category: Programming -->
+<!-- keywords: scanmap -->
+<!-- signatures: scanmap(f, expr), scanmap(f, expr, bottomup), scanmap(f, expr, topdown) -->
+### Function: scanmap (f, expr)
 
 Recursively applies *f* to *expr*, in a top
 down manner.  This is most useful when complete factorization is
@@ -1235,6 +1295,9 @@ ways.
 `scanmap (f, expr, topdown)` has the same effect as calling
 `scanmap (f, expr)`.
 
+<!-- category: Programming -->
+<!-- keywords: throw -->
+<!-- signatures: throw(expr) -->
 ### Function: throw (expr)
 
 Evaluates *expr* and throws the value back to the most recent
@@ -1243,6 +1306,9 @@ mechanism.
 
 See also: `catch`.
 
+<!-- category: Programming -->
+<!-- keywords: warning -->
+<!-- signatures: warning(expr_1, ..., expr_n) -->
 ### Function: warning (expr_1, ..., expr_n)
 
 Evaluates and prints *expr_1*, ..., *expr_n*,

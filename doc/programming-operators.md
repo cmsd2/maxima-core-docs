@@ -1,6 +1,9 @@
 ## Operators
 
-### Function: ** ()
+<!-- category: Programming -->
+<!-- keywords: ** -->
+<!-- signatures: ** -->
+### Function: **
 
 Exponentiation operator.
 Maxima recognizes `**` as the same operator as `^` in input,
@@ -45,7 +48,10 @@ maxima
 
 See also: `^`, `fortran`.
 
-### Function: + ()
+<!-- category: Programming -->
+<!-- keywords: +, -, *, /, ^ -->
+<!-- signatures: -, *, /, ^ -->
+### Function: +
 
 The symbols `+` `*` `/` and `^` represent addition,
 multiplication, division, and exponentiation, respectively.  The names of these
@@ -323,7 +329,10 @@ maxima
 
 See also: `orderlessp`, `ordergreatp`, `sqrt`, `listarith`.
 
-### Function: . ()
+<!-- category: Programming -->
+<!-- keywords: . -->
+<!-- signatures: . -->
+### Function: .
 
 The dot operator, for matrix (non-commutative) multiplication.
 When `"."` is used in this way, spaces should be left on both sides of
@@ -346,7 +355,10 @@ and
 
 See also: `Dot`, `dot0nscsimp`, `dot0simp`, `dot1simp`, `dotassoc`, `dotconstrules`, `dotdistrib`, `dotexptsimp`, `dotident`, `dotscrules`.
 
-### Function: : ()
+<!-- category: Programming -->
+<!-- keywords: : -->
+<!-- signatures: : -->
+### Function: :
 
 Assignment operator.
 
@@ -526,7 +538,10 @@ maxima
 
 See also: `hashed-array`, `kill`, `remvalue`.
 
-### Function: :: ()
+<!-- category: Programming -->
+<!-- keywords: :: -->
+<!-- signatures: :: -->
+### Function: ::
 
 Assignment operator.
 
@@ -586,7 +601,10 @@ maxima
 
 See also: `:`.
 
-### Function: ::= ()
+<!-- category: Programming -->
+<!-- keywords: ::= -->
+<!-- signatures: ::= -->
+### Function: ::=
 
 Macro function definition operator.
 `::=` defines a function (called a "macro" for historical reasons) which
@@ -722,7 +740,10 @@ x is equal to 1234 - 1729 w
 
 See also: `macroexpand`, `macros`, `kill`, `remove`, `remfunction`, `fundef`, `dispfun`, `buildq`, `splice`.
 
-### Function: := ()
+<!-- category: Programming -->
+<!-- keywords: := -->
+<!-- signatures: := -->
+### Function: :=
 
 The function definition operator.
 
@@ -988,7 +1009,10 @@ maxima
 
 See also: `memoizing-function`, `local`, `define`, `::=`.
 
-### Function: < ()
+<!-- category: Programming -->
+<!-- keywords: <, <=, >=, > -->
+<!-- signatures: <=, >=, > -->
+### Function: < (=)
 
 The symbols `<` `<=` `>=` and `>` represent less than, less
 than or equal, greater than or equal, and greater than, respectively.  The names
@@ -1095,7 +1119,10 @@ maxima
 
 See also: `is`, `maybe`, `if`, `while`, `unless`, `prederror`, `=`, `#`, `equal`, `notequal`.
 
-### Function: ^^ ()
+<!-- category: Programming -->
+<!-- keywords: ^^ -->
+<!-- signatures: ^^ -->
+### Function: ^^
 
 Noncommutative exponentiation operator.
 `^^` is the exponentiation operator corresponding to noncommutative
@@ -1128,7 +1155,10 @@ maxima
 (%o2)                  a^3*b^2+a^^2 . b^^3
 ```
 
-### Function: and ()
+<!-- category: Programming -->
+<!-- keywords: and -->
+<!-- signatures: and -->
+### Function: and
 
 The logical conjunction operator.  `and` is an n-ary infix operator;
 its operands are Boolean expressions, and its result is a Boolean value.
@@ -1156,7 +1186,10 @@ accepted, and the result is a Boolean expression.
 
 See also: `is`, `prederror`.
 
-### Function: infix (infix, op, infix, op, lbp, rbp, infix, op, lbp, rbp, lpos, rpos, pos)
+<!-- category: Programming -->
+<!-- keywords: infix -->
+<!-- signatures: infix(op), infix(op, lbp, rbp), infix(op, lbp, rbp, lpos, rpos, pos) -->
+### Function: infix (op)
 
 Declares *op* to be an infix operator.  An infix operator is a function of
 two arguments, with the name of the function written between the arguments.
@@ -1323,7 +1356,10 @@ maxima
 
 See also: `Introduction-to-operators`.
 
-### Function: matchfix (matchfix, ldelimiter, rdelimiter, matchfix, ldelimiter, rdelimiter, arg_pos, pos)
+<!-- category: Programming -->
+<!-- keywords: matchfix -->
+<!-- signatures: matchfix(ldelimiter, rdelimiter), matchfix(ldelimiter, rdelimiter, arg_pos, pos) -->
+### Function: matchfix (ldelimiter, rdelimiter)
 
 Declares a matchfix operator with left and right delimiters *ldelimiter*
 and *rdelimiter*.  The delimiters are specified as strings.
@@ -1478,7 +1514,10 @@ Matchfix operators are ordinary user-defined functions.
                                 15
 ```
 
-### Function: nary (nary, op, nary, op, bp, arg_pos, pos)
+<!-- category: Programming -->
+<!-- keywords: nary -->
+<!-- signatures: nary(op), nary(op, bp, arg_pos, pos) -->
+### Function: nary (op)
 
 An `nary` operator is used to denote a function of any number of arguments,
 each of which is separated by an occurrence of the operator, e.g.  A+B or A+B+C.
@@ -1492,7 +1531,10 @@ See also `Introduction-to-operators`.
 
 See also: `Introduction-to-operators`.
 
-### Function: nofix (nofix, op, nofix, op, pos)
+<!-- category: Programming -->
+<!-- keywords: nofix -->
+<!-- signatures: nofix(op), nofix(op, pos) -->
+### Function: nofix (op)
 
 `nofix` operators are used to denote functions of no arguments.
 The mere presence of such an operator in a command will cause the
@@ -1506,7 +1548,10 @@ See also `Introduction-to-operators`.
 
 See also: `Introduction-to-operators`.
 
-### Function: not ()
+<!-- category: Programming -->
+<!-- keywords: not -->
+<!-- signatures: not -->
+### Function: not
 
 The logical negation operator.  `not` is a prefix operator;
 its operand is a Boolean expression, and its result is a Boolean value.
@@ -1523,7 +1568,10 @@ and the result is a Boolean expression.
 
 See also: `prederror`.
 
-### Function: or ()
+<!-- category: Programming -->
+<!-- keywords: or -->
+<!-- signatures: or -->
+### Function: or
 
 The logical disjunction operator.  `or` is an n-ary infix operator;
 its operands are Boolean expressions, and its result is a Boolean value.
@@ -1551,7 +1599,10 @@ due to the treatment of indeterminate operands.
 
 See also: `is`, `prederror`.
 
-### Function: postfix (postfix, op, postfix, op, lbp, lpos, pos)
+<!-- category: Programming -->
+<!-- keywords: postfix -->
+<!-- signatures: postfix(op), postfix(op, lbp, lpos, pos) -->
+### Function: postfix (op)
 
 `postfix` operators like the `prefix` variety denote functions of a
 single argument, but in this case the argument immediately precedes an
@@ -1564,7 +1615,10 @@ See also `Introduction-to-operators`.
 
 See also: `Introduction-to-operators`.
 
-### Function: prefix (prefix, op, prefix, op, rbp, rpos, pos)
+<!-- category: Programming -->
+<!-- keywords: prefix -->
+<!-- signatures: prefix(op), prefix(op, rbp, rpos, pos) -->
+### Function: prefix (op)
 
 A `prefix` operator is one which signifies a function of one argument,
 which argument immediately follows an occurrence of the operator.

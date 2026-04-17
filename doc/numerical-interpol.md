@@ -1,5 +1,8 @@
 ## interpol
 
+<!-- category: Numerical -->
+<!-- keywords: charfun2 -->
+<!-- signatures: charfun2(x, a, b) -->
 ### Function: charfun2 (x, a, b)
 
 The characteristic or indicator function on the half-open interval $[a, b)$,
@@ -71,7 +74,10 @@ maxima
 
 See also: `charfun`.
 
-### Function: cspline (cspline, points, cspline, points, option1, option2, ...)
+<!-- category: Numerical -->
+<!-- keywords: cspline -->
+<!-- signatures: cspline(points), cspline(points, option1, option2, ...) -->
+### Function: cspline (points)
 
 Computes the polynomial interpolation by the cubic splines method. Argument *points* must be either:
 
@@ -187,7 +193,10 @@ maxima
 
 See also: `lagrange`, `linearinterpol`, `ratinterpol`.
 
-### Function: lagrange (lagrange, points, lagrange, points, option)
+<!-- category: Numerical -->
+<!-- keywords: lagrange -->
+<!-- signatures: lagrange(points), lagrange(points, option) -->
+### Function: lagrange (points)
 
 Computes the polynomial interpolation by the Lagrangian method. Argument *points* must be either:
 
@@ -288,7 +297,10 @@ maxima
 
 See also: `linearinterpol`, `cspline`, `ratinterpol`.
 
-### Function: linearinterpol (linearinterpol, points, linearinterpol, points, option)
+<!-- category: Numerical -->
+<!-- keywords: linearinterpol -->
+<!-- signatures: linearinterpol(points), linearinterpol(points, option) -->
+### Function: linearinterpol (points)
 
 Computes the polynomial interpolation by the linear method. Argument *points* must be either:
 
@@ -379,7 +391,10 @@ maxima
 
 See also: `lagrange`, `cspline`, `ratinterpol`.
 
-### Function: ratinterpol (ratinterpol, points, numdeg, ratinterpol, points, numdeg, option1)
+<!-- category: Numerical -->
+<!-- keywords: ratinterpol -->
+<!-- signatures: ratinterpol(points, numdeg), ratinterpol(points, numdeg, option1) -->
+### Function: ratinterpol (points, numdeg)
 
 Generates a rational interpolator for data given by *points* and the degree of the numerator
 being equal to *numdeg*; the degree of the denominator is calculated

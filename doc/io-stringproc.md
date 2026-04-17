@@ -1,5 +1,8 @@
 ## stringproc
 
+<!-- category: IO -->
+<!-- keywords: adjust_external_format -->
+<!-- signatures: adjust_external_format() -->
 ### Function: adjust_external_format ()
 
 Prints information about the current external format of the Lisp reader 
@@ -75,6 +78,9 @@ and has not been changed.
 
 See also: `cint`, `unicode`, `octets_to_string`, `string_to_octets`.
 
+<!-- category: IO -->
+<!-- keywords: alphacharp -->
+<!-- signatures: alphacharp(char) -->
 ### Function: alphacharp (char)
 
 Returns `true` if *char* is an alphabetic character. 
@@ -117,6 +123,9 @@ package stringproc: u cannot be converted into a Lisp character.
 
 See also: `adjust_external_format`.
 
+<!-- category: IO -->
+<!-- keywords: alphanumericp -->
+<!-- signatures: alphanumericp(char) -->
 ### Function: alphanumericp (char)
 
 Returns `true` if *char* is an alphabetic character or a digit 
@@ -127,6 +136,9 @@ Note: See remarks on `alphacharp`.
 
 See also: `alphacharp`.
 
+<!-- category: IO -->
+<!-- keywords: ascii -->
+<!-- signatures: ascii(int) -->
 ### Function: ascii (int)
 
 Returns the US-ASCII character corresponding to the integer *int*
@@ -151,10 +163,16 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 
 See also: `unicode`.
 
+<!-- category: IO -->
+<!-- keywords: cequal -->
+<!-- signatures: cequal(char_1, char_2) -->
 ### Function: cequal (char_1, char_2)
 
 Returns `true` if *char_1* and *char_2* are the same character.
 
+<!-- category: IO -->
+<!-- keywords: cequalignore -->
+<!-- signatures: cequalignore(char_1, char_2) -->
 ### Function: cequalignore (char_1, char_2)
 
 Like `cequal` but ignores case which is only possible for non-US-ASCII 
@@ -163,11 +181,17 @@ alphabetic character. See remarks on `alphacharp`.
 
 See also: `alphacharp`.
 
+<!-- category: IO -->
+<!-- keywords: cgreaterp -->
+<!-- signatures: cgreaterp(char_1, char_2) -->
 ### Function: cgreaterp (char_1, char_2)
 
 Returns `true` if the code point of *char_1* is greater than the 
 code point of *char_2*.
 
+<!-- category: IO -->
+<!-- keywords: cgreaterpignore -->
+<!-- signatures: cgreaterpignore(char_1, char_2) -->
 ### Function: cgreaterpignore (char_1, char_2)
 
 Like `cgreaterp` but ignores case which is only possible for non-US-ASCII 
@@ -176,6 +200,9 @@ alphabetic character. See remarks on `alphacharp`.
 
 See also: `alphacharp`.
 
+<!-- category: IO -->
+<!-- keywords: charat -->
+<!-- signatures: charat(string, n) -->
 ### Function: charat (string, n)
 
 Returns the *n*-th character of *string*.
@@ -190,6 +217,9 @@ The first character in *string* is returned with *n* = 1.
 (%o2)                           L
 ```
 
+<!-- category: IO -->
+<!-- keywords: charlist -->
+<!-- signatures: charlist(string) -->
 ### Function: charlist (string)
 
 Returns the list of all characters in *string*. 
@@ -201,11 +231,17 @@ Returns the list of all characters in *string*.
 (%o1)                     [L, i, s, p]
 ```
 
+<!-- category: IO -->
+<!-- keywords: charp -->
+<!-- signatures: charp(obj) -->
 ### Function: charp (obj)
 
 Returns `true` if *obj* is a Maxima-character.
 See introduction for example.
 
+<!-- category: IO -->
+<!-- keywords: cint -->
+<!-- signatures: cint(char) -->
 ### Function: cint (char)
 
 Returns the Unicode code point of *char* which must be a 
@@ -254,11 +290,17 @@ See `utf8_005fto_005funicode`, `string_005fto_005foctets`.
 
 See also: `adjust_external_format`, `utf8_to_unicode`, `string_to_octets`.
 
+<!-- category: IO -->
+<!-- keywords: clessp -->
+<!-- signatures: clessp(char_1, char_2) -->
 ### Function: clessp (char_1, char_2)
 
 Returns `true` if the code point of *char_1* is less than the 
 code point of *char_2*.
 
+<!-- category: IO -->
+<!-- keywords: clesspignore -->
+<!-- signatures: clesspignore(char_1, char_2) -->
 ### Function: clesspignore (char_1, char_2)
 
 Like `clessp` but ignores case which is only possible for non-US-ASCII 
@@ -267,10 +309,16 @@ alphabetic character. See remarks on `alphacharp`.
 
 See also: `alphacharp`.
 
+<!-- category: IO -->
+<!-- keywords: close -->
+<!-- signatures: close(stream) -->
 ### Function: close (stream)
 
 Closes *stream* and returns `true` if *stream* had been open.
 
+<!-- category: IO -->
+<!-- keywords: constituent -->
+<!-- signatures: constituent(char) -->
 ### Function: constituent (char)
 
 Returns `true` if *char* is a graphic character but not a space character.
@@ -288,11 +336,17 @@ C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c
 d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 ```
 
+<!-- category: IO -->
+<!-- keywords: digitcharp -->
+<!-- signatures: digitcharp(char) -->
 ### Function: digitcharp (char)
 
 Returns `true` if *char* is a digit where only the corresponding 
 US-ASCII-character is regarded as a digit.
 
+<!-- category: IO -->
+<!-- keywords: eval_string -->
+<!-- signatures: eval_string(str) -->
 ### Function: eval_string (str)
 
 Parse the string *str* as a Maxima expression and evaluate it.
@@ -319,6 +373,9 @@ See also `parse_005fstring` and `eval_005fstring_005flisp`.
 
 See also: `parse_string`, `eval_string_lisp`.
 
+<!-- category: IO -->
+<!-- keywords: flength -->
+<!-- signatures: flength(stream) -->
 ### Function: flength (stream)
 
 *stream* has to be an open stream from or to a file. 
@@ -329,6 +386,9 @@ Example: See `writebyte` .
 
 See also: `writebyte`.
 
+<!-- category: IO -->
+<!-- keywords: flush_output -->
+<!-- signatures: flush_output(stream) -->
 ### Function: flush_output (stream)
 
 Flushes *stream* where *stream* has to be an output stream to a file. 
@@ -338,7 +398,10 @@ Example: See `writebyte` .
 
 See also: `writebyte`.
 
-### Function: fposition (fposition, stream, fposition, stream, pos)
+<!-- category: IO -->
+<!-- keywords: fposition -->
+<!-- signatures: fposition(stream), fposition(stream, pos) -->
+### Function: fposition (stream)
 
 Returns the current position in *stream*, if *pos* is not used. 
 If *pos* is used, `fposition` sets the position in *stream*.
@@ -349,7 +412,10 @@ If *pos* is used, `fposition` sets the position in *stream*.
 Positions in data streams are like in strings or lists 1-indexed, 
 i.e. the first element in *stream* is in position 1.
 
-### Function: freshline (freshline, freshline, stream)
+<!-- category: IO -->
+<!-- keywords: freshline -->
+<!-- signatures: freshline(), freshline(stream) -->
+### Function: freshline ()
 
 Writes a new line to the standard output stream 
 if the position is not at the beginning of a line and returns `true`.
@@ -361,6 +427,9 @@ See also `newline`.
 
 See also: `newline`.
 
+<!-- category: IO -->
+<!-- keywords: get_output_stream_string -->
+<!-- signatures: get_output_stream_string(stream) -->
 ### Function: get_output_stream_string (stream)
 
 Returns a string containing all the characters currently present in 
@@ -372,6 +441,9 @@ Example: See `make_005fstring_005foutput_005fstream` .
 
 See also: `make_string_output_stream`.
 
+<!-- category: IO -->
+<!-- keywords: lowercasep -->
+<!-- signatures: lowercasep(char) -->
 ### Function: lowercasep (char)
 
 Returns `true` if *char* is a lowercase character. 
@@ -381,7 +453,10 @@ Note: See remarks on `alphacharp`.
 
 See also: `alphacharp`.
 
-### Function: make_string_input_stream (make_string_input_stream, string, make_string_input_stream, string, start, make_string_input_stream, string, start, end)
+<!-- category: IO -->
+<!-- keywords: make_string_input_stream -->
+<!-- signatures: make_string_input_stream(string), make_string_input_stream(string, start), make_string_input_stream(string, start, end) -->
+### Function: make_string_input_stream (string)
 
 Returns an input stream which contains parts of *string* and an end of file. 
 Without optional arguments the stream contains the entire string 
@@ -399,6 +474,9 @@ t e x
 (%i3) close(istream)$
 ```
 
+<!-- category: IO -->
+<!-- keywords: make_string_output_stream -->
+<!-- signatures: make_string_output_stream() -->
 ### Function: make_string_output_stream ()
 
 Returns an output stream that accepts characters. Characters currently present 
@@ -424,7 +502,10 @@ in this stream can be retrieved by `get_005foutput_005fstream_005fstring`.
 
 See also: `get_output_stream_string`.
 
-### Function: newline (newline, newline, stream)
+<!-- category: IO -->
+<!-- keywords: newline -->
+<!-- signatures: newline(), newline(stream) -->
+### Function: newline ()
 
 Writes a new line to the standard output stream. 
 Using the optional argument *stream* the new line is written to that stream. 
@@ -435,6 +516,9 @@ See `sprint` for an example of using `newline()`.
 
 See also: `sprint`.
 
+<!-- category: IO -->
+<!-- keywords: opena -->
+<!-- signatures: opena(file) -->
 ### Function: opena (file)
 
 Returns a character output stream to *file*.
@@ -445,7 +529,10 @@ For binary output see `Functions-and-Variables-for-binary-input-and-output` .
 
 See also: `Functions-and-Variables-for-binary-input-and-output`.
 
-### Function: openr (openr, file, openr, file, encoding)
+<!-- category: IO -->
+<!-- keywords: openr -->
+<!-- signatures: openr(file), openr(file, encoding) -->
+### Function: openr (file)
 
 Returns a character input stream to *file*.
 `openr` assumes that *file* already exists.
@@ -470,6 +557,9 @@ See also `close` and `openw`.
 
 See also: `Functions-and-Variables-for-binary-input-and-output`, `close`, `openw`.
 
+<!-- category: IO -->
+<!-- keywords: openw -->
+<!-- signatures: openw(file) -->
 ### Function: openw (file)
 
 Returns a character output stream to *file*.
@@ -484,6 +574,9 @@ See also `close` and `openr`.
 
 See also: `Functions-and-Variables-for-binary-input-and-output`, `close`, `openr`.
 
+<!-- category: IO -->
+<!-- keywords: parse_string -->
+<!-- signatures: parse_string(str) -->
 ### Function: parse_string (str)
 
 Parse the string *str* as a Maxima expression (do not evaluate it).
@@ -511,7 +604,10 @@ See also `eval_005fstring`.
 
 See also: `eval_string`.
 
-### Function: printf (printf, dest, string, printf, dest, string, expr_1, ..., expr_n)
+<!-- category: IO -->
+<!-- keywords: printf -->
+<!-- signatures: printf(dest, string), printf(dest, string, expr_1, ..., expr_n) -->
+### Function: printf (dest, string)
 
 Produces formatted output by outputting the characters of control-string 
 *string* and observing that a tilde introduces a directive.
@@ -659,6 +755,9 @@ For conversion of objects to strings also see `concat`, `sconcat`,
 
 See also: `concat`, `sconcat`, `string`, `simplode`.
 
+<!-- category: IO -->
+<!-- keywords: readbyte -->
+<!-- signatures: readbyte(stream) -->
 ### Function: readbyte (stream)
 
 Removes and returns the first byte in *stream* which must be a binary input stream. 
@@ -685,6 +784,9 @@ Example: Read the first 16 bytes from a file encrypted with AES in OpenSSL.
 (%o6)                          8856de8a74fdadf0
 ```
 
+<!-- category: IO -->
+<!-- keywords: readchar -->
+<!-- signatures: readchar(stream) -->
 ### Function: readchar (stream)
 
 Removes and returns the first character in *stream*. 
@@ -695,27 +797,42 @@ Example: See `make_005fstring_005finput_005fstream`.
 
 See also: `make_string_input_stream`.
 
+<!-- category: IO -->
+<!-- keywords: readline -->
+<!-- signatures: readline(stream) -->
 ### Function: readline (stream)
 
 Returns a string containing all characters starting at the current position 
 in *stream* up to the end of the line or `false` 
 if the end of the file is encountered.
 
+<!-- category: IO -->
+<!-- keywords: scopy -->
+<!-- signatures: scopy(string) -->
 ### Function: scopy (string)
 
 Returns a copy of *string* as a new string.
 
-### Function: sdowncase (sdowncase, string, sdowncase, string, start, sdowncase, string, start, end)
+<!-- category: IO -->
+<!-- keywords: sdowncase -->
+<!-- signatures: sdowncase(string), sdowncase(string, start), sdowncase(string, start, end) -->
+### Function: sdowncase (string)
 
 Like `supcase` but uppercase characters are converted to lowercase.
 
 See also: `supcase`.
 
+<!-- category: IO -->
+<!-- keywords: sequal -->
+<!-- signatures: sequal(string_1, string_2) -->
 ### Function: sequal (string_1, string_2)
 
 Returns `true` if *string_1* and *string_2* contain the same 
 sequence of characters.
 
+<!-- category: IO -->
+<!-- keywords: sequalignore -->
+<!-- signatures: sequalignore(string_1, string_2) -->
 ### Function: sequalignore (string_1, string_2)
 
 Like `sequal` but ignores case which is only possible for non-US-ASCII 
@@ -724,11 +841,17 @@ alphabetic character. See remarks on `alphacharp`.
 
 See also: `alphacharp`.
 
+<!-- category: IO -->
+<!-- keywords: sexplode -->
+<!-- signatures: sexplode(string) -->
 ### Function: sexplode (string)
 
 `sexplode` is an alias for function `charlist`.
 
-### Function: simplode (simplode, list, simplode, list, delim)
+<!-- category: IO -->
+<!-- keywords: simplode -->
+<!-- signatures: simplode(list), simplode(list, delim) -->
+### Function: simplode (list)
 
 `simplode` takes a list of expressions and concatenates them into a string.
 If no delimiter *delim* is specified, `simplode` uses no delimiter.
@@ -753,6 +876,9 @@ Examples:
 
 See also: `concat`, `sconcat`, `string`, `printf`.
 
+<!-- category: IO -->
+<!-- keywords: sinsert -->
+<!-- signatures: sinsert(seq, string, pos) -->
 ### Function: sinsert (seq, string, pos)
 
 Returns a string that is a concatenation of `substring(string, 1, pos-1)`,
@@ -772,7 +898,10 @@ Examples:
 (%o3)                  A hollow submarine.
 ```
 
-### Function: sinvertcase (sinvertcase, string, sinvertcase, string, start, sinvertcase, string, start, end)
+<!-- category: IO -->
+<!-- keywords: sinvertcase -->
+<!-- signatures: sinvertcase(string), sinvertcase(string, start), sinvertcase(string, start, end) -->
+### Function: sinvertcase (string)
 
 Returns *string* except that each character from position *start* to *end* is inverted.
 If *end* is not given,
@@ -788,10 +917,16 @@ Examples:
 (%o1)                      SiNVERTcASE
 ```
 
+<!-- category: IO -->
+<!-- keywords: slength -->
+<!-- signatures: slength(string) -->
 ### Function: slength (string)
 
 Returns the number of characters in *string*.
 
+<!-- category: IO -->
+<!-- keywords: smake -->
+<!-- signatures: smake(num, char) -->
 ### Function: smake (num, char)
 
 Returns a new string with a number of *num* characters *char*. 
@@ -806,7 +941,10 @@ Example:
 (%o1)                          www
 ```
 
-### Function: smismatch (smismatch, string_1, string_2, smismatch, string_1, string_2, test)
+<!-- category: IO -->
+<!-- keywords: smismatch -->
+<!-- signatures: smismatch(string_1, string_2), smismatch(string_1, string_2, test) -->
+### Function: smismatch (string_1, string_2)
 
 Returns the position of the first character of *string_1* at which *string_1* and *string_2* differ or `false`.
 Default test function for matching is `sequal`.
@@ -822,11 +960,17 @@ Example:
 (%o1)                           6
 ```
 
+<!-- category: IO -->
+<!-- keywords: space -->
+<!-- signatures: space -->
 ### Variable: space
 
 The space character.
 
-### Function: split (split, string, split, string, delim, split, string, delim, multiple)
+<!-- category: IO -->
+<!-- keywords: split -->
+<!-- signatures: split(string), split(string, delim), split(string, delim, multiple) -->
+### Function: split (string)
 
 Returns the list of all tokens in *string*.
 Each token is an unparsed string.
@@ -849,6 +993,9 @@ Examples:
 (%o2)               [first, , third, fourth]
 ```
 
+<!-- category: IO -->
+<!-- keywords: sposition -->
+<!-- signatures: sposition(char, string) -->
 ### Function: sposition (char, string)
 
 Returns the position of the first character in *string* which matches *char*.
@@ -857,6 +1004,9 @@ For matching characters ignoring case see `ssearch`.
 
 See also: `ssearch`.
 
+<!-- category: IO -->
+<!-- keywords: sprint -->
+<!-- signatures: sprint(expr_1, ..., expr_n) -->
 ### Function: sprint (expr_1, ..., expr_n)
 
 Evaluates and displays its arguments one after the other ‘on a line’ starting at
@@ -881,7 +1031,10 @@ Creating a new line with `newline()`.
 6765 10946 17711
 ```
 
-### Function: sremove (sremove, seq, string, sremove, seq, string, test, sremove, seq, string, test, start, sremove, seq, string, test, start, end)
+<!-- category: IO -->
+<!-- keywords: sremove -->
+<!-- signatures: sremove(seq, string), sremove(seq, string, test), sremove(seq, string, test, start), sremove(seq, string, test, start, end) -->
+### Function: sremove (seq, string)
 
 Returns a string like *string* but without all substrings matching *seq*.
 Default test function for matching is `sequal`.
@@ -901,10 +1054,16 @@ Examples:
 (%o2)                    I like coffee.
 ```
 
-### Function: sremovefirst (sremovefirst, seq, string, sremovefirst, seq, string, test, sremovefirst, seq, string, test, start, sremovefirst, seq, string, test, start, end)
+<!-- category: IO -->
+<!-- keywords: sremovefirst -->
+<!-- signatures: sremovefirst(seq, string), sremovefirst(seq, string, test), sremovefirst(seq, string, test, start), sremovefirst(seq, string, test, start, end) -->
+### Function: sremovefirst (seq, string)
 
 Like `sremove` except that only the first substring that matches *seq* is removed.
 
+<!-- category: IO -->
+<!-- keywords: sreverse -->
+<!-- signatures: sreverse(string) -->
 ### Function: sreverse (string)
 
 Returns a string with all the characters of *string* in reverse order. 
@@ -914,7 +1073,10 @@ See also `reverse`.
 
 See also: `reverse`.
 
-### Function: ssearch (ssearch, seq, string, ssearch, seq, string, test, ssearch, seq, string, test, start, ssearch, seq, string, test, start, end)
+<!-- category: IO -->
+<!-- keywords: ssearch -->
+<!-- signatures: ssearch(seq, string), ssearch(seq, string, test), ssearch(seq, string, test, start), ssearch(seq, string, test, start, end) -->
+### Function: ssearch (seq, string)
 
 Returns the position of the first substring of *string* that matches the string *seq*.
 Default test function for matching is `sequal`.
@@ -932,7 +1094,10 @@ Example:
 (%o1)                                  4
 ```
 
-### Function: ssort (ssort, string, ssort, string, test)
+<!-- category: IO -->
+<!-- keywords: ssort -->
+<!-- signatures: ssort(string), ssort(string, test) -->
+### Function: ssort (string)
 
 Returns a string that contains all characters from *string* in an order such there are no two successive characters *c* and *d* such that `test (c, d)` is `false` and `test (d, c)` is `true`.
 Default test function for sorting is *clessp*.
@@ -950,7 +1115,10 @@ Examples:
 (%o2)                 ytsoonnMlkIiedda.'
 ```
 
-### Function: ssubst (ssubst, new, old, string, ssubst, new, old, string, test, ssubst, new, old, string, test, start, ssubst, new, old, string, test, start, end)
+<!-- category: IO -->
+<!-- keywords: ssubst -->
+<!-- signatures: ssubst(new, old, string), ssubst(new, old, string, test), ssubst(new, old, string, test, start), ssubst(new, old, string, test, start, end) -->
+### Function: ssubst (new, old, string)
 
 Returns a string like *string* except that all substrings matching *old* are replaced by *new*.
 *old* and *new* need not to be of the same length.
@@ -971,10 +1139,16 @@ Examples:
 (%o2)         I like Indian food. I like green tea.
 ```
 
-### Function: ssubstfirst (ssubstfirst, new, old, string, ssubstfirst, new, old, string, test, ssubstfirst, new, old, string, test, start, ssubstfirst, new, old, string, test, start, end)
+<!-- category: IO -->
+<!-- keywords: ssubstfirst -->
+<!-- signatures: ssubstfirst(new, old, string), ssubstfirst(new, old, string, test), ssubstfirst(new, old, string, test, start), ssubstfirst(new, old, string, test, start, end) -->
+### Function: ssubstfirst (new, old, string)
 
 Like `subst` except that only the first substring that matches *old* is replaced.
 
+<!-- category: IO -->
+<!-- keywords: strim -->
+<!-- signatures: strim(seq, string) -->
 ### Function: strim (seq, string)
 
 Returns a string like *string*,
@@ -993,20 +1167,32 @@ Examples:
 (%o3)                           7
 ```
 
+<!-- category: IO -->
+<!-- keywords: striml -->
+<!-- signatures: striml(seq, string) -->
 ### Function: striml (seq, string)
 
 Like `strim` except that only the left end of *string* is trimmed.
 
+<!-- category: IO -->
+<!-- keywords: strimr -->
+<!-- signatures: strimr(seq, string) -->
 ### Function: strimr (seq, string)
 
 Like `strim` except that only the right end of *string* is trimmed.
 
+<!-- category: IO -->
+<!-- keywords: stringp -->
+<!-- signatures: stringp(obj) -->
 ### Function: stringp (obj)
 
 Returns `true` if *obj* is a string.
 See introduction for example.
 
-### Function: substring (substring, string, start, substring, string, start, end)
+<!-- category: IO -->
+<!-- keywords: substring -->
+<!-- signatures: substring(string, start), substring(string, start, end) -->
+### Function: substring (string, start)
 
 Returns the substring of *string* beginning at position *start* and ending at position *end*.
 The character at position *end* is not included.
@@ -1025,7 +1211,10 @@ Examples:
 (%o2)                          in
 ```
 
-### Function: supcase (supcase, string, supcase, string, start, supcase, string, start, end)
+<!-- category: IO -->
+<!-- keywords: supcase -->
+<!-- signatures: supcase(string), supcase(string, start), supcase(string, start, end) -->
+### Function: supcase (string)
 
 Returns *string* except that lowercase characters from position *start* to *end* are replaced by the corresponding uppercase ones.
 If *end* is not given,
@@ -1041,11 +1230,17 @@ Example:
 (%o1)                        English
 ```
 
+<!-- category: IO -->
+<!-- keywords: tab -->
+<!-- signatures: tab -->
 ### Variable: tab
 
 The tab character.
 
-### Function: tokens (tokens, string, tokens, string, test)
+<!-- category: IO -->
+<!-- keywords: tokens -->
+<!-- signatures: tokens(string), tokens(string, test) -->
+### Function: tokens (string)
 
 Returns a list of tokens, which have been extracted from *string*.
 The tokens are substrings whose characters satisfy a certain test function.
@@ -1067,6 +1262,9 @@ Examples:
 (%o3)                      [5, 10, 24]
 ```
 
+<!-- category: IO -->
+<!-- keywords: unicode -->
+<!-- signatures: unicode(arg) -->
 ### Function: unicode (arg)
 
 Returns the character defined by *arg* which might be a Unicode code point 
@@ -1143,6 +1341,9 @@ Example (continued): Characters defined by names
 
 See also: `adjust_external_format`, `octets_to_string`, `unicode_to_utf8`.
 
+<!-- category: IO -->
+<!-- keywords: unicode_to_utf8 -->
+<!-- signatures: unicode_to_utf8(code_point) -->
 ### Function: unicode_to_utf8 (code_point)
 
 Returns a list containing the UTF-8 code corresponding to the Unicode *code_point*.
@@ -1162,6 +1363,9 @@ Examples: Converting Unicode code points to UTF-8 and vice versa.
 (%o4)                           [24, 0A3, 20AC]
 ```
 
+<!-- category: IO -->
+<!-- keywords: uppercasep -->
+<!-- signatures: uppercasep(char) -->
 ### Function: uppercasep (char)
 
 Returns `true` if *char* is an uppercase character. 
@@ -1171,6 +1375,9 @@ Note: See remarks on `alphacharp`.
 
 See also: `alphacharp`.
 
+<!-- category: IO -->
+<!-- keywords: us_ascii_only -->
+<!-- signatures: us_ascii_only -->
 ### Variable: us_ascii_only
 
 This option variable affects Maxima when the character encoding 
@@ -1195,6 +1402,9 @@ Given that promise, Maxima avoids parsing UTF-8 and strings can be processed mor
 
 See also: `adjust_external_format`.
 
+<!-- category: IO -->
+<!-- keywords: utf8_to_unicode -->
+<!-- signatures: utf8_to_unicode(list) -->
 ### Function: utf8_to_unicode (list)
 
 Returns a Unicode code point corresponding to the *list* which must contain 
@@ -1205,6 +1415,9 @@ Examples: See `unicode_005fto_005futf8`.
 
 See also: `unicode_to_utf8`.
 
+<!-- category: IO -->
+<!-- keywords: writebyte -->
+<!-- signatures: writebyte(byte, stream) -->
 ### Function: writebyte (byte, stream)
 
 Writes *byte* to *stream* which must be a binary output stream. 

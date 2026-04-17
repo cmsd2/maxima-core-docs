@@ -1,5 +1,8 @@
 ## Data Types and Structures
 
+<!-- category: NumberTheory -->
+<!-- keywords: bfloat -->
+<!-- signatures: bfloat(expr) -->
 ### Function: bfloat (expr)
 
 `bfloat` replaces integers, rationals, floating point numbers, and some symbolic constants
@@ -76,10 +79,16 @@ in *expr* with bigfloat numbers.
 
 See also: `fpprec`, `float2bf`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: bfloatp -->
+<!-- signatures: bfloatp(expr) -->
 ### Function: bfloatp (expr)
 
 Returns `true` if *expr* is a bigfloat number, otherwise `false`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: bftorat -->
+<!-- signatures: bftorat -->
 ### Variable: bftorat
 
 Default value: `false`
@@ -122,6 +131,9 @@ Example:
 
 See also: `ratepsilon`, `rationalize`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: bftrunc -->
+<!-- signatures: bftrunc -->
 ### Variable: bftrunc
 
 Default value: `true`
@@ -132,6 +144,9 @@ displayed.  Thus, if `bftrunc` is `false`, `bfloat (1)`
 displays as `1.000000000000000B0`.  Otherwise, this is displayed as
 `1.0B0`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: bigfloat_bits -->
+<!-- signatures: bigfloat_bits() -->
 ### Function: bigfloat_bits ()
 
 Returns the number of bits of precision in a bigfloat number.  This
@@ -158,6 +173,9 @@ value depends, of course, on the value of `fpprec`.
 
 See also: `fpprec`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: bigfloat_eps -->
+<!-- signatures: bigfloat_eps() -->
 ### Function: bigfloat_eps ()
 
 Returns the smallest bigfloat value, `eps`, such that
@@ -185,6 +203,9 @@ of course.
 
 See also: `fpprec`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: decode_float -->
+<!-- signatures: decode_float(f) -->
 ### Function: decode_float (f)
 
 `decode_float` takes a float *f* and returns a list of three
@@ -224,6 +245,9 @@ This is a relatively simple interface to Common Lisp
 `[1,2)` instead of `[0.5, 1)`.  The former matches
 IEEE-754.  Of course, this is extended to support bfloats.
 
+<!-- category: NumberTheory -->
+<!-- keywords: evenp -->
+<!-- signatures: evenp(expr) -->
 ### Function: evenp (expr)
 
 Returns `true` if *expr* is a literal even integer, otherwise
@@ -233,6 +257,9 @@ Returns `true` if *expr* is a literal even integer, otherwise
 `evenp` returns `false` if *expr* is a symbol, even if *expr*
 is declared `even`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: float -->
+<!-- signatures: float(expr) -->
 ### Function: float (expr)
 
 Converts integers, rational numbers and bigfloats in *expr* to floating
@@ -242,6 +269,9 @@ point.
 
 See also: `evflag`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: float2bf -->
+<!-- signatures: float2bf -->
 ### Variable: float2bf
 
 Default value: `true`
@@ -253,15 +283,24 @@ a floating point number is replaced by a bigfloat number with less precision.
 
 See also: `float2bf`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: float_bits -->
+<!-- signatures: float_bits() -->
 ### Function: float_bits ()
 
 Returns the number of bits of precision of a floating-point number.
 
+<!-- category: NumberTheory -->
+<!-- keywords: float_eps -->
+<!-- signatures: float_eps() -->
 ### Function: float_eps ()
 
 Returns the smallest floating-point value, `eps`, such that
 `1+eps` is not equal to 1.
 
+<!-- category: NumberTheory -->
+<!-- keywords: float_infinity_p -->
+<!-- signatures: float_infinity_p(x) -->
 ### Function: float_infinity_p (x)
 
 Returns `true` if *x* is floating point positive infinity or floating point negative infinity,
@@ -283,6 +322,9 @@ A Lisp implementation may support more than one precision of floating point numb
 `float_infinity_p` only recognizes double precision floating point infinity,
 and not any other precision.
 
+<!-- category: NumberTheory -->
+<!-- keywords: float_nan_p -->
+<!-- signatures: float_nan_p(x) -->
 ### Function: float_nan_p (x)
 
 Returns `true` if *x* is a floating point not-a-number (NaN) value,
@@ -300,6 +342,9 @@ A Lisp implementation may support more than one precision of floating point numb
 `float_nan_p` only recognizes double precision floating point not-a-number,
 and not any other precision.
 
+<!-- category: NumberTheory -->
+<!-- keywords: float_precision -->
+<!-- signatures: float_precision(f) -->
 ### Function: float_precision (f)
 
 Returns the number of bits of precision of a floating-point number,
@@ -311,6 +356,9 @@ denormal numbers occur.  For bigfloats, this is equal to
 
 See also: `fpprec`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: float_sign -->
+<!-- signatures: float_sign(f) -->
 ### Function: float_sign (f)
 
 Returns the sign of *f*.  It is $+1$ or $-1$ of the same
@@ -339,11 +387,17 @@ float_sign is only defined for floats and bfloats: %pi
  -- an error. To debug this try: debugmode(true);
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: floatnump -->
+<!-- signatures: floatnump(expr) -->
 ### Function: floatnump (expr)
 
 Returns `true` if *expr* is a floating point number, otherwise
 `false`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: fpprec -->
+<!-- signatures: fpprec -->
 ### Variable: fpprec
 
 Default value: 16
@@ -358,6 +412,9 @@ See also `bfloat` and `fpprintprec`.
 
 See also: `bfloat`, `fpprintprec`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: fpprintprec -->
+<!-- signatures: fpprintprec -->
 ### Variable: fpprintprec
 
 Default value: 0
@@ -390,6 +447,9 @@ if there are trailing zero digits.
 
 `fpprintprec` cannot be 1.
 
+<!-- category: NumberTheory -->
+<!-- keywords: integer_decode_float -->
+<!-- signatures: integer_decode_float(f) -->
 ### Function: integer_decode_float (f)
 
 `integer_decode_float` takes a float *f* and returns a list of three
@@ -450,6 +510,9 @@ This is a relatively simple interface to Common Lisp
 on the Lisp implementation; we return the same value, independent of
 the Lisp implementation.  Of course, this is extended to support bfloats.
 
+<!-- category: NumberTheory -->
+<!-- keywords: integerp -->
+<!-- signatures: integerp(expr) -->
 ### Function: integerp (expr)
 
 Returns `true` if *expr* is a literal numeric integer, otherwise
@@ -496,6 +559,9 @@ Examples:
 (%o9)                         false
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: is_power_of_two -->
+<!-- signatures: is_power_of_two(n) -->
 ### Function: is_power_of_two (n)
 
 `is_power_to_two` returns `true` if *n* is a power of
@@ -537,6 +603,9 @@ Some examples:
 (%o14)                               true
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: m1pbranch -->
+<!-- signatures: m1pbranch -->
 ### Variable: m1pbranch
 
 Default value: `false`
@@ -561,10 +630,16 @@ m1pbranch:false          m1pbranch:true
 (-1)^(1/4)              sqrt(2)/2+%i*sqrt(2)/2
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: nonnegintegerp -->
+<!-- signatures: nonnegintegerp(n) -->
 ### Function: nonnegintegerp (n)
 
 Return `true` if and only if `n >= 0` and *n* is an integer.
 
+<!-- category: NumberTheory -->
+<!-- keywords: numberp -->
+<!-- signatures: numberp(expr) -->
 ### Function: numberp (expr)
 
 Returns `true` if *expr* is a literal integer, rational number, 
@@ -609,6 +684,9 @@ Examples:
 (%o7) [false, false, false, false, false, false, false, false]
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: numer -->
+<!-- signatures: numer -->
 ### Variable: numer
 
 `numer` causes some mathematical functions (including exponentiation)
@@ -641,6 +719,9 @@ Examples:
 
 See also: `float`, `%enumer`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: numer_pbranch -->
+<!-- signatures: numer_pbranch -->
 ### Variable: numer_pbranch
 
 Default value: `false`
@@ -691,6 +772,9 @@ Examples:
 
 See also: `numer`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: numerval -->
+<!-- signatures: numerval(x_1, expr_1, ..., var_n, expr_n) -->
 ### Function: numerval (x_1, expr_1, ..., var_n, expr_n)
 
 Declares the variables `x_1`, ..., *x_n* to have
@@ -705,6 +789,9 @@ not necessarily numeric.
 
 See also: `ev`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: oddp -->
+<!-- signatures: oddp(expr) -->
 ### Function: oddp (expr)
 
 Returns `true` if *expr* is a literal odd integer, otherwise
@@ -714,6 +801,9 @@ Returns `true` if *expr* is a literal odd integer, otherwise
 `oddp` returns `false` if *expr* is a symbol, even if *expr*
 is declared `odd`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: ratepsilon -->
+<!-- signatures: ratepsilon -->
 ### Variable: ratepsilon
 
 Default value: `2.0e-15`
@@ -725,6 +815,9 @@ of floating point numbers to rational numbers, when the option variable
 
 See also: `bftorat`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: rationalize -->
+<!-- signatures: rationalize(expr) -->
 ### Function: rationalize (expr)
 
 Convert all double floats and big floats in the Maxima expression *expr* to
@@ -778,11 +871,17 @@ representation.
                36028797018963968    562949953421312
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: ratnump -->
+<!-- signatures: ratnump(expr) -->
 ### Function: ratnump (expr)
 
 Returns `true` if *expr* is a literal integer or ratio of literal
 integers, otherwise `false`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: scale_float -->
+<!-- signatures: scale_float(f, n) -->
 ### Function: scale_float (f, n)
 
 `scale_float` scales the float *f* by the value
@@ -820,6 +919,9 @@ scale_float: second arg must be an integer: n
 This is a relatively simple interface to Common Lisp
 [http://www.lispworks.com/documentation/HyperSpec/Body/f_dec_fl.htmscale_float]().  Of course, this is extended to support bfloats.
 
+<!-- category: NumberTheory -->
+<!-- keywords: unit_in_last_place -->
+<!-- signatures: unit_in_last_place(n) -->
 ### Function: unit_in_last_place (n)
 
 `unit_in_last_place` returns a value that is the gap between

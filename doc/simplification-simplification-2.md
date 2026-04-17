@@ -1,5 +1,8 @@
 ## simplification
 
+<!-- category: Simplification -->
+<!-- keywords: agd -->
+<!-- signatures: agd(x) -->
 ### Function: agd (x)
 
 Returns the inverse Gudermannian function
@@ -8,6 +11,9 @@ Returns the inverse Gudermannian function
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: arithmetic -->
+<!-- signatures: arithmetic(a, d, n) -->
 ### Function: arithmetic (a, d, n)
 
 Returns the *n*-th term of the arithmetic series
@@ -16,6 +22,9 @@ Returns the *n*-th term of the arithmetic series
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: arithsum -->
+<!-- signatures: arithsum(a, d, n) -->
 ### Function: arithsum (a, d, n)
 
 Returns the sum of the arithmetic series from 1 to *n*.
@@ -23,6 +32,9 @@ Returns the sum of the arithmetic series from 1 to *n*.
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: collectterms -->
+<!-- signatures: collectterms(expr, arg_1, ..., arg_n) -->
 ### Function: collectterms (expr, arg_1, ..., arg_n)
 
 Collects all terms that contain *arg_1* ... *arg_n*.
@@ -63,6 +75,9 @@ Example:
 
 See also: `factor`.
 
+<!-- category: Simplification -->
+<!-- keywords: combination -->
+<!-- signatures: combination(n, r) -->
 ### Function: combination (n, r)
 
 Returns the number of combinations of *n* objects
@@ -71,6 +86,9 @@ taken *r* at a time.
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: covers -->
+<!-- signatures: covers(x) -->
 ### Function: covers (x)
 
 Returns the coversed sine `1 - sin (x)`.
@@ -78,6 +96,9 @@ Returns the coversed sine `1 - sin (x)`.
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: exsec -->
+<!-- signatures: exsec(x) -->
 ### Function: exsec (x)
 
 Returns the exsecant `sec (x) - 1`.
@@ -85,6 +106,9 @@ Returns the exsecant `sec (x) - 1`.
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: facsum -->
+<!-- signatures: facsum(expr, arg_1, ..., arg_n) -->
 ### Function: facsum (expr, arg_1, ..., arg_n)
 
 Returns  a form  of *expr*  which depends  on the
@@ -128,6 +152,9 @@ The `operator` form may also appear inside list arguments.
 In  addition,  the  setting  of  the  switches   `facsum_combine`  and
 `nextlayerfactor` may affect the result of `facsum`.
 
+<!-- category: Simplification -->
+<!-- keywords: facsum_combine -->
+<!-- signatures: facsum_combine -->
 ### Variable: facsum_combine
 
 Default value: `true`
@@ -146,13 +173,19 @@ wants to  `facsum` both  the numerator and  denominator of  a rational
 expression,  but  does not  want  the denominator  to  be multiplied
 through the terms of the numerator.
 
-### Function: factorfacsum (expr, arg_1, ..., arg_n)
+<!-- category: Simplification -->
+<!-- keywords: factorfacsum -->
+<!-- signatures: factorfacsum(expr, arg_1, ...arg_n) -->
+### Function: factorfacsum (expr, arg_1, ...arg_n)
 
 Returns a  form of *expr*  which is
 obtained by calling  `facsum` on the factors  of *expr* with *arg_1*, ... *arg_n* as
 arguments.  If any of the factors of *expr* is raised to a  power, both
 the factor and the exponent will be processed in this way.
 
+<!-- category: Simplification -->
+<!-- keywords: gaussprob -->
+<!-- signatures: gaussprob(x) -->
 ### Function: gaussprob (x)
 
 Returns the Gaussian probability function
@@ -161,6 +194,9 @@ Returns the Gaussian probability function
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: gcdivide -->
+<!-- signatures: gcdivide(p, q) -->
 ### Function: gcdivide (p, q)
 
 When the option variable `takegcd` is `true` which is the default,
@@ -215,6 +251,9 @@ Example:
 
 See also: `ezgcd`, `gcd`, `gcdex`, `poly_gcd`.
 
+<!-- category: Simplification -->
+<!-- keywords: gcfac -->
+<!-- signatures: gcfac(expr) -->
 ### Function: gcfac (expr)
 
 `gcfac` is a factoring function that attempts to apply the same heuristics which
@@ -240,6 +279,9 @@ compact pair-factored result.
 `load ("scifac")` loads this function.
 `demo ("scifac")` shows a demonstration of this function.
 
+<!-- category: Simplification -->
+<!-- keywords: gd -->
+<!-- signatures: gd(x) -->
 ### Function: gd (x)
 
 Returns the Gudermannian function
@@ -248,6 +290,9 @@ Returns the Gudermannian function
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: geometric -->
+<!-- signatures: geometric(a, r, n) -->
 ### Function: geometric (a, r, n)
 
 Returns the *n*-th term of the geometric series
@@ -256,6 +301,9 @@ Returns the *n*-th term of the geometric series
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: geosum -->
+<!-- signatures: geosum(a, r, n) -->
 ### Function: geosum (a, r, n)
 
 Returns the sum of the geometric series from 1 to *n*.  If *n* is
@@ -265,6 +313,9 @@ of *r* is less than 1.
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: harmonic -->
+<!-- signatures: harmonic(a, b, c, n) -->
 ### Function: harmonic (a, b, c, n)
 
 Returns the *n*-th term of the harmonic series
@@ -273,6 +324,9 @@ Returns the *n*-th term of the harmonic series
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: hav -->
+<!-- signatures: hav(x) -->
 ### Function: hav (x)
 
 Returns the haversine `(1 - cos(x))/2`.
@@ -280,6 +334,9 @@ Returns the haversine `(1 - cos(x))/2`.
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: nextlayerfactor -->
+<!-- signatures: nextlayerfactor -->
 ### Variable: nextlayerfactor
 
 Default value: `false`
@@ -300,6 +357,9 @@ Inclusion   of   the  atom
 Since `nextlayerfactor` is  always bound to  either `true` or  `false`, it
 must be presented single-quoted whenever it appears in the argument list of `facsum`.
 
+<!-- category: Simplification -->
+<!-- keywords: nonzeroandfreeof -->
+<!-- signatures: nonzeroandfreeof(x, expr) -->
 ### Function: nonzeroandfreeof (x, expr)
 
 Returns `true` if *expr* is nonzero and `freeof (x, expr)` returns `true`.
@@ -308,6 +368,9 @@ Returns `false` otherwise.
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: permutation -->
+<!-- signatures: permutation(n, r) -->
 ### Function: permutation (n, r)
 
 Returns the number of permutations of *r* objects
@@ -316,6 +379,9 @@ selected from a set of *n* objects.
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: reduce_consts -->
+<!-- signatures: reduce_consts(expr) -->
 ### Function: reduce_consts (expr)
 
 Replaces constant subexpressions of *expr* with
@@ -361,6 +427,9 @@ symbols to represent each constant subexpression found by `reduce_consts`.
 `load ("rducon")` loads this function.
 `demo ("rducon")` shows a demonstration of this function.
 
+<!-- category: Simplification -->
+<!-- keywords: rempart -->
+<!-- signatures: rempart(expr, n) -->
 ### Function: rempart (expr, n)
 
 Removes part *n* from the expression *expr*.
@@ -372,6 +441,9 @@ then parts *l* thru *m* are removed.
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: tracematrix -->
+<!-- signatures: tracematrix(M) -->
 ### Function: tracematrix (M)
 
 Returns the trace (sum of the diagonal elements) of matrix *M*.
@@ -379,6 +451,9 @@ Returns the trace (sum of the diagonal elements) of matrix *M*.
 
 To use this function write first `load("functs")`.
 
+<!-- category: Simplification -->
+<!-- keywords: vers -->
+<!-- signatures: vers(x) -->
 ### Function: vers (x)
 
 Returns the versed sine `1 - cos (x)`.
@@ -386,7 +461,10 @@ Returns the versed sine `1 - cos (x)`.
 
 To use this function write first `load("functs")`.
 
-### Function: wronskian (f_1, ..., f_n, x)
+<!-- category: Simplification -->
+<!-- keywords: wronskian -->
+<!-- signatures: wronskian([f_1, ..., f_n], x) -->
+### Function: wronskian ([f_1, ..., f_n], x)
 
 Returns the Wronskian matrix of the list of expressions [*f_1*, ..., *f_n*] in the variable *x*.
 The determinant of the Wronskian matrix is the Wronskian determinant of the list of expressions.

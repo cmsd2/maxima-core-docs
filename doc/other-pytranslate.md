@@ -1,6 +1,9 @@
 ## pytranslate
 
-### Function: pytranslate (expr, print-ir)
+<!-- category: Other -->
+<!-- keywords: pytranslate -->
+<!-- signatures: pytranslate(expr, [print-ir]) -->
+### Function: pytranslate (expr, [print-ir])
 
 Translates the expression *expr* to equivalent python3 statements. Output is printed in the stdout.
 
@@ -83,6 +86,9 @@ m["plot3d"](lambda x, y, v = Stack({}, v): (m["pow"](x, 2) + m["\
 pow"](y, (-1))), ["x", 1, 10], ["y", 1, 10])
 ```
 
+<!-- category: Other -->
+<!-- keywords: show_form -->
+<!-- signatures: show_form(expr) -->
 ### Function: show_form (expr)
 
 Displays the internal maxima form of `expr`

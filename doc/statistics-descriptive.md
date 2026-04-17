@@ -1,6 +1,9 @@
 ## descriptive
 
-### Function: build_sample (build_sample, list, build_sample, matrix)
+<!-- category: Statistics -->
+<!-- keywords: build_sample -->
+<!-- signatures: build_sample(list), build_sample(matrix) -->
+### Function: build_sample (list)
 
 Builds a sample from a table of absolute frequencies.
 The input table can be a matrix or a list of lists, all of
@@ -85,7 +88,10 @@ Multivariate frequency table.
 (%i4) barsplot(sam2, grouping=stacked) $
 ```
 
-### Function: cdf_empirical (cdf_empirical, list, option, ..., cdf_empirical, matrix, option, ...)
+<!-- category: Statistics -->
+<!-- keywords: cdf_empirical -->
+<!-- signatures: cdf_empirical(list, option...), cdf_empirical(matrix, option...) -->
+### Function: cdf_empirical (list, option...)
 
 Empirical distribution function $F(x)$.
 
@@ -136,7 +142,10 @@ Empirical distribution function.
    explicit(F(z), z, -2, 12)) $
 ```
 
-### Function: central_moment (central_moment, x, k, central_moment, x, k, w)
+<!-- category: Statistics -->
+<!-- keywords: central_moment -->
+<!-- signatures: central_moment(x, k), central_moment(x, k, w) -->
+### Function: central_moment (x, k)
 
 Returns the central moment of order *k*.
 *x* must be a list or matrix.
@@ -267,7 +276,10 @@ See also functions `central_moment` and `mean`.
 
 See also: `central_moment`, `mean`.
 
-### Function: continuous_freq (continuous_freq, data, continuous_freq, data, m)
+<!-- category: Statistics -->
+<!-- keywords: continuous_freq -->
+<!-- signatures: continuous_freq(data), continuous_freq(data, m) -->
+### Function: continuous_freq (data)
 
 Divides the range of *data* into intervals,
 and counts how many values fall into each one.
@@ -405,7 +417,10 @@ The first argument may be an array.
                              [8, 8, 12, 12, 10, 8, 9, 8, 12, 13]]
 ```
 
-### Function: cor (cor, matrix, cor, matrix, logical_value)
+<!-- category: Statistics -->
+<!-- keywords: cor -->
+<!-- signatures: cor(matrix), cor(matrix, logical_value) -->
+### Function: cor (matrix)
 
 The correlation matrix of the multivariate sample.
 
@@ -482,7 +497,10 @@ See also `cov` and `cov1`.
 
 See also: `cov`, `cov1`.
 
-### Function: cov (cov, X, cov, X, w)
+<!-- category: Statistics -->
+<!-- keywords: cov -->
+<!-- signatures: cov(X), cov(X, w) -->
+### Function: cov (X)
 
 Returns the sample covariance matrix.
 *X* must be a matrix.
@@ -591,6 +609,9 @@ See also function `cov1`.
 
 See also: `cov1`.
 
+<!-- category: Statistics -->
+<!-- keywords: cov1 -->
+<!-- signatures: cov1(matrix) -->
 ### Function: cov1 (matrix)
 
 The covariance matrix of the multivariate sample, defined as
@@ -644,7 +665,10 @@ See also function `cov`.
 
 See also: `cov`.
 
-### Function: cv (cv, list, cv, matrix)
+<!-- category: Statistics -->
+<!-- keywords: cv -->
+<!-- signatures: cv(list), cv(matrix) -->
+### Function: cv (list)
 
 Returns the variation coefficient,
 defined as the sample standard deviation `std` divided by the `mean`.
@@ -680,6 +704,9 @@ See also functions `std` and `mean`.
 
 See also: `std`, `mean`.
 
+<!-- category: Statistics -->
+<!-- keywords: discrete_freq -->
+<!-- signatures: discrete_freq(data) -->
 ### Function: discrete_freq (data)
 
 Counts absolute frequencies in discrete samples, both numeric and categorical. Its sole argument is a list,
@@ -740,7 +767,10 @@ The argument may be an array.
                              [8, 8, 12, 12, 10, 8, 9, 8, 12, 13]]
 ```
 
-### Function: geometric_mean (geometric_mean, list, geometric_mean, matrix)
+<!-- category: Statistics -->
+<!-- keywords: geometric_mean -->
+<!-- signatures: geometric_mean(list), geometric_mean(matrix) -->
+### Function: geometric_mean (list)
 
 The geometric mean, defined as
 
@@ -789,7 +819,10 @@ See also functions `mean` and `harmonic_005fmean`.
 
 See also: `mean`, `harmonic_mean`.
 
-### Function: global_variances (global_variances, matrix, global_variances, matrix, options, ...)
+<!-- category: Statistics -->
+<!-- keywords: global_variances -->
+<!-- signatures: global_variances(matrix), global_variances(matrix, options...) -->
+### Function: global_variances (matrix)
 
 Function `global_variances` returns a list of global variance measures:
 
@@ -868,7 +901,10 @@ See also `cov` and `cov1`.
 
 See also: `cov`, `cov1`.
 
-### Function: harmonic_mean (harmonic_mean, list, harmonic_mean, matrix)
+<!-- category: Statistics -->
+<!-- keywords: harmonic_mean -->
+<!-- signatures: harmonic_mean(list), harmonic_mean(matrix) -->
+### Function: harmonic_mean (list)
 
 The harmonic mean, defined as
 
@@ -919,7 +955,10 @@ See also functions `mean` and `geometric_005fmean`.
 
 See also: `mean`, `geometric_mean`.
 
-### Function: km (km, list, option, ..., km, matrix, option, ...)
+<!-- category: Statistics -->
+<!-- keywords: km -->
+<!-- signatures: km(list, option...), km(matrix, option...) -->
+### Function: km (list, option...)
 
 Kaplan Meier estimator of the survival, or reliability, function $S(x)=1-F(x)$.
 
@@ -987,7 +1026,10 @@ Estimate survival probabilities.
                                 2
 ```
 
-### Function: kurtosis (kurtosis, list, kurtosis, matrix)
+<!-- category: Statistics -->
+<!-- keywords: kurtosis -->
+<!-- signatures: kurtosis(list), kurtosis(matrix) -->
+### Function: kurtosis (list)
 
 The kurtosis coefficient, defined as
 
@@ -1037,7 +1079,10 @@ See also functions `mean`, `var` and `skewness`.
 
 See also: `mean`, `var`, `skewness`.
 
-### Function: list_correlations (list_correlations, matrix, list_correlations, matrix, options, ...)
+<!-- category: Statistics -->
+<!-- keywords: list_correlations -->
+<!-- signatures: list_correlations(matrix), list_correlations(matrix, options...) -->
+### Function: list_correlations (matrix)
 
 Function `list_correlations` returns a list of correlation measures:
 
@@ -1144,7 +1189,10 @@ See also `cov` and `cov1`.
 
 See also: `cov`, `cov1`.
 
-### Function: mean (mean, x, mean, x, w)
+<!-- category: Statistics -->
+<!-- keywords: mean -->
+<!-- signatures: mean(x), mean(x, w) -->
+### Function: mean (x)
 
 Returns the sample mean.
 *x* must be a list or matrix.
@@ -1308,7 +1356,10 @@ Weighted sample mean of each column of a matrix.
                 ww + vv      ww + vv      ww + vv
 ```
 
-### Function: mean_deviation (mean_deviation, list, mean_deviation, matrix)
+<!-- category: Statistics -->
+<!-- keywords: mean_deviation -->
+<!-- signatures: mean_deviation(list), mean_deviation(matrix) -->
+### Function: mean_deviation (list)
 
 The mean deviation, defined as
 
@@ -1359,7 +1410,10 @@ See also function `mean`.
 
 See also: `mean`.
 
-### Function: median (median, list, median, matrix)
+<!-- category: Statistics -->
+<!-- keywords: median -->
+<!-- signatures: median(list), median(matrix) -->
+### Function: median (list)
 
 Once the sample is ordered, if the sample size is odd the median is the central value, otherwise it is the mean of the two central values.
 
@@ -1398,7 +1452,10 @@ See also function `quantile`.
 
 See also: `quantile`.
 
-### Function: median_deviation (median_deviation, list, median_deviation, matrix)
+<!-- category: Statistics -->
+<!-- keywords: median_deviation -->
+<!-- signatures: median_deviation(list), median_deviation(matrix) -->
+### Function: median_deviation (list)
 
 The median deviation, defined as
 
@@ -1450,7 +1507,10 @@ See also function `mean`.
 
 See also: `mean`.
 
-### Function: noncentral_moment (noncentral_moment, x, k, noncentral_moment, x, k, w)
+<!-- category: Statistics -->
+<!-- keywords: noncentral_moment -->
+<!-- signatures: noncentral_moment(x, k), noncentral_moment(x, k, w) -->
+### Function: noncentral_moment (x, k)
 
 Returns the noncentral moment of order *k*.
 *x* must be a list or matrix.
@@ -1576,7 +1636,10 @@ See also function `central_005fmoment`.
 
 See also: `central_moment`.
 
-### Function: pearson_skewness (pearson_skewness, list, pearson_skewness, matrix)
+<!-- category: Statistics -->
+<!-- keywords: pearson_skewness -->
+<!-- signatures: pearson_skewness(list), pearson_skewness(matrix) -->
+### Function: pearson_skewness (list)
 
 Pearson’s skewness coefficient, defined as 
 
@@ -1624,7 +1687,10 @@ See also functions `mean`, `var` and `median`.
 
 See also: `mean`, `var`, `median`.
 
-### Function: principal_components (principal_components, matrix, principal_components, matrix, options, ...)
+<!-- category: Statistics -->
+<!-- keywords: principal_components -->
+<!-- signatures: principal_components(matrix), principal_components(matrix, options...) -->
+### Function: principal_components (matrix)
 
 Calculates the principal components of a multivariate sample. Principal components are
 used in multivariate statistical analysis to reduce the dimensionality of the sample.
@@ -1734,7 +1800,10 @@ but option `data=false` must be used.
 
 See also: `cov1`.
 
-### Function: qrange (qrange, x)
+<!-- category: Statistics -->
+<!-- keywords: qrange -->
+<!-- signatures: qrange(x) -->
+### Function: qrange (x)
 
 Returns the interquartile range,
 defined as the difference between the third and first quartiles:
@@ -1778,7 +1847,10 @@ See also function `quantile`.
 
 See also: `quantile`.
 
-### Function: quantile (quantile, list, p, quantile, matrix, p)
+<!-- category: Statistics -->
+<!-- keywords: quantile -->
+<!-- signatures: quantile(list, p), quantile(matrix, p) -->
+### Function: quantile (list, p)
 
 This is the *p*-quantile, with *p* a number in $[0, 1]$, of the sample *list*.
 Although there are several definitions for the sample quantile (Hyndman, R. J., Fan, Y. (1996) *Sample quantiles in statistical packages*. American Statistician, 50, 361-365), the one based on linear interpolation is implemented in package `Package-descriptive`
@@ -1824,7 +1896,10 @@ Input is a matrix. First quartile is computed for each column.
 
 See also: `Package-descriptive`.
 
-### Function: quartile_skewness (quartile_skewness, list, quartile_skewness, matrix)
+<!-- category: Statistics -->
+<!-- keywords: quartile_skewness -->
+<!-- signatures: quartile_skewness(list), quartile_skewness(matrix) -->
+### Function: quartile_skewness (list)
 
 The quartile skewness coefficient, defined as 
 
@@ -1874,7 +1949,10 @@ See also function `quantile`.
 
 See also: `quantile`.
 
-### Function: range (range, list, range, matrix)
+<!-- category: Statistics -->
+<!-- keywords: range -->
+<!-- signatures: range(list), range(matrix) -->
+### Function: range (list)
 
 The range is the difference between the extreme values.
 
@@ -1903,7 +1981,10 @@ Example:
 (%o5)   [19.67, 20.96, 17.369999999999997, 24.38, 22.46]
 ```
 
-### Function: skewness (skewness, list, skewness, matrix)
+<!-- category: Statistics -->
+<!-- keywords: skewness -->
+<!-- signatures: skewness(list), skewness(matrix) -->
+### Function: skewness (list)
 
 The skewness coefficient, defined as
 
@@ -1952,7 +2033,10 @@ See also functions `mean`,, `var` and `kurtosis`.
 
 See also: `mean`, `var`, `kurtosis`.
 
-### Function: smax (smax, list, smax, matrix)
+<!-- category: Statistics -->
+<!-- keywords: smax -->
+<!-- signatures: smax(list), smax(matrix) -->
+### Function: smax (list)
 
 This is the maximum value of the sample *list*.
 When the argument is a matrix, `smax` returns
@@ -1989,7 +2073,10 @@ See also function `smin`.
 
 See also: `smax`, `smin`.
 
-### Function: smin (smin, list, smin, matrix)
+<!-- category: Statistics -->
+<!-- keywords: smin -->
+<!-- signatures: smin(list), smin(matrix) -->
+### Function: smin (list)
 
 This is the minimum value of the sample *list*.
 When the argument is a matrix, `smin` returns
@@ -2026,14 +2113,20 @@ See also function `smax`.
 
 See also: `smin`, `smax`.
 
-### Function: standardize (standardize, list, standardize, matrix)
+<!-- category: Statistics -->
+<!-- keywords: standardize -->
+<!-- signatures: standardize(list), standardize(matrix) -->
+### Function: standardize (list)
 
 Subtracts to each element of the list the sample mean and divides
 the result by the standard deviation. When the input is a matrix,
 `standardize` subtracts to each row the multivariate mean, and then
 divides each component by the corresponding standard deviation.
 
-### Function: std (std, x, std, x, w)
+<!-- category: Statistics -->
+<!-- keywords: std -->
+<!-- signatures: std(x), std(x, w) -->
+### Function: std (x)
 
 Returns the sample standard deviation.
 *x* must be a list or matrix.
@@ -2101,7 +2194,10 @@ See also functions `var` and `std1`.
 
 See also: `var`, `std1`.
 
-### Function: std1 (std1, list, std1, matrix)
+<!-- category: Statistics -->
+<!-- keywords: std1 -->
+<!-- signatures: std1(list), std1(matrix) -->
+### Function: std1 (list)
 
 This is the square root of the function `var1`, the variance with denominator $n-1$.
 
@@ -2136,7 +2232,10 @@ See also functions `var1` and `std`.
 
 See also: `var1`, `std`.
 
-### Function: subsample (subsample, data_matrix, predicate_function, subsample, data_matrix, predicate_function, col_num1, col_num2, ...)
+<!-- category: Statistics -->
+<!-- keywords: subsample -->
+<!-- signatures: subsample(data_matrix, predicate_function), subsample(data_matrix, predicate_function, col_num1, col_num2, ...) -->
+### Function: subsample (data_matrix, predicate_function)
 
 This is a sort of variant of the Maxima `submatrix` function.
 The first argument is the data matrix, the second is a predicate function
@@ -2318,6 +2417,9 @@ Here, the first component is meaningless, since `A` and `B` are categorical, the
                                                              13
 ```
 
+<!-- category: Statistics -->
+<!-- keywords: transform_sample -->
+<!-- signatures: transform_sample(matrix, varlist, exprlist) -->
 ### Function: transform_sample (matrix, varlist, exprlist)
 
 Transforms the sample *matrix*, where each column is called according to
@@ -2365,7 +2467,10 @@ Add a constant column and remove the third variable.
                                   [ 1  5  2 ]
 ```
 
-### Function: var (var, x, var, x, w)
+<!-- category: Statistics -->
+<!-- keywords: var -->
+<!-- signatures: var(x), var(x, w) -->
+### Function: var (x)
 
 Returns the sample variance.
 *x* must be a list or matrix.
@@ -2532,7 +2637,10 @@ See also function `var1`.
 
 See also: `var1`.
 
-### Function: var1 (var1, list, var1, matrix)
+<!-- category: Statistics -->
+<!-- keywords: var1 -->
+<!-- signatures: var1(list), var1(matrix) -->
+### Function: var1 (list)
 
 This is the sample variance, defined as
 

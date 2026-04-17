@@ -1,5 +1,8 @@
 ## Plotting
 
+<!-- category: Plotting -->
+<!-- keywords: adapt_depth -->
+<!-- signatures: adapt_depth[adapt_depth, integer] -->
 ### Variable: adapt_depth
 
 Default value: `5`
@@ -15,6 +18,9 @@ of `plot2d`.
 
 See also: `plot2d`, `nticks`.
 
+<!-- category: Plotting -->
+<!-- keywords: axes -->
+<!-- signatures: axes[axes, symbol], axes, noaxes -->
 ### Variable: axes
 
 Default value: `true`
@@ -29,6 +35,9 @@ line. This option does not have any effect in the 3 dimensional plots.
 The single keywords `axes` and `noaxes` can be used as
 synonyms for `[axes, true]` and `[axes, false]`.
 
+<!-- category: Plotting -->
+<!-- keywords: azimuth -->
+<!-- signatures: azimuth[azimuth, number] -->
 ### Variable: azimuth
 
 Default value: `30`
@@ -46,6 +55,9 @@ See also `elevation`.
 
 See also: `elevation`, `azimuth`.
 
+<!-- category: Plotting -->
+<!-- keywords: color -->
+<!-- signatures: color[color, color_1, ..., color_n] -->
 ### Variable: color
 
 In 2d plots it defines the color (or colors) for the various curves.  In
@@ -64,6 +76,9 @@ will be used instead.
 
 See also: `plot3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: color_bar -->
+<!-- signatures: color_bar[color_bar, symbol], color_bar, nocolor_bar -->
 ### Variable: color_bar
 
 Default value: `false` in plot3d, `true` in mandelbrot and julia
@@ -78,6 +93,9 @@ as synonyms for `[color_bar, true]` and `[color_bar, false]`.
 
 See also: `plot3d`, `mandelbrot`, `julia`.
 
+<!-- category: Plotting -->
+<!-- keywords: color_bar_tics -->
+<!-- signatures: color_bar_tics[color_bar_tics, x1, x2, x3], color_bar_tics, nocolor_bar_tics -->
 ### Variable: color_bar_tics
 
 Defines the values at which a mark and a number will be placed in the
@@ -90,6 +108,9 @@ value given previously, making the graphic program use its default for
 the values of the tics and `nocolor_bar_tics` will not show any
 tics on the color bar.
 
+<!-- category: Plotting -->
+<!-- keywords: elevation -->
+<!-- signatures: elevation[elevation, number] -->
 ### Variable: elevation
 
 Default value: `60`
@@ -107,6 +128,9 @@ See also `azimuth`.
 
 See also: `elevation`, `azimuth`.
 
+<!-- category: Plotting -->
+<!-- keywords: geomview -->
+<!-- signatures: geomview -->
 ### Variable: geomview
 
 This is an abbreviation for `[plot_format, geomview]`. See
@@ -114,6 +138,9 @@ This is an abbreviation for `[plot_format, geomview]`. See
 
 See also: `plot_format`.
 
+<!-- category: Plotting -->
+<!-- keywords: geomview_command -->
+<!-- signatures: geomview_command -->
 ### Variable: geomview_command
 
 This variable stores the name of the command used to run the geomview
@@ -140,6 +167,9 @@ See also `gnuplot_command` and `xmaxima_005fplot_005fcommand`.
 
 See also: `gnuplot_command`, `xmaxima_plot_command`.
 
+<!-- category: Plotting -->
+<!-- keywords: get_plot_option -->
+<!-- signatures: get_plot_option(keyword, index) -->
 ### Function: get_plot_option (keyword, index)
 
 Returns the current default value of the option named *keyword*,
@@ -153,6 +183,9 @@ section on `Plotting-Options`.
 
 See also: `set_plot_option`, `remove_plot_option`, `Plotting-Options`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot -->
+<!-- signatures: gnuplot -->
 ### Variable: gnuplot
 
 This is an abbreviation for `[plot_format, gnuplot]`. See
@@ -160,10 +193,16 @@ This is an abbreviation for `[plot_format, gnuplot]`. See
 
 See also: `plot_format`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_close -->
+<!-- signatures: gnuplot_close() -->
 ### Function: gnuplot_close ()
 
 Closes the pipe to gnuplot which is used with the `gnuplot_pipes` format.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_command -->
+<!-- signatures: gnuplot_command -->
 ### Variable: gnuplot_command
 
 This variable stores the name of the command used to run the gnuplot
@@ -191,12 +230,18 @@ See also `geomview_command` and `xmaxima_005fplot_005fcommand`.
 
 See also: `geomview_command`, `xmaxima_plot_command`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_curve_styles -->
+<!-- signatures: gnuplot_curve_styles -->
 ### Variable: gnuplot_curve_styles
 
 This is an obsolete option that has been replaced by `style`.
 
 See also: `style`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_curve_titles -->
+<!-- signatures: gnuplot_curve_titles -->
 ### Variable: gnuplot_curve_titles
 
 This is an obsolete option that has been replaced by `legend` described
@@ -204,6 +249,9 @@ above.
 
 See also: `legend`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_default_term_command -->
+<!-- signatures: gnuplot_default_term_command -->
 ### Variable: gnuplot_default_term_command
 
 [gnuplot_default_term_command, *command*]
@@ -212,6 +260,9 @@ See also: `legend`.
 The gnuplot command to set the terminal type for the default
 terminal. It this option is not set, the command used will be: `"set term wxt size 640,480 font \",12\"; set term pop"`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_dumb_term_command -->
+<!-- signatures: gnuplot_dumb_term_command -->
 ### Variable: gnuplot_dumb_term_command
 
 [gnuplot_dumb_term_command, *command*]
@@ -220,6 +271,9 @@ terminal. It this option is not set, the command used will be: `"set term wxt si
 The gnuplot command to set the terminal type for the dumb terminal.  It
 this option is not set, the command used will be: `"set term dumb 79 22"`, which makes the text output 79 characters by 22 characters.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_file_args -->
+<!-- signatures: gnuplot_file_args -->
 ### Variable: gnuplot_file_args
 
 When a graphic file is going to be created using `gnuplot`, this
@@ -231,6 +285,9 @@ quotes if other Lisp versions are used. The contents of this variable
 can be changed in order to add options for the gnuplot program, adding
 those options before the format directive "~s".
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_out_file -->
+<!-- signatures: gnuplot_out_file[gnuplot_out_file, file_name] -->
 ### Variable: gnuplot_out_file
 
 It can be used to replace the default name for the file that contains
@@ -243,11 +300,17 @@ path of the temporary directory. The complete name of the files created
 by the plotting commands is always sent as output of those commands so
 they can be seen if the command is ended by semi-colon.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_pdf_term_command -->
+<!-- signatures: gnuplot_pdf_term_command[gnuplot_pdf_term_command, command] -->
 ### Variable: gnuplot_pdf_term_command
 
 The gnuplot command to set the terminal type for the PDF
 terminal.  If this option is not set, the command used will be: `"set term pdfcairo color solid lw 3 size 17.2 cm, 12.9 cm font \",18\""`. See the gnuplot documentation for more information.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_pipes -->
+<!-- signatures: gnuplot_pipes -->
 ### Variable: gnuplot_pipes
 
 This is an abbreviation for `[plot_format, gnuplot_pipes]`. See
@@ -255,11 +318,17 @@ This is an abbreviation for `[plot_format, gnuplot_pipes]`. See
 
 See also: `plot_format`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_pm3d -->
+<!-- signatures: gnuplot_pm3d[gnuplot_pm3d, value] -->
 ### Variable: gnuplot_pm3d
 
 With a value of `false`, it can be used to disable the use of PM3D
 mode, which is enabled by default.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_png_term_command -->
+<!-- signatures: gnuplot_png_term_command[gnuplot_png_term_command, command] -->
 ### Variable: gnuplot_png_term_command
 
 The gnuplot command to set the terminal type for the PNG terminal.  If
@@ -267,6 +336,9 @@ this option is not set, the command used will be:
 `"set term pngcairo font \",12\""`. See the gnuplot documentation
 for more information.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_postamble -->
+<!-- signatures: gnuplot_postamble[gnuplot_postamble, string] -->
 ### Variable: gnuplot_postamble
 
 This option inserts gnuplot commands after other commands sent to
@@ -276,6 +348,9 @@ semi-colon. See also `gnuplot_005fpreamble`.
 
 See also: `gnuplot_preamble`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_preamble -->
+<!-- signatures: gnuplot_preamble[gnuplot_preamble, string] -->
 ### Variable: gnuplot_preamble
 
 This option inserts gnuplot commands before any other commands sent to
@@ -284,18 +359,27 @@ be separated with a semi-colon. See also `gnuplot_005fpostamble`.
 
 See also: `gnuplot_postamble`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_ps_term_command -->
+<!-- signatures: gnuplot_ps_term_command[gnuplot_ps_term_command, command] -->
 ### Variable: gnuplot_ps_term_command
 
 The gnuplot command to set the terminal type for the PostScript
 terminal.  If this option is not set, the command used will be: `"set term postscript eps color solid lw 2 size 16.4 cm, 12.3 cm font \",24\""`. See the gnuplot documentation for `set term postscript` for
 more information.
 
-### Function: gnuplot_replot (gnuplot_replot, gnuplot_replot, s)
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_replot -->
+<!-- signatures: gnuplot_replot(), gnuplot_replot(s) -->
+### Function: gnuplot_replot ()
 
 Updates the gnuplot window.  If `gnuplot_replot` is called with a
 gnuplot command in a string *s*, then `s` is sent to gnuplot
 before reploting the window.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_reset -->
+<!-- signatures: gnuplot_reset() -->
 ### Function: gnuplot_reset ()
 
 Resets the state of gnuplot used with the `gnuplot_pipes` format.  To
@@ -303,11 +387,17 @@ update the gnuplot window call `gnuplot_replot` after `gnuplot_reset`.
 
 See also: `gnuplot_replot`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_restart -->
+<!-- signatures: gnuplot_restart() -->
 ### Function: gnuplot_restart ()
 
 Closes the pipe to gnuplot which is used with the `gnuplot_pipes`
 format and opens a new pipe.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_script_file -->
+<!-- signatures: gnuplot_script_file[gnuplot_script_file, file_name_or_function] -->
 ### Variable: gnuplot_script_file
 
 Creates a plot with `plot2d`, `plot3d`, `mandelbrot` or
@@ -373,17 +463,26 @@ been saved in that directory rather than in the temporary directory.
 
 See also: `plot_format`, `maxima_tempdir`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_send -->
+<!-- signatures: gnuplot_send(s) -->
 ### Function: gnuplot_send (s)
 
 Sends the command *s* to the gnuplot pipe. If that pipe is not currently
 opened, it will be opened before sending the command. *s* must be a
 string.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_start -->
+<!-- signatures: gnuplot_start() -->
 ### Function: gnuplot_start ()
 
 Opens the pipe to gnuplot used for plotting with the `gnuplot_pipes`
 format.  Is not necessary to manually open the pipe before plotting.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_strings -->
+<!-- signatures: gnuplot_strings[gnuplot_strings, value] -->
 ### Variable: gnuplot_strings
 
 With a value of `true`, all strings used in labels and titles will
@@ -394,6 +493,9 @@ formatting characters and their meaning, see the documentation for enhanced
 in Gnuplot. The default value for this option is `false`, which will
 not treat any characters as formatting characters.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_svg_background -->
+<!-- signatures: gnuplot_svg_background -->
 ### Variable: gnuplot_svg_background
 
 [gnuplot_svg_background, *color*] 
@@ -416,6 +518,9 @@ the Gnuplot default is to specify the background in SVG output as `"none"`.
 `nognuplot_svg_background`, specified by itself without a value,
 is equivalent to `[gnuplot_svg_background, false]`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_svg_term_command -->
+<!-- signatures: gnuplot_svg_term_command[gnuplot_svg_term_command, command] -->
 ### Variable: gnuplot_svg_term_command
 
 The gnuplot command to set the terminal type for the SVG
@@ -423,6 +528,9 @@ terminal.  If this option is not set, the command used will be:
 `"set term svg font \",14\""`. See the gnuplot documentation for
 more information.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_term -->
+<!-- signatures: gnuplot_term[gnuplot_term, terminal_name] -->
 ### Variable: gnuplot_term
 
 Sets the output terminal type for gnuplot. The argument *terminal_name*
@@ -469,6 +577,9 @@ name.
 
 See also: `gnuplot_default_term_command`, `gnuplot_out_file`, `gnuplot_dumb_term_command`, `run_viewer`.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_view_args -->
+<!-- signatures: gnuplot_view_args -->
 ### Variable: gnuplot_view_args
 
 This variable is the format used to parse the argument that will be
@@ -508,6 +619,9 @@ gnuplot interactive shell where other commands can be issued in order to
 modify the plot (you may have to use ~a instead of ~s, depending on
 your Lisp version).
 
+<!-- category: Plotting -->
+<!-- keywords: grid -->
+<!-- signatures: grid[grid, integer, integer] -->
 ### Variable: grid
 
 Default value: `30`, `30`
@@ -522,6 +636,9 @@ For a way to actually draw a grid See `grid2d`.
 
 See also: `julia`, `mandelbrot`, `grid2d`.
 
+<!-- category: Plotting -->
+<!-- keywords: grid2d -->
+<!-- signatures: grid2d[grid2d, value], grid2d, nogrid2d -->
 ### Variable: grid2d
 
 Default value: `false`
@@ -538,6 +655,9 @@ See also `grid`.
 
 See also: `xtics`, `ytics`, `grid`.
 
+<!-- category: Plotting -->
+<!-- keywords: iterations -->
+<!-- signatures: iterations[iterations, value] -->
 ### Variable: iterations
 
 Default value: `9`
@@ -545,7 +665,10 @@ Default value: `9`
 
 Number of iterations made by the programs mandelbrot and julia.
 
-### Function: julia (x, y, ..., options, ...)
+<!-- category: Plotting -->
+<!-- keywords: julia -->
+<!-- signatures: julia(x, y, ...options...) -->
+### Function: julia (x, y, ...options...)
 
 Creates a graphic representation of the Julia set for the complex number
 (*x* + i *y*). The two mandatory parameters *x* and *y*
@@ -597,11 +720,17 @@ maxima
 
 See also: `grid`, `iterations`, `palette`, `yx_ratio`, `same_xy`, `color_bar_tics`.
 
+<!-- category: Plotting -->
+<!-- keywords: label -->
+<!-- signatures: label[label, [string, x, y], ...] -->
 ### Variable: label
 
 Writes one or several labels in the points with *x*, *y*
 coordinates indicated after each label.
 
+<!-- category: Plotting -->
+<!-- keywords: legend -->
+<!-- signatures: legend[legend, string_1, ..., string_n], legend, nolegend -->
 ### Variable: legend
 
 It specifies the labels for the plots when various plots are shown.  If
@@ -613,6 +742,9 @@ The single keyword `legend` removes any previously defined legends,
 leaving it to the plotting program to set up a legend. The keyword
 `nolegend` is a synonym for `[legend, false]`.
 
+<!-- category: Plotting -->
+<!-- keywords: levels -->
+<!-- signatures: levels[levels, number, ...] -->
 ### Variable: levels
 
 This option is used by `plot2d` to do contour plots. If only one
@@ -631,6 +763,9 @@ values of the expression plotted, if they exist within the domain used.
 
 See also: `plot2d`.
 
+<!-- category: Plotting -->
+<!-- keywords: logx -->
+<!-- signatures: logx[logx, value], logx, nologx -->
 ### Variable: logx
 
 Default value: `false`
@@ -640,6 +775,9 @@ Makes the horizontal axes to be scaled logarithmically. It can be either
 true or false. The single keywords `logx` and `nologx` can be
 used as synonyms for `[logx, true]` and `[logx, false]`.
 
+<!-- category: Plotting -->
+<!-- keywords: logy -->
+<!-- signatures: logy[logy, value], logy, nology -->
 ### Variable: logy
 
 Default value: `false`
@@ -650,7 +788,10 @@ true or false.
 The single keywords `logy` and `nology` can be used as
 synonyms for `[logy, true]` and `[logy, false]`.
 
-### Function: make_transform (var1, var2, var3, fx, fy, fz)
+<!-- category: Plotting -->
+<!-- keywords: make_transform -->
+<!-- signatures: make_transform([var1, var2, var3], fx, fy, fz) -->
+### Function: make_transform ([var1, var2, var3], fx, fy, fz)
 
 Returns a function suitable to be used in the option `transform_xy`
 of plot3d.  The three variables *var1*, *var2*, *var3* are
@@ -665,6 +806,9 @@ for those two transformations.
 
 See also: `transform_xy`, `polar_to_xy`, `spherical_to_xyz`.
 
+<!-- category: Plotting -->
+<!-- keywords: mandelbrot -->
+<!-- signatures: mandelbrot(options) -->
 ### Function: mandelbrot (options)
 
 Creates a graphic representation of the Mandelbrot set. This program is
@@ -716,6 +860,9 @@ maxima
 
 See also: `grid`, `iterations`, `palette`, `yx_ratio`, `same_xy`.
 
+<!-- category: Plotting -->
+<!-- keywords: mesh_lines_color -->
+<!-- signatures: mesh_lines_color[mesh_lines_color, color], mesh_lines_color, nomesh_lines -->
 ### Variable: mesh_lines_color
 
 Default value: `black`
@@ -732,6 +879,9 @@ to use. The keyword `nomesh_lines` is a synonym for
 
 See also: `color`.
 
+<!-- category: Plotting -->
+<!-- keywords: nticks -->
+<!-- signatures: nticks[nticks, integer] -->
 ### Variable: nticks
 
 Default value: `29`
@@ -744,6 +894,9 @@ it sets the number of points that will be shown for the plot.
 
 See also: `plot2d`, `plot3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: palette -->
+<!-- signatures: palette[palette, [palette_1], ..., [palette_n]], palette, nopalette -->
 ### Variable: palette
 
 It can consist of one palette or a list of several palettes.  Each
@@ -780,6 +933,9 @@ and `nopalette` is a synonym for `[palette, false]`.
 
 See also: `mesh_lines_color`, `color`.
 
+<!-- category: Plotting -->
+<!-- keywords: pdf_file -->
+<!-- signatures: pdf_file[pdf_file, file_name] -->
 ### Variable: pdf_file
 
 Saves the plot into a PDF file with name equal to *file_name*,
@@ -796,7 +952,10 @@ size of 17.2 cm by 12.9 cm and font of 18 points.
 
 See also: `maxima_tempdir`, `gnuplot_pdf_term_command`.
 
-### Function: plot2d (plot2d, expr, range_x, options, plot2d, expr_1, =, expr_2, range_x, range_y, options, plot2d, parametric, expr_x, expr, _y, range, options, plot2d, discrete, points, options, plot2d, contour, expr, range_x, range_y, options, plot2d, type_1, ..., type_n, options)
+<!-- category: Plotting -->
+<!-- keywords: plot2d -->
+<!-- signatures: plot2d(expr, range_x, options), plot2d(expr_1=expr_2, range_x, range_y, options), plot2d([parametric, expr_x, expr_y, range], options), plot2d([discrete, points], options), plot2d([contour, expr], range_x, range_y, options), plot2d([type_1, ..., type_n], options) -->
+### Function: plot2d (expr, range_x, options)
 
 There are 5 types of plots that can be plotted by `plot2d`:
 
@@ -1153,7 +1312,10 @@ See also the `Plotting Options` section.
 
 See also: `Plotting-Options`, `legend`, `y`, `xlabel`, `ylabel`, `label`, `yx_ratio`, `same_xy`, `nolegend`.
 
-### Function: plot3d (plot3d, expr, x_range, y_range, ..., options, ..., plot3d, expr_1, ..., expr_n, x_range, y_range, ..., options, ...)
+<!-- category: Plotting -->
+<!-- keywords: plot3d -->
+<!-- signatures: plot3d(expr, x_range, y_range, ..., options, ...), plot3d([expr_1, ..., expr_n], x_range, y_range, ..., options, ...) -->
+### Function: plot3d (expr, x_range, y_range, ..., options, ...)
 
 Displays a plot of one or more surfaces defined as functions of two
 variables or in parametric form.
@@ -1402,6 +1564,9 @@ See also `Plotting-Options`.
 
 See also: `z`, `spherical_to_xyz`, `polar_to_xy`, `same_xyz`, `Plotting-Options`.
 
+<!-- category: Plotting -->
+<!-- keywords: plot_format -->
+<!-- signatures: plot_format[plot_format, format], gnuplot, gnuplot_pipes, xmaxima, geomview -->
 ### Variable: plot_format
 
 Default value: `gnuplot`, in Windows systems, or `gnuplot_pipes` in
@@ -1419,6 +1584,9 @@ It sets the format to be used for plotting as explained in
 
 See also: `Plotting-Formats`.
 
+<!-- category: Plotting -->
+<!-- keywords: plot_options -->
+<!-- signatures: plot_options -->
 ### Variable: plot_options
 
 This variable is being kept for compatibility with older versions of Wxmaxima,
@@ -1429,6 +1597,9 @@ values or remove options, use `set_plot_option`,
 
 See also: `set_plot_option`, `get_plot_option`, `remove_plot_option`, `reset_plot_options`.
 
+<!-- category: Plotting -->
+<!-- keywords: plot_realpart -->
+<!-- signatures: plot_realpart[plot_realpart, symbol], plot_realpart, noplot_realpart -->
 ### Variable: plot_realpart
 
 Default value: `false`
@@ -1446,6 +1617,9 @@ were `false`. The single keyword `plot_realpart` can be used
 as a synonym for `[plot_realpart, true]` and `noplot_realpart`
 is a synonym for `[plot_realpart, false]`.
 
+<!-- category: Plotting -->
+<!-- keywords: plotepsilon -->
+<!-- signatures: plotepsilon[plotepsilon, value] -->
 ### Variable: plotepsilon
 
 Default value: 1e-6
@@ -1464,6 +1638,9 @@ therefore, as being part of the curve to be plotted.
 
 See also: `plot2d`, `sample`.
 
+<!-- category: Plotting -->
+<!-- keywords: png_file -->
+<!-- signatures: png_file[png_file, file_name] -->
 ### Variable: png_file
 
 Saves the plot into a PNG graphics file with name equal to *file_name*,
@@ -1479,6 +1656,9 @@ will be used, with a font of size 12.
 
 See also: `maxima_tempdir`, `gnuplot_png_term_command`.
 
+<!-- category: Plotting -->
+<!-- keywords: point_type -->
+<!-- signatures: point_type[point_type, type_1, ..., type_n] -->
 ### Variable: point_type
 
 In gnuplot, each set of points to be plotted with the style “points”
@@ -1490,7 +1670,10 @@ The possible objects that can be used are: `bullet`, `circle`,
 `triangle`, `delta`, `wedge`, `nabla`, `diamond`,
 `lozenge`.
 
-### Function: polar_to_xy ()
+<!-- category: Plotting -->
+<!-- keywords: polar_to_xy -->
+<!-- signatures: polar_to_xy -->
+### Function: polar_to_xy
 
 It can be given as value for the `transform_xy` option of
 plot3d.  Its effect will be to interpret the two independent variables in
@@ -1499,6 +1682,9 @@ coordinates), and transform them into x and y coordinates.
 
 See also: `transform_xy`.
 
+<!-- category: Plotting -->
+<!-- keywords: ps_file -->
+<!-- signatures: ps_file[ps_file, file_name] -->
 ### Variable: ps_file
 
 Saves the plot into a Postscript file with name equal to *file_name*,
@@ -1515,6 +1701,9 @@ size of 16.4 cm by 12.3 cm and font of 24 points.
 
 See also: `maxima_tempdir`, `gnuplot_ps_term_command`.
 
+<!-- category: Plotting -->
+<!-- keywords: remove_plot_option -->
+<!-- signatures: remove_plot_option(name) -->
 ### Function: remove_plot_option (name)
 
 Removes the global value of an option. The name of the option must be given.
@@ -1525,12 +1714,18 @@ See also `set_plot_option`, `get_plot_option` and
 
 See also: `set_plot_option`, `get_plot_option`, `Plotting-Options`.
 
+<!-- category: Plotting -->
+<!-- keywords: reset_plot_options -->
+<!-- signatures: reset_plot_options() -->
 ### Function: reset_plot_options ()
 
 Sets the default global values of the plotting options. After changing
 the global values of some plotting options, this function is used to
 recovered the same values as when Maxima was started.
 
+<!-- category: Plotting -->
+<!-- keywords: run_viewer -->
+<!-- signatures: run_viewer[run_viewer, symbol], run_viewer, norun_viewer -->
 ### Variable: run_viewer
 
 Default value: `true`
@@ -1563,6 +1758,9 @@ are synonyms for `[run_viewer, true]` and `[run_viewer, false]`.
 
 See also: `gnuplot_term`, `gnuplot_out_file`.
 
+<!-- category: Plotting -->
+<!-- keywords: same_xy -->
+<!-- signatures: same_xy[same_xy, value], same_xy, nosame_xy -->
 ### Variable: same_xy
 
 It can be either true or false. If true, the scales used in the x and y
@@ -1572,12 +1770,18 @@ axes will be the same, in either 2d or 3d plots. See also
 
 See also: `yx_ratio`.
 
+<!-- category: Plotting -->
+<!-- keywords: same_xyz -->
+<!-- signatures: same_xyz[same_xyz, value], same_xyz, nosame_xyz -->
 ### Variable: same_xyz
 
 It can be either true or false. If true, the scales used in the 3 axes
 of a 3d plot will be the same. `same_xyz` and `nosame_xyz` are
 synonyms for `[same_xyz, true]` and `[same_xyz, false]`.
 
+<!-- category: Plotting -->
+<!-- keywords: sample -->
+<!-- signatures: sample[sample, nx, ny] -->
 ### Variable: sample
 
 Default value: `[sample, 47, 47]`
@@ -1597,6 +1801,9 @@ increasing *nx* and *ny*.
 
 See also: `plot2d`.
 
+<!-- category: Plotting -->
+<!-- keywords: set_plot_option -->
+<!-- signatures: set_plot_option(option) -->
 ### Function: set_plot_option (option)
 
 Accepts any of the options listed in the section `Plotting Options`,
@@ -1639,7 +1846,10 @@ asterisk], [palette, [hue, 0.33333333, 0.7, 1, 0.5],
 
 See also: `Plotting-Options`, `remove_plot_option`, `get_plot_option`, `grid`.
 
-### Function: spherical_to_xyz ()
+<!-- category: Plotting -->
+<!-- keywords: spherical_to_xyz -->
+<!-- signatures: spherical_to_xyz -->
+### Function: spherical_to_xyz
 
 It can be given as value for the `transform_xy` option of
 `plot3d`. Its effect will be to interpret the two independent
@@ -1650,6 +1860,9 @@ transform them into x, y and z coordinates.
 
 See also: `transform_xy`, `plot3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: style -->
+<!-- signatures: style[style, type_1, ..., type_n], [style, [style_1], ..., [style_n]] -->
 ### Variable: style
 
 The styles that will be used for the various functions or sets of data
@@ -1691,6 +1904,9 @@ See also `color` and `point_005ftype`.
 
 See also: `color`, `point_type`.
 
+<!-- category: Plotting -->
+<!-- keywords: svg_file -->
+<!-- signatures: svg_file[svg_file, file_name] -->
 ### Variable: svg_file
 
 Saves the plot into an SVG file with name equal to *file_name*,
@@ -1706,14 +1922,23 @@ will be used with font of 14 points.
 
 See also: `maxima_tempdir`, `gnuplot_svg_term_command`.
 
+<!-- category: Plotting -->
+<!-- keywords: t -->
+<!-- signatures: t[t, min, max] -->
 ### Variable: t
 
 Default range for parametric plots.
 
+<!-- category: Plotting -->
+<!-- keywords: title -->
+<!-- signatures: title[title, text] -->
 ### Variable: title
 
 Defines a title that will be written at the top of the plot.
 
+<!-- category: Plotting -->
+<!-- keywords: transform_xy -->
+<!-- signatures: transform_xy[transform_xy, symbol], notransform_xy -->
 ### Variable: transform_xy
 
 Where *symbol* is either `false` or the result obtained by
@@ -1728,12 +1953,18 @@ See `make_transform`, `polar_to_xy` and
 
 See also: `make_transform`, `polar_to_xy`, `spherical_to_xyz`.
 
+<!-- category: Plotting -->
+<!-- keywords: window -->
+<!-- signatures: window[window, n] -->
 ### Variable: window
 
 Opens the plot in window number *n*, instead of the default window
 0. If window number *n* is already opened, the plot in that window
 will be replaced by the current plot.
 
+<!-- category: Plotting -->
+<!-- keywords: x -->
+<!-- signatures: x[x, min, max] -->
 ### Variable: x
 
 When used as the first option in a `plot2d` command (or any of the
@@ -1744,6 +1975,9 @@ horizontal domain that will be shown in the plot.
 
 See also: `plot2d`, `plot3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: xlabel -->
+<!-- signatures: xlabel[xlabel, string], noxlabel -->
 ### Variable: xlabel
 
 Specifies the *string* that will label the first axis; if this
@@ -1755,6 +1989,9 @@ to `[xlabel, ""]`, which does not print any label on the first axis.
 
 See also: `plot2d`, `plot3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: xmaxima -->
+<!-- signatures: xmaxima -->
 ### Variable: xmaxima
 
 This is an abbreviation for `[plot_format, xmaxima]`. See
@@ -1762,6 +1999,9 @@ This is an abbreviation for `[plot_format, xmaxima]`. See
 
 See also: `plot_format`.
 
+<!-- category: Plotting -->
+<!-- keywords: xmaxima_plot_command -->
+<!-- signatures: xmaxima_plot_command -->
 ### Variable: xmaxima_plot_command
 
 This variable stores the name of the command used to run the xmaxima
@@ -1789,6 +2029,9 @@ See also `gnuplot_command` and `geomview_005fcommand`.
 
 See also: `gnuplot_command`, `geomview_command`.
 
+<!-- category: Plotting -->
+<!-- keywords: xtics -->
+<!-- signatures: xtics[xtics, x1, x2, x3], [xtics, false], xtics, noxtics -->
 ### Variable: xtics
 
 Defines the values at which a mark and a number will be placed in the x
@@ -1804,6 +2047,9 @@ The single keyword `xtics` removes any values previously
 defined, leaving it to the graphic program to decide the values to use
 and `noxtics` is a synonym for `[xtics, false]`
 
+<!-- category: Plotting -->
+<!-- keywords: xy_scale -->
+<!-- signatures: xy_scale[xy_scale, sx, sy] -->
 ### Variable: xy_scale
 
 In a 2d plot, it defines the ratio of the total size of the Window to
@@ -1818,6 +2064,9 @@ plot, it is better to use option `yx_005fratio`. For instance,
 
 See also: `yx_ratio`.
 
+<!-- category: Plotting -->
+<!-- keywords: y -->
+<!-- signatures: y[y, min, max] -->
 ### Variable: y
 
 When used as one of the first two options in `plot3d`, it indicates
@@ -1827,6 +2076,9 @@ shown in the plot.
 
 See also: `plot3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: ylabel -->
+<!-- signatures: ylabel[ylabel, string], noylabel -->
 ### Variable: ylabel
 
 Specifies the *string* that will label the second axis; if this
@@ -1838,6 +2090,9 @@ case of a parametric plot. `noylabel` is equivalent to
 
 See also: `plot2d`, `plot3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: ytics -->
+<!-- signatures: ytics[ytics, y1, y2, y3], [ytics, false], ytics, noytics -->
 ### Variable: ytics
 
 Defines the values at which a mark and a number will be placed in the y
@@ -1853,6 +2108,9 @@ The single keyword `ytics` removes any values previously
 defined, leaving it to the graphic program to decide the values to use
 and `noytics` is a synonym for `[ytics, false]`
 
+<!-- category: Plotting -->
+<!-- keywords: yx_ratio -->
+<!-- signatures: yx_ratio[yx_ratio, r] -->
 ### Variable: yx_ratio
 
 In a 2d plot, the ratio between the vertical and the horizontal sides of
@@ -1860,6 +2118,9 @@ the rectangle used to make the plot. See also `same_005fxy`.
 
 See also: `same_xy`.
 
+<!-- category: Plotting -->
+<!-- keywords: z -->
+<!-- signatures: z[z, min, max] -->
 ### Variable: z
 
 Used in `plot3d` to set the effective range of values of z that will be
@@ -1867,6 +2128,9 @@ shown in the plot.
 
 See also: `plot3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: zlabel -->
+<!-- signatures: zlabel[zlabel, string], nozlabel -->
 ### Variable: zlabel
 
 Specifies the *string* that will label the third axis, when using
@@ -1878,6 +2142,9 @@ will be ignored by `plot2d`. `nozlabel` is equivalent to
 
 See also: `plot3d`, `set_plot_option`, `plot2d`.
 
+<!-- category: Plotting -->
+<!-- keywords: zmin -->
+<!-- signatures: zmin[zmin, z], zmin -->
 ### Variable: zmin
 
 In 3d plots, the value of z that will be at the bottom of the plot box.
@@ -1886,6 +2153,9 @@ In 3d plots, the value of z that will be at the bottom of the plot box.
 The single keyword `zmin` removes any value previously
 defined, leaving it to the graphic program to decide the value to use.
 
+<!-- category: Plotting -->
+<!-- keywords: ztics -->
+<!-- signatures: ztics[ztics, z1, z2, z3], [ztics, false], ztics, noztics -->
 ### Variable: ztics
 
 Defines the values at which a mark and a number will be placed in the z

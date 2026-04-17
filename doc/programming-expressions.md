@@ -1,10 +1,16 @@
 ## Expressions
 
+<!-- category: Programming -->
+<!-- keywords: alias -->
+<!-- signatures: alias(new_name_1, old_name_1, ..., new_name_n, old_name_n) -->
 ### Function: alias (new_name_1, old_name_1, ..., new_name_n, old_name_n)
 
 provides an alternate name for a (user or system) function, variable, array,
 etc.  Any even number of arguments may be used.
 
+<!-- category: Programming -->
+<!-- keywords: aliases -->
+<!-- signatures: aliases -->
 ### Variable: aliases
 
 Default value: `[]`
@@ -16,6 +22,9 @@ declaring the atom a `noun` with `declare`.)
 
 See also: `alias`, `ordergreat`, `orderless`, `noun`, `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: allbut -->
+<!-- signatures: allbut -->
 ### Variable: allbut
 
 works with the `part` commands (i.e.  `part`,
@@ -92,6 +101,9 @@ maxima
 
 See also: `part`, `inpart`, `substpart`, `substinpart`, `dpart`, `lpart`, `kill`.
 
+<!-- category: Programming -->
+<!-- keywords: args -->
+<!-- signatures: args(expr) -->
 ### Function: args (expr)
 
 Returns the list of arguments of `expr`, which may be any kind of
@@ -152,6 +164,9 @@ maxima
 
 See also: `inflag`, `substpart`, `apply`, `funmake`, `op`.
 
+<!-- category: Programming -->
+<!-- keywords: atom -->
+<!-- signatures: atom(expr) -->
 ### Function: atom (expr)
 
 Returns `true` if *expr* is atomic (i.e. a number, name or string) else
@@ -159,7 +174,10 @@ Returns `true` if *expr* is atomic (i.e. a number, name or string) else
 `atom(sin(x))` are `false` (assuming `a[1]` and `x` are
 unbound).
 
-### Function: box (box, expr, box, expr, a)
+<!-- category: Programming -->
+<!-- keywords: box -->
+<!-- signatures: box(expr), box(expr, a) -->
+### Function: box (expr)
 
 Returns *expr* enclosed in a box.  The return value is an expression with
 `box` as the operator and *expr* as the argument.  A box is drawn on
@@ -247,6 +265,9 @@ maxima
 
 See also: `display2d`, `rembox`, `boxchar`, `dpart`, `lpart`, `display_box_double_lines`.
 
+<!-- category: Programming -->
+<!-- keywords: boxchar -->
+<!-- signatures: boxchar -->
 ### Variable: boxchar
 
 Default value: `"`
@@ -264,6 +285,9 @@ the drawing character is not stored with the box expression.
 
 See also: `box`, `dpart`, `lpart`.
 
+<!-- category: Programming -->
+<!-- keywords: collapse -->
+<!-- signatures: collapse(expr) -->
 ### Function: collapse (expr)
 
 Collapses *expr* by causing all of its common (i.e., equal) subexpressions
@@ -277,6 +301,9 @@ collapse the elements of the array `A` by doing
 
 See also: `optimize`, `save`.
 
+<!-- category: Programming -->
+<!-- keywords: copy -->
+<!-- signatures: copy(e) -->
 ### Function: copy (e)
 
 Return a copy of the Maxima expression *e*.  Although *e* can be any
@@ -335,6 +362,9 @@ maxima
 
 This time, the assignment to *mm* does not change the value of *m*.
 
+<!-- category: Programming -->
+<!-- keywords: disolate -->
+<!-- signatures: disolate(expr, x_1, ..., x_n) -->
 ### Function: disolate (expr, x_1, ..., x_n)
 
 is similar to `isolate``(expr, x)` except that it enables the
@@ -346,7 +376,10 @@ A demo is available by `demo("disol")$`.
 
 See also: `isolate`.
 
-### Function: dispform (dispform, expr, dispform, expr, all)
+<!-- category: Programming -->
+<!-- keywords: dispform -->
+<!-- signatures: dispform(expr), dispform(expr, all) -->
+### Function: dispform (expr)
 
 Returns the external representation of *expr*.
 
@@ -459,6 +492,9 @@ maxima
 
 See also: `part`, `inpart`, `inflag`.
 
+<!-- category: Programming -->
+<!-- keywords: display_box_double_lines -->
+<!-- signatures: display_box_double_lines -->
 ### Variable: display_box_double_lines
 
 Default value: `true`
@@ -474,6 +510,9 @@ When `display_box_double_lines` is `false`,
 
 `display_box_double_lines` only has any effect when `display2d_unicode` is `true`.
 
+<!-- category: Programming -->
+<!-- keywords: dpart -->
+<!-- signatures: dpart(expr, n_1, ..., n_k) -->
 ### Function: dpart (expr, n_1, ..., n_k)
 
 Selects the same subexpression as `part`, but instead of just returning
@@ -500,6 +539,9 @@ maxima
 
 See also: `part`.
 
+<!-- category: Programming -->
+<!-- keywords: exptisolate -->
+<!-- signatures: exptisolate -->
 ### Variable: exptisolate
 
 Default value: `false`
@@ -509,6 +551,9 @@ Default value: `false`
 `exptisolate`, when `true`, causes `isolate (expr, var)` to
 examine exponents of atoms (such as `%e`) which contain `var`.
 
+<!-- category: Programming -->
+<!-- keywords: exptsubst -->
+<!-- signatures: exptsubst -->
 ### Variable: exptsubst
 
 Default value: `false`
@@ -552,6 +597,9 @@ maxima
 (%o5)                          y
 ```
 
+<!-- category: Programming -->
+<!-- keywords: freeof -->
+<!-- signatures: freeof(x_1, ..., x_n, expr) -->
 ### Function: freeof (x_1, ..., x_n, expr)
 
 `freeof (x_1, expr)` returns `true` if no subexpression of
@@ -731,6 +779,9 @@ maxima
 
 See also: `limit`, `integrate`, `laplace`, `at`, `lambda`.
 
+<!-- category: Programming -->
+<!-- keywords: inflag -->
+<!-- signatures: inflag -->
 ### Variable: inflag
 
 Default value: `false`
@@ -757,6 +808,9 @@ Functions affected by the setting of `inflag` are: `part`,
 
 See also: `part`, `substpart`, `inpart`, `substinpart`, `first`, `rest`, `last`, `length`, `for`, `map`, `fullmap`, `maplist`, `reveal`, `pickapart`, `args`, `op`.
 
+<!-- category: Programming -->
+<!-- keywords: inpart -->
+<!-- signatures: inpart(expr, n_1, ..., n_k) -->
 ### Function: inpart (expr, n_1, ..., n_k)
 
 is similar to `part` but works on the internal representation of the
@@ -808,6 +862,9 @@ maxima
 
 See also: `part`.
 
+<!-- category: Programming -->
+<!-- keywords: isolate -->
+<!-- signatures: isolate(expr, x) -->
 ### Function: isolate (expr, x)
 
 Returns *expr* with subexpressions which are sums and which do not contain
@@ -832,6 +889,9 @@ Do `example (isolate)` for examples.
 
 See also: `exptisolate`, `isolate_wrt_times`, `disolate`.
 
+<!-- category: Programming -->
+<!-- keywords: isolate_wrt_times -->
+<!-- signatures: isolate_wrt_times -->
 ### Variable: isolate_wrt_times
 
 Default value: `false`
@@ -862,6 +922,9 @@ with respect to products.  E.g. compare both settings of the switch on
 (%o5)               c  + 2 b c + 2 a c + %t4
 ```
 
+<!-- category: Programming -->
+<!-- keywords: lfreeof -->
+<!-- signatures: lfreeof(list, expr) -->
 ### Function: lfreeof (list, expr)
 
 For each member *m* of *list*, calls
@@ -895,6 +958,9 @@ maxima
 
 See also: `freeof`.
 
+<!-- category: Programming -->
+<!-- keywords: listconstvars -->
+<!-- signatures: listconstvars -->
 ### Variable: listconstvars
 
 Default value: `false`
@@ -910,6 +976,9 @@ omit constant variables from `listofvars` return value.
 
 See also: `declare`, `constantp`.
 
+<!-- category: Programming -->
+<!-- keywords: listdummyvars -->
+<!-- signatures: listdummyvars -->
 ### Variable: listdummyvars
 
 Default value: `true`
@@ -947,6 +1016,9 @@ maxima
 
 See also: `listofvars`, `freeof`.
 
+<!-- category: Programming -->
+<!-- keywords: listofvars -->
+<!-- signatures: listofvars(expr) -->
 ### Function: listofvars (expr)
 
 Returns a list of the variables in *expr*.
@@ -975,6 +1047,9 @@ maxima
 
 See also: `listconstvars`, `listdummyvars`.
 
+<!-- category: Programming -->
+<!-- keywords: lpart -->
+<!-- signatures: lpart(label, expr, n_1, ..., n_k) -->
 ### Function: lpart (label, expr, n_1, ..., n_k)
 
 is similar to `dpart` but uses a labelled box.  A labelled box is similar
@@ -982,6 +1057,9 @@ to the one produced by `dpart` but it has a name in the top line.
 
 See also: `dpart`.
 
+<!-- category: Programming -->
+<!-- keywords: mainvar -->
+<!-- signatures: mainvar -->
 ### Variable: mainvar
 
 You may declare variables to be `mainvar`.  The ordering scale for atoms is
@@ -994,6 +1072,9 @@ which `x` is a `mainvar` from one in which `x` isn’t a
 necessary if cancellation is to occur.  Also, if you save an expression in which
 `x` is a `mainvar`, you probably should also save `x`.)
 
+<!-- category: Programming -->
+<!-- keywords: noun -->
+<!-- signatures: noun -->
 ### Variable: noun
 
 `noun` is one of the options of the `declare` command.  It makes a
@@ -1034,6 +1115,9 @@ maxima
 
 See also: `declare`.
 
+<!-- category: Programming -->
+<!-- keywords: noundisp -->
+<!-- signatures: noundisp -->
 ### Variable: noundisp
 
 Default value: `false`
@@ -1043,6 +1127,9 @@ When `noundisp` is `true`, nouns display with
 a single quote.  This switch is always `true` when displaying function
 definitions.
 
+<!-- category: Programming -->
+<!-- keywords: nounify -->
+<!-- signatures: nounify(f) -->
 ### Function: nounify (f)
 
 Returns the noun form of the function name *f*.  This is
@@ -1056,6 +1143,9 @@ See also `verbify`.
 
 See also: `verbify`.
 
+<!-- category: Programming -->
+<!-- keywords: nterms -->
+<!-- signatures: nterms(expr) -->
 ### Function: nterms (expr)
 
 Returns the number of terms that *expr* would have if it were fully
@@ -1064,6 +1154,9 @@ Note that expressions like `sin (expr)`, `sqrt (expr)`,
 `exp (expr)`, etc. count as just one term regardless of how many
 terms *expr* has (if it is a sum).
 
+<!-- category: Programming -->
+<!-- keywords: op -->
+<!-- signatures: op(expr) -->
 ### Function: op (expr)
 
 Returns the main operator of the expression *expr*.
@@ -1162,7 +1255,10 @@ maxima
 
 See also: `memoizing-function`, `inflag`, `args`.
 
-### Function: operatorp (operatorp, expr, op, operatorp, expr, op_1, ..., op_n)
+<!-- category: Programming -->
+<!-- keywords: operatorp -->
+<!-- signatures: operatorp(expr, op), operatorp(expr, [op_1, ..., op_n]) -->
+### Function: operatorp (expr, op)
 
 `operatorp (expr, op)` returns `true`
 if *op* is equal to the operator of *expr*.
@@ -1177,6 +1273,9 @@ operator of *expr*.
 
 See also: `inflag`.
 
+<!-- category: Programming -->
+<!-- keywords: opsubst -->
+<!-- signatures: opsubst -->
 ### Variable: opsubst
 
 Default value: `true`
@@ -1225,6 +1324,9 @@ maxima
 
 See also: `subst`.
 
+<!-- category: Programming -->
+<!-- keywords: optimize -->
+<!-- signatures: optimize(expr) -->
 ### Function: optimize (expr)
 
 Returns an expression that produces the same value and
@@ -1233,6 +1335,9 @@ recomputation of common subexpressions.  `optimize` also has the side
 effect of "collapsing" its argument so that all common subexpressions
 are shared.  Do `example (optimize)` for examples.
 
+<!-- category: Programming -->
+<!-- keywords: optimprefix -->
+<!-- signatures: optimprefix -->
 ### Variable: optimprefix
 
 Default value: `%`
@@ -1243,6 +1348,9 @@ the `optimize` command.
 
 See also: `optimize`.
 
+<!-- category: Programming -->
+<!-- keywords: ordergreat, orderless -->
+<!-- signatures: ordergreat(v_1, ..., v_n), orderless(v_1, ..., v_n) -->
 ### Function: ordergreat (v_1, ..., v_n)
 
 `ordergreat` changes the canonical ordering of Maxima expressions
@@ -1265,6 +1373,9 @@ See also `ordergreatp`.
 
 See also: `unorder`, `ordergreatp`.
 
+<!-- category: Programming -->
+<!-- keywords: ordergreatp, orderlessp -->
+<!-- signatures: ordergreatp(expr_1, expr_2), orderlessp(expr_1, expr_2) -->
 ### Function: ordergreatp (expr_1, expr_2)
 
 `ordergreatp` returns `true` if *expr_1* succeeds *expr_2* in
@@ -1423,6 +1534,9 @@ maxima
 
 See also: `orderless`, `ordergreat`, `mainvar`, `constant`, `sort`.
 
+<!-- category: Programming -->
+<!-- keywords: part -->
+<!-- signatures: part(expr, n_1, ..., n_k) -->
 ### Function: part (expr, n_1, ..., n_k)
 
 Returns parts of the displayed form of `expr`.  It obtains the part of
@@ -1485,6 +1599,9 @@ maxima
 
 See also: `piece`, `partswitch`, `inpart`, `substpart`, `substinpart`, `dpart`, `lpart`.
 
+<!-- category: Programming -->
+<!-- keywords: partition -->
+<!-- signatures: partition(expr, x) -->
 ### Function: partition (expr, x)
 
 Returns a list of two expressions.  They are (1) the factors of *expr*
@@ -1517,6 +1634,9 @@ maxima
 (%o3)                  [[b, c], [a, f(a)]]
 ```
 
+<!-- category: Programming -->
+<!-- keywords: partswitch -->
+<!-- signatures: partswitch -->
 ### Variable: partswitch
 
 Default value: `false`
@@ -1526,6 +1646,9 @@ When `partswitch` is `true`, `end` is returned
 when a selected part of an expression doesn’t exist, otherwise an
 error message is given.
 
+<!-- category: Programming -->
+<!-- keywords: pickapart -->
+<!-- signatures: pickapart(expr, n) -->
 ### Function: pickapart (expr, n)
 
 Assigns intermediate expression labels to subexpressions of *expr* at depth
@@ -1623,6 +1746,9 @@ Examples:
 
 See also: `part`, `dpart`, `lpart`, `inpart`, `reveal`.
 
+<!-- category: Programming -->
+<!-- keywords: piece -->
+<!-- signatures: piece -->
 ### Variable: piece
 
 Holds the last expression selected when using the `part` functions.
@@ -1632,7 +1758,10 @@ the function itself.
 
 See also: `part`.
 
-### Function: psubst (psubst, list, expr, psubst, a, b, expr)
+<!-- category: Programming -->
+<!-- keywords: psubst -->
+<!-- signatures: psubst(list, expr), psubst(a, b, expr) -->
+### Function: psubst (list, expr)
 
 `psubst(a, b, expr)` is similar to `subst`.  See
 `subst`.
@@ -1672,7 +1801,10 @@ maxima
 
 See also: `subst`, `sublis`, `let`, `letsimp`.
 
-### Function: rembox (rembox, expr, unlabelled, rembox, expr, label, rembox, expr)
+<!-- category: Programming -->
+<!-- keywords: rembox -->
+<!-- signatures: rembox(expr, unlabelled), rembox(expr, label), rembox(expr) -->
+### Function: rembox (expr, unlabelled)
 
 Removes boxes from *expr*.
 
@@ -1773,6 +1905,9 @@ maxima
 
 See also: `box`, `dpart`, `lpart`.
 
+<!-- category: Programming -->
+<!-- keywords: reveal -->
+<!-- signatures: reveal(expr, depth) -->
 ### Function: reveal (expr, depth)
 
 Replaces parts of *expr* at the specified integer *depth*
@@ -1869,6 +2004,9 @@ maxima
                     2 %e      + %e    + %e
 ```
 
+<!-- category: Programming -->
+<!-- keywords: sqrtdenest -->
+<!-- signatures: sqrtdenest(expr) -->
 ### Function: sqrtdenest (expr)
 
 Denests `sqrt` of simple, numerical, binomial surds, where possible.  E.g.
@@ -1903,6 +2041,9 @@ maxima
 Sometimes it helps to apply `sqrtdenest` more than once, on such as
 `(19601-13860 sqrt(2))^(7/4)`.
 
+<!-- category: Programming -->
+<!-- keywords: sublis -->
+<!-- signatures: sublis(list, expr) -->
 ### Function: sublis (list, expr)
 
 Makes multiple parallel substitutions into an expression.  *list* is a list
@@ -1932,6 +2073,9 @@ maxima
 
 See also: `sublis_apply_lambda`, `psubst`.
 
+<!-- category: Programming -->
+<!-- keywords: sublis_apply_lambda -->
+<!-- signatures: sublis_apply_lambda -->
 ### Variable: sublis_apply_lambda
 
 Default value: `true`
@@ -1943,6 +2087,9 @@ apply.  `true` means do the application.
 
 See also: `ev`.
 
+<!-- category: Programming -->
+<!-- keywords: subnumsimp -->
+<!-- signatures: subnumsimp -->
 ### Variable: subnumsimp
 
 Default value: `false`
@@ -1975,6 +2122,9 @@ maxima
 
 See also: `subst`, `psubst`.
 
+<!-- category: Programming -->
+<!-- keywords: subst -->
+<!-- signatures: subst(a, b, c) -->
 ### Function: subst (a, b, c)
 
 Substitutes *a* for *b* in *c*.  *b* must be an atom or a
@@ -2115,6 +2265,9 @@ For further examples, do `example (subst)`.
 
 See also: `substpart`, `ratsubst`, `exptsubst`, `at`, `ev`, `psubst`, `let`, `letsimp`.
 
+<!-- category: Programming -->
+<!-- keywords: substinpart -->
+<!-- signatures: substinpart(x, expr, n_1, ..., n_k) -->
 ### Function: substinpart (x, expr, n_1, ..., n_k)
 
 Similar to `substpart`, but `substinpart` works on the
@@ -2225,6 +2378,9 @@ or `substpart` is the same as calling `inpart` or `substinpart`.
 
 See also: `substpart`, `piece`, `partswitch`, `inflag`, `part`, `inpart`.
 
+<!-- category: Programming -->
+<!-- keywords: substpart -->
+<!-- signatures: substpart(x, expr, n_1, ..., n_k) -->
 ### Function: substpart (x, expr, n_1, ..., n_k)
 
 Substitutes *x* for the subexpression picked out by the rest of the
@@ -2276,6 +2432,9 @@ or `substpart` is the same as calling `inpart` or
 
 See also: `part`, `inflag`, `substinpart`.
 
+<!-- category: Programming -->
+<!-- keywords: symbolp -->
+<!-- signatures: symbolp(expr) -->
 ### Function: symbolp (expr)
 
 Returns `true` if *expr* is a symbol, else `false`.
@@ -2287,6 +2446,9 @@ See also `Identifiers`.
 
 See also: `Identifiers`.
 
+<!-- category: Programming -->
+<!-- keywords: unorder -->
+<!-- signatures: unorder() -->
 ### Function: unorder ()
 
 Disables the aliasing created by the last use of the ordering commands 
@@ -2351,6 +2513,9 @@ maxima
 (%o6)                          [a]
 ```
 
+<!-- category: Programming -->
+<!-- keywords: verbify -->
+<!-- signatures: verbify(f) -->
 ### Function: verbify (f)
 
 Returns the verb form of the function name *f*.

@@ -1,5 +1,8 @@
 ## draw
 
+<!-- category: Plotting -->
+<!-- keywords: allocation -->
+<!-- signatures: allocation -->
 ### Variable: allocation
 
 Default value: `false`
@@ -57,6 +60,9 @@ See also option `columns`.
 
 See also: `columns`.
 
+<!-- category: Plotting -->
+<!-- keywords: axis_3d -->
+<!-- signatures: axis_3d -->
 ### Variable: axis_3d
 
 Default value: `true`
@@ -85,6 +91,9 @@ See also `axis_bottom`,  `axis_left`, `axis_top`, and `axis_right` for axis in 2
 
 See also: `axis_bottom`, `axis_left`, `axis_top`, `axis_right`.
 
+<!-- category: Plotting -->
+<!-- keywords: axis_bottom -->
+<!-- signatures: axis_bottom -->
 ### Variable: axis_bottom
 
 Default value: `true`
@@ -113,6 +122,9 @@ See also `axis_left`,  `axis_top`, `axis_right` and `axis_005f3d`.
 
 See also: `axis_left`, `axis_top`, `axis_right`, `axis_3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: axis_left -->
+<!-- signatures: axis_left -->
 ### Variable: axis_left
 
 Default value: `true`
@@ -139,6 +151,9 @@ See also `axis_bottom`,  `axis_top`, `axis_right` and `axis_005f3d`.
 
 See also: `axis_bottom`, `axis_top`, `axis_right`, `axis_3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: axis_right -->
+<!-- signatures: axis_right -->
 ### Variable: axis_right
 
 Default value: `true`
@@ -165,6 +180,9 @@ See also `axis_bottom`,  `axis_left`, `axis_top` and `axis_005f3d`.
 
 See also: `axis_bottom`, `axis_left`, `axis_top`, `axis_3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: axis_top -->
+<!-- signatures: axis_top -->
 ### Variable: axis_top
 
 Default value: `true`
@@ -191,6 +209,9 @@ See also `axis_bottom`,   `axis_left`,  `axis_right`,  and `axis_005f3d`.
 
 See also: `axis_bottom`, `axis_left`, `axis_right`, `axis_3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: background_color -->
+<!-- signatures: background_color -->
 ### Variable: background_color
 
 Default value: `white`
@@ -208,7 +229,10 @@ This option does not work with terminals `epslatex` and `epslatex_standalone`.
 
 See also `color`
 
-### Function: bars (x1, h1, w1, x2, h2, w2, ...)
+<!-- category: Plotting -->
+<!-- keywords: bars -->
+<!-- signatures: bars([x1, h1, w1], [x2, h2, w2, ...]) -->
+### Function: bars ([x1, h1, w1], [x2, h2, w2, ...])
 
 Draws vertical bars in 2D.
 
@@ -247,6 +271,9 @@ Example:
 
 See also: `key`, `fill_color`, `fill_density`, `line_width`.
 
+<!-- category: Plotting -->
+<!-- keywords: border -->
+<!-- signatures: border -->
 ### Variable: border
 
 Default value: `true`
@@ -280,6 +307,9 @@ Example:
 
 See also: `polygon`, `rectangle`, `ellipse`.
 
+<!-- category: Plotting -->
+<!-- keywords: boundaries_array -->
+<!-- signatures: boundaries_array -->
 ### Variable: boundaries_array
 
 Default value: `false`
@@ -297,6 +327,9 @@ See also `geomap`.
 
 See also: `geomap`.
 
+<!-- category: Plotting -->
+<!-- keywords: capping -->
+<!-- signatures: capping -->
 ### Variable: capping
 
 Default value: `[false, false]`
@@ -324,6 +357,9 @@ Example:
 
 ![draw_tube_extremes](figures/draw_tube_extremes.png)
 
+<!-- category: Plotting -->
+<!-- keywords: cbrange -->
+<!-- signatures: cbrange -->
 ### Variable: cbrange
 
 Default value: `auto`
@@ -366,6 +402,9 @@ See also `enhanced3d`,  `colorbox` and `cbtics`.
 
 See also: `enhanced3d`, `colorbox`, `cbtics`.
 
+<!-- category: Plotting -->
+<!-- keywords: cbtics -->
+<!-- signatures: cbtics -->
 ### Variable: cbtics
 
 Default value: `auto`
@@ -402,6 +441,9 @@ See also `enhanced3d`,  `colorbox` and `cbrange`.
 
 See also: `enhanced3d`, `colorbox`, `cbrange`.
 
+<!-- category: Plotting -->
+<!-- keywords: colorbox -->
+<!-- signatures: colorbox -->
 ### Variable: colorbox
 
 Default value: `true`
@@ -451,6 +493,9 @@ See also `palette_005fdraw`.
 
 See also: `palette_draw`.
 
+<!-- category: Plotting -->
+<!-- keywords: columns -->
+<!-- signatures: columns -->
 ### Variable: columns
 
 Default value: 1
@@ -478,6 +523,9 @@ Example:
 
 ![draw_columns](figures/draw_columns.png)
 
+<!-- category: Plotting -->
+<!-- keywords: contour -->
+<!-- signatures: contour -->
 ### Variable: contour
 
 Default value: `none`
@@ -534,6 +582,9 @@ Example:
 
 ![draw_contour2](figures/draw_contour2.png)
 
+<!-- category: Plotting -->
+<!-- keywords: contour_levels -->
+<!-- signatures: contour_levels -->
 ### Variable: contour_levels
 
 Default value: 5
@@ -608,6 +659,9 @@ See also `contour`.
 
 See also: `contour`.
 
+<!-- category: Plotting -->
+<!-- keywords: cylindrical -->
+<!-- signatures: cylindrical(radius, z, minz, maxz, azi, minazi, maxazi) -->
 ### Function: cylindrical (radius, z, minz, maxz, azi, minazi, maxazi)
 
 Draws 3D functions defined in cylindrical coordinates.
@@ -637,6 +691,9 @@ Example:
 
 See also: `xu_grid`, `yv_grid`, `line_type`, `key`, `wired_surface`.
 
+<!-- category: Plotting -->
+<!-- keywords: data_file_name -->
+<!-- signatures: data_file_name -->
 ### Variable: data_file_name
 
 Default value: `"data.gnuplot"`
@@ -652,6 +709,9 @@ does not matter. It can be also used as an argument of function `draw`.
 
 See example in `gnuplot_file_name`.
 
+<!-- category: Plotting -->
+<!-- keywords: delay -->
+<!-- signatures: delay -->
 ### Variable: delay
 
 Default value: 5
@@ -689,6 +749,9 @@ See also `terminal`, and `dimensions`.
 
 See also: `terminal`.
 
+<!-- category: Plotting -->
+<!-- keywords: dimensions -->
+<!-- signatures: dimensions -->
 ### Variable: dimensions
 
 Default value: `[600,500]`
@@ -751,6 +814,9 @@ We want an eps file with A4 portrait dimensions.
         explicit(x^2-y^2,x,-2,2,y,-2,2)) $
 ```
 
+<!-- category: Plotting -->
+<!-- keywords: draw -->
+<!-- signatures: draw(<arg_1>, ...) -->
 ### Function: draw (<arg_1>, ...)
 
 Plots a series of scenes; its arguments are `gr2d` and/or `gr3d` 
@@ -832,6 +898,9 @@ See also `gr2d`, `gr3d`, `draw2d` and `draw3d`.
 
 See also: `terminal`, `columns`, `dimensions`, `file_name`, `delay`, `draw2d`, `draw3d`, `gr2d`, `gr3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: draw2d -->
+<!-- signatures: draw2d(argument_1, ...) -->
 ### Function: draw2d (argument_1, ...)
 
 This function is a shortcut for
@@ -845,6 +914,9 @@ See also `draw` and `gr2d`.
 
 See also: `draw`, `gr2d`.
 
+<!-- category: Plotting -->
+<!-- keywords: draw3d -->
+<!-- signatures: draw3d(argument_1, ...) -->
 ### Function: draw3d (argument_1, ...)
 
 This function is a shortcut for
@@ -858,6 +930,9 @@ See also `draw` and `gr3d`.
 
 See also: `draw`, `gr3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: draw_file -->
+<!-- signatures: draw_file(graphic option, ..., graphic object, ...) -->
 ### Function: draw_file (graphic option, ..., graphic object, ...)
 
 Saves the current plot into a file. Accepted graphics options are:
@@ -876,6 +951,9 @@ Example:
                 dimensions = [5,5]) $
 ```
 
+<!-- category: Plotting -->
+<!-- keywords: draw_realpart -->
+<!-- signatures: draw_realpart -->
 ### Variable: draw_realpart
 
 Default value: `true`
@@ -904,6 +982,9 @@ Example:
 
 See also: `explicit`, `parametric`, `parametric_surface`.
 
+<!-- category: Plotting -->
+<!-- keywords: draw_renderer -->
+<!-- signatures: draw_renderer -->
 ### Variable: draw_renderer
 
 Default value: `gnuplot_pipes`
@@ -913,6 +994,9 @@ The only permitted values are `gnuplot_pipes`, `gnuplot`,
 `vtk`, `vtk6` or `vtk7`. When `draw_renderer` is set
 to `vtk`, the VTK interface is used for draw.
 
+<!-- category: Plotting -->
+<!-- keywords: elevation_grid -->
+<!-- signatures: elevation_grid(mat, x0, y0, width, height) -->
 ### Function: elevation_grid (mat, x0, y0, width, height)
 
 Draws matrix *mat* in 3D space. *z* values are taken from *mat*,
@@ -950,6 +1034,9 @@ Example:
 
 See also: `line_type`, `line_width`, `key`, `wired_surface`, `enhanced3d`, `elevation_grid`, `mesh`.
 
+<!-- category: Plotting -->
+<!-- keywords: ellipse -->
+<!-- signatures: ellipse(xc, yc, a, b, ang1, ang2) -->
 ### Function: ellipse (xc, yc, a, b, ang1, ang2)
 
 Draws ellipses and circles in 2D.
@@ -994,6 +1081,9 @@ Example:
 
 See also: `nticks`, `transparent`, `fill_color`, `fill_density`, `border`, `line_type`, `key`.
 
+<!-- category: Plotting -->
+<!-- keywords: enhanced3d -->
+<!-- signatures: enhanced3d -->
 ### Variable: enhanced3d
 
 Default value: `none`
@@ -1194,6 +1284,9 @@ being `k` an ordering parameter.
 
 See also: `enhanced3d`, `parametric`, `tube`, `elevation_grid`.
 
+<!-- category: Plotting -->
+<!-- keywords: error_type -->
+<!-- signatures: error_type -->
 ### Variable: error_type
 
 Default value: `y`
@@ -1209,7 +1302,10 @@ See also `errors`.
 
 See also: `errors`.
 
-### Function: errors (x1, x2, ..., y1, y2, ...)
+<!-- category: Plotting -->
+<!-- keywords: errors -->
+<!-- signatures: errors([x1, x2, ...], [y1, y2, ...]) -->
+### Function: errors ([x1, x2, ...], [y1, y2, ...])
 
 Draws points with error bars, horizontally, vertically or both, depending on the
 value of option `error_type`.
@@ -1269,7 +1365,10 @@ Vertical and horizontal error bars.
 
 See also: `error_type`, `points_joined`, `line_width`, `key`, `line_type`, `fill_density`, `xaxis_secondary`, `yaxis_secondary`.
 
-### Function: explicit (explicit, expr, var, minval, maxval, explicit, fcn, var, minval, maxval, explicit, expr, var1, minval1, maxval1, var2, minval2, maxval2, explicit, fcn, var1, minval1, maxval1, var2, minval2, maxval2)
+<!-- category: Plotting -->
+<!-- keywords: explicit -->
+<!-- signatures: explicit(expr, var, minval, maxval), explicit(fcn, var, minval, maxval), explicit(expr, var1, minval1, maxval1, var2, minval2, maxval2), explicit(fcn, var1, minval1, maxval1, var2, minval2, maxval2) -->
+### Function: explicit (expr, var, minval, maxval)
 
 Draws explicit functions in 2D and 3D.
 
@@ -1343,6 +1442,9 @@ See also `filled_func` for filled functions.
 
 See also: `nticks`, `draw_realpart`, `line_width`, `line_type`, `key`, `filled_func`, `fill_color`, `fill_density`, `xu_grid`, `yv_grid`, `wired_surface`, `enhanced3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: file_name -->
+<!-- signatures: file_name -->
 ### Variable: file_name
 
 Default value: `"maxima_out"`
@@ -1372,6 +1474,9 @@ See also `terminal`,  `dimensions_005fdraw`.
 
 See also: `terminal`, `dimensions_draw`.
 
+<!-- category: Plotting -->
+<!-- keywords: fill_color -->
+<!-- signatures: fill_color -->
 ### Variable: fill_color
 
 Default value: `"red"`
@@ -1383,6 +1488,9 @@ Default value: `"red"`
 
 See `color` to learn how colors are specified.
 
+<!-- category: Plotting -->
+<!-- keywords: fill_density -->
+<!-- signatures: fill_density -->
 ### Variable: fill_density
 
 Default value: 0
@@ -1394,6 +1502,9 @@ the intensity of the `fill_color` in `bars` objects.
 
 See `bars` for examples.
 
+<!-- category: Plotting -->
+<!-- keywords: filled_func -->
+<!-- signatures: filled_func -->
 ### Variable: filled_func
 
 Default value: `false`
@@ -1447,6 +1558,9 @@ See also `fill_color` and `explicit`.
 
 See also: `explicit`, `fill_color`.
 
+<!-- category: Plotting -->
+<!-- keywords: font -->
+<!-- signatures: font -->
 ### Variable: font
 
 Default value: `""` (empty string)
@@ -1556,6 +1670,9 @@ The gnuplot documentation is an important source of information about terminals 
 
 See also: `font_size`.
 
+<!-- category: Plotting -->
+<!-- keywords: font_size -->
+<!-- signatures: font_size -->
 ### Variable: font_size
 
 Default value: 10
@@ -1574,7 +1691,10 @@ See also `font`.
 
 See also: `font`.
 
-### Function: geomap (geomap, numlist, geomap, numlist, 3Dprojection)
+<!-- category: Plotting -->
+<!-- keywords: geomap -->
+<!-- signatures: geomap(numlist), geomap(numlist, 3Dprojection) -->
+### Function: geomap (numlist)
 
 Draws cartographic maps in 2D and 3D.
 
@@ -1745,11 +1865,17 @@ for more elaborated examples.
 
 See also: `line_width`, `line_type`, `make_poly_country`, `make_poly_continent`.
 
+<!-- category: Plotting -->
+<!-- keywords: get_pixel -->
+<!-- signatures: get_pixel(pic, x, y) -->
 ### Function: get_pixel (pic, x, y)
 
 Returns pixel from picture. Coordinates *x* and *y* range from 0 to
 `width-1` and `height-1`, respectively.
 
+<!-- category: Plotting -->
+<!-- keywords: gnuplot_file_name -->
+<!-- signatures: gnuplot_file_name -->
 ### Variable: gnuplot_file_name
 
 Default value: `"maxout_xxx.gnuplot"` with `"xxx"`
@@ -1783,6 +1909,9 @@ See also `data_005ffile_005fname`.
 
 See also: `data_file_name`.
 
+<!-- category: Plotting -->
+<!-- keywords: gr2d -->
+<!-- signatures: gr2d(argument_1, ...) -->
 ### Function: gr2d (argument_1, ...)
 
 Function `gr2d` builds an object describing a 2D scene. Arguments are
@@ -1845,6 +1974,9 @@ and `draw2d`.
 
 See also: `bars`, `ellipse`, `explicit`, `image`, `implicit`, `label`, `parametric`, `points`, `polar`, `polygon`, `quadrilateral`, `rectangle`, `triangle`, `vector`, `draw`, `draw2d`.
 
+<!-- category: Plotting -->
+<!-- keywords: gr3d -->
+<!-- signatures: gr3d(argument_1, ...) -->
 ### Function: gr3d (argument_1, ...)
 
 Function `gr3d` builds an object describing a 3d scene. Arguments are
@@ -1870,6 +2002,9 @@ See also `draw` and `draw3d`.
 
 See also: `cylindrical`, `elevation_grid`, `explicit`, `implicit`, `label`, `mesh`, `parametric`, `parametric_surface`, `points`, `quadrilateral`, `spherical`, `triangle`, `tube`, `vector`, `geomap`, `draw`, `draw3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: head_angle -->
+<!-- signatures: head_angle -->
 ### Variable: head_angle
 
 Default value: 45
@@ -1917,6 +2052,9 @@ See also `head_both`,  `head_length`,  and `head_005ftype`.
 
 See also: `head_both`, `head_length`, `head_type`.
 
+<!-- category: Plotting -->
+<!-- keywords: head_both -->
+<!-- signatures: head_both -->
 ### Variable: head_both
 
 Default value: `false`
@@ -1949,6 +2087,9 @@ See also `head_length`,  `head_angle`,  and `head_005ftype`.
 
 See also: `head_length`, `head_angle`, `head_type`.
 
+<!-- category: Plotting -->
+<!-- keywords: head_length -->
+<!-- signatures: head_length -->
 ### Variable: head_length
 
 Default value: 2
@@ -1983,6 +2124,9 @@ See also `head_both`,  `head_angle`,  and `head_005ftype`.
 
 See also: `head_both`, `head_angle`, `head_type`.
 
+<!-- category: Plotting -->
+<!-- keywords: head_type -->
+<!-- signatures: head_type -->
 ### Variable: head_type
 
 Default value: `filled`
@@ -2018,6 +2162,9 @@ See also `head_both`,  `head_angle`,  and `head_005flength`.
 
 See also: `head_both`, `head_angle`, `head_length`.
 
+<!-- category: Plotting -->
+<!-- keywords: image -->
+<!-- signatures: image(im, x0, y0, width, height) -->
 ### Function: image (im, x0, y0, width, height)
 
 Renders images in 2D.
@@ -2162,7 +2309,10 @@ contains more elaborated examples.
 
 See also: `colorbox`, `make_level_picture`, `make_rgb_picture`, `read_xpm`.
 
-### Function: implicit (implicit, fcn, x, xmin, xmax, y, ymin, ymax, implicit, fcn, x, xmin, xmax, y, ymin, ymax, z, zmin, zmax)
+<!-- category: Plotting -->
+<!-- keywords: implicit -->
+<!-- signatures: implicit(fcn, x, xmin, xmax, y, ymin, ymax), implicit(fcn, x, xmin, xmax, y, ymin, ymax, z, zmin, zmax) -->
+### Function: implicit (fcn, x, xmin, xmax, y, ymin, ymax)
 
 Draws implicit functions in 2D and 3D.
 
@@ -2229,6 +2379,9 @@ Example:
 
 See also: `ip_grid`, `ip_grid_in`, `line_width`, `line_type`, `key`, `x_voxel`, `y_voxel`, `z_voxel`, `wired_surface`, `enhanced3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: interpolate_color -->
+<!-- signatures: interpolate_color -->
 ### Variable: interpolate_color
 
 Default value: `false`
@@ -2337,6 +2490,9 @@ See also `enhanced3d`.
 
 See also: `enhanced3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: ip_grid -->
+<!-- signatures: ip_grid -->
 ### Variable: ip_grid
 
 Default value: `[50, 50]`
@@ -2347,6 +2503,9 @@ Default value: `[50, 50]`
 
 This option is relevant only for `implicit` objects.
 
+<!-- category: Plotting -->
+<!-- keywords: ip_grid_in -->
+<!-- signatures: ip_grid_in -->
 ### Variable: ip_grid_in
 
 Default value: `[5, 5]`
@@ -2357,6 +2516,9 @@ Default value: `[5, 5]`
 
 This option is relevant only for `implicit` objects.
 
+<!-- category: Plotting -->
+<!-- keywords: key -->
+<!-- signatures: key -->
 ### Variable: key
 
 Default value: `""` (empty string)
@@ -2394,6 +2556,9 @@ Example:
 
 See also: `points`, `polygon`, `rectangle`, `ellipse`, `vector`, `explicit`, `implicit`, `parametric`, `polar`, `parametric_surface`.
 
+<!-- category: Plotting -->
+<!-- keywords: key_pos -->
+<!-- signatures: key_pos -->
 ### Variable: key_pos
 
 Default value: `""` (empty string)
@@ -2433,6 +2598,9 @@ Example:
 
 ![draw_key_pos](figures/draw_key_pos.png)
 
+<!-- category: Plotting -->
+<!-- keywords: label_alignment -->
+<!-- signatures: label_alignment -->
 ### Variable: label_alignment
 
 Default value: `center`
@@ -2470,6 +2638,9 @@ See also `label_orientation`,  and `color`
 
 See also: `label_orientation`.
 
+<!-- category: Plotting -->
+<!-- keywords: label_orientation -->
+<!-- signatures: label_orientation -->
 ### Variable: label_orientation
 
 Default value: `horizontal`
@@ -2508,6 +2679,9 @@ See also `label_alignment` and `color`
 
 See also: `label_alignment`.
 
+<!-- category: Plotting -->
+<!-- keywords: line_type -->
+<!-- signatures: line_type -->
 ### Variable: line_type
 
 Default value: `solid`
@@ -2548,6 +2722,9 @@ See also `line_005fwidth`.
 
 See also: `points`, `polygon`, `rectangle`, `ellipse`, `vector`, `explicit`, `implicit`, `parametric`, `polar`, `parametric_surface`, `line_width`.
 
+<!-- category: Plotting -->
+<!-- keywords: line_width -->
+<!-- signatures: line_width -->
 ### Variable: line_width
 
 Default value: 1
@@ -2587,6 +2764,9 @@ See also `line_005ftype`.
 
 See also: `points`, `polygon`, `rectangle`, `ellipse`, `vector`, `explicit`, `implicit`, `parametric`, `polar`, `line_type`.
 
+<!-- category: Plotting -->
+<!-- keywords: logcb -->
+<!-- signatures: logcb -->
 ### Variable: logcb
 
 Default value: `false`
@@ -2625,6 +2805,9 @@ See also `enhanced3d`,  `colorbox` and `cbrange`.
 
 See also: `logcb`, `enhanced3d`, `colorbox`, `cbrange`.
 
+<!-- category: Plotting -->
+<!-- keywords: logx_secondary -->
+<!-- signatures: logx_secondary -->
 ### Variable: logx_secondary
 
 Default value: `false`
@@ -2666,6 +2849,9 @@ See also `logx_draw`,  `logy_draw`,  `logy_secondary`,  and `logz`.
 
 See also: `logx_draw`, `logy_draw`, `logy_secondary`, `logz`.
 
+<!-- category: Plotting -->
+<!-- keywords: logy_secondary -->
+<!-- signatures: logy_secondary -->
 ### Variable: logy_secondary
 
 Default value: `false`
@@ -2705,6 +2891,9 @@ See also `logx_draw`,  `logy_draw`,  `logx_secondary`,  and `logz`.
 
 See also: `logx_draw`, `logy_draw`, `logx_secondary`, `logz`.
 
+<!-- category: Plotting -->
+<!-- keywords: logz -->
+<!-- signatures: logz -->
 ### Variable: logz
 
 Default value: `false`
@@ -2732,7 +2921,10 @@ See also `logx_draw` and `logy_005fdraw`.
 
 See also: `logx_draw`, `logy_draw`.
 
-### Function: make_level_picture (make_level_picture, data, make_level_picture, data, width, height)
+<!-- category: Plotting -->
+<!-- keywords: make_level_picture -->
+<!-- signatures: make_level_picture(data), make_level_picture(data, width, height) -->
+### Function: make_level_picture (data)
 
 Returns a levels *picture* object. `make_level_picture (data)`
 builds the *picture* object from matrix *data*.
@@ -2775,7 +2967,10 @@ Level picture from numeric list.
 (%o1)            picture(level, 2, 2, {Array:  #(0 0 54 3)})
 ```
 
-### Function: make_poly_continent (make_poly_continent, continent_name, make_poly_continent, country_list)
+<!-- category: Plotting -->
+<!-- keywords: make_poly_continent -->
+<!-- signatures: make_poly_continent(continent_name), make_poly_continent(country_list) -->
+### Function: make_poly_continent (continent_name)
 
 Makes the necessary polygons to draw a colored continent
 or a list of countries.
@@ -2803,6 +2998,9 @@ Example:
 
 ![worldmap_make_poly_continent2](figures/worldmap_make_poly_continent2.png)
 
+<!-- category: Plotting -->
+<!-- keywords: make_poly_country -->
+<!-- signatures: make_poly_country(country_name) -->
 ### Function: make_poly_country (country_name)
 
 Makes the necessary polygons to draw a colored country.
@@ -2822,6 +3020,9 @@ Example:
 
 ![worldmap_make_poly_country](figures/worldmap_make_poly_country.png)
 
+<!-- category: Plotting -->
+<!-- keywords: make_polygon -->
+<!-- signatures: make_polygon(nlist) -->
 ### Function: make_polygon (nlist)
 
 Returns a `polygon` object from boundary indices. Argument
@@ -2886,6 +3087,9 @@ polygon can be drawn.
 
 ![worldmap_make_polygon](figures/worldmap_make_polygon.png)
 
+<!-- category: Plotting -->
+<!-- keywords: make_rgb_picture -->
+<!-- signatures: make_rgb_picture(redlevel, greenlevel, bluelevel) -->
 ### Function: make_rgb_picture (redlevel, greenlevel, bluelevel)
 
 Returns an rgb-coloured *picture* object. All three arguments must
@@ -2921,6 +3125,9 @@ Example:
               {Array:  #(3 54 123 2 23 82 7 73 45 255 0 33)})
 ```
 
+<!-- category: Plotting -->
+<!-- keywords: mesh -->
+<!-- signatures: mesh(row_1, row_2, ...) -->
 ### Function: mesh (row_1, row_2, ...)
 
 Draws a quadrangular mesh in 3D.
@@ -2990,6 +3197,9 @@ Two quadrilaterals.
 
 See also: `line_type`, `line_width`, `color`, `key`, `wired_surface`, `enhanced3d`, `transform`.
 
+<!-- category: Plotting -->
+<!-- keywords: multiplot_mode -->
+<!-- signatures: multiplot_mode(term) -->
 ### Function: multiplot_mode (term)
 
 This function enables Maxima to work in one-window multiplot mode with terminal
@@ -3033,10 +3243,16 @@ Example:
 
 See also: `explicit`.
 
+<!-- category: Plotting -->
+<!-- keywords: negative_picture -->
+<!-- signatures: negative_picture(pic) -->
 ### Function: negative_picture (pic)
 
 Returns the negative of a (*level* or *rgb*) picture.
 
+<!-- category: Plotting -->
+<!-- keywords: numbered_boundaries -->
+<!-- signatures: numbered_boundaries(nlist) -->
 ### Function: numbered_boundaries (nlist)
 
 Draws a list of polygonal segments (boundaries), labeled by
@@ -3058,7 +3274,10 @@ Map of Europe labeling borders with their component number in
 (%i3) numbered_boundaries(european_borders)$
 ```
 
-### Function: parametric (parametric, xfun, yfun, par, parmin, parmax, parametric, xfun, yfun, zfun, par, parmin, parmax)
+<!-- category: Plotting -->
+<!-- keywords: parametric -->
+<!-- signatures: parametric(xfun, yfun, par, parmin, parmax), parametric(xfun, yfun, zfun, par, parmin, parmax) -->
+### Function: parametric (xfun, yfun, par, parmin, parmax)
 
 Draws parametric functions in 2D and 3D.
 
@@ -3114,6 +3333,9 @@ Example:
 
 See also: `nticks`, `line_width`, `line_type`, `key`, `color`, `enhanced3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: parametric_surface -->
+<!-- signatures: parametric_surface(xfun, yfun, zfun, par1, par1min, par1max, par2, par2min, par2max) -->
 ### Function: parametric_surface (xfun, yfun, zfun, par1, par1min, par1max, par2, par2min, par2max)
 
 Draws parametric surfaces in 3D.
@@ -3152,15 +3374,24 @@ Example:
 
 See also: `draw_realpart`, `xu_grid`, `yv_grid`, `line_type`, `line_width`, `key`, `wired_surface`, `enhanced3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: picture_equalp -->
+<!-- signatures: picture_equalp(x, y) -->
 ### Function: picture_equalp (x, y)
 
 Returns `true` in case of equal pictures, and `false` otherwise.
 
+<!-- category: Plotting -->
+<!-- keywords: picturep -->
+<!-- signatures: picturep(x) -->
 ### Function: picturep (x)
 
 Returns `true` if the argument is a well formed image,
 and `false` otherwise.
 
+<!-- category: Plotting -->
+<!-- keywords: point_size -->
+<!-- signatures: point_size -->
 ### Variable: point_size
 
 Default value: 1
@@ -3197,7 +3428,10 @@ Example:
 
 See also: `points`.
 
-### Function: points (points, x1, y1, x2, y2, ..., points, x1, x2, ..., y1, y2, ..., points, y1, y2, ..., points, x1, y1, z1, x2, y2, z2, ..., points, x1, x2, ..., y1, y2, ..., z1, z2, ..., points, matrix, points, 1d_y_array, points, 1d_x_array, 1d_y_array, points, 1d_x_array, 1d_y_array, 1d_z_array, points, 2d_xy_array, points, 2d_xyz_array)
+<!-- category: Plotting -->
+<!-- keywords: points -->
+<!-- signatures: points([[x1, y1], [x2, y2], ...]), points([x1, x2, ...], [y1, y2, ...]), points([y1, y2, ...]), points([[x1, y1, z1], [x2, y2, z2], ...]), points([x1, x2, ...], [y1, y2, ...], [z1, z2, ...]), points(matrix), points(1d_y_array), points(1d_x_array, 1d_y_array), points(1d_x_array, 1d_y_array, 1d_z_array), points(2d_xy_array), points(2d_xyz_array) -->
+### Function: points ([[x1, y1], [x2, y2], ...])
 
 Draws points in 2D and 3D.
 
@@ -3414,6 +3648,9 @@ Color numbers explicitly specified by the user.
 
 See also: `point_size`, `point_type`, `points_joined`, `line_width`, `key`, `line_type`, `enhanced3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: points_joined -->
+<!-- signatures: points_joined -->
 ### Variable: points_joined
 
 Default value: `false`
@@ -3459,6 +3696,9 @@ Example:
 
 See also: `points`.
 
+<!-- category: Plotting -->
+<!-- keywords: polar -->
+<!-- signatures: polar(radius, ang, minang, maxang) -->
 ### Function: polar (radius, ang, minang, maxang)
 
 Draws 2D functions defined in polar coordinates.
@@ -3496,7 +3736,10 @@ Example:
 
 See also: `nticks`, `line_width`, `line_type`, `key`.
 
-### Function: polygon (polygon, x1, y1, x2, y2, ..., polygon, x1, x2, ..., y1, y2, ...)
+<!-- category: Plotting -->
+<!-- keywords: polygon -->
+<!-- signatures: polygon([[x1, y1], [x2, y2], ...]), polygon([x1, x2, ...], [y1, y2, ...]) -->
+### Function: polygon ([[x1, y1], [x2, y2], ...])
 
 Draws polygons in 2D.
 
@@ -3531,6 +3774,9 @@ Example:
 
 See also: `transparent`, `fill_color`, `fill_density`, `border`, `line_width`, `key`, `line_type`.
 
+<!-- category: Plotting -->
+<!-- keywords: proportional_axes -->
+<!-- signatures: proportional_axes -->
 ### Variable: proportional_axes
 
 Default value: `none`
@@ -3586,6 +3832,9 @@ Multiplot.
 
 ![draw_proportional_axis2](figures/draw_proportional_axis2.png)
 
+<!-- category: Plotting -->
+<!-- keywords: quadrilateral -->
+<!-- signatures: quadrilateral(point_1, point_2, point_3, point_4) -->
 ### Function: quadrilateral (point_1, point_2, point_3, point_4)
 
 Draws a quadrilateral.
@@ -3633,11 +3882,17 @@ This object is affected by the following *graphic options*: `line_type`,
 
 See also: `transparent`, `fill_color`, `border`, `line_width`, `key`, `xaxis_secondary`, `yaxis_secondary`, `line_type`, `color`, `enhanced3d`, `transform`.
 
+<!-- category: Plotting -->
+<!-- keywords: read_xpm -->
+<!-- signatures: read_xpm(xpm_file) -->
 ### Function: read_xpm (xpm_file)
 
 Reads a file in xpm and returns a picture object.
 
-### Function: rectangle (x1, y1, x2, y2)
+<!-- category: Plotting -->
+<!-- keywords: rectangle -->
+<!-- signatures: rectangle([x1, y1], [x2, y2]) -->
+### Function: rectangle ([x1, y1], [x2, y2])
 
 Draws rectangles in 2D.
 
@@ -3677,6 +3932,9 @@ Example:
 
 See also: `transparent`, `fill_color`, `border`, `line_width`, `key`, `line_type`.
 
+<!-- category: Plotting -->
+<!-- keywords: region -->
+<!-- signatures: region(expr, var1, minval1, maxval1, var2, minval2, maxval2) -->
 ### Function: region (expr, var1, minval1, maxval1, var2, minval2, maxval2)
 
 Plots a region on the plane defined by inequalities.
@@ -3706,6 +3964,9 @@ Example:
 
 See also: `not`, `fill_color`, `fill_density`, `key`, `x_voxel`, `y_voxel`.
 
+<!-- category: Plotting -->
+<!-- keywords: region_boundaries -->
+<!-- signatures: region_boundaries(x1, y1, x2, y2) -->
 ### Function: region_boundaries (x1, y1, x2, y2)
 
 Detects polygonal segments of global variable `boundaries_array`
@@ -3728,6 +3989,9 @@ Returns segment numbers for plotting southern Italy.
 
 ![worldmap_region_boundaries](figures/worldmap_region_boundaries.png)
 
+<!-- category: Plotting -->
+<!-- keywords: region_boundaries_plus -->
+<!-- signatures: region_boundaries_plus(x1, y1, x2, y2) -->
 ### Function: region_boundaries_plus (x1, y1, x2, y2)
 
 Detects polygonal segments of global variable `boundaries_array`
@@ -3749,11 +4013,17 @@ Example:
 
 ![worldmap_region_boundaries_plus](figures/worldmap_region_boundaries_plus.png)
 
+<!-- category: Plotting -->
+<!-- keywords: rgb2level -->
+<!-- signatures: rgb2level(pic) -->
 ### Function: rgb2level (pic)
 
 Transforms an *rgb* picture into a *level* one by
 averaging the red, green and blue channels.
 
+<!-- category: Plotting -->
+<!-- keywords: set_draw_defaults -->
+<!-- signatures: set_draw_defaults(graphic option, ..., graphic object, ...) -->
 ### Function: set_draw_defaults (graphic option, ..., graphic object, ...)
 
 Sets user graphics options. This function is useful for plotting a sequence
@@ -3778,6 +4048,9 @@ Example:
       draw2d(explicit(((1+x)**2/(1+x*x))-1,x,-10,10))$
 ```
 
+<!-- category: Plotting -->
+<!-- keywords: spherical -->
+<!-- signatures: spherical(radius, azi, minazi, maxazi, zen, minzen, maxzen) -->
 ### Function: spherical (radius, azi, minazi, maxazi, zen, minzen, maxzen)
 
 Draws 3D functions defined in spherical coordinates.
@@ -3807,6 +4080,9 @@ Example:
 
 See also: `xu_grid`, `yv_grid`, `line_type`, `key`, `wired_surface`, `enhanced3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: surface_hide -->
+<!-- signatures: surface_hide -->
 ### Variable: surface_hide
 
 Default value: `false`
@@ -3832,6 +4108,9 @@ Example:
 
 ![draw_surface_hide](figures/draw_surface_hide.png)
 
+<!-- category: Plotting -->
+<!-- keywords: take_channel -->
+<!-- signatures: take_channel(im, color) -->
 ### Function: take_channel (im, color)
 
 If argument *color* is `red`, `green` or `blue`,
@@ -3855,6 +4134,9 @@ Example:
 (%o5)           picture(level, 2, 2, {Array:  #(54 23 73 0)})
 ```
 
+<!-- category: Plotting -->
+<!-- keywords: terminal -->
+<!-- signatures: terminal -->
 ### Variable: terminal
 
 Default value: `screen`
@@ -3966,6 +4248,9 @@ See also `file_name`,  `dimensions_draw` and `delay`.
 
 See also: `file_name`, `dimensions_draw`, `delay`.
 
+<!-- category: Plotting -->
+<!-- keywords: transform -->
+<!-- signatures: transform -->
 ### Variable: transform
 
 Default value: `none`
@@ -4020,6 +4305,9 @@ Translation in 3D.
         explicit(20*exp(-x^2-y^2)-10,x,-3,3,y,-3,3) )$
 ```
 
+<!-- category: Plotting -->
+<!-- keywords: transparent -->
+<!-- signatures: transparent -->
 ### Variable: transparent
 
 Default value: `false`
@@ -4051,6 +4339,9 @@ Example:
 
 See also: `polygon`, `rectangle`, `ellipse`.
 
+<!-- category: Plotting -->
+<!-- keywords: triangle -->
+<!-- signatures: triangle(point_1, point_2, point_3) -->
 ### Function: triangle (point_1, point_2, point_3)
 
 Draws a triangle.
@@ -4094,6 +4385,9 @@ This object is affected by the following *graphic options*: `line_type`,
 
 See also: `transparent`, `fill_color`, `border`, `line_width`, `key`, `xaxis_secondary`, `yaxis_secondary`, `line_type`, `transform`, `color`, `enhanced3d`.
 
+<!-- category: Plotting -->
+<!-- keywords: tube -->
+<!-- signatures: tube(xfun, yfun, zfun, rfun, p, pmin, pmax) -->
 ### Function: tube (xfun, yfun, zfun, rfun, p, pmin, pmax)
 
 Draws a tube in 3D with varying diameter.
@@ -4129,6 +4423,9 @@ Example:
 
 See also: `xu_grid`, `yv_grid`, `line_type`, `line_width`, `key`, `wired_surface`, `enhanced3d`, `color`, `capping`.
 
+<!-- category: Plotting -->
+<!-- keywords: unit_vectors -->
+<!-- signatures: unit_vectors -->
 ### Variable: unit_vectors
 
 Default value: `false`
@@ -4158,6 +4455,9 @@ Example:
 
 ![draw_unit_vectors](figures/draw_unit_vectors.png)
 
+<!-- category: Plotting -->
+<!-- keywords: user_preamble -->
+<!-- signatures: user_preamble -->
 ### Variable: user_preamble
 
 Default value: `""` (empty string)
@@ -4208,7 +4508,10 @@ Tell gnuplot to draw all contour lines in black
 
 ![draw_user_preamble2](figures/draw_user_preamble2.png)
 
-### Function: vector (vector, x, y, dx, dy, vector, x, y, z, dx, dy, dz)
+<!-- category: Plotting -->
+<!-- keywords: vector -->
+<!-- signatures: vector([x, y], [dx, dy]), vector([x, y, z], [dx, dy, dz]) -->
+### Function: vector ([x, y], [dx, dy])
 
 Draws vectors in 2D and 3D.
 
@@ -4268,6 +4571,9 @@ Example:
 
 See also: `head_both`, `head_length`, `head_angle`, `head_type`, `line_width`, `line_type`, `key`.
 
+<!-- category: Plotting -->
+<!-- keywords: view -->
+<!-- signatures: view -->
 ### Variable: view
 
 Default value: `[60,30]`
@@ -4308,6 +4614,9 @@ Example:
 
 ![draw_view2](figures/draw_view2.png)
 
+<!-- category: Plotting -->
+<!-- keywords: wired_surface -->
+<!-- signatures: wired_surface -->
 ### Variable: wired_surface
 
 Default value: `false`
@@ -4334,6 +4643,9 @@ Example:
 
 ![draw_wired_surface](figures/draw_wired_surface.png)
 
+<!-- category: Plotting -->
+<!-- keywords: x_voxel -->
+<!-- signatures: x_voxel -->
 ### Variable: x_voxel
 
 Default value: 10
@@ -4346,6 +4658,9 @@ object `region`.
 
 See also: `region`.
 
+<!-- category: Plotting -->
+<!-- keywords: xaxis -->
+<!-- signatures: xaxis -->
 ### Variable: xaxis
 
 Default value: `false`
@@ -4375,6 +4690,9 @@ See also `xaxis_width`,  `xaxis_type` and `xaxis_005fcolor`.
 
 See also: `xaxis_width`, `xaxis_type`, `xaxis_color`.
 
+<!-- category: Plotting -->
+<!-- keywords: xaxis_color -->
+<!-- signatures: xaxis_color -->
 ### Variable: xaxis_color
 
 Default value: `"black"`
@@ -4403,6 +4721,9 @@ See also `xaxis`,  `xaxis_width` and `xaxis_005ftype`.
 
 See also: `xaxis`, `xaxis_width`, `xaxis_type`.
 
+<!-- category: Plotting -->
+<!-- keywords: xaxis_secondary -->
+<!-- signatures: xaxis_secondary -->
 ### Variable: xaxis_secondary
 
 Default value: `false`
@@ -4438,6 +4759,9 @@ See also `xrange_secondary`,  `xtics_secondary`,  `xtics_rotate_secondary`,
 
 See also: `xrange_secondary`, `xtics_secondary`, `xtics_rotate_secondary`, `xaxis_secondary`.
 
+<!-- category: Plotting -->
+<!-- keywords: xaxis_type -->
+<!-- signatures: xaxis_type -->
 ### Variable: xaxis_type
 
 Default value: `dots`
@@ -4466,6 +4790,9 @@ See also `xaxis`,  `xaxis_width` and `xaxis_005fcolor`.
 
 See also: `xaxis`, `xaxis_width`, `xaxis_color`.
 
+<!-- category: Plotting -->
+<!-- keywords: xaxis_width -->
+<!-- signatures: xaxis_width -->
 ### Variable: xaxis_width
 
 Default value: 1
@@ -4494,6 +4821,9 @@ See also `xaxis`,  `xaxis_type` and `xaxis_005fcolor`.
 
 See also: `xaxis`, `xaxis_type`, `xaxis_color`.
 
+<!-- category: Plotting -->
+<!-- keywords: xlabel_secondary -->
+<!-- signatures: xlabel_secondary -->
 ### Variable: xlabel_secondary
 
 Default value: `""` (empty string)
@@ -4527,6 +4857,9 @@ See also `xlabel_draw`,  `ylabel_draw`,  `ylabel_secondary` and `zlabel_005fdraw
 
 See also: `xlabel_draw`, `ylabel_draw`, `ylabel_secondary`, `zlabel_draw`.
 
+<!-- category: Plotting -->
+<!-- keywords: xrange -->
+<!-- signatures: xrange -->
 ### Variable: xrange
 
 Default value: `auto`
@@ -4558,6 +4891,9 @@ See also `yrange` and `zrange`.
 
 See also: `yrange`, `zrange`.
 
+<!-- category: Plotting -->
+<!-- keywords: xrange_secondary -->
+<!-- signatures: xrange_secondary -->
 ### Variable: xrange_secondary
 
 Default value: `auto`
@@ -4579,6 +4915,9 @@ See also `xrange`,  `yrange`,  `zrange` and `yrange_005fsecondary`.
 
 See also: `xrange`, `yrange`, `zrange`, `yrange_secondary`.
 
+<!-- category: Plotting -->
+<!-- keywords: xtics_axis -->
+<!-- signatures: xtics_axis -->
 ### Variable: xtics_axis
 
 Default value: `false`
@@ -4591,6 +4930,9 @@ along the *x* axis, if it is `false` tics are plotted on the border.
 Since this is a global graphics option, its position in the scene description
 does not matter.
 
+<!-- category: Plotting -->
+<!-- keywords: xtics_rotate -->
+<!-- signatures: xtics_rotate -->
 ### Variable: xtics_rotate
 
 Default value: `false`
@@ -4603,6 +4945,9 @@ If `xtics_rotate` is `true`, tic marks on the *x* axis are rotated
 Since this is a global graphics option, its position in the scene description
 does not matter.
 
+<!-- category: Plotting -->
+<!-- keywords: xtics_rotate_secondary -->
+<!-- signatures: xtics_rotate_secondary -->
 ### Variable: xtics_rotate_secondary
 
 Default value: `false`
@@ -4615,6 +4960,9 @@ If `xtics_rotate_secondary` is `true`, tic marks on the secondary *x* axis are r
 Since this is a global graphics option, its position in the scene description
 does not matter.
 
+<!-- category: Plotting -->
+<!-- keywords: xtics_secondary -->
+<!-- signatures: xtics_secondary -->
 ### Variable: xtics_secondary
 
 Default value: `auto`
@@ -4627,6 +4975,9 @@ See `xtics_draw` for a complete description.
 
 See also: `xtics_draw`.
 
+<!-- category: Plotting -->
+<!-- keywords: xtics_secondary_axis -->
+<!-- signatures: xtics_secondary_axis -->
 ### Variable: xtics_secondary_axis
 
 Default value: `false`
@@ -4639,6 +4990,9 @@ along the secondary *x* axis, if it is `false` tics are plotted on the border.
 Since this is a global graphics option, its position in the scene description
 does not matter.
 
+<!-- category: Plotting -->
+<!-- keywords: xu_grid -->
+<!-- signatures: xu_grid -->
 ### Variable: xu_grid
 
 Default value: 30
@@ -4671,6 +5025,9 @@ See also `yv_005fgrid`.
 
 See also: `yv_grid`.
 
+<!-- category: Plotting -->
+<!-- keywords: xy_file -->
+<!-- signatures: xy_file -->
 ### Variable: xy_file
 
 Default value: `""` (empty string)
@@ -4684,6 +5041,9 @@ no coordinates are saved.
 Since this is a global graphics option, its position in the scene description
 does not matter.
 
+<!-- category: Plotting -->
+<!-- keywords: xyplane -->
+<!-- signatures: xyplane -->
 ### Variable: xyplane
 
 Default value: `false`
@@ -4708,6 +5068,9 @@ Example:
              explicit(x^2+y^2,x,-1,1,y,-1,1))$
 ```
 
+<!-- category: Plotting -->
+<!-- keywords: y_voxel -->
+<!-- signatures: y_voxel -->
 ### Variable: y_voxel
 
 Default value: 10
@@ -4720,6 +5083,9 @@ object `region`.
 
 See also: `region`.
 
+<!-- category: Plotting -->
+<!-- keywords: yaxis -->
+<!-- signatures: yaxis -->
 ### Variable: yaxis
 
 Default value: `false`
@@ -4747,6 +5113,9 @@ See also `yaxis_width`,  `yaxis_type` and `yaxis_005fcolor`.
 
 See also: `yaxis_width`, `yaxis_type`, `yaxis_color`.
 
+<!-- category: Plotting -->
+<!-- keywords: yaxis_color -->
+<!-- signatures: yaxis_color -->
 ### Variable: yaxis_color
 
 Default value: `"black"`
@@ -4775,6 +5144,9 @@ See also `yaxis`,  `yaxis_width` and `yaxis_005ftype`.
 
 See also: `yaxis`, `yaxis_width`, `yaxis_type`.
 
+<!-- category: Plotting -->
+<!-- keywords: yaxis_secondary -->
+<!-- signatures: yaxis_secondary -->
 ### Variable: yaxis_secondary
 
 Default value: `false`
@@ -4807,6 +5179,9 @@ and `ytics_axis_secondary`
 
 See also: `yrange_secondary`, `ytics_secondary`, `ytics_rotate_secondary`.
 
+<!-- category: Plotting -->
+<!-- keywords: yaxis_type -->
+<!-- signatures: yaxis_type -->
 ### Variable: yaxis_type
 
 Default value: `dots`
@@ -4835,6 +5210,9 @@ See also `yaxis`,  `yaxis_width` and `yaxis_005fcolor`.
 
 See also: `yaxis`, `yaxis_width`, `yaxis_color`.
 
+<!-- category: Plotting -->
+<!-- keywords: yaxis_width -->
+<!-- signatures: yaxis_width -->
 ### Variable: yaxis_width
 
 Default value: 1
@@ -4863,6 +5241,9 @@ See also `yaxis`,  `yaxis_type` and `yaxis_005fcolor`.
 
 See also: `yaxis`, `yaxis_type`, `yaxis_color`.
 
+<!-- category: Plotting -->
+<!-- keywords: ylabel_secondary -->
+<!-- signatures: ylabel_secondary -->
 ### Variable: ylabel_secondary
 
 Default value: `""` (empty string)
@@ -4899,6 +5280,9 @@ See also `xlabel_draw`,  `xlabel_secondary`,  `ylabel_draw` and `zlabel_005fdraw
 
 See also: `xlabel_draw`, `xlabel_secondary`, `ylabel_draw`, `zlabel_draw`.
 
+<!-- category: Plotting -->
+<!-- keywords: yrange -->
+<!-- signatures: yrange -->
 ### Variable: yrange
 
 Default value: `auto`
@@ -4931,6 +5315,9 @@ See also `xrange`,  `yrange_secondary` and `zrange`.
 
 See also: `xrange`, `yrange_secondary`, `zrange`.
 
+<!-- category: Plotting -->
+<!-- keywords: yrange_secondary -->
+<!-- signatures: yrange_secondary -->
 ### Variable: yrange_secondary
 
 Default value: `auto`
@@ -4968,6 +5355,9 @@ See also `xrange`,  `yrange` and `zrange`.
 
 See also: `xrange`, `yrange`, `zrange`.
 
+<!-- category: Plotting -->
+<!-- keywords: ytics_axis -->
+<!-- signatures: ytics_axis -->
 ### Variable: ytics_axis
 
 Default value: `false`
@@ -4980,6 +5370,9 @@ along the *y* axis, if it is `false` tics are plotted on the border.
 Since this is a global graphics option, its position in the scene description
 does not matter.
 
+<!-- category: Plotting -->
+<!-- keywords: ytics_rotate -->
+<!-- signatures: ytics_rotate -->
 ### Variable: ytics_rotate
 
 Default value: `false`
@@ -4992,6 +5385,9 @@ If `ytics_rotate` is `true`, tic marks on the *y* axis are rotated
 Since this is a global graphics option, its position in the scene description
 does not matter.
 
+<!-- category: Plotting -->
+<!-- keywords: ytics_rotate_secondary -->
+<!-- signatures: ytics_rotate_secondary -->
 ### Variable: ytics_rotate_secondary
 
 Default value: `false`
@@ -5004,6 +5400,9 @@ If `ytics_rotate_secondary` is `true`, tic marks on the secondary *y* axis are r
 Since this is a global graphics option, its position in the scene description
 does not matter.
 
+<!-- category: Plotting -->
+<!-- keywords: ytics_secondary -->
+<!-- signatures: ytics_secondary -->
 ### Variable: ytics_secondary
 
 Default value: `auto`
@@ -5014,6 +5413,9 @@ This graphic option controls the way tic marks are drawn on the second *y* axis.
 
 See `xtics` for a complete description.
 
+<!-- category: Plotting -->
+<!-- keywords: ytics_secondary_axis -->
+<!-- signatures: ytics_secondary_axis -->
 ### Variable: ytics_secondary_axis
 
 Default value: `false`
@@ -5026,6 +5428,9 @@ along the secondary *y* axis, if it is `false` tics are plotted on the border.
 Since this is a global graphics option, its position in the scene description
 does not matter.
 
+<!-- category: Plotting -->
+<!-- keywords: yv_grid -->
+<!-- signatures: yv_grid -->
 ### Variable: yv_grid
 
 Default value: 30
@@ -5060,6 +5465,9 @@ See also `xu_005fgrid`.
 
 See also: `explicit`, `parametric_surface`, `xu_grid`.
 
+<!-- category: Plotting -->
+<!-- keywords: z_voxel -->
+<!-- signatures: z_voxel -->
 ### Variable: z_voxel
 
 Default value: 10
@@ -5069,6 +5477,9 @@ Default value: 10
 be used by the *marching cubes algorithm* implemented
 by the 3d `implicit` object.
 
+<!-- category: Plotting -->
+<!-- keywords: zaxis -->
+<!-- signatures: zaxis -->
 ### Variable: zaxis
 
 Default value: `false`
@@ -5098,6 +5509,9 @@ See also `zaxis_width`,  `zaxis_type` and `zaxis_005fcolor`.
 
 See also: `zaxis_width`, `zaxis_type`, `zaxis_color`.
 
+<!-- category: Plotting -->
+<!-- keywords: zaxis_color -->
+<!-- signatures: zaxis_color -->
 ### Variable: zaxis_color
 
 Default value: `"black"`
@@ -5128,6 +5542,9 @@ See also `zaxis`,  `zaxis_width` and `zaxis_005ftype`.
 
 See also: `zaxis`, `zaxis_width`, `zaxis_type`.
 
+<!-- category: Plotting -->
+<!-- keywords: zaxis_type -->
+<!-- signatures: zaxis_type -->
 ### Variable: zaxis_type
 
 Default value: `dots`
@@ -5157,6 +5574,9 @@ See also `zaxis`,  `zaxis_width` and `zaxis_005fcolor`.
 
 See also: `zaxis`, `zaxis_width`, `zaxis_color`.
 
+<!-- category: Plotting -->
+<!-- keywords: zaxis_width -->
+<!-- signatures: zaxis_width -->
 ### Variable: zaxis_width
 
 Default value: 1
@@ -5186,6 +5606,9 @@ See also `zaxis`,  `zaxis_type` and `zaxis_005fcolor`.
 
 See also: `zaxis`, `zaxis_type`, `zaxis_color`.
 
+<!-- category: Plotting -->
+<!-- keywords: zlabel_rotate -->
+<!-- signatures: zlabel_rotate -->
 ### Variable: zlabel_rotate
 
 Default value: `"auto"`
@@ -5217,6 +5640,9 @@ See also `zlabel_005fdraw`.
 
 See also: `zlabel_draw`.
 
+<!-- category: Plotting -->
+<!-- keywords: zrange -->
+<!-- signatures: zrange -->
 ### Variable: zrange
 
 Default value: `auto`
@@ -5250,6 +5676,9 @@ See also `xrange` and `yrange`.
 
 See also: `xrange`, `yrange`.
 
+<!-- category: Plotting -->
+<!-- keywords: ztics_axis -->
+<!-- signatures: ztics_axis -->
 ### Variable: ztics_axis
 
 Default value: `false`
@@ -5262,6 +5691,9 @@ along the *z* axis, if it is `false` tics are plotted on the border.
 Since this is a global graphics option, its position in the scene description
 does not matter.
 
+<!-- category: Plotting -->
+<!-- keywords: ztics_rotate -->
+<!-- signatures: ztics_rotate -->
 ### Variable: ztics_rotate
 
 Default value: `false`

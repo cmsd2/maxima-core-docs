@@ -1,5 +1,8 @@
 ## impdiff
 
+<!-- category: Other -->
+<!-- keywords: implicit_derivative -->
+<!-- signatures: implicit_derivative(f, indvarlist, orderlist, depvar) -->
 ### Function: implicit_derivative (f, indvarlist, orderlist, depvar)
 
 This subroutine computes implicit derivatives of multivariable functions.

@@ -1,4 +1,4 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.1 from
+This is maxima-core-docs.info, produced by makeinfo version 7.3 from
 maxima-core-docs.texi.
 
 
@@ -54,11 +54,11 @@ File: maxima-core-docs.info,  Node: Maxima Core Documentation,  Next: Function a
 * Matrices and Linear Algebra::
 * linearalgebra::
 * NumberTheory::
-* Data Types and Structures::
-* Elementary Functions::
+* Data Types and Structures: Data Types and Structures 2.
+* Elementary Functions: Elementary Functions 2.
 * Number Theory::
-* Numerical::
-* Numerical::
+* Numerical: Numerical 2.
+* Numerical: Numerical 3.
 * cobyla::
 * colnew::
 * hompack::
@@ -73,7 +73,7 @@ File: maxima-core-docs.info,  Node: Maxima Core Documentation,  Next: Function a
 * simplex::
 * Other::
 * Bug Detection and Reporting::
-* Elementary Functions::
+* Elementary Functions: Elementary Functions 3.
 * Groups::
 * Miscellaneous Options::
 * augmented_lagrangian::
@@ -87,27 +87,27 @@ File: maxima-core-docs.info,  Node: Maxima Core Documentation,  Next: Function a
 * impdiff::
 * lindstedt::
 * makeOrders::
-* operatingsystem::
+* operatingsystem: operatingsystem 2.
 * pytranslate::
 * quantum_computing::
 * stirling::
 * wrstcse::
 * Plotting::
-* Plotting::
+* Plotting: Plotting 2.
 * descriptive::
 * draw::
 * drawdf::
 * dynamics::
 * graphs::
-* stringproc::
+* stringproc: stringproc 2.
 * Polynomials::
-* Polynomials::
+* Polynomials: Polynomials 2.
 * grobner::
 * orthopoly::
 * ratpow::
 * Programming::
-* Command Line::
-* Data Types and Structures::
+* Command Line: Command Line 2.
+* Data Types and Structures: Data Types and Structures 3.
 * Debugging::
 * Evaluation::
 * Expressions::
@@ -117,26 +117,26 @@ File: maxima-core-docs.info,  Node: Maxima Core Documentation,  Next: Function a
 * Operators::
 * Program Flow::
 * Runtime Environment::
-* stringproc::
+* stringproc: stringproc 3.
 * Series::
 * Limits::
 * Sums Products and Series::
 * zeilberger::
 * Simplification::
 * Rules and Patterns::
-* Simplification::
+* Simplification: Simplification 2.
 * simplification::
 * Solving::
 * Equations::
-* Numerical::
-* Operators::
+* Numerical: Numerical 4.
+* Operators: Operators 2.
 * solve_rec::
 * to_poly_solve::
 * SpecialFunctions::
-* Elliptic Functions::
-* Special Functions::
+* Elliptic Functions: Elliptic Functions 2.
+* Special Functions: Special Functions 2.
 * Statistics::
-* descriptive::
+* descriptive: descriptive 2.
 * distrib::
 * lsquares::
 * stats::
@@ -147,7 +147,7 @@ File: maxima-core-docs.info,  Node: Maxima Core Documentation,  Next: Function a
 * ctensor::
 * itensor::
 * Trigonometry::
-* Elementary Functions::
+* Elementary Functions: Elementary Functions 4.
 * trigtools::
 * Units::
 * ezunits::
@@ -176,18 +176,20 @@ File: maxima-core-docs.info,  Node: asympa,  Next: sym,  Prev: Algebra,  Up: Max
 
 * Menu:
 
-* Function asympa ::
+* Function asympa::
 
 
 File: maxima-core-docs.info,  Node: Function asympa,  Up: asympa
 
- -- Function: asympa ()
-     ‘asympa’ is a package for asymptotic analysis.  The package
-     contains simplification functions for asymptotic analysis,
-     including the "big O" and "little o" functions that are widely used
-     in complexity analysis and numerical analysis.
+1.3.1 Function: asympa
+----------------------
 
-     ‘load ("asympa")’ loads this package.
+‘asympa’ is a package for asymptotic analysis.  The package contains
+simplification functions for asymptotic analysis, including the “big O”
+and “little o” functions that are widely used in complexity analysis and
+numerical analysis.
+
+‘load ("asympa")’ loads this package.
 
 
 File: maxima-core-docs.info,  Node: sym,  Next: Calculus,  Prev: asympa,  Up: Maxima Core Documentation
@@ -199,7 +201,7 @@ File: maxima-core-docs.info,  Node: sym,  Next: Calculus,  Prev: asympa,  Up: Ma
 
 * Function comp2pui n L::
 * Function cont2part pc lvar::
-* Function direct p_1 ... p_n y f lvar_1 ... lvar_n::
+* Function direct [p_1 ... p_n] y f [lvar_1 ... lvar_n]::
 * Function ele2comp m L::
 * Function ele2polynome L z::
 * Function ele2pui m L::
@@ -210,8 +212,8 @@ File: maxima-core-docs.info,  Node: sym,  Next: Calculus,  Prev: asympa,  Up: Ma
 * Function ltreillis n m::
 * Function mon2schur L::
 * Function multi_elem l_elem multi_pc l_var::
-* Function multi_orbit P lvar_1 lvar_2 ... lvar_p::
-* Function multi_pui ::
+* Function multi_orbit P [lvar_1 lvar_2 ... lvar_p]::
+* Function multi_pui::
 * Function multinomial r part::
 * Function multsym ppart_1 ppart_2 n::
 * Function orbit P lvar::
@@ -224,9 +226,9 @@ File: maxima-core-docs.info,  Node: sym,  Next: Calculus,  Prev: asympa,  Up: Ma
 * Function pui2comp n lpui::
 * Function pui2ele n lpui::
 * Function pui2polynome x lpui::
-* Function pui_direct orbite lvar_1 ... lvar_n d_1 d_2 ... d_n::
+* Function pui_direct orbite [lvar_1 ... lvar_n] [d_1 d_2 ... d_n]::
 * Function puireduc n lpui::
-* Function resolvante P x f x_1 ... x_d::
+* Function resolvante P x f [x_1 ... x_d]::
 * Function resolvante_alternee1 P x::
 * Function resolvante_bipartite P x::
 * Function resolvante_diedrale P x::
@@ -258,7 +260,7 @@ File: maxima-core-docs.info,  Node: Function comp2pui n L,  Next: Function cont2
      (%o1)    [4, g, 2 h2 - g , 3 h3 - g h2 + g (g  - 2 h2)]
 
 
-File: maxima-core-docs.info,  Node: Function cont2part pc lvar,  Next: Function direct p_1 ... p_n y f lvar_1 ... lvar_n,  Prev: Function comp2pui n L,  Up: sym
+File: maxima-core-docs.info,  Node: Function cont2part pc lvar,  Next: Function direct [p_1 ... p_n] y f [lvar_1 ... lvar_n],  Prev: Function comp2pui n L,  Up: sym
 
  -- Function: cont2part (PC, LVAR)
      returns the partitioned polynomial associated to the contracted
@@ -274,9 +276,9 @@ File: maxima-core-docs.info,  Node: Function cont2part pc lvar,  Next: Function 
      (%o2)              [[1, 5, 0], [2 a  b, 4, 1]]
 
 
-File: maxima-core-docs.info,  Node: Function direct p_1 ... p_n y f lvar_1 ... lvar_n,  Next: Function ele2comp m L,  Prev: Function cont2part pc lvar,  Up: sym
+File: maxima-core-docs.info,  Node: Function direct [p_1 ... p_n] y f [lvar_1 ... lvar_n],  Next: Function ele2comp m L,  Prev: Function cont2part pc lvar,  Up: sym
 
- -- Function: direct (P_1, ..., P_N, Y, F, LVAR_1, ..., LVAR_N)
+ -- Function: direct ([P_1, ..., P_N], Y, F, [LVAR_1, ..., LVAR_N])
      calculates the direct image (see M. Giusti, D. Lazard et A.
      Valibouze, ISSAC 1988, Rome) associated to the function _f_, in the
      lists of variables _lvar_1_, ..., _lvar_n_, and in the polynomials
@@ -360,7 +362,7 @@ File: maxima-core-docs.info,  Node: Function direct p_1 ... p_n y f lvar_1 ... l
      is in ‘puissances’).
 
 
-File: maxima-core-docs.info,  Node: Function ele2comp m L,  Next: Function ele2polynome L z,  Prev: Function direct p_1 ... p_n y f lvar_1 ... lvar_n,  Up: sym
+File: maxima-core-docs.info,  Node: Function ele2comp m L,  Next: Function ele2polynome L z,  Prev: Function direct [p_1 ... p_n] y f [lvar_1 ... lvar_n],  Up: sym
 
  -- Function: ele2comp (M, L)
      Goes from the elementary symmetric functions to the compete
@@ -525,7 +527,7 @@ File: maxima-core-docs.info,  Node: Function mon2schur L,  Next: Function multi_
      See also: ‘treinat’, ‘kostka’.
 
 
-File: maxima-core-docs.info,  Node: Function multi_elem l_elem multi_pc l_var,  Next: Function multi_orbit P lvar_1 lvar_2 ... lvar_p,  Prev: Function mon2schur L,  Up: sym
+File: maxima-core-docs.info,  Node: Function multi_elem l_elem multi_pc l_var,  Next: Function multi_orbit P [lvar_1 lvar_2 ... lvar_p],  Prev: Function mon2schur L,  Up: sym
 
  -- Function: multi_elem (L_ELEM, MULTI_PC, L_VAR)
      decomposes a multi-symmetric polynomial in the multi-contracted
@@ -546,9 +548,9 @@ File: maxima-core-docs.info,  Node: Function multi_elem l_elem multi_pc l_var,  
      Other functions for changing bases: ‘comp2ele’.
 
 
-File: maxima-core-docs.info,  Node: Function multi_orbit P lvar_1 lvar_2 ... lvar_p,  Next: Function multi_pui,  Prev: Function multi_elem l_elem multi_pc l_var,  Up: sym
+File: maxima-core-docs.info,  Node: Function multi_orbit P [lvar_1 lvar_2 ... lvar_p],  Next: Function multi_pui,  Prev: Function multi_elem l_elem multi_pc l_var,  Up: sym
 
- -- Function: multi_orbit (P, LVAR_1, LVAR_2, ..., LVAR_P)
+ -- Function: multi_orbit (P, [LVAR_1, LVAR_2, ..., LVAR_P])
      _P_ is a polynomial in the set of variables contained in the lists
      _lvar_1_, _lvar_2_, ..., _lvar_p_.  This function returns the orbit
      of the polynomial _P_ under the action of the product of the
@@ -565,18 +567,20 @@ File: maxima-core-docs.info,  Node: Function multi_orbit P lvar_1 lvar_2 ... lva
      Also see: ‘orbit’ for the action of a single symmetric group.
 
 
-File: maxima-core-docs.info,  Node: Function multi_pui,  Next: Function multinomial r part,  Prev: Function multi_orbit P lvar_1 lvar_2 ... lvar_p,  Up: sym
+File: maxima-core-docs.info,  Node: Function multi_pui,  Next: Function multinomial r part,  Prev: Function multi_orbit P [lvar_1 lvar_2 ... lvar_p],  Up: sym
 
- -- Function: multi_pui ()
-     is to the function ‘pui’ what the function ‘multi_elem’ is to the
-     function ‘elem’.
+1.4.1 Function: multi_pui
+-------------------------
 
-     (%i1) multi_pui ([[2, p1, p2], [2, t1, t2]], a*x + a^2 + x^3,
-           [[x, y], [a, b]]);
-                                                 3
-                                     3 p1 p2   p1
-     (%o1)              t2 + p1 t1 + ------- - ---
-                                        2       2
+is to the function ‘pui’ what the function ‘multi_elem’ is to the
+function ‘elem’.
+
+(%i1) multi_pui ([[2, p1, p2], [2, t1, t2]], a*x + a^2 + x^3,
+      [[x, y], [a, b]]);
+                                            3
+                                3 p1 p2   p1
+(%o1)              t2 + p1 t1 + ------- - ---
+                                   2       2
 
 
 File: maxima-core-docs.info,  Node: Function multinomial r part,  Next: Function multsym ppart_1 ppart_2 n,  Prev: Function multi_pui,  Up: sym
@@ -768,7 +772,7 @@ File: maxima-core-docs.info,  Node: Function pui2ele n lpui,  Next: Function pui
      Other functions for changing bases: ‘comp2ele’.
 
 
-File: maxima-core-docs.info,  Node: Function pui2polynome x lpui,  Next: Function pui_direct orbite lvar_1 ... lvar_n d_1 d_2 ... d_n,  Prev: Function pui2ele n lpui,  Up: sym
+File: maxima-core-docs.info,  Node: Function pui2polynome x lpui,  Next: Function pui_direct orbite [lvar_1 ... lvar_n] [d_1 d_2 ... d_n],  Prev: Function pui2ele n lpui,  Up: sym
 
  -- Function: pui2polynome (X, LPUI)
      calculates the polynomial in _x_ whose power functions of the roots
@@ -799,10 +803,10 @@ File: maxima-core-docs.info,  Node: Function pui2polynome x lpui,  Next: Functio
      See also: ‘polynome2ele’, ‘ele2polynome’.
 
 
-File: maxima-core-docs.info,  Node: Function pui_direct orbite lvar_1 ... lvar_n d_1 d_2 ... d_n,  Next: Function puireduc n lpui,  Prev: Function pui2polynome x lpui,  Up: sym
+File: maxima-core-docs.info,  Node: Function pui_direct orbite [lvar_1 ... lvar_n] [d_1 d_2 ... d_n],  Next: Function puireduc n lpui,  Prev: Function pui2polynome x lpui,  Up: sym
 
- -- Function: pui_direct (ORBITE, LVAR_1, ..., LVAR_N, D_1, D_2, ...,
-          D_N)
+ -- Function: pui_direct (ORBITE, [LVAR_1, ..., LVAR_N], [D_1, D_2, ...,
+          D_N])
      Let _f_ be a polynomial in _n_ blocks of variables _lvar_1_, ...,
      _lvar_n_.  Let _c_i_ be the number of variables in _lvar_i_, and
      _SC_ be the product of _n_ symmetric groups of degree _c_1_, ...,
@@ -852,7 +856,7 @@ File: maxima-core-docs.info,  Node: Function pui_direct orbite lvar_1 ... lvar_n
                    9 x  y + 12 a x y + 3 x  + 6 a x  + 12 a  x + 8 a ]
 
 
-File: maxima-core-docs.info,  Node: Function puireduc n lpui,  Next: Function resolvante P x f x_1 ... x_d,  Prev: Function pui_direct orbite lvar_1 ... lvar_n d_1 d_2 ... d_n,  Up: sym
+File: maxima-core-docs.info,  Node: Function puireduc n lpui,  Next: Function resolvante P x f [x_1 ... x_d],  Prev: Function pui_direct orbite [lvar_1 ... lvar_n] [d_1 d_2 ... d_n],  Up: sym
 
  -- Function: puireduc (N, LPUI)
      _lpui_ is a list whose first element is an integer _m_.  ‘puireduc’
@@ -872,9 +876,9 @@ File: maxima-core-docs.info,  Node: Function puireduc n lpui,  Next: Function re
                                           2
 
 
-File: maxima-core-docs.info,  Node: Function resolvante P x f x_1 ... x_d,  Next: Function resolvante_alternee1 P x,  Prev: Function puireduc n lpui,  Up: sym
+File: maxima-core-docs.info,  Node: Function resolvante P x f [x_1 ... x_d],  Next: Function resolvante_alternee1 P x,  Prev: Function puireduc n lpui,  Up: sym
 
- -- Function: resolvante (P, X, F, X_1, ..., X_D)
+ -- Function: resolvante (P, X, F, [X_1, ..., X_D])
      calculates the resolvent of the polynomial _P_ in _x_ of degree ‘n
      >= d’ by the function _f_ expressed in the variables _x_1_, ...,
      _x_d_.  For efficiency of computation it is important to not
@@ -889,6 +893,7 @@ File: maxima-core-docs.info,  Node: Function resolvante P x f x_1 ... x_d,  Next
         •    • A polynomial in a single variable,
 
         •    • 
+
      linear, - *
 
      alternating, - *
@@ -908,6 +913,7 @@ File: maxima-core-docs.info,  Node: Function resolvante P x f x_1 ... x_d,  Next
      the flag of ‘resolvante’ may be, respectively:
 
         •    • 
+
      unitaire, - *
 
      lineaire, - *
@@ -1092,7 +1098,7 @@ File: maxima-core-docs.info,  Node: Function resolvante P x f x_1 ... x_d,  Next
      ‘resolvante_klein3’, ‘resolvante_vierer’, ‘resolvante_diedrale’.
 
 
-File: maxima-core-docs.info,  Node: Function resolvante_alternee1 P x,  Next: Function resolvante_bipartite P x,  Prev: Function resolvante P x f x_1 ... x_d,  Up: sym
+File: maxima-core-docs.info,  Node: Function resolvante_alternee1 P x,  Next: Function resolvante_bipartite P x,  Prev: Function resolvante P x f [x_1 ... x_d],  Up: sym
 
  -- Function: resolvante_alternee1 (P, X)
      calculates the transformation ‘P(x)’ of degree _n_ by the function
@@ -1360,7 +1366,7 @@ File: maxima-core-docs.info,  Node: Differential Equations,  Next: Differentiati
 * Variable %k1::
 * Variable %k2::
 * Function bc2 solution xval1 yval1 xval2 yval2::
-* Function desolve desolve eqn y desolve eqn_1 ... eqn_n y_1 ... y_n::
+* Function desolve eqn y::
 * Function ic1 solution xval yval::
 * Function ic2 solution xval yval dval::
 * Variable method::
@@ -1395,7 +1401,7 @@ File: maxima-core-docs.info,  Node: Variable %k2,  Next: Function bc2 solution x
      See also: ‘ode2’.
 
 
-File: maxima-core-docs.info,  Node: Function bc2 solution xval1 yval1 xval2 yval2,  Next: Function desolve desolve eqn y desolve eqn_1 ... eqn_n y_1 ... y_n,  Prev: Variable %k2,  Up: Differential Equations
+File: maxima-core-docs.info,  Node: Function bc2 solution xval1 yval1 xval2 yval2,  Next: Function desolve eqn y,  Prev: Variable %k2,  Up: Differential Equations
 
  -- Function: bc2 (SOLUTION, XVAL1, YVAL1, XVAL2, YVAL2)
      Solves a boundary value problem for a second order differential
@@ -1411,10 +1417,9 @@ File: maxima-core-docs.info,  Node: Function bc2 solution xval1 yval1 xval2 yval
      See also: ‘ode2’.
 
 
-File: maxima-core-docs.info,  Node: Function desolve desolve eqn y desolve eqn_1 ... eqn_n y_1 ... y_n,  Next: Function ic1 solution xval yval,  Prev: Function bc2 solution xval1 yval1 xval2 yval2,  Up: Differential Equations
+File: maxima-core-docs.info,  Node: Function desolve eqn y,  Next: Function ic1 solution xval yval,  Prev: Function bc2 solution xval1 yval1 xval2 yval2,  Up: Differential Equations
 
- -- Function: desolve (DESOLVE, EQN, Y, DESOLVE, EQN_1, ..., EQN_N, Y_1,
-          ..., Y_N)
+ -- Function: desolve (EQN, Y)
      The function ‘desolve’ solves systems of linear ordinary
      differential equations using Laplace transform.  Here the _eqn_'s
      are differential equations in the dependent variables _y_1_, ...,
@@ -1475,7 +1480,7 @@ File: maxima-core-docs.info,  Node: Function desolve desolve eqn y desolve eqn_1
      See also: ‘atvalue’, ‘ode2’, ‘drawdf’, ‘rk’.
 
 
-File: maxima-core-docs.info,  Node: Function ic1 solution xval yval,  Next: Function ic2 solution xval yval dval,  Prev: Function desolve desolve eqn y desolve eqn_1 ... eqn_n y_1 ... y_n,  Up: Differential Equations
+File: maxima-core-docs.info,  Node: Function ic1 solution xval yval,  Next: Function ic2 solution xval yval dval,  Prev: Function desolve eqn y,  Up: Differential Equations
 
  -- Function: ic1 (SOLUTION, XVAL, YVAL)
      Solves initial value problems for first order differential
@@ -1631,10 +1636,10 @@ File: maxima-core-docs.info,  Node: Differentiation,  Next: Elliptic Functions, 
 * Menu:
 
 * Function antid expr x ux::
-* Function antidiff expr x u x::
-* Function at at expr eqn_1 ... eqn_n at expr eqn::
+* Function antidiff expr x ux::
+* Function at expr [eqn_1 ... eqn_n]::
 * Variable atomgrad::
-* Function atvalue atvalue expr x_1 = a_1 ... x_m = a_m c atvalue expr x_1 = a_1 c::
+* Function atvalue expr [x_1=a_1 ... x_m=a_m] c::
 * Function del x::
 * Function delta t::
 * Variable dependencies::
@@ -1643,13 +1648,13 @@ File: maxima-core-docs.info,  Node: Differentiation,  Next: Elliptic Functions, 
 * Function derivdegree expr y x::
 * Function derivlist var_1 ... var_k::
 * Variable derivsubst::
-* Function diff diff expr x_1 n_1 ... x_m n_m diff expr x n diff expr x diff expr::
+* Function diff expr x_1 n_1 ... x_m n_m::
 * Function express expr::
-* Function gradef gradef f x_1 ... x_n g_1 ... g_m gradef a x expr::
+* Function gradef fx_1 ... x_n g_1 ... g_m::
 * Variable gradefs::
 
 
-File: maxima-core-docs.info,  Node: Function antid expr x ux,  Next: Function antidiff expr x u x,  Up: Differentiation
+File: maxima-core-docs.info,  Node: Function antid expr x ux,  Next: Function antidiff expr x ux,  Up: Differentiation
 
  -- Function: antid (EXPR, X, U(X))
      Returns a two-element list, such that an antiderivative of _expr_
@@ -1719,9 +1724,9 @@ File: maxima-core-docs.info,  Node: Function antid expr x ux,  Next: Function an
      See also: ‘antidiff’.
 
 
-File: maxima-core-docs.info,  Node: Function antidiff expr x u x,  Next: Function at at expr eqn_1 ... eqn_n at expr eqn,  Prev: Function antid expr x ux,  Up: Differentiation
+File: maxima-core-docs.info,  Node: Function antidiff expr x ux,  Next: Function at expr [eqn_1 ... eqn_n],  Prev: Function antid expr x ux,  Up: Differentiation
 
- -- Function: antidiff (EXPR, X, U, X)
+ -- Function: antidiff (EXPR, X, U(X))
      Returns an antiderivative of _expr_ with respect to _x_.  The
      expression _expr_ may contain an unknown function _u_ and its
      derivatives.
@@ -1783,9 +1788,9 @@ File: maxima-core-docs.info,  Node: Function antidiff expr x u x,  Next: Functio
                        /
 
 
-File: maxima-core-docs.info,  Node: Function at at expr eqn_1 ... eqn_n at expr eqn,  Next: Variable atomgrad,  Prev: Function antidiff expr x u x,  Up: Differentiation
+File: maxima-core-docs.info,  Node: Function at expr [eqn_1 ... eqn_n],  Next: Variable atomgrad,  Prev: Function antidiff expr x ux,  Up: Differentiation
 
- -- Function: at (AT, EXPR, EQN_1, ..., EQN_N, AT, EXPR, EQN)
+ -- Function: at (EXPR, [EQN_1, ..., EQN_N])
      Evaluates the expression _expr_ with the variables assuming the
      values as specified for them in the list of equations ‘[eqn_1, ...,
      eqn_n]’ or the single equation _eqn_.
@@ -1874,17 +1879,16 @@ File: maxima-core-docs.info,  Node: Function at at expr eqn_1 ... eqn_n at expr 
      See also: ‘atvalue’, ‘subst’, ‘ev’, ‘at’.
 
 
-File: maxima-core-docs.info,  Node: Variable atomgrad,  Next: Function atvalue atvalue expr x_1 = a_1 ... x_m = a_m c atvalue expr x_1 = a_1 c,  Prev: Function at at expr eqn_1 ... eqn_n at expr eqn,  Up: Differentiation
+File: maxima-core-docs.info,  Node: Variable atomgrad,  Next: Function atvalue expr [x_1=a_1 ... x_m=a_m] c,  Prev: Function at expr [eqn_1 ... eqn_n],  Up: Differentiation
 
  -- Variable: atomgrad
      ‘atomgrad’ is the atomic gradient property of an expression.  This
      property is assigned by ‘gradef’.
 
 
-File: maxima-core-docs.info,  Node: Function atvalue atvalue expr x_1 = a_1 ... x_m = a_m c atvalue expr x_1 = a_1 c,  Next: Function del x,  Prev: Variable atomgrad,  Up: Differentiation
+File: maxima-core-docs.info,  Node: Function atvalue expr [x_1=a_1 ... x_m=a_m] c,  Next: Function del x,  Prev: Variable atomgrad,  Up: Differentiation
 
- -- Function: atvalue (ATVALUE, EXPR, X_1, =, A_1, ..., X_M, =, A_M, C,
-          ATVALUE, EXPR, X_1, =, A_1, C)
+ -- Function: atvalue (EXPR, [X_1=A_1, ..., X_M=A_M], C)
      Assigns the value _c_ to _expr_ at the point ‘x = a’.  Typically
      boundary values are established by this mechanism.
 
@@ -1955,7 +1959,7 @@ File: maxima-core-docs.info,  Node: Function atvalue atvalue expr x_1 = a_1 ... 
      See also: ‘at’.
 
 
-File: maxima-core-docs.info,  Node: Function del x,  Next: Function delta t,  Prev: Function atvalue atvalue expr x_1 = a_1 ... x_m = a_m c atvalue expr x_1 = a_1 c,  Up: Differentiation
+File: maxima-core-docs.info,  Node: Function del x,  Next: Function delta t,  Prev: Function atvalue expr [x_1=a_1 ... x_m=a_m] c,  Up: Differentiation
 
  -- Function: del (X)
      ‘del (x)’ represents the differential of the variable x.
@@ -2184,7 +2188,7 @@ File: maxima-core-docs.info,  Node: Function derivlist var_1 ... var_k,  Next: V
      See also: ‘ev’.
 
 
-File: maxima-core-docs.info,  Node: Variable derivsubst,  Next: Function diff diff expr x_1 n_1 ... x_m n_m diff expr x n diff expr x diff expr,  Prev: Function derivlist var_1 ... var_k,  Up: Differentiation
+File: maxima-core-docs.info,  Node: Variable derivsubst,  Next: Function diff expr x_1 n_1 ... x_m n_m,  Prev: Function derivlist var_1 ... var_k,  Up: Differentiation
 
  -- Variable: derivsubst
      Default value: ‘false’
@@ -2193,10 +2197,9 @@ File: maxima-core-docs.info,  Node: Variable derivsubst,  Next: Function diff di
      ‘subst (x, 'diff (y, t), 'diff (y, t, 2))’ yields ‘'diff (x, t)’.
 
 
-File: maxima-core-docs.info,  Node: Function diff diff expr x_1 n_1 ... x_m n_m diff expr x n diff expr x diff expr,  Next: Function express expr,  Prev: Variable derivsubst,  Up: Differentiation
+File: maxima-core-docs.info,  Node: Function diff expr x_1 n_1 ... x_m n_m,  Next: Function express expr,  Prev: Variable derivsubst,  Up: Differentiation
 
- -- Function: diff (DIFF, EXPR, X_1, N_1, ..., X_M, N_M, DIFF, EXPR, X,
-          N, DIFF, EXPR, X, DIFF, EXPR)
+ -- Function: diff (EXPR, X_1, N_1, ..., X_M, N_M)
      Returns the derivative or differential of _expr_ with respect to
      some or all variables in _expr_.
 
@@ -2284,7 +2287,7 @@ File: maxima-core-docs.info,  Node: Function diff diff expr x_1 n_1 ... x_m n_m 
      See also: ‘depends’, ‘del’, ‘derivdegree’, ‘derivabbrev’, ‘gradef’.
 
 
-File: maxima-core-docs.info,  Node: Function express expr,  Next: Function gradef gradef f x_1 ... x_n g_1 ... g_m gradef a x expr,  Prev: Function diff diff expr x_1 n_1 ... x_m n_m diff expr x n diff expr x diff expr,  Up: Differentiation
+File: maxima-core-docs.info,  Node: Function express expr,  Next: Function gradef fx_1 ... x_n g_1 ... g_m,  Prev: Function diff expr x_1 n_1 ... x_m n_m,  Up: Differentiation
 
  -- Function: express (EXPR)
      Expands differential operator nouns into expressions in terms of
@@ -2376,10 +2379,9 @@ File: maxima-core-docs.info,  Node: Function express expr,  Next: Function grade
      See also: ‘~’, ‘diff’, ‘evfun’.
 
 
-File: maxima-core-docs.info,  Node: Function gradef gradef f x_1 ... x_n g_1 ... g_m gradef a x expr,  Next: Variable gradefs,  Prev: Function express expr,  Up: Differentiation
+File: maxima-core-docs.info,  Node: Function gradef fx_1 ... x_n g_1 ... g_m,  Next: Variable gradefs,  Prev: Function express expr,  Up: Differentiation
 
- -- Function: gradef (GRADEF, F, X_1, ..., X_N, G_1, ..., G_M, GRADEF,
-          A, X, EXPR)
+ -- Function: gradef (F(X_1, ..., X_N), G_1, ..., G_M)
      Defines the partial derivatives (i.e., the components of the
      gradient) of the function _f_ or variable _a_.
 
@@ -2423,7 +2425,7 @@ File: maxima-core-docs.info,  Node: Function gradef gradef f x_1 ... x_n g_1 ...
      obtain higher order derivatives.
 
 
-File: maxima-core-docs.info,  Node: Variable gradefs,  Prev: Function gradef gradef f x_1 ... x_n g_1 ... g_m gradef a x expr,  Up: Differentiation
+File: maxima-core-docs.info,  Node: Variable gradefs,  Prev: Function gradef fx_1 ... x_n g_1 ... g_m,  Up: Differentiation
 
  -- Variable: gradefs
      Default value: ‘[]’
@@ -2464,7 +2466,7 @@ File: maxima-core-docs.info,  Node: Function carlson_rc x y,  Next: Function car
      R_C(x, y) = \frac{1}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}(t+y)}\,
      dt
 
-     See https://arxiv.org/pdf/math/9409227Numerical Computation of Real
+     See https//arxivorg/pdf/math/9409227Numerical Computation of Real
      or Complex Elliptic Integrals for more information.
 
      This integral is related to many elementary functions in the
@@ -2514,7 +2516,7 @@ File: maxima-core-docs.info,  Node: Function carlson_rd x y z,  Next: Function c
      R_D(x,y,z) = \frac{3}{2} \int_0^{\infty}
      \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}\,(t+z)}\, dt
 
-     See https://arxiv.org/pdf/math/9409227Numerical Computation of Real
+     See https//arxivorg/pdf/math/9409227Numerical Computation of Real
      or Complex Elliptic Integrals for more information.
 
      We also have the special values
@@ -2548,7 +2550,7 @@ File: maxima-core-docs.info,  Node: Function carlson_rf x y z,  Next: Function c
      R_F(x,y,z) = \frac{1}{2} \int_0^{\infty}
      \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}}\, dt
 
-     See https://arxiv.org/pdf/math/9409227Numerical Computation of Real
+     See https//arxivorg/pdf/math/9409227Numerical Computation of Real
      or Complex Elliptic Integrals for more information.
 
      We also have the special values
@@ -2582,7 +2584,7 @@ File: maxima-core-docs.info,  Node: Function carlson_rj x y z p,  Next: Function
      R_J(x,y,z) = \frac{1}{2} \int_0^{\infty}
      \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}\,(t+p)}\, dt
 
-     See https://arxiv.org/pdf/math/9409227Numerical Computation of Real
+     See https//arxivorg/pdf/math/9409227Numerical Computation of Real
      or Complex Elliptic Integrals for more information.
 
      It is related to the elliptic integral of the third kind
@@ -2710,7 +2712,7 @@ File: maxima-core-docs.info,  Node: Integration,  Next: Numerical,  Prev: Ellipt
 * Variable erfflag::
 * Function ilt expr s t::
 * Variable intanalysis::
-* Function integrate integrate expr x integrate expr x a b::
+* Function integrate expr x::
 * Variable integrate_use_rootsof::
 * Variable integration_constant::
 * Variable integration_constant_counter::
@@ -2719,18 +2721,18 @@ File: maxima-core-docs.info,  Node: Integration,  Next: Numerical,  Prev: Ellipt
 * Function potential givengradient::
 * Variable prefer_d::
 * Function pwilt expr s t::
-* Function quad_control parameter value::
-* Function quad_qag quad_qag fx x a b key epsrel epsabs limit quad_qag f x a b key epsrel epsabs limit::
-* Function quad_qagi quad_qagi fx x a b epsrel epsabs limit quad_qagi f x a b epsrel epsabs limit::
-* Function quad_qagp quad_qagp fx x a b points epsrel epsabs limit quad_qagp f x a b points epsrel epsabs limit::
-* Function quad_qags quad_qags fx x a b epsrel epsabs limit quad_qags f x a b epsrel epsabs limit::
-* Function quad_qawc quad_qawc fx x c a b epsrel epsabs limit quad_qawc f x c a b epsrel epsabs limit::
-* Function quad_qawf quad_qawf fx x a omega trig epsabs limit maxp1 limlst quad_qawf f x a omega trig epsabs limit maxp1 limlst::
-* Function quad_qawo quad_qawo fx x a b omega trig epsrel epsabs limit maxp1 limlst quad_qawo f x a b omega trig epsrel epsabs limit maxp1 limlst::
-* Function quad_qaws quad_qaws fx x a b alpha beta wfun epsrel epsabs limit quad_qaws f x a b alpha beta wfun epsrel epsabs limit::
+* Function quad_control parameter [value]::
+* Function quad_qag fx x a b key [epsrel epsabs limit]::
+* Function quad_qagi fx x a b [epsrel epsabs limit]::
+* Function quad_qagp fx x a b points [epsrel epsabs limit]::
+* Function quad_qags fx x a b [epsrel epsabs limit]::
+* Function quad_qawc fx x c a b [epsrel epsabs limit]::
+* Function quad_qawf fx x a omega trig [epsabs limit maxp1 limlst]::
+* Function quad_qawo fx x a b omega trig [epsrel epsabs limit maxp1 limlst]::
+* Function quad_qaws fx x a b alpha beta wfun [epsrel epsabs limit]::
 * Function residue expr z z_0::
 * Function risch expr x::
-* Function specint exp - s t  expr t::
+* Function specint exp-s_t_expr t::
 * Function tldefint expr x a b::
 
 
@@ -2994,7 +2996,7 @@ File: maxima-core-docs.info,  Node: Function ilt expr s t,  Next: Variable intan
      See also: ‘pwilt’.
 
 
-File: maxima-core-docs.info,  Node: Variable intanalysis,  Next: Function integrate integrate expr x integrate expr x a b,  Prev: Function ilt expr s t,  Up: Integration
+File: maxima-core-docs.info,  Node: Variable intanalysis,  Next: Function integrate expr x,  Prev: Function ilt expr s t,  Up: Integration
 
  -- Variable: intanalysis
      Default value: ‘true’
@@ -3038,9 +3040,9 @@ File: maxima-core-docs.info,  Node: Variable intanalysis,  Next: Function integr
      See also: ‘ldefint’, ‘intanalysis’.
 
 
-File: maxima-core-docs.info,  Node: Function integrate integrate expr x integrate expr x a b,  Next: Variable integrate_use_rootsof,  Prev: Variable intanalysis,  Up: Integration
+File: maxima-core-docs.info,  Node: Function integrate expr x,  Next: Variable integrate_use_rootsof,  Prev: Variable intanalysis,  Up: Integration
 
- -- Function: integrate (INTEGRATE, EXPR, X, INTEGRATE, EXPR, X, A, B)
+ -- Function: integrate (EXPR, X)
      Attempts to symbolically compute the integral of _expr_ with
      respect to _x_.  ‘integrate (expr, x)’ is an indefinite integral,
      while ‘integrate (expr, x, a, b)’ is a definite integral, with
@@ -3162,10 +3164,10 @@ File: maxima-core-docs.info,  Node: Function integrate integrate expr x integrat
                                  2
      (%i3) neg;
 
-        •    • Change of variable.  There are two changes of variable in
-               this example: one using a derivative established by
-               ‘gradef’, and one using the derivation ‘diff(r(x))’ of an
-               unspecified function ‘r(x)’.
+        •    • Change of variable.  There are two changes of
+               variable in this example: one using a derivative
+               established by ‘gradef’, and one using the derivation
+               ‘diff(r(x))’ of an unspecified function ‘r(x)’.
 
      maxima
      (%i1) gradef (q(x), sin(x**2));
@@ -3181,11 +3183,11 @@ File: maxima-core-docs.info,  Node: Function integrate integrate expr x integrat
      (%i3) integrate (%, x);
      (%o3)                     log(q(r(x)))
 
-        •    • Return value contains the ‘'integrate’ noun form.  In
-               this example, Maxima can extract one factor of the
-               denominator of a rational function, but cannot factor the
-               remainder or otherwise find its integral.  ‘grind’ shows
-               the noun form ‘'integrate’ in the result.  See also
+        •    • Return value contains the ‘'integrate’ noun
+               form.  In this example, Maxima can extract one factor of
+               the denominator of a rational function, but cannot factor
+               the remainder or otherwise find its integral.  ‘grind’
+               shows the noun form ‘'integrate’ in the result.  See also
                ‘integrate_use_rootsof’ for more on integrals of rational
                functions.
 
@@ -3207,12 +3209,12 @@ File: maxima-core-docs.info,  Node: Function integrate integrate expr x integrat
      log(x-4)/73-('integrate((x^2+4*x+18)/(x^3+2*x+1),x))/73$
      (%o3)                         done
 
-        •    • Defining a function in terms of an integral.  The body of
-               a function is not evaluated when the function is defined.
-               Thus the body of ‘f_1’ in this example contains the noun
-               form of ‘integrate’.  The quote-quote operator ‘''’
-               causes the integral to be evaluated, and the result
-               becomes the body of ‘f_2’.
+        •    • Defining a function in terms of an integral.
+               The body of a function is not evaluated when the function
+               is defined.  Thus the body of ‘f_1’ in this example
+               contains the noun form of ‘integrate’.  The quote-quote
+               operator ‘''’ causes the integral to be evaluated, and
+               the result becomes the body of ‘f_2’.
 
      maxima
      (%i1) f_1 (a) := integrate (x^3, x, 1, a);
@@ -3236,7 +3238,7 @@ File: maxima-core-docs.info,  Node: Function integrate integrate expr x integrat
      ‘assume’, ‘gradef’, ‘grind’, ‘integrate_use_rootsof’.
 
 
-File: maxima-core-docs.info,  Node: Variable integrate_use_rootsof,  Next: Variable integration_constant,  Prev: Function integrate integrate expr x integrate expr x a b,  Up: Integration
+File: maxima-core-docs.info,  Node: Variable integrate_use_rootsof,  Next: Variable integration_constant,  Prev: Function integrate expr x,  Up: Integration
 
  -- Variable: integrate_use_rootsof
      Default value: ‘false’
@@ -3563,7 +3565,7 @@ File: maxima-core-docs.info,  Node: Variable prefer_d,  Next: Function pwilt exp
      See also: ‘specint’, ‘parabolic_cylinder_d’.
 
 
-File: maxima-core-docs.info,  Node: Function pwilt expr s t,  Next: Function quad_control parameter value,  Prev: Variable prefer_d,  Up: Integration
+File: maxima-core-docs.info,  Node: Function pwilt expr s t,  Next: Function quad_control parameter [value],  Prev: Variable prefer_d,  Up: Integration
 
  -- Function: pwilt (EXPR, S, T)
      Computes the inverse Laplace transform of _expr_ with respect to
@@ -3589,9 +3591,9 @@ File: maxima-core-docs.info,  Node: Function pwilt expr s t,  Next: Function qua
      See also: ‘ilt’.
 
 
-File: maxima-core-docs.info,  Node: Function quad_control parameter value,  Next: Function quad_qag quad_qag fx x a b key epsrel epsabs limit quad_qag f x a b key epsrel epsabs limit,  Prev: Function pwilt expr s t,  Up: Integration
+File: maxima-core-docs.info,  Node: Function quad_control parameter [value],  Next: Function quad_qag fx x a b key [epsrel epsabs limit],  Prev: Function pwilt expr s t,  Up: Integration
 
- -- Function: quad_control (PARAMETER, VALUE)
+ -- Function: quad_control (PARAMETER, [VALUE])
      Control error handling for quadpack.  The parameter should be one
      of the following symbols:
 
@@ -3605,10 +3607,9 @@ File: maxima-core-docs.info,  Node: Function quad_control parameter value,  Next
      to the given value.
 
 
-File: maxima-core-docs.info,  Node: Function quad_qag quad_qag fx x a b key epsrel epsabs limit quad_qag f x a b key epsrel epsabs limit,  Next: Function quad_qagi quad_qagi fx x a b epsrel epsabs limit quad_qagi f x a b epsrel epsabs limit,  Prev: Function quad_control parameter value,  Up: Integration
+File: maxima-core-docs.info,  Node: Function quad_qag fx x a b key [epsrel epsabs limit],  Next: Function quad_qagi fx x a b [epsrel epsabs limit],  Prev: Function quad_control parameter [value],  Up: Integration
 
- -- Function: quad_qag (QUAD_QAG, F(X), X, A, B, KEY, EPSREL, EPSABS,
-          LIMIT, QUAD_QAG, F, X, A, B, KEY, EPSREL, EPSABS, LIMIT)
+ -- Function: quad_qag (F(X), X, A, B, KEY, [EPSREL, EPSABS, LIMIT])
      Integration of a general function over a finite interval.
      ‘quad_qag’ implements a simple globally adaptive integrator using
      the strategy of Aind (Piessens, 1973).  The caller may choose among
@@ -3650,7 +3651,8 @@ File: maxima-core-docs.info,  Node: Function quad_qag quad_qag fx x a b key epsr
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the approximation,
+        •    • the estimated absolute error of the
+               approximation,
 
         •    • the number integrand evaluations,
 
@@ -3678,10 +3680,9 @@ File: maxima-core-docs.info,  Node: Function quad_qag quad_qag fx x a b key epsr
                                      9
 
 
-File: maxima-core-docs.info,  Node: Function quad_qagi quad_qagi fx x a b epsrel epsabs limit quad_qagi f x a b epsrel epsabs limit,  Next: Function quad_qagp quad_qagp fx x a b points epsrel epsabs limit quad_qagp f x a b points epsrel epsabs limit,  Prev: Function quad_qag quad_qag fx x a b key epsrel epsabs limit quad_qag f x a b key epsrel epsabs limit,  Up: Integration
+File: maxima-core-docs.info,  Node: Function quad_qagi fx x a b [epsrel epsabs limit],  Next: Function quad_qagp fx x a b points [epsrel epsabs limit],  Prev: Function quad_qag fx x a b key [epsrel epsabs limit],  Up: Integration
 
- -- Function: quad_qagi (QUAD_QAGI, F(X), X, A, B, EPSREL, EPSABS,
-          LIMIT, QUAD_QAGI, F, X, A, B, EPSREL, EPSABS, LIMIT)
+ -- Function: quad_qagi (F(X), X, A, B, [EPSREL, EPSABS, LIMIT])
      Integration of a general function over an infinite or semi-infinite
      interval.  The interval is mapped onto a finite interval and then
      the same strategy as in ‘quad_qags’ is applied.
@@ -3724,7 +3725,8 @@ File: maxima-core-docs.info,  Node: Function quad_qagi quad_qagi fx x a b epsrel
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the approximation,
+        •    • the estimated absolute error of the
+               approximation,
 
         •    • the number integrand evaluations,
 
@@ -3753,11 +3755,9 @@ File: maxima-core-docs.info,  Node: Function quad_qagi quad_qagi fx x a b epsrel
                                     32
 
 
-File: maxima-core-docs.info,  Node: Function quad_qagp quad_qagp fx x a b points epsrel epsabs limit quad_qagp f x a b points epsrel epsabs limit,  Next: Function quad_qags quad_qags fx x a b epsrel epsabs limit quad_qags f x a b epsrel epsabs limit,  Prev: Function quad_qagi quad_qagi fx x a b epsrel epsabs limit quad_qagi f x a b epsrel epsabs limit,  Up: Integration
+File: maxima-core-docs.info,  Node: Function quad_qagp fx x a b points [epsrel epsabs limit],  Next: Function quad_qags fx x a b [epsrel epsabs limit],  Prev: Function quad_qagi fx x a b [epsrel epsabs limit],  Up: Integration
 
- -- Function: quad_qagp (QUAD_QAGP, F(X), X, A, B, POINTS, EPSREL,
-          EPSABS, LIMIT, QUAD_QAGP, F, X, A, B, POINTS, EPSREL, EPSABS,
-          LIMIT)
+ -- Function: quad_qagp (F(X), X, A, B, POINTS, [EPSREL, EPSABS, LIMIT])
      Integration of a general function over a finite interval.
      ‘quad_qagp’ implements globally adaptive interval subdivision with
      extrapolation (de Doncker, 1978) by the Epsilon algorithm (Wynn,
@@ -3796,7 +3796,8 @@ File: maxima-core-docs.info,  Node: Function quad_qagp quad_qagp fx x a b points
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the approximation,
+        •    • the estimated absolute error of the
+               approximation,
 
         •    • the number integrand evaluations,
 
@@ -3829,10 +3830,9 @@ File: maxima-core-docs.info,  Node: Function quad_qagp quad_qagp fx x a b points
      See also: ‘quad_qags’.
 
 
-File: maxima-core-docs.info,  Node: Function quad_qags quad_qags fx x a b epsrel epsabs limit quad_qags f x a b epsrel epsabs limit,  Next: Function quad_qawc quad_qawc fx x c a b epsrel epsabs limit quad_qawc f x c a b epsrel epsabs limit,  Prev: Function quad_qagp quad_qagp fx x a b points epsrel epsabs limit quad_qagp f x a b points epsrel epsabs limit,  Up: Integration
+File: maxima-core-docs.info,  Node: Function quad_qags fx x a b [epsrel epsabs limit],  Next: Function quad_qawc fx x c a b [epsrel epsabs limit],  Prev: Function quad_qagp fx x a b points [epsrel epsabs limit],  Up: Integration
 
- -- Function: quad_qags (QUAD_QAGS, F(X), X, A, B, EPSREL, EPSABS,
-          LIMIT, QUAD_QAGS, F, X, A, B, EPSREL, EPSABS, LIMIT)
+ -- Function: quad_qags (F(X), X, A, B, [EPSREL, EPSABS, LIMIT])
      Integration of a general function over a finite interval.
      ‘quad_qags’ implements globally adaptive interval subdivision with
      extrapolation (de Doncker, 1978) by the Epsilon algorithm (Wynn,
@@ -3864,7 +3864,8 @@ File: maxima-core-docs.info,  Node: Function quad_qags quad_qags fx x a b epsrel
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the approximation,
+        •    • the estimated absolute error of the
+               approximation,
 
         •    • the number integrand evaluations,
 
@@ -3890,10 +3891,9 @@ File: maxima-core-docs.info,  Node: Function quad_qags quad_qags fx x a b epsrel
      ‘quad_qag’ for this integrand.
 
 
-File: maxima-core-docs.info,  Node: Function quad_qawc quad_qawc fx x c a b epsrel epsabs limit quad_qawc f x c a b epsrel epsabs limit,  Next: Function quad_qawf quad_qawf fx x a omega trig epsabs limit maxp1 limlst quad_qawf f x a omega trig epsabs limit maxp1 limlst,  Prev: Function quad_qags quad_qags fx x a b epsrel epsabs limit quad_qags f x a b epsrel epsabs limit,  Up: Integration
+File: maxima-core-docs.info,  Node: Function quad_qawc fx x c a b [epsrel epsabs limit],  Next: Function quad_qawf fx x a omega trig [epsabs limit maxp1 limlst],  Prev: Function quad_qags fx x a b [epsrel epsabs limit],  Up: Integration
 
- -- Function: quad_qawc (QUAD_QAWC, F(X), X, C, A, B, EPSREL, EPSABS,
-          LIMIT, QUAD_QAWC, F, X, C, A, B, EPSREL, EPSABS, LIMIT)
+ -- Function: quad_qawc (F(X), X, C, A, B, [EPSREL, EPSABS, LIMIT])
      Computes the Cauchy principal value of f(x)/(x - c) over a finite
      interval.  The strategy is globally adaptive, and modified
      Clenshaw-Curtis integration is used on the subranges which contain
@@ -3926,7 +3926,8 @@ File: maxima-core-docs.info,  Node: Function quad_qawc quad_qawc fx x c a b epsr
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the approximation,
+        •    • the estimated absolute error of the
+               approximation,
 
         •    • the number integrand evaluations,
 
@@ -3976,11 +3977,10 @@ File: maxima-core-docs.info,  Node: Function quad_qawc quad_qawc fx x c a b epsr
      (%o3)                 - 3.1301203374159177
 
 
-File: maxima-core-docs.info,  Node: Function quad_qawf quad_qawf fx x a omega trig epsabs limit maxp1 limlst quad_qawf f x a omega trig epsabs limit maxp1 limlst,  Next: Function quad_qawo quad_qawo fx x a b omega trig epsrel epsabs limit maxp1 limlst quad_qawo f x a b omega trig epsrel epsabs limit maxp1 limlst,  Prev: Function quad_qawc quad_qawc fx x c a b epsrel epsabs limit quad_qawc f x c a b epsrel epsabs limit,  Up: Integration
+File: maxima-core-docs.info,  Node: Function quad_qawf fx x a omega trig [epsabs limit maxp1 limlst],  Next: Function quad_qawo fx x a b omega trig [epsrel epsabs limit maxp1 limlst],  Prev: Function quad_qawc fx x c a b [epsrel epsabs limit],  Up: Integration
 
- -- Function: quad_qawf (QUAD_QAWF, F(X), X, A, OMEGA, TRIG, EPSABS,
-          LIMIT, MAXP1, LIMLST, QUAD_QAWF, F, X, A, OMEGA, TRIG, EPSABS,
-          LIMIT, MAXP1, LIMLST)
+ -- Function: quad_qawf (F(X), X, A, OMEGA, TRIG, [EPSABS, LIMIT, MAXP1,
+          LIMLST])
      Calculates a Fourier cosine or Fourier sine transform on a
      semi-infinite interval using the Quadpack QAWF function.  The same
      approach as in ‘quad_qawo’ is applied on successive finite
@@ -4018,7 +4018,8 @@ File: maxima-core-docs.info,  Node: Function quad_qawf quad_qawf fx x a omega tr
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the approximation,
+        •    • the estimated absolute error of the
+               approximation,
 
         •    • the number integrand evaluations,
 
@@ -4051,11 +4052,10 @@ File: maxima-core-docs.info,  Node: Function quad_qawf quad_qawf fx x a omega tr
      (%o3)                  0.6901942235215714
 
 
-File: maxima-core-docs.info,  Node: Function quad_qawo quad_qawo fx x a b omega trig epsrel epsabs limit maxp1 limlst quad_qawo f x a b omega trig epsrel epsabs limit maxp1 limlst,  Next: Function quad_qaws quad_qaws fx x a b alpha beta wfun epsrel epsabs limit quad_qaws f x a b alpha beta wfun epsrel epsabs limit,  Prev: Function quad_qawf quad_qawf fx x a omega trig epsabs limit maxp1 limlst quad_qawf f x a omega trig epsabs limit maxp1 limlst,  Up: Integration
+File: maxima-core-docs.info,  Node: Function quad_qawo fx x a b omega trig [epsrel epsabs limit maxp1 limlst],  Next: Function quad_qaws fx x a b alpha beta wfun [epsrel epsabs limit],  Prev: Function quad_qawf fx x a omega trig [epsabs limit maxp1 limlst],  Up: Integration
 
- -- Function: quad_qawo (QUAD_QAWO, F(X), X, A, B, OMEGA, TRIG, EPSREL,
-          EPSABS, LIMIT, MAXP1, LIMLST, QUAD_QAWO, F, X, A, B, OMEGA,
-          TRIG, EPSREL, EPSABS, LIMIT, MAXP1, LIMLST)
+ -- Function: quad_qawo (F(X), X, A, B, OMEGA, TRIG, [EPSREL, EPSABS,
+          LIMIT, MAXP1, LIMLST])
      Integration of \cos(\omega x) f(x) or \sin(\omega x) over a finite
      interval, where \omega is a constant.  The rule evaluation
      component is based on the modified Clenshaw-Curtis technique.
@@ -4092,7 +4092,8 @@ File: maxima-core-docs.info,  Node: Function quad_qawo quad_qawo fx x a b omega 
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the approximation,
+        •    • the estimated absolute error of the
+               approximation,
 
         •    • the number integrand evaluations,
 
@@ -4130,11 +4131,10 @@ File: maxima-core-docs.info,  Node: Function quad_qawo quad_qawo fx x a b omega 
      (%i4) ev (%, alpha=2, numer);
 
 
-File: maxima-core-docs.info,  Node: Function quad_qaws quad_qaws fx x a b alpha beta wfun epsrel epsabs limit quad_qaws f x a b alpha beta wfun epsrel epsabs limit,  Next: Function residue expr z z_0,  Prev: Function quad_qawo quad_qawo fx x a b omega trig epsrel epsabs limit maxp1 limlst quad_qawo f x a b omega trig epsrel epsabs limit maxp1 limlst,  Up: Integration
+File: maxima-core-docs.info,  Node: Function quad_qaws fx x a b alpha beta wfun [epsrel epsabs limit],  Next: Function residue expr z z_0,  Prev: Function quad_qawo fx x a b omega trig [epsrel epsabs limit maxp1 limlst],  Up: Integration
 
- -- Function: quad_qaws (QUAD_QAWS, F(X), X, A, B, ALPHA, BETA, WFUN,
-          EPSREL, EPSABS, LIMIT, QUAD_QAWS, F, X, A, B, ALPHA, BETA,
-          WFUN, EPSREL, EPSABS, LIMIT)
+ -- Function: quad_qaws (F(X), X, A, B, ALPHA, BETA, WFUN, [EPSREL,
+          EPSABS, LIMIT])
      Integration of w(x) f(x) over a finite interval, where w(x) is a
      certain algebraic or logarithmic function.  A globally adaptive
      subdivision strategy is applied, with modified Clenshaw-Curtis
@@ -4171,7 +4171,8 @@ File: maxima-core-docs.info,  Node: Function quad_qaws quad_qaws fx x a b alpha 
 
         •    • an approximation to the integral,
 
-        •    • the estimated absolute error of the approximation,
+        •    • the estimated absolute error of the
+               approximation,
 
         •    • the number integrand evaluations,
 
@@ -4205,7 +4206,7 @@ File: maxima-core-docs.info,  Node: Function quad_qaws quad_qaws fx x a b alpha 
      (%o3)                   8.75009736167283
 
 
-File: maxima-core-docs.info,  Node: Function residue expr z z_0,  Next: Function risch expr x,  Prev: Function quad_qaws quad_qaws fx x a b alpha beta wfun epsrel epsabs limit quad_qaws f x a b alpha beta wfun epsrel epsabs limit,  Up: Integration
+File: maxima-core-docs.info,  Node: Function residue expr z z_0,  Next: Function risch expr x,  Prev: Function quad_qaws fx x a b alpha beta wfun [epsrel epsabs limit],  Up: Integration
 
  -- Function: residue (EXPR, Z, Z_0)
      Computes the residue in the complex plane of the expression _expr_
@@ -4227,7 +4228,7 @@ File: maxima-core-docs.info,  Node: Function residue expr z z_0,  Next: Function
                                      6
 
 
-File: maxima-core-docs.info,  Node: Function risch expr x,  Next: Function specint exp - s t expr t,  Prev: Function residue expr z z_0,  Up: Integration
+File: maxima-core-docs.info,  Node: Function risch expr x,  Next: Function specint exp-s_t_expr t,  Prev: Function residue expr z z_0,  Up: Integration
 
  -- Function: risch (EXPR, X)
      Integrates _expr_ with respect to _x_ using the transcendental case
@@ -4258,9 +4259,9 @@ File: maxima-core-docs.info,  Node: Function risch expr x,  Next: Function speci
      See also: ‘integrate’.
 
 
-File: maxima-core-docs.info,  Node: Function specint exp - s t expr t,  Next: Function tldefint expr x a b,  Prev: Function risch expr x,  Up: Integration
+File: maxima-core-docs.info,  Node: Function specint exp-s_t_expr t,  Next: Function tldefint expr x a b,  Prev: Function risch expr x,  Up: Integration
 
- -- Function: specint (EXP, -, S__, T, , EXPR, T)
+ -- Function: specint (EXP(-S_T)_EXPR, T)
      Compute the Laplace transform of _expr_ with respect to the
      variable _t_.  The integrand _expr_ may contain special functions.
      The parameter _s_ maybe be named something else; it is determined
@@ -4370,7 +4371,7 @@ File: maxima-core-docs.info,  Node: Function specint exp - s t expr t,  Next: Fu
      ‘gamma_incomplete’, ‘expintegral_e1’.
 
 
-File: maxima-core-docs.info,  Node: Function tldefint expr x a b,  Prev: Function specint exp - s t expr t,  Up: Integration
+File: maxima-core-docs.info,  Node: Function tldefint expr x a b,  Prev: Function specint exp-s_t_expr t,  Up: Integration
 
  -- Function: tldefint (EXPR, X, A, B)
      Equivalent to ‘ldefint’ with ‘tlimswitch’ set to ‘true’.
@@ -4383,16 +4384,14 @@ File: maxima-core-docs.info,  Node: Numerical,  Next: Special Functions,  Prev: 
 
 * Menu:
 
-* Function plotdf plotdf dydx options ... plotdf dvdu u v options ... plotdf dxdt c dydt options ... plotdf dudt c dvdt u c v options ...::
+* Function plotdf dydx options...::
 * Function ploteq exp ...options...::
-* Function rk rk ODE var initial domain rk ODE1 ... ODEm v1 ... vm init1 ... initm domain::
+* Function rk ODE var initial domain::
 
 
-File: maxima-core-docs.info,  Node: Function plotdf plotdf dydx options ... plotdf dvdu u v options ... plotdf dxdt c dydt options ... plotdf dudt c dvdt u c v options ...,  Next: Function ploteq exp ...options...,  Up: Numerical
+File: maxima-core-docs.info,  Node: Function plotdf dydx options...,  Next: Function ploteq exp ...options...,  Up: Numerical
 
- -- Function: plotdf (PLOTDF, DYDX, OPTIONS, ..., PLOTDF, DVDU, U, V,
-          OPTIONS, ..., PLOTDF, DXDT, C, DYDT, OPTIONS, ..., PLOTDF,
-          DUDT, C, DVDT, U, C, V, OPTIONS, ...)
+ -- Function: plotdf (DYDX, OPTIONS...)
      The function ‘plotdf’ creates a two-dimensional plot of the
      direction field (also called slope field) for a first-order
      Ordinary Differential Equation (ODE) or a system of two autonomous
@@ -4455,15 +4454,15 @@ File: maxima-core-docs.info,  Node: Function plotdf plotdf dydx options ... plot
 
      The options which are recognized by ‘plotdf’ are the following:
 
-        •    • _nsteps_ defines the number of steps that will be used
-               for the independent variable, to compute an integral
-               curve.  The default value is
+        •    • _nsteps_ defines the number of steps that will
+               be used for the independent variable, to compute an
+               integral curve.  The default value is
 
        100. 
-        •    • _direction_ defines the direction of the independent
-               variable that will be followed to compute an integral
-               curve.  Possible values are ‘forward’, to make the
-               independent variable increase ‘nsteps’ times, with
+        •    • _direction_ defines the direction of the
+               independent variable that will be followed to compute an
+               integral curve.  Possible values are ‘forward’, to make
+               the independent variable increase ‘nsteps’ times, with
                increments ‘tstep’, ‘backward’, to make the independent
                variable decrease, or ‘both’ that will lead to an
                integral curve that extends ‘nsteps’ forward, and
@@ -4471,79 +4470,80 @@ File: maxima-core-docs.info,  Node: Function plotdf plotdf dydx options ... plot
                be used as synonyms for ‘forward’ and ‘backward’.  The
                default value is ‘both’.
 
-        •    • _tinitial_ defines the initial value of variable _t_ used
-               to compute integral curves.  Since the differential
-               equations are autonomous, that setting will only appear
-               in the plot of the curves as functions of _t_.  The
-               default value is 0.
+        •    • _tinitial_ defines the initial value of
+               variable _t_ used to compute integral curves.  Since the
+               differential equations are autonomous, that setting will
+               only appear in the plot of the curves as functions of
+               _t_.  The default value is 0.
 
-        •    • _versus_t_ is used to create a second plot window, with a
-               plot of an integral curve, as two functions _x_, _y_, of
-               the independent variable _t_.  If ‘versus_t’ is given any
-               value different from 0, the second plot window will be
-               displayed.  The second plot window includes another menu,
-               similar to the menu of the main plot window.  The default
-               value is 0.
+        •    • _versus_t_ is used to create a second plot
+               window, with a plot of an integral curve, as two
+               functions _x_, _y_, of the independent variable _t_.  If
+               ‘versus_t’ is given any value different from 0, the
+               second plot window will be displayed.  The second plot
+               window includes another menu, similar to the menu of the
+               main plot window.  The default value is 0.
 
-        •    • _trajectory_at_ defines the coordinates _xinitial_ and
-               _yinitial_ for the starting point of an integral curve.
-               The option is empty by default.
+        •    • _trajectory_at_ defines the coordinates
+               _xinitial_ and _yinitial_ for the starting point of an
+               integral curve.  The option is empty by default.
 
-        •    • _parameters_ defines a list of parameters, and their
-               numerical values, used in the definition of the
+        •    • _parameters_ defines a list of parameters, and
+               their numerical values, used in the definition of the
                differential equations.  The name and values of the
                parameters must be given in a string with a
                comma-separated sequence of pairs ‘name=value’.
 
-        •    • _sliders_ defines a list of parameters that will be
-               changed interactively using slider buttons, and the range
-               of variation of those parameters.  The names and ranges
-               of the parameters must be given in a string with a
-               comma-separated sequence of elements ‘name=min:max’
+        •    • _sliders_ defines a list of parameters that
+               will be changed interactively using slider buttons, and
+               the range of variation of those parameters.  The names
+               and ranges of the parameters must be given in a string
+               with a comma-separated sequence of elements
+               ‘name=min:max’
 
-        •    • _tstep_ sets the value of the time intervals used in the
-               integration algorithm.  It must be a floating point
-               number; you might have to adjust its value to get good
-               results for the integral curves.  If not given, a default
-               value will be chosen according to the region to be
-               plotted.
+        •    • _tstep_ sets the value of the time intervals
+               used in the integration algorithm.  It must be a floating
+               point number; you might have to adjust its value to get
+               good results for the integral curves.  If not given, a
+               default value will be chosen according to the region to
+               be plotted.
 
-        •    • _xfun_ defines a string with semi-colon-separated
-               sequence of functions of _x_ to be displayed, on top of
-               the direction field.  Those functions will be parsed by
-               Tcl and not by Maxima.
+        •    • _xfun_ defines a string with
+               semi-colon-separated sequence of functions of _x_ to be
+               displayed, on top of the direction field.  Those
+               functions will be parsed by Tcl and not by Maxima.
 
-        •    • _x_ should be followed by two numbers, which will set up
-               the minimum and maximum values shown on the horizontal
-               axis.  If the variable on the horizontal axis is not _x_,
-               then this option should have the name of the variable on
-               the horizontal axis.  The default horizontal range is
-               from -10 to 10.
+        •    • _x_ should be followed by two numbers, which
+               will set up the minimum and maximum values shown on the
+               horizontal axis.  If the variable on the horizontal axis
+               is not _x_, then this option should have the name of the
+               variable on the horizontal axis.  The default horizontal
+               range is from -10 to 10.
 
-        •    • _y_ should be followed by two numbers, which will set up
-               the minimum and maximum values shown on the vertical
-               axis.  If the variable on the vertical axis is not _y_,
-               then this option should have the name of the variable on
-               the vertical axis.  The default vertical range is from
-               -10 to 10.
+        •    • _y_ should be followed by two numbers, which
+               will set up the minimum and maximum values shown on the
+               vertical axis.  If the variable on the vertical axis is
+               not _y_, then this option should have the name of the
+               variable on the vertical axis.  The default vertical
+               range is from -10 to 10.
 
-        •    • _xaxislabel_ will be used to identify the horizontal
-               axis.  Its default value is the name of the first state
-               variable.
+        •    • _xaxislabel_ will be used to identify the
+               horizontal axis.  Its default value is the name of the
+               first state variable.
 
-        •    • _yaxislabel_ will be used to identify the vertical axis.
-               Its default value is the name of the second state
-               variable.
+        •    • _yaxislabel_ will be used to identify the
+               vertical axis.  Its default value is the name of the
+               second state variable.
 
-        •    • _number_of_arrows_ should be set to a square number and
-               defines the approximate density of the arrows being
-               drawn.  The default value is 225.
+        •    • _number_of_arrows_ should be set to a square
+               number and defines the approximate density of the arrows
+               being drawn.  The default value is 225.
 
      *Examples:*
 
-        •    • To show the direction field of the differential equation
-               y' = e^{-x} + y and the solution that goes through (2,
-               -0.1):
+        •    • To show the direction field of the differential
+               equation y' = e^{-x} + y and the solution that goes
+               through (2, -0.1):
 
      maxima
      (%i1) plotdf(exp(-x)+y,[trajectory_at,2,-0.1])$
@@ -4599,9 +4599,8 @@ File: maxima-core-docs.info,  Node: Function plotdf plotdf dydx options ... plot
  [image src="figures/plotdf5.png" alt="figures/plotdf5" ]
  [image src="figures/plotdf6.png" alt="figures/plotdf6" ]
 
-
 
-File: maxima-core-docs.info,  Node: Function ploteq exp ...options...,  Next: Function rk rk ODE var initial domain rk ODE1 ... ODEm v1 ... vm init1 ... initm domain,  Prev: Function plotdf plotdf dydx options ... plotdf dvdu u v options ... plotdf dxdt c dydt options ... plotdf dudt c dvdt u c v options ...,  Up: Numerical
+File: maxima-core-docs.info,  Node: Function ploteq exp ...options...,  Next: Function rk ODE var initial domain,  Prev: Function plotdf dydx options...,  Up: Numerical
 
  -- Function: ploteq (EXP, ...OPTIONS...)
      Plots equipotential curves for _exp_, which should be an expression
@@ -4630,10 +4629,9 @@ File: maxima-core-docs.info,  Node: Function ploteq exp ...options...,  Next: Fu
      by that point (in red) and the orthogonal trajectory (in blue).
 
 
-File: maxima-core-docs.info,  Node: Function rk rk ODE var initial domain rk ODE1 ... ODEm v1 ... vm init1 ... initm domain,  Prev: Function ploteq exp ...options...,  Up: Numerical
+File: maxima-core-docs.info,  Node: Function rk ODE var initial domain,  Prev: Function ploteq exp ...options...,  Up: Numerical
 
- -- Function: rk (RK, ODE, VAR, INITIAL, DOMAIN, RK, ODE1, ..., ODEM,
-          V1, ..., VM, INIT1, ..., INITM, DOMAIN)
+ -- Function: rk (ODE, VAR, INITIAL, DOMAIN)
      The first form solves numerically one first-order ordinary
      differential equation, and the second form solves a system of m of
      those equations, using the 4th order Runge-Kutta method.  _var_
@@ -4698,7 +4696,6 @@ File: maxima-core-docs.info,  Node: Function rk rk ODE var initial domain rk ODE
 
  [image src="figures/plotrk.png" alt="figures/plotrk" ]
 
-
      figures/plotrk
      To solve numerically the system:
 
@@ -4724,7 +4721,6 @@ File: maxima-core-docs.info,  Node: Function rk rk ODE var initial domain rk ODE
      _t_.
 
  [image src="figures/plotrk2.png" alt="figures/plotrk2" ]
-
 
      figures/plotrk2
      See also: ‘drawdf’, ‘rk_adaptive’, ‘desolve’, ‘ode2’.
@@ -4753,8 +4749,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_chi z,  Next: Function 
 
  -- Function: expintegral_chi (Z)
      The Exponential Integral Chi(z)
-     (https://personal.math.ubc.ca/~cbm/aands/page_231.htmA&S eqn 5.2.4
-     and https://dlmf.nist.gov/6.2#E16DLMF 6.2#E16) defined as
+     (https//personalmathubcca/~cbm/aands/page_231htmA&S eqn 524 and
+     https//dlmfnistgov/62#E16DLMF 62#E16) defined as
 
      {\rm Chi}(z) = \gamma + \log z + \int_0^z {{\cosh t - 1} \over t}
      dt
@@ -4774,8 +4770,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_ci z,  Next: Function e
 
  -- Function: expintegral_ci (Z)
      The Exponential Integral Ci(z)
-     (https://personal.math.ubc.ca/~cbm/aands/page_231.htmA&S eqn 5.2.2
-     and https://dlmf.nist.gov/6.2#E13DLMF 6.2#E13) defined as
+     (https//personalmathubcca/~cbm/aands/page_231htmA&S eqn 522 and
+     https//dlmfnistgov/62#E13DLMF 62#E13) defined as
 
      {\rm Ci}(z) = \gamma + \log z + \int_0^z {{\cos t - 1} \over t} dt
 
@@ -4793,7 +4789,7 @@ File: maxima-core-docs.info,  Node: Function expintegral_e n z,  Next: Function 
 
  -- Function: expintegral_e (N, Z)
      The Exponential Integral En(z)
-     (https://personal.math.ubc.ca/~cbm/aands/page_228.htmA&S eqn 5.1.4)
+     (https//personalmathubcca/~cbm/aands/page_228htmA&S eqn 514)
      defined as
 
      E_n(z) = \int_1^\infty {e^{-zt} \over t^n} dt
@@ -4818,8 +4814,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_e1 z,  Next: Function e
      E_1(z) = \int_z^\infty {e^{-t} \over t} dt
 
      with \left| \arg z \right| < \pi.
-     (https://personal.math.ubc.ca/~cbm/aands/page_228.htmA&S eqn 5.1.1)
-     and (https://dlmf.nist.gov/6.2E2DLMF 6.2E2)
+     (https//personalmathubcca/~cbm/aands/page_228htmA&S eqn 511) and
+     (https//dlmfnistgov/62E2DLMF 62E2)
 
      This can be written in terms of other functions.  ‘expintrep’ for
      examples.
@@ -4839,8 +4835,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_ei x,  Next: Function e
      -\kern-10.5pt\int_{-\infty}^x {e^{t} \over t} dt
 
      with x real and x > 0.
-     (https://personal.math.ubc.ca/~cbm/aands/page_228.htmA&S eqn 5.1.2)
-     and (https://dlmf.nist.gov/6.2E5DLMF 6.2E5)
+     (https//personalmathubcca/~cbm/aands/page_228htmA&S eqn 512) and
+     (https//dlmfnistgov/62E5DLMF 62E5)
 
      This can be written in terms of other functions.  ‘expintrep’ for
      examples.
@@ -4858,8 +4854,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_li x,  Next: Function e
      li(x) = -\kern-10.5pt\int_0^x {dt \over \ln t}
 
      with x real and x > 1.
-     (https://personal.math.ubc.ca/~cbm/aands/page_228.htmA&S eqn 5.1.3)
-     and (https://dlmf.nist.gov/6.2E8DLMF 6.2E8)
+     (https//personalmathubcca/~cbm/aands/page_228htmA&S eqn 513) and
+     (https//dlmfnistgov/62E8DLMF 62E8)
 
      This can be written in terms of other functions.  ‘expintrep’ for
      examples.
@@ -4871,8 +4867,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_shi z,  Next: Function 
 
  -- Function: expintegral_shi (Z)
      The Exponential Integral Shi(z)
-     (https://personal.math.ubc.ca/~cbm/aands/page_231.htmA&S eqn 5.2.3
-     and https://dlmf.nist.gov/6.2#E15DLMF 6.2#E15) defined as
+     (https//personalmathubcca/~cbm/aands/page_231htmA&S eqn 523 and
+     https//dlmfnistgov/62#E15DLMF 62#E15) defined as
 
      {\rm Shi}(z) = \int_0^z {\sinh t \over t} dt
 
@@ -4888,8 +4884,8 @@ File: maxima-core-docs.info,  Node: Function expintegral_si z,  Next: Variable e
 
  -- Function: expintegral_si (Z)
      The Exponential Integral Si(z)
-     (https://personal.math.ubc.ca/~cbm/aands/page_231.htmA&S eqn 5.2.1
-     and https://dlmf.nist.gov/6.2#E9DLMF 6.2#E9) defined as
+     (https//personalmathubcca/~cbm/aands/page_231htmA&S eqn 521 and
+     https//dlmfnistgov/62#E9DLMF 62#E9) defined as
 
      {\rm Si}(z) = \int_0^z {\sin t \over t} dt
 
@@ -5260,13 +5256,13 @@ File: maxima-core-docs.info,  Node: bode,  Next: contrib_ode,  Prev: Special Fun
 
 * Menu:
 
-* Function bode_gain H range ... plot_opts ...::
-* Function bode_phase H range ... plot_opts ...::
+* Function bode_gain H range ...plot_opts...::
+* Function bode_phase H range ...plot_opts...::
 
 
-File: maxima-core-docs.info,  Node: Function bode_gain H range ... plot_opts ...,  Next: Function bode_phase H range ... plot_opts ...,  Up: bode
+File: maxima-core-docs.info,  Node: Function bode_gain H range ...plot_opts...,  Next: Function bode_phase H range ...plot_opts...,  Up: bode
 
- -- Function: bode_gain (H, RANGE, ..., PLOT_OPTS, ...)
+ -- Function: bode_gain (H, RANGE, ...PLOT_OPTS...)
      Function to draw Bode gain plots.
 
      Examples (1 through 7 from
@@ -5317,9 +5313,9 @@ File: maxima-core-docs.info,  Node: Function bode_gain H range ... plot_opts ...
      See also: ‘bode_phase’.
 
 
-File: maxima-core-docs.info,  Node: Function bode_phase H range ... plot_opts ...,  Prev: Function bode_gain H range ... plot_opts ...,  Up: bode
+File: maxima-core-docs.info,  Node: Function bode_phase H range ...plot_opts...,  Prev: Function bode_gain H range ...plot_opts...,  Up: bode
 
- -- Function: bode_phase (H, RANGE, ..., PLOT_OPTS, ...)
+ -- Function: bode_phase (H, RANGE, ...PLOT_OPTS...)
      Function to draw Bode phase plots.
 
      Examples (1 through 7 from
@@ -5404,8 +5400,8 @@ File: maxima-core-docs.info,  Node: Function bessel_simplify expr,  Next: Functi
      Simplifies expressions containing Bessel functions ‘bessel_j’,
      ‘bessel_y’, ‘bessel_i’, ‘bessel_k’, ‘hankel_1’, ‘hankel_2’,
      ‘struve_h’ and ‘struve_005fl’.  Recurrence relations
-     https://personal.math.ubc.ca/~cbm/aands/page_361.htmA&S eqn 9.1.27
-     and https://dlmf.nist.gov/10.6#iDLMF 10.6#i
+     https//personalmathubcca/~cbm/aands/page_361htmA&S eqn 9127 and
+     https//dlmfnistgov/106#iDLMF 106#i
 
      are used to replace functions of highest order n by functions of
      order n-1 and n-2.
@@ -5477,7 +5473,7 @@ File: maxima-core-docs.info,  Node: Function expintegral_e_simplify expr,  Next:
  -- Function: expintegral_e_simplify (EXPR)
      Simplify expressions containing exponential integral
      ‘expintegral_e’ using the recurrence
-     https://personal.math.ubc.ca/~cbm/aands/page_229.htmA&S eqn 5.1.14.
+     https//personalmathubcca/~cbm/aands/page_229htmA&S eqn 5114.
 
      expintegral_e(n+1,z) = (1/n) * (exp(-z)-z*expintegral_e(n,z)) n =
      1,2,3 ....
@@ -5492,8 +5488,8 @@ File: maxima-core-docs.info,  Node: Function gauss_a a b c x,  Next: Function ga
      functions.  They represent any two independent solutions of the
      hypergeometric differential equation ‘x*(1-x) diff(y,x,2) +
      [c-(a+b+1)x] diff(y,x) - a*b*y = 0’ See
-     https://personal.math.ubc.ca/~cbm/aands/page_562.htmA&S eqn 15.5.1
-     and https://dlmf.nist.gov/15.10DLMF 15.10.
+     https//personalmathubcca/~cbm/aands/page_562htmA&S eqn 1551 and
+     https//dlmfnistgov/1510DLMF 1510.
 
      The only use of these functions is in solutions of ODEs returned by
      ‘odelin’ and ‘contrib_ode’.  The definition and use of these
@@ -5516,8 +5512,8 @@ File: maxima-core-docs.info,  Node: Function kummer_m a b x,  Next: Function kum
 
  -- Function: kummer_m (A, B, X)
      Kummer's M function, see
-     https://personal.math.ubc.ca/~cbm/aands/page_504.htmA&S eqn 13.1.2
-     and https://dlmf.nist.gov/13.2DLMF 13.2.
+     https//personalmathubcca/~cbm/aands/page_504htmA&S eqn 1312 and
+     https//dlmfnistgov/132DLMF 132.
 
      The only use of this function is in solutions of ODEs returned by
      ‘odelin’ and ‘contrib_ode’.  The definition and use of this
@@ -5533,8 +5529,8 @@ File: maxima-core-docs.info,  Node: Function kummer_u a b x,  Next: Function ode
 
  -- Function: kummer_u (A, B, X)
      Kummer's U function, see
-     https://personal.math.ubc.ca/~cbm/aands/page_504.htmA&S eqn 13.1.3
-     and https://dlmf.nist.gov/13.2.6DLMF 13.2.6.
+     https//personalmathubcca/~cbm/aands/page_504htmA&S eqn 1313 and
+     https//dlmfnistgov/1326DLMF 1326.
 
      See ‘kummer_005fm’.
 
@@ -5685,16 +5681,16 @@ File: maxima-core-docs.info,  Node: romberg,  Next: Combinatorics,  Prev: odepac
 
 * Menu:
 
-* Function romberg romberg expr x a b romberg F a b::
+* Function romberg expr x a b::
 * Variable rombergabs::
 * Variable rombergit::
 * Variable rombergmin::
 * Variable rombergtol::
 
 
-File: maxima-core-docs.info,  Node: Function romberg romberg expr x a b romberg F a b,  Next: Variable rombergabs,  Up: romberg
+File: maxima-core-docs.info,  Node: Function romberg expr x a b,  Next: Variable rombergabs,  Up: romberg
 
- -- Function: romberg (ROMBERG, EXPR, X, A, B, ROMBERG, F, A, B)
+ -- Function: romberg (EXPR, X, A, B)
      Computes a numerical integration by Romberg's method.
 
      ‘romberg(expr, x, a, b)’ returns an estimate of the integral
@@ -5814,7 +5810,7 @@ File: maxima-core-docs.info,  Node: Function romberg romberg expr x a b romberg 
      See also: ‘Introduction-to-QUADPACK’.
 
 
-File: maxima-core-docs.info,  Node: Variable rombergabs,  Next: Variable rombergit,  Prev: Function romberg romberg expr x a b romberg F a b,  Up: romberg
+File: maxima-core-docs.info,  Node: Variable rombergabs,  Next: Variable rombergit,  Prev: Function romberg expr x a b,  Up: romberg
 
  -- Variable: rombergabs
      Default value: 0.0
@@ -5893,34 +5889,36 @@ File: maxima-core-docs.info,  Node: Elementary Functions,  Next: Sets,  Prev: Co
 
 * Menu:
 
-* Function !! ::
+* Function !!::
 * Function binomial x y::
 * Function factcomb expr::
 * Variable factlim::
-* Function factorial ::
+* Function factorial::
 * Variable factorial_expand::
 * Function genfact x y z::
 * Function minfactorial expr::
 * Variable sumsplitfact::
 
 
-File: maxima-core-docs.info,  Node: Function !!,  Next: Function binomial x y,  Up: Elementary Functions
+File: maxima-core-docs.info,  Node: Function !!,  Next: Function factorial,  Up: Elementary Functions
 
- -- Function: !! ()
-     The double factorial operator.
+1.17.1 Function: !!
+-------------------
 
-     For an integer, float, or rational number ‘n’, ‘n!!’ evaluates to
-     the product ‘n (n-2) (n-4) (n-6) ... (n - 2 (k-1))’ where ‘k’ is
-     equal to ‘entier (n/2)’, that is, the largest integer less than or
-     equal to ‘n/2’.  Note that this definition does not coincide with
-     other published definitions for arguments which are not integers.
+The double factorial operator.
 
-     For an even (or odd) integer ‘n’, ‘n!!’ evaluates to the product of
-     all the consecutive even (or odd) integers from 2 (or 1) through
-     ‘n’ inclusive.
+For an integer, float, or rational number ‘n’, ‘n!!’ evaluates to the
+product ‘n (n-2) (n-4) (n-6) ... (n - 2 (k-1))’ where ‘k’ is equal to
+‘entier (n/2)’, that is, the largest integer less than or equal to
+‘n/2’.  Note that this definition does not coincide with other published
+definitions for arguments which are not integers.
 
-     For an argument ‘n’ which is not an integer, float, or rational,
-     ‘n!!’ yields a noun form ‘genfact (n, n/2, 2)’.
+For an even (or odd) integer ‘n’, ‘n!!’ evaluates to the product of all
+the consecutive even (or odd) integers from 2 (or 1) through ‘n’
+inclusive.
+
+For an argument ‘n’ which is not an integer, float, or rational, ‘n!!’
+yields a noun form ‘genfact (n, n/2, 2)’.
 
 
 File: maxima-core-docs.info,  Node: Function binomial x y,  Next: Function factcomb expr,  Prev: Function !!,  Up: Elementary Functions
@@ -6010,111 +6008,111 @@ File: maxima-core-docs.info,  Node: Variable factlim,  Next: Function factorial,
      expanded.  If it is -1 then all integers are expanded.
 
 
-File: maxima-core-docs.info,  Node: Function factorial,  Next: Variable factorial_expand,  Prev: Variable factlim,  Up: Elementary Functions
+File: maxima-core-docs.info,  Node: Function factorial,  Next: Variable factorial_expand,  Prev: Function !!,  Up: Elementary Functions
 
- -- Function: factorial ()
-     Represents the factorial function.  Maxima treats ‘factorial (x)’
-     the same as ‘x!’.
+1.17.2 Function: factorial
+--------------------------
 
-     For any complex number ‘x’, except for negative integers, ‘x!’ is
-     defined as ‘gamma(x+1)’.
+Represents the factorial function.  Maxima treats ‘factorial (x)’ the
+same as ‘x!’.
 
-     For an integer ‘x’, ‘x!’ simplifies to the product of the integers
-     from 1 to ‘x’ inclusive.  ‘0!’ simplifies to 1.  For a real or
-     complex number in float or bigfloat precision ‘x’, ‘x!’ simplifies
-     to the value of ‘gamma (x+1)’.  For ‘x’ equal to ‘n/2’ where ‘n’ is
-     an odd integer, ‘x!’ simplifies to a rational factor times ‘sqrt
-     (%pi)’ (since ‘gamma (1/2)’ is equal to ‘sqrt (%pi)’).
+For any complex number ‘x’, except for negative integers, ‘x!’ is
+defined as ‘gamma(x+1)’.
 
-     The option variables ‘factlim’ and ‘gammalim’ control the numerical
-     evaluation of factorials for integer and rational arguments.  The
-     functions ‘minfactorial’ and ‘factcomb’ simplifies expressions
-     containing factorials.
+For an integer ‘x’, ‘x!’ simplifies to the product of the integers from
+1 to ‘x’ inclusive.  ‘0!’ simplifies to 1.  For a real or complex number
+in float or bigfloat precision ‘x’, ‘x!’ simplifies to the value of
+‘gamma (x+1)’.  For ‘x’ equal to ‘n/2’ where ‘n’ is an odd integer, ‘x!’
+simplifies to a rational factor times ‘sqrt (%pi)’ (since ‘gamma (1/2)’
+is equal to ‘sqrt (%pi)’).
 
-     The functions ‘gamma’, ‘bffac’, and ‘cbffac’ are varieties of the
-     gamma function.  ‘bffac’ and ‘cbffac’ are called internally by
-     ‘gamma’ to evaluate the gamma function for real and complex numbers
-     in bigfloat precision.
+The option variables ‘factlim’ and ‘gammalim’ control the numerical
+evaluation of factorials for integer and rational arguments.  The
+functions ‘minfactorial’ and ‘factcomb’ simplifies expressions
+containing factorials.
 
-     ‘makegamma’ substitutes ‘gamma’ for factorials and related
-     functions.
+The functions ‘gamma’, ‘bffac’, and ‘cbffac’ are varieties of the gamma
+function.  ‘bffac’ and ‘cbffac’ are called internally by ‘gamma’ to
+evaluate the gamma function for real and complex numbers in bigfloat
+precision.
 
-     Maxima knows the derivative of the factorial function and the
-     limits for specific values like negative integers.
+‘makegamma’ substitutes ‘gamma’ for factorials and related functions.
 
-     The option variable ‘factorial_expand’ controls the simplification
-     of expressions like ‘(n+x)!’, where ‘n’ is an integer.
+Maxima knows the derivative of the factorial function and the limits for
+specific values like negative integers.
 
-     See also ‘binomial’.
+The option variable ‘factorial_expand’ controls the simplification of
+expressions like ‘(n+x)!’, where ‘n’ is an integer.
 
-     The factorial of an integer is simplified to an exact number unless
-     the operand is greater than ‘factlim’.  The factorial for real and
-     complex numbers is evaluated in float or bigfloat precision.
+See also ‘binomial’.
 
-     maxima
-     
-     (%i1) factlim : 10;
-     (%o1)                          10
-     
-     
-     (%i2) [0!, (7/2)!, 8!, 20!];
-                          105 sqrt(%pi)
-     (%o2)            [1, -------------, 40320, 20!]
-                               16
-     
-     
-     (%i3) [4,77!, (1.0+%i)!];
-     (%o3) [4, 77!, 0.3430658398165453 %i + 0.6529654964201667]
-     
-     
-     (%i4) [2.86b0!, (1.0b0+%i)!];
-     (%o4) [5.046635586910012b0, 3.430658398165454b-1 %i
-                                               + 6.529654964201667b-1]
+The factorial of an integer is simplified to an exact number unless the
+operand is greater than ‘factlim’.  The factorial for real and complex
+numbers is evaluated in float or bigfloat precision.
 
-     The factorial of a known constant, or general expression is not
-     simplified.  Even so it may be possible to simplify the factorial
-     after evaluating the operand.
+maxima
 
-     maxima
-     
-     (%i1) [(%i + 1)!, %pi!, %e!, (cos(1) + sin(1))!];
-     (%o1)      [(%i + 1)!, %pi!, %e!, (sin(1) + cos(1))!]
-     
-     
-     (%i2) ev (%, numer, %enumer);
-     (%o2) [0.3430658398165453 %i + 0.6529654964201667, 
-              7.188082728976031, 4.260820476357003, 1.227580202486819]
+(%i1) factlim : 10;
+(%o1)                          10
 
-     Factorials are simplified, not evaluated.  Thus ‘x!’ may be
-     replaced even in a quoted expression.
 
-     maxima
-     
-     (%i1) '([0!, (7/2)!, 4.77!, 8!, 20!]);
-               105 sqrt(%pi)
-     (%o1) [1, -------------, 81.44668037931197, 40320, 
-                    16
-                                                  2432902008176640000]
+(%i2) [0!, (7/2)!, 8!, 20!];
+                     105 sqrt(%pi)
+(%o2)            [1, -------------, 40320, 20!]
+                          16
 
-     Maxima knows the derivative of the factorial function.
 
-     maxima
-     
-     (%i1) diff(x!,x);
-     (%o1)                    x! psi (x + 1)
-                                    0
+(%i3) [4,77!, (1.0+%i)!];
+(%o3) [4, 77!, 0.3430658398165453 %i + 0.6529654964201667]
 
-     The option variable ‘factorial_expand’ controls expansion and
-     simplification of expressions with the factorial function.
 
-     maxima
-     
-     (%i1) (n+1)!/n!,factorial_expand:true;
-     (%o1)                         n + 1
+(%i4) [2.86b0!, (1.0b0+%i)!];
+(%o4) [5.046635586910012b0, 3.430658398165454b-1 %i
+                                          + 6.529654964201667b-1]
 
-     See also: ‘factlim’, ‘gammalim’, ‘minfactorial’, ‘factcomb’,
-     ‘gamma’, ‘bffac’, ‘cbffac’, ‘makegamma’, ‘factorial_expand’,
-     ‘binomial’.
+The factorial of a known constant, or general expression is not
+simplified.  Even so it may be possible to simplify the factorial after
+evaluating the operand.
+
+maxima
+
+(%i1) [(%i + 1)!, %pi!, %e!, (cos(1) + sin(1))!];
+(%o1)      [(%i + 1)!, %pi!, %e!, (sin(1) + cos(1))!]
+
+
+(%i2) ev (%, numer, %enumer);
+(%o2) [0.3430658398165453 %i + 0.6529654964201667, 
+         7.188082728976031, 4.260820476357003, 1.227580202486819]
+
+Factorials are simplified, not evaluated.  Thus ‘x!’ may be replaced
+even in a quoted expression.
+
+maxima
+
+(%i1) '([0!, (7/2)!, 4.77!, 8!, 20!]);
+          105 sqrt(%pi)
+(%o1) [1, -------------, 81.44668037931197, 40320, 
+               16
+                                             2432902008176640000]
+
+Maxima knows the derivative of the factorial function.
+
+maxima
+
+(%i1) diff(x!,x);
+(%o1)                    x! psi (x + 1)
+                               0
+
+The option variable ‘factorial_expand’ controls expansion and
+simplification of expressions with the factorial function.
+
+maxima
+
+(%i1) (n+1)!/n!,factorial_expand:true;
+(%o1)                         n + 1
+
+See also: ‘factlim’, ‘gammalim’, ‘minfactorial’, ‘factcomb’, ‘gamma’,
+‘bffac’, ‘cbffac’, ‘makegamma’, ‘factorial_expand’, ‘binomial’.
 
 
 File: maxima-core-docs.info,  Node: Variable factorial_expand,  Next: Function genfact x y z,  Prev: Function factorial,  Up: Elementary Functions
@@ -6224,32 +6222,32 @@ File: maxima-core-docs.info,  Node: Sets,  Next: combinatorics,  Prev: Elementar
 * Function elementp x a::
 * Function emptyp a::
 * Function equiv_classes s F::
-* Function every every f s every f L_1 ... L_n::
-* Function extremal_subset extremal_subset s f max extremal_subset s f min::
+* Function every f s::
+* Function extremal_subset s f max::
 * Function flatten expr::
 * Function full_listify a::
 * Function fullsetify a::
 * Function identity x::
-* Function integer_partitions integer_partitions n integer_partitions n len::
+* Function integer_partitions n::
 * Function intersect a_1 ... a_n::
 * Function intersection a_1 ... a_n::
 * Function kron_delta x1 x2 ... xp::
 * Function listify a::
 * Function makeset expr x s::
 * Function moebius n::
-* Function multinomial_coeff multinomial_coeff a_1 ... a_n multinomial_coeff::
-* Function num_distinct_partitions num_distinct_partitions n num_distinct_partitions n list::
-* Function num_partitions num_partitions n num_partitions n list::
+* Function multinomial_coeff a_1 ... a_n::
+* Function num_distinct_partitions n::
+* Function num_partitions n::
 * Function partition_set a f::
 * Function permutations a::
-* Function powerset powerset a powerset a n::
+* Function powerset a::
 * Function random_permutation a::
-* Function set_partitions set_partitions a set_partitions a n::
+* Function set_partitions a::
 * Function setdifference a b::
 * Function setequalp a b::
 * Function setify a::
 * Function setp a::
-* Function some some f a some f L_1 ... L_n::
+* Function some f a::
 * Function stirling1 n m::
 * Function stirling2 n m::
 * Function subset a f::
@@ -6626,7 +6624,7 @@ File: maxima-core-docs.info,  Node: Function emptyp a,  Next: Function equiv_cla
      (%o2)                 [false, false, false]
 
 
-File: maxima-core-docs.info,  Node: Function equiv_classes s F,  Next: Function every every f s every f L_1 ... L_n,  Prev: Function emptyp a,  Up: Sets
+File: maxima-core-docs.info,  Node: Function equiv_classes s F,  Next: Function every f s,  Prev: Function emptyp a,  Up: Sets
 
  -- Function: equiv_classes (S, F)
      Returns a set of the equivalence classes of the set _s_ with
@@ -6670,9 +6668,9 @@ File: maxima-core-docs.info,  Node: Function equiv_classes s F,  Next: Function 
      (%o1)              {{1, 4, 7}, {2, 5}, {3, 6}}
 
 
-File: maxima-core-docs.info,  Node: Function every every f s every f L_1 ... L_n,  Next: Function extremal_subset extremal_subset s f max extremal_subset s f min,  Prev: Function equiv_classes s F,  Up: Sets
+File: maxima-core-docs.info,  Node: Function every f s,  Next: Function extremal_subset s f max,  Prev: Function equiv_classes s F,  Up: Sets
 
- -- Function: every (EVERY, F, S, EVERY, F, L_1, ..., L_N)
+ -- Function: every (F, S)
      Returns ‘true’ if the predicate _f_ is ‘true’ for all given
      arguments.
 
@@ -6755,10 +6753,9 @@ File: maxima-core-docs.info,  Node: Function every every f s every f L_1 ... L_n
      (%o5)                         false
 
 
-File: maxima-core-docs.info,  Node: Function extremal_subset extremal_subset s f max extremal_subset s f min,  Next: Function flatten expr,  Prev: Function every every f s every f L_1 ... L_n,  Up: Sets
+File: maxima-core-docs.info,  Node: Function extremal_subset s f max,  Next: Function flatten expr,  Prev: Function every f s,  Up: Sets
 
- -- Function: extremal_subset (EXTREMAL_SUBSET, S, F, MAX,
-          EXTREMAL_SUBSET, S, F, MIN)
+ -- Function: extremal_subset (S, F, MAX)
      Returns the subset of _s_ for which the function _f_ takes on
      maximum or minimum values.
 
@@ -6782,7 +6779,7 @@ File: maxima-core-docs.info,  Node: Function extremal_subset extremal_subset s f
      (%o2)                       {sqrt(2)}
 
 
-File: maxima-core-docs.info,  Node: Function flatten expr,  Next: Function full_listify a,  Prev: Function extremal_subset extremal_subset s f max extremal_subset s f min,  Up: Sets
+File: maxima-core-docs.info,  Node: Function flatten expr,  Next: Function full_listify a,  Prev: Function extremal_subset s f max,  Up: Sets
 
  -- Function: flatten (EXPR)
      Collects arguments of subexpressions which have the same operator
@@ -6916,7 +6913,7 @@ File: maxima-core-docs.info,  Node: Function fullsetify a,  Next: Function ident
      (%o2)                      {a, f([b])}
 
 
-File: maxima-core-docs.info,  Node: Function identity x,  Next: Function integer_partitions integer_partitions n integer_partitions n len,  Prev: Function fullsetify a,  Up: Sets
+File: maxima-core-docs.info,  Node: Function identity x,  Next: Function integer_partitions n,  Prev: Function fullsetify a,  Up: Sets
 
  -- Function: identity (X)
      Returns _x_ for any argument _x_.
@@ -6932,10 +6929,9 @@ File: maxima-core-docs.info,  Node: Function identity x,  Next: Function integer
      (%o1)                         true
 
 
-File: maxima-core-docs.info,  Node: Function integer_partitions integer_partitions n integer_partitions n len,  Next: Function intersect a_1 ... a_n,  Prev: Function identity x,  Up: Sets
+File: maxima-core-docs.info,  Node: Function integer_partitions n,  Next: Function intersect a_1 ... a_n,  Prev: Function identity x,  Up: Sets
 
- -- Function: integer_partitions (INTEGER_PARTITIONS, N,
-          INTEGER_PARTITIONS, N, LEN)
+ -- Function: integer_partitions (N)
      Returns integer partitions of _n_, that is, lists of integers which
      sum to _n_.
 
@@ -6993,7 +6989,7 @@ File: maxima-core-docs.info,  Node: Function integer_partitions integer_partitio
      (%o4) {[2, 2, 2, 2, 2], [3, 3, 2, 2], [5, 3, 2], [5, 5], [7, 3]}
 
 
-File: maxima-core-docs.info,  Node: Function intersect a_1 ... a_n,  Next: Function intersection a_1 ... a_n,  Prev: Function integer_partitions integer_partitions n integer_partitions n len,  Up: Sets
+File: maxima-core-docs.info,  Node: Function intersect a_1 ... a_n,  Next: Function intersection a_1 ... a_n,  Prev: Function integer_partitions n,  Up: Sets
 
  -- Function: intersect (A_1, ..., A_N)
      ‘intersect’ is the same as ‘intersection’, which see.
@@ -7144,7 +7140,7 @@ File: maxima-core-docs.info,  Node: Function makeset expr x s,  Next: Function m
      See also: ‘makelist’.
 
 
-File: maxima-core-docs.info,  Node: Function moebius n,  Next: Function multinomial_coeff multinomial_coeff a_1 ... a_n multinomial_coeff,  Prev: Function makeset expr x s,  Up: Sets
+File: maxima-core-docs.info,  Node: Function moebius n,  Next: Function multinomial_coeff a_1 ... a_n,  Prev: Function makeset expr x s,  Up: Sets
 
  -- Function: moebius (N)
      Represents the Moebius function.
@@ -7197,10 +7193,9 @@ File: maxima-core-docs.info,  Node: Function moebius n,  Next: Function multinom
      (%o9)                      {- 1, 0, 1}
 
 
-File: maxima-core-docs.info,  Node: Function multinomial_coeff multinomial_coeff a_1 ... a_n multinomial_coeff,  Next: Function num_distinct_partitions num_distinct_partitions n num_distinct_partitions n list,  Prev: Function moebius n,  Up: Sets
+File: maxima-core-docs.info,  Node: Function multinomial_coeff a_1 ... a_n,  Next: Function num_distinct_partitions n,  Prev: Function moebius n,  Up: Sets
 
- -- Function: multinomial_coeff (MULTINOMIAL_COEFF, A_1, ..., A_N,
-          MULTINOMIAL_COEFF)
+ -- Function: multinomial_coeff (A_1, ..., A_N)
      Returns the multinomial coefficient.
 
      When each _a_k_ is a nonnegative integer, the multinomial
@@ -7240,10 +7235,9 @@ File: maxima-core-docs.info,  Node: Function multinomial_coeff multinomial_coeff
                                      2
 
 
-File: maxima-core-docs.info,  Node: Function num_distinct_partitions num_distinct_partitions n num_distinct_partitions n list,  Next: Function num_partitions num_partitions n num_partitions n list,  Prev: Function multinomial_coeff multinomial_coeff a_1 ... a_n multinomial_coeff,  Up: Sets
+File: maxima-core-docs.info,  Node: Function num_distinct_partitions n,  Next: Function num_partitions n,  Prev: Function multinomial_coeff a_1 ... a_n,  Up: Sets
 
- -- Function: num_distinct_partitions (NUM_DISTINCT_PARTITIONS, N,
-          NUM_DISTINCT_PARTITIONS, N, LIST)
+ -- Function: num_distinct_partitions (N)
      Returns the number of distinct integer partitions of _n_ when _n_
      is a nonnegative integer.  Otherwise, ‘num_distinct_partitions’
      returns a noun expression.
@@ -7270,10 +7264,9 @@ File: maxima-core-docs.info,  Node: Function num_distinct_partitions num_distinc
      (%o3)              num_distinct_partitions(n)
 
 
-File: maxima-core-docs.info,  Node: Function num_partitions num_partitions n num_partitions n list,  Next: Function partition_set a f,  Prev: Function num_distinct_partitions num_distinct_partitions n num_distinct_partitions n list,  Up: Sets
+File: maxima-core-docs.info,  Node: Function num_partitions n,  Next: Function partition_set a f,  Prev: Function num_distinct_partitions n,  Up: Sets
 
- -- Function: num_partitions (NUM_PARTITIONS, N, NUM_PARTITIONS, N,
-          LIST)
+ -- Function: num_partitions (N)
      Returns the number of integer partitions of _n_ when _n_ is a
      nonnegative integer.  Otherwise, ‘num_partitions’ returns a noun
      expression.
@@ -7302,7 +7295,7 @@ File: maxima-core-docs.info,  Node: Function num_partitions num_partitions n num
      (%o3)                   num_partitions(n)
 
 
-File: maxima-core-docs.info,  Node: Function partition_set a f,  Next: Function permutations a,  Prev: Function num_partitions num_partitions n num_partitions n list,  Up: Sets
+File: maxima-core-docs.info,  Node: Function partition_set a f,  Next: Function permutations a,  Prev: Function num_partitions n,  Up: Sets
 
  -- Function: partition_set (A, F)
      Partitions the set _a_ according to the predicate _f_.
@@ -7331,7 +7324,7 @@ File: maxima-core-docs.info,  Node: Function partition_set a f,  Next: Function 
      See also: ‘subset’.
 
 
-File: maxima-core-docs.info,  Node: Function permutations a,  Next: Function powerset powerset a powerset a n,  Prev: Function partition_set a f,  Up: Sets
+File: maxima-core-docs.info,  Node: Function permutations a,  Next: Function powerset a,  Prev: Function partition_set a f,  Up: Sets
 
  -- Function: permutations (A)
      Returns a set of all distinct permutations of the members of the
@@ -7358,9 +7351,9 @@ File: maxima-core-docs.info,  Node: Function permutations a,  Next: Function pow
      See also: ‘random_permutation’.
 
 
-File: maxima-core-docs.info,  Node: Function powerset powerset a powerset a n,  Next: Function random_permutation a,  Prev: Function permutations a,  Up: Sets
+File: maxima-core-docs.info,  Node: Function powerset a,  Next: Function random_permutation a,  Prev: Function permutations a,  Up: Sets
 
- -- Function: powerset (POWERSET, A, POWERSET, A, N)
+ -- Function: powerset (A)
      Returns the set of all subsets of _a_, or a subset of that set.
 
      ‘powerset(a)’ returns the set of all subsets of the set _a_.
@@ -7400,7 +7393,7 @@ File: maxima-core-docs.info,  Node: Function powerset powerset a powerset a n,  
      (%o6)                         {{}}
 
 
-File: maxima-core-docs.info,  Node: Function random_permutation a,  Next: Function set_partitions set_partitions a set_partitions a n,  Prev: Function powerset powerset a powerset a n,  Up: Sets
+File: maxima-core-docs.info,  Node: Function random_permutation a,  Next: Function set_partitions a,  Prev: Function powerset a,  Up: Sets
 
  -- Function: random_permutation (A)
      Returns a random permutation of the set or list _a_, as constructed
@@ -7430,9 +7423,9 @@ File: maxima-core-docs.info,  Node: Function random_permutation a,  Next: Functi
      (%o4)                 [x + 1, y + 2, z + 3]
 
 
-File: maxima-core-docs.info,  Node: Function set_partitions set_partitions a set_partitions a n,  Next: Function setdifference a b,  Prev: Function random_permutation a,  Up: Sets
+File: maxima-core-docs.info,  Node: Function set_partitions a,  Next: Function setdifference a b,  Prev: Function random_permutation a,  Up: Sets
 
- -- Function: set_partitions (SET_PARTITIONS, A, SET_PARTITIONS, A, N)
+ -- Function: set_partitions (A)
      Returns the set of all partitions of _a_, or a subset of that set.
 
      ‘set_partitions(a, n)’ returns a set of all decompositions of _a_
@@ -7489,7 +7482,7 @@ File: maxima-core-docs.info,  Node: Function set_partitions set_partitions a set
      (%o3)                 {{0, 1, 2, 3, 4, 5}}
 
 
-File: maxima-core-docs.info,  Node: Function setdifference a b,  Next: Function setequalp a b,  Prev: Function set_partitions set_partitions a set_partitions a n,  Up: Sets
+File: maxima-core-docs.info,  Node: Function setdifference a b,  Next: Function setequalp a b,  Prev: Function set_partitions a,  Up: Sets
 
  -- Function: setdifference (A, B)
      Returns a set containing the elements in the set _a_ that are not
@@ -7580,7 +7573,7 @@ File: maxima-core-docs.info,  Node: Function setify a,  Next: Function setp a,  
      (%o3)                {1, 3, 5, 7, 9, 11, 13}
 
 
-File: maxima-core-docs.info,  Node: Function setp a,  Next: Function some some f a some f L_1 ... L_n,  Prev: Function setify a,  Up: Sets
+File: maxima-core-docs.info,  Node: Function setp a,  Next: Function some f a,  Prev: Function setify a,  Up: Sets
 
  -- Function: setp (A)
      Returns ‘true’ if and only if _a_ is a Maxima set.
@@ -7607,9 +7600,9 @@ File: maxima-core-docs.info,  Node: Function setp a,  Next: Function some some f
      (%o3)                         true
 
 
-File: maxima-core-docs.info,  Node: Function some some f a some f L_1 ... L_n,  Next: Function stirling1 n m,  Prev: Function setp a,  Up: Sets
+File: maxima-core-docs.info,  Node: Function some f a,  Next: Function stirling1 n m,  Prev: Function setp a,  Up: Sets
 
- -- Function: some (SOME, F, A, SOME, F, L_1, ..., L_N)
+ -- Function: some (F, A)
      Returns ‘true’ if the predicate _f_ is ‘true’ for one or more given
      arguments.
 
@@ -7699,7 +7692,7 @@ File: maxima-core-docs.info,  Node: Function some some f a some f L_1 ... L_n,  
      (%o7)                         true
 
 
-File: maxima-core-docs.info,  Node: Function stirling1 n m,  Next: Function stirling2 n m,  Prev: Function some some f a some f L_1 ... L_n,  Up: Sets
+File: maxima-core-docs.info,  Node: Function stirling1 n m,  Next: Function stirling2 n m,  Prev: Function some f a,  Up: Sets
 
  -- Function: stirling1 (N, M)
      Represents the Stirling number of the first kind.
@@ -7712,15 +7705,14 @@ File: maxima-core-docs.info,  Node: Function stirling1 n m,  Next: Function stir
      identities:
 
        1. stirling1(1,k) = kron_delta(1,k), k >= 0,(see
-          https://dlmf.nist.gov/26.8.E2)
-       2. stirling1(n,n) = 1, n >= 0 (see https://dlmf.nist.gov/26.8.E1)
+          https//dlmfnistgov/268E2)
+       2. stirling1(n,n) = 1, n >= 0 (see https//dlmfnistgov/268E1)
        3. stirling1(n,n-1) = -binomial(n,2), n >= 1, (see
-          https://dlmf.nist.gov/26.8.E16)
+          https//dlmfnistgov/268E16)
        4. stirling1(n,0) = kron_delta(n,0), n >=0 (see
-          https://dlmf.nist.gov/26.8.E14 and
-          https://dlmf.nist.gov/26.8.E1)
+          https//dlmfnistgov/268E14 and https//dlmfnistgov/268E1)
        5. stirling1(n,1) =(-1)^(n-1) (n-1)!, n >= 1 (see
-          https://dlmf.nist.gov/26.8.E14)
+          https//dlmfnistgov/268E14)
        6. stirling1(n,k) = 0, n >= 0 and k > n.
 
      These identities are applied when the arguments are literal
@@ -7750,16 +7742,15 @@ File: maxima-core-docs.info,  Node: Function stirling2 n m,  Next: Function subs
      ‘stirling2’ is a simplifying function.  Maxima knows the following
      identities.
 
-       1. stirling2(n,0) = 1, n >= 1 (see https://dlmf.nist.gov/26.8.E17
-          and stirling2(0,0) = 1)
-       2. stirling2(n,n) = 1, n >= 0, (see
-          https://dlmf.nist.gov/26.8.E4)
-       3. stirling2(n,1) = 1, n >= 1, (see
-          https://dlmf.nist.gov/26.8.E17 and stirling2(0,1) = 0)
+       1. stirling2(n,0) = 1, n >= 1 (see https//dlmfnistgov/268E17 and
+          stirling2(0,0) = 1)
+       2. stirling2(n,n) = 1, n >= 0, (see https//dlmfnistgov/268E4)
+       3. stirling2(n,1) = 1, n >= 1, (see https//dlmfnistgov/268E17 and
+          stirling2(0,1) = 0)
        4. stirling2(n,2) = 2^(n-1) -1, n >= 1, (see
-          https://dlmf.nist.gov/26.8.E17)
+          https//dlmfnistgov/268E17)
        5. stirling2(n,n-1) = binomial(n,2), n>= 1 (see
-          https://dlmf.nist.gov/26.8.E16)
+          https//dlmfnistgov/268E16)
        6. stirling2(n,k) = 0, n >= 0 and k > n.
 
      These identities are applied when the arguments are literal
@@ -7943,8 +7934,8 @@ File: maxima-core-docs.info,  Node: combinatorics,  Next: IO,  Prev: Sets,  Up: 
 * Function perm_undecomp cl n::
 * Function perm_unrank n i::
 * Function permp p::
-* Function perms perms n perms n i perms n i j::
-* Function perms_lex perms_lex n perms_lex n i perms_lex n i j::
+* Function perms n::
+* Function perms_lex n::
 * Function permult p_1 ... p_m::
 * Function permute p l::
 * Function random_perm n::
@@ -8229,7 +8220,7 @@ File: maxima-core-docs.info,  Node: Function perm_unrank n i,  Next: Function pe
      See also: ‘perm_rank’, ‘perms’.
 
 
-File: maxima-core-docs.info,  Node: Function permp p,  Next: Function perms perms n perms n i perms n i j,  Prev: Function perm_unrank n i,  Up: combinatorics
+File: maxima-core-docs.info,  Node: Function permp p,  Next: Function perms n,  Prev: Function perm_unrank n i,  Up: combinatorics
 
  -- Function: permp (P)
      Returns true if _p_ is a valid permutation namely, a list of length
@@ -8246,4 +8237,192 @@ File: maxima-core-docs.info,  Node: Function permp p,  Next: Function perms perm
      
      (%i3) permp ([2,1,4,3]);
      (%o3)                          true
+
+
+File: maxima-core-docs.info,  Node: Function perms n,  Next: Function perms_lex n,  Prev: Function permp p,  Up: combinatorics
+
+ -- Function: perms (N)
+     ‘perms(n)’ returns a list of all _n_-degree permutations in the
+     so-called Trotter-Johnson order.
+
+     ‘perms(n, i)’ returns the _n_-degree permutation which is at the
+     _i_th position (from 1 to _n_!)  in the Trotter-Johnson ordering of
+     the permutations.
+
+     ‘perms(n, i, j)’ returns a list of the _n_-degree permutations
+     between positions _i_ and _j_ in the Trotter-Johnson ordering of
+     the permutations.
+
+     The sequence of permutations in Trotter-Johnson order starts with
+     the identity permutation and each consecutive permutation can be
+     obtained from the previous one a by single adjacent transposition.
+
+     See also ‘perm_next’, ‘perm_rank’ and ‘perm_005funrank’.
+
+     Examples:
+
+     (%i1) load("combinatorics")$
+     
+     (%i2) perms (4);
+     (%o2) [[1, 2, 3, 4], [1, 2, 4, 3], [1, 4, 2, 3], [4, 1, 2, 3], 
+     [4, 1, 3, 2], [1, 4, 3, 2], [1, 3, 4, 2], [1, 3, 2, 4], 
+     [3, 1, 2, 4], [3, 1, 4, 2], [3, 4, 1, 2], [4, 3, 1, 2], 
+     [4, 3, 2, 1], [3, 4, 2, 1], [3, 2, 4, 1], [3, 2, 1, 4], 
+     [2, 3, 1, 4], [2, 3, 4, 1], [2, 4, 3, 1], [4, 2, 3, 1], 
+     [4, 2, 1, 3], [2, 4, 1, 3], [2, 1, 4, 3], [2, 1, 3, 4]]
+     
+     
+     (%i3) perms (4, 12);
+     (%o3)                     [[4, 3, 1, 2]]
+     
+     
+     (%i4) perms (4, 12, 14);
+     (%o4)       [[4, 3, 1, 2], [4, 3, 2, 1], [3, 4, 2, 1]]
+
+     See also: ‘perm_next’, ‘perm_rank’, ‘perm_unrank’.
+
+
+File: maxima-core-docs.info,  Node: Function perms_lex n,  Next: Function permult p_1 ... p_m,  Prev: Function perms n,  Up: combinatorics
+
+ -- Function: perms_lex (N)
+     ‘perms_lex(n)’ returns a list of all _n_-degree permutations in the
+     so-called lexicographic order.
+
+     ‘perms_lex(n, i)’ returns the _n_-degree permutation which is at
+     the _i_th position (from 1 to _n_!)  in the lexicographic ordering
+     of the permutations.
+
+     ‘perms_lex(n, i, j)’ returns a list of the _n_-degree permutations
+     between positions _i_ and _j_ in the lexicographic ordering of the
+     permutations.
+
+     The sequence of permutations in lexicographic order starts with all
+     the permutations with the lowest index, 1, followed by all
+     permutations starting with the following index, 2, and so on.  The
+     permutations starting by an index _i_ are the permutations of the
+     first _n_ integers different from _i_ and they are also placed in
+     lexicographic order, where the permutations with the lowest of
+     those integers are placed first and so on.
+
+     See also ‘perm_lex_next’, ‘perm_lex_rank’ and
+     ‘perm_005flex_005funrank’.
+
+     Examples:
+
+     (%i1) load("combinatorics")$
+     
+     (%i2) perms_lex (4);
+     (%o2) [[1, 2, 3, 4], [1, 2, 4, 3], [1, 3, 2, 4], [1, 3, 4, 2], 
+     [1, 4, 2, 3], [1, 4, 3, 2], [2, 1, 3, 4], [2, 1, 4, 3], 
+     [2, 3, 1, 4], [2, 3, 4, 1], [2, 4, 1, 3], [2, 4, 3, 1], 
+     [3, 1, 2, 4], [3, 1, 4, 2], [3, 2, 1, 4], [3, 2, 4, 1], 
+     [3, 4, 1, 2], [3, 4, 2, 1], [4, 1, 2, 3], [4, 1, 3, 2], 
+     [4, 2, 1, 3], [4, 2, 3, 1], [4, 3, 1, 2], [4, 3, 2, 1]]
+     
+     
+     (%i3) perms_lex (4, 12);
+     (%o3)                     [[2, 4, 3, 1]]
+     
+     
+     (%i4) perms_lex (4, 12, 14);
+     (%o4)       [[2, 4, 3, 1], [3, 1, 2, 4], [3, 1, 4, 2]]
+
+     See also: ‘perm_lex_next’, ‘perm_lex_rank’, ‘perm_lex_unrank’.
+
+
+File: maxima-core-docs.info,  Node: Function permult p_1 ... p_m,  Next: Function permute p l,  Prev: Function perms_lex n,  Up: combinatorics
+
+ -- Function: permult (P_1, ..., P_M)
+     Returns the product of two or more permutations _p_1_, ..., _p_m_.
+
+     Example:
+
+     (%i1) load("combinatorics")$
+     
+     (%i2) permult ([2,3,1], [3,1,2], [2,1,3]);
+     (%o2)                        [2, 1, 3]
+
+
+File: maxima-core-docs.info,  Node: Function permute p l,  Next: Function random_perm n,  Prev: Function permult p_1 ... p_m,  Up: combinatorics
+
+ -- Function: permute (P, L)
+     Applies the permutation _p_ to the elements of the list (or set)
+     _l_.
+
+     Example:
+
+     (%i1) load("combinatorics")$
+     
+     (%i2) lis1: [a,b*c^2,4,z,x/y,1/2,ff23(x),0];
+                             2        x  1
+     (%o2)            [a, b c , 4, z, -, -, ff23(x), 0]
+                                      y  2
+     
+     
+     (%i3) permute ([4, 6, 3, 1, 7, 5, 2, 8], lis1);
+                          1                 x     2
+     (%o3)            [z, -, 4, a, ff23(x), -, b c , 0]
+                          2                 y
+
+
+File: maxima-core-docs.info,  Node: Function random_perm n,  Prev: Function permute p l,  Up: combinatorics
+
+ -- Function: random_perm (N)
+     Returns a random permutation of degree _n_.
+
+     See also ‘random_005fpermutation’.
+
+     Example:
+
+     (%i1) load("combinatorics")$
+     
+     (%i2) random_perm (7);
+     (%o2)                  [6, 3, 4, 7, 5, 1, 2]
+
+     See also: ‘random_permutation’.
+
+
+File: maxima-core-docs.info,  Node: IO,  Next: Command Line,  Prev: combinatorics,  Up: Maxima Core Documentation
+
+1.20 IO
+=======
+
+
+File: maxima-core-docs.info,  Node: Command Line,  Next: Data Types and Structures,  Prev: IO,  Up: Maxima Core Documentation
+
+1.21 Command Line
+=================
+
+* Menu:
+
+* Variable %edispflag::
+* Variable absboxchar::
+* Function declare_index_properties a [p_1 p_2 p_3 ...]::
+* Function disp expr_1 expr_2 ...::
+* Function display expr_1 expr_2 ...::
+* Variable display2d::
+* Variable display2d_unicode::
+* Variable display_format_internal::
+* Variable display_index_separator::
+* Function dispterms expr::
+* Function expt a b::
+* Variable exptdispflag::
+* Function get_index_properties a::
+* Function grind expr::
+* Variable ibase::
+* Function ldisp expr_1 ... expr_n::
+* Function ldisplay expr_1 ... expr_n::
+* Variable leftjust::
+* Variable linel::
+* Variable lispdisp::
+* Variable negsumdispflag::
+* Variable obase::
+* Variable pfeformat::
+* Variable powerdisp::
+* Function print expr_1 ... expr_n::
+* Function remove_index_properties a b c ...::
+* Variable sqrtdispflag::
+* Variable stardisp::
+* Variable ttyoff::
+* Function with_default_2d_display expr::
 

@@ -1,5 +1,8 @@
 ## Polynomials
 
+<!-- category: Polynomials -->
+<!-- keywords: algebraic -->
+<!-- signatures: algebraic -->
 ### Variable: algebraic
 
 Default value: `false`
@@ -8,6 +11,9 @@ Default value: `false`
 `algebraic` must be set to `true` in order for the simplification of
 algebraic integers to take effect.
 
+<!-- category: Polynomials -->
+<!-- keywords: algfac -->
+<!-- signatures: algfac(f, p) -->
 ### Function: algfac (f, p)
 
 Returns the factorization of *f* in the field $K[a]$. Does the same
@@ -31,6 +37,9 @@ Examples:
 
 In the second example note that $a = sqrt(2 + t)$.
 
+<!-- category: Polynomials -->
+<!-- keywords: algnorm -->
+<!-- signatures: algnorm(f, p, a) -->
 ### Function: algnorm (f, p, a)
 
 Returns the norm of the polynomial $f(a)$ in the extension
@@ -52,6 +61,9 @@ Examples:
 The norm is also the resultant of polynomials *f* and *p*, and the product
 of the differences of the roots of *f* and *p*.
 
+<!-- category: Polynomials -->
+<!-- keywords: algtrace -->
+<!-- signatures: algtrace(f, p, a) -->
 ### Function: algtrace (f, p, a)
 
 Returns the trace of the polynomial $f(a)$ in the extension
@@ -68,6 +80,9 @@ Example:
 (%o1)/R/                       2 z + 2 y - x + 2
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: bdiscr -->
+<!-- signatures: bdiscr(args) -->
 ### Function: bdiscr (args)
 
 Computes the discriminant of a basis $x_i$ in $K[a]$ as
@@ -92,6 +107,9 @@ A standard base in an extension of degree n is $1, x, ..., x^{n - 1}$.
 In this case it is known that the discriminant of this base is the discriminant
 of the minimal polynomial. This is checked in (%o2) above.
 
+<!-- category: Polynomials -->
+<!-- keywords: berlefact -->
+<!-- signatures: berlefact -->
 ### Variable: berlefact
 
 Default value: `true`
@@ -101,6 +119,9 @@ When `berlefact` is `false` then the Kronecker factoring
 algorithm will be used otherwise the Berlekamp algorithm, which is the
 default, will be used.
 
+<!-- category: Polynomials -->
+<!-- keywords: bezout -->
+<!-- signatures: bezout(p1, p2, x) -->
 ### Function: bezout (p1, p2, x)
 
 an alternative to the `resultant` command.  It
@@ -137,6 +158,9 @@ maxima
 
 See also: `resultant`.
 
+<!-- category: Polynomials -->
+<!-- keywords: bothcoef -->
+<!-- signatures: bothcoef(expr, x) -->
 ### Function: bothcoef (expr, x)
 
 Returns a list whose first member is the coefficient of *x* in *expr*
@@ -167,7 +191,10 @@ maxima
 (%o2)                         true
 ```
 
-### Function: coeff (coeff, expr, x, n, coeff, expr, x)
+<!-- category: Polynomials -->
+<!-- keywords: coeff -->
+<!-- signatures: coeff(expr, x, n), coeff(expr, x) -->
+### Function: coeff (expr, x, n)
 
 Returns the coefficient of `x^n` in *expr*,
 where *expr* is a polynomial or a monomial term in *x*.
@@ -363,6 +390,9 @@ maxima
 
 See also: `ratcoef`.
 
+<!-- category: Polynomials -->
+<!-- keywords: content -->
+<!-- signatures: content(p_1, x_1, ..., x_n) -->
 ### Function: content (p_1, x_1, ..., x_n)
 
 Returns a list whose first element is
@@ -388,6 +418,9 @@ maxima
 (%o1)                   [2 x, 2 x y  + y]
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: denom -->
+<!-- signatures: denom(expr) -->
 ### Function: denom (expr)
 
 Returns the denominator of the rational expression *expr*.
@@ -430,6 +463,9 @@ maxima
 
 See also: `num`.
 
+<!-- category: Polynomials -->
+<!-- keywords: divide -->
+<!-- signatures: divide(p_1, p_2, x_1, ..., x_n) -->
 ### Function: divide (p_1, p_2, x_1, ..., x_n)
 
 computes the quotient and remainder
@@ -464,7 +500,10 @@ maxima
 
 Note that `y` is the main variable in the second example.
 
-### Function: eliminate (eqn_1, ..., eqn_n, x_1, ..., x_k)
+<!-- category: Polynomials -->
+<!-- keywords: eliminate -->
+<!-- signatures: eliminate([eqn_1, ..., eqn_n], [x_1, ..., x_k]) -->
+### Function: eliminate ([eqn_1, ..., eqn_n], [x_1, ..., x_k])
 
 Eliminates variables from equations (or expressions assumed equal to zero) by
 taking successive resultants. This returns a list of `n - k`
@@ -510,6 +549,9 @@ maxima
                             - 5154 x  - 1291 x  + 7688 x + 15376]
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: ezgcd -->
+<!-- signatures: ezgcd(p_1, p_2, p_3, ...) -->
 ### Function: ezgcd (p_1, p_2, p_3, ...)
 
 Returns a list whose first element is the greatest common divisor of the
@@ -567,6 +609,9 @@ maxima
 
 See also: `gcd`, `gcdex`, `gcdivide`, `poly_gcd`.
 
+<!-- category: Polynomials -->
+<!-- keywords: facexpand -->
+<!-- signatures: facexpand -->
 ### Variable: facexpand
 
 Default value: `true`
@@ -575,7 +620,10 @@ Default value: `true`
 `facexpand` controls whether the irreducible factors returned by
 `factor` are in expanded (the default) or recursive (normal CRE) form.
 
-### Function: factor (factor, expr, factor, expr, p)
+<!-- category: Polynomials -->
+<!-- keywords: factor -->
+<!-- signatures: factor(expr), factor(expr, p) -->
+### Function: factor (expr)
 
 Factors the expression *expr*, containing any number of variables or 
 functions, into factors irreducible over the integers.
@@ -766,6 +814,9 @@ maxima
 
 See also: `ifactors`, `factorflag`, `dontfactor`, `savefactors`, `berlefact`, `intfaclim`, `factor_max_degree`, `collectterms`, `sqfr`.
 
+<!-- category: Polynomials -->
+<!-- keywords: factor_max_degree -->
+<!-- signatures: factor_max_degree -->
 ### Variable: factor_max_degree
 
 Default value: `1000`
@@ -817,6 +868,9 @@ See also: `factor_max_degree_print_warning`
 
 See also: `factor_max_degree_print_warning`.
 
+<!-- category: Polynomials -->
+<!-- keywords: factor_max_degree_print_warning -->
+<!-- signatures: factor_max_degree_print_warning -->
 ### Variable: factor_max_degree_print_warning
 
 Default value: `true`
@@ -831,6 +885,9 @@ See also: `factor_max_degree`
 
 See also: `factor_max_degree`.
 
+<!-- category: Polynomials -->
+<!-- keywords: factorflag -->
+<!-- signatures: factorflag -->
 ### Variable: factorflag
 
 Default value: `false`
@@ -840,6 +897,9 @@ Default value: `false`
 When `factorflag` is `false`, suppresses the factoring of
 integer factors of rational expressions.
 
+<!-- category: Polynomials -->
+<!-- keywords: factorout -->
+<!-- signatures: factorout(expr, x_1, x_2, ...) -->
 ### Function: factorout (expr, x_1, x_2, ...)
 
 Rearranges the sum *expr* into a sum of terms of the form 
@@ -872,6 +932,9 @@ maxima
                                               + a (x - 1) (x + 1)
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: factorsum -->
+<!-- signatures: factorsum(expr) -->
 ### Function: factorsum (expr)
 
 Tries to group terms in factors of *expr* which are sums into groups of
@@ -904,6 +967,9 @@ maxima
 (%o2)            (x + 1) (a (z + w)  + (v + u) )
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: fasttimes -->
+<!-- signatures: fasttimes(p_1, p_2) -->
 ### Function: fasttimes (p_1, p_2)
 
 Returns the product of the polynomials *p_1* and *p_2* by using a
@@ -914,6 +980,9 @@ multiplication is of order `n_1 n_2` where
 and `n_2` is the degree of `p_2`.
 `fasttimes` is of order `max (n_1, n_2)^1.585`.
 
+<!-- category: Polynomials -->
+<!-- keywords: fullratsimp -->
+<!-- signatures: fullratsimp(expr) -->
 ### Function: fullratsimp (expr)
 
 `fullratsimp` repeatedly
@@ -975,7 +1044,10 @@ maxima
                              x  - 1
 ```
 
-### Function: fullratsubst (new, old, expr, fullratsubst, old = new, expr, fullratsubst, [ old_1 = new_1, ..., old_n = new_n ], expr)
+<!-- category: Polynomials -->
+<!-- keywords: fullratsubst -->
+<!-- signatures: fullratsubst(new, old, expr), fullratsubst(old = new, expr), fullratsubst([ old_1 = new_1, ..., old_n = new_n ], expr) -->
+### Function: fullratsubst (new, old, expr)
 
 `fullratsubst` applies `lratsubst` repeatedly until *expr*
 stops changing (or `lrats_max_iter` is reached). This function is
@@ -1097,6 +1169,9 @@ See also `lrats_max_iter` and `fullratsubstflag`.
 
 See also: `lratsubst`, `lrats_max_iter`, `ratsubst`, `fullratsubstflag`.
 
+<!-- category: Polynomials -->
+<!-- keywords: fullratsubstflag -->
+<!-- signatures: fullratsubstflag -->
 ### Variable: fullratsubstflag
 
 Default value: `false`
@@ -1106,6 +1181,9 @@ An option variable that is set to `true` in `fullratsubst`.
 
 See also: `fullratsubst`.
 
+<!-- category: Polynomials -->
+<!-- keywords: gcd -->
+<!-- signatures: gcd(p_1, p_2, x_1, ...) -->
 ### Function: gcd (p_1, p_2, x_1, ...)
 
 Returns the greatest common divisor of *p_1* and *p_2*.  The flag
@@ -1194,7 +1272,10 @@ maxima
 
 See also: `ratsimp`, `factor`, `algebraic`, `ezgcd`, `gcdex`, `gcdivide`, `poly_gcd`.
 
-### Function: gcdex (gcdex, f, g, gcdex, f, g, x)
+<!-- category: Polynomials -->
+<!-- keywords: gcdex -->
+<!-- signatures: gcdex(f, g), gcdex(f, g, x) -->
+### Function: gcdex (f, g)
 
 Returns a list `[a, b, u]` where *u* is the greatest
 common divisor (gcd) of *f* and *g*, and *u* is equal to
@@ -1264,6 +1345,9 @@ maxima
 
 See also: `igcdex`, `ezgcd`, `gcd`, `gcdivide`, `poly_gcd`.
 
+<!-- category: Polynomials -->
+<!-- keywords: gcfactor -->
+<!-- signatures: gcfactor(n) -->
 ### Function: gcfactor (n)
 
 Factors the Gaussian integer *n* over the Gaussian integers, i.e., numbers
@@ -1271,6 +1355,9 @@ of the form `a + b %i` where *a* and *b* are
 rational integers (i.e.,  ordinary integers).  Factors are normalized by making
 *a* and *b* non-negative.
 
+<!-- category: Polynomials -->
+<!-- keywords: gfactor -->
+<!-- signatures: gfactor(expr) -->
 ### Function: gfactor (expr)
 
 Factors the polynomial *expr* over the Gaussian integers
@@ -1293,11 +1380,17 @@ maxima
 (%o1)           (x - 1) (x + 1) (x - %i) (x + %i)
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: gfactorsum -->
+<!-- signatures: gfactorsum(expr) -->
 ### Function: gfactorsum (expr)
 
 is similar to `factorsum` but applies `gfactor` instead
 of `factor`.
 
+<!-- category: Polynomials -->
+<!-- keywords: hipow -->
+<!-- signatures: hipow(expr, x) -->
 ### Function: hipow (expr, x)
 
 Returns the highest explicit exponent of *x* in *expr*.
@@ -1346,6 +1439,9 @@ maxima
 (%o5)                           0
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: intfaclim -->
+<!-- signatures: intfaclim -->
 ### Variable: intfaclim
 
 Default value: true
@@ -1368,6 +1464,9 @@ Internal calls to `factor` respect the user-specified value of
 `intfaclim`.  Setting `intfaclim` to `true` may reduce
 the time spent factoring large integers.
 
+<!-- category: Polynomials -->
+<!-- keywords: keepfloat -->
+<!-- signatures: keepfloat -->
 ### Variable: keepfloat
 
 Default value: `false`
@@ -1421,6 +1520,9 @@ rat: replaced 1.0 by 1/1 = 1.0
 (%o1)                        [x = 1]
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: lopow -->
+<!-- signatures: lopow(expr, x) -->
 ### Function: lopow (expr, x)
 
 Returns the lowest exponent of *x* which explicitly appears in
@@ -1438,6 +1540,9 @@ maxima
 (%o1)                       min(2, a)
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: lrats_max_iter -->
+<!-- signatures: lrats_max_iter -->
 ### Variable: lrats_max_iter
 
 Default value: `100000`
@@ -1449,7 +1554,10 @@ the example for `fullratsubst`.
 
 See also: `fullratsubst`, `lratsubst`.
 
-### Function: lratsubst (lratsubst, new, old, expr, lratsubst, old = new, expr, lratsubst, [ old_1 = new_1, ..., old_n = new_n ], expr)
+<!-- category: Polynomials -->
+<!-- keywords: lratsubst -->
+<!-- signatures: lratsubst(new, old, expr), lratsubst(old = new, expr), lratsubst([ old_1 = new_1, ..., old_n = new_n ], expr) -->
+### Function: lratsubst (new, old, expr)
 
 `lratsubst` is analogous to `subst` except that it uses
 `ratsubst` to perform substitutions.
@@ -1537,6 +1645,9 @@ See also `fullratsubst`.
 
 See also: `subst`, `fullratsubst`.
 
+<!-- category: Polynomials -->
+<!-- keywords: modulus -->
+<!-- signatures: modulus -->
 ### Variable: modulus
 
 Default value: `false`
@@ -1617,6 +1728,9 @@ maxima
 (%o8)                      x  + x  + 1
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: num -->
+<!-- signatures: num(expr) -->
 ### Function: num (expr)
 
 Returns the numerator of *expr* if it is a ratio.
@@ -1662,6 +1776,9 @@ maxima
 
 See also: `denom`.
 
+<!-- category: Polynomials -->
+<!-- keywords: polydecomp -->
+<!-- signatures: polydecomp(p, x) -->
 ### Function: polydecomp (p, x)
 
 Decomposes the polynomial *p* in the variable *x*
@@ -1781,7 +1898,10 @@ maxima
                        4       2
 ```
 
-### Function: polymod (polymod, p, polymod, p, m)
+<!-- category: Polynomials -->
+<!-- keywords: polymod -->
+<!-- signatures: polymod(p), polymod(p, m) -->
+### Function: polymod (p)
 
 Converts the polynomial *p* to a modular representation with respect to the
 current modulus which is the value of the variable `modulus`.
@@ -1795,7 +1915,10 @@ See `modulus`.
 
 See also: `modulus`.
 
-### Function: polynomialp (polynomialp, p, L, coeffp, exponp, polynomialp, p, L, coeffp, polynomialp, p, L)
+<!-- category: Polynomials -->
+<!-- keywords: polynomialp -->
+<!-- signatures: polynomialp(p, L, coeffp, exponp), polynomialp(p, L, coeffp), polynomialp(p, L) -->
+### Function: polynomialp (p, L, coeffp, exponp)
 
 Return `true` if *p* is a polynomial in the variables in the list
 *L*.  The predicate *coeffp* must evaluate to `true` for each
@@ -1893,6 +2016,9 @@ maxima
 (%o2)                         true
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: primelmt -->
+<!-- signatures: primelmt(f_b, p_a, c) -->
 ### Function: primelmt (f_b, p_a, c)
 
 Computes a prime element for the extension of $K[a]$ by a root
@@ -1942,7 +2068,10 @@ in (%o1) factorizes completely here. In (%i5), we compute $K[sqrt(2), 3^{1/3}]$,
 that `b^3 - 3` gets one factor in this extension. If we assume this extension is real,
 the two other factors are complex.
 
-### Function: quotient (quotient, p_1, p_2, quotient, p_1, p_2, x_1, ..., x_n)
+<!-- category: Polynomials -->
+<!-- keywords: quotient -->
+<!-- signatures: quotient(p_1, p_2), quotient(p_1, p_2, x_1, ..., x_n) -->
+### Function: quotient (p_1, p_2)
 
 Returns the polynomial *p_1* divided by the polynomial *p_2*.  The
 arguments *x_1*, ..., *x_n* are interpreted as in `ratvars`.
@@ -1953,6 +2082,9 @@ arguments *x_1*, ..., *x_n* are interpreted as in `ratvars`.
 
 See also: `divide`.
 
+<!-- category: Polynomials -->
+<!-- keywords: radsubstflag -->
+<!-- signatures: radsubstflag -->
 ### Variable: radsubstflag
 
 Default value: `false`
@@ -1961,7 +2093,10 @@ Default value: `false`
 `radsubstflag`, if `true`, permits `ratsubst` to make
 substitutions such as `u` for `sqrt (x)` in `x`.
 
-### Function: rat (rat, expr, rat, expr, x_1, ..., x_n)
+<!-- category: Polynomials -->
+<!-- keywords: rat -->
+<!-- signatures: rat(expr), rat(expr, x_1, ..., x_n) -->
+### Function: rat (expr)
 
 Converts *expr* to canonical rational expression (CRE) form by expanding and
 combining all terms over a common denominator and cancelling out the
@@ -2035,6 +2170,9 @@ maxima
                              x + 2 y
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: ratalgdenom -->
+<!-- signatures: ratalgdenom -->
 ### Variable: ratalgdenom
 
 Default value: `true`
@@ -2044,7 +2182,10 @@ When `ratalgdenom` is `true`, allows rationalization of denominators
 with respect to radicals to take effect.  `ratalgdenom` has an effect only
 when canonical rational expressions (CRE) are used in algebraic mode.
 
-### Function: ratcoef (ratcoef, expr, x, n, ratcoef, expr, x)
+<!-- category: Polynomials -->
+<!-- keywords: ratcoef -->
+<!-- signatures: ratcoef(expr, x, n), ratcoef(expr, x) -->
+### Function: ratcoef (expr, x, n)
 
 Returns the coefficient of the expression `x^n`
 in the expression *expr*.
@@ -2094,6 +2235,9 @@ maxima
 (%o2)                           x
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: ratdenom -->
+<!-- signatures: ratdenom(expr) -->
 ### Function: ratdenom (expr)
 
 Returns the denominator of *expr*,
@@ -2113,6 +2257,9 @@ Also, `denom` does not attempt to place all terms over a common
 denominator, and thus some expressions which are considered ratios by
 `ratdenom` are not considered ratios by `denom`.
 
+<!-- category: Polynomials -->
+<!-- keywords: ratdenomdivide -->
+<!-- signatures: ratdenomdivide -->
 ### Variable: ratdenomdivide
 
 Default value: `true`
@@ -2184,6 +2331,9 @@ maxima
                              b  + 3
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: ratdiff -->
+<!-- signatures: ratdiff(expr, x) -->
 ### Function: ratdiff (expr, x)
 
 Differentiates the rational expression *expr* with respect to *x*.
@@ -2262,6 +2412,9 @@ maxima
 (%o6)            3 b  + (6 a + 2) b + 3 a  + 2 a
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: ratdisrep -->
+<!-- signatures: ratdisrep(expr) -->
 ### Function: ratdisrep (expr)
 
 Returns its argument as a general expression.
@@ -2279,6 +2432,9 @@ See also `totaldisrep`.
 
 See also: `totaldisrep`.
 
+<!-- category: Polynomials -->
+<!-- keywords: ratexpand -->
+<!-- signatures: ratexpand(expr) -->
 ### Function: ratexpand (expr)
 
 Expands *expr* by multiplying out products of sums and
@@ -2355,6 +2511,9 @@ maxima
 
 See also: `ratsimp`.
 
+<!-- category: Polynomials -->
+<!-- keywords: ratfac -->
+<!-- signatures: ratfac -->
 ### Variable: ratfac
 
 Default value: `false`
@@ -2383,6 +2542,9 @@ few terms.*
 The `ratfac` and `ratweight` schemes are incompatible and may not
 both be used at the same time.
 
+<!-- category: Polynomials -->
+<!-- keywords: ratnumer -->
+<!-- signatures: ratnumer(expr) -->
 ### Function: ratnumer (expr)
 
 Returns the numerator of *expr*,
@@ -2402,6 +2564,9 @@ Also, `num` does not attempt to place all terms over a common denominator,
 and thus some expressions which are considered ratios by `ratnumer`
 are not considered ratios by `num`.
 
+<!-- category: Polynomials -->
+<!-- keywords: ratp -->
+<!-- signatures: ratp(expr) -->
 ### Function: ratp (expr)
 
 Returns `true` if *expr* is a canonical rational expression (CRE) or
@@ -2411,6 +2576,9 @@ extended CRE, otherwise `false`.
 CRE are created by `rat` and related functions.
 Extended CRE are created by `taylor` and related functions.
 
+<!-- category: Polynomials -->
+<!-- keywords: ratprint -->
+<!-- signatures: ratprint -->
 ### Variable: ratprint
 
 Default value: `true`
@@ -2420,7 +2588,10 @@ When `ratprint` is `true`,
 a message informing the user of the conversion of floating point numbers
 to rational numbers is displayed.
 
-### Function: ratsimp (ratsimp, expr, ratsimp, expr, x_1, ..., x_n)
+<!-- category: Polynomials -->
+<!-- keywords: ratsimp -->
+<!-- signatures: ratsimp(expr), ratsimp(expr, x_1, ..., x_n) -->
+### Function: ratsimp (expr)
 
 Simplifies the expression *expr* and all of its subexpressions, including
 the arguments to non-rational functions.  The result is returned as the quotient
@@ -2496,6 +2667,9 @@ maxima
 
 See also: `ratexpand`.
 
+<!-- category: Polynomials -->
+<!-- keywords: ratsimpexpons -->
+<!-- signatures: ratsimpexpons -->
 ### Variable: ratsimpexpons
 
 Default value: `false`
@@ -2504,6 +2678,9 @@ Default value: `false`
 When `ratsimpexpons` is `true`,
 `ratsimp` is applied to the exponents of expressions during simplification.
 
+<!-- category: Polynomials -->
+<!-- keywords: ratsubst -->
+<!-- signatures: ratsubst(a, b, c) -->
 ### Function: ratsubst (a, b, c)
 
 Substitutes *a* for *b* in *c* and returns the resulting expression.
@@ -2578,7 +2755,10 @@ maxima
 (%o8)                          u
 ```
 
-### Function: ratvars (ratvars, x_1, ..., x_n, ratvars)
+<!-- category: Polynomials -->
+<!-- keywords: ratvars -->
+<!-- signatures: ratvars(x_1, ..., x_n), ratvars() -->
+### Function: ratvars (x_1, ..., x_n)
 
 Declares main variables *x_1*, ..., *x_n* for rational expressions.
 *x_n*, if present in a rational expression, is considered the main variable.
@@ -2600,6 +2780,9 @@ the function `ratvars` when it was called most recently.
 Each call to the function `ratvars` resets the list.
 `ratvars ()` clears the list.
 
+<!-- category: Polynomials -->
+<!-- keywords: ratvarswitch -->
+<!-- signatures: ratvarswitch -->
 ### Variable: ratvarswitch
 
 Default value: `true`
@@ -2688,7 +2871,10 @@ maxima
 ($A $B $X $Y)
 ```
 
-### Function: ratweight (ratweight, x_1, w_1, ..., x_n, w_n, ratweight)
+<!-- category: Polynomials -->
+<!-- keywords: ratweight -->
+<!-- signatures: ratweight(x_1, w_1, ..., x_n, w_n), ratweight() -->
+### Function: ratweight (x_1, w_1, ..., x_n, w_n)
 
 Assigns a weight *w_i* to the variable *x_i*.
 This causes a term to be replaced by 0 if its weight exceeds the
@@ -2736,6 +2922,9 @@ maxima
 (%o5)/R/                  2 b + 2 a + 1
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: ratweights -->
+<!-- signatures: ratweights -->
 ### Variable: ratweights
 
 Default value: `[]`
@@ -2749,6 +2938,9 @@ each call to `ratweight` places additional items in the list.
 
 `kill (ratweights)` and `save (ratweights)` both work as expected.
 
+<!-- category: Polynomials -->
+<!-- keywords: ratwtlvl -->
+<!-- signatures: ratwtlvl -->
 ### Variable: ratwtlvl
 
 Default value: `false`
@@ -2758,7 +2950,10 @@ Default value: `false`
 function to control the truncation of canonical rational expressions (CRE).
 For the default value of `false`, no truncation occurs.
 
-### Function: remainder (remainder, p_1, p_2, remainder, p_1, p_2, x_1, ..., x_n)
+<!-- category: Polynomials -->
+<!-- keywords: remainder -->
+<!-- signatures: remainder(p_1, p_2), remainder(p_1, p_2, x_1, ..., x_n) -->
+### Function: remainder (p_1, p_2)
 
 Returns the remainder of the polynomial *p_1* divided by the polynomial
 *p_2*.  The arguments *x_1*, ..., *x_n* are interpreted as in
@@ -2768,6 +2963,9 @@ Returns the remainder of the polynomial *p_1* divided by the polynomial
 `remainder` returns the second element
 of the two-element list returned by `divide`.
 
+<!-- category: Polynomials -->
+<!-- keywords: resultant -->
+<!-- signatures: resultant(p_1, p_2, x) -->
 ### Function: resultant (p_1, p_2, x)
 
 The function `resultant` computes the resultant of the two polynomials
@@ -2834,6 +3032,9 @@ maxima
 
 See also: `factor`, `option_resultant`, `bezout`.
 
+<!-- category: Polynomials -->
+<!-- keywords: savefactors -->
+<!-- signatures: savefactors -->
 ### Variable: savefactors
 
 Default value: `false`
@@ -2845,6 +3046,9 @@ expression which is a product of factors to be saved by certain
 functions in order to speed up later factorizations of expressions
 containing some of the same factors.
 
+<!-- category: Polynomials -->
+<!-- keywords: showratvars -->
+<!-- signatures: showratvars(expr) -->
 ### Function: showratvars (expr)
 
 Returns a list of the canonical rational expression (CRE) variables in
@@ -2855,6 +3059,9 @@ See also `ratvars`.
 
 See also: `ratvars`.
 
+<!-- category: Polynomials -->
+<!-- keywords: splitfield -->
+<!-- signatures: splitfield(p, x) -->
 ### Function: splitfield (p, x)
 
 Computes the splitting field of the polynomial $p(x)$.
@@ -2895,6 +3102,9 @@ the system. In the second case the primitive polynomial is of degree 8
 instead of 24, because the Galois group of the equation is reduced to D8
 since there are relations between the roots.
 
+<!-- category: Polynomials -->
+<!-- keywords: sqfr -->
+<!-- signatures: sqfr(expr) -->
 ### Function: sqfr (expr)
 
 is similar to `factor` except that the polynomial factors are
@@ -2924,7 +3134,10 @@ maxima
 
 See also: `factor`.
 
-### Function: tellrat (tellrat, p_1, ..., p_n, tellrat)
+<!-- category: Polynomials -->
+<!-- keywords: tellrat -->
+<!-- signatures: tellrat(p_1, ..., p_n), tellrat() -->
+### Function: tellrat (p_1, ..., p_n)
 
 Adds to the ring of algebraic integers known to Maxima
 the elements which are the solutions of the polynomials *p_1*, ...,
@@ -3016,6 +3229,9 @@ maxima
 (%o6)                 [y  - x , a  + a + 1]
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: totaldisrep -->
+<!-- signatures: totaldisrep(expr) -->
 ### Function: totaldisrep (expr)
 
 Converts every subexpression of *expr* from canonical rational expressions
@@ -3028,6 +3244,9 @@ If *expr* is itself in CRE form then `totaldisrep` is identical to
 ratdisrepping expressions such as equations, lists, matrices, etc., which
 have some subexpressions in CRE form.
 
+<!-- category: Polynomials -->
+<!-- keywords: untellrat -->
+<!-- signatures: untellrat(x_1, ..., x_n) -->
 ### Function: untellrat (x_1, ..., x_n)
 
 Removes `tellrat` properties from *x_1*, ..., *x_n*.

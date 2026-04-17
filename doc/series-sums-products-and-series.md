@@ -1,6 +1,9 @@
 ## Sums, Products, and Series
 
-### Function: absint (absint, f, x, halfplane, absint, f, x, absint, f, x, a, b)
+<!-- category: Series -->
+<!-- keywords: absint -->
+<!-- signatures: absint(f, x, halfplane), absint(f, x), absint(f, x, a, b) -->
+### Function: absint (f, x, halfplane)
 
 `absint (f, x, halfplane)`
 returns the indefinite integral of *f* with respect to
@@ -18,6 +21,9 @@ of *f* with respect to *x* from *a* to *b*.
 
 *f* may include absolute values.
 
+<!-- category: Series -->
+<!-- keywords: bashindices -->
+<!-- signatures: bashindices(expr) -->
 ### Function: bashindices (expr)
 
 Transforms the expression *expr* by giving each summation and product a
@@ -27,6 +33,9 @@ with summations or products.  The form of the unique index is
 `gensumnum`, which can be changed by the user.  For example,
 `gensumnum:0$` resets it.
 
+<!-- category: Series -->
+<!-- keywords: cauchysum -->
+<!-- signatures: cauchysum -->
 ### Variable: cauchysum
 
 Default value: `false`
@@ -81,6 +90,9 @@ maxima
                  i1 = 0 i2 = 0
 ```
 
+<!-- category: Series -->
+<!-- keywords: cosnpiflag -->
+<!-- signatures: cosnpiflag -->
 ### Variable: cosnpiflag
 
 Default value: `true`
@@ -88,7 +100,10 @@ Default value: `true`
 
 See `foursimp`.
 
-### Function: deftaylor (f_1, x_1, expr_1, ..., f_n, x_n, expr_n)
+<!-- category: Series -->
+<!-- keywords: deftaylor -->
+<!-- signatures: deftaylor(f_1(x_1), expr_1, ..., f_n(x_n), expr_n) -->
+### Function: deftaylor (f_1(x_1), expr_1, ..., f_n(x_n), expr_n)
 
 For each function *f_i* of one variable *x_i*, 
 `deftaylor` defines *expr_i* as the Taylor series about zero.
@@ -137,53 +152,83 @@ maxima
                      2     18432     307200
 ```
 
+<!-- category: Series -->
+<!-- keywords: equalp -->
+<!-- signatures: equalp(x, y) -->
 ### Function: equalp (x, y)
 
 Returns `true` if `equal (x, y)` otherwise `false`
 (doesn’t give an error message like `equal (x, y)` would do in this case).
 
+<!-- category: Series -->
+<!-- keywords: fourcos -->
+<!-- signatures: fourcos(f, x, p) -->
 ### Function: fourcos (f, x, p)
 
 Returns the Fourier cosine coefficients for `f(x)` defined on
 `[0, p]`.
 
+<!-- category: Series -->
+<!-- keywords: fourexpand -->
+<!-- signatures: fourexpand(l, x, p, limit) -->
 ### Function: fourexpand (l, x, p, limit)
 
 Constructs and returns the Fourier series from the list of Fourier coefficients
 *l* up through *limit* terms (*limit* may be `inf`).  *x*
 and *p* have same meaning as in `fourier`.
 
+<!-- category: Series -->
+<!-- keywords: fourier -->
+<!-- signatures: fourier(f, x, p) -->
 ### Function: fourier (f, x, p)
 
 Returns a list of the Fourier coefficients of `f(x)` defined
 on the interval `[-p, p]`.
 
+<!-- category: Series -->
+<!-- keywords: fourint -->
+<!-- signatures: fourint(f, x) -->
 ### Function: fourint (f, x)
 
 Constructs and returns a list of the Fourier integral coefficients of
 `f(x)` defined on `[minf, inf]`.
 
+<!-- category: Series -->
+<!-- keywords: fourintcos -->
+<!-- signatures: fourintcos(f, x) -->
 ### Function: fourintcos (f, x)
 
 Returns the Fourier cosine integral coefficients for `f(x)`
 on `[0, inf]`.
 
+<!-- category: Series -->
+<!-- keywords: fourintsin -->
+<!-- signatures: fourintsin(f, x) -->
 ### Function: fourintsin (f, x)
 
 Returns the Fourier sine integral coefficients for `f(x)` on
 `[0, inf]`.
 
+<!-- category: Series -->
+<!-- keywords: foursimp -->
+<!-- signatures: foursimp(l) -->
 ### Function: foursimp (l)
 
 Simplifies `sin (n %pi)` to 0 if `sinnpiflag` is `true` and
 `cos (n %pi)` to `(-1)^n` if `cosnpiflag` is `true`.
 
+<!-- category: Series -->
+<!-- keywords: foursin -->
+<!-- signatures: foursin(f, x, p) -->
 ### Function: foursin (f, x, p)
 
 Returns the Fourier sine coefficients for `f(x)` defined on
 `[0, p]`.
 
-### Function: funp (funp, f, expr, funp, f, expr, x)
+<!-- category: Series -->
+<!-- keywords: funp -->
+<!-- signatures: funp(f, expr), funp(f, expr, x) -->
+### Function: funp (f, expr)
 
 `funp (f, expr)`
 returns `true` if *expr* contains the function *f*.
@@ -193,10 +238,16 @@ returns `true` if *expr* contains the function *f*.
 returns `true` if *expr* contains the function *f* and the variable
 *x* is somewhere in the argument of one of the instances of *f*.
 
+<!-- category: Series -->
+<!-- keywords: intopois -->
+<!-- signatures: intopois(a) -->
 ### Function: intopois (a)
 
 Converts *a* into a Poisson encoding.
 
+<!-- category: Series -->
+<!-- keywords: intosum -->
+<!-- signatures: intosum(expr) -->
 ### Function: intosum (expr)
 
 Moves multiplicative factors outside a summation to inside.
@@ -211,6 +262,9 @@ does not remove this property, it only bypasses it.
 In some cases, a `scanmap (multthru, expr)` may be necessary before
 the `intosum`.
 
+<!-- category: Series -->
+<!-- keywords: lsum -->
+<!-- signatures: lsum(expr, x, L) -->
 ### Function: lsum (expr, x, L)
 
 Represents the sum of *expr* for each element *x* in *L*.
@@ -244,6 +298,9 @@ maxima
                    i in rootsof(x  - 1, x)
 ```
 
+<!-- category: Series -->
+<!-- keywords: maxtayorder -->
+<!-- signatures: maxtayorder -->
 ### Variable: maxtayorder
 
 Default value: `true`
@@ -254,6 +311,9 @@ When `maxtayorder` is `true`, then during algebraic
 manipulation of (truncated) Taylor series, `taylor` tries to retain
 as many terms as are known to be correct.
 
+<!-- category: Series -->
+<!-- keywords: niceindices -->
+<!-- signatures: niceindices(expr) -->
 ### Function: niceindices (expr)
 
 Renames the indices of sums and products in *expr*.  `niceindices`
@@ -305,6 +365,9 @@ maxima
                           k = 1
 ```
 
+<!-- category: Series -->
+<!-- keywords: niceindicespref -->
+<!-- signatures: niceindicespref -->
 ### Variable: niceindicespref
 
 Default value: `[i, j, k, l, m, n]`
@@ -350,6 +413,9 @@ maxima
                           p = 1
 ```
 
+<!-- category: Series -->
+<!-- keywords: nusum -->
+<!-- signatures: nusum(expr, x, i_0, i_1) -->
 ### Function: nusum (expr, x, i_0, i_1)
 
 Carries out indefinite hypergeometric summation of *expr* with
@@ -427,6 +493,9 @@ solve: dependent equations eliminated: (2 3)
 
 See also: `unsum`.
 
+<!-- category: Series -->
+<!-- keywords: outofpois -->
+<!-- signatures: outofpois(a) -->
 ### Function: outofpois (a)
 
 Converts *a* from Poisson encoding to general representation.  If *a* is
@@ -435,6 +504,9 @@ i.e., the return value is `outofpois (intopois (a))`.
 This function is thus a canonical simplifier
 for sums of powers of sine and cosine terms of a particular type.
 
+<!-- category: Series -->
+<!-- keywords: pade -->
+<!-- signatures: pade(taylor_series, numer_deg_bound, denom_deg_bound) -->
 ### Function: pade (taylor_series, numer_deg_bound, denom_deg_bound)
 
 Returns a list of
@@ -527,21 +599,33 @@ maxima
  + 2856700692480 x  + 3370143559680 x + 2386516803584)]
 ```
 
+<!-- category: Series -->
+<!-- keywords: poisdiff -->
+<!-- signatures: poisdiff(a, b) -->
 ### Function: poisdiff (a, b)
 
 Differentiates *a* with respect to *b*. *b* must occur only
 in the trig arguments or only in the coefficients.
 
+<!-- category: Series -->
+<!-- keywords: poisexpt -->
+<!-- signatures: poisexpt(a, b) -->
 ### Function: poisexpt (a, b)
 
 Functionally identical to `intopois (a^b)`.
 *b* must be a positive integer.
 
+<!-- category: Series -->
+<!-- keywords: poisint -->
+<!-- signatures: poisint(a, b) -->
 ### Function: poisint (a, b)
 
 Integrates in a similarly restricted sense (to `poisdiff`).  Non-periodic
 terms in *b* are dropped if *b* is in the trig arguments.
 
+<!-- category: Series -->
+<!-- keywords: poislim -->
+<!-- signatures: poislim -->
 ### Variable: poislim
 
 Default value: 5
@@ -552,6 +636,9 @@ the arguments of the trig functions.  The initial value of 5
 corresponds to the interval [-2^(5-1)+1,2^(5-1)], or [-15,16], but it
 can be set to [-2^(n-1)+1, 2^(n-1)].
 
+<!-- category: Series -->
+<!-- keywords: poismap -->
+<!-- signatures: poismap(series, sinfn, cosfn) -->
 ### Function: poismap (series, sinfn, cosfn)
 
 will map the functions *sinfn* on the sine terms and *cosfn* on the
@@ -559,20 +646,32 @@ cosine terms of the Poisson series given.  *sinfn* and *cosfn* are
 functions of two arguments which are a coefficient and a trigonometric part of
 a term in series respectively.
 
+<!-- category: Series -->
+<!-- keywords: poisplus -->
+<!-- signatures: poisplus(a, b) -->
 ### Function: poisplus (a, b)
 
 Is functionally identical to `intopois (a + b)`.
 
+<!-- category: Series -->
+<!-- keywords: poissimp -->
+<!-- signatures: poissimp(a) -->
 ### Function: poissimp (a)
 
 Converts *a* into a Poisson series for *a* in general
 representation.
 
+<!-- category: Series -->
+<!-- keywords: poisson -->
+<!-- signatures: poisson -->
 ### Variable: poisson
 
 The symbol `/P/` follows the line label of Poisson series
 expressions.
 
+<!-- category: Series -->
+<!-- keywords: poissubst -->
+<!-- signatures: poissubst(a, b, c) -->
 ### Function: poissubst (a, b, c)
 
 Substitutes *a* for *b* in *c*.  *c* is a Poisson series.
@@ -596,10 +695,16 @@ expansion in terms of a small parameter.  For example,
 `poissubst (u, v, cos(v), %e, 3)` yields
 `cos(u)*(1 - %e^2/2) - sin(u)*(%e - %e^3/6)`.
 
+<!-- category: Series -->
+<!-- keywords: poistimes -->
+<!-- signatures: poistimes(a, b) -->
 ### Function: poistimes (a, b)
 
 Is functionally identical to `intopois (a*b)`.
 
+<!-- category: Series -->
+<!-- keywords: poistrim -->
+<!-- signatures: poistrim() -->
 ### Function: poistrim ()
 
 is a reserved function name which (if the user has defined
@@ -608,6 +713,9 @@ function of 6 arguments which are the coefficients of the *u*, *v*, ..., *z*
 in a term.  Terms for which `poistrim` is `true` (for the coefficients of
 that term) are eliminated during multiplication.
 
+<!-- category: Series -->
+<!-- keywords: powerseries -->
+<!-- signatures: powerseries(expr, x, a) -->
 ### Function: powerseries (expr, x, a)
 
 Returns the general form of the power series expansion for *expr* in the 
@@ -687,12 +795,18 @@ powerseries: attempt rational function expansion of
             i2 = 1
 ```
 
+<!-- category: Series -->
+<!-- keywords: printpois -->
+<!-- signatures: printpois(a) -->
 ### Function: printpois (a)
 
 Prints a Poisson series in a readable format.  In common
 with `outofpois`, it will convert *a* into a Poisson encoding first, if
 necessary.
 
+<!-- category: Series -->
+<!-- keywords: product -->
+<!-- signatures: product(expr, i, i_0, i_1) -->
 ### Function: product (expr, i, i_0, i_1)
 
 Represents a product of the values of *expr* as
@@ -792,6 +906,9 @@ maxima
 
 See also: `nouns`, `evflag`.
 
+<!-- category: Series -->
+<!-- keywords: psexpand -->
+<!-- signatures: psexpand -->
 ### Variable: psexpand
 
 Default value: `false`
@@ -811,7 +928,10 @@ a multivariate expression is displayed just as in the rational function package.
 When `psexpand` is  `multi`,
 then terms with the same total degree in the variables are grouped together.
 
-### Function: remfun (remfun, f, expr, remfun, f, expr, x)
+<!-- category: Series -->
+<!-- keywords: remfun -->
+<!-- signatures: remfun(f, expr), remfun(f, expr, x) -->
+### Function: remfun (f, expr)
 
 `remfun (f, expr)` replaces all occurrences of `f (arg)` by *arg* in *expr*.
 
@@ -820,6 +940,9 @@ then terms with the same total degree in the variables are grouped together.
 `f (arg)` by *arg* in *expr* only if *arg* contains
 the variable *x*.
 
+<!-- category: Series -->
+<!-- keywords: revert, revert2 -->
+<!-- signatures: revert(expr, x), revert2(expr, x, n) -->
 ### Function: revert (expr, x)
 
 These functions return the reversion of *expr*, a Taylor series about zero
@@ -888,6 +1011,9 @@ maxima
                          4    3    2
 ```
 
+<!-- category: Series -->
+<!-- keywords: simpproduct -->
+<!-- signatures: simpproduct -->
 ### Variable: simpproduct
 
 Default value: `false`
@@ -899,6 +1025,9 @@ This simplification may sometimes be able to produce a closed form.  If
 value is a product noun form which is a representation of the pi notation used
 in mathematics.
 
+<!-- category: Series -->
+<!-- keywords: simpsum -->
+<!-- signatures: simpsum -->
 ### Variable: simpsum
 
 Default value: `false`
@@ -910,6 +1039,9 @@ This simplification may sometimes be able to produce a closed form.  If
 value is a sum noun form which is a representation of the sigma notation used
 in mathematics.
 
+<!-- category: Series -->
+<!-- keywords: sinnpiflag -->
+<!-- signatures: sinnpiflag -->
 ### Variable: sinnpiflag
 
 Default value: `true`
@@ -917,6 +1049,9 @@ Default value: `true`
 
 See `foursimp`.
 
+<!-- category: Series -->
+<!-- keywords: sum -->
+<!-- signatures: sum(expr, i, i_0, i_1) -->
 ### Function: sum (expr, i, i_0, i_1)
 
 Represents a summation of the values of *expr* as
@@ -1076,6 +1211,9 @@ maxima
 
 See also: `lsum`, `sumcontract`, `intosum`, `bashindices`, `niceindices`, `nouns`, `evflag`, `Package-zeilberger`.
 
+<!-- category: Series -->
+<!-- keywords: sumcontract -->
+<!-- signatures: sumcontract(expr) -->
 ### Function: sumcontract (expr)
 
 Combines all sums of an addition that have
@@ -1091,6 +1229,9 @@ reasonable index if it cannot use any supplied.
 It may be necessary to do an `intosum (expr)` before the
 `sumcontract`.
 
+<!-- category: Series -->
+<!-- keywords: sumexpand -->
+<!-- signatures: sumexpand -->
 ### Variable: sumexpand
 
 Default value: `false`
@@ -1138,7 +1279,10 @@ maxima
 
 See also: `cauchysum`.
 
-### Function: taylor (taylor, expr, x, a, n, taylor, expr, x_1, x_2, ..., a, n, taylor, expr, x, a, n, 'asymp, taylor, expr, x_1, x_2, ..., a_1, a_2, ..., n_1, n_2, ..., taylor, expr, x_1, a_1, n_1, x_2, a_2, n_2, ...)
+<!-- category: Series -->
+<!-- keywords: taylor -->
+<!-- signatures: taylor(expr, x, a, n), taylor(expr, [x_1, x_2, ...], a, n), taylor(expr, [x, a, n, 'asymp]), taylor(expr, [x_1, x_2, ...], [a_1, a_2, ...], [n_1, n_2, ...]), taylor(expr, [x_1, a_1, n_1], [x_2, a_2, n_2], ...) -->
+### Function: taylor (expr, x, a, n)
 
 `taylor (expr, x, a, n)` expands the expression
 *expr* in a truncated Taylor or Laurent series in the variable *x*
@@ -1351,6 +1495,9 @@ maxima
 
 See also: `taylor_logexpand`.
 
+<!-- category: Series -->
+<!-- keywords: taylor_logexpand -->
+<!-- signatures: taylor_logexpand -->
 ### Variable: taylor_logexpand
 
 Default value: `true`
@@ -1369,6 +1516,9 @@ mathematically correct since it ignores branch information.
 When `taylor_logexpand` is set to `false`, then the only expansion of
 logarithms that occur is that necessary to obtain a formal power series.
 
+<!-- category: Series -->
+<!-- keywords: taylor_order_coefficients -->
+<!-- signatures: taylor_order_coefficients -->
 ### Variable: taylor_order_coefficients
 
 Default value: `true`
@@ -1381,11 +1531,17 @@ coefficients in a Taylor series.
 When `taylor_order_coefficients` is `true`,
 coefficients of taylor series are ordered canonically.
 
+<!-- category: Series -->
+<!-- keywords: taylor_simplifier -->
+<!-- signatures: taylor_simplifier(expr) -->
 ### Function: taylor_simplifier (expr)
 
 Simplifies coefficients of the power series *expr*.
 `taylor` calls this function.
 
+<!-- category: Series -->
+<!-- keywords: taylor_truncate_polynomials -->
+<!-- signatures: taylor_truncate_polynomials -->
 ### Variable: taylor_truncate_polynomials
 
 Default value: `true`
@@ -1399,6 +1555,9 @@ polynomials are truncated based upon the input truncation levels.
 Otherwise,
 polynomials input to `taylor` are considered to have infinite precision.
 
+<!-- category: Series -->
+<!-- keywords: taylordepth -->
+<!-- signatures: taylordepth -->
 ### Variable: taylordepth
 
 Default value: 3
@@ -1409,6 +1568,9 @@ If there are still no nonzero terms, `taylor` doubles the degree of the
 expansion of `g(x)` so long as the degree of the expansion is
 less than or equal to `n 2^taylordepth`.
 
+<!-- category: Series -->
+<!-- keywords: taylorinfo -->
+<!-- signatures: taylorinfo(expr) -->
 ### Function: taylorinfo (expr)
 
 Returns information about the Taylor series *expr*.
@@ -1446,21 +1608,33 @@ maxima
 (%o2)               [[x, 0, 3], [y, a, inf]]
 ```
 
+<!-- category: Series -->
+<!-- keywords: taylorp -->
+<!-- signatures: taylorp(expr) -->
 ### Function: taylorp (expr)
 
 Returns `true` if *expr* is a Taylor series,
 and `false` otherwise.
 
+<!-- category: Series -->
+<!-- keywords: taytorat -->
+<!-- signatures: taytorat(expr) -->
 ### Function: taytorat (expr)
 
 Converts *expr* from `taylor` form to canonical rational expression
 (CRE) form.  The effect is the same as `rat (ratdisrep (expr))`, but
 faster.
 
+<!-- category: Series -->
+<!-- keywords: totalfourier -->
+<!-- signatures: totalfourier(f, x, p) -->
 ### Function: totalfourier (f, x, p)
 
 Returns `fourexpand (foursimp (fourier (f, x, p)), x, p, 'inf)`.
 
+<!-- category: Series -->
+<!-- keywords: trunc -->
+<!-- signatures: trunc(expr) -->
 ### Function: trunc (expr)
 
 Annotates the internal representation of the general expression *expr*
@@ -1494,6 +1668,9 @@ maxima
 (%o3)                         true
 ```
 
+<!-- category: Series -->
+<!-- keywords: unsum -->
+<!-- signatures: unsum(f, n) -->
 ### Function: unsum (f, n)
 
 Returns the first backward difference
@@ -1547,6 +1724,9 @@ maxima
 
 See also: `nusum`.
 
+<!-- category: Series -->
+<!-- keywords: verbose -->
+<!-- signatures: verbose -->
 ### Variable: verbose
 
 Default value: `false`

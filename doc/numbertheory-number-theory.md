@@ -1,5 +1,8 @@
 ## Number Theory
 
+<!-- category: NumberTheory -->
+<!-- keywords: bern -->
+<!-- signatures: bern(n) -->
 ### Function: bern (n)
 
 Returns the *n*’th Bernoulli number for integer *n*.
@@ -38,11 +41,17 @@ maxima
 
 See also: `burn`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: bernpoly -->
+<!-- signatures: bernpoly(x, n) -->
 ### Function: bernpoly (x, n)
 
 Returns the *n*’th Bernoulli polynomial in the
 variable *x*.
 
+<!-- category: NumberTheory -->
+<!-- keywords: bfhzeta -->
+<!-- signatures: bfhzeta(s, h, n) -->
 ### Function: bfhzeta (s, h, n)
 
 Returns the Hurwitz zeta function for the arguments *s* and *h*.
@@ -70,12 +79,18 @@ inf
 
 `load ("bffac")` loads this function.
 
+<!-- category: NumberTheory -->
+<!-- keywords: bfzeta -->
+<!-- signatures: bfzeta(s, n) -->
 ### Function: bfzeta (s, n)
 
 Returns the Riemann zeta function for the argument *s*.
 The return value is a big float (bfloat);
 *n* is the number of digits in the return value.
 
+<!-- category: NumberTheory -->
+<!-- keywords: burn -->
+<!-- signatures: burn(n) -->
 ### Function: burn (n)
 
 Returns a rational number, which is an approximation of the *n*’th Bernoulli
@@ -103,6 +118,9 @@ returning.  `burn` invokes the approximation for even integers `n > 255`.  For o
 
 See also: `bern`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: cf -->
+<!-- signatures: cf(expr) -->
 ### Function: cf (expr)
 
 Computes a continued fraction approximation.
@@ -205,6 +223,9 @@ maxima
 
 See also: `cflength`, `cfdisrep`, `cfexpand`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: cfdisrep -->
+<!-- signatures: cfdisrep(list) -->
 ### Function: cfdisrep (list)
 
 Constructs and returns an ordinary arithmetic expression
@@ -234,6 +255,9 @@ maxima
                                       2
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: cfexpand -->
+<!-- signatures: cfexpand(x) -->
 ### Function: cfexpand (x)
 
 Returns a matrix of the numerators and denominators of the last (column 1) and
@@ -264,6 +288,9 @@ rat: replaced 3.141592653589793 by 80143857/25510582 = 3.1415926535897927
 (%o3)                  3.1415926535897927
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: cflength -->
+<!-- signatures: cflength -->
 ### Variable: cflength
 
 Default value: 1
@@ -301,7 +328,10 @@ maxima
 (%o6)           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2]
 ```
 
-### Function: divsum (divsum, n, k, divsum, n)
+<!-- category: NumberTheory -->
+<!-- keywords: divsum -->
+<!-- signatures: divsum(n, k), divsum(n) -->
+### Function: divsum (n, k)
 
 `divsum (n, k)` returns the sum of the divisors of *n*
 raised to the *k*’th power.
@@ -336,6 +366,9 @@ maxima
 (%o4)                          210
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: euler -->
+<!-- signatures: euler(n) -->
 ### Function: euler (n)
 
 Returns the *n*’th Euler number for nonnegative integer *n*.
@@ -366,6 +399,9 @@ maxima
 (%o4)       [1, - 1, 5, - 61, 1385, - 50521, 2702765]
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: factors_only -->
+<!-- signatures: factors_only -->
 ### Variable: factors_only
 
 Default value: `false`
@@ -381,6 +417,9 @@ Example: See `ifactors`.
 
 See also: `ifactors`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: fib -->
+<!-- signatures: fib(n) -->
 ### Function: fib (n)
 
 Returns the *n*’th Fibonacci number.
@@ -399,6 +438,9 @@ maxima
 (%o1)     [- 3, 2, - 1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: fibtophi -->
+<!-- signatures: fibtophi(expr) -->
 ### Function: fibtophi (expr)
 
 Expresses Fibonacci numbers in *expr* in terms of the constant `%phi`,
@@ -444,6 +486,9 @@ maxima
 (%o4)                           0
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: ifactors -->
+<!-- signatures: ifactors(n) -->
 ### Function: ifactors (n)
 
 For a positive integer *n* returns the factorization of *n*.  If
@@ -490,6 +535,9 @@ maxima
 
 See also: `factors_only`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: igcdex -->
+<!-- signatures: igcdex(n, k) -->
 ### Function: igcdex (n, k)
 
 Returns a list `[a, b, u]` where *u* is the greatest
@@ -532,6 +580,9 @@ maxima
 
 See also: `gcdex`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: inrt -->
+<!-- signatures: inrt(x, n) -->
 ### Function: inrt (x, n)
 
 Returns the integer *n*’th root of the absolute value of *x*.
@@ -550,6 +601,9 @@ maxima
 (%o2) [2, 4, 10, 21, 46, 100, 215, 464, 1000, 2154, 4641, 10000]
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: inv_mod -->
+<!-- signatures: inv_mod(n, m) -->
 ### Function: inv_mod (n, m)
 
 Computes the inverse of *n* modulo *m*.
@@ -578,11 +632,17 @@ maxima
 (%o3)                         false
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: isqrt -->
+<!-- signatures: isqrt(x) -->
 ### Function: isqrt (x)
 
 Returns the "integer square root" of the absolute value of *x*, which is an
 integer.
 
+<!-- category: NumberTheory -->
+<!-- keywords: jacobi -->
+<!-- signatures: jacobi(p, q) -->
 ### Function: jacobi (p, q)
 
 Returns the Jacobi symbol of *p* and *q*.
@@ -601,6 +661,9 @@ maxima
 (%o2)         [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0]
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: lcm -->
+<!-- signatures: lcm(expr_1, ..., expr_n) -->
 ### Function: lcm (expr_1, ..., expr_n)
 
 Returns the least common multiple of its arguments.
@@ -609,6 +672,9 @@ The arguments may be general expressions as well as integers.
 
 `load ("functs")` loads this function.
 
+<!-- category: NumberTheory -->
+<!-- keywords: lucas -->
+<!-- signatures: lucas(n) -->
 ### Function: lucas (n)
 
 Returns the *n*’th Lucas number.
@@ -628,6 +694,9 @@ maxima
 (%o1)    [7, - 4, 3, - 1, 2, 1, 3, 4, 7, 11, 18, 29, 47]
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: mod -->
+<!-- signatures: mod(x, y) -->
 ### Function: mod (x, y)
 
 If *x* and *y* are real numbers and *y* is nonzero, return
@@ -676,6 +745,9 @@ maxima
 (%o3)                           0
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: next_prime -->
+<!-- signatures: next_prime(n) -->
 ### Function: next_prime (n)
 
 Returns the smallest prime bigger than *n*.
@@ -692,6 +764,9 @@ maxima
 (%o1)                          29
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: partfrac -->
+<!-- signatures: partfrac(expr, var) -->
 ### Function: partfrac (expr, var)
 
 Expands the expression *expr* in partial fractions
@@ -737,6 +812,9 @@ maxima
                                     (x + 1)
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: power_mod -->
+<!-- signatures: power_mod(a, n, m) -->
 ### Function: power_mod (a, n, m)
 
 Uses a modular algorithm to compute `a^n mod m` 
@@ -770,6 +848,9 @@ maxima
 (%o4)                           3
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: prev_prime -->
+<!-- signatures: prev_prime(n) -->
 ### Function: prev_prime (n)
 
 Returns the greatest prime smaller than *n*.
@@ -786,6 +867,9 @@ maxima
 (%o1)                          23
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: primep -->
+<!-- signatures: primep(n) -->
 ### Function: primep (n)
 
 Primality test.  If `primep (n)` returns `false`, *n* is a
@@ -805,6 +889,9 @@ pass one Miller-Rabin test is less than 1/4.  Using the default value 25 for
 `primep_number_of_tests`, the probability of *n* being
 composite is much smaller that 10^-15.
 
+<!-- category: NumberTheory -->
+<!-- keywords: primep_number_of_tests -->
+<!-- signatures: primep_number_of_tests -->
 ### Variable: primep_number_of_tests
 
 Default value: 25
@@ -812,6 +899,9 @@ Default value: 25
 
 Number of Miller-Rabin’s tests used in `primep`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: primes -->
+<!-- signatures: primes(start, end) -->
 ### Function: primes (start, end)
 
 Returns the list of all primes from *start* to *end*.
@@ -828,6 +918,9 @@ maxima
 (%o1)                       [3, 5, 7]
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: qunit -->
+<!-- signatures: qunit(n) -->
 ### Function: qunit (n)
 
 Returns the principal unit of the real quadratic number field
@@ -852,7 +945,10 @@ maxima
 (%o2)                           1
 ```
 
-### Function: solve_congruences (r_1, ..., r_n, m_1, ..., m_n)
+<!-- category: NumberTheory -->
+<!-- keywords: solve_congruences -->
+<!-- signatures: solve_congruences([r_1, ..., r_n], [m_1, ..., m_n]) -->
+### Function: solve_congruences ([r_1, ..., r_n], [m_1, ..., m_n])
 
 Solves the system of congruences `x = r_1 mod m_1`, ..., `x = r_n mod m_n`.
 The remainders *r_n* may be arbitrary integers while the moduli *m_n* have to be 
@@ -900,11 +996,17 @@ maxima
 (%o7)                          10
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: totient -->
+<!-- signatures: totient(n) -->
 ### Function: totient (n)
 
 Returns the number of integers less than or equal to *n* which
 are relatively prime to *n*.
 
+<!-- category: NumberTheory -->
+<!-- keywords: zerobern -->
+<!-- signatures: zerobern -->
 ### Variable: zerobern
 
 Default value: `true`
@@ -914,6 +1016,9 @@ When `zerobern` is `false`, `bern` excludes the Bernoulli numbers
 and `euler` excludes the Euler numbers which are equal to zero.
 See `bern` and `euler`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: zeta -->
+<!-- signatures: zeta(n) -->
 ### Function: zeta (n)
 
 Returns the Riemann zeta function.  If *n* is a negative integer, 0, or a
@@ -966,6 +1071,9 @@ maxima
 
 See also: `bfzeta`, `zeta%pi`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: zeta%pi -->
+<!-- signatures: zeta%pi -->
 ### Variable: zeta%pi
 
 Default value: `true`
@@ -1004,6 +1112,9 @@ maxima
 
 See also: `true`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: zn_add_table -->
+<!-- signatures: zn_add_table(n) -->
 ### Function: zn_add_table (n)
 
 Shows an addition table of all elements in (Z/*n*Z).
@@ -1013,6 +1124,9 @@ See also `zn_mult_table`,  `zn_005fpower_005ftable`.
 
 See also: `zn_mult_table`, `zn_power_table`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: zn_carmichael_lambda -->
+<!-- signatures: zn_carmichael_lambda(n) -->
 ### Function: zn_carmichael_lambda (n)
 
 Returns `1` if *n* is `1` and otherwise 
@@ -1023,6 +1137,9 @@ For remarks and examples see `zn_005fcharacteristic_005ffactors`.
 
 See also: `zn_characteristic_factors`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: zn_characteristic_factors -->
+<!-- signatures: zn_characteristic_factors(n) -->
 ### Function: zn_characteristic_factors (n)
 
 Returns a list containing the characteristic factors of the totient of *n*.
@@ -1157,6 +1274,9 @@ maxima
 
 See also: `totient`, `zn_primroot`, `zn_factor_generators`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: zn_determinant -->
+<!-- signatures: zn_determinant(matrix, p) -->
 ### Function: zn_determinant (matrix, p)
 
 Uses the technique of LU-decomposition to compute the determinant of *matrix* 
@@ -1208,6 +1328,9 @@ maxima
 
 See also: `zn_invert_by_lu`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: zn_factor_generators -->
+<!-- signatures: zn_factor_generators(n) -->
 ### Function: zn_factor_generators (n)
 
 Returns a list containing factor generators corresponding to the 
@@ -1218,6 +1341,9 @@ For remarks and examples see `zn_005fcharacteristic_005ffactors`.
 
 See also: `zn_characteristic_factors`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: zn_invert_by_lu -->
+<!-- signatures: zn_invert_by_lu(matrix, p) -->
 ### Function: zn_invert_by_lu (matrix, p)
 
 Uses the technique of LU-decomposition to compute the modular inverse of 
@@ -1266,7 +1392,10 @@ maxima
 
 See also: `zn_determinant`.
 
-### Function: zn_log (zn_log, a, g, n, zn_log, a, g, n, p1, e1, ..., pk, ek)
+<!-- category: NumberTheory -->
+<!-- keywords: zn_log -->
+<!-- signatures: zn_log(a, g, n), zn_log(a, g, n, [[p1, e1], ..., [pk, ek]]) -->
+### Function: zn_log (a, g, n)
 
 Computes the discrete logarithm. Let (Z/*n*Z)* be a cyclic group, *g* a 
 primitive root modulo *n* or a generator of a subgroup of (Z/*n*Z)* 
@@ -1401,7 +1530,10 @@ maxima
 
 See also: `zn_primroot`, `zn_order`, `ifactors`, `totient`.
 
-### Function: zn_mult_table (zn_mult_table, n, zn_mult_table, n, gcd)
+<!-- category: NumberTheory -->
+<!-- keywords: zn_mult_table -->
+<!-- signatures: zn_mult_table(n), zn_mult_table(n, gcd) -->
+### Function: zn_mult_table (n)
 
 Without the optional argument *gcd* `zn_mult_table(n)` shows a 
 multiplication table of all elements in (Z/*n*Z)* which are all elements 
@@ -1542,7 +1674,10 @@ maxima
 
 See also: `zn_add_table`, `zn_power_table`.
 
-### Function: zn_nth_root (zn_nth_root, x, n, m, zn_nth_root, x, n, m, p1, e1, ..., pk, ek)
+<!-- category: NumberTheory -->
+<!-- keywords: zn_nth_root -->
+<!-- signatures: zn_nth_root(x, n, m), zn_nth_root(x, n, m, [[p1, e1], ..., [pk, ek]]) -->
+### Function: zn_nth_root (x, n, m)
 
 Returns a list with all *n*-th roots of *x* from the multiplication 
 subgroup of (Z/*m*Z) which contains *x*, or `false`, if *x* 
@@ -1709,7 +1844,10 @@ maxima
 (%o7)          [11223344556677889900AABBCCDDEEFF]
 ```
 
-### Function: zn_order (zn_order, x, n, zn_order, x, n, p1, e1, ..., pk, ek)
+<!-- category: NumberTheory -->
+<!-- keywords: zn_order -->
+<!-- signatures: zn_order(x, n), zn_order(x, n, [[p1, e1], ..., [pk, ek]]) -->
+### Function: zn_order (x, n)
 
 Returns the order of *x* if it is a unit of the finite group (Z/*n*Z)*
 or returns `false`.  *x* is a unit modulo *n* if it is coprime to *n*.
@@ -1809,7 +1947,10 @@ maxima
 
 See also: `zn_primroot`, `ifactors`, `totient`.
 
-### Function: zn_power_table (zn_power_table, n, zn_power_table, n, gcd, zn_power_table, n, gcd, max_exp)
+<!-- category: NumberTheory -->
+<!-- keywords: zn_power_table -->
+<!-- signatures: zn_power_table(n), zn_power_table(n, gcd), zn_power_table(n, gcd, max_exp) -->
+### Function: zn_power_table (n)
 
 Without any optional argument `zn_power_table(n)` 
 shows a power table of all elements in (Z/*n*Z)* 
@@ -1944,7 +2085,10 @@ maxima
 
 See also: `zn_add_table`, `zn_mult_table`.
 
-### Function: zn_primroot (zn_primroot, n, zn_primroot, n, p1, e1, ..., pk, ek)
+<!-- category: NumberTheory -->
+<!-- keywords: zn_primroot -->
+<!-- signatures: zn_primroot(n), zn_primroot(n, [[p1, e1], ..., [pk, ek]]) -->
+### Function: zn_primroot (n)
 
 If the multiplicative group (Z/*n*Z)* is cyclic, `zn_primroot` computes the 
 smallest primitive root modulo *n*.  (Z/*n*Z)* is cyclic if *n* is equal to 
@@ -2049,6 +2193,9 @@ maxima
 
 See also: `zn_primroot_pretest`, `zn_primroot_limit`, `zn_primroot_p`, `zn_order`, `ifactors`, `totient`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: zn_primroot_limit -->
+<!-- signatures: zn_primroot_limit -->
 ### Variable: zn_primroot_limit
 
 Default value: `1000` 
@@ -2060,7 +2207,10 @@ set to `true`, a message will be printed when `zn_primroot_limit` is reached.
 
 See also: `zn_primroot`, `zn_primroot_verbose`.
 
-### Function: zn_primroot_p (zn_primroot_p, x, n, zn_primroot_p, x, n, p1, e1, ..., pk, ek)
+<!-- category: NumberTheory -->
+<!-- keywords: zn_primroot_p -->
+<!-- signatures: zn_primroot_p(x, n), zn_primroot_p(x, n, [[p1, e1], ..., [pk, ek]]) -->
+### Function: zn_primroot_p (x, n)
 
 Checks whether *x* is a primitive root in the multiplicative group (Z/*n*Z)*.
 
@@ -2140,6 +2290,9 @@ maxima
 
 See also: `zn_primroot`, `zn_order`, `ifactors`, `totient`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: zn_primroot_pretest -->
+<!-- signatures: zn_primroot_pretest -->
 ### Variable: zn_primroot_pretest
 
 Default value: `false` 
@@ -2157,6 +2310,9 @@ performed.
 
 See also: `zn_primroot`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: zn_primroot_verbose -->
+<!-- signatures: zn_primroot_verbose -->
 ### Variable: zn_primroot_verbose
 
 Default value: `false` 

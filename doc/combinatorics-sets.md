@@ -1,5 +1,8 @@
 ## Sets
 
+<!-- category: Combinatorics -->
+<!-- keywords: adjoin -->
+<!-- signatures: adjoin(x, a) -->
 ### Function: adjoin (x, a)
 
 Returns the union of the set *a* with `{x}`.
@@ -37,6 +40,9 @@ maxima
 
 See also: `disjoin`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: belln -->
+<!-- signatures: belln(n) -->
 ### Function: belln (n)
 
 Represents the $n$-th Bell number.
@@ -95,6 +101,9 @@ maxima
 (%o1)        [belln(x), belln(sqrt(3)), belln(- 9)]
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: cardinality -->
+<!-- signatures: cardinality(a) -->
 ### Function: cardinality (a)
 
 Returns the number of distinct elements of the set *a*. 
@@ -133,6 +142,9 @@ maxima
 (%o4)                           3
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: cartesian_product -->
+<!-- signatures: cartesian_product(b_1, ..., b_n) -->
 ### Function: cartesian_product (b_1, ..., b_n)
 
 Returns a set of lists of the form `[x_1, ..., x_n]`, where
@@ -177,6 +189,9 @@ maxima
 
 See also: `cartesian_product_list`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: cartesian_product_list -->
+<!-- signatures: cartesian_product_list(b_1, ..., b_n) -->
 ### Function: cartesian_product_list (b_1, ..., b_n)
 
 Returns a list of lists of the form `[x_1, ..., x_n]`, where
@@ -312,6 +327,9 @@ maxima
 
 See also: `cartesian_product`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: disjoin -->
+<!-- signatures: disjoin(x, a) -->
 ### Function: disjoin (x, a)
 
 Returns the set *a* without the member *x*.
@@ -350,6 +368,9 @@ maxima
 (%o3)                  {5, %pi, b + a, z}
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: disjointp -->
+<!-- signatures: disjointp(a, b) -->
 ### Function: disjointp (a, b)
 
 Returns `true` if and only if the sets *a* and *b* are disjoint.
@@ -377,6 +398,9 @@ maxima
 (%o2)                         false
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: divisors -->
+<!-- signatures: divisors(n) -->
 ### Function: divisors (n)
 
 Represents the set of divisors of *n*.
@@ -468,6 +492,9 @@ maxima
 (%o4)        {divisors(a), divisors(b), divisors(c)}
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: elementp -->
+<!-- signatures: elementp(x, a) -->
 ### Function: elementp (x, a)
 
 Returns `true` if and only if *x* is a member of the 
@@ -496,6 +523,9 @@ maxima
 (%o2)                         false
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: emptyp -->
+<!-- signatures: emptyp(a) -->
 ### Function: emptyp (a)
 
 Return `true` if and only if *a* is the empty set or
@@ -521,6 +551,9 @@ maxima
 (%o2)                 [false, false, false]
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: equiv_classes -->
+<!-- signatures: equiv_classes(s, F) -->
 ### Function: equiv_classes (s, F)
 
 Returns a set of the equivalence classes of the set *s* with respect
@@ -594,7 +627,10 @@ maxima
 (%o1)              {{1, 4, 7}, {2, 5}, {3, 6}}
 ```
 
-### Function: every (every, f, s, every, f, L_1, ..., L_n)
+<!-- category: Combinatorics -->
+<!-- keywords: every -->
+<!-- signatures: every(f, s), every(f, L_1, ..., L_n) -->
+### Function: every (f, s)
 
 Returns `true` if the predicate *f* is `true` for all given arguments.
 
@@ -720,7 +756,10 @@ maxima
 (%o5)                         false
 ```
 
-### Function: extremal_subset (extremal_subset, s, f, max, extremal_subset, s, f, min)
+<!-- category: Combinatorics -->
+<!-- keywords: extremal_subset -->
+<!-- signatures: extremal_subset(s, f, max), extremal_subset(s, f, min) -->
+### Function: extremal_subset (s, f, max)
 
 Returns the subset of *s* for which the function *f* takes on maximum or minimum values.
 
@@ -752,6 +791,9 @@ maxima
 (%o2)                       {sqrt(2)}
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: flatten -->
+<!-- signatures: flatten(expr) -->
 ### Function: flatten (expr)
 
 Collects arguments of subexpressions which have the same operator as *expr*
@@ -880,6 +922,9 @@ maxima
 (%i3) ''%, nouns;
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: full_listify -->
+<!-- signatures: full_listify(a) -->
 ### Function: full_listify (a)
 
 Replaces every set operator in *a* by a list operator,
@@ -910,6 +955,9 @@ maxima
 (%o2)              F(G([a, b, H([c, d, e])]))
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: fullsetify -->
+<!-- signatures: fullsetify(a) -->
 ### Function: fullsetify (a)
 
 When *a* is a list, replaces the list operator with a set operator,
@@ -943,6 +991,9 @@ maxima
 (%o2)                      {a, f([b])}
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: identity -->
+<!-- signatures: identity(x) -->
 ### Function: identity (x)
 
 Returns *x* for any argument *x*.
@@ -966,7 +1017,10 @@ maxima
 (%o1)                         true
 ```
 
-### Function: integer_partitions (integer_partitions, n, integer_partitions, n, len)
+<!-- category: Combinatorics -->
+<!-- keywords: integer_partitions -->
+<!-- signatures: integer_partitions(n), integer_partitions(n, len) -->
+### Function: integer_partitions (n)
 
 Returns integer partitions of *n*, that is,
 lists of integers which sum to *n*.
@@ -1050,10 +1104,16 @@ maxima
 (%o4) {[2, 2, 2, 2, 2], [3, 3, 2, 2], [5, 3, 2], [5, 5], [7, 3]}
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: intersect -->
+<!-- signatures: intersect(a_1, ..., a_n) -->
 ### Function: intersect (a_1, ..., a_n)
 
 `intersect` is the same as `intersection`, which see.
 
+<!-- category: Combinatorics -->
+<!-- keywords: intersection -->
+<!-- signatures: intersection(a_1, ..., a_n) -->
 ### Function: intersection (a_1, ..., a_n)
 
 Returns a set containing the elements that are common to the 
@@ -1112,6 +1172,9 @@ maxima
 (%o8)                          {}
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: kron_delta -->
+<!-- signatures: kron_delta(x1, x2, ..., xp) -->
 ### Function: kron_delta (x1, x2, ..., xp)
 
 Represents the Kronecker delta function.
@@ -1159,6 +1222,9 @@ maxima
 (%o5)                           1
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: listify -->
+<!-- signatures: listify(a) -->
 ### Function: listify (a)
 
 Returns a list containing the members of *a* when *a* is a set.
@@ -1187,6 +1253,9 @@ maxima
 (%o2)                    F({a, b, c, d})
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: makeset -->
+<!-- signatures: makeset(expr, x, s) -->
 ### Function: makeset (expr, x, s)
 
 Returns a set with members generated from the expression *expr*,
@@ -1250,6 +1319,9 @@ maxima
 
 See also: `makelist`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: moebius -->
+<!-- signatures: moebius(n) -->
 ### Function: moebius (n)
 
 Represents the Moebius function.
@@ -1320,7 +1392,10 @@ maxima
 (%o9)                      {- 1, 0, 1}
 ```
 
-### Function: multinomial_coeff (multinomial_coeff, a_1, ..., a_n, multinomial_coeff)
+<!-- category: Combinatorics -->
+<!-- keywords: multinomial_coeff -->
+<!-- signatures: multinomial_coeff(a_1, ..., a_n), multinomial_coeff() -->
+### Function: multinomial_coeff (a_1, ..., a_n)
 
 Returns the multinomial coefficient.
 
@@ -1373,7 +1448,10 @@ maxima
                                 2
 ```
 
-### Function: num_distinct_partitions (num_distinct_partitions, n, num_distinct_partitions, n, list)
+<!-- category: Combinatorics -->
+<!-- keywords: num_distinct_partitions -->
+<!-- signatures: num_distinct_partitions(n), num_distinct_partitions(n, list) -->
+### Function: num_distinct_partitions (n)
 
 Returns the number of distinct integer partitions of *n*
 when *n* is a nonnegative integer.
@@ -1413,7 +1491,10 @@ maxima
 (%o3)              num_distinct_partitions(n)
 ```
 
-### Function: num_partitions (num_partitions, n, num_partitions, n, list)
+<!-- category: Combinatorics -->
+<!-- keywords: num_partitions -->
+<!-- signatures: num_partitions(n), num_partitions(n, list) -->
+### Function: num_partitions (n)
 
 Returns the number of integer partitions of *n*
 when *n* is a nonnegative integer.
@@ -1453,6 +1534,9 @@ maxima
 (%o3)                   num_partitions(n)
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: partition_set -->
+<!-- signatures: partition_set(a, f) -->
 ### Function: partition_set (a, f)
 
 Partitions the set *a* according to the predicate *f*.
@@ -1493,6 +1577,9 @@ maxima
 
 See also: `subset`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: permutations -->
+<!-- signatures: permutations(a) -->
 ### Function: permutations (a)
 
 Returns a set of all distinct permutations of the members of 
@@ -1530,7 +1617,10 @@ maxima
 
 See also: `random_permutation`.
 
-### Function: powerset (powerset, a, powerset, a, n)
+<!-- category: Combinatorics -->
+<!-- keywords: powerset -->
+<!-- signatures: powerset(a), powerset(a, n) -->
+### Function: powerset (a)
 
 Returns the set of all subsets of *a*, or a subset of that set.
 
@@ -1586,6 +1676,9 @@ maxima
 (%o6)                         {{}}
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: random_permutation -->
+<!-- signatures: random_permutation(a) -->
 ### Function: random_permutation (a)
 
 Returns a random permutation of the set or list *a*,
@@ -1626,7 +1719,10 @@ maxima
 (%o4)                 [x + 1, y + 2, z + 3]
 ```
 
-### Function: set_partitions (set_partitions, a, set_partitions, a, n)
+<!-- category: Combinatorics -->
+<!-- keywords: set_partitions -->
+<!-- signatures: set_partitions(a), set_partitions(a, n) -->
+### Function: set_partitions (a)
 
 Returns the set of all partitions of *a*, or a subset of that set.
 
@@ -1725,6 +1821,9 @@ maxima
 (%o3)                 {{0, 1, 2, 3, 4, 5}}
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: setdifference -->
+<!-- signatures: setdifference(a, b) -->
 ### Function: setdifference (a, b)
 
 Returns a set containing the elements in the set *a* that are
@@ -1778,6 +1877,9 @@ maxima
 (%o7)                          {}
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: setequalp -->
+<!-- signatures: setequalp(a, b) -->
 ### Function: setequalp (a, b)
 
 Returns `true` if sets *a* and *b* have the same number of elements
@@ -1814,6 +1916,9 @@ maxima
 (%o3)                         false
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: setify -->
+<!-- signatures: setify(a) -->
 ### Function: setify (a)
 
 Constructs a set from the elements of the list *a*. Duplicate
@@ -1848,6 +1953,9 @@ maxima
 (%o3)                {1, 3, 5, 7, 9, 11, 13}
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: setp -->
+<!-- signatures: setp(a) -->
 ### Function: setp (a)
 
 Returns `true` if and only if *a* is a Maxima set.
@@ -1886,7 +1994,10 @@ maxima
 (%o3)                         true
 ```
 
-### Function: some (some, f, a, some, f, L_1, ..., L_n)
+<!-- category: Combinatorics -->
+<!-- keywords: some -->
+<!-- signatures: some(f, a), some(f, L_1, ..., L_n) -->
+### Function: some (f, a)
 
 Returns `true` if the predicate *f* is `true` for one or more given arguments.
 
@@ -2020,6 +2131,9 @@ maxima
 (%o7)                         true
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: stirling1 -->
+<!-- signatures: stirling1(n, m) -->
 ### Function: stirling1 (n, m)
 
 Represents the Stirling number of the first kind.
@@ -2068,6 +2182,9 @@ maxima
 (%o3)                           1
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: stirling2 -->
+<!-- signatures: stirling2(n, m) -->
 ### Function: stirling2 (n, m)
 
 Represents the Stirling number of the second kind.
@@ -2129,6 +2246,9 @@ maxima
 (%o1)                  stirling2(%pi, %pi)
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: subset -->
+<!-- signatures: subset(a, f) -->
 ### Function: subset (a, f)
 
 Returns the subset of the set *a* that satisfies the predicate *f*. 
@@ -2166,6 +2286,9 @@ maxima
 
 See also: `partition_set`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: subsetp -->
+<!-- signatures: subsetp(a, b) -->
 ### Function: subsetp (a, b)
 
 Returns `true` if and only if the set *a* is a subset of *b*.
@@ -2193,6 +2316,9 @@ maxima
 (%o2)                         false
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: symmdifference -->
+<!-- signatures: symmdifference(a_1, ..., a_n) -->
 ### Function: symmdifference (a_1, ..., a_n)
 
 Returns the symmetric difference of sets *a_1*, ..., *a_n*.
@@ -2254,6 +2380,9 @@ maxima
 (%o8)                       {1, b, z}
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: union -->
+<!-- signatures: union(a_1, ..., a_n) -->
 ### Function: union (a_1, ..., a_n)
 
 Returns the union of the sets *a_1* through *a_n*. 

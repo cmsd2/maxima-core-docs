@@ -1,6 +1,9 @@
 ## drawdf
 
-### Function: drawdf (drawdf, dydx, ...options, and, objects..., drawdf, dvdu, u, v, ...options, and, objects..., drawdf, dvdu, u, umin, umax, v, vmin, vmax, ...options, and, objects..., drawdf, dxdt, dydt, ...options, and, objects..., drawdf, dudt, dvdt, u, v, ...options, and, objects..., drawdf, dudt, dvdt, u, umin, umax, v, vmin, vmax, ...options, and, objects...)
+<!-- category: Plotting -->
+<!-- keywords: drawdf -->
+<!-- signatures: drawdf(dydx, ...optionsandobjects...), drawdf(dvdu, [u, v], ...optionsandobjects...), drawdf(dvdu, [u, umin, umax], [v, vmin, vmax], ...optionsandobjects...), drawdf([dxdt, dydt], ...optionsandobjects...), drawdf([dudt, dvdt], [u, v], ...optionsandobjects...), drawdf([dudt, dvdt], [u, umin, umax], [v, vmin, vmax], ...optionsandobjects...) -->
+### Function: drawdf (dydx, ...optionsandobjects...)
 
 Function `drawdf` draws a 2D direction field with optional
 solution curves and other graphics using the `draw` package.

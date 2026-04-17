@@ -1,5 +1,8 @@
 ## Numerical
 
+<!-- category: Numerical -->
+<!-- keywords: bf_fft -->
+<!-- signatures: bf_fft(y) -->
 ### Function: bf_fft (y)
 
 Computes the forward complex fast Fourier transform.  This is the
@@ -8,6 +11,9 @@ bigfloats and returns a bigfloat result.
 
 See also: `fft`.
 
+<!-- category: Numerical -->
+<!-- keywords: bf_inverse_fft -->
+<!-- signatures: bf_inverse_fft(y) -->
 ### Function: bf_inverse_fft (y)
 
 Computes the inverse complex fast Fourier transform.  This is the
@@ -16,17 +22,26 @@ bigfloats and returns a bigfloat result.
 
 See also: `inverse_fft`.
 
+<!-- category: Numerical -->
+<!-- keywords: bf_inverse_real_fft -->
+<!-- signatures: bf_inverse_real_fft(y) -->
 ### Function: bf_inverse_real_fft (y)
 
 Computes the inverse fast Fourier transform with a real-valued
 bigfloat output.  This is the bigfloat version of `inverse_real_fft`.
 
+<!-- category: Numerical -->
+<!-- keywords: bf_real_fft -->
+<!-- signatures: bf_real_fft(x) -->
 ### Function: bf_real_fft (x)
 
 Computes the forward fast Fourier transform of a real-valued input
 returning a bigfloat result.  This is the bigfloat version of
 `real_fft`.
 
+<!-- category: Numerical -->
+<!-- keywords: fft -->
+<!-- signatures: fft(x) -->
 ### Function: fft (x)
 
 Computes the complex fast Fourier transform.
@@ -264,6 +279,9 @@ maxima
 
 See also: `bf_fft`, `real_fft`, `inverse_fft`, `recttopolar`, `polartorect`, `bf_real_fft`, `fftpack5_fft`, `fftpack5_real_fft`.
 
+<!-- category: Numerical -->
+<!-- keywords: fftpack5_fft -->
+<!-- signatures: fftpack5_fft(x) -->
 ### Function: fftpack5_fft (x)
 
 Like `fft` (`fft`), this computes the fast Fourier transform
@@ -329,11 +347,17 @@ Complex data.
 
 See also: `fft`.
 
+<!-- category: Numerical -->
+<!-- keywords: fftpack5_inverse_fft -->
+<!-- signatures: fftpack5_inverse_fft(y) -->
 ### Function: fftpack5_inverse_fft (y)
 
 Computes the inverse complex Fourier transform, like
 `inverse_fft`, but is not constrained to be a power of two.
 
+<!-- category: Numerical -->
+<!-- keywords: fftpack5_inverse_real_fft -->
+<!-- signatures: fftpack5_inverse_real_fft(y, n) -->
 ### Function: fftpack5_inverse_real_fft (y, n)
 
 Computes the inverse Fourier transform of *y*, which must have a
@@ -343,6 +367,9 @@ because the length of *y* does not uniquely determine *n*.
 The last element of *y* is always real if *n* is even, but it
 can be complex when *n* is odd.
 
+<!-- category: Numerical -->
+<!-- keywords: fftpack5_real_fft -->
+<!-- signatures: fftpack5_real_fft(x) -->
 ### Function: fftpack5_real_fft (x)
 
 Computes the fast Fourier transform of a real-valued sequence *x*,
@@ -371,6 +398,9 @@ Examples:
 The last example shows how important it to set the length correctly
 for `fftpack5_inverse_real_fft`.
 
+<!-- category: Numerical -->
+<!-- keywords: inverse_fft -->
+<!-- signatures: inverse_fft(y) -->
 ### Function: inverse_fft (y)
 
 Computes the inverse complex fast Fourier transform.
@@ -485,6 +515,9 @@ maxima
 
 See also: `bf_inverse_fft`, `fft`, `recttopolar`, `polartorect`.
 
+<!-- category: Numerical -->
+<!-- keywords: inverse_real_fft -->
+<!-- signatures: inverse_real_fft(y) -->
 ### Function: inverse_real_fft (y)
 
 Computes the inverse Fourier transform of *y*, which must have a
@@ -495,6 +528,9 @@ input *x* is expected to be the output of `real_fft`.
 No check is made to ensure that the input has the correct format.
 (The first and last elements must be purely real.)
 
+<!-- category: Numerical -->
+<!-- keywords: polartorect -->
+<!-- signatures: polartorect(r, t) -->
 ### Function: polartorect (r, t)
 
 Translates complex values of the form $r e^{i t}$ to the form
@@ -526,6 +562,9 @@ b &= r \sin t
 
 See also: `polartorect`, `recttopolar`, `fft`.
 
+<!-- category: Numerical -->
+<!-- keywords: real_fft -->
+<!-- signatures: real_fft(x) -->
 ### Function: real_fft (x)
 
 Computes the fast Fourier transform of a real-valued sequence
@@ -548,6 +587,9 @@ be directly used.  Use `inverse_real_fft` to compute the inverse.
 
 See also: `inverse_fft`, `inverse_real_fft`.
 
+<!-- category: Numerical -->
+<!-- keywords: recttopolar -->
+<!-- signatures: recttopolar(a, b) -->
 ### Function: recttopolar (a, b)
 
 Translates complex values of the form $a + b i$ to the form

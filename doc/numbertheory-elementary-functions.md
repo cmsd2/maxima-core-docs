@@ -1,5 +1,8 @@
 ## Elementary Functions
 
+<!-- category: NumberTheory -->
+<!-- keywords: abs -->
+<!-- signatures: abs(z) -->
 ### Function: abs (z)
 
 The `abs` function represents the mathematical absolute value function and
@@ -152,6 +155,9 @@ maxima
 
 See also: `distribute_over`, `cabs`, `laplace`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: cabs -->
+<!-- signatures: cabs(expr) -->
 ### Function: cabs (expr)
 
 Calculates the absolute value of an expression representing a complex
@@ -329,6 +335,9 @@ maxima
 
 See also: `abs`, `atan2`, `rectform`, `realpart`, `imagpart`, `carg`, `conjugate`, `polarform`, `sqrt`, `sin`, `erf`, `bessel_j`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: carg -->
+<!-- signatures: carg(z) -->
 ### Function: carg (z)
 
 Returns the complex argument of *z*.  The complex argument is an angle
@@ -431,6 +440,9 @@ maxima
 
 See also: `abs`, `polarform`, `rectform`, `realpart`, `imagpart`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: ceiling -->
+<!-- signatures: ceiling(x) -->
 ### Function: ceiling (x)
 
 When *x* is a real number, return the least integer that 
@@ -595,6 +607,9 @@ reverse(uf))
 
 See also: `fpprec`, `distribute_over`, `floor`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: conjugate -->
+<!-- signatures: conjugate(x) -->
 ### Function: conjugate (x)
 
 Returns the complex conjugate of *x*.
@@ -631,6 +646,9 @@ maxima
 (%o5)                        yy + xx
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: entier -->
+<!-- signatures: entier(x) -->
 ### Function: entier (x)
 
 Returns the largest integer less than or equal to *x* where *x* is
@@ -639,10 +657,16 @@ numeric.  `fix` (as in `fixnum`) is a synonym for this, so
 
 See also: `fix`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: fix -->
+<!-- signatures: fix(x) -->
 ### Function: fix (x)
 
 A synonym for `entier (x)`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: floor -->
+<!-- signatures: floor(x) -->
 ### Function: floor (x)
 
 When *x* is a real number, return the largest integer that is less than or
@@ -731,6 +755,9 @@ maxima
 
 See also: `fpprec`, `distribute_over`, `ceiling`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: hstep -->
+<!-- signatures: hstep(x) -->
 ### Function: hstep (x)
 
 The Heaviside unit step function, equal to 0 if *x* is negative,
@@ -743,6 +770,9 @@ equal to zero, use `unit_005fstep`.
 
 See also: `unit_step`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: imagpart -->
+<!-- signatures: imagpart(expr) -->
 ### Function: imagpart (expr)
 
 Returns the imaginary part of the expression *expr*.
@@ -788,6 +818,9 @@ maxima
 
 See also: `abs`, `carg`, `polarform`, `rectform`, `realpart`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: lmax -->
+<!-- signatures: lmax(L) -->
 ### Function: lmax (L)
 
 When *L* is a list or a set, return `apply ('max, args (L))`.
@@ -796,6 +829,9 @@ See also `lmin` and `max`.
 
 See also: `lmin`, `max`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: lmin -->
+<!-- signatures: lmin(L) -->
 ### Function: lmin (L)
 
 When *L* is a list or a set, return `apply ('min, args (L))`.
@@ -804,7 +840,10 @@ See also `lmax` and `min`.
 
 See also: `lmax`, `min`.
 
-### Function: make_random_state (make_random_state, n, make_random_state, s, make_random_state, true, make_random_state, false)
+<!-- category: NumberTheory -->
+<!-- keywords: make_random_state -->
+<!-- signatures: make_random_state(n), make_random_state(s), make_random_state(true), make_random_state(false) -->
+### Function: make_random_state (n)
 
 A random state object represents the state of the random number generator.
 The state comprises 627 32-bit words.
@@ -829,6 +868,9 @@ using the current computer clock time as the seed.
 `make_random_state (false)` returns a copy of the current state
 of the random number generator.
 
+<!-- category: NumberTheory -->
+<!-- keywords: max -->
+<!-- signatures: max(x_1, ..., x_n) -->
 ### Function: max (x_1, ..., x_n)
 
 Return a simplified value for the numerical maximum of the expressions *x_1* 
@@ -892,6 +934,9 @@ members and excludes those that are in between; for example
 
 See also: `min`, `lmax`, `lmin`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: min -->
+<!-- signatures: min(x_1, ..., x_n) -->
 ### Function: min (x_1, ..., x_n)
 
 Return a simplified value for the numerical minimum of the expressions *x_1* 
@@ -955,6 +1000,9 @@ members and excludes those that are in between; for example
 
 See also: `max`, `lmax`, `lmin`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: polarform -->
+<!-- signatures: polarform(expr) -->
 ### Function: polarform (expr)
 
 Returns an expression `r %e^(%i theta)` equivalent to *expr*,
@@ -990,6 +1038,9 @@ maxima
 (%o3)                 sqrt(5) %e
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: random -->
+<!-- signatures: random(x) -->
 ### Function: random (x)
 
 Returns a pseudorandom number.  If *x* is an integer,
@@ -1076,6 +1127,9 @@ maxima
 (%o13)                  32.28666704056853
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: realpart -->
+<!-- signatures: realpart(expr) -->
 ### Function: realpart (expr)
 
 Returns the real part of *expr*.  `realpart` and `imagpart` will
@@ -1114,6 +1168,9 @@ maxima
 
 See also: `imagpart`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: rectform -->
+<!-- signatures: rectform(expr) -->
 ### Function: rectform (expr)
 
 Returns an expression `a + b %i` equivalent to *expr*,
@@ -1144,6 +1201,9 @@ maxima
 (%o3)                       2 %i + 1
 ```
 
+<!-- category: NumberTheory -->
+<!-- keywords: round -->
+<!-- signatures: round(x) -->
 ### Function: round (x)
 
 When *x* is a real number, returns the closest integer to *x*.
@@ -1156,6 +1216,9 @@ See `distribute_005fover`.
 
 See also: `floor`, `ceiling`, `distribute_over`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: set_random_state -->
+<!-- signatures: set_random_state(s) -->
 ### Function: set_random_state (s)
 
 Copies *s* to the random number generator state.
@@ -1163,6 +1226,9 @@ Copies *s* to the random number generator state.
 
 `set_random_state` always returns `done`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: signum -->
+<!-- signatures: signum(x) -->
 ### Function: signum (x)
 
 For either real or complex numbers *x*, the signum function returns
@@ -1183,6 +1249,9 @@ equation.  See `sign` and `distribute_005fover`.
 
 See also: `sign`, `distribute_over`.
 
+<!-- category: NumberTheory -->
+<!-- keywords: truncate -->
+<!-- signatures: truncate(x) -->
 ### Function: truncate (x)
 
 When *x* is a real number, return the closest integer to *x* not

@@ -1,6 +1,9 @@
 ## ezunits
 
-### Function: ` ()
+<!-- category: Units -->
+<!-- keywords: ` -->
+<!-- signatures: ` -->
+### Function: `
 
 The dimensional quantity operator.
 An expression $a ` b$ represents a dimensional quantity,
@@ -142,7 +145,10 @@ Arithmetic operations on dimensional quantities.
 (%o6)                        a  ` m
 ```
 
-### Function: `` ()
+<!-- category: Units -->
+<!-- keywords: `` -->
+<!-- signatures: `` -->
+### Function: ``
 
 The unit conversion operator.
 An expression $a ` b `` c$ converts from unit `b` to unit `c`.
@@ -375,6 +381,9 @@ Computing conversions to base units; may take a moment.
                                    bell ft
 ```
 
+<!-- category: Units -->
+<!-- keywords: constvalue -->
+<!-- signatures: constvalue(x) -->
 ### Function: constvalue (x)
 
 Shows the value and the units of one of the constants declared by package
@@ -411,6 +420,9 @@ Example:
 
 See also: `declare_constvalue`.
 
+<!-- category: Units -->
+<!-- keywords: declare_constvalue -->
+<!-- signatures: declare_constvalue(a, x) -->
 ### Function: declare_constvalue (a, x)
 
 Declares the value of a constant to be used in package `ezunits`. This
@@ -439,6 +451,9 @@ Example:
 (%o4)                      5000 ` lbm
 ```
 
+<!-- category: Units -->
+<!-- keywords: declare_dimensions -->
+<!-- signatures: declare_dimensions(a_1, d_1, ..., a_n, d_n) -->
 ### Function: declare_dimensions (a_1, d_1, ..., a_n, d_n)
 
 Declares *a_1*, ..., *a_n* to have dimensions *d_1*, ...,
@@ -479,6 +494,9 @@ Examples:
                                s
 ```
 
+<!-- category: Units -->
+<!-- keywords: declare_fundamental_dimensions, remove_fundamental_dimensions, fundamental_dimensions -->
+<!-- signatures: declare_fundamental_dimensions(d_1, d_2, d_3, ...), remove_fundamental_dimensions(d_1, d_2, d_3, ...), fundamental_dimensions -->
 ### Function: declare_fundamental_dimensions (d_1, d_2, d_3, ...)
 
 `declare_fundamental_dimensions` declares fundamental dimensions.
@@ -523,6 +541,9 @@ Examples:
 (%o6) [length, mass, time, current, temperature, quantity, money]
 ```
 
+<!-- category: Units -->
+<!-- keywords: declare_fundamental_units, remove_fundamental_units -->
+<!-- signatures: declare_fundamental_units(u_1, d_1, ..., u_n, d_n), remove_fundamental_units(u_1, ..., u_n) -->
 ### Function: declare_fundamental_units (u_1, d_1, ..., u_n, d_n)
 
 `declare_fundamental_units` declares *u_1*, ..., *u_n*
@@ -577,6 +598,9 @@ Examples:
                               smile
 ```
 
+<!-- category: Units -->
+<!-- keywords: declare_qty -->
+<!-- signatures: declare_qty(a, x) -->
 ### Function: declare_qty (a, x)
 
 Declares that `qty` should return *x* for symbol *a*, where
@@ -613,7 +637,10 @@ Example:
 
 See also: `qty`.
 
-### Function: declare_unit_conversion (u, =, v, ...)
+<!-- category: Units -->
+<!-- keywords: declare_unit_conversion -->
+<!-- signatures: declare_unit_conversion(u=v, ...) -->
+### Function: declare_unit_conversion (u=v, ...)
 
 Appends equations *u* = *v*, ... to the list of unit conversions
 known to the unit conversion operator $``$.
@@ -683,6 +710,9 @@ Computing conversions to base units; may take a moment.
 (%o4)                     90 ` teaspoon
 ```
 
+<!-- category: Units -->
+<!-- keywords: declare_units -->
+<!-- signatures: declare_units(a, u) -->
 ### Function: declare_units (a, u)
 
 Declares that `units` should return units *u* for *a*,
@@ -722,6 +752,9 @@ Example:
 
 See also: `units`.
 
+<!-- category: Units -->
+<!-- keywords: dimensionless -->
+<!-- signatures: dimensionless(L) -->
 ### Function: dimensionless (L)
 
 Returns a basis for the dimensionless quantities which can be formed
@@ -773,7 +806,10 @@ is proportional to the fine-structure constant.
                       %c %e_0 %h_bar  %m_P
 ```
 
-### Function: fundamental_units (fundamental_units, x, fundamental_units)
+<!-- category: Units -->
+<!-- keywords: fundamental_units -->
+<!-- signatures: fundamental_units(x), fundamental_units() -->
+### Function: fundamental_units (x)
 
 `fundamental_units(x)` returns the units
 associated with the fundamental dimensions of *x*.
@@ -823,7 +859,10 @@ Examples:
                                m
 ```
 
-### Function: natural_unit (expr, v_1, ..., v_n)
+<!-- category: Units -->
+<!-- keywords: natural_unit -->
+<!-- signatures: natural_unit(expr, [v_1, ..., v_n]) -->
+### Function: natural_unit (expr, [v_1, ..., v_n])
 
 Finds exponents *e_1*, ..., *e_n* such that
 `dimension(expr) = dimension(v_1^e_1 ... v_n^e_n)`.
@@ -842,6 +881,9 @@ Examples:
 
 ```
 
+<!-- category: Units -->
+<!-- keywords: qty -->
+<!-- signatures: qty(x) -->
 ### Function: qty (x)
 
 Returns the nondimensional part of a dimensional quantity *x*,
@@ -884,6 +926,9 @@ Example:
 (%o6)                         100 v
 ```
 
+<!-- category: Units -->
+<!-- keywords: remove_constvalue -->
+<!-- signatures: remove_constvalue(a) -->
 ### Function: remove_constvalue (a)
 
 Reverts the effect of `declare_005fconstvalue`. This function should be
@@ -891,11 +936,17 @@ loaded with `load ("ezunits")`.
 
 See also: `declare_constvalue`.
 
+<!-- category: Units -->
+<!-- keywords: remove_dimensions -->
+<!-- signatures: remove_dimensions(a_1, ..., a_n) -->
 ### Function: remove_dimensions (a_1, ..., a_n)
 
 Reverts the effect of `declare_dimensions`. This function should be
 loaded with `load ("ezunits")`.
 
+<!-- category: Units -->
+<!-- keywords: unitp -->
+<!-- signatures: unitp(x) -->
 ### Function: unitp (x)
 
 Returns `true` if *x* is a literal dimensional expression,
@@ -966,6 +1017,9 @@ Examples:
 (%o4)                         true
 ```
 
+<!-- category: Units -->
+<!-- keywords: units -->
+<!-- signatures: units(x) -->
 ### Function: units (x)
 
 Returns the units of a dimensional quantity *x*,

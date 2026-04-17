@@ -1,6 +1,9 @@
 ## lsquares
 
-### Function: lsquares_estimates (lsquares_estimates, D, x, e, a, lsquares_estimates, D, x, e, a, initial, =, L, tol, =, t)
+<!-- category: Statistics -->
+<!-- keywords: lsquares_estimates -->
+<!-- signatures: lsquares_estimates(D, x, e, a), lsquares_estimates(D, x, e, a, initial=L, tol=t) -->
+### Function: lsquares_estimates (D, x, e, a)
 
 Estimate parameters *a* to best fit the equation *e*
 in the variables *x* and *a* to the data *D*,
@@ -189,7 +192,10 @@ I NFN FUNC                  GNORM                 STEPLENGTH
 
 See also: `lsquares_estimates_approximate`, `lsquares_estimates_exact`, `lsquares_mse`, `lsquares_residuals`, `lsquares_residual_mse`.
 
-### Function: lsquares_estimates_approximate (MSE, a, initial, =, L, tol, =, t)
+<!-- category: Statistics -->
+<!-- keywords: lsquares_estimates_approximate -->
+<!-- signatures: lsquares_estimates_approximate(MSE, a, initial=L, tol=t) -->
+### Function: lsquares_estimates_approximate (MSE, a, initial=L, tol=t)
 
 Estimate parameters *a* to minimize the mean square error *MSE*,
 via the numerical minimization function `lbfgs`.
@@ -276,6 +282,9 @@ Example:
 
 See also: `lsquares_estimates`, `lsquares_estimates_exact`, `lsquares_mse`, `lsquares_residuals`, `lsquares_residual_mse`.
 
+<!-- category: Statistics -->
+<!-- keywords: lsquares_estimates_exact -->
+<!-- signatures: lsquares_estimates_exact(MSE, a) -->
 ### Function: lsquares_estimates_exact (MSE, a)
 
 Estimate parameters *a* to minimize the mean square error *MSE*,
@@ -345,6 +354,9 @@ Example:
 
 See also: `lsquares_estimates`, `lsquares_estimates_approximate`, `lsquares_mse`, `lsquares_residuals`, `lsquares_residual_mse`.
 
+<!-- category: Statistics -->
+<!-- keywords: lsquares_mse -->
+<!-- signatures: lsquares_mse(D, x, e) -->
 ### Function: lsquares_mse (D, x, e)
 
 Returns the mean square error (MSE), a summation expression, for the equation *e*
@@ -475,6 +487,9 @@ Example:
  + ((D + 1)  - C - B - A) )/5
 ```
 
+<!-- category: Statistics -->
+<!-- keywords: lsquares_residual_mse -->
+<!-- signatures: lsquares_residual_mse(D, x, e, a) -->
 ### Function: lsquares_residual_mse (D, x, e, a)
 
 Returns the residual mean square error (MSE) for the equation *e*
@@ -552,6 +567,9 @@ Example:
                               2560
 ```
 
+<!-- category: Statistics -->
+<!-- keywords: lsquares_residuals -->
+<!-- signatures: lsquares_residuals(D, x, e, a) -->
 ### Function: lsquares_residuals (D, x, e, a)
 
 Returns the residuals for the equation *e*
@@ -630,7 +648,10 @@ Example:
                      64    64    32  64  64
 ```
 
-### Function: plsquares (plsquares, Mat, VarList, depvars, plsquares, Mat, VarList, depvars, maxexpon, plsquares, Mat, VarList, depvars, maxexpon, maxdegree)
+<!-- category: Statistics -->
+<!-- keywords: plsquares -->
+<!-- signatures: plsquares(Mat, VarList, depvars), plsquares(Mat, VarList, depvars, maxexpon), plsquares(Mat, VarList, depvars, maxexpon, maxdegree) -->
+### Function: plsquares (Mat, VarList, depvars)
 
 Multivariable polynomial adjustment of a data table by the "least squares"
 method. *Mat* is a matrix containing the data, *VarList* is a list of variable names (one for each Mat column, but use "-" instead of varnames to ignore Mat columns), *depvars* is the name of a dependent variable or a list with one or more names of dependent variables (which names should be in *VarList*), *maxexpon* is the optional maximum exponent for each independent variable (1 by default), and *maxdegree* is the optional maximum polynomial degree (*maxexpon* by default); note that the sum of exponents of each term must be equal or smaller than *maxdegree*, and if `maxdgree = 0` then no limit is applied.

@@ -1,5 +1,8 @@
 ## f90
 
+<!-- category: IO -->
+<!-- keywords: f90 -->
+<!-- signatures: f90(expr_1, ..., expr_n) -->
 ### Function: f90 (expr_1, ..., expr_n)
 
 Prints one or more expressions *expr_1*, ..., *expr_n*
@@ -75,6 +78,9 @@ end
 
 See also: `fortran`, `with_stdout`.
 
+<!-- category: IO -->
+<!-- keywords: f90_output_line_length_max -->
+<!-- signatures: f90_output_line_length_max -->
 ### Variable: f90_output_line_length_max
 
 Default value: 65

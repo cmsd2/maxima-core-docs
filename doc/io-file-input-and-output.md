@@ -1,5 +1,8 @@
 ## File Input and Output
 
+<!-- category: IO -->
+<!-- keywords: appendfile -->
+<!-- signatures: appendfile(filename) -->
 ### Function: appendfile (filename)
 
 Appends a console transcript to *filename*.  `appendfile` is the same
@@ -12,7 +15,10 @@ always appended.
 
 See also: `writefile`, `closefile`.
 
-### Function: batch (batch, filename, batch, filename, option, batch, S, batch, S, option)
+<!-- category: IO -->
+<!-- keywords: batch -->
+<!-- signatures: batch(filename), batch(filename, option), batch(S), batch(S, option) -->
+### Function: batch (filename)
 
 `batch(filename)` reads Maxima expressions from *filename* and 
 evaluates them.  `batch` searches for *filename* in the list 
@@ -96,6 +102,9 @@ See also `load`, `batchload`,
 
 See also: `file_search_maxima`, `file_search`, `openr`, `file_search_demo`, `demo`, `run_testsuite`, `file_search_tests`, `testsuite_files`, `%`, `%th`, `stringout`, `asksign`, `askinteger`, `batch_answers_from_file`, `load`, `batchload`.
 
+<!-- category: IO -->
+<!-- keywords: batch_answers_from_file -->
+<!-- signatures: batch_answers_from_file -->
 ### Variable: batch_answers_from_file
 
 Default value: `false`
@@ -131,7 +140,10 @@ function, as a default, also binds `batch_answers_from_file` to
 
 See also: `command_line_options`, `run_testsuite`.
 
-### Function: batchload (batchload, filename, batchload, S)
+<!-- category: IO -->
+<!-- keywords: batchload -->
+<!-- signatures: batchload(filename), batchload(S) -->
+### Function: batchload (filename)
 
 Reads Maxima expressions from input file *filename* or input stream *S*
 and evaluates them,
@@ -160,12 +172,18 @@ See also `batch`, and `load`.
 
 See also: `print`, `describe`, `%`, `%th`, `batch`, `load`.
 
+<!-- category: IO -->
+<!-- keywords: closefile -->
+<!-- signatures: closefile() -->
 ### Function: closefile ()
 
 Closes the transcript file opened by `writefile` or `appendfile`.
 
 See also: `writefile`, `appendfile`.
 
+<!-- category: IO -->
+<!-- keywords: directory -->
+<!-- signatures: directory(path) -->
 ### Function: directory (path)
 
 Returns a list of the files and directories found in *path*
@@ -181,6 +199,9 @@ and possibly other characters, depending on the system.
 `directory` relies on the Lisp function DIRECTORY,
 which may have implementation-specific behavior.
 
+<!-- category: IO -->
+<!-- keywords: file_output_append -->
+<!-- signatures: file_output_append -->
 ### Variable: file_output_append
 
 Default value: `false`
@@ -199,7 +220,10 @@ functions always truncate their output file, and `tex` and
 
 See also: `save`, `stringout`, `with_stdout`, `tex`, `appendfile`.
 
-### Function: file_search (file_search, filename, file_search, filename, pathlist)
+<!-- category: IO -->
+<!-- keywords: file_search -->
+<!-- signatures: file_search(filename), file_search(filename, pathlist) -->
+### Function: file_search (filename)
 
 `file_search` searches for the file *filename* and returns the path to
 the file (as a string) if it can be found; otherwise `file_search` returns
@@ -252,6 +276,9 @@ See also `file_005fsearch_005fcache`.
 
 See also: `file_search_maxima`, `file_search_lisp`, `file_search_demo`, `load`, `file_search_cache`.
 
+<!-- category: IO -->
+<!-- keywords: file_search_cache -->
+<!-- signatures: file_search_cache -->
 ### Variable: file_search_cache
 
 Default value: `auto`
@@ -273,6 +300,9 @@ See also `file_005fsearch`.
 
 See also: `file_search`.
 
+<!-- category: IO -->
+<!-- keywords: file_search_maxima, file_search_lisp, file_search_demo, file_search_usage, file_search_tests -->
+<!-- signatures: file_search_lisp, file_search_demo, file_search_usage, file_search_tests -->
 ### Variable: file_search_maxima
 
 These variables specify lists of directories to be searched by
@@ -336,6 +366,9 @@ Further information about Common Lisp pathnames maybe be found in
 
 See also: `load`, `demo`, `Introduction-for-Runtime-Environment`.
 
+<!-- category: IO -->
+<!-- keywords: file_type -->
+<!-- signatures: file_type(filename) -->
 ### Function: file_type (filename)
 
 Returns a guess about the content of *filename*, based on the filename 
@@ -375,6 +408,9 @@ maxima
 
 See also: `pathname_type`, `file_type_maxima`, `file_type_lisp`.
 
+<!-- category: IO -->
+<!-- keywords: file_type_lisp -->
+<!-- signatures: file_type_lisp -->
 ### Variable: file_type_lisp
 
 Default value:  `[l, lsp, lisp]`
@@ -388,6 +424,9 @@ See also `file_005ftype`.
 
 See also: `file_type`.
 
+<!-- category: IO -->
+<!-- keywords: file_type_maxima -->
+<!-- signatures: file_type_maxima -->
 ### Variable: file_type_maxima
 
 Default value:  `[mac, mc, demo, dem, dm1, dm2, dm3, dmt, wxm]`
@@ -401,6 +440,9 @@ See also `file_005ftype`.
 
 See also: `file_type`.
 
+<!-- category: IO -->
+<!-- keywords: filename_merge -->
+<!-- signatures: filename_merge(path, filename) -->
 ### Function: filename_merge (path, filename)
 
 Constructs a modified path from *path* and *filename*.  If the final
@@ -411,6 +453,9 @@ component is simply replaced by *filename*.
 
 The result is a Lisp pathname object.
 
+<!-- category: IO -->
+<!-- keywords: fortindent -->
+<!-- signatures: fortindent -->
 ### Variable: fortindent
 
 Default value: `0`
@@ -423,6 +468,9 @@ expressions to be printed farther to the right.
 
 See also: `fortran`.
 
+<!-- category: IO -->
+<!-- keywords: fortran -->
+<!-- signatures: fortran(expr) -->
 ### Function: fortran (expr)
 
 Prints *expr* as a Fortran statement.
@@ -517,6 +565,9 @@ maxima
 
 See also: `grind`, `fortindent`, `fortspaces`, `function_f90`.
 
+<!-- category: IO -->
+<!-- keywords: fortspaces -->
+<!-- signatures: fortspaces -->
 ### Variable: fortspaces
 
 Default value: `false`
@@ -525,6 +576,9 @@ Default value: `false`
 When `fortspaces` is `true`, `fortran` fills out
 each printed line with spaces to 80 columns.
 
+<!-- category: IO -->
+<!-- keywords: get_tex_environment, set_tex_environment -->
+<!-- signatures: get_tex_environment(op), set_tex_environment(op, before, after) -->
 ### Function: get_tex_environment (op)
 
 Customize the TeX environment output by `tex`.
@@ -583,6 +637,9 @@ $$f(x):=1-x$$
 (%o4)                         false
 ```
 
+<!-- category: IO -->
+<!-- keywords: get_tex_environment_default, set_tex_environment_default -->
+<!-- signatures: get_tex_environment_default(), set_tex_environment_default(before, after) -->
 ### Function: get_tex_environment_default ()
 
 Customize the TeX environment output by `tex`.
@@ -637,6 +694,9 @@ g\left(x\right)+f\left(x\right)
 (%i5) \\end{equation}");
 ```
 
+<!-- category: IO -->
+<!-- keywords: load -->
+<!-- signatures: load(filename) -->
 ### Function: load (filename)
 
 Evaluates expressions in *filename*, thus bringing variables, functions, and
@@ -687,6 +747,9 @@ being loaded.
 
 See also: `filename_merge`, `file_search`, `file_search_maxima`, `file_search_lisp`, `save`, `translate_file`, `compile_file`, `stringout`, `loadfile`, `batchload`, `batch`, `demo`, `numericalio`, `load_pathname`.
 
+<!-- category: IO -->
+<!-- keywords: load_pathname -->
+<!-- signatures: load_pathname -->
 ### Variable: load_pathname
 
 Default value: `false`
@@ -733,6 +796,9 @@ End of batchfile
 
 See also: `load`, `loadfile`, `batchload`.
 
+<!-- category: IO -->
+<!-- keywords: loadfile -->
+<!-- signatures: loadfile(filename) -->
 ### Function: loadfile (filename)
 
 Evaluates Lisp expressions in *filename*.  `loadfile` does not invoke
@@ -746,6 +812,9 @@ more convenient to use `load` instead of `loadfile`.
 
 See also: `file_search`, `save`, `translate_file`, `compile_file`, `load`.
 
+<!-- category: IO -->
+<!-- keywords: loadprint -->
+<!-- signatures: loadprint -->
 ### Variable: loadprint
 
 Default value: `true`
@@ -769,6 +838,9 @@ When `loadprint` is `false`, never print a message.
 
 See also: `setup_autoload`.
 
+<!-- category: IO -->
+<!-- keywords: pathname_directory, pathname_name, pathname_type -->
+<!-- signatures: pathname_directory(pathname), pathname_name(pathname), pathname_type(pathname) -->
 ### Function: pathname_directory (pathname)
 
 These functions return the components of *pathname*.
@@ -798,6 +870,9 @@ maxima
 (%o3)                          txt
 ```
 
+<!-- category: IO -->
+<!-- keywords: printfile -->
+<!-- signatures: printfile(path) -->
 ### Function: printfile (path)
 
 Prints the file named by *path* to the console.  *path* may be a string
@@ -815,7 +890,10 @@ or otherwise the result of a successful filename merge.
 
 See also: `file_search_usage`, `filename_merge`.
 
-### Function: save (save, filename, name_1, name_2, name_3, ..., save, filename, values, functions, labels, ..., save, filename, m, n, save, filename, name_1, =, expr_1, ..., save, filename, all, save, filename, name_1, =, expr_1, name_2, =, expr_2, ...)
+<!-- category: IO -->
+<!-- keywords: save -->
+<!-- signatures: save(filename, name_1, name_2, name_3, ...), save(filename, values, functions, labels, ...), save(filename, [m, n]), save(filename, name_1=expr_1, ...), save(filename, all), save(filename, name_1=expr_1, name_2=expr_2, ...) -->
+### Function: save (filename, name_1, name_2, name_3, ...)
 
 Stores the current values of *name_1*, *name_2*, *name_3*, ...,
 in *filename*.  The arguments are the names of variables, functions, or
@@ -874,7 +952,10 @@ have been assigned new values by the user; see `myoptions`.
 
 See also: `load`, `file_output_append`, `values`, `functions`, `labels`, `infolists`, `file_search_maxima`, `showtime`, `myoptions`.
 
-### Function: stringout (stringout, filename, expr_1, expr_2, expr_3, ..., stringout, filename, m, n, stringout, filename, input, stringout, filename, functions, stringout, filename, values)
+<!-- category: IO -->
+<!-- keywords: stringout -->
+<!-- signatures: stringout(filename, expr_1, expr_2, expr_3, ...), stringout(filename, [m, n]), stringout(filename, input), stringout(filename, functions), stringout(filename, values) -->
+### Function: stringout (filename, expr_1, expr_2, expr_3, ...)
 
 `stringout` writes expressions to a file in the same form the expressions
 would be typed for input.  The file can then be used as input for the
@@ -923,7 +1004,10 @@ variable, a colon, and its value.  Note that the general form of
 
 See also: `batch`, `demo`, `writefile`, `file_output_append`, `grind`, `functions`, `values`.
 
-### Function: tex (tex, expr, tex, expr, destination, tex, expr, false, tex, label, tex, label, destination, tex, label, false)
+<!-- category: IO -->
+<!-- keywords: tex -->
+<!-- signatures: tex(expr), tex(expr, destination), tex(expr, false), tex(label), tex(label, destination), tex(label, false) -->
+### Function: tex (expr)
 
 Prints a representation of an expression suitable for the TeX document
 preparation system.  The result is a fragment of a document, which can be copied
@@ -1015,6 +1099,9 @@ maxima
 
 See also: `tex1`, `texput`.
 
+<!-- category: IO -->
+<!-- keywords: tex1 -->
+<!-- signatures: tex1(e) -->
 ### Function: tex1 (e)
 
 Returns a string which represents the TeX output for the expressions *e*.
@@ -1041,7 +1128,10 @@ maxima
 
 See also: `tex`, `texput`.
 
-### Function: texput (texput, a, s, texput, a, f, texput, a, s, operator_type, texput, a, s_1, s_2, matchfix, texput, a, s_1, s_2, s_3, matchfix)
+<!-- category: IO -->
+<!-- keywords: texput -->
+<!-- signatures: texput(a, s), texput(a, f), texput(a, s, operator_type), texput(a, [s_1, s_2], matchfix), texput(a, [s_1, s_2, s_3], matchfix) -->
+### Function: texput (a, s)
 
 Assign the TeX output for the atom *a*, which can be a symbol or the name
 of an operator.
@@ -1337,7 +1427,10 @@ $$ \langle a \, | \,b \rangle $$
 
 See also: `tex`, `tex1`.
 
-### Function: with_stdout (with_stdout, f, expr_1, expr_2, expr_3, ..., with_stdout, s, expr_1, expr_2, expr_3, ...)
+<!-- category: IO -->
+<!-- keywords: with_stdout -->
+<!-- signatures: with_stdout(f, expr_1, expr_2, expr_3, ...), with_stdout(s, expr_1, expr_2, expr_3, ...) -->
+### Function: with_stdout (f, expr_1, expr_2, expr_3, ...)
 
 Evaluates *expr_1*, *expr_2*, *expr_3*, ... and writes any
 output thus generated to a file *f* or output stream *s*.  The evaluated
@@ -1378,6 +1471,9 @@ See also `writefile` and `display2d`.
 
 See also: `print`, `display`, `grind`, `file_output_append`, `writefile`, `display2d`.
 
+<!-- category: IO -->
+<!-- keywords: writefile -->
+<!-- signatures: writefile(filename) -->
 ### Function: writefile (filename)
 
 Begins writing a transcript of the Maxima session to *filename*.

@@ -1,5 +1,8 @@
 ## Data Types and Structures
 
+<!-- category: IO -->
+<!-- keywords: concat -->
+<!-- signatures: concat(arg_1, arg_2, ...) -->
 ### Function: concat (arg_1, arg_2, ...)
 
 Concatenates its arguments.  The arguments must evaluate to atoms.  The return
@@ -75,6 +78,9 @@ Note that although `concat (1, 2)` looks like a number, it is a string.
 
 See also: `sconcat`, `simplode`, `string`, `eval_string`, `printf`, `::`.
 
+<!-- category: IO -->
+<!-- keywords: sconcat -->
+<!-- signatures: sconcat(arg_1, arg_2, ...) -->
 ### Function: sconcat (arg_1, arg_2, ...)
 
 Concatenates its arguments into a string.  Unlike `concat`, the
@@ -113,6 +119,9 @@ Another purpose for `sconcat` is to convert arbitrary objects to strings.
 
 See also: `concat`, `simplode`, `string`, `eval_string`, `printf`.
 
+<!-- category: IO -->
+<!-- keywords: string -->
+<!-- signatures: string(expr) -->
 ### Function: string (expr)
 
 Converts `expr` to Maxima’s linear notation just as if it had been typed
@@ -128,6 +137,9 @@ See also `concat`, `sconcat`, `simplode` and
 
 See also: `concat`, `sconcat`, `simplode`, `eval_string`.
 
+<!-- category: IO -->
+<!-- keywords: stringdisp -->
+<!-- signatures: stringdisp -->
 ### Variable: stringdisp
 
 Default value: `false`

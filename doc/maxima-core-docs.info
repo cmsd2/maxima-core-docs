@@ -1,0 +1,2859 @@
+This is maxima-core-docs.info, produced by makeinfo version 7.3 from
+maxima-core-docs.texi.
+
+
+Indirect:
+maxima-core-docs.info-1: 93
+maxima-core-docs.info-2: 300270
+maxima-core-docs.info-3: 603220
+maxima-core-docs.info-4: 900200
+maxima-core-docs.info-5: 1200224
+maxima-core-docs.info-6: 1500193
+maxima-core-docs.info-7: 1800095
+maxima-core-docs.info-8: 2100229
+maxima-core-docs.info-9: 2400838
+maxima-core-docs.info-10: 2700974
+
+Tag Table:
+(Indirect)
+Node: Top93
+Node: Maxima Core Documentation231
+Node: Introduction2842
+Node: Algebra3100
+Node: asympa3240
+Node: Function asympa3399
+Node: sym3804
+Node: Function comp2pui n L5395
+Node: Function cont2part pc lvar6081
+Node: Function direct [p_1 ... p_n] y f [lvar_1 ... lvar_n]6669
+Node: Function ele2comp m L10425
+Node: Function ele2polynome L z10809
+Node: Function ele2pui m L11745
+Node: Function elem ele sym lvar12101
+Node: Function explose pc lvar13676
+Node: Function kostka part_1 part_214073
+Node: Function lgtreillis n m14449
+Node: Function ltreillis n m14898
+Node: Function mon2schur L15369
+Node: Function multi_elem l_elem multi_pc l_var16708
+Node: Function multi_orbit P [lvar_1 lvar_2 ... lvar_p]17591
+Node: Function multi_pui18429
+Node: Function multinomial r part19010
+Node: Function multsym ppart_1 ppart_2 n19423
+Node: Function orbit P lvar20424
+Node: Function part2cont ppart lvar21148
+Node: Function partpol psym lvar21627
+Node: Function permut L22038
+Node: Function polynome2ele P x22255
+Node: Function prodrac L k22954
+Node: Function pui L sym lvar23339
+Node: Function pui2comp n lpui24781
+Node: Function pui2ele n lpui26126
+Node: Function pui2polynome x lpui26671
+Node: Function pui_direct orbite [lvar_1 ... lvar_n] [d_1 d_2 ... d_n]27566
+Node: Function puireduc n lpui29901
+Node: Function resolvante P x f [x_1 ... x_d]30741
+Node: Function resolvante_alternee1 P x38378
+Node: Function resolvante_bipartite P x39186
+Node: Function resolvante_diedrale P x40165
+Node: Function resolvante_klein P x41221
+Node: Function resolvante_klein3 P x41936
+Node: Function resolvante_produit_sym P x42653
+Node: Function resolvante_unitaire P Q x44084
+Node: Function resolvante_vierer P x44804
+Node: Function schur2comp P l_var45516
+Node: Function somrac L k46299
+Node: Function tcontract pol lvar46693
+Node: Function tpartpol pol lvar47046
+Node: Function treillis n47400
+Node: Function treinat part47827
+Node: Calculus48549
+Node: Differential Equations48699
+Node: Variable %c49171
+Node: Variable %k149428
+Node: Variable %k249715
+Node: Function bc2 solution xval1 yval1 xval2 yval250037
+Node: Function desolve eqn y50837
+Node: Function ic1 solution xval yval53079
+Node: Function ic2 solution xval yval dval53723
+Node: Variable method54538
+Node: Function ode2 eqn dvar ivar54845
+Node: Variable yp59108
+Node: Differentiation59406
+Node: Function antid expr x ux60138
+Node: Function antidiff expr x ux62670
+Node: Function at expr [eqn_1 ... eqn_n]65051
+Node: Variable atomgrad68245
+Node: Function atvalue expr [x_1=a_1 ... x_m=a_m] c68564
+Node: Function del x71227
+Node: Function delta t72190
+Node: Variable dependencies72801
+Node: Function depends f_1 x_1 ... f_n x_n74663
+Node: Variable derivabbrev77448
+Node: Function derivdegree expr y x77879
+Node: Function derivlist var_1 ... var_k78641
+Node: Variable derivsubst78983
+Node: Function diff expr x_1 n_1 ... x_m n_m79371
+Node: Function express expr83024
+Node: Function gradef fx_1 ... x_n g_1 ... g_m85969
+Node: Variable gradefs88091
+Node: Elliptic Functions88510
+Node: Function carlson_rc x y88997
+Node: Function carlson_rd x y z90985
+Node: Function carlson_rf x y z92248
+Node: Function carlson_rj x y z p93423
+Node: Function elliptic_e phi m94549
+Node: Function elliptic_ec m95036
+Node: Function elliptic_eu u m95607
+Node: Function elliptic_f phi m96303
+Node: Function elliptic_kc m96798
+Node: Function elliptic_pi n phi m97388
+Node: Integration97787
+Node: Function at_difference expr x a b99125
+Node: Function changevar expr fxy y x101303
+Node: Function dblint f r s a b103680
+Node: Function defint expr x a b106434
+Node: Variable erfflag107166
+Node: Function ilt expr s t107536
+Node: Variable intanalysis109941
+Node: Function integrate expr x111351
+Node: Variable integrate_use_rootsof120186
+Node: Variable integration_constant122530
+Node: Variable integration_constant_counter123557
+Node: Function laplace expr t s125035
+Node: Function ldefint expr x a b129590
+Node: Function potential givengradient130520
+Node: Variable prefer_d131224
+Node: Function pwilt expr s t132421
+Node: Function quad_control parameter [value]133493
+Node: Function quad_qag fx x a b key [epsrel epsabs limit]134255
+Node: Function quad_qagi fx x a b [epsrel epsabs limit]137100
+Node: Function quad_qagp fx x a b points [epsrel epsabs limit]139769
+Node: Function quad_qags fx x a b [epsrel epsabs limit]142725
+Node: Function quad_qawc fx x c a b [epsrel epsabs limit]145022
+Node: Function quad_qawf fx x a omega trig [epsabs limit maxp1 limlst]148482
+Node: Function quad_qawo fx x a b omega trig [epsrel epsabs limit maxp1 limlst]151255
+Node: Function quad_qaws fx x a b alpha beta wfun [epsrel epsabs limit]154308
+Node: Function residue expr z z_0157136
+Node: Function risch expr x157975
+Node: Function specint exp-s_t_expr t159186
+Node: Function tldefint expr x a b163602
+Node: Numerical163842
+Node: Function plotdf dydx options...164123
+Node: Function ploteq exp ...options...174053
+Node: Function rk ODE var initial domain175446
+Node: Special Functions179385
+Node: Function expintegral_chi z179854
+Node: Function expintegral_ci z180484
+Node: Function expintegral_e n z181133
+Node: Function expintegral_e1 z181793
+Node: Function expintegral_ei x182404
+Node: Function expintegral_li x183149
+Node: Function expintegral_shi z183757
+Node: Function expintegral_si z184336
+Node: Variable expintexpand184903
+Node: Variable expintrep186143
+Node: bode196350
+Node: Function bode_gain H range ...plot_opts...196598
+Node: Function bode_phase H range ...plot_opts...198169
+Node: contrib_ode199979
+Node: Function bessel_simplify expr200536
+Node: Function contrib_ode eqn y x202022
+Node: Function dgauss_a a b c x202332
+Node: Function dgauss_b a b c x202626
+Node: Function dkummer_m a b x202916
+Node: Function dkummer_u a b x203202
+Node: Function expintegral_e_simplify expr203499
+Node: Function gauss_a a b c x203999
+Node: Function gauss_b a b c x204916
+Node: Function kummer_m a b x205158
+Node: Function kummer_u a b x205851
+Node: Function ode_check eqn soln206234
+Node: Function odelin eqn y x207458
+Node: odepack208325
+Node: Function dlsode_init fex vars method208579
+Node: Function dlsode_step inity t tout rtol atol istate state210298
+Node: romberg212665
+Node: Function romberg expr x a b212946
+Node: Variable rombergabs217833
+Node: Variable rombergit218595
+Node: Variable rombergmin219224
+Node: Variable rombergtol219718
+Node: Combinatorics220446
+Node: Elementary Functions220615
+Node: Function !!221032
+Node: Function binomial x y221852
+Node: Function factcomb expr222979
+Node: Variable factlim224122
+Node: Function factorial224448
+Node: Variable factorial_expand228037
+Node: Function genfact x y z228465
+Node: Function minfactorial expr228982
+Node: Variable sumsplitfact229670
+Node: Sets230831
+Node: Function adjoin x a232246
+Node: Function belln n232872
+Node: Function cardinality a234015
+Node: Function cartesian_product b_1 ... b_n234707
+Node: Function cartesian_product_list b_1 ... b_n235704
+Node: Function disjoin x a239670
+Node: Function disjointp a b240522
+Node: Function divisors n241051
+Node: Function elementp x a242803
+Node: Function emptyp a243331
+Node: Function equiv_classes s F243793
+Node: Function every f s245320
+Node: Function extremal_subset s f max248388
+Node: Function flatten expr249239
+Node: Function full_listify a252054
+Node: Function fullsetify a252738
+Node: Function identity x253487
+Node: Function integer_partitions n253910
+Node: Function intersect a_1 ... a_n255879
+Node: Function intersection a_1 ... a_n256148
+Node: Function kron_delta x1 x2 ... xp257262
+Node: Function listify a258308
+Node: Function makeset expr x s258880
+Node: Function moebius n260620
+Node: Function multinomial_coeff a_1 ... a_n262003
+Node: Function num_distinct_partitions n263465
+Node: Function num_partitions n264433
+Node: Function partition_set a f265463
+Node: Function permutations a266403
+Node: Function powerset a267164
+Node: Function random_permutation a268377
+Node: Function set_partitions a269327
+Node: Function setdifference a b271072
+Node: Function setequalp a b272101
+Node: Function setify a272895
+Node: Function setp a273615
+Node: Function some f a274304
+Node: Function stirling1 n m277446
+Node: Function stirling2 n m278841
+Node: Function subset a f280391
+Node: Function subsetp a b281194
+Node: Function symmdifference a_1 ... a_n281743
+Node: Function union a_1 ... a_n282944
+Node: combinatorics284067
+Node: Function apply_cycles cl l284770
+Node: Function cyclep c n285637
+Node: Function perm_cycles p286425
+Node: Function perm_decomp p287007
+Node: Function perm_inverse p287614
+Node: Function perm_length p288226
+Node: Function perm_lex_next p288869
+Node: Function perm_lex_rank p289344
+Node: Function perm_lex_unrank n i289966
+Node: Function perm_next p290539
+Node: Function perm_parity p291065
+Node: Function perm_rank p291676
+Node: Function perm_undecomp cl n292265
+Node: Function perm_unrank n i292793
+Node: Function permp p293335
+Node: Function perms n293905
+Node: Function perms_lex n295509
+Node: Function permult p_1 ... p_m297434
+Node: Function permute p l297839
+Node: Function random_perm n298564
+Node: IO298976
+Node: Command Line299110
+Node: Variable %edispflag300270
+Node: Variable absboxchar301018
+Node: Function declare_index_properties a [p_1 p_2 p_3 ...]301635
+Node: Function disp expr_1 expr_2 ...305201
+Node: Function display expr_1 expr_2 ...306133
+Node: Variable display2d307228
+Node: Variable display2d_unicode309193
+Node: Variable display_format_internal310770
+Node: Variable display_index_separator311642
+Node: Function dispterms expr317144
+Node: Function expt a b318293
+Node: Variable exptdispflag318693
+Node: Function get_index_properties a319568
+Node: Function grind expr319945
+Node: Variable ibase324099
+Node: Function ldisp expr_1 ... expr_n326338
+Node: Function ldisplay expr_1 ... expr_n327653
+Node: Variable leftjust329202
+Node: Variable linel329886
+Node: Variable lispdisp330485
+Node: Variable negsumdispflag331142
+Node: Variable obase331683
+Node: Variable pfeformat333044
+Node: Variable powerdisp333990
+Node: Function print expr_1 ... expr_n334941
+Node: Function remove_index_properties a b c ...336539
+Node: Variable sqrtdispflag336998
+Node: Variable stardisp337313
+Node: Variable ttyoff337616
+Node: Function with_default_2d_display expr338171
+Node: Data Types and Structures338795
+Node: Function concat arg_1 arg_2 ...339138
+Node: Function sconcat arg_1 arg_2 ...340775
+Node: Function string expr341681
+Node: Variable stringdisp342230
+Node: File Input and Output343110
+Node: Function appendfile filename344351
+Node: Function batch filename344843
+Node: Variable batch_answers_from_file348900
+Node: Function batchload filename349999
+Node: Function closefile351200
+Node: Function directory path351512
+Node: Variable file_output_append352138
+Node: Function file_search filename353046
+Node: Variable file_search_cache355203
+Node: Variable file_search_maxima356144
+Node: Function file_type filename358517
+Node: Variable file_type_lisp359684
+Node: Variable file_type_maxima360101
+Node: Function filename_merge path filename360565
+Node: Variable fortindent361091
+Node: Function fortran expr361604
+Node: Variable fortspaces364238
+Node: Function get_tex_environment op364570
+Node: Function get_tex_environment_default365929
+Node: Function load filename367228
+Node: Variable load_pathname369528
+Node: Function loadfile filename370622
+Node: Variable loadprint371330
+Node: Function pathname_directory pathname372200
+Node: Function printfile path372850
+Node: Function save filename name_1 name_2 name_3 ...373702
+Node: Function stringout filename expr_1 expr_2 expr_3 ...376793
+Node: Function tex expr379228
+Node: Function tex1 e381576
+Node: Function texput a s382113
+Node: Function with_stdout f expr_1 expr_2 expr_3 ...387316
+Node: Function writefile filename388720
+Node: alt-display390245
+Node: Function alt_display_output_type form390772
+Node: Function define_alt_display functioninput expr392613
+Node: Function info_display form394417
+Node: Function mathml_display form394902
+Node: Function multi_display_for_texinfo form395413
+Node: Function reset_displays396410
+Node: Function set_alt_display num display-function396753
+Node: Function set_prompt fix expr397716
+Node: Function tex_display form400069
+Node: engineering-format400437
+Node: Variable engineering_format_floats400729
+Node: Variable engineering_format_max401468
+Node: Variable engineering_format_min401983
+Node: f90402963
+Node: Function f90 expr_1 ... expr_n403184
+Node: Variable f90_output_line_length_max405311
+Node: format406946
+Node: Function %coerce_bag op expr407593
+Node: Function %format_piece piece nth408288
+Node: Function format expr template1 ...408816
+Node: Function function_arguments expr functions...409887
+Node: Function function_calls expr functions...410216
+Node: Function get_coef clist k1 ...410527
+Node: Function matching_parts expr predicate args...411100
+Node: Function partition_poly expr test v1 ...411480
+Node: Function partition_series expr test v O411955
+Node: Function partition_Taylor expr test v O412195
+Node: Function partition_trig expr sintest costest v1 ...412494
+Node: Function uncoef clist412925
+Node: gentran413224
+Node: Variable ccurind414544
+Node: Variable clinelen414773
+Node: Variable dblfloat415020
+Node: Variable fortcurrind415540
+Node: Variable fortlinelen415828
+Node: Function gendecs name416093
+Node: Variable genfloat416506
+Node: Variable genstmtincr417102
+Node: Variable genstmtno417371
+Node: Function gentran stmt1 stmt2 ... stmtn [f1 f2 ... fm]417771
+Node: Function gentran_off sw419586
+Node: Function gentran_on sw419828
+Node: Function gentranin f1 f2 ... fn [f1 f2 ... fm]420058
+Node: Function gentraninshut422566
+Node: Variable gentranlang422863
+Node: Variable gentranopt423272
+Node: Function gentranout f1 f2 ... fn423906
+Node: Variable gentranparser424560
+Node: Function gentranpop f1 f2 ... fn425070
+Node: Function gentranpush f1 f2 ... fn425712
+Node: Variable gentranseg426151
+Node: Function gentranshut f1 f2 ... fn426355
+Node: Function literal arg1 arg2 ... argn426998
+Node: Function lrsetq var exp427797
+Node: Function lsetq var exp428396
+Node: Function markedvarp vname428964
+Node: Function markvar vname429221
+Node: Variable maxexpprintlen429499
+Node: Variable minclinelen431245
+Node: Variable minfortlinelen431511
+Node: Variable optimvarname431782
+Node: Variable ratlinelen432282
+Node: Function rsetq var exp432546
+Node: Variable tablen432982
+Node: Function tempvar type433305
+Node: Variable tempvarname433928
+Node: Variable tempvarnum434178
+Node: Variable tempvartype434799
+Node: Function type typev1...vn435301
+Node: Function unmarkvar vname435789
+Node: Variable usefortcomplex436075
+Node: numericalio436510
+Node: Function assume_external_byte_order byte_order_flag437155
+Node: Function opena_binary file_name437813
+Node: Function openr_binary file_name438142
+Node: Function openw_binary file_name438548
+Node: Function read_array S A438988
+Node: Function read_binary_array S A440135
+Node: Function read_binary_list S440818
+Node: Function read_binary_matrix S M441566
+Node: Function read_hashed_array S A442189
+Node: Function read_list S443475
+Node: Function read_matrix S444606
+Node: Function read_nested_list S446472
+Node: Function write_binary_data X D447634
+Node: Function write_data X D448904
+Node: operatingsystem450534
+Node: Function copy_file file1 file2450816
+Node: Function delete_file file1451019
+Node: Function rename_file file1 file2451248
+Node: stringproc451456
+Node: Function adjust_external_format453830
+Node: Function alphacharp char456276
+Node: Function alphanumericp char457450
+Node: Function ascii int457851
+Node: Function cequal char_1 char_2458533
+Node: Function cequalignore char_1 char_2458802
+Node: Function cgreaterp char_1 char_2459278
+Node: Function cgreaterpignore char_1 char_2459603
+Node: Function charat string n460083
+Node: Function charlist string460529
+Node: Function charp obj460830
+Node: Function cint char461084
+Node: Function clessp char_1 char_2462260
+Node: Function clesspignore char_1 char_2462556
+Node: Function close stream463021
+Node: Function constituent char463278
+Node: Function digitcharp char464030
+Node: Function eval_string str464333
+Node: Function flength stream465147
+Node: Function flush_output stream465557
+Node: Function fposition stream465895
+Node: Function freshline466441
+Node: Function get_output_stream_string stream466986
+Node: Function lowercasep char467494
+Node: Function make_string_input_stream string467845
+Node: Function make_string_output_stream468636
+Node: Function newline469525
+Node: Function opena file470002
+Node: Function openr file470465
+Node: Function openw file471486
+Node: Function parse_string str472077
+Node: Function printf dest string472877
+Node: Function readbyte stream477994
+Node: Function readchar stream478990
+Node: Function readline stream479415
+Node: Function scopy string479775
+Node: Function sdowncase string479999
+Node: Function sequal string_1 string_2480295
+Node: Function sequalignore string_1 string_2480609
+Node: Function sexplode string481089
+Node: Function simplode list481343
+Node: Function sinsert seq string pos482187
+Node: Function sinvertcase string482833
+Node: Function slength string483317
+Node: Function smake num char483548
+Node: Function smismatch string_1 string_2483887
+Node: Variable space484438
+Node: Function split string484631
+Node: Function sposition char string485462
+Node: Function sprint expr_1 ... expr_n485893
+Node: Function sremove seq string486820
+Node: Function sremovefirst seq string487578
+Node: Function sreverse string487875
+Node: Function ssearch seq string488208
+Node: Function ssort string488845
+Node: Function ssubst new old string489639
+Node: Function ssubstfirst new old string490527
+Node: Function strim seq string490834
+Node: Function striml seq string491317
+Node: Function strimr seq string491581
+Node: Function stringp obj491841
+Node: Function substring string start492099
+Node: Function supcase string492753
+Node: Variable tab493268
+Node: Function tokens string493443
+Node: Function unicode arg494343
+Node: Function unicode_to_utf8 code_point496600
+Node: Function uppercasep char497276
+Node: Variable us_ascii_only497605
+Node: Function utf8_to_unicode list498768
+Node: Function writebyte byte stream499180
+Node: LinearAlgebra500601
+Node: Matrices and Linear Algebra500780
+Node: Function addcol M list_1 ... list_n503229
+Node: Function addrow M list_1 ... list_n503617
+Node: Function adjoint M504029
+Node: Function augcoefmatrix [eqn_1 ... eqn_m] [x_1 ... x_n]504375
+Node: Function cauchy_matrix [x_1 x_2 ... x_m] [y_1 y_2 ... y_n]505235
+Node: Function charpoly M x506720
+Node: Function coefmatrix [eqn_1 ... eqn_m] [x_1 ... x_n]508522
+Node: Function col M i509118
+Node: Function columnvector L511619
+Node: Function copymatrix M512531
+Node: Function determinant M513155
+Node: Variable detout513782
+Node: Function diagmatrix n x514955
+Node: Variable display_determinant_bars515610
+Node: Function display_matrix_brackets516294
+Node: Function display_matrix_padding_horizontal516864
+Node: Function display_matrix_padding_vertical518823
+Node: Variable doallmxops520328
+Node: Variable domxexpt520782
+Node: Variable domxmxops522189
+Node: Variable domxnctimes522607
+Node: Variable dontfactor522918
+Node: Variable doscmxops523503
+Node: Variable doscmxplus523797
+Node: Variable dot0nscsimp524187
+Node: Variable dot0simp524537
+Node: Variable dot1simp524876
+Node: Variable dotassoc525210
+Node: Variable dotconstrules525516
+Node: Variable dotdistrib526057
+Node: Variable dotexptsimp526377
+Node: Variable dotident526682
+Node: Variable dotscrules526934
+Node: Function echelon M527299
+Node: Function eigenvalues M528939
+Node: Function eigenvectors M530977
+Node: Function ematrix m n x i j536062
+Node: Function entermatrix m n536387
+Node: Function genmatrix a i_2 j_2 i_1 j_1537859
+Node: Function gramschmidt x540718
+Node: Function ident n543378
+Node: Function innerproduct x y543602
+Node: Function invert M544198
+Node: Function invert_by_adjoint M545655
+Node: Function list_matrix_entries M546120
+Node: Variable lmxchar546519
+Node: Function matrix row_1 ... row_n547330
+Node: Variable matrix_element_add554129
+Node: Variable matrix_element_mult555674
+Node: Variable matrix_element_transpose557861
+Node: Function matrixexp M560292
+Node: Function matrixmap f M560908
+Node: Function matrixp expr561311
+Node: Function mattrace M561565
+Node: Function minor M i j562052
+Node: Function ncharpoly M x562342
+Node: Function newdet M563338
+Node: Function permanent M563661
+Node: Function rank M564076
+Node: Variable ratmx564490
+Node: Variable rmxchar565265
+Node: Function row M i565677
+Node: Variable scalarmatrixp567450
+Node: Function scalefactors coordinatetransform568099
+Node: Function setelmx x i j M569362
+Node: Function similaritytransform M569764
+Node: Variable sparse571173
+Node: Function submatrix i_1 ... i_m M j_1 ... j_n571575
+Node: Function transpose M571939
+Node: Function triangularize M572520
+Node: Function uniteigenvectors M573716
+Node: Function unitvector x575186
+Node: Variable vect_cross575557
+Node: Function vectorpotential givencurl575955
+Node: Function vectorsimp expr576453
+Node: Function zeromatrix m n578128
+Node: linearalgebra578358
+Node: Function addmatrices f M_1 ... M_n579745
+Node: Function blockmatrixp M580346
+Node: Function cholesky M580621
+Node: Function columnop M i j theta581028
+Node: Function columnspace M581403
+Node: Function columnswap M i j581851
+Node: Function ctranspose M582148
+Node: Function diag_matrix d_1 d_2 ... d_n582511
+Node: Function dotproduct u v583587
+Node: Function eigens_by_jacobi A583954
+Node: Function get_lu_factors x586954
+Node: Function hankel col587393
+Node: Function hessian f x587771
+Node: Function hilbert_matrix n588941
+Node: Function identfor M589218
+Node: Function invert_by_lu M rng generalring589935
+Node: Function jacobian f x590256
+Node: Function kronecker_product A B591303
+Node: Function linalg_rank M591557
+Node: Function locate_matrix_entry M r_1 c_1 r_2 c_2 f rel592275
+Node: Function lu_backsub M b593374
+Node: Function lu_factor M field597517
+Node: Function mat_cond M 1603220
+Node: Function mat_fullunblocker M603848
+Node: Function mat_norm M 1604164
+Node: Function mat_trace M604543
+Node: Function mat_unblocker M604923
+Node: Function matrix_size M606440
+Node: Function nullity M606723
+Node: Function nullspace M606959
+Node: Function orthogonal_complement v_1 ... v_n607403
+Node: Function polytocompanion p x607843
+Node: Function ptriangularize M v608299
+Node: Function rowop M i j theta608891
+Node: Function rowswap M i j609265
+Node: Function toeplitz col609554
+Node: Function vandermonde_matrix [x_1 ... x_n]610460
+Node: Function zerofor M610765
+Node: Function zeromatrixp M611451
+Node: NumberTheory611848
+Node: Data Types and Structures 2612027
+Node: Function bfloat expr613166
+Node: Function bfloatp expr615420
+Node: Variable bftorat615678
+Node: Variable bftrunc616952
+Node: Function bigfloat_bits617402
+Node: Function bigfloat_eps618035
+Node: Function decode_float f618711
+Node: Function evenp expr620346
+Node: Function float expr620721
+Node: Variable float2bf621167
+Node: Function float_bits621565
+Node: Function float_eps621813
+Node: Function float_infinity_p x622102
+Node: Function float_nan_p x623235
+Node: Function float_precision f624180
+Node: Function float_sign f624820
+Node: Function floatnump expr625937
+Node: Variable fpprec626210
+Node: Variable fpprintprec626685
+Node: Function integer_decode_float f627914
+Node: Function integerp expr630477
+Node: Function is_power_of_two n631505
+Node: Variable m1pbranch633062
+Node: Function nonnegintegerp n633840
+Node: Function numberp expr634104
+Node: Variable numer635397
+Node: Variable numer_pbranch636291
+Node: Function numerval x_1 expr_1 ... var_n expr_n637619
+Node: Function oddp expr638290
+Node: Variable ratepsilon638682
+Node: Function rationalize expr639148
+Node: Function ratnump expr640717
+Node: Function scale_float f n641022
+Node: Function unit_in_last_place n642506
+Node: Elementary Functions 2644513
+Node: Function abs z645282
+Node: Function cabs expr648828
+Node: Function carg z653106
+Node: Function ceiling x655248
+Node: Function conjugate x659119
+Node: Function entier x659796
+Node: Function fix x660172
+Node: Function floor x660366
+Node: Function hstep x662510
+Node: Function imagpart expr662981
+Node: Function lmax L663824
+Node: Function lmin L664194
+Node: Function make_random_state n664570
+Node: Function max x_1 ... x_n665359
+Node: Function min x_1 ... x_n667350
+Node: Function polarform expr669329
+Node: Function random x670151
+Node: Function realpart expr671969
+Node: Function rectform expr672744
+Node: Function round x673359
+Node: Function set_random_state s673918
+Node: Function signum x674211
+Node: Function truncate x675202
+Node: Number Theory675710
+Node: Function bern n677319
+Node: Function bernpoly x n678183
+Node: Function bfhzeta s h n678416
+Node: Function bfzeta s n679189
+Node: Function burn n679515
+Node: Function cf expr680567
+Node: Function cfdisrep list683669
+Node: Function cfexpand x684474
+Node: Variable cflength685272
+Node: Function divsum n k686022
+Node: Function euler n686687
+Node: Variable factors_only687344
+Node: Function fib n687901
+Node: Function fibtophi expr688372
+Node: Function ifactors n689670
+Node: Function igcdex n k691101
+Node: Function inrt x n691951
+Node: Function inv_mod n m692373
+Node: Function isqrt x692919
+Node: Function jacobi p q693172
+Node: Function lcm expr_1 ... expr_n693570
+Node: Function lucas n693928
+Node: Function mod x y694472
+Node: Function next_prime n695877
+Node: Function partfrac expr var696182
+Node: Function power_mod a n m697622
+Node: Function prev_prime n698331
+Node: Function primep n698636
+Node: Variable primep_number_of_tests699590
+Node: Function primes start end699861
+Node: Function qunit n700192
+Node: Function solve_congruences [r_1 ... r_n] [m_1 ... m_n]700787
+Node: Function totient n701930
+Node: Variable zerobern702226
+Node: Function zeta n702603
+Node: Variable zeta%pi704195
+Node: Function zn_add_table n704972
+Node: Function zn_carmichael_lambda n705335
+Node: Function zn_characteristic_factors n705784
+Node: Function zn_determinant matrix p709454
+Node: Function zn_factor_generators n710720
+Node: Function zn_invert_by_lu matrix p711180
+Node: Function zn_log a g n712350
+Node: Function zn_mult_table n715688
+Node: Function zn_nth_root x n m720680
+Node: Function zn_order x n725377
+Node: Function zn_power_table n727780
+Node: Function zn_primroot n732768
+Node: Variable zn_primroot_limit735494
+Node: Function zn_primroot_p x n736036
+Node: Variable zn_primroot_pretest738013
+Node: Variable zn_primroot_verbose738737
+Node: Numerical 2739099
+Node: Numerical 3739255
+Node: Function bf_fft y739828
+Node: Function bf_inverse_fft y740169
+Node: Function bf_inverse_real_fft y740573
+Node: Function bf_real_fft x740917
+Node: Function fft x741250
+Node: Function fftpack5_fft x746587
+Node: Function fftpack5_inverse_fft y748884
+Node: Function fftpack5_inverse_real_fft y n749219
+Node: Function fftpack5_real_fft x749823
+Node: Function inverse_fft y750794
+Node: Function inverse_real_fft y753593
+Node: Function polartorect r t754113
+Node: Function real_fft x754975
+Node: Function recttopolar a b755955
+Node: cobyla756850
+Node: Function bf_fmin_cobyla F X Y757063
+Node: Function fmin_cobyla F X Y757526
+Node: colnew760138
+Node: Function colnew_appsln x zlen fspace ispace760452
+Node: Function colnew_expert ncomp m aleft aright zeta ipar ltol tol fixpnt ispace fspace iflag fsub dfsub gsub dgsub guess761130
+Node: hompack770502
+Node: Function hompack_polsys eqnlist varlist[ iflg1 epsbig epssml numrr]770722
+Node: interpol777238
+Node: Function charfun2 x a b777547
+Node: Function cspline points778777
+Node: Function lagrange points782931
+Node: Function linearinterpol points786110
+Node: Function ratinterpol points numdeg788661
+Node: lapack790614
+Node: Function dgeev A790938
+Node: Function dgemm A B794098
+Node: Function dgeqrf A799078
+Node: Function dgesv A b801100
+Node: Function dgesvd A804617
+Node: Function dlange norm A809987
+Node: Function zgeev A811073
+Node: Function zheev A811410
+Node: lbfgs815659
+Node: Function lbfgs FOM X X0 epsilon iprint815903
+Node: Variable lbfgs_ncorrections829701
+Node: Variable lbfgs_nfeval_max830069
+Node: levin830472
+Node: Function bflevin_u_sum a n n_0830719
+Node: Function levin_options831584
+Node: Function levin_u_sum a n n_0 nterms mode832908
+Node: minpack833901
+Node: Function minpack_lsquares flist varlist guess ['tolerance=tolerance 'jacobian=jacobian]834228
+Node: Function minpack_solve flist varlist guess ['tolerance=tolerance 'jacobian=jacobian]837368
+Node: mnewton839987
+Node: Function mnewton FuncList VarList GuessList840259
+Node: Variable newtondebug842948
+Node: Variable newtonepsilon843285
+Node: Variable newtonmaxiter843796
+Node: pslq844152
+Node: Function guess_exact_value x844470
+Node: Variable pslq_depth846329
+Node: Function pslq_integer_relation L846720
+Node: Variable pslq_precision847952
+Node: Variable pslq_status848363
+Node: Variable pslq_threshold849097
+Node: rk_adaptive849379
+Node: Function rk_adaptive expr vars vars_initval var849588
+Node: simplex851073
+Node: Variable epsilon_lp851465
+Node: Function linear_program A b c852426
+Node: Function maximize_lp obj cond [pos]853719
+Node: Function minimize_lp obj cond [pos]854185
+Node: Variable nonnegative_lp857706
+Node: Variable pivot_count_sx858181
+Node: Variable pivot_max_sx858462
+Node: Variable scale_lp858717
+Node: Other859021
+Node: Bug Detection and Reporting859173
+Node: Function bug_report859543
+Node: Function build_info860135
+Node: Function run_testsuite [options]864000
+Node: Variable share_testsuite_files866604
+Node: Variable testsuite_files867019
+Node: Elementary Functions 3867827
+Node: Variable %e_to_numlog868370
+Node: Variable %emode868918
+Node: Variable %enumer870679
+Node: Function exp x871948
+Node: Function li s (z)873162
+Node: Function log x875356
+Node: Variable logabs876936
+Node: Function logarc expr877545
+Node: Variable logconcoeffp877955
+Node: Function logcontract expr878538
+Node: Variable logexpand879721
+Node: Variable lognegint883034
+Node: Variable logsimp883338
+Node: Function plog x883632
+Node: Function sqrt x883907
+Node: Groups884225
+Node: Function todd_coxeter relations subgroup884444
+Node: Miscellaneous Options886210
+Node: Variable askexp886690
+Node: Variable genindex887036
+Node: Variable gensumnum887339
+Node: Function gensym887729
+Node: Variable packagefile888768
+Node: Function remvalue name_1 ... name_n889735
+Node: Function rncombine expr890325
+Node: Function setup_autoload filename function_1 ... function_n891276
+Node: Function tcl_output list i0 skip892811
+Node: augmented_lagrangian894032
+Node: Function augmented_lagrangian_method FOM xx C yy894288
+Node: bernstein897718
+Node: Function bernstein_approx f [x1 x1 ... xn] n898119
+Node: Function bernstein_expand e [x1 x1 ... xn]899438
+Node: Variable bernstein_explicit900200
+Node: Function bernstein_poly k n x901009
+Node: Function multibernstein_poly [k1k2... kp] [n1n2... np] [x1x2... xp]903002
+Node: bitwise903603
+Node: Function bit_and int1 ...903995
+Node: Function bit_length int904957
+Node: Function bit_lsh int nBits905624
+Node: Function bit_not int906533
+Node: Function bit_onep int nBit907218
+Node: Function bit_or int1 ...908938
+Node: Function bit_rsh int nBits909931
+Node: Function bit_xor int1 ...910856
+Node: clebsch_gordan911825
+Node: Function clebsch_gordan j1 j2 m1 m2 j m912235
+Node: Function racah_v a b c a1 b1 c1912497
+Node: Function racah_w j1 j2 j5 j4 j3 j6912826
+Node: Function wigner_3j j1 j2 j3 m1 m2 m3913136
+Node: Function wigner_6j j1 j2 j3 j4 j5 j6913469
+Node: Function wigner_9j a b c d e f g h i j913741
+Node: diag913974
+Node: Function diag lm914313
+Node: Function dispJordan l915596
+Node: Function JF lambda n916870
+Node: Function jordan mat917747
+Node: Function mat_function f A920287
+Node: Function minimalPoly l924293
+Node: Function ModeMatrix A [jordan_info]925211
+Node: finance927051
+Node: Function amortization rate amount num927804
+Node: Function annuity_fv rate FV num929265
+Node: Function annuity_pv rate PV num929825
+Node: Function arit_amortization rate increment amount num930402
+Node: Function benefit_cost rate input output932240
+Node: Function days360 year1 month1 day1 year2 month2 day2933063
+Node: Function fv rate PV num933531
+Node: Function geo_amortization rate growing_rate amount num934067
+Node: Function geo_annuity_fv rate growing_rate FV num935864
+Node: Function geo_annuity_pv rate growing_rate PV num936529
+Node: Function graph_flow val937166
+Node: Function irr val IO937700
+Node: Function npv rate val938213
+Node: Function pv rate FV num938648
+Node: Function saving rate amount num939133
+Node: fractals940586
+Node: Function fernfale n941010
+Node: Function hilbertmap nn941442
+Node: Variable julia_parameter941814
+Node: Function julia_set x y942274
+Node: Function julia_sin x y942940
+Node: Function mandelbrot_set x y943898
+Node: Function sierpinskiale n944508
+Node: Function sierpinskimap nn945011
+Node: Function snowmap ent nn945398
+Node: Function treefale n946265
+Node: ggf946642
+Node: Function ggf l946845
+Node: Variable GGFCFMAX948885
+Node: Variable GGFINFINITY949556
+Node: impdiff950272
+Node: Function implicit_derivative f indvarlist orderlist depvar950481
+Node: lindstedt951037
+Node: Function Lindstedt eq pvar torder ic951235
+Node: makeOrders952603
+Node: Function makeOrders indvarlist orderlist952817
+Node: operatingsystem 2953692
+Node: Function chdir dir953999
+Node: Function getcurrentdirectory954176
+Node: Function getenv env954470
+Node: Function mkdir dir954849
+Node: Function rmdir dir955041
+Node: pytranslate955205
+Node: Function pytranslate expr [print-ir]955454
+Node: Function show_form expr957544
+Node: quantum_computing957820
+Node: Function binlist k958474
+Node: Function binlist2dec lst959055
+Node: Function CNOT q i j959329
+Node: Function controlled U q c i959698
+Node: Function gate U q960435
+Node: Function gate_matrix U n961394
+Node: Function linsert e lst p962099
+Node: Function lreplace e lst p962468
+Node: Function normalize q963033
+Node: Function qdisplay q963289
+Node: Variable qmatrix963653
+Node: Function qmeasure q964255
+Node: Function qswap q i j965049
+Node: Function qubits n965385
+Node: Function Rx a965770
+Node: Function Ry a966056
+Node: Function Rz a966338
+Node: Function toffoli q i j k966631
+Node: Function tprod o1 ... on967014
+Node: stirling967253
+Node: Function stirling z n967440
+Node: wrstcse969841
+Node: Variable wc_defaultsigma970862
+Node: Variable wc_defaultvaluespertol972720
+Node: Function wc_ewc_simplify expression definitions...975149
+Node: Function wc_inputvalueassumptions expr981348
+Node: Function wc_inputvalueranges expression [show_tols]983297
+Node: Function wc_inputvalues_max listofinputvalues985452
+Node: Function wc_inputvalues_min listofinputvalues987414
+Node: Function wc_max expr [num]989276
+Node: Function wc_min expr [num]991005
+Node: Function wc_mintypmax expr [n]992719
+Node: Function wc_mintypmax2tol tolname minval typval maxval994453
+Node: Function wc_mintypmax_num equation var range_min995851
+Node: Function wc_mintypmax_percent expr sigmas997394
+Node: Function wc_mintypmax_rss expr sigmas998923
+Node: Function wc_mintypmax_rss_percent expr sigmas1001294
+Node: Function wc_montecarlo expression num1002874
+Node: Function wc_systematic expression [num]1004230
+Node: Function wc_tolappend list1 list2 ...1006525
+Node: Function wc_tolassumptions expr1008699
+Node: Function wc_typicalvalues expression1010612
+Node: Plotting1011704
+Node: Plotting 21011848
+Node: Variable adapt_depth1014392
+Node: Variable axes1015063
+Node: Variable azimuth1015804
+Node: Variable color1016478
+Node: Variable color_bar1017394
+Node: Variable color_bar_tics1018119
+Node: Variable elevation1018912
+Node: Variable geomview1019603
+Node: Variable geomview_command1019894
+Node: Function get_plot_option keyword index1020701
+Node: Variable gnuplot1021367
+Node: Function gnuplot_close1021672
+Node: Variable gnuplot_command1021929
+Node: Variable gnuplot_curve_styles1022749
+Node: Variable gnuplot_curve_titles1023042
+Node: Variable gnuplot_default_term_command1023371
+Node: Variable gnuplot_dumb_term_command1023840
+Node: Variable gnuplot_file_args1024328
+Node: Variable gnuplot_out_file1025109
+Node: Variable gnuplot_pdf_term_command1025962
+Node: Variable gnuplot_pipes1026428
+Node: Variable gnuplot_pm3d1026745
+Node: Variable gnuplot_png_term_command1027040
+Node: Variable gnuplot_postamble1027468
+Node: Variable gnuplot_preamble1027974
+Node: Variable gnuplot_ps_term_command1028443
+Node: Function gnuplot_replot1028958
+Node: Function gnuplot_reset1029322
+Node: Function gnuplot_restart1029703
+Node: Variable gnuplot_script_file1029995
+Node: Function gnuplot_send s1032284
+Node: Function gnuplot_start1032629
+Node: Variable gnuplot_strings1032962
+Node: Variable gnuplot_svg_background1033676
+Node: Variable gnuplot_svg_term_command1034596
+Node: Variable gnuplot_term1035024
+Node: Variable gnuplot_view_args1037513
+Node: Variable grid1039093
+Node: Variable grid2d1039566
+Node: Variable iterations1040194
+Node: Function julia x y ...options...1040459
+Node: Variable label1042628
+Node: Variable legend1042892
+Node: Variable levels1043612
+Node: Variable logx1044551
+Node: Variable logy1044945
+Node: Function make_transform [var1 var2 var3] fx fy fz1045371
+Node: Function mandelbrot options1046358
+Node: Variable mesh_lines_color1048224
+Node: Variable nticks1049002
+Node: Variable palette1049512
+Node: Variable pdf_file1051328
+Node: Function plot2d expr range_x options1052320
+Node: Function plot3d expr x_range y_range ... options ...1062038
+Node: Variable plot_format1067543
+Node: Variable plot_options1068344
+Node: Variable plot_realpart1068950
+Node: Variable plotepsilon1069933
+Node: Variable png_file1070911
+Node: Variable point_type1071827
+Node: Function polar_to_xy1072509
+Node: Variable ps_file1073004
+Node: Function remove_plot_option name1074024
+Node: Function reset_plot_options1074482
+Node: Variable run_viewer1074882
+Node: Variable same_xy1076314
+Node: Variable same_xyz1076770
+Node: Variable sample1077141
+Node: Function set_plot_option option1078132
+Node: Function spherical_to_xyz1079623
+Node: Variable style1080261
+Node: Variable svg_file1082350
+Node: Variable t1083237
+Node: Variable title1083411
+Node: Variable transform_xy1083618
+Node: Variable window1084228
+Node: Variable x1084559
+Node: Variable xlabel1085104
+Node: Variable xmaxima1085738
+Node: Variable xmaxima_plot_command1086027
+Node: Variable xtics1086799
+Node: Variable xy_scale1087639
+Node: Variable y1088320
+Node: Variable ylabel1088740
+Node: Variable ytics1089355
+Node: Variable yx_ratio1090181
+Node: Variable z1090506
+Node: Variable zlabel1090775
+Node: Variable zmin1091416
+Node: Variable ztics1091776
+Node: descriptive1092574
+Node: Function barsplot data1 data2 ... option_1 option_2 ...1093254
+Node: Function barsplot_description ...1098107
+Node: Function boxplot data1099107
+Node: Function boxplot_description ...1102902
+Node: Function histogram list1103240
+Node: Function histogram_description ...1108378
+Node: Variable histogram_skyline1109543
+Node: Function piechart list1111184
+Node: Function piechart_description ...1112819
+Node: Function scatterplot list1113163
+Node: Function scatterplot_description ...1114942
+Node: Function starplot data1 data2 ... option_1 option_2 ...1115333
+Node: Function starplot_description ...1118030
+Node: Function stemplot data1118404
+Node: draw1119324
+Node: Variable allocation1123863
+Node: Variable axis_3d1125433
+Node: Variable axis_bottom1126192
+Node: Variable axis_left1126919
+Node: Variable axis_right1127552
+Node: Variable axis_top1128184
+Node: Variable background_color1128825
+Node: Function bars [x1 h1 w1] [x2 h2 w2 ...]1129358
+Node: Variable border1130471
+Node: Variable boundaries_array1131342
+Node: Variable capping1131849
+Node: Variable cbrange1132646
+Node: Variable cbtics1133791
+Node: Variable colorbox1134701
+Node: Variable columns1135943
+Node: Variable contour1136720
+Node: Variable contour_levels1138137
+Node: Function cylindrical radius z minz maxz azi minazi maxazi1140299
+Node: Variable data_file_name1141338
+Node: Variable delay1141898
+Node: Variable dimensions1142852
+Node: Function draw ...1144775
+Node: Function draw2d argument_1 ...1147162
+Node: Function draw3d argument_1 ...1147620
+Node: Function draw_file graphic option ... graphic object ...1148117
+Node: Variable draw_realpart1148717
+Node: Variable draw_renderer1149630
+Node: Function elevation_grid mat x0 y0 width height1150060
+Node: Function ellipse xc yc a b ang1 ang21151433
+Node: Variable enhanced3d1152933
+Node: Variable error_type1159407
+Node: Function errors [x1 x2 ...] [y1 y2 ...]1159918
+Node: Function explicit expr var minval maxval1161793
+Node: Variable file_name1164087
+Node: Variable fill_color1164899
+Node: Variable fill_density1165243
+Node: Variable filled_func1165591
+Node: Variable font1167316
+Node: Variable font_size1170689
+Node: Function geomap numlist1171266
+Node: Function get_pixel pic x y1177677
+Node: Variable gnuplot_file_name1177985
+Node: Function gr2d argument_1 ...1178918
+Node: Function gr3d argument_1 ...1180642
+Node: Variable head_angle1181968
+Node: Variable head_both1183361
+Node: Variable head_length1184218
+Node: Variable head_type1185137
+Node: Function image im x0 y0 width height1186220
+Node: Function implicit fcn x xmin xmax y ymin ymax1190431
+Node: Variable interpolate_color1192669
+Node: Variable ip_grid1196011
+Node: Variable ip_grid_in1196338
+Node: Variable key1196661
+Node: Variable key_pos1197826
+Node: Variable label_alignment1199007
+Node: Variable label_orientation1200224
+Node: Variable line_type1201375
+Node: Variable line_width1202822
+Node: Variable logcb1203952
+Node: Variable logx_secondary1204908
+Node: Variable logy_secondary1206023
+Node: Variable logz1207035
+Node: Function make_level_picture data1207633
+Node: Function make_poly_continent continent_name1208853
+Node: Function make_poly_country country_name1209710
+Node: Function make_polygon nlist1210316
+Node: Function make_rgb_picture redlevel greenlevel bluelevel1213555
+Node: Function mesh row_1 row_2 ...1214814
+Node: Function multiplot_mode term1216652
+Node: Function negative_picture pic1218222
+Node: Function numbered_boundaries nlist1218479
+Node: Function parametric xfun yfun par parmin parmax1219173
+Node: Function parametric_surface xfun yfun zfun par1 par1min par1max par2 par2min par2max1220979
+Node: Function picture_equalp x y1222632
+Node: Function picturep x1222946
+Node: Variable point_size1223204
+Node: Function points [[x1 y1] [x2 y2] ...]1224040
+Node: Variable points_joined1230248
+Node: Function polar radius ang minang maxang1231659
+Node: Function polygon [[x1 y1] [x2 y2] ...]1232795
+Node: Variable proportional_axes1233949
+Node: Function quadrilateral point_1 point_2 point_3 point_41235431
+Node: Function read_xpm xpm_file1236952
+Node: Function rectangle [x1 y1] [x2 y2]1237225
+Node: Function region expr var1 minval1 maxval1 var2 minval2 maxval21238530
+Node: Function region_boundaries x1 y1 x2 y21239554
+Node: Function region_boundaries_plus x1 y1 x2 y21240376
+Node: Function rgb2level pic1241202
+Node: Function set_draw_defaults graphic option ... graphic object ...1241535
+Node: Function spherical radius azi minazi maxazi zen minzen maxzen1242443
+Node: Variable surface_hide1243558
+Node: Function take_channel im color1244318
+Node: Variable terminal1245326
+Node: Variable transform1248891
+Node: Variable transparent1250418
+Node: Function triangle point_1 point_2 point_31251229
+Node: Function tube xfun yfun zfun rfun p pmin pmax1252598
+Node: Variable unit_vectors1253752
+Node: Variable user_preamble1254632
+Node: Function vector [x y] [dx dy]1256067
+Node: Variable view1257626
+Node: Variable wired_surface1258744
+Node: Variable x_voxel1259399
+Node: Variable xaxis1259808
+Node: Variable xaxis_color1260503
+Node: Variable xaxis_secondary1261183
+Node: Variable xaxis_type1262302
+Node: Variable xaxis_width1262987
+Node: Variable xlabel_secondary1263640
+Node: Variable xrange1264664
+Node: Variable xrange_secondary1265362
+Node: Variable xtics_axis1266089
+Node: Variable xtics_rotate1266555
+Node: Variable xtics_rotate_secondary1266959
+Node: Variable xtics_secondary1267398
+Node: Variable xtics_secondary_axis1267794
+Node: Variable xu_grid1268294
+Node: Variable xy_file1268979
+Node: Variable xyplane1269459
+Node: Variable y_voxel1270088
+Node: Variable yaxis1270491
+Node: Variable yaxis_color1271111
+Node: Variable yaxis_secondary1271791
+Node: Variable yaxis_type1272700
+Node: Variable yaxis_width1273386
+Node: Variable ylabel_secondary1274039
+Node: Variable yrange1275062
+Node: Variable yrange_secondary1275843
+Node: Variable ytics_axis1276823
+Node: Variable ytics_rotate1277289
+Node: Variable ytics_rotate_secondary1277693
+Node: Variable ytics_secondary1278132
+Node: Variable ytics_secondary_axis1278489
+Node: Variable yv_grid1278989
+Node: Variable z_voxel1279795
+Node: Variable zaxis1280119
+Node: Variable zaxis_color1280847
+Node: Variable zaxis_type1281618
+Node: Variable zaxis_width1282357
+Node: Variable zlabel_rotate1283098
+Node: Variable zrange1283848
+Node: Variable ztics_axis1284618
+Node: Variable ztics_rotate1285074
+Node: drawdf1285438
+Node: Function drawdf dydx ...optionsandobjects...1285630
+Node: dynamics1293658
+Node: Variable animation1294955
+Node: Variable background1295852
+Node: Variable center1296229
+Node: Function chaosgame [[x1 y1]...[xm ym]] [x0 y0] b n options ...;1296792
+Node: Variable cone1297797
+Node: Variable cube1299007
+Node: Variable cylinder1299603
+Node: Variable endphi1300557
+Node: Variable endtheta1301211
+Node: Function evolution F y0 n ... options ...;1301888
+Node: Function evolution2d [F G] [u v] [u0 y0] n options ...;1302922
+Node: Variable height1304320
+Node: Function ifs [r1 ... rm] [A1 ... Am] [[x1 y1] ... [xm ym]] [x0 y0] n options ...;1304699
+Node: Variable linewidth1306357
+Node: Variable opacity1306756
+Node: Function orbits F y0 n1 n2 [x x0 xf xstep] options ...;1307153
+Node: Variable orientation1308888
+Node: Variable origin1309400
+Node: Variable phiresolution1309783
+Node: Variable pointsize1310279
+Node: Variable position1310614
+Node: Variable radius1310933
+Node: Variable resolution1311262
+Node: Variable restart1311560
+Node: Variable scale1311916
+Node: Function scene objects ... options ...;1312489
+Node: Variable sphere1315184
+Node: Function staircase F y0 n options ...;1315444
+Node: Variable startphi1316576
+Node: Variable starttheta1317252
+Node: Variable surface1317904
+Node: Variable thetaresolution1318406
+Node: Variable track1318918
+Node: Variable tstep1320078
+Node: Variable width1320377
+Node: Variable windowname1320650
+Node: Variable windowtitle1321055
+Node: Variable wireframe1321360
+Node: Variable xlength1321766
+Node: Variable ylength1322159
+Node: Variable zlength1322550
+Node: graphs1322916
+Node: Function add_edge e gr1328403
+Node: Function add_edges e_list gr1328871
+Node: Function add_vertex v gr1329358
+Node: Function add_vertices v_list gr1329816
+Node: Function adjacency_matrix gr1330157
+Node: Function average_degree gr1330827
+Node: Function biconnected_components gr1331289
+Node: Function bipartition gr1331951
+Node: Function chromatic_index gr1332552
+Node: Function chromatic_number gr1332936
+Node: Function circulant_graph n d1333392
+Node: Function clear_edge_weight e gr1334053
+Node: Function clear_vertex_label v gr1334616
+Node: Function clebsch_graph1335210
+Node: Function complement_graph g1335426
+Node: Function complete_bipartite_graph n m1335665
+Node: Function complete_graph n1335933
+Node: Function connect_vertices v_list u_list gr1336191
+Node: Function connected_components gr1336865
+Node: Function contract_edge e gr1337349
+Node: Function copy_graph g1338163
+Node: Function create_graph v_list e_list1338385
+Node: Function cube_graph n1340317
+Node: Function cuboctahedron_graph n1340543
+Node: Function cycle_digraph n1340766
+Node: Function cycle_graph n1340995
+Node: Function degree_sequence gr1341210
+Node: Function diameter gr1341593
+Node: Function dimacs_export gr fl1341939
+Node: Function dimacs_import fl1342246
+Node: Function dodecahedron_graph1342491
+Node: Function draw_graph graph1342713
+Node: Variable draw_graph_program1346116
+Node: Variable edge_color1346431
+Node: Function edge_coloring gr1346641
+Node: Function edge_connectivity gr1347487
+Node: Variable edge_partition1347798
+Node: Variable edge_type1348134
+Node: Variable edge_width1348389
+Node: Function edges gr1348565
+Node: Function empty_graph n1348929
+Node: Variable fixed_vertices1349139
+Node: Function flower_snark n1349454
+Node: Function from_adjacency_matrix A1349831
+Node: Function frucht_graph1350083
+Node: Function get_all_vertices_by_label l gr1350308
+Node: Function get_edge_weight e gr1351106
+Node: Function get_unique_vertex_by_label l gr1351897
+Node: Function get_vertex_label v gr1352890
+Node: Function girth gr1353501
+Node: Function graph6_decode str1353862
+Node: Function graph6_encode gr1354109
+Node: Function graph6_export gr_list fl1354371
+Node: Function graph6_import fl1354654
+Node: Function graph_center gr1354912
+Node: Function graph_charpoly gr x1355280
+Node: Function graph_eigenvalues gr1355774
+Node: Function graph_order gr1356302
+Node: Function graph_periphery gr1356682
+Node: Function graph_product g1 g11357065
+Node: Function graph_size gr1357498
+Node: Function graph_union g1 g11357870
+Node: Function great_rhombicosidodecahedron_graph1358122
+Node: Function great_rhombicuboctahedron_graph1358408
+Node: Function grid_graph n m1358685
+Node: Function grotzch_graph1358905
+Node: Function hamilton_cycle gr1359111
+Node: Function hamilton_path gr1359668
+Node: Function heawood_graph1360238
+Node: Function icosahedron_graph1360446
+Node: Function icosidodecahedron_graph1360669
+Node: Function in_neighbors v gr1360908
+Node: Function induced_subgraph V g1361409
+Node: Function is_biconnected gr1361997
+Node: Function is_bipartite gr1362466
+Node: Function is_connected gr1362945
+Node: Function is_digraph gr1363360
+Node: Function is_edge_in_graph e gr1363820
+Node: Function is_graph gr1364523
+Node: Function is_graph_or_digraph gr1364973
+Node: Function is_isomorphic gr1 gr21365480
+Node: Function is_planar gr1366047
+Node: Function is_sconnected gr1366691
+Node: Function is_tree gr1367178
+Node: Function is_vertex_in_graph v gr1367648
+Node: Function isomorphism gr1 gr21368165
+Node: Function laplacian_matrix gr1368800
+Node: Function line_graph g1369595
+Node: Function make_graph vrt f1369816
+Node: Function max_clique gr1371048
+Node: Function max_degree gr1371433
+Node: Function max_flow net s t1371927
+Node: Function max_independent_set gr1373001
+Node: Function max_matching gr1373540
+Node: Function min_degree gr1374130
+Node: Function min_edge_cut gr1374624
+Node: Function min_vertex_cover gr1374940
+Node: Function min_vertex_cut gr1375183
+Node: Function minimum_spanning_tree gr1375520
+Node: Function mycielski_graph g1376033
+Node: Function neighbors v gr1376274
+Node: Function new_graph1376665
+Node: Function odd_girth gr1376880
+Node: Function out_neighbors v gr1377346
+Node: Function path_digraph n1377833
+Node: Function path_graph n1378055
+Node: Function petersen_graph1378262
+Node: Function planar_embedding gr1378551
+Node: Function print_graph gr1379220
+Node: Variable program1379953
+Node: Function random_bipartite_graph a b p1380533
+Node: Function random_digraph n p1380842
+Node: Function random_graph n p1381141
+Node: Function random_graph1 n m1381419
+Node: Function random_network n p w1381672
+Node: Function random_regular_graph n1382318
+Node: Function random_tournament n1382620
+Node: Function random_tree n1382859
+Node: Variable redraw1383070
+Node: Function remove_edge e gr1383387
+Node: Function remove_vertex v gr1383848
+Node: Function set_edge_weight e w gr1384088
+Node: Function set_vertex_label v l gr1384690
+Node: Function shortest_path u v gr1385563
+Node: Function shortest_weighted_path u v gr1386159
+Node: Variable show_edge_color1386907
+Node: Variable show_edge_type1387161
+Node: Variable show_edge_width1387448
+Node: Variable show_edges1387657
+Node: Variable show_id1387893
+Node: Variable show_label1388125
+Node: Variable show_vertex_color1388370
+Node: Variable show_vertex_size1388617
+Node: Variable show_vertex_type1388842
+Node: Variable show_vertices1389173
+Node: Variable show_weight1389427
+Node: Function small_rhombicosidodecahedron_graph1389695
+Node: Function small_rhombicuboctahedron_graph1389975
+Node: Function snub_cube_graph1390253
+Node: Function snub_dodecahedron_graph1390488
+Node: Function sparse6_decode str1390726
+Node: Function sparse6_encode gr1390997
+Node: Function sparse6_export gr_list fl1391269
+Node: Function sparse6_import fl1391557
+Node: Variable spring_embedding_depth1391826
+Node: Function strong_components gr1392129
+Node: Function topological_sort dag1392625
+Node: Function truncated_cube_graph1393272
+Node: Function truncated_dodecahedron_graph1393516
+Node: Function truncated_icosahedron_graph1393783
+Node: Function truncated_tetrahedron_graph1394055
+Node: Function tutte_graph1394310
+Node: Function underlying_graph g1394524
+Node: Variable vertex_color1394760
+Node: Function vertex_coloring gr1394979
+Node: Function vertex_connectivity g1395589
+Node: Function vertex_degree v gr1395921
+Node: Function vertex_distance u v gr1396178
+Node: Function vertex_eccentricity v gr1396721
+Node: Function vertex_in_degree v gr1397146
+Node: Function vertex_out_degree v gr1397801
+Node: Variable vertex_partition1398308
+Node: Variable vertex_size1398684
+Node: Variable vertex_type1398874
+Node: Function vertices gr1399185
+Node: Function vertices_to_cycle v_list1399539
+Node: Function vertices_to_path v_list1399837
+Node: Function wheel_graph n1400135
+Node: Function wiener_index gr1400363
+Node: stringproc 21400656
+Node: Function base64 arg1401240
+Node: Function base64_decode base64-string1402291
+Node: Function crc24sum octets1402863
+Node: Function md5sum arg1404635
+Node: Function mgf1_sha1 seed len1406556
+Node: Function number_to_octets number1407559
+Node: Function octets_to_number octets1408157
+Node: Function octets_to_oid octets1408539
+Node: Function octets_to_string octets1409085
+Node: Function oid_to_octets oid-string1411116
+Node: Function sha1sum arg1411469
+Node: Function sha256sum arg1412747
+Node: Function string_to_octets string1413616
+Node: Polynomials1414432
+Node: Polynomials 21414593
+Node: Variable algebraic1416858
+Node: Function algfac f p1417144
+Node: Function algnorm f p a1417895
+Node: Function algtrace f p a1418552
+Node: Function bdiscr args1419055
+Node: Variable berlefact1419848
+Node: Function bezout p1 p2 x1420218
+Node: Function bothcoef expr x1421038
+Node: Function coeff expr x n1421764
+Node: Function content p_1 x_1 ... x_n1425762
+Node: Function denom expr1426385
+Node: Function divide p_1 p_2 x_1 ... x_n1427291
+Node: Function eliminate [eqn_1 ... eqn_n] [x_1 ... x_k]1428108
+Node: Function ezgcd p_1 p_2 p_3 ...1429602
+Node: Variable facexpand1431124
+Node: Function factor expr1431486
+Node: Variable factor_max_degree1437961
+Node: Variable factor_max_degree_print_warning1439675
+Node: Variable factorflag1440212
+Node: Function factorout expr x_1 x_2 ...1440560
+Node: Function factorsum expr1441408
+Node: Function fasttimes p_1 p_21442421
+Node: Function fullratsimp expr1443033
+Node: Function fullratsubst new old expr1444797
+Node: Variable fullratsubstflag1447346
+Node: Function gcd p_1 p_2 x_1 ...1447685
+Node: Function gcdex f g1450274
+Node: Function gcfactor n1452268
+Node: Function gfactor expr1452681
+Node: Function gfactorsum expr1453175
+Node: Function hipow expr x1453443
+Node: Variable intfaclim1454506
+Node: Variable keepfloat1455346
+Node: Function lopow expr x1456402
+Node: Variable lrats_max_iter1456765
+Node: Function lratsubst new old expr1457230
+Node: Variable modulus1458982
+Node: Function num expr1461012
+Node: Function polydecomp p x1461937
+Node: Function polymod p1464254
+Node: Function polynomialp p L coeffp exponp1464765
+Node: Function primelmt f_b p_a c1466861
+Node: Function quotient p_1 p_21469275
+Node: Variable radsubstflag1469735
+Node: Function rat expr1470074
+Node: Variable ratalgdenom1472738
+Node: Function ratcoef expr x n1473182
+Node: Function ratdenom expr1474414
+Node: Variable ratdenomdivide1475200
+Node: Function ratdiff expr x1477104
+Node: Function ratdisrep expr1479079
+Node: Function ratexpand expr1479699
+Node: Variable ratfac1482085
+Node: Function ratnumer expr1483268
+Node: Function ratp expr1484031
+Node: Variable ratprint1484441
+Node: Function ratsimp expr1484788
+Node: Variable ratsimpexpons1487059
+Node: Function ratsubst a b c1487395
+Node: Function ratvars x_1 ... x_n1489182
+Node: Variable ratvarswitch1490230
+Node: Function ratweight x_1 w_1 ... x_n w_n1491951
+Node: Variable ratweights1493263
+Node: Variable ratwtlvl1493727
+Node: Function remainder p_1 p_21494138
+Node: Function resultant p_1 p_2 x1494591
+Node: Variable savefactors1496338
+Node: Function showratvars expr1496800
+Node: Function splitfield p x1497145
+Node: Function sqfr expr1499184
+Node: Function tellrat p_1 ... p_n1500193
+Node: Function totaldisrep expr1502617
+Node: Function untellrat x_1 ... x_n1503206
+Node: grobner1503433
+Node: Function poly_add poly1 poly2 varlist1505708
+Node: Function poly_buchberger polylist_flvarlist1506081
+Node: Function poly_buchberger_criterion polylist varlist1506469
+Node: Variable poly_coefficient_ring1506982
+Node: Function poly_colon_ideal polylist1 polylist2 varlist1507519
+Node: Function poly_content polyvarlist1507928
+Node: Function poly_depends_p poly var varlist1508319
+Node: Function poly_elimination_ideal polylist number varlist1508655
+Node: Variable poly_elimination_order1509116
+Node: Function poly_exact_divide poly1 poly2 varlist1509728
+Node: Function poly_expand poly varlist1510124
+Node: Function poly_expt poly number varlist1511707
+Node: Function poly_gcd poly1 poly2 varlist1512168
+Node: Function poly_grobner polylist varlist1513013
+Node: Variable poly_grobner_algorithm1513354
+Node: Variable poly_grobner_debug1513810
+Node: Function poly_grobner_equal polylist1 polylist2 varlist1514127
+Node: Function poly_grobner_member poly polylist varlist1515004
+Node: Function poly_grobner_subsetp polylist1 polylist2 varlist1515703
+Node: Function poly_ideal_intersection polylist1 polylist2 varlist1516228
+Node: Function poly_ideal_polysaturation polylist polylistlist varlist1516627
+Node: Function poly_ideal_polysaturation1 polylist1 polylist2 varlist1517195
+Node: Function poly_ideal_saturation polylist1 polylist2 varlist1517869
+Node: Function poly_ideal_saturation1 polylist poly varlist1518490
+Node: Function poly_lcm poly1 poly2 varlist1519065
+Node: Function poly_minimization polylist varlist1519382
+Node: Variable poly_monomial_order1519855
+Node: Function poly_multiply poly1 poly2 varlist1520262
+Node: Function poly_normal_form poly polylist varlist1520682
+Node: Function poly_normalize poly varlist1521064
+Node: Function poly_normalize_list polylist varlist1521497
+Node: Function poly_polysaturation_extension poly polylist varlist1 varlist21521966
+Node: Variable poly_primary_elimination_order1522284
+Node: Function poly_primitive_part poly1 varlist1522716
+Node: Function poly_pseudo_divide poly polylist varlist1523150
+Node: Function poly_reduced_grobner polylist varlist1523977
+Node: Function poly_reduction polylist varlist1524363
+Node: Variable poly_return_term_list1524759
+Node: Function poly_s_polynomial poly1 poly2 varlist1525204
+Node: Function poly_saturation_extension poly polylist varlist1 varlist21525574
+Node: Variable poly_secondary_elimination_order1525964
+Node: Function poly_subtract poly1 poly2 varlist1526390
+Node: Variable poly_top_reduction_only1526824
+Node: orthopoly1527188
+Node: Function assoc_legendre_p n m x1528088
+Node: Function assoc_legendre_q n m x1530116
+Node: Function chebyshev_t n x1531787
+Node: Function chebyshev_u n x1533742
+Node: Function gen_laguerre n a x1535800
+Node: Function hermite n x1538053
+Node: Function intervalp e1540146
+Node: Function jacobi_p n a b x1540400
+Node: Function laguerre n x1541996
+Node: Function legendre_p n x1543533
+Node: Function legendre_q n x1545568
+Node: Function orthopoly_recur f args1546828
+Node: Variable orthopoly_returns_intervals1548108
+Node: Function orthopoly_weight f args1548692
+Node: Function pochhammer x n1549567
+Node: Variable pochhammer_max_index1551057
+Node: Function spherical_bessel_j n x1551716
+Node: Function spherical_bessel_y n x1553496
+Node: Function spherical_hankel1 n x1555278
+Node: Function spherical_hankel2 n x1555881
+Node: Function spherical_harmonic n m theta phi1556495
+Node: Function ultraspherical n a x1559352
+Node: Function unit_step x1561728
+Node: ratpow1562129
+Node: Function ratp_coeffs expr x1562412
+Node: Function ratp_dense_coeffs expr x1562904
+Node: Function ratp_hipow expr x1563403
+Node: Function ratp_lopow expr x1563873
+Node: Programming1564998
+Node: Command Line 21565154
+Node: Function $1565981
+Node: Variable %1566467
+Node: Variable %%1567272
+Node: Function %th i1569098
+Node: Function ;1570470
+Node: Function ?1570825
+Node: Function ??1571534
+Node: Variable _1571996
+Node: Variable __1573700
+Node: Function eval_string_lisp str1575677
+Node: Variable inchar1576743
+Node: Variable infolists1577943
+Node: Function kill a_1 ... a_n1580463
+Node: Function labels symbol1583496
+Node: Variable linechar1585006
+Node: Variable linenum1586084
+Node: Variable myoptions1586316
+Node: Variable nolabels1586632
+Node: Variable optionset1587638
+Node: Variable outchar1588343
+Node: Function playback1589535
+Node: Variable prompt1591673
+Node: Function quit [exit-code]1592056
+Node: Function read expr_1 ... expr_n1593079
+Node: Function readonly expr_1 ... expr_n1593825
+Node: Function reset1594657
+Node: Variable showtime1595282
+Node: Function to_lisp1595832
+Node: Variable values1597006
+Node: Data Types and Structures 31598309
+Node: Variable %catalan1600775
+Node: Variable %e1601249
+Node: Variable %gamma1601732
+Node: Variable %i1602256
+Node: Variable %phi1602461
+Node: Variable %pi1605052
+Node: Function @1605388
+Node: Variable [1606802
+Node: Function accumulate op X X01608570
+Node: Function append list_1 ... list_n1610355
+Node: Function array name dim_1 ... dim_n1610973
+Node: Function arrayapply A [i_1 ... i_n]1611916
+Node: Function arrayinfo A1612385
+Node: Function arraymake A [i_1 ... i_n]1617084
+Node: Variable arrays1619055
+Node: Function arraysetapply A [i_1 ... i_n] x1620621
+Node: Function assoc key e default1621007
+Node: Function cons expr list1622774
+Node: Function copylist list1624340
+Node: Function create_list form x_1 list_1 ... x_n list_n1624599
+Node: Function defstruct Sa_1 ... a_n1625983
+Node: Function delete expr_1 expr_21627590
+Node: Function eighth expr1630049
+Node: Function endcons expr list1630370
+Node: Variable false1631847
+Node: Function fifth expr1632154
+Node: Function fillarray A B1632454
+Node: Function first expr1634767
+Node: Function firstn expr count1636491
+Node: Function fourth expr1639926
+Node: Function has_key A L1640238
+Node: Variable ind1642717
+Node: Variable inf1643076
+Node: Variable infinity1643278
+Node: Function join l m1643489
+Node: Function last expr1644404
+Node: Function lastn expr count1644710
+Node: Variable least_negative_float1648162
+Node: Variable least_negative_normalized_float1648764
+Node: Variable least_positive_float1649184
+Node: Variable least_positive_normalized_float1649800
+Node: Function length expr1650210
+Node: Variable listarith1651323
+Node: Function listarray A1651825
+Node: Function listp expr1655822
+Node: Function lreduce F s1656063
+Node: Function make_array type dim_1 ... dim_n1657568
+Node: Function makelist1659912
+Node: Function member expr_1 expr_21661725
+Node: Variable minf1663274
+Node: Variable most_negative_float1663521
+Node: Variable most_positive_float1663814
+Node: Function new S1664108
+Node: Function ninth expr1664950
+Node: Function ordering L1665247
+Node: Function pop list1669740
+Node: Function push item list1670220
+Node: Function ranks L P ties_method1671688
+Node: Function rearray A dim_1 ... dim_n1678764
+Node: Function remarray A_1 ... A_n1679324
+Node: Function rest expr n1680110
+Node: Function reverse list1681407
+Node: Function rreduce F s1681838
+Node: Function second expr1683420
+Node: Function seventh expr1683727
+Node: Function sixth expr1684034
+Node: Function sort L P1684336
+Node: Variable structures1690438
+Node: Function sublist list p1690709
+Node: Function sublist_indices L P1691188
+Node: Function subvar x i1692431
+Node: Function subvarp expr1693291
+Node: Function tenth expr1693562
+Node: Function third expr1693867
+Node: Variable translate_fast_arrays1694180
+Node: Function tree_reduce F s1694814
+Node: Variable true1696225
+Node: Variable und1696517
+Node: Function unique L1696867
+Node: Variable use_fast_arrays1697386
+Node: Function xreduce F s1698330
+Node: Variable zeroa1700150
+Node: Variable zerob1700800
+Node: Debugging1701192
+Node: Variable debugmode1701791
+Node: Variable refcheck1702447
+Node: Variable setcheck1702771
+Node: Variable setcheckbreak1704125
+Node: Variable setval1704804
+Node: Function timer f_1 ... f_n1705261
+Node: Variable timer_devalue1706645
+Node: Function timer_info f_1 ... f_n1707282
+Node: Function timer_reset f_1 ... f_n1708272
+Node: Function trace f_1 ... f_n1708736
+Node: Variable trace_break_arg1710067
+Node: Function trace_options f option_1 ... option_n1710614
+Node: Function untimer f_1 ... f_n1716091
+Node: Function untrace f_1 ... f_n1716865
+Node: Evaluation1717301
+Node: Function '1717667
+Node: Function ''1721634
+Node: Function ev expr arg_1 ... arg_n1726404
+Node: Variable eval1735661
+Node: Variable evflag1736321
+Node: Variable evfun1738596
+Node: Variable infeval1741342
+Node: Variable noeval1741865
+Node: Variable nouns1742230
+Node: Variable pred1742736
+Node: Expressions1743201
+Node: Function alias new_name_1 old_name_1 ... new_name_n old_name_n1744958
+Node: Variable aliases1745323
+Node: Variable allbut1745849
+Node: Function args expr1747162
+Node: Function atom expr1748547
+Node: Function box expr1748950
+Node: Variable boxchar1751337
+Node: Function collapse expr1751935
+Node: Function copy e1752664
+Node: Function disolate expr x_1 ... x_n1753622
+Node: Function dispform expr1754296
+Node: Variable display_box_double_lines1756414
+Node: Function dpart expr n_1 ... n_k1757024
+Node: Variable exptisolate1757799
+Node: Variable exptsubst1758157
+Node: Function freeof x_1 ... x_n expr1759014
+Node: Variable inflag1763136
+Node: Function inpart expr n_1 ... n_k1764374
+Node: Function isolate expr x1765833
+Node: Variable isolate_wrt_times1766980
+Node: Function lfreeof list expr1767879
+Node: Variable listconstvars1768540
+Node: Variable listdummyvars1769260
+Node: Function listofvars expr1770168
+Node: Function lpart label expr n_1 ... n_k1770975
+Node: Variable mainvar1771370
+Node: Variable noun1772276
+Node: Variable noundisp1773056
+Node: Function nounify f1773389
+Node: Function nterms expr1773958
+Node: Function op expr1774447
+Node: Function operatorp expr op1776454
+Node: Variable opsubst1776972
+Node: Function optimize expr1778007
+Node: Variable optimprefix1778519
+Node: Function ordergreat v_1 ... v_n1778856
+Node: Function ordergreatp expr_1 expr_21779856
+Node: Function part expr n_1 ... n_k1783945
+Node: Function partition expr x1785768
+Node: Variable partswitch1786512
+Node: Function pickapart expr n1786880
+Node: Variable piece1789944
+Node: Function psubst list expr1790320
+Node: Function rembox expr unlabelled1791354
+Node: Function reveal expr depth1794449
+Node: Function sqrtdenest expr1797153
+Node: Function sublis list expr1798141
+Node: Variable sublis_apply_lambda1798831
+Node: Variable subnumsimp1799288
+Node: Function subst a b c1800095
+Node: Function substinpart x expr n_1 ... n_k1803857
+Node: Function substpart x expr n_1 ... n_k1806571
+Node: Function symbolp expr1807973
+Node: Function unorder1808287
+Node: Function verbify f1809860
+Node: Function Definition1810363
+Node: Function apply F [arg_1 ... arg_n]1812208
+Node: Function block [v_1 ... v_m] expr_1 ... expr_n1816233
+Node: Function break expr_1 ... expr_n1819737
+Node: Function buildq L expr1820169
+Node: Function catch expr_1 ... expr_n1824742
+Node: Function compfile filename f_1 ... f_n1826076
+Node: Function compile f_1 ... f_n1827038
+Node: Function compile_file filename1828825
+Node: Function declare_translated f_1 f_2 ...1830187
+Node: Function define fx_1 ... x_n expr1830994
+Node: Function define_variable name default_value mode1835210
+Node: Function dispfun f_1 ... f_n1839651
+Node: Function fullmap f expr_1 ...1843503
+Node: Function fullmapl f list_1 ...1844362
+Node: Variable functions1844798
+Node: Function fundef f1846836
+Node: Function funmake F [arg_1 ... arg_n]1848158
+Node: Function lambda [x_1 ... x_m] expr_1 ... expr_n1851632
+Node: Function local v_1 ... v_n1857845
+Node: Function macroexpand expr1859438
+Node: Function macroexpand1 expr1860893
+Node: Variable macroexpansion1862266
+Node: Variable macros1868332
+Node: Variable mode_check_errorp1868857
+Node: Variable mode_check_warnp1869154
+Node: Variable mode_checkp1869448
+Node: Function mode_declare y_1 mode_1 ... y_n mode_n1870392
+Node: Function mode_identity arg_1 arg_21874405
+Node: Function remfunction f_1 ... f_n1876161
+Node: Variable savedef1877149
+Node: Function splice a1877714
+Node: Variable tr_array_as_ref1879523
+Node: Variable tr_bound_function_applyp1880142
+Node: Variable tr_file_tty_messagesp1881384
+Node: Variable tr_float_can_branch_complex1881944
+Node: Variable tr_function_call_default1882691
+Node: Variable tr_numer1883596
+Node: Variable tr_optimize_max_loop1883936
+Node: Variable tr_state_vars1884407
+Node: Variable tr_warn_bad_function_calls1885108
+Node: Variable tr_warn_fexpr1885521
+Node: Variable tr_warn_meval1885939
+Node: Variable tr_warn_mode1886302
+Node: Variable tr_warn_undeclared1886618
+Node: Variable tr_warn_undefined_variable1886948
+Node: Function tr_warnings_get1887261
+Node: Function translate f_1 ... f_n1887576
+Node: Function translate_file maxima_filename1890070
+Node: Variable transrun1893093
+Node: Help1893461
+Node: Function apropos name1893835
+Node: Variable browser1895682
+Node: Function demo filename1896828
+Node: Function describe string1898221
+Node: Function example topic1901365
+Node: Variable manual_demo1902863
+Node: Variable output_format_for_help1903239
+Node: Variable url_base1904157
+Node: Maxima's Database1905255
+Node: Function activate context_1 ... context_n1906979
+Node: Variable activecontexts1907561
+Node: Variable alphabetic1908016
+Node: Function askequal expr1 expr21908882
+Node: Function askinteger expr integer1909731
+Node: Function asksign expr1910454
+Node: Function assume pred_1 ... pred_n1911033
+Node: Variable assume_pos1913779
+Node: Variable assume_pos_pred1915161
+Node: Variable assumescalar1918018
+Node: Variable bindtest1919144
+Node: Function charfun p1919859
+Node: Function compare x y1920703
+Node: Function constant1922041
+Node: Function constantp expr1922732
+Node: Variable context1924188
+Node: Variable contexts1925003
+Node: Function csign expr1926702
+Node: Function deactivate context_1 ... context_n1927755
+Node: Function declare a_1 p_1 a_2 p_2 ...1928060
+Node: Variable decreasing1933906
+Node: Function equal a b1934691
+Node: Variable even1939283
+Node: Function facts item1940182
+Node: Variable feature1940749
+Node: Function featurep a f1941339
+Node: Variable features1942067
+Node: Function forget pred_1 ... pred_n1943577
+Node: Function get a i1944067
+Node: Variable integer1945264
+Node: Variable integervalued1945896
+Node: Function is expr1946569
+Node: Function killcontext context_1 ... context_n1948692
+Node: Function maybe expr1949651
+Node: Function newcontext name1950695
+Node: Function nonarray1951261
+Node: Variable nonscalar1951932
+Node: Function nonscalarp expr1952247
+Node: Function notequal a b1952667
+Node: Variable posfun1953765
+Node: Function printprops a i1954109
+Node: Function properties a1954792
+Node: Variable props1955052
+Node: Function propvars prop1955574
+Node: Function put atom value indicator1955975
+Node: Function qput atom value indicator1957108
+Node: Variable rational1958130
+Node: Variable real1958503
+Node: Function rem atom indicator1958898
+Node: Function remove a_1 p_1 ... a_n p_n1959381
+Node: Variable scalar1961223
+Node: Function scalarp expr1961542
+Node: Function sign expr1962055
+Node: Function supcontext name context1962892
+Node: Function unknown expr1963483
+Node: Function zeroequiv expr v1963798
+Node: Operators1965123
+Node: Function **1965669
+Node: Function +1966493
+Node: Function1972821
+Node: Function 21973567
+Node: Function 31976120
+Node: Function =1976869
+Node: Function = 21979759
+Node: Function < =1984950
+Node: Function ^{}1987894
+Node: Function and1988719
+Node: Function infix op1989886
+Node: Function matchfix ldelimiter rdelimiter1994239
+Node: Function nary op1998882
+Node: Function nofix op1999625
+Node: Function not2000311
+Node: Function or2001026
+Node: Function postfix op2002189
+Node: Function prefix op2002780
+Node: Program Flow2003267
+Node: Function backtrace2004040
+Node: Function do2005547
+Node: Function errcatch expr_1 ... expr_n2016088
+Node: Variable errexp12016807
+Node: Function error expr_1 ... expr_n2017055
+Node: Variable error_size2017806
+Node: Variable error_syms2019497
+Node: Function errormsg2020336
+Node: Function garbage_collect2020669
+Node: Function go tag2021194
+Node: Function if2021890
+Node: Function map f expr_1 ... expr_n2024478
+Node: Function mapatom expr2026583
+Node: Variable maperror2026972
+Node: Function maplist f expr_1 ... expr_n2027648
+Node: Variable mapprint2028281
+Node: Function outermap f a_1 ... a_n2028938
+Node: Variable prederror2035847
+Node: Function return value2036410
+Node: Function scanmap f expr2037787
+Node: Function throw expr2039539
+Node: Function warning expr_1 ... expr_n2039909
+Node: Runtime Environment2040337
+Node: Function absolute_real_time2041011
+Node: Function decode_time T tz_offset2041635
+Node: Function elapsed_real_time2043444
+Node: Function elapsed_run_time2044166
+Node: Function encode_time year month day hours minutes seconds tz_offset2044977
+Node: Variable maxima_tempdir2047538
+Node: Variable maxima_userdir2048198
+Node: Function parse_timedate S2049074
+Node: Function room2052893
+Node: Function sstatus keyword item2053429
+Node: Function status feature2054085
+Node: Function system command arg_1 ... arg_n2055360
+Node: Function time %o1 %o2 %o3 ...2058597
+Node: Function timedate T tz_offset2059289
+Node: stringproc 32061260
+Node: Function regex_compile pattern2061711
+Node: Function regex_match regex str2062274
+Node: Function regex_match_pos regex str2065518
+Node: Function regex_split regex str2067179
+Node: Function regex_subst replacement pattern str2067671
+Node: Function regex_subst_first replacement pattern str2068167
+Node: Function string_to_regex str2069093
+Node: Series2069954
+Node: Limits2070095
+Node: Function gruntz expr var value2070434
+Node: Variable lhospitallim2071875
+Node: Function limit expr x val dir2072294
+Node: Variable limsubst2074619
+Node: Function tlimit expr x val dir2075075
+Node: Variable tlimswitch2075374
+Node: Sums Products and Series2076004
+Node: Function absint f x halfplane2077929
+Node: Function bashindices expr2078613
+Node: Variable cauchysum2079214
+Node: Variable cosnpiflag2080593
+Node: Function deftaylor f_1x_1 expr_1 ... f_nx_n expr_n2080852
+Node: Function equalp x y2082321
+Node: Function fourcos f x p2082682
+Node: Function fourexpand l x p limit2082966
+Node: Function fourier f x p2083376
+Node: Function fourint f x2083677
+Node: Function fourintcos f x2083982
+Node: Function fourintsin f x2084263
+Node: Function foursimp l2084541
+Node: Function foursin f x p2084873
+Node: Function funp f expr2085144
+Node: Function intopois a2085588
+Node: Function intosum expr2085808
+Node: Function lsum expr x L2086477
+Node: Variable maxtayorder2087309
+Node: Function niceindices expr2087713
+Node: Variable niceindicespref2089291
+Node: Function nusum expr x i_0 i_12090454
+Node: Function outofpois a2092718
+Node: Function pade taylor_series numer_deg_bound denom_deg_bound2093277
+Node: Function poisdiff a b2096436
+Node: Function poisexpt a b2096779
+Node: Function poisint a b2097052
+Node: Variable poislim2097378
+Node: Function poismap series sinfn cosfn2097832
+Node: Function poisplus a b2098304
+Node: Function poissimp a2098557
+Node: Variable poisson2098810
+Node: Function poissubst a b c2099066
+Node: Function poistimes a b2100229
+Node: Function poistrim2100469
+Node: Function powerseries expr x a2101012
+Node: Function printpois a2103334
+Node: Function product expr i i_0 i_12103691
+Node: Variable psexpand2106387
+Node: Function remfun f expr2107024
+Node: Function revert expr x2107440
+Node: Variable simpproduct2109370
+Node: Variable simpsum2109936
+Node: Variable sinnpiflag2110476
+Node: Function sum expr i i_0 i_12110710
+Node: Function sumcontract expr2115799
+Node: Variable sumexpand2116554
+Node: Function taylor expr x a n2117646
+Node: Variable taylor_logexpand2125106
+Node: Variable taylor_order_coefficients2125906
+Node: Function taylor_simplifier expr2126376
+Node: Variable taylor_truncate_polynomials2126703
+Node: Variable taylordepth2127183
+Node: Function taylorinfo expr2127604
+Node: Function taylorp expr2128652
+Node: Function taytorat expr2128919
+Node: Function totalfourier f x p2129277
+Node: Function trunc expr2129546
+Node: Function unsum f n2130271
+Node: Variable verbose2131589
+Node: zeilberger2131842
+Node: Function AntiDifference F_k k2132484
+Node: Variable ev_point2132779
+Node: Function Gosper F_k k2133116
+Node: Variable Gosper_in_Zeilberger2133521
+Node: Function GosperSum F_k k a b2133951
+Node: Variable linear_solver2135941
+Node: Variable MAX_ORD2136268
+Node: Variable mod_big_prime2136536
+Node: Variable mod_test2136826
+Node: Variable mod_threshold2137146
+Node: Variable modular_linear_solver2137454
+Node: Function parGosper F_nk k n d2137790
+Node: Variable simplified_output2138273
+Node: Variable trivial_solutions2138639
+Node: Variable warnings2139015
+Node: Function Zeilberger F_nk k n2139345
+Node: Simplification2140173
+Node: Rules and Patterns2140348
+Node: Function apply1 expr rule_1 ... rule_n2141337
+Node: Function apply2 expr rule_1 ... rule_n2142208
+Node: Function applyb1 expr rule_1 ... rule_n2142995
+Node: Function clear_rules2143962
+Node: Variable current_let_rule_package2144321
+Node: Variable default_let_rule_package2145090
+Node: Function defmatch progname pattern x_1 ... x_n2145578
+Node: Function defrule rulename pattern replacement2150452
+Node: Function disprule rulename_1 ... rulename_22151374
+Node: Function let prod repl predname arg_1 ... arg_n2153021
+Node: Variable let_rule_packages2157552
+Node: Variable letrat2157949
+Node: Function letrules2158912
+Node: Function letsimp expr2159629
+Node: Function matchdeclare a_1 pred_1 ... a_n pred_n2161919
+Node: Variable maxapplydepth2170153
+Node: Variable maxapplyheight2170486
+Node: Function remlet prod name2170801
+Node: Function remrule op rulename2171934
+Node: Function tellsimp pattern replacement2174165
+Node: Function tellsimpafter pattern replacement2176824
+Node: Simplification 22186463
+Node: Variable additive2187578
+Node: Variable antisymmetric2188695
+Node: Function combine expr2189966
+Node: Variable commutative2190716
+Node: Function define_opproperty property_name simplifier_fn2191699
+Node: Function demoivre expr2193521
+Node: Function distrib expr2194393
+Node: Variable distribute_over2195441
+Node: Variable domain2197928
+Node: Variable evenfun2198252
+Node: Function expand expr2199066
+Node: Function expandwrt expr x_1 ... x_n2203465
+Node: Variable expandwrt_denom2204198
+Node: Function expandwrt_factored expr x_1 ... x_n2204797
+Node: Variable expon2205313
+Node: Function exponentialize expr2205766
+Node: Variable expop2206466
+Node: Variable lassociative2207065
+Node: Variable linear2207487
+Node: Variable maxnegex2209415
+Node: Variable maxposex2209762
+Node: Variable multiplicative2210110
+Node: Function multthru expr2212167
+Node: Variable negdistrib2214537
+Node: Variable opproperties2215509
+Node: Variable outative2216149
+Node: Function radcan expr2217680
+Node: Variable radexpand2219058
+Node: Variable rassociative2220179
+Node: Function resimplify expr2220606
+Node: Function scsimp expr rule_1 ... rule_n2221743
+Node: Variable simp2222317
+Node: Variable symmetric2224217
+Node: Function xthru expr2224636
+Node: simplification2225946
+Node: Function agd x2226875
+Node: Function arithmetic a d n2227151
+Node: Function arithsum a d n2227493
+Node: Function collectterms expr arg_1 ... arg_n2227818
+Node: Function combination n r2229277
+Node: Function covers x2229615
+Node: Function exsec x2229888
+Node: Function facsum expr arg_1 ... arg_n2230167
+Node: Variable facsum_combine2232274
+Node: Function factorfacsum expr arg_1 ...arg_n2233165
+Node: Function gaussprob x2233651
+Node: Function gcdivide p q2233987
+Node: Function gcfac expr2235810
+Node: Function gd x2236935
+Node: Function geometric a r n2237218
+Node: Function geosum a r n2237548
+Node: Function harmonic a b c n2237963
+Node: Function hav x2238316
+Node: Variable nextlayerfactor2238591
+Node: Function nonzeroandfreeof x expr2239489
+Node: Function permutation n r2239880
+Node: Function reduce_consts expr2240233
+Node: Function rempart expr n2241797
+Node: Function tracematrix M2242182
+Node: Function vers x2242482
+Node: Function wronskian [f_1 ... f_n] x2242765
+Node: Solving2243531
+Node: Equations2243680
+Node: Variable %rnum2244863
+Node: Variable %rnum_list2245287
+Node: Variable algepsilon2246553
+Node: Variable algexact2246811
+Node: Function algsys [expr_1 ... expr_m] [x_1 ... x_n]2247660
+Node: Function allroots expr2252687
+Node: Variable backsubst2255222
+Node: Function bfallroots expr2256104
+Node: Variable breakup2256634
+Node: Function dimension eqn2260122
+Node: Variable dispflag2260444
+Node: Function funcsolve eqn gt2260902
+Node: Variable globalsolve2261957
+Node: Function ieqn ie unk tech n guess2263798
+Node: Variable ieqnprint2268397
+Node: Function lhs expr2269272
+Node: Function linsolve [expr_1 ... expr_m] [x_1 ... x_n]2271141
+Node: Variable linsolve_params2274670
+Node: Variable linsolvewarn2275274
+Node: Variable multiplicities2275623
+Node: Function nroots p low high2276024
+Node: Function nthroot p n2276577
+Node: Variable polyfactor2277110
+Node: Variable programmode2277642
+Node: Variable realonly2278373
+Node: Function realroots expr bound2278715
+Node: Function rhs expr2281155
+Node: Variable rootsconmode2282999
+Node: Function rootscontract expr2283358
+Node: Variable rootsepsilon2286321
+Node: Function solve expr x2286694
+Node: Variable solvedecomposes2293998
+Node: Variable solveexplicit2294354
+Node: Variable solvefactors2294775
+Node: Variable solvenullwarn2295197
+Node: Variable solveradcan2295677
+Node: Variable solvetrigwarn2296118
+Node: Numerical 42296511
+Node: Function find_root expr x a b [abserr relerr]2296787
+Node: Function horner expr x2300827
+Node: Function newton expr x x_0 eps2302185
+Node: Operators 22303712
+Node: Function 42303928
+Node: Function = 32304692
+Node: solve_rec2308620
+Node: Function harmonic_number x2309099
+Node: Function harmonic_to_psi x2310039
+Node: Variable product_use_gamma2310566
+Node: Function reduce_order rec sol var2311051
+Node: Variable simplify_products2312876
+Node: Function simplify_sum expr2313279
+Node: Function solve_rec eqn var [init]2314236
+Node: Function solve_rec_rat eqn var [init]2317356
+Node: Function summand_to_rec summand k n2318405
+Node: to_poly_solve2319667
+Node: Function %and2320531
+Node: Function %if bool a b2323340
+Node: Function %or2325092
+Node: Function %union soln_1 soln_2 soln_3 ...2327874
+Node: Function complex_number_p x2329798
+Node: Function compose_functions l2330876
+Node: Function dfloat x2332953
+Node: Function elim l x2334208
+Node: Function elim_allbut l x2337077
+Node: Function eliminate_using l e x2337957
+Node: Function fourier_elim [eq1 eq2 ...] [var1 var ...]2339535
+Node: Function isreal_p e2342986
+Node: Function new_variable type2344490
+Node: Function nicedummies2346329
+Node: Function parg x2347141
+Node: Function real_imagpart_to_conjugate e2348645
+Node: Function rectform_log_if_constant e2349552
+Node: Function simp_inequality e2350725
+Node: Function standardize_inverse_trig e2352725
+Node: Function subst_parallel l e2353423
+Node: Function to_poly e l2355657
+Node: Function to_poly_solve e l [options]2358283
+Node: SpecialFunctions2371915
+Node: Elliptic Functions 22372101
+Node: Function inverse_jacobi_cd u m2373008
+Node: Function inverse_jacobi_cs u m2373518
+Node: Function inverse_jacobi_dc u m2374078
+Node: Function inverse_jacobi_dn u m2374619
+Node: Function inverse_jacobi_ds u m2375182
+Node: Function inverse_jacobi_nc u m2375753
+Node: Function inverse_jacobi_nd u m2376303
+Node: Function inverse_jacobi_ns u m2376870
+Node: Function inverse_jacobi_sc u m2377427
+Node: Function inverse_jacobi_sd u m2377975
+Node: Function jacobi_am u m2378548
+Node: Function jacobi_cd u m2380339
+Node: Function jacobi_cn u m2380608
+Node: Function jacobi_cs u m2380842
+Node: Function jacobi_dc u m2381111
+Node: Function jacobi_dn u m2381380
+Node: Function jacobi_ds u m2381614
+Node: Function jacobi_nc u m2381883
+Node: Function jacobi_nd u m2382135
+Node: Function jacobi_ns u m2382387
+Node: Function jacobi_sc u m2382639
+Node: Function jacobi_sd u m2382908
+Node: Function jacobi_sn u m2383177
+Node: Special Functions 22383380
+Node: Function %f p q (%5Ba%5D%5Bb%5Dz)2385507
+Node: Function %m k u (z)2385831
+Node: Function %s u v (z)2386863
+Node: Function %w k u (z)2388007
+Node: Function airy_ai x2388605
+Node: Function airy_bi x2389046
+Node: Function airy_dai x2389450
+Node: Function airy_dbi x2389832
+Node: Function bessel_i v z2390251
+Node: Function bessel_j v z2391202
+Node: Function bessel_k v z2392179
+Node: Function bessel_y v z2393076
+Node: Variable besselexpand2393960
+Node: Function beta a b2396068
+Node: Variable beta_args_sum_to_integer2400838
+Node: Variable beta_expand2401303
+Node: Function beta_incomplete a b z2401762
+Node: Function beta_incomplete_generalized a b z1 z22407436
+Node: Function beta_incomplete_regularized a b z2412882
+Node: Function bffac expr n2416846
+Node: Function bfpsi n z fpprec2417504
+Node: Function cbffac z fpprec2418635
+Node: Function erf z2419102
+Node: Function erf_generalized z1 z22419770
+Node: Variable erf_representation2420352
+Node: Function erfc z2424664
+Node: Function erfi z2425237
+Node: Variable expand_hypergeometric2425524
+Node: Function fresnel_c z2425935
+Node: Function fresnel_s z2426752
+Node: Function gamma z2427555
+Node: Variable gamma_expand2430985
+Node: Function gamma_incomplete a z2432936
+Node: Function gamma_incomplete_generalized a z1 z12433862
+Node: Function gamma_incomplete_lower a z2434497
+Node: Function gamma_incomplete_regularized a z2435146
+Node: Variable gammalim2435897
+Node: Function generalized_lambert_w k z2436542
+Node: Function hankel_1 v z2437162
+Node: Function hankel_2 v z2439210
+Node: Function hgfred a b t2440250
+Node: Function hypergeometric [a1 ... ap] [b1 ... bq] x2442379
+Node: Variable hypergeometric_representation2444541
+Node: Function hypergeometric_simp e2447425
+Node: Function kbateman v (x)2449110
+Node: Function lambert_w z2451580
+Node: Function log_gamma z2451912
+Node: Function makefact expr2452382
+Node: Function makegamma expr2453173
+Node: Variable maxpsifracdenom2453998
+Node: Variable maxpsifracnum2455154
+Node: Variable maxpsinegint2456300
+Node: Variable maxpsiposint2457770
+Node: Function numfactor expr2458716
+Node: Function nzeta z2459441
+Node: Function nzetai z2459764
+Node: Function nzetar z2459963
+Node: Function parabolic_cylinder_d v z2460179
+Node: Function psi n (x)2461064
+Node: Function scaled_bessel_i v z2463259
+Node: Function scaled_bessel_i0 z2463954
+Node: Function scaled_bessel_i1 z2464244
+Node: Function sinc x2464521
+Node: Function slommel u v (z)2466425
+Node: Function struve_h v z2467646
+Node: Function struve_l v z2468663
+Node: Statistics2469372
+Node: descriptive 22469539
+Node: Function build_sample list2470794
+Node: Function cdf_empirical list option...2473153
+Node: Function central_moment x k2474196
+Node: Function continuous_freq data2476957
+Node: Function cor matrix2480747
+Node: Function cov X2483071
+Node: Function cov1 matrix2485783
+Node: Function cv list2487154
+Node: Function discrete_freq data2487936
+Node: Function geometric_mean list2489365
+Node: Function global_variances matrix2490438
+Node: Function harmonic_mean list2492581
+Node: Function km list option...2493644
+Node: Function kurtosis list2495087
+Node: Function list_correlations matrix2496130
+Node: Function mean x2499425
+Node: Function mean_deviation list2502456
+Node: Function median list2503490
+Node: Function median_deviation list2504350
+Node: Function noncentral_moment x k2505356
+Node: Function pearson_skewness list2507905
+Node: Function principal_components matrix2508899
+Node: Function qrange x2513076
+Node: Function quantile list p2514087
+Node: Function quartile_skewness list2515232
+Node: Function range list2516328
+Node: Function skewness list2516897
+Node: Function smax list2517904
+Node: Function smin list2518680
+Node: Function standardize list2519456
+Node: Function std x2519914
+Node: Function std1 list2521401
+Node: Function subsample data_matrix predicate_function2522178
+Node: Function transform_sample matrix varlist exprlist2528048
+Node: Function var x2529731
+Node: Function var1 list2532849
+Node: distrib2533752
+Node: Function cdf_bernoulli x p2541683
+Node: Function cdf_beta x a b2542193
+Node: Function cdf_binomial x n p2542974
+Node: Function cdf_cauchy x a b2543893
+Node: Function cdf_chi2 x n2544423
+Node: Function cdf_continuous_uniform x a b2545427
+Node: Function cdf_discrete_uniform x n2546129
+Node: Function cdf_exp x m2546673
+Node: Function cdf_f x m n2547375
+Node: Function cdf_gamma x a b2548419
+Node: Function cdf_general_finite_discrete x v2549395
+Node: Function cdf_geometric x p2550470
+Node: Function cdf_gumbel x a b2550945
+Node: Function cdf_hypergeometric x n_1 n_2 n2551490
+Node: Function cdf_laplace x a b2552296
+Node: Function cdf_logistic x a b2553083
+Node: Function cdf_lognormal x m s2553576
+Node: Function cdf_negative_binomial x n p2554728
+Node: Function cdf_noncentral_chi2 x n ncp2555570
+Node: Function cdf_noncentral_student_t x n ncp2556071
+Node: Function cdf_normal x m s2556700
+Node: Function cdf_pareto x a b2557676
+Node: Function cdf_poisson x m2558293
+Node: Function cdf_rayleigh x b2559039
+Node: Function cdf_student_t x n2559815
+Node: Function cdf_weibull x a b2561126
+Node: Function kurtosis_bernoulli p2561706
+Node: Function kurtosis_beta a b2562413
+Node: Function kurtosis_binomial n p2562980
+Node: Function kurtosis_chi2 n2563487
+Node: Function kurtosis_continuous_uniform a b2564139
+Node: Function kurtosis_discrete_uniform n2564623
+Node: Function kurtosis_exp m2565154
+Node: Function kurtosis_f m n2565702
+Node: Function kurtosis_gamma a b2566222
+Node: Function kurtosis_general_finite_discrete v2566679
+Node: Function kurtosis_geometric p2567145
+Node: Function kurtosis_gumbel a b2567622
+Node: Function kurtosis_hypergeometric n_1 n_2 n2568081
+Node: Function kurtosis_laplace a b2569061
+Node: Function kurtosis_logistic a b2569504
+Node: Function kurtosis_lognormal m s2569956
+Node: Function kurtosis_negative_binomial n p2570548
+Node: Function kurtosis_noncentral_chi2 n ncp2571095
+Node: Function kurtosis_noncentral_student_t n ncp2571679
+Node: Function kurtosis_normal m s2573246
+Node: Function kurtosis_pareto a b2573715
+Node: Function kurtosis_poisson m2574242
+Node: Function kurtosis_rayleigh b2574678
+Node: Function kurtosis_student_t n2575571
+Node: Function kurtosis_weibull a b2576015
+Node: Function mean_bernoulli p2576735
+Node: Function mean_beta a b2577253
+Node: Function mean_binomial n p2577642
+Node: Function mean_chi2 n2578055
+Node: Function mean_continuous_uniform a b2578556
+Node: Function mean_discrete_uniform n2578994
+Node: Function mean_exp m2579445
+Node: Function mean_f m n2580035
+Node: Function mean_gamma a b2580406
+Node: Function mean_general_finite_discrete v2580797
+Node: Function mean_geometric p2581231
+Node: Function mean_gumbel a b2581805
+Node: Function mean_hypergeometric n_1 n_2 n2582379
+Node: Function mean_laplace a b2582909
+Node: Function mean_logistic a b2583296
+Node: Function mean_lognormal m s2583676
+Node: Function mean_negative_binomial n p2584127
+Node: Function mean_noncentral_chi2 n ncp2584608
+Node: Function mean_noncentral_student_t n ncp2585100
+Node: Function mean_normal m s2586283
+Node: Function mean_pareto a b2586668
+Node: Function mean_poisson m2587069
+Node: Function mean_rayleigh b2587433
+Node: Function mean_student_t n2588052
+Node: Function mean_weibull a b2588419
+Node: Function pdf_bernoulli x p2588863
+Node: Function pdf_beta x a b2589479
+Node: Function pdf_binomial x n p2590108
+Node: Function pdf_cauchy x a b2590632
+Node: Function pdf_chi2 x n2591122
+Node: Function pdf_continuous_uniform x a b2592189
+Node: Function pdf_discrete_uniform x n2592842
+Node: Function pdf_exp x m2593338
+Node: Function pdf_f x m n2594021
+Node: Function pdf_gamma x a b2594902
+Node: Function pdf_general_finite_discrete x v2595471
+Node: Function pdf_geometric x p2596508
+Node: Function pdf_gumbel x a b2597035
+Node: Function pdf_hypergeometric x n_1 n_2 n2597624
+Node: Function pdf_laplace x a b2598575
+Node: Function pdf_logistic x a b2599211
+Node: Function pdf_lognormal x m s2599812
+Node: Function pdf_negative_binomial x n p2600586
+Node: Function pdf_noncentral_chi2 x n ncp2601154
+Node: Function pdf_noncentral_student_t x n ncp2601989
+Node: Function pdf_normal x m s2605029
+Node: Function pdf_pareto x a b2605596
+Node: Function pdf_poisson x m2606195
+Node: Function pdf_rayleigh x b2606649
+Node: Function pdf_student_t x n2607416
+Node: Function pdf_weibull x a b2608109
+Node: Function quantile_bernoulli q p2608793
+Node: Function quantile_beta q a b2609268
+Node: Function quantile_binomial q n p2609729
+Node: Function quantile_cauchy q a b2610241
+Node: Function quantile_chi2 q n2610702
+Node: Function quantile_continuous_uniform q a b2611287
+Node: Function quantile_discrete_uniform q n2611812
+Node: Function quantile_exp q m2612346
+Node: Function quantile_f q m n2613121
+Node: Function quantile_gamma q a b2613607
+Node: Function quantile_general_finite_discrete q v2614085
+Node: Function quantile_geometric q p2614552
+Node: Function quantile_gumbel q a b2615199
+Node: Function quantile_hypergeometric q n1 n2 n2615675
+Node: Function quantile_laplace q a b2616242
+Node: Function quantile_logistic q a b2616723
+Node: Function quantile_lognormal q m s2617199
+Node: Function quantile_negative_binomial q n p2617925
+Node: Function quantile_noncentral_chi2 q n ncp2618484
+Node: Function quantile_noncentral_student_t q n ncp2619081
+Node: Function quantile_normal q m s2619685
+Node: Function quantile_pareto q a b2620506
+Node: Function quantile_poisson q m2620970
+Node: Function quantile_rayleigh q b2621430
+Node: Function quantile_student_t q n2622122
+Node: Function quantile_weibull q a b2622586
+Node: Function random_bernoulli p2623053
+Node: Function random_beta a b2623647
+Node: Function random_binomial n p2624251
+Node: Function random_cauchy a b2624928
+Node: Function random_chi2 n2625427
+Node: Function random_continuous_uniform a b2625965
+Node: Function random_discrete_uniform n2626593
+Node: Function random_exp m2627238
+Node: Function random_f m n2627732
+Node: Function random_gamma a b2628401
+Node: Function random_general_finite_discrete v2629270
+Node: Function random_geometric p2630077
+Node: Function random_gumbel a b2630766
+Node: Function random_hypergeometric n1 n2 n2631280
+Node: Function random_laplace a b2632022
+Node: Function random_logistic a b2632541
+Node: Function random_lognormal m s2633054
+Node: Function random_negative_binomial n p2633627
+Node: Function random_noncentral_chi2 n ncp2634271
+Node: Function random_noncentral_student_t n ncp2634831
+Node: Function random_normal m s2635759
+Node: Function random_pareto a b2636391
+Node: Function random_poisson m2636895
+Node: Function random_rayleigh b2637556
+Node: Function random_student_t n2638059
+Node: Function random_weibull a b2638841
+Node: Function skewness_bernoulli p2639352
+Node: Function skewness_beta a b2640063
+Node: Function skewness_binomial n p2640570
+Node: Function skewness_chi2 n2641081
+Node: Function skewness_continuous_uniform a b2641786
+Node: Function skewness_discrete_uniform n2642252
+Node: Function skewness_exp m2642731
+Node: Function skewness_f m n2643279
+Node: Function skewness_gamma a b2643781
+Node: Function skewness_general_finite_discrete v2644252
+Node: Function skewness_geometric p2644718
+Node: Function skewness_gumbel a b2645188
+Node: Function skewness_hypergeometric n_1 n_2 n2645956
+Node: Function skewness_laplace a b2646650
+Node: Function skewness_logistic a b2647093
+Node: Function skewness_lognormal m s2647527
+Node: Function skewness_negative_binomial n p2648109
+Node: Function skewness_noncentral_chi2 n ncp2648660
+Node: Function skewness_noncentral_student_t n ncp2649264
+Node: Function skewness_normal m s2650699
+Node: Function skewness_pareto a b2651140
+Node: Function skewness_poisson m2651635
+Node: Function skewness_rayleigh b2652075
+Node: Function skewness_student_t n2653014
+Node: Function skewness_weibull a b2653464
+Node: Function std_bernoulli p2654430
+Node: Function std_beta a b2655003
+Node: Function std_binomial n p2655462
+Node: Function std_chi2 n2655923
+Node: Function std_continuous_uniform a b2656470
+Node: Function std_discrete_uniform n2656950
+Node: Function std_exp m2657461
+Node: Function std_f m n2658074
+Node: Function std_gamma a b2658548
+Node: Function std_general_finite_discrete v2658977
+Node: Function std_geometric p2659421
+Node: Function std_gumbel a b2659829
+Node: Function std_hypergeometric n_1 n_2 n2660284
+Node: Function std_laplace a b2660918
+Node: Function std_logistic a b2661353
+Node: Function std_lognormal m s2661802
+Node: Function std_negative_binomial n p2662382
+Node: Function std_noncentral_chi2 n ncp2662901
+Node: Function std_noncentral_student_t n ncp2663435
+Node: Function std_normal m s2664099
+Node: Function std_pareto a b2664526
+Node: Function std_poisson m2664985
+Node: Function std_rayleigh b2665393
+Node: Function std_student_t n2666184
+Node: Function std_weibull a b2666642
+Node: Function var_bernoulli p2667195
+Node: Function var_beta a b2667726
+Node: Function var_binomial n p2668151
+Node: Function var_chi2 n2668578
+Node: Function var_continuous_uniform a b2669085
+Node: Function var_discrete_uniform n2669537
+Node: Function var_exp m2670000
+Node: Function var_f m n2670634
+Node: Function var_gamma a b2671050
+Node: Function var_general_finite_discrete v2671449
+Node: Function var_geometric p2671883
+Node: Function var_gumbel a b2672291
+Node: Function var_hypergeometric n1 n2 n2672711
+Node: Function var_laplace a b2673336
+Node: Function var_logistic a b2673732
+Node: Function var_lognormal m s2674157
+Node: Function var_negative_binomial n p2674687
+Node: Function var_noncentral_chi2 n ncp2675176
+Node: Function var_noncentral_student_t n ncp2675676
+Node: Function var_normal m s2676511
+Node: Function var_pareto a b2676905
+Node: Function var_poisson m2677332
+Node: Function var_rayleigh b2677701
+Node: Function var_student_t n2678486
+Node: Function var_weibull a b2678994
+Node: lsquares2679520
+Node: Function lsquares_estimates D x e a2679979
+Node: Function lsquares_estimates_approximate MSE a initial=L tol=t2686441
+Node: Function lsquares_estimates_exact MSE a2689674
+Node: Function lsquares_mse D x e2692202
+Node: Function lsquares_residual_mse D x e a2696448
+Node: Function lsquares_residuals D x e a2698639
+Node: Function plsquares Mat VarList depvars2700974
+Node: stats2704928
+Node: Function cdf_rank_sum x n m2705747
+Node: Function cdf_signed_rank x n2706158
+Node: Function inference_result title values numbers2706617
+Node: Function inferencep obj2708595
+Node: Function items_inference obj2708910
+Node: Function linear_regression x2709756
+Node: Function pdf_rank_sum x n m2713770
+Node: Function pdf_signed_rank x n2714214
+Node: Variable stats_numer2714643
+Node: Function take_inference n obj2715054
+Node: Function test_mean x2716891
+Node: Function test_means_difference x1 x22721381
+Node: Function test_normality x2726381
+Node: Function test_proportion x n2727571
+Node: Function test_proportions_difference x1 n1 x2 n22732036
+Node: Function test_rank_sum x1 x22736217
+Node: Function test_sign x2738983
+Node: Function test_signed_rank x2741020
+Node: Function test_variance x2744121
+Node: Function test_variance_ratio x1 x22746790
+Node: Tensors2749637
+Node: affine2749774
+Node: Variable all_dotsimp_denoms2750498
+Node: Function check_overlaps n add_to_simps2750988
+Node: Function declare_weights x_1 w_1 ... x_n w_n2751816
+Node: Function dotsimp f2752230
+Node: Function extract_linear_equations [p_1 ... p_n] [m_1 ... m_n]2752674
+Node: Function fast_central_elements [x_1 ... x_n] n2753257
+Node: Function fast_linsolve [expr_1 ... expr_m] [x_1 ... x_n]2753892
+Node: Function grobner_basis [expr_1 ... expr_m]2754763
+Node: Function list_nc_monomials [p_1 ... p_n]2755563
+Node: Function mono [x_1 ... x_n] n2755976
+Node: Function monomial_dimensions n2756386
+Node: Function nc_degree p2756704
+Node: Function set_up_dot_simplifications eqns check_through_degree2757056
+Node: atensor2758031
+Node: Function abasep v2758412
+Node: Variable adim2758770
+Node: Function af u v2759100
+Node: Variable aform2759510
+Node: Function alg_type2759819
+Node: Variable asymbol2760137
+Node: Function atensimp expr2760350
+Node: Function av u v2760896
+Node: Function init_atensor alg_type opt_dims2761997
+Node: Function sf u v2764730
+Node: cartan2765137
+Node: Function ext_diff form2765425
+Node: Function init_cartan [x_1 ... x_m]2765679
+Node: Function lie_diff vector1 [vector2 form]2766268
+Node: Function |2766630
+Node: Function ~2766934
+Node: ctensor2767375
+Node: Function bdvac f2769152
+Node: Function bimetric2769649
+Node: Function cdisplay ten2769975
+Node: Variable cframe_flag2782785
+Node: Function cgeodesic dis2783360
+Node: Function checkdiv2783798
+Node: Function christof dis2784384
+Node: Function cmetric dis2785459
+Node: Variable cnonmet_flag2786530
+Node: Function cograd2786941
+Node: Function contortion tr2787273
+Node: Function contragrad2787515
+Node: Function csetup2788681
+Node: Variable ct_coords2789024
+Node: Function ct_coordsys coordinate_system extra_arg2789617
+Node: Function ctaylor2795594
+Node: Variable ctaypov2800629
+Node: Variable ctaypt2800871
+Node: Variable ctayswitch2801127
+Node: Variable ctayvar2801524
+Node: Variable ctorsion_flag2801770
+Node: Function ctransform M2802142
+Node: Variable ctrgsimp2802672
+Node: Function deleten L n2802995
+Node: Function diagmatrixp M n2803238
+Node: Variable diagmetric2803519
+Node: Variable dim2804118
+Node: Function dscalar2804496
+Node: Function einstein dis2805451
+Node: Variable fb2806204
+Node: Function findde A n2806414
+Node: Function frame_bracket fr fri diagframe2808743
+Node: Variable gdet2809180
+Node: Function init_ctensor2809475
+Node: Function invariant12809918
+Node: Function invariant22810258
+Node: Variable kinvariant2810652
+Node: Variable kt2810862
+Node: Function leinstein dis2811076
+Node: Variable lfg2811611
+Node: Variable lg2811926
+Node: Variable lriem2812194
+Node: Function lriemann dis2812397
+Node: Variable nm2813008
+Node: Variable nmc2813211
+Node: Function nonmetricity nm2813436
+Node: Variable np2813678
+Node: Variable npi2813879
+Node: Function nptetrad2814594
+Node: Function ntermst f2815399
+Node: Function petrov2815889
+Node: Variable ratchristof2819589
+Node: Variable rateinstein2819812
+Node: Variable ratriemann2820194
+Node: Variable ratweyl2820608
+Node: Variable ric2820997
+Node: Function ricci dis2821193
+Node: Variable riem2821592
+Node: Function riemann dis2822024
+Node: Function rinvariant2823422
+Node: Function scurvature2823798
+Node: Function symmetricp M n2824092
+Node: Variable tensorkill2824568
+Node: Variable tr2824852
+Node: Variable ufg2825071
+Node: Variable ug2825332
+Node: Variable uric2825525
+Node: Function uricci dis2825722
+Node: Variable uriem2826399
+Node: Function uriemann dis2826614
+Node: Function weyl dis2826938
+Node: itensor2827484
+Node: Variable allsym2829725
+Node: Function canform expr2830195
+Node: Function canten expr2831291
+Node: Function changename old new expr2832098
+Node: Function components tensor expr2832599
+Node: Function concan expr2836840
+Node: Function conmetderiv expr tensor2837120
+Node: Function contract expr2838096
+Node: Function coord tensor_1 tensor_2 ...2838812
+Node: Function covdiff expr v_1 v_2 ...2839382
+Node: Function decsym tensor m n [cov_1 cov_2 ...] [contr_1 contr_2 ...]2841361
+Node: Function defcon tensor_12843988
+Node: Function dispcon tensor_1 tensor_2 ...2845154
+Node: Function dispsym tensor m n2845544
+Node: Function entertensor name2845939
+Node: Function evundiff expr2846434
+Node: Function extdiff expr i2848905
+Node: Variable flipflag2850448
+Node: Function flush expr tensor_1 tensor_2 ...2851219
+Node: Function flush1deriv expr tensor2851535
+Node: Function flushd expr tensor_1 tensor_2 ...2851874
+Node: Function flushnd expr tensor n2852202
+Node: Function hodge expr2853032
+Node: Function ic_convert eqn2854548
+Node: Variable icc12856872
+Node: Variable icc22857662
+Node: Function ichr1 [i j k]2858469
+Node: Function ichr2 [i j] [k]2858943
+Node: Variable icounter2859323
+Node: Function icurvature [i j k] [h]2859739
+Node: Function idiff expr v_1 [n_1 [v_2 n_2]...]2860431
+Node: Function idim n2861333
+Node: Function idummy2861649
+Node: Variable idummyx2862132
+Node: Variable ifb2862406
+Node: Variable ifc12863444
+Node: Variable ifc22863960
+Node: Variable ifg2864482
+Node: Variable ifgi2864757
+Node: Variable ifr2865025
+Node: Variable iframe_bracket_form2865326
+Node: Function iframes2865610
+Node: Variable ifri2866000
+Node: Function igeodesic_coords expr name2866330
+Node: Variable igeowedge_flag2868408
+Node: Variable ikt12868950
+Node: Variable ikt22869498
+Node: Function imetric g2869900
+Node: Function indexed_tensor tensor2870402
+Node: Function indices expr2870825
+Node: Variable inm2871925
+Node: Variable inmc12872376
+Node: Variable inmc22872856
+Node: Function ishow expr2873506
+Node: Variable itr2873963
+Node: Function kdels L1 L22876606
+Node: Function kdelta L1 L22877517
+Node: Function lc2kdt expr2878470
+Node: Function lc_l2881901
+Node: Function lc_u2883013
+Node: Function levi_civita L2883485
+Node: Function liediff v ten2883868
+Node: Function listoftens2884756
+Node: Function lorentz_gauge expr2885390
+Node: Function makebox expr g2885729
+Node: Function rediff ten2886137
+Node: Function remcomps tensor2886430
+Node: Function remcon tensor_1 ... tensor_n2886748
+Node: Function remcoord tensor_1 tensor_2 ...2887142
+Node: Function remsym tensor m n2887572
+Node: Function rename expr2887885
+Node: Function showcomps tensor2891094
+Node: Function simpmetderiv expr2893545
+Node: Function tentex expr2896637
+Node: Function undiff expr2897943
+Node: Trigonometry2898569
+Node: Elementary Functions 42898739
+Node: Variable %iargs2899762
+Node: Variable %piargs2900911
+Node: Function acos x2902968
+Node: Function acosh x2903397
+Node: Function acot x2903837
+Node: Function acoth x2904269
+Node: Function acsc x2904712
+Node: Function acsch x2905143
+Node: Function asec x2905585
+Node: Function asech x2906014
+Node: Function asin x2906454
+Node: Function asinh x2906881
+Node: Function atan x2907319
+Node: Function atan2 y x2907792
+Node: Function atanh x2908482
+Node: Variable atrig12908926
+Node: Function cos x2909455
+Node: Function cosh x2909876
+Node: Function cot x2910308
+Node: Function coth x2910732
+Node: Function csc x2911167
+Node: Function csch x2911590
+Node: Variable halfangles2912029
+Node: Variable ntrig2913904
+Node: Function sec x2914344
+Node: Function sech x2914764
+Node: Function sin x2915196
+Node: Function sinh x2915615
+Node: Function tan x2916045
+Node: Function tanh x2916467
+Node: Function trigexpand expr2916910
+Node: Variable trigexpandplus2918575
+Node: Variable trigexpandtimes2919115
+Node: Variable triginverses2919662
+Node: Function trigrat expr2920312
+Node: Function trigreduce expr x2923185
+Node: Variable trigsign2923940
+Node: Function trigsimp expr2924348
+Node: trigtools2924996
+Node: Function atan_contract r2925358
+Node: Function c2hyp x2927148
+Node: Function c2sin x2928005
+Node: Function c2trig x2931288
+Node: Function trigeval x2933599
+Node: Function trigfactor x2933926
+Node: Function trigsolve x2937367
+Node: Function trigvalue x2946512
+Node: Units2946989
+Node: ezunits2947125
+Node: Function `2947883
+Node: Function ``2950708
+Node: Function constvalue x2957116
+Node: Function declare_constvalue a x2958137
+Node: Function declare_dimensions a_1 d_1 ... a_n d_n2958862
+Node: Function declare_fundamental_dimensions d_1 d_2 d_3 ...2959972
+Node: Function declare_fundamental_units u_1 d_1 ... u_n d_n2961408
+Node: Function declare_qty a x2963138
+Node: Function declare_unit_conversion u=v ...2963979
+Node: Function declare_units a u2965905
+Node: Function dimensionless L2966777
+Node: Function fundamental_units x2967948
+Node: Function natural_unit expr [v_1 ... v_n]2969337
+Node: Function qty x2969719
+Node: Function remove_constvalue a2970770
+Node: Function remove_dimensions a_1 ... a_n2971124
+Node: Function unitp x2971446
+Node: Function units x2972719
+Node: unit2974045
+Node: Variable %unitexpand2974336
+Node: Function convert expr list2974598
+Node: Function metricexpandall x2978170
+Node: Function setunits list2979251
+Node: Function uforget list2984152
+Node: Variable usersetunits2985616
+Node: Function and variable index2994056
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:

@@ -1,5 +1,8 @@
 ## orthopoly
 
+<!-- category: Polynomials -->
+<!-- keywords: assoc_legendre_p -->
+<!-- signatures: assoc_legendre_p(n, m, x) -->
 ### Function: assoc_legendre_p (n, m, x)
 
 The associated Legendre function of the first kind of degree $n$ and
@@ -72,6 +75,9 @@ are returned.
 
 See also: `orthopoly_returns_intervals`.
 
+<!-- category: Polynomials -->
+<!-- keywords: assoc_legendre_q -->
+<!-- signatures: assoc_legendre_q(n, m, x) -->
 ### Function: assoc_legendre_q (n, m, x)
 
 The associated Legendre function of the second kind of degree $n$
@@ -122,6 +128,9 @@ Some examples:
                                      2 x  - 2
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: chebyshev_t -->
+<!-- signatures: chebyshev_t(n, x) -->
 ### Function: chebyshev_t (n, x)
 
 The Chebyshev polynomial of the first kind of degree $n$, 
@@ -210,6 +219,9 @@ are returned.
 
 See also: `orthopoly_returns_intervals`.
 
+<!-- category: Polynomials -->
+<!-- keywords: chebyshev_u -->
+<!-- signatures: chebyshev_u(n, x) -->
 ### Function: chebyshev_u (n, x)
 
 The Chebyshev polynomial of the second kind of degree $n$, 
@@ -299,6 +311,9 @@ are returned.
 
 See also: `orthopoly_returns_intervals`.
 
+<!-- category: Polynomials -->
+<!-- keywords: gen_laguerre -->
+<!-- signatures: gen_laguerre(n, a, x) -->
 ### Function: gen_laguerre (n, a, x)
 
 The generalized Laguerre polynomial of degree $n$, 
@@ -390,6 +405,9 @@ are returned.
 
 See also: `orthopoly_returns_intervals`.
 
+<!-- category: Polynomials -->
+<!-- keywords: hermite -->
+<!-- signatures: hermite(n, x) -->
 ### Function: hermite (n, x)
 
 The Hermite polynomial of degree $n$, 
@@ -482,10 +500,16 @@ are returned.
 
 See also: `orthopoly_returns_intervals`.
 
+<!-- category: Polynomials -->
+<!-- keywords: intervalp -->
+<!-- signatures: intervalp(e) -->
 ### Function: intervalp (e)
 
 Return `true` if the input is an interval and return false if it isn’t.
 
+<!-- category: Polynomials -->
+<!-- keywords: jacobi_p -->
+<!-- signatures: jacobi_p(n, a, b, x) -->
 ### Function: jacobi_p (n, a, b, x)
 
 The Jacobi polynomial, 
@@ -562,6 +586,9 @@ are returned.
 
 See also: `orthopoly_returns_intervals`.
 
+<!-- category: Polynomials -->
+<!-- keywords: laguerre -->
+<!-- signatures: laguerre(n, x) -->
 ### Function: laguerre (n, x)
 
 The Laguerre polynomial, 
@@ -629,6 +656,9 @@ are returned.
 
 See also: `orthopoly_returns_intervals`.
 
+<!-- category: Polynomials -->
+<!-- keywords: legendre_p -->
+<!-- signatures: legendre_p(n, x) -->
 ### Function: legendre_p (n, x)
 
 The Legendre polynomial of the first kind, 
@@ -716,6 +746,9 @@ are returned.
 
 See also: `orthopoly_returns_intervals`.
 
+<!-- category: Polynomials -->
+<!-- keywords: legendre_q -->
+<!-- signatures: legendre_q(n, x) -->
 ### Function: legendre_q (n, x)
 
 The Legendre function of the second kind, 
@@ -768,6 +801,9 @@ Some examples:
                                       2
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: orthopoly_recur -->
+<!-- signatures: orthopoly_recur(f, args) -->
 ### Function: orthopoly_recur (f, args)
 
 Returns a recursion relation for the orthogonal function family
@@ -820,6 +856,9 @@ A recursion relation for foo isn't known to Maxima
  -- an error.  Quitting.  To debug this try debugmode(true);
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: orthopoly_returns_intervals -->
+<!-- signatures: orthopoly_returns_intervals -->
 ### Variable: orthopoly_returns_intervals
 
 Default value: `true`
@@ -832,6 +871,9 @@ case, the interval is a disk in the complex plane.
 
 See also: `true`.
 
+<!-- category: Polynomials -->
+<!-- keywords: orthopoly_weight -->
+<!-- signatures: orthopoly_weight(f, args) -->
 ### Function: orthopoly_weight (f, args)
 
 Returns a three element list; the first element is 
@@ -859,6 +901,9 @@ of the interval of orthogonality. For example,
 The main variable of *f* must be a symbol; if it isn’t, Maxima
 signals an error.
 
+<!-- category: Polynomials -->
+<!-- keywords: pochhammer -->
+<!-- signatures: pochhammer(x, n) -->
 ### Function: pochhammer (x, n)
 
 The Pochhammer symbol, 
@@ -932,6 +977,9 @@ is symbolic, `pochhammer` returns a noun form.
 
 See also: `pochhammer_max_index`, `pochhammer`.
 
+<!-- category: Polynomials -->
+<!-- keywords: pochhammer_max_index -->
+<!-- signatures: pochhammer_max_index -->
 ### Variable: pochhammer_max_index
 
 Default value: 100
@@ -960,6 +1008,9 @@ Examples:
 
 Reference: [https://personal.math.ubc.ca/~cbm/aands/page_256.htmA&S eqn 6.1.16]().
 
+<!-- category: Polynomials -->
+<!-- keywords: spherical_bessel_j -->
+<!-- signatures: spherical_bessel_j(n, x) -->
 ### Function: spherical_bessel_j (n, x)
 
 The spherical Bessel function of the first kind, 
@@ -1015,6 +1066,9 @@ Some examples:
                                        x          x
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: spherical_bessel_y -->
+<!-- signatures: spherical_bessel_y(n, x) -->
 ### Function: spherical_bessel_y (n, x)
 
 The spherical Bessel function of the second kind, 
@@ -1068,6 +1122,9 @@ $$y_n(x) = \sqrt{\pi\over 2x} Y_{n+1/2}(x)$$
                              x                    x
 ```
 
+<!-- category: Polynomials -->
+<!-- keywords: spherical_hankel1 -->
+<!-- signatures: spherical_hankel1(n, x) -->
 ### Function: spherical_hankel1 (n, x)
 
 The spherical Hankel function of the
@@ -1094,6 +1151,9 @@ are returned.
 
 See also: `orthopoly_returns_intervals`.
 
+<!-- category: Polynomials -->
+<!-- keywords: spherical_hankel2 -->
+<!-- signatures: spherical_hankel2(n, x) -->
 ### Function: spherical_hankel2 (n, x)
 
 The spherical Hankel function of the
@@ -1120,6 +1180,9 @@ are returned.
 
 See also: `orthopoly_returns_intervals`.
 
+<!-- category: Polynomials -->
+<!-- keywords: spherical_harmonic -->
+<!-- signatures: spherical_harmonic(n, m, theta, phi) -->
 ### Function: spherical_harmonic (n, m, theta, phi)
 
 The spherical harmonic function, 
@@ -1210,6 +1273,9 @@ are returned.
 
 See also: `orthopoly_returns_intervals`.
 
+<!-- category: Polynomials -->
+<!-- keywords: ultraspherical -->
+<!-- signatures: ultraspherical(n, a, x) -->
 ### Function: ultraspherical (n, a, x)
 
 The ultraspherical polynomial, 
@@ -1297,6 +1363,9 @@ are returned.
 
 See also: `orthopoly_returns_intervals`.
 
+<!-- category: Polynomials -->
+<!-- keywords: unit_step -->
+<!-- signatures: unit_step(x) -->
 ### Function: unit_step (x)
 
 The left-continuous unit step function; thus

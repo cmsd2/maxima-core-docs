@@ -1,5 +1,8 @@
 ## ggf
 
+<!-- category: Other -->
+<!-- keywords: ggf -->
+<!-- signatures: ggf(l) -->
 ### Function: ggf (l)
 
 Compute the generating function (if it is a fraction of two
@@ -51,6 +54,9 @@ As these examples show, the generating function does create a function
 whose Taylor series has coefficients that are the elements of the
 original list.
 
+<!-- category: Other -->
+<!-- keywords: GGFCFMAX -->
+<!-- signatures: GGFCFMAX -->
 ### Variable: GGFCFMAX
 
 Default value: 3
@@ -72,6 +78,9 @@ See also `ggf`.
 
 See also: `ggf`.
 
+<!-- category: Other -->
+<!-- keywords: GGFINFINITY -->
+<!-- signatures: GGFINFINITY -->
 ### Variable: GGFINFINITY
 
 Default value: 3

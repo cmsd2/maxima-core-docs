@@ -1,5 +1,8 @@
 ## Debugging
 
+<!-- category: Programming -->
+<!-- keywords: debugmode -->
+<!-- signatures: debugmode -->
 ### Variable: debugmode
 
 Default value: `false`
@@ -17,6 +20,9 @@ when a Maxima error occurs.
 
 In either case, enabling `debugmode` will not catch Lisp errors.
 
+<!-- category: Programming -->
+<!-- keywords: refcheck -->
+<!-- signatures: refcheck -->
 ### Variable: refcheck
 
 Default value: `false`
@@ -26,6 +32,9 @@ When `refcheck` is `true`, Maxima prints a message
 each time a bound variable is used for the first time in a
 computation.
 
+<!-- category: Programming -->
+<!-- keywords: setcheck -->
+<!-- signatures: setcheck -->
 ### Variable: setcheck
 
 Default value: `false`
@@ -68,6 +77,9 @@ to put them on the list of variables to check.
 No printout is generated when a
 variable on the `setcheck` list is assigned to itself, e.g., `X: 'X`.
 
+<!-- category: Programming -->
+<!-- keywords: setcheckbreak -->
+<!-- signatures: setcheckbreak -->
 ### Variable: setcheckbreak
 
 Default value: `false`
@@ -86,6 +98,9 @@ See also `setcheck` and `setval`.
 
 See also: `setcheck`, `setval`.
 
+<!-- category: Programming -->
+<!-- keywords: setval -->
+<!-- signatures: setval -->
 ### Variable: setval
 
 Holds the value to which a variable is about to be set when
@@ -97,7 +112,10 @@ See also `setcheck` and `setcheckbreak`.
 
 See also: `setcheckbreak`, `setval`, `setcheck`.
 
-### Function: timer (f_1, ..., f_n, timer, all, timer)
+<!-- category: Programming -->
+<!-- keywords: timer -->
+<!-- signatures: timer(f_1, ..., f_n), timer(all), timer() -->
+### Function: timer (f_1, ..., f_n)
 
 Given functions *f_1*, ..., *f_n*, `timer` puts each one on the
 list of functions for which timing statistics are collected.
@@ -132,6 +150,9 @@ See also `timer_reset` and `timer_005fdevalue`.
 
 See also: `timer_reset`, `timer_devalue`.
 
+<!-- category: Programming -->
+<!-- keywords: timer_devalue -->
+<!-- signatures: timer_devalue -->
 ### Variable: timer_devalue
 
 Default value: `false`
@@ -148,7 +169,10 @@ See also `timer` and `timer_005finfo`.
 
 See also: `timer`, `timer_info`.
 
-### Function: timer_info (f_1, ..., f_n, timer_info)
+<!-- category: Programming -->
+<!-- keywords: timer_info -->
+<!-- signatures: timer_info(f_1, ..., f_n), timer_info() -->
+### Function: timer_info (f_1, ..., f_n)
 
 Given functions *f_1*, ..., *f_n*, `timer_info` returns a matrix
 containing timing information for each function.
@@ -176,7 +200,10 @@ See also `timer` and `timer_005freset`.
 
 See also: `timer`, `timer_reset`.
 
-### Function: timer_reset (timer_reset, f_1, ..., f_n, timer_reset)
+<!-- category: Programming -->
+<!-- keywords: timer_reset -->
+<!-- signatures: timer_reset(f_1, ..., f_n), timer_reset() -->
+### Function: timer_reset (f_1, ..., f_n)
 
 Given functions *f_1*, ..., *f_n*,
 `timer_reset` sets the accumulated elapsed time
@@ -189,7 +216,10 @@ With no arguments,
 for each function on the global timer list
 to zero.
 
-### Function: trace (f_1, ..., f_n, trace, all, trace)
+<!-- category: Programming -->
+<!-- keywords: trace -->
+<!-- signatures: trace(f_1, ..., f_n), trace(all), trace() -->
+### Function: trace (f_1, ..., f_n)
 
 Given functions *f_1*, ..., *f_n*, `trace` instructs Maxima to
 print out debugging information whenever those functions are called.
@@ -223,6 +253,9 @@ If `timer (f)` is in effect, then `trace (f)` has no effect;
 
 See also: `trace_options`.
 
+<!-- category: Programming -->
+<!-- keywords: trace_break_arg -->
+<!-- signatures: trace_break_arg -->
 ### Variable: trace_break_arg
 
 When a traced function stops at a breakpoint,
@@ -233,7 +266,10 @@ or the return value of the function, when exiting.
 Breakpoints for traced functions are specified by the option keyword `break` of the function `trace_options`,
 which see.
 
-### Function: trace_options (trace_options, f, option_1, ..., option_n, trace_options, f)
+<!-- category: Programming -->
+<!-- keywords: trace_options -->
+<!-- signatures: trace_options(f, option_1, ..., option_n), trace_options(f) -->
+### Function: trace_options (f, option_1, ..., option_n)
 
 Sets the trace options for function *f*.
 Any previous options are superseded.
@@ -424,7 +460,10 @@ _exit;
 (%o5)                          720
 ```
 
-### Function: untimer (f_1, ..., f_n, untimer)
+<!-- category: Programming -->
+<!-- keywords: untimer -->
+<!-- signatures: untimer(f_1, ..., f_n), untimer() -->
+### Function: untimer (f_1, ..., f_n)
 
 Given functions *f_1*, ..., *f_n*,
 `untimer` removes each function from the timer list.
@@ -441,7 +480,10 @@ return information about any function not currently on the timer list.
 `timer (f)` resets all timing statistics to zero
 and puts `f` on the timer list again.
 
-### Function: untrace (untrace, f_1, ..., f_n, untrace)
+<!-- category: Programming -->
+<!-- keywords: untrace -->
+<!-- signatures: untrace(f_1, ..., f_n), untrace() -->
+### Function: untrace (f_1, ..., f_n)
 
 Given functions *f_1*, ..., *f_n*,
 `untrace` disables tracing enabled by the `trace` function.

@@ -1,294 +1,5 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.1 from
+This is maxima-core-docs.info, produced by makeinfo version 7.3 from
 maxima-core-docs.texi.
-
-
-File: maxima-core-docs.info,  Node: Variable piece,  Next: Function psubst psubst list expr psubst a b expr,  Prev: Function pickapart expr n,  Up: Expressions
-
- -- Variable: piece
-     Holds the last expression selected when using the ‘part’ functions.
-
-     It is set during the execution of the function and thus may be
-     referred to in the function itself.
-
-     See also: ‘part’.
-
-
-File: maxima-core-docs.info,  Node: Function psubst psubst list expr psubst a b expr,  Next: Function rembox rembox expr unlabelled rembox expr label rembox expr,  Prev: Variable piece,  Up: Expressions
-
- -- Function: psubst (PSUBST, LIST, EXPR, PSUBST, A, B, EXPR)
-     ‘psubst(a, b, expr)’ is similar to ‘subst’.  See ‘subst’.
-
-     In distinction from ‘subst’ the function ‘psubst’ makes parallel
-     substitutions, if the first argument _list_ is a list of equations.
-
-     See also ‘sublis’ for making parallel substitutions and ‘let’ and
-     ‘letsimp’ for others ways to do substitutions.
-
-     Example:
-
-     The first example shows parallel substitution with ‘psubst’.  The
-     second example shows the result for the function ‘subst’, which
-     does a serial substitution.
-
-     maxima
-     
-     (%i1) psubst ([a^2=b, b=a], sin(a^2) + sin(b));
-     (%o1)                    sin(b) + sin(a)
-     
-     
-     (%i2) subst ([a^2=b, b=a], sin(a^2) + sin(b));
-     (%o2)                       2 sin(a)
-
-     See also: ‘subst’, ‘sublis’, ‘let’, ‘letsimp’.
-
-
-File: maxima-core-docs.info,  Node: Function rembox rembox expr unlabelled rembox expr label rembox expr,  Next: Function reveal expr depth,  Prev: Function psubst psubst list expr psubst a b expr,  Up: Expressions
-
- -- Function: rembox (REMBOX, EXPR, UNLABELLED, REMBOX, EXPR, LABEL,
-          REMBOX, EXPR)
-     Removes boxes from _expr_.
-
-     ‘rembox (expr, unlabelled)’ removes all unlabelled boxes from
-     _expr_.
-
-     ‘rembox (expr, label)’ removes only boxes bearing _label_.
-
-     ‘rembox (expr)’ removes all boxes, labelled and unlabelled.
-
-     Boxes are drawn by the ‘box’, ‘dpart’, and ‘lpart’ functions.
-
-     Examples:
-
-     maxima
-     
-     (%i1) expr: (a*d - b*c)/h^2 + sin(%pi*x);
-                                       a d - b c
-     (%o1)                sin(%pi x) + ---------
-                                           2
-                                          h
-     
-     
-     (%i2) dpart (dpart (expr, 1, 1), 2, 2);
-                             """""""    a d - b c
-     (%o2)               sin("%pi x") + ---------
-                             """""""      """"
-                                          " 2"
-                                          "h "
-                                          """"
-     
-     
-     (%i3) expr2: lpart (BAR, lpart (FOO, %, 1), 2);
-                       FOO"""""""""""   BAR""""""""
-                       "    """"""" "   "a d - b c"
-     (%o3)             "sin("%pi x")" + "---------"
-                       "    """"""" "   "  """"   "
-                       """"""""""""""   "  " 2"   "
-                                        "  "h "   "
-                                        "  """"   "
-                                        """""""""""
-     
-     
-     (%i4) rembox (expr2, unlabelled);
-                                       BAR""""""""
-                        FOO"""""""""   "a d - b c"
-     (%o4)              "sin(%pi x)" + "---------"
-                        """"""""""""   "    2    "
-                                       "   h     "
-                                       """""""""""
-     
-     
-     (%i5) rembox (expr2, FOO);
-                                       BAR""""""""
-                            """""""    "a d - b c"
-     (%o5)              sin("%pi x") + "---------"
-                            """""""    "  """"   "
-                                       "  " 2"   "
-                                       "  "h "   "
-                                       "  """"   "
-                                       """""""""""
-     
-     
-     (%i6) rembox (expr2, BAR);
-                        FOO"""""""""""
-                        "    """"""" "   a d - b c
-     (%o6)              "sin("%pi x")" + ---------
-                        "    """"""" "     """"
-                        """"""""""""""     " 2"
-                                           "h "
-                                           """"
-     
-     
-     (%i7) rembox (expr2);
-                                       a d - b c
-     (%o7)                sin(%pi x) + ---------
-                                           2
-                                          h
-
-     See also: ‘box’, ‘dpart’, ‘lpart’.
-
-
-File: maxima-core-docs.info,  Node: Function reveal expr depth,  Next: Function sqrtdenest expr,  Prev: Function rembox rembox expr unlabelled rembox expr label rembox expr,  Up: Expressions
-
- -- Function: reveal (EXPR, DEPTH)
-     Replaces parts of _expr_ at the specified integer _depth_ with
-     descriptive summaries.
-
-        •    • Sums and differences are replaced by ‘Sum(n)’ where _n_
-               is the number of operands of the sum.
-
-        •    • Products are replaced by ‘Product(n)’ where _n_ is the
-               number of operands of the product.
-
-        •    • Exponentials are replaced by ‘Expt’.
-
-        •    • Quotients are replaced by ‘Quotient’.
-
-        •    • Unary negation is replaced by ‘Negterm’.
-
-        •    • Lists are replaced by ‘List(n)’ where _n_ is the number
-               of elements of the list.
-
-     When _depth_ is greater than or equal to the maximum depth of
-     _expr_, ‘reveal (expr, depth)’ returns _expr_ unmodified.
-
-     ‘reveal’ evaluates its arguments.  ‘reveal’ returns the summarized
-     expression.
-
-     Example:
-
-     maxima
-     
-     (%i1) e: expand ((a - b)^2)/expand ((exp(a) + exp(b))^2);
-                               2            2
-                              b  - 2 a b + a
-     (%o1)               -------------------------
-                             b + a     2 b     2 a
-                         2 %e      + %e    + %e
-     
-     
-     (%i2) reveal (e, 1);
-     (%o2)                       Quotient
-     
-     
-     (%i3) reveal (e, 2);
-                                  Sum(3)
-     (%o3)                        ------
-                                  Sum(3)
-     
-     
-     (%i4) reveal (e, 3);
-                          Expt + Negterm + Expt
-     (%o4)               ------------------------
-                         Product(2) + Expt + Expt
-     
-     
-     (%i5) reveal (e, 4);
-                            2                 2
-                           b  - Product(3) + a
-     (%o5)         ------------------------------------
-                              Product(2)     Product(2)
-                   2 Expt + %e           + %e
-     
-     
-     (%i6) reveal (e, 5);
-                              2            2
-                             b  - 2 a b + a
-     (%o6)              --------------------------
-                            Sum(2)     2 b     2 a
-                        2 %e       + %e    + %e
-     
-     
-     (%i7) reveal (e, 6);
-                               2            2
-                              b  - 2 a b + a
-     (%o7)               -------------------------
-                             b + a     2 b     2 a
-                         2 %e      + %e    + %e
-
-
-File: maxima-core-docs.info,  Node: Function sqrtdenest expr,  Next: Function sublis list expr,  Prev: Function reveal expr depth,  Up: Expressions
-
- -- Function: sqrtdenest (EXPR)
-     Denests ‘sqrt’ of simple, numerical, binomial surds, where
-     possible.  E.g.
-
-     maxima
-     
-     (%i1) sqrt(sqrt(3)/2+1)/sqrt(11*sqrt(2)-12);
-                                  sqrt(3)
-                             sqrt(------- + 1)
-                                     2
-     (%o1)                 ---------------------
-                           sqrt(11 sqrt(2) - 12)
-     
-     
-     (%i2) sqrtdenest(%);
-                                sqrt(3)   1
-                                ------- + -
-                                   2      2
-     (%o2)                     -------------
-                                  1/4    3/4
-                               3 2    - 2
-
-     Sometimes it helps to apply ‘sqrtdenest’ more than once, on such as
-     ‘(19601-13860 sqrt(2))^(7/4)’.
-
-
-File: maxima-core-docs.info,  Node: Function sublis list expr,  Next: Variable sublis_apply_lambda,  Prev: Function sqrtdenest expr,  Up: Expressions
-
- -- Function: sublis (LIST, EXPR)
-     Makes multiple parallel substitutions into an expression.  _list_
-     is a list of equations.  The left hand side of the equations must
-     be an atom.
-
-     The variable ‘sublis_apply_lambda’ controls simplification after
-     ‘sublis’.
-
-     See also ‘psubst’ for making parallel substitutions.
-
-     Example:
-
-     maxima
-     
-     (%i1) sublis ([a=b, b=a], sin(a) + cos(b));
-     (%o1)                    sin(b) + cos(a)
-
-     See also: ‘sublis_apply_lambda’, ‘psubst’.
-
-
-File: maxima-core-docs.info,  Node: Variable sublis_apply_lambda,  Next: Variable subnumsimp,  Prev: Function sublis list expr,  Up: Expressions
-
- -- Variable: sublis_apply_lambda
-     Default value: ‘true’
-
-     Controls whether ‘lambda’'s substituted are applied in
-     simplification after ‘sublis’ is used or whether you have to do an
-     ‘ev’ to get things to apply.  ‘true’ means do the application.
-
-     See also: ‘ev’.
-
-
-File: maxima-core-docs.info,  Node: Variable subnumsimp,  Next: Function subst a b c,  Prev: Variable sublis_apply_lambda,  Up: Expressions
-
- -- Variable: subnumsimp
-     Default value: ‘false’
-
-     If ‘true’ then the functions ‘subst’ and ‘psubst’ can substitute a
-     subscripted variable ‘f[x]’ with a number, when only the symbol ‘f’
-     is given.
-
-     See also ‘subst’.
-
-     subst: cannot substitute 100 for operator g in expression g x - an
-     error.  To debug this try: debugmode(true);
-
-     maxima
-     (%i1) subst(100,g,g[x]+2);
-     
-     (%i2) subst(100,g,g[x]+2),subnumsimp:true;
-     (%o2)                          102
-
-     See also: ‘subst’, ‘psubst’.
 
 
 File: maxima-core-docs.info,  Node: Function subst a b c,  Next: Function substinpart x expr n_1 ... n_k,  Prev: Variable subnumsimp,  Up: Expressions
@@ -603,24 +314,24 @@ File: maxima-core-docs.info,  Node: Function Definition,  Next: Help,  Prev: Exp
 
 * Menu:
 
-* Function apply F arg_1 ... arg_n::
-* Function block block v_1 ... v_m expr_1 ... expr_n block expr_1 ... expr_n::
+* Function apply F [arg_1 ... arg_n]::
+* Function block [v_1 ... v_m] expr_1 ... expr_n::
 * Function break expr_1 ... expr_n::
 * Function buildq L expr::
 * Function catch expr_1 ... expr_n::
-* Function compfile compfile filename f_1 ... f_n compfile filename functions compfile filename all::
-* Function compile compile f_1 ... f_n compile functions compile all::
-* Function compile_file compile_file filename compile_file filename compiled_filename compile_file filename compiled_filename lisp_filename::
+* Function compfile filename f_1 ... f_n::
+* Function compile f_1 ... f_n::
+* Function compile_file filename::
 * Function declare_translated f_1 f_2 ...::
-* Function define define f x_1 ... x_n expr define f x_1 ... x_n expr define f x_1 ... x_n y_1 ... y_m expr define funmake f x_1 ... x_n expr define arraymake f x_1 ... x_n expr define ev expr_1 expr_2::
+* Function define fx_1 ... x_n expr::
 * Function define_variable name default_value mode::
-* Function dispfun dispfun f_1 ... f_n dispfun all::
+* Function dispfun f_1 ... f_n::
 * Function fullmap f expr_1 ...::
 * Function fullmapl f list_1 ...::
 * Variable functions::
 * Function fundef f::
-* Function funmake F arg_1 ... arg_n::
-* Function lambda lambda x_1 ... x_m expr_1 ... expr_n lambda L expr_1 ... expr_n lambda x_1 ... x_m L expr_1 ... expr_n::
+* Function funmake F [arg_1 ... arg_n]::
+* Function lambda [x_1 ... x_m] expr_1 ... expr_n::
 * Function local v_1 ... v_n::
 * Function macroexpand expr::
 * Function macroexpand1 expr::
@@ -631,7 +342,7 @@ File: maxima-core-docs.info,  Node: Function Definition,  Next: Help,  Prev: Exp
 * Variable mode_checkp::
 * Function mode_declare y_1 mode_1 ... y_n mode_n::
 * Function mode_identity arg_1 arg_2::
-* Function remfunction remfunction f_1 ... f_n remfunction all::
+* Function remfunction f_1 ... f_n::
 * Variable savedef::
 * Function splice a::
 * Variable tr_array_as_ref::
@@ -648,15 +359,15 @@ File: maxima-core-docs.info,  Node: Function Definition,  Next: Help,  Prev: Exp
 * Variable tr_warn_mode::
 * Variable tr_warn_undeclared::
 * Variable tr_warn_undefined_variable::
-* Function tr_warnings_get ::
-* Function translate translate f_1 ... f_n translate functions translate all::
-* Function translate_file translate_file maxima_filename translate_file maxima_filename lisp_filename::
+* Function tr_warnings_get::
+* Function translate f_1 ... f_n::
+* Function translate_file maxima_filename::
 * Variable transrun::
 
 
-File: maxima-core-docs.info,  Node: Function apply F arg_1 ... arg_n,  Next: Function block block v_1 ... v_m expr_1 ... expr_n block expr_1 ... expr_n,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function apply F [arg_1 ... arg_n],  Next: Function block [v_1 ... v_m] expr_1 ... expr_n,  Up: Function Definition
 
- -- Function: apply (F, ARG_1, ..., ARG_N)
+ -- Function: apply (F, [ARG_1, ..., ARG_N])
      Constructs and evaluates an expression ‘F(arg_1, ..., arg_n)’.  The
      function arguments ‘[arg_1, ..., arg_n]’ may be of any length and
      comprise any expressions.  ‘apply’ evaluates all of its arguments,
@@ -777,10 +488,9 @@ File: maxima-core-docs.info,  Node: Function apply F arg_1 ... arg_n,  Next: Fun
      See also: ‘memoizing-function’, ‘funmake’, ‘args’.
 
 
-File: maxima-core-docs.info,  Node: Function block block v_1 ... v_m expr_1 ... expr_n block expr_1 ... expr_n,  Next: Function break expr_1 ... expr_n,  Prev: Function apply F arg_1 ... arg_n,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function block [v_1 ... v_m] expr_1 ... expr_n,  Next: Function break expr_1 ... expr_n,  Prev: Function apply F [arg_1 ... arg_n],  Up: Function Definition
 
- -- Function: block (BLOCK, V_1, ..., V_M, EXPR_1, ..., EXPR_N, BLOCK,
-          EXPR_1, ..., EXPR_N)
+ -- Function: block ([V_1, ..., V_M], EXPR_1, ..., EXPR_N)
      The function ‘block’ allows to make the variables _v_1_, ..., _v_m_
      to be local for a sequence of commands.  If these variables are
      already bound ‘block’ saves the current values of the variables
@@ -842,7 +552,7 @@ File: maxima-core-docs.info,  Node: Function block block v_1 ... v_m expr_1 ... 
      See also: ‘return’, ‘go’.
 
 
-File: maxima-core-docs.info,  Node: Function break expr_1 ... expr_n,  Next: Function buildq L expr,  Prev: Function block block v_1 ... v_m expr_1 ... expr_n block expr_1 ... expr_n,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function break expr_1 ... expr_n,  Next: Function buildq L expr,  Prev: Function block [v_1 ... v_m] expr_1 ... expr_n,  Up: Function Definition
 
  -- Function: break (EXPR_1, ..., EXPR_N)
      Evaluates and prints _expr_1_, ..., _expr_n_ and then causes a
@@ -976,7 +686,7 @@ File: maxima-core-docs.info,  Node: Function buildq L expr,  Next: Function catc
      (%o3)                       3 (b + a)
 
 
-File: maxima-core-docs.info,  Node: Function catch expr_1 ... expr_n,  Next: Function compfile compfile filename f_1 ... f_n compfile filename functions compfile filename all,  Prev: Function buildq L expr,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function catch expr_1 ... expr_n,  Next: Function compfile filename f_1 ... f_n,  Prev: Function buildq L expr,  Up: Function Definition
 
  -- Function: catch (EXPR_1, ..., EXPR_N)
      Evaluates _expr_1_, ..., _expr_n_ one by one; if any leads to the
@@ -1006,10 +716,9 @@ File: maxima-core-docs.info,  Node: Function catch expr_1 ... expr_n,  Next: Fun
      the first negative element of ‘l’ and "throws" it up.
 
 
-File: maxima-core-docs.info,  Node: Function compfile compfile filename f_1 ... f_n compfile filename functions compfile filename all,  Next: Function compile compile f_1 ... f_n compile functions compile all,  Prev: Function catch expr_1 ... expr_n,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function compfile filename f_1 ... f_n,  Next: Function compile f_1 ... f_n,  Prev: Function catch expr_1 ... expr_n,  Up: Function Definition
 
- -- Function: compfile (COMPFILE, FILENAME, F_1, ..., F_N, COMPFILE,
-          FILENAME, FUNCTIONS, COMPFILE, FILENAME, ALL)
+ -- Function: compfile (FILENAME, F_1, ..., F_N)
      Translates Maxima functions into Lisp and writes the translated
      code into the file _filename_.
 
@@ -1029,10 +738,9 @@ File: maxima-core-docs.info,  Node: Function compfile compfile filename f_1 ... 
      See also: ‘translate’, ‘translate_file’, ‘compile_file’.
 
 
-File: maxima-core-docs.info,  Node: Function compile compile f_1 ... f_n compile functions compile all,  Next: Function compile_file compile_file filename compile_file filename compiled_filename compile_file filename compiled_filename lisp_filename,  Prev: Function compfile compfile filename f_1 ... f_n compfile filename functions compfile filename all,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function compile f_1 ... f_n,  Next: Function compile_file filename,  Prev: Function compfile filename f_1 ... f_n,  Up: Function Definition
 
- -- Function: compile (COMPILE, F_1, ..., F_N, COMPILE, FUNCTIONS,
-          COMPILE, ALL)
+ -- Function: compile (F_1, ..., F_N)
      Translates Maxima functions _f_1_, ..., _f_n_ into Lisp, evaluates
      the Lisp translations, and calls the Lisp function ‘COMPILE’ on
      each translated function.  ‘compile’ returns a list of the names of
@@ -1051,26 +759,25 @@ File: maxima-core-docs.info,  Node: Function compile compile f_1 ... f_n compile
      that is needed a few ways to limit the code's functionality are the
      following:
 
-        •    • If the function accesses global variables the complexity
-               of the function can be drastically be reduced by limiting
-               these variables to one data type, for example using
-               ‘mode_declare’ or a statement like the following one:
-               ‘put(x_1, bigfloat, numerical_type)’
+        •    • If the function accesses global variables the
+               complexity of the function can be drastically be reduced
+               by limiting these variables to one data type, for example
+               using ‘mode_declare’ or a statement like the following
+               one: ‘put(x_1, bigfloat, numerical_type)’
 
-        •    • The compiler might warn about undeclared variables if
-               text could either be a named option to a command or (if
-               they are assigned a value to) the name of a variable.
-               Prepending the option with a single quote ‘'’ tells the
-               compiler that the text is meant as an option.
+        •    • The compiler might warn about undeclared
+               variables if text could either be a named option to a
+               command or (if they are assigned a value to) the name of
+               a variable.  Prepending the option with a single quote
+               ‘'’ tells the compiler that the text is meant as an
+               option.
 
      See also: ‘mode_declare’.
 
 
-File: maxima-core-docs.info,  Node: Function compile_file compile_file filename compile_file filename compiled_filename compile_file filename compiled_filename lisp_filename,  Next: Function declare_translated f_1 f_2 ...,  Prev: Function compile compile f_1 ... f_n compile functions compile all,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function compile_file filename,  Next: Function declare_translated f_1 f_2 ...,  Prev: Function compile f_1 ... f_n,  Up: Function Definition
 
- -- Function: compile_file (COMPILE_FILE, FILENAME, COMPILE_FILE,
-          FILENAME, COMPILED_FILENAME, COMPILE_FILE, FILENAME,
-          COMPILED_FILENAME, LISP_FILENAME)
+ -- Function: compile_file (FILENAME)
      Translates the Maxima file _filename_ into Lisp, and executes the
      Lisp compiler.  The compiled code is not loaded into Maxima.
 
@@ -1097,7 +804,7 @@ File: maxima-core-docs.info,  Node: Function compile_file compile_file filename 
      ‘compile_file’ evaluates its arguments.
 
 
-File: maxima-core-docs.info,  Node: Function declare_translated f_1 f_2 ...,  Next: Function define define f x_1 ... x_n expr define f x_1 ... x_n expr define f x_1 ... x_n y_1 ... y_m expr define funmake f x_1 ... x_n expr define arraymake f x_1 ... x_n expr define ev expr_1 expr_2,  Prev: Function compile_file compile_file filename compile_file filename compiled_filename compile_file filename compiled_filename lisp_filename,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function declare_translated f_1 f_2 ...,  Next: Function define fx_1 ... x_n expr,  Prev: Function compile_file filename,  Up: Function Definition
 
  -- Function: declare_translated (F_1, F_2, ...)
      When translating a file of Maxima code to Lisp, it is important for
@@ -1110,12 +817,9 @@ File: maxima-core-docs.info,  Node: Function declare_translated f_1 f_2 ...,  Ne
      translator does not know ‘fn’ is going to be a Lisp function.
 
 
-File: maxima-core-docs.info,  Node: Function define define f x_1 ... x_n expr define f x_1 ... x_n expr define f x_1 ... x_n y_1 ... y_m expr define funmake f x_1 ... x_n expr define arraymake f x_1 ... x_n expr define ev expr_1 expr_2,  Next: Function define_variable name default_value mode,  Prev: Function declare_translated f_1 f_2 ...,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function define fx_1 ... x_n expr,  Next: Function define_variable name default_value mode,  Prev: Function declare_translated f_1 f_2 ...,  Up: Function Definition
 
- -- Function: define (DEFINE, F, X_1, ..., X_N, EXPR, DEFINE, F, X_1,
-          ..., X_N, EXPR, DEFINE, F, X_1, ..., X_N, Y_1, ..., Y_M, EXPR,
-          DEFINE, FUNMAKE, F, X_1, ..., X_N, EXPR, DEFINE, ARRAYMAKE, F,
-          X_1, ..., X_N, EXPR, DEFINE, EV, EXPR_1, EXPR_2)
+ -- Function: define (F(X_1, ..., X_N), EXPR)
      Defines a function named _f_ with arguments _x_1_, ..., _x_n_ and
      function body _expr_.  ‘define’ always evaluates its second
      argument (unless explicitly quoted).  The function so defined may
@@ -1235,19 +939,19 @@ File: maxima-core-docs.info,  Node: Function define define f x_1 ... x_n expr de
      See also: ‘memoizing-function’, ‘:=’, ‘::=’.
 
 
-File: maxima-core-docs.info,  Node: Function define_variable name default_value mode,  Next: Function dispfun dispfun f_1 ... f_n dispfun all,  Prev: Function define define f x_1 ... x_n expr define f x_1 ... x_n expr define f x_1 ... x_n y_1 ... y_m expr define funmake f x_1 ... x_n expr define arraymake f x_1 ... x_n expr define ev expr_1 expr_2,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function define_variable name default_value mode,  Next: Function dispfun f_1 ... f_n,  Prev: Function define fx_1 ... x_n expr,  Up: Function Definition
 
  -- Function: define_variable (NAME, DEFAULT_VALUE, MODE)
      Introduces a global variable into the Maxima environment.
      ‘define_variable’ is useful in user-written packages, which are
      often translated or compiled as it gives the compiler hints of the
-     type ("mode") of a variable and therefore avoids requiring it to
+     type (“mode”) of a variable and therefore avoids requiring it to
      generate generic code that can deal with every variable being an
      integer, float, maxima object, array etc.
 
      ‘define_variable’ carries out the following steps:
 
-       1. ‘mode_declare (name, mode)’ declares the mode ("type") of
+       1. ‘mode_declare (name, mode)’ declares the mode (“type”) of
           _name_ to the translator which can considerably speed up
           compiled code as it allows having to create generic code.  See
           ‘mode_declare’ for a list of the possible modes.
@@ -1329,7 +1033,7 @@ File: maxima-core-docs.info,  Node: Function define_variable name default_value 
      mode ‘any_check’ is like ‘any’, but ‘any_check’ enables the
      ‘value_check’ mechanism, and ‘any’ does not.
 
-     Cannot assign to 'baz_quux'.  - an error.  To debug this try:
+     Cannot assign to ‘baz_quux'.  - an error.  To debug this try:
      debugmode(true);
 
      maxima
@@ -1363,9 +1067,9 @@ File: maxima-core-docs.info,  Node: Function define_variable name default_value 
      See also: ‘mode_declare’.
 
 
-File: maxima-core-docs.info,  Node: Function dispfun dispfun f_1 ... f_n dispfun all,  Next: Function fullmap f expr_1 ...,  Prev: Function define_variable name default_value mode,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function dispfun f_1 ... f_n,  Next: Function fullmap f expr_1 ...,  Prev: Function define_variable name default_value mode,  Up: Function Definition
 
- -- Function: dispfun (DISPFUN, F_1, ..., F_N, DISPFUN, ALL)
+ -- Function: dispfun (F_1, ..., F_N)
      Displays the definition of the user-defined functions _f_1_, ...,
      _f_n_.  Each argument may be the name of a macro (defined with
      ‘::=’), an ordinary function (defined with ‘:=’ or ‘define’), an
@@ -1463,7 +1167,7 @@ File: maxima-core-docs.info,  Node: Function dispfun dispfun f_1 ... f_n dispfun
                                      5             10
 
 
-File: maxima-core-docs.info,  Node: Function fullmap f expr_1 ...,  Next: Function fullmapl f list_1 ...,  Prev: Function dispfun dispfun f_1 ... f_n dispfun all,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function fullmap f expr_1 ...,  Next: Function fullmapl f list_1 ...,  Prev: Function dispfun f_1 ... f_n,  Up: Function Definition
 
  -- Function: fullmap (F, EXPR_1, ...)
      Similar to ‘map’, but ‘fullmap’ keeps mapping down all
@@ -1572,7 +1276,7 @@ File: maxima-core-docs.info,  Node: Variable functions,  Next: Function fundef f
      See also: ‘Memoizing-functions’.
 
 
-File: maxima-core-docs.info,  Node: Function fundef f,  Next: Function funmake F arg_1 ... arg_n,  Prev: Variable functions,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function fundef f,  Next: Function funmake F [arg_1 ... arg_n],  Prev: Variable functions,  Up: Function Definition
 
  -- Function: fundef (F)
      Returns the definition of the function _f_.
@@ -1581,20 +1285,22 @@ File: maxima-core-docs.info,  Node: Function fundef f,  Next: Function funmake F
 
         •    • the name of a macro (defined with ‘::=’),
 
-        •    • an ordinary function (defined with ‘:=’ or ‘define’),
+        •    • an ordinary function (defined with ‘:=’ or
+               ‘define’),
 
-        •    • a ‘memoizing function’ (defined with ‘:=’ or ‘define’,
-               but enclosing arguments in square brackets ‘[ ]’),
+        •    • a ‘memoizing function’ (defined with ‘:=’ or
+               ‘define’, but enclosing arguments in square brackets ‘[
+               ]’),
 
-        •    • a subscripted function (defined with ‘:=’ or ‘define’,
-               but enclosing some arguments in square brackets and
-               others in parentheses ‘( )’),
+        •    • a subscripted function (defined with ‘:=’ or
+               ‘define’, but enclosing some arguments in square brackets
+               and others in parentheses ‘( )’),
 
-        •    • one of a family of subscripted functions selected by a
-               particular subscript value,
+        •    • one of a family of subscripted functions
+               selected by a particular subscript value,
 
-        •    • or a subscripted function defined with a constant
-               subscript.
+        •    • or a subscripted function defined with a
+               constant subscript.
 
      ‘fundef’ quotes its argument; the quote-quote operator ‘''’ defeats
      quotation.
@@ -1606,9 +1312,9 @@ File: maxima-core-docs.info,  Node: Function fundef f,  Next: Function funmake F
      See also: ‘memoizing-function’.
 
 
-File: maxima-core-docs.info,  Node: Function funmake F arg_1 ... arg_n,  Next: Function lambda lambda x_1 ... x_m expr_1 ... expr_n lambda L expr_1 ... expr_n lambda x_1 ... x_m L expr_1 ... expr_n,  Prev: Function fundef f,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function funmake F [arg_1 ... arg_n],  Next: Function lambda [x_1 ... x_m] expr_1 ... expr_n,  Prev: Function fundef f,  Up: Function Definition
 
- -- Function: funmake (F, ARG_1, ..., ARG_N)
+ -- Function: funmake (F, [ARG_1, ..., ARG_N])
      Returns an expression ‘F(arg_1, ..., arg_n)’.  The return value is
      simplified, but not evaluated, so the function _F_ is not called,
      even if it exists.
@@ -1736,11 +1442,9 @@ File: maxima-core-docs.info,  Node: Function funmake F arg_1 ... arg_n,  Next: F
      See also: ‘memoizing-functions’, ‘apply’, ‘args’.
 
 
-File: maxima-core-docs.info,  Node: Function lambda lambda x_1 ... x_m expr_1 ... expr_n lambda L expr_1 ... expr_n lambda x_1 ... x_m L expr_1 ... expr_n,  Next: Function local v_1 ... v_n,  Prev: Function funmake F arg_1 ... arg_n,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function lambda [x_1 ... x_m] expr_1 ... expr_n,  Next: Function local v_1 ... v_n,  Prev: Function funmake F [arg_1 ... arg_n],  Up: Function Definition
 
- -- Function: lambda (LAMBDA, X_1, ..., X_M, EXPR_1, ..., EXPR_N,
-          LAMBDA, L, EXPR_1, ..., EXPR_N, LAMBDA, X_1, ..., X_M, L,
-          EXPR_1, ..., EXPR_N)
+ -- Function: lambda ([X_1, ..., X_M], EXPR_1, ..., EXPR_N)
      Defines and returns a lambda expression (that is, an anonymous
      function).  The function may have required arguments _x_1_, ...,
      _x_m_ and/or optional arguments _L_, which appear within the
@@ -1775,8 +1479,8 @@ File: maxima-core-docs.info,  Node: Function lambda lambda x_1 ... x_m expr_1 ..
 
      Examples:
 
-        •    • A lambda expression can be assigned to a variable and
-               evaluated like an ordinary function.
+        •    • A lambda expression can be assigned to a
+               variable and evaluated like an ordinary function.
 
      maxima
      
@@ -1789,8 +1493,8 @@ File: maxima-core-docs.info,  Node: Function lambda lambda x_1 ... x_m expr_1 ..
                                      2
      (%o2)                          a
 
-        •    • A lambda expression may appear in contexts in which a
-               function evaluation is expected.
+        •    • A lambda expression may appear in contexts in
+               which a function evaluation is expected.
 
      maxima
      
@@ -1808,11 +1512,11 @@ File: maxima-core-docs.info,  Node: Function lambda lambda x_1 ... x_m expr_1 ..
                              2   2   2   2   2
      (%o3)                 [a , b , c , d , e ]
 
-        •    • Argument variables are local variables.  Other variables
-               appear to be global variables.  Global variables are
-               evaluated at the time the lambda expression is evaluated,
-               unless some special evaluation is forced by some means,
-               such as ‘''’.
+        •    • Argument variables are local variables.  Other
+               variables appear to be global variables.  Global
+               variables are evaluated at the time the lambda expression
+               is evaluated, unless some special evaluation is forced by
+               some means, such as ‘''’.
 
      maxima
      (%i1) a: %pi$
@@ -1839,10 +1543,10 @@ File: maxima-core-docs.info,  Node: Function lambda lambda x_1 ... x_m expr_1 ..
      (%o8)                        ------
                                     2
 
-        •    • Lambda expressions may be nested.  Local variables within
-               the outer lambda expression appear to be global to the
-               inner expression unless masked by local variables of the
-               same names.
+        •    • Lambda expressions may be nested.  Local
+               variables within the outer lambda expression appear to be
+               global to the inner expression unless masked by local
+               variables of the same names.
 
      maxima
      
@@ -1857,10 +1561,10 @@ File: maxima-core-docs.info,  Node: Function lambda lambda x_1 ... x_m expr_1 ..
      (%o2)                        ------
                                     2
 
-        •    • Since ‘lambda’ quotes its arguments, lambda expression
-               ‘i’ below does not define a "multiply by ‘a’" function.
-               Such a function can be defined via ‘buildq’, as in lambda
-               expression ‘i2’ below.
+        •    • Since ‘lambda’ quotes its arguments, lambda
+               expression ‘i’ below does not define a "multiply by ‘a’"
+               function.  Such a function can be defined via ‘buildq’,
+               as in lambda expression ‘i2’ below.
 
      maxima
      
@@ -1887,8 +1591,8 @@ File: maxima-core-docs.info,  Node: Function lambda lambda x_1 ... x_m expr_1 ..
      (%o5)                          ---
                                      2
 
-        •    • A lambda expression may take a variable number of
-               arguments, which are indicated by ‘[L]’ as the sole or
+        •    • A lambda expression may take a variable number
+               of arguments, which are indicated by ‘[L]’ as the sole or
                final argument.  The arguments appear within the function
                body as a list.
 
@@ -1910,7 +1614,7 @@ File: maxima-core-docs.info,  Node: Function lambda lambda x_1 ... x_m expr_1 ..
      (%o4)                  z + y + x + %e + 46
 
 
-File: maxima-core-docs.info,  Node: Function local v_1 ... v_n,  Next: Function macroexpand expr,  Prev: Function lambda lambda x_1 ... x_m expr_1 ... expr_n lambda L expr_1 ... expr_n lambda x_1 ... x_m L expr_1 ... expr_n,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function local v_1 ... v_n,  Next: Function macroexpand expr,  Prev: Function lambda [x_1 ... x_m] expr_1 ... expr_n,  Up: Function Definition
 
  -- Function: local (V_1, ..., V_N)
      Saves the properties associated with the symbols _v_1_, ..., _v_n_,
@@ -2286,7 +1990,7 @@ File: maxima-core-docs.info,  Node: Function mode_declare y_1 mode_1 ... y_n mod
 
  -- Function: mode_declare (Y_1, MODE_1, ..., Y_N, MODE_N)
      A ‘mode_declare’ informs the compiler which type (lisp programmers
-     name the type: "mode") a function parameter or its return value
+     name the type: “mode”) a function parameter or its return value
      will be of.  This can greatly boost the efficiency of the code the
      compiler generates: Without knowing the type of all variables and
      knowing the return value of all functions a function uses in
@@ -2295,7 +1999,7 @@ File: maxima-core-docs.info,  Node: Function mode_declare y_1 mode_1 ... y_n mod
 
      The arguments of ‘mode_declare’ are pairs consisting of a variable
      (or a list of variables all having the same mode) and a mode.
-     Available modes ("types") are:
+     Available modes (“types”) are:
 
      array            an declared array (see the detailed description below)
      boolean          true or false
@@ -2325,7 +2029,7 @@ File: maxima-core-docs.info,  Node: Function mode_declare y_1 mode_1 ... y_n mod
      implementations).
 
      Another way to tell that all entries of the array ‘a’ are of the
-     type ("mode") ‘m’ and have been assigned a value to would be:
+     type (“mode”) ‘m’ and have been assigned a value to would be:
 
      maxima
      mode_declare (completearray (a), m))
@@ -2386,7 +2090,7 @@ File: maxima-core-docs.info,  Node: Function mode_declare y_1 mode_1 ... y_n mod
      ‘mode_identity’, ‘define_variable’.
 
 
-File: maxima-core-docs.info,  Node: Function mode_identity arg_1 arg_2,  Next: Function remfunction remfunction f_1 ... f_n remfunction all,  Prev: Function mode_declare y_1 mode_1 ... y_n mode_n,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function mode_identity arg_1 arg_2,  Next: Function remfunction f_1 ... f_n,  Prev: Function mode_declare y_1 mode_1 ... y_n mode_n,  Up: Function Definition
 
  -- Function: mode_identity (ARG_1, ARG_2)
      ‘mode_identity’ works similar to ‘mode_declare’, but is used for
@@ -2423,9 +2127,9 @@ File: maxima-core-docs.info,  Node: Function mode_identity arg_1 arg_2,  Next: F
      See also: ‘mode_declare’.
 
 
-File: maxima-core-docs.info,  Node: Function remfunction remfunction f_1 ... f_n remfunction all,  Next: Variable savedef,  Prev: Function mode_identity arg_1 arg_2,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function remfunction f_1 ... f_n,  Next: Variable savedef,  Prev: Function mode_identity arg_1 arg_2,  Up: Function Definition
 
- -- Function: remfunction (REMFUNCTION, F_1, ..., F_N, REMFUNCTION, ALL)
+ -- Function: remfunction (F_1, ..., F_N)
      Unbinds the function definitions of the symbols _f_1_, ..., _f_n_.
      The arguments may be the names of ordinary functions (created by
      ‘:=’ or ‘define’) or macro functions (created by ‘::=’).
@@ -2445,7 +2149,7 @@ File: maxima-core-docs.info,  Node: Function remfunction remfunction f_1 ... f_n
      See also: ‘:=’, ‘define’, ‘::=’, ‘memoizing-functions’, ‘remarray’.
 
 
-File: maxima-core-docs.info,  Node: Variable savedef,  Next: Function splice a,  Prev: Function remfunction remfunction f_1 ... f_n remfunction all,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Variable savedef,  Next: Function splice a,  Prev: Function remfunction f_1 ... f_n,  Up: Function Definition
 
  -- Variable: savedef
      Default value: ‘true’
@@ -2686,17 +2390,16 @@ File: maxima-core-docs.info,  Node: Variable tr_warn_undefined_variable,  Next: 
         • Gives a warning when undefined global variables are seen.
 
 
-File: maxima-core-docs.info,  Node: Function tr_warnings_get,  Next: Function translate translate f_1 ... f_n translate functions translate all,  Prev: Variable tr_warn_undefined_variable,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function tr_warnings_get,  Next: Function translate f_1 ... f_n,  Prev: Variable tr_warn_undefined_variable,  Up: Function Definition
 
  -- Function: tr_warnings_get ()
      Prints a list of warnings which have been given by the translator
      during the current translation.
 
 
-File: maxima-core-docs.info,  Node: Function translate translate f_1 ... f_n translate functions translate all,  Next: Function translate_file translate_file maxima_filename translate_file maxima_filename lisp_filename,  Prev: Function tr_warnings_get,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function translate f_1 ... f_n,  Next: Function translate_file maxima_filename,  Prev: Function tr_warnings_get,  Up: Function Definition
 
- -- Function: translate (TRANSLATE, F_1, ..., F_N, TRANSLATE, FUNCTIONS,
-          TRANSLATE, ALL)
+ -- Function: translate (F_1, ..., F_N)
      Translates the user-defined functions _f_1_, ..., _f_n_ from the
      Maxima language into Lisp and evaluates the Lisp translations.
      Typically the translated functions run faster than the originals.
@@ -2749,10 +2452,9 @@ File: maxima-core-docs.info,  Node: Function translate translate f_1 ... f_n tra
      functions translated.
 
 
-File: maxima-core-docs.info,  Node: Function translate_file translate_file maxima_filename translate_file maxima_filename lisp_filename,  Next: Variable transrun,  Prev: Function translate translate f_1 ... f_n translate functions translate all,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Function translate_file maxima_filename,  Next: Variable transrun,  Prev: Function translate f_1 ... f_n,  Up: Function Definition
 
- -- Function: translate_file (TRANSLATE_FILE, MAXIMA_FILENAME,
-          TRANSLATE_FILE, MAXIMA_FILENAME, LISP_FILENAME)
+ -- Function: translate_file (MAXIMA_FILENAME)
      Translates a file of Maxima code into a file of Lisp code.
      ‘translate_file’ returns a list of three filenames: the name of the
      Maxima file, the name of the Lisp file, and the name of file
@@ -2791,7 +2493,7 @@ File: maxima-core-docs.info,  Node: Function translate_file translate_file maxim
 
      See also
 
-     ‘tr_array_as_ref’
+          tr_array_as_ref
 
      ‘tr_bound_function_applyp’,
 
@@ -2811,7 +2513,7 @@ File: maxima-core-docs.info,  Node: Function translate_file translate_file maxim
      ‘tr_warn_mode’, ‘tr_warn_undeclared’, ‘tr_warn_undefined_variable’.
 
 
-File: maxima-core-docs.info,  Node: Variable transrun,  Prev: Function translate_file translate_file maxima_filename translate_file maxima_filename lisp_filename,  Up: Function Definition
+File: maxima-core-docs.info,  Node: Variable transrun,  Prev: Function translate_file maxima_filename,  Up: Function Definition
 
  -- Variable: transrun
      Default value: ‘true’
@@ -2831,8 +2533,8 @@ File: maxima-core-docs.info,  Node: Help,  Next: Maxima's Database,  Prev: Funct
 * Function apropos name::
 * Variable browser::
 * Function demo filename::
-* Function describe describe string describe string exact describe string inexact::
-* Function example example topic example::
+* Function describe string::
+* Function example topic::
 * Variable manual_demo::
 * Variable output_format_for_help::
 * Variable url_base::
@@ -2905,7 +2607,7 @@ File: maxima-core-docs.info,  Node: Variable browser,  Next: Function demo filen
      See also: ‘output_format_for_help’, ‘url_base’.
 
 
-File: maxima-core-docs.info,  Node: Function demo filename,  Next: Function describe describe string describe string exact describe string inexact,  Prev: Variable browser,  Up: Help
+File: maxima-core-docs.info,  Node: Function demo filename,  Next: Function describe string,  Prev: Variable browser,  Up: Help
 
  -- Function: demo (FILENAME)
      Evaluates Maxima expressions in _filename_ and displays the
@@ -2946,10 +2648,9 @@ File: maxima-core-docs.info,  Node: Function demo filename,  Next: Function desc
      See also: ‘file_search_demo’, ‘file_search’.
 
 
-File: maxima-core-docs.info,  Node: Function describe describe string describe string exact describe string inexact,  Next: Function example example topic example,  Prev: Function demo filename,  Up: Help
+File: maxima-core-docs.info,  Node: Function describe string,  Next: Function example topic,  Prev: Function demo filename,  Up: Help
 
- -- Function: describe (DESCRIBE, STRING, DESCRIBE, STRING, EXACT,
-          DESCRIBE, STRING, INEXACT)
+ -- Function: describe (STRING)
      ‘describe(string)’ is equivalent to ‘describe(string, exact)’.
 
      ‘describe(string, exact)’ finds an item with title equal
@@ -3018,9 +2719,9 @@ File: maxima-core-docs.info,  Node: Function describe describe string describe s
      ‘Documentation’.
 
 
-File: maxima-core-docs.info,  Node: Function example example topic example,  Next: Variable manual_demo,  Prev: Function describe describe string describe string exact describe string inexact,  Up: Help
+File: maxima-core-docs.info,  Node: Function example topic,  Next: Variable manual_demo,  Prev: Function describe string,  Up: Help
 
- -- Function: example (EXAMPLE, TOPIC, EXAMPLE)
+ -- Function: example (TOPIC)
      ‘example (topic)’ displays some examples of _topic_, which is a
      symbol or a string.  To get examples for operators like ‘if’, ‘do’,
      or ‘lambda’ the argument must be a string, e.g. ‘example ("do")’.
@@ -3056,7 +2757,7 @@ File: maxima-core-docs.info,  Node: Function example example topic example,  Nex
      See also: ‘manual_demo’.
 
 
-File: maxima-core-docs.info,  Node: Variable manual_demo,  Next: Variable output_format_for_help,  Prev: Function example example topic example,  Up: Help
+File: maxima-core-docs.info,  Node: Variable manual_demo,  Next: Variable output_format_for_help,  Prev: Function example topic,  Up: Help
 
  -- Variable: manual_demo
      Default value: ‘"manual.demo"’
@@ -3123,8 +2824,8 @@ File: maxima-core-docs.info,  Node: Maxima's Database,  Next: Operators,  Prev: 
 * Function activate context_1 ... context_n::
 * Variable activecontexts::
 * Variable alphabetic::
-* Function askequal askequal expr1 expr2::
-* Function askinteger askinteger expr integer askinteger expr askinteger expr even askinteger expr odd::
+* Function askequal expr1 expr2::
+* Function askinteger expr integer::
 * Function asksign expr::
 * Function assume pred_1 ... pred_n::
 * Variable assume_pos::
@@ -3133,7 +2834,7 @@ File: maxima-core-docs.info,  Node: Maxima's Database,  Next: Operators,  Prev: 
 * Variable bindtest::
 * Function charfun p::
 * Function compare x y::
-* Function constant ::
+* Function constant::
 * Function constantp expr::
 * Variable context::
 * Variable contexts::
@@ -3143,24 +2844,24 @@ File: maxima-core-docs.info,  Node: Maxima's Database,  Next: Operators,  Prev: 
 * Variable decreasing::
 * Function equal a b::
 * Variable even::
-* Function facts facts item facts::
+* Function facts item::
 * Variable feature::
 * Function featurep a f::
 * Variable features::
-* Function forget forget pred_1 ... pred_n forget L::
+* Function forget pred_1 ... pred_n::
 * Function get a i::
 * Variable integer::
 * Variable integervalued::
 * Function is expr::
 * Function killcontext context_1 ... context_n::
 * Function maybe expr::
-* Function newcontext newcontext name newcontext::
-* Function nonarray ::
+* Function newcontext name::
+* Function nonarray::
 * Variable nonscalar::
 * Function nonscalarp expr::
 * Function notequal a b::
 * Variable posfun::
-* Function printprops printprops a i printprops a_1 ... a_n i printprops all i::
+* Function printprops a i::
 * Function properties a::
 * Variable props::
 * Function propvars prop::
@@ -3169,11 +2870,11 @@ File: maxima-core-docs.info,  Node: Maxima's Database,  Next: Operators,  Prev: 
 * Variable rational::
 * Variable real::
 * Function rem atom indicator::
-* Function remove remove a_1 p_1 ... a_n p_n remove a_1 ... a_m p_1 ... p_n ... remove “ a” operator remove a transfun remove all p::
+* Function remove a_1 p_1 ... a_n p_n::
 * Variable scalar::
 * Function scalarp expr::
 * Function sign expr::
-* Function supcontext supcontext name context supcontext name supcontext::
+* Function supcontext name context::
 * Function unknown expr::
 * Function zeroequiv expr v::
 
@@ -3204,7 +2905,7 @@ File: maxima-core-docs.info,  Node: Variable activecontexts,  Next: Variable alp
      See also: ‘activate’.
 
 
-File: maxima-core-docs.info,  Node: Variable alphabetic,  Next: Function askequal askequal expr1 expr2,  Prev: Variable activecontexts,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Variable alphabetic,  Next: Function askequal expr1 expr2,  Prev: Variable activecontexts,  Up: Maxima's Database
 
  -- Variable: alphabetic
      ‘alphabetic’ is a property type recognized by ‘declare’.  The
@@ -3235,9 +2936,9 @@ File: maxima-core-docs.info,  Node: Variable alphabetic,  Next: Function askequa
      See also: ‘declare’, ‘Identifiers’.
 
 
-File: maxima-core-docs.info,  Node: Function askequal askequal expr1 expr2,  Next: Function askinteger askinteger expr integer askinteger expr askinteger expr even askinteger expr odd,  Prev: Variable alphabetic,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function askequal expr1 expr2,  Next: Function askinteger expr integer,  Prev: Variable alphabetic,  Up: Maxima's Database
 
- -- Function: askequal (ASKEQUAL, EXPR1, EXPR2)
+ -- Function: askequal (EXPR1, EXPR2)
      ‘askequal(expr1, expr2)’ attempts to determine from the ‘assume’
      database whether _expr1_ is equal to _expr2_, and prompts the user
      if it cannot tell.
@@ -3255,10 +2956,9 @@ File: maxima-core-docs.info,  Node: Function askequal askequal expr1 expr2,  Nex
      See also: ‘equal’.
 
 
-File: maxima-core-docs.info,  Node: Function askinteger askinteger expr integer askinteger expr askinteger expr even askinteger expr odd,  Next: Function asksign expr,  Prev: Function askequal askequal expr1 expr2,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function askinteger expr integer,  Next: Function asksign expr,  Prev: Function askequal expr1 expr2,  Up: Maxima's Database
 
- -- Function: askinteger (ASKINTEGER, EXPR, INTEGER, ASKINTEGER, EXPR,
-          ASKINTEGER, EXPR, EVEN, ASKINTEGER, EXPR, ODD)
+ -- Function: askinteger (EXPR, INTEGER)
      ‘askinteger (expr, integer)’ attempts to determine from the
      ‘assume’ database whether _expr_ is an integer.  ‘askinteger’
      prompts the user if it cannot tell otherwise,
@@ -3271,7 +2971,7 @@ File: maxima-core-docs.info,  Node: Function askinteger askinteger expr integer 
      respectively.
 
 
-File: maxima-core-docs.info,  Node: Function asksign expr,  Next: Function assume pred_1 ... pred_n,  Prev: Function askinteger askinteger expr integer askinteger expr askinteger expr even askinteger expr odd,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function asksign expr,  Next: Function assume pred_1 ... pred_n,  Prev: Function askinteger expr integer,  Up: Maxima's Database
 
  -- Function: asksign (EXPR)
      First attempts to determine whether the specified expression is
@@ -3625,35 +3325,37 @@ File: maxima-core-docs.info,  Node: Function compare x y,  Next: Function consta
      The real domain of ‘acos (x^2 + 1)’ is empty.
 
 
-File: maxima-core-docs.info,  Node: Function constant,  Next: Function constantp expr,  Prev: Function compare x y,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function constant,  Next: Function nonarray,  Prev: Function compare x y,  Up: Maxima's Database
 
- -- Function: constant ()
-     ‘declare(a, constant)’ declares _a_ to be a constant.  The
-     declaration of a symbol to be constant does not prevent the
-     assignment of a nonconstant value to the symbol.
+1.95.1 Function: constant
+-------------------------
 
-     See ‘constantp’ and ‘declare’.
+‘declare(a, constant)’ declares _a_ to be a constant.  The declaration
+of a symbol to be constant does not prevent the assignment of a
+nonconstant value to the symbol.
 
-     Example:
+See ‘constantp’ and ‘declare’.
 
-     maxima
-     
-     (%i1) declare(c, constant);
-     (%o1)                         done
-     
-     
-     (%i2) constantp(c);
-     (%o2)                         true
-     
-     
-     (%i3) c : x;
-     (%o3)                           x
-     
-     
-     (%i4) constantp(c);
-     (%o4)                         false
+Example:
 
-     See also: ‘constantp’, ‘declare’.
+maxima
+
+(%i1) declare(c, constant);
+(%o1)                         done
+
+
+(%i2) constantp(c);
+(%o2)                         true
+
+
+(%i3) c : x;
+(%o3)                           x
+
+
+(%i4) constantp(c);
+(%o4)                         false
+
+See also: ‘constantp’, ‘declare’.
 
 
 File: maxima-core-docs.info,  Node: Function constantp expr,  Next: Variable context,  Prev: Function constant,  Up: Maxima's Database
@@ -4060,7 +3762,7 @@ File: maxima-core-docs.info,  Node: Function equal a b,  Next: Variable even,  P
      ‘notequal’.
 
 
-File: maxima-core-docs.info,  Node: Variable even,  Next: Function facts facts item facts,  Prev: Function equal a b,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Variable even,  Next: Function facts item,  Prev: Function equal a b,  Up: Maxima's Database
 
  -- Variable: even
      ‘declare(a, even)’ or ‘declare(a, odd)’ tells Maxima to recognize
@@ -4092,9 +3794,9 @@ File: maxima-core-docs.info,  Node: Variable even,  Next: Function facts facts i
      See also: ‘evenp’, ‘oddp’, ‘integerp’, ‘declare’, ‘askinteger’.
 
 
-File: maxima-core-docs.info,  Node: Function facts facts item facts,  Next: Variable feature,  Prev: Variable even,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function facts item,  Next: Variable feature,  Prev: Variable even,  Up: Maxima's Database
 
- -- Function: facts (FACTS, ITEM, FACTS)
+ -- Function: facts (ITEM)
      If _item_ is the name of a context, ‘facts (item)’ returns a list
      of the facts in the specified context.
 
@@ -4105,7 +3807,7 @@ File: maxima-core-docs.info,  Node: Function facts facts item facts,  Next: Vari
      ‘facts ()’ (i.e., without an argument) lists the current context.
 
 
-File: maxima-core-docs.info,  Node: Variable feature,  Next: Function featurep a f,  Prev: Function facts facts item facts,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Variable feature,  Next: Function featurep a f,  Prev: Function facts item,  Up: Maxima's Database
 
  -- Variable: feature
      Maxima understands two distinct types of features, system features
@@ -4142,7 +3844,7 @@ File: maxima-core-docs.info,  Node: Function featurep a f,  Next: Variable featu
      See also: ‘declare’, ‘features’.
 
 
-File: maxima-core-docs.info,  Node: Variable features,  Next: Function forget forget pred_1 ... pred_n forget L,  Prev: Function featurep a f,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Variable features,  Next: Function forget pred_1 ... pred_n,  Prev: Function featurep a f,  Up: Maxima's Database
 
  -- Variable: features
      Maxima recognizes certain mathematical properties of functions and
@@ -4188,9 +3890,9 @@ File: maxima-core-docs.info,  Node: Variable features,  Next: Function forget fo
      See also: ‘status’.
 
 
-File: maxima-core-docs.info,  Node: Function forget forget pred_1 ... pred_n forget L,  Next: Function get a i,  Prev: Variable features,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function forget pred_1 ... pred_n,  Next: Function get a i,  Prev: Variable features,  Up: Maxima's Database
 
- -- Function: forget (FORGET, PRED_1, ..., PRED_N, FORGET, L)
+ -- Function: forget (PRED_1, ..., PRED_N)
      Removes predicates established by ‘assume’.  The predicates may be
      expressions equivalent to (but not necessarily identical to) those
      previously assumed.
@@ -4201,7 +3903,7 @@ File: maxima-core-docs.info,  Node: Function forget forget pred_1 ... pred_n for
      See also: ‘assume’.
 
 
-File: maxima-core-docs.info,  Node: Function get a i,  Next: Variable integer,  Prev: Function forget forget pred_1 ... pred_n forget L,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function get a i,  Next: Variable integer,  Prev: Function forget pred_1 ... pred_n,  Up: Maxima's Database
 
  -- Function: get (A, I)
      Retrieves the user property indicated by _i_ associated with atom
@@ -4391,7 +4093,7 @@ File: maxima-core-docs.info,  Node: Function killcontext context_1 ... context_n
      See also: ‘activate’.
 
 
-File: maxima-core-docs.info,  Node: Function maybe expr,  Next: Function newcontext newcontext name newcontext,  Prev: Function killcontext context_1 ... context_n,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function maybe expr,  Next: Function newcontext name,  Prev: Function killcontext context_1 ... context_n,  Up: Maxima's Database
 
  -- Function: maybe (EXPR)
      Attempts to determine whether the predicate _expr_ is provable from
@@ -4425,9 +4127,9 @@ File: maxima-core-docs.info,  Node: Function maybe expr,  Next: Function newcont
      See also: ‘assume’, ‘facts’, ‘is’.
 
 
-File: maxima-core-docs.info,  Node: Function newcontext newcontext name newcontext,  Next: Function nonarray,  Prev: Function maybe expr,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function newcontext name,  Next: Function nonarray,  Prev: Function maybe expr,  Up: Maxima's Database
 
- -- Function: newcontext (NEWCONTEXT, NAME, NEWCONTEXT)
+ -- Function: newcontext (NAME)
      Creates a new, empty context, called _name_, which has ‘global’ as
      its only subcontext.  The newly-created context becomes the
      currently active context.
@@ -4439,34 +4141,36 @@ File: maxima-core-docs.info,  Node: Function newcontext newcontext name newconte
      (if specified) or the new context name.
 
 
-File: maxima-core-docs.info,  Node: Function nonarray,  Next: Variable nonscalar,  Prev: Function newcontext newcontext name newcontext,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function nonarray,  Next: Variable nonscalar,  Prev: Function constant,  Up: Maxima's Database
 
- -- Function: nonarray ()
-     The command ‘declare(a, nonarray)’ tells Maxima to consider _a_ not
-     an array.  This declaration prevents multiple evaluation, if _a_ is
-     a subscripted variable.
+1.95.2 Function: nonarray
+-------------------------
 
-     See also ‘declare’.
+The command ‘declare(a, nonarray)’ tells Maxima to consider _a_ not an
+array.  This declaration prevents multiple evaluation, if _a_ is a
+subscripted variable.
 
-     Example:
+See also ‘declare’.
 
-     maxima
-     (%i1) a:'b$ b:'c$ c:'d$
-     
-     (%i4) a[x];
-     (%o4)                          d
-                                     x
-     
-     
-     (%i5) declare(a, nonarray);
-     (%o5)                         done
-     
-     
-     (%i6) a[x];
-     (%o6)                          a
-                                     x
+Example:
 
-     See also: ‘declare’.
+maxima
+(%i1) a:'b$ b:'c$ c:'d$
+
+(%i4) a[x];
+(%o4)                          d
+                                x
+
+
+(%i5) declare(a, nonarray);
+(%o5)                         done
+
+
+(%i6) a[x];
+(%o6)                          a
+                                x
+
+See also: ‘declare’.
 
 
 File: maxima-core-docs.info,  Node: Variable nonscalar,  Next: Function nonscalarp expr,  Prev: Function nonarray,  Up: Maxima's Database
@@ -4540,7 +4244,7 @@ File: maxima-core-docs.info,  Node: Function notequal a b,  Next: Variable posfu
      (%o10)                        true
 
 
-File: maxima-core-docs.info,  Node: Variable posfun,  Next: Function printprops printprops a i printprops a_1 ... a_n i printprops all i,  Prev: Function notequal a b,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Variable posfun,  Next: Function printprops a i,  Prev: Function notequal a b,  Up: Maxima's Database
 
  -- Variable: posfun
      ‘declare (f, posfun)’ declares ‘f’ to be a positive function.  ‘is
@@ -4551,10 +4255,9 @@ File: maxima-core-docs.info,  Node: Variable posfun,  Next: Function printprops 
      See also: ‘declare’.
 
 
-File: maxima-core-docs.info,  Node: Function printprops printprops a i printprops a_1 ... a_n i printprops all i,  Next: Function properties a,  Prev: Variable posfun,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function printprops a i,  Next: Function properties a,  Prev: Variable posfun,  Up: Maxima's Database
 
- -- Function: printprops (PRINTPROPS, A, I, PRINTPROPS, A_1, ..., A_N,
-          I, PRINTPROPS, ALL, I)
+ -- Function: printprops (A, I)
      Displays the property with the indicator _i_ associated with the
      atom _a_.  _a_ may also be a list of atoms or the atom ‘all’ in
      which case all of the atoms with the given property will be used.
@@ -4565,7 +4268,7 @@ File: maxima-core-docs.info,  Node: Function printprops printprops a i printprop
      See also: ‘atvalue’, ‘atomgrad’, ‘gradef’, ‘matchdeclare’.
 
 
-File: maxima-core-docs.info,  Node: Function properties a,  Next: Variable props,  Prev: Function printprops printprops a i printprops a_1 ... a_n i printprops all i,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function properties a,  Next: Variable props,  Prev: Function printprops a i,  Up: Maxima's Database
 
  -- Function: properties (A)
      Returns a list of the names of all the properties associated with
@@ -4701,7 +4404,7 @@ File: maxima-core-docs.info,  Node: Variable real,  Next: Function rem atom indi
      See also: ‘declare’.
 
 
-File: maxima-core-docs.info,  Node: Function rem atom indicator,  Next: Function remove remove a_1 p_1 ... a_n p_n remove a_1 ... a_m p_1 ... p_n ... remove “ a” operator remove a transfun remove all p,  Prev: Variable real,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function rem atom indicator,  Next: Function remove a_1 p_1 ... a_n p_n,  Prev: Variable real,  Up: Maxima's Database
 
  -- Function: rem (ATOM, INDICATOR)
      Removes the property indicated by _indicator_ from _atom_.  ‘rem’
@@ -4713,11 +4416,9 @@ File: maxima-core-docs.info,  Node: Function rem atom indicator,  Next: Function
      See also: ‘put’.
 
 
-File: maxima-core-docs.info,  Node: Function remove remove a_1 p_1 ... a_n p_n remove a_1 ... a_m p_1 ... p_n ... remove “ a” operator remove a transfun remove all p,  Next: Variable scalar,  Prev: Function rem atom indicator,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function remove a_1 p_1 ... a_n p_n,  Next: Variable scalar,  Prev: Function rem atom indicator,  Up: Maxima's Database
 
- -- Function: remove (REMOVE, A_1, P_1, ..., A_N, P_N, REMOVE, A_1, ...,
-          A_M, P_1, ..., P_N, ..., REMOVE, ``, A, '', OPERATOR, REMOVE,
-          A, TRANSFUN, REMOVE, ALL, P)
+ -- Function: remove (A_1, P_1, ..., A_N, P_N)
      Removes properties associated with atoms.
 
      ‘remove (a_1, p_1, ..., a_n, p_n)’ removes property ‘p_k’ from atom
@@ -4756,7 +4457,7 @@ File: maxima-core-docs.info,  Node: Function remove remove a_1 p_1 ... a_n p_n r
      ‘remarray’, ‘remfunction’, ‘remrule’.
 
 
-File: maxima-core-docs.info,  Node: Variable scalar,  Next: Function scalarp expr,  Prev: Function remove remove a_1 p_1 ... a_n p_n remove a_1 ... a_m p_1 ... p_n ... remove “ a” operator remove a transfun remove all p,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Variable scalar,  Next: Function scalarp expr,  Prev: Function remove a_1 p_1 ... a_n p_n,  Up: Maxima's Database
 
  -- Variable: scalar
      ‘declare(a, scalar)’ tells Maxima to consider _a_ a scalar
@@ -4780,7 +4481,7 @@ File: maxima-core-docs.info,  Node: Function scalarp expr,  Next: Function sign 
      See also: ‘scalar’, ‘declare’, ‘nonscalarp’.
 
 
-File: maxima-core-docs.info,  Node: Function sign expr,  Next: Function supcontext supcontext name context supcontext name supcontext,  Prev: Function scalarp expr,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function sign expr,  Next: Function supcontext name context,  Prev: Function scalarp expr,  Up: Maxima's Database
 
  -- Function: sign (EXPR)
      Attempts to determine the sign of _expr_ on the basis of the facts
@@ -4798,10 +4499,9 @@ File: maxima-core-docs.info,  Node: Function sign expr,  Next: Function supconte
      See also: ‘signum’.
 
 
-File: maxima-core-docs.info,  Node: Function supcontext supcontext name context supcontext name supcontext,  Next: Function unknown expr,  Prev: Function sign expr,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function supcontext name context,  Next: Function unknown expr,  Prev: Function sign expr,  Up: Maxima's Database
 
- -- Function: supcontext (SUPCONTEXT, NAME, CONTEXT, SUPCONTEXT, NAME,
-          SUPCONTEXT)
+ -- Function: supcontext (NAME, CONTEXT)
      Creates a new context, called _name_, which has _context_ as a
      subcontext.  _context_ must exist.
 
@@ -4814,7 +4514,7 @@ File: maxima-core-docs.info,  Node: Function supcontext supcontext name context 
      (if specified) or the new context name.
 
 
-File: maxima-core-docs.info,  Node: Function unknown expr,  Next: Function zeroequiv expr v,  Prev: Function supcontext supcontext name context supcontext name supcontext,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Function unknown expr,  Next: Function zeroequiv expr v,  Prev: Function supcontext name context,  Up: Maxima's Database
 
  -- Function: unknown (EXPR)
      Returns ‘true’ if and only if _expr_ contains an operator or
@@ -4855,738 +4555,748 @@ File: maxima-core-docs.info,  Node: Operators,  Next: Program Flow,  Prev: Maxim
 
 * Menu:
 
-* Function ** ::
-* Function + ::
-* Function  ::
-* Function  ::
-* Function  ::
-* Function = ::
-* Function = ::
-* Function < ::
-* Function ^^ ::
-* Function and ::
-* Function infix infix op infix op lbp rbp infix op lbp rbp lpos rpos pos::
-* Function matchfix matchfix ldelimiter rdelimiter matchfix ldelimiter rdelimiter arg_pos pos::
-* Function nary nary op nary op bp arg_pos pos::
-* Function nofix nofix op nofix op pos::
-* Function not ::
-* Function or ::
-* Function postfix postfix op postfix op lbp lpos pos::
-* Function prefix prefix op prefix op rbp rpos pos::
+* Function **::
+* Function +::
+* Function::
+* Function : Function 2.
+* Function : Function 3.
+* Function =::
+* Function =: Function = 2.
+* Function < =::
+* Function ^{}::
+* Function and::
+* Function infix op::
+* Function matchfix ldelimiter rdelimiter::
+* Function nary op::
+* Function nofix op::
+* Function not::
+* Function or::
+* Function postfix op::
+* Function prefix op::
 
 
 File: maxima-core-docs.info,  Node: Function **,  Next: Function +,  Up: Operators
 
- -- Function: ** ()
-     Exponentiation operator.  Maxima recognizes ‘**’ as the same
-     operator as ‘^’ in input, and it is displayed as ‘^’ in
-     1-dimensional output, or by placing the exponent as a superscript
-     in 2-dimensional output.
+1.96.1 Function: **
+-------------------
 
-     The ‘fortran’ function displays the exponentiation operator as
-     ‘**’, whether it was input as ‘**’ or ‘^’.
+Exponentiation operator.  Maxima recognizes ‘**’ as the same operator as
+‘^’ in input, and it is displayed as ‘^’ in 1-dimensional output, or by
+placing the exponent as a superscript in 2-dimensional output.
 
-     Examples:
+The ‘fortran’ function displays the exponentiation operator as ‘**’,
+whether it was input as ‘**’ or ‘^’.
 
-     maxima
-     
-     (%i1) is (a**b = a^b);
-     (%o1)                         true
-     
-     
-     (%i2) x**y + x^z;
-                                   z    y
-     (%o2)                        x  + x
-     
-     
-     (%i3) string (x**y + x^z);
-     (%o3)                        x^z+x^y
-     
-     
-     (%i4) fortran (x**y + x^z);
-           x**z+x**y
-     (%o4)                         done
+Examples:
 
-     See also: ‘^’, ‘fortran’.
+maxima
+
+(%i1) is (a**b = a^b);
+(%o1)                         true
+
+
+(%i2) x**y + x^z;
+                              z    y
+(%o2)                        x  + x
+
+
+(%i3) string (x**y + x^z);
+(%o3)                        x^z+x^y
+
+
+(%i4) fortran (x**y + x^z);
+      x**z+x**y
+(%o4)                         done
+
+See also: ‘^’, ‘fortran’.
 
 
 File: maxima-core-docs.info,  Node: Function +,  Next: Function,  Prev: Function **,  Up: Operators
 
- -- Function: + ()
-     The symbols ‘+’ ‘*’ ‘/’ and ‘^’ represent addition, multiplication,
-     division, and exponentiation, respectively.  The names of these
-     operators are ‘"+"’ ‘"*"’ ‘"/"’ and ‘"^"’, which may appear where
-     the name of a function or operator is required.
+1.96.2 Function: +
+------------------
 
-     The symbols ‘+’ and ‘-’ represent unary addition and negation,
-     respectively, and the names of these operators are ‘"+"’ and ‘"-"’,
-     respectively.
+The symbols ‘+’ ‘*’ ‘/’ and ‘^’ represent addition, multiplication,
+division, and exponentiation, respectively.  The names of these
+operators are ‘"+"’ ‘"*"’ ‘"/"’ and ‘"^"’, which may appear where the
+name of a function or operator is required.
 
-     Subtraction ‘a - b’ is represented within Maxima as addition, ‘a +
-     (- b)’.  Expressions such as ‘a + (- b)’ are displayed as
-     subtraction.  Maxima recognizes ‘"-"’ only as the name of the unary
-     negation operator, and not as the name of the binary subtraction
-     operator.
+The symbols ‘+’ and ‘-’ represent unary addition and negation,
+respectively, and the names of these operators are ‘"+"’ and ‘"-"’,
+respectively.
 
-     Division ‘a / b’ is represented within Maxima as multiplication, ‘a
-     * b^(- 1)’.  Expressions such as ‘a * b^(- 1)’ are displayed as
-     division.  Maxima recognizes ‘"/"’ as the name of the division
-     operator.
+Subtraction ‘a - b’ is represented within Maxima as addition, ‘a + (-
+b)’.  Expressions such as ‘a + (- b)’ are displayed as subtraction.
+Maxima recognizes ‘"-"’ only as the name of the unary negation operator,
+and not as the name of the binary subtraction operator.
 
-     Addition and multiplication are n-ary, commutative operators.
-     Division and exponentiation are binary, noncommutative operators.
+Division ‘a / b’ is represented within Maxima as multiplication, ‘a *
+b^(- 1)’.  Expressions such as ‘a * b^(- 1)’ are displayed as division.
+Maxima recognizes ‘"/"’ as the name of the division operator.
 
-     Maxima sorts the operands of commutative operators to construct a
-     canonical representation.  For internal storage, the ordering is
-     determined by ‘orderlessp’.  For display, the ordering for addition
-     is determined by ‘ordergreatp’, and for multiplication, it is the
-     same as the internal ordering.
+Addition and multiplication are n-ary, commutative operators.  Division
+and exponentiation are binary, noncommutative operators.
 
-     Arithmetic computations are carried out on literal numbers
-     (integers, rationals, ordinary floats, and bigfloats).  Except for
-     exponentiation, all arithmetic operations on numbers are simplified
-     to numbers.  Exponentiation is simplified to a number if either
-     operand is an ordinary float or bigfloat or if the result is an
-     exact integer or rational; otherwise an exponentiation may be
-     simplified to ‘sqrt’ or another exponentiation or left unchanged.
+Maxima sorts the operands of commutative operators to construct a
+canonical representation.  For internal storage, the ordering is
+determined by ‘orderlessp’.  For display, the ordering for addition is
+determined by ‘ordergreatp’, and for multiplication, it is the same as
+the internal ordering.
 
-     Floating-point contagion applies to arithmetic computations: if any
-     operand is a bigfloat, the result is a bigfloat; otherwise, if any
-     operand is an ordinary float, the result is an ordinary float;
-     otherwise, the operands are rationals or integers and the result is
-     a rational or integer.
+Arithmetic computations are carried out on literal numbers (integers,
+rationals, ordinary floats, and bigfloats).  Except for exponentiation,
+all arithmetic operations on numbers are simplified to numbers.
+Exponentiation is simplified to a number if either operand is an
+ordinary float or bigfloat or if the result is an exact integer or
+rational; otherwise an exponentiation may be simplified to ‘sqrt’ or
+another exponentiation or left unchanged.
 
-     Arithmetic computations are a simplification, not an evaluation.
-     Thus arithmetic is carried out in quoted (but simplified)
-     expressions.
+Floating-point contagion applies to arithmetic computations: if any
+operand is a bigfloat, the result is a bigfloat; otherwise, if any
+operand is an ordinary float, the result is an ordinary float;
+otherwise, the operands are rationals or integers and the result is a
+rational or integer.
 
-     Arithmetic operations are applied element-by-element to lists when
-     the global flag ‘listarith’ is ‘true’, and always applied
-     element-by-element to matrices.  When one operand is a list or
-     matrix and another is an operand of some other type, the other
-     operand is combined with each of the elements of the list or
-     matrix.
+Arithmetic computations are a simplification, not an evaluation.  Thus
+arithmetic is carried out in quoted (but simplified) expressions.
 
-     Examples:
+Arithmetic operations are applied element-by-element to lists when the
+global flag ‘listarith’ is ‘true’, and always applied element-by-element
+to matrices.  When one operand is a list or matrix and another is an
+operand of some other type, the other operand is combined with each of
+the elements of the list or matrix.
 
-     Addition and multiplication are n-ary, commutative operators.
-     Maxima sorts the operands to construct a canonical representation.
-     The names of these operators are ‘"+"’ and ‘"*"’.
+Examples:
 
-     maxima
-     
-     (%i1) c + g + d + a + b + e + f;
-     (%o1)               g + f + e + d + c + b + a
-     
-     
-     (%i2) [op (%), args (%)];
-     (%o2)              [+, [g, f, e, d, c, b, a]]
-     
-     
-     (%i3) c * g * d * a * b * e * f;
-     (%o3)                     a b c d e f g
-     
-     
-     (%i4) [op (%), args (%)];
-     (%o4)              [*, [a, b, c, d, e, f, g]]
-     
-     
-     (%i5) apply ("+", [a, 8, x, 2, 9, x, x, a]);
-     (%o5)                    3 x + 2 a + 19
-     
-     
-     (%i6) apply ("*", [a, 8, x, 2, 9, x, x, a]);
-                                      2  3
-     (%o6)                       144 a  x
+Addition and multiplication are n-ary, commutative operators.  Maxima
+sorts the operands to construct a canonical representation.  The names
+of these operators are ‘"+"’ and ‘"*"’.
 
-     Division and exponentiation are binary, noncommutative operators.
-     The names of these operators are ‘"/"’ and ‘"^"’.
+maxima
 
-     maxima
-     
-     (%i1) [a / b, a ^ b];
-                                   a   b
-     (%o1)                        [-, a ]
+(%i1) c + g + d + a + b + e + f;
+(%o1)               g + f + e + d + c + b + a
+
+
+(%i2) [op (%), args (%)];
+(%o2)              [+, [g, f, e, d, c, b, a]]
+
+
+(%i3) c * g * d * a * b * e * f;
+(%o3)                     a b c d e f g
+
+
+(%i4) [op (%), args (%)];
+(%o4)              [*, [a, b, c, d, e, f, g]]
+
+
+(%i5) apply ("+", [a, 8, x, 2, 9, x, x, a]);
+(%o5)                    3 x + 2 a + 19
+
+
+(%i6) apply ("*", [a, 8, x, 2, 9, x, x, a]);
+                                 2  3
+(%o6)                       144 a  x
+
+Division and exponentiation are binary, noncommutative operators.  The
+names of these operators are ‘"/"’ and ‘"^"’.
+
+maxima
+
+(%i1) [a / b, a ^ b];
+                              a   b
+(%o1)                        [-, a ]
+                              b
+
+
+(%i2) [map (op, %), map (args, %)];
+(%o2)              [[/, ^], [[a, b], [a, b]]]
+
+
+(%i3) [apply ("/", [a, b]), apply ("^", [a, b])];
+                              a   b
+(%o3)                        [-, a ]
+                              b
+
+Subtraction and division are represented internally in terms of addition
+and multiplication, respectively.
+
+maxima
+
+(%i1) [inpart (a - b, 0), inpart (a - b, 1), inpart (a - b, 2)];
+(%o1)                      [+, a, - b]
+
+
+(%i2) [inpart (a / b, 0), inpart (a / b, 1), inpart (a / b, 2)];
+                                   1
+(%o2)                       [*, a, -]
                                    b
-     
-     
-     (%i2) [map (op, %), map (args, %)];
-     (%o2)              [[/, ^], [[a, b], [a, b]]]
-     
-     
-     (%i3) [apply ("/", [a, b]), apply ("^", [a, b])];
-                                   a   b
-     (%o3)                        [-, a ]
-                                   b
 
-     Subtraction and division are represented internally in terms of
-     addition and multiplication, respectively.
+Computations are carried out on literal numbers.  Floating-point
+contagion applies.
 
-     maxima
-     
-     (%i1) [inpart (a - b, 0), inpart (a - b, 1), inpart (a - b, 2)];
-     (%o1)                      [+, a, - b]
-     
-     
-     (%i2) [inpart (a / b, 0), inpart (a / b, 1), inpart (a / b, 2)];
-                                        1
-     (%o2)                       [*, a, -]
-                                        b
+maxima
 
-     Computations are carried out on literal numbers.  Floating-point
-     contagion applies.
+(%i1) 17 + b - (1/2)*29 + 11^(2/4);
+                                       5
+(%o1)                   b + sqrt(11) + -
+                                       2
 
-     maxima
-     
-     (%i1) 17 + b - (1/2)*29 + 11^(2/4);
-                                            5
-     (%o1)                   b + sqrt(11) + -
-                                            2
-     
-     
-     (%i2) [17 + 29, 17 + 29.0, 17 + 29b0];
-     (%o2)                   [46, 46.0, 4.6b1]
 
-     Arithmetic computations are a simplification, not an evaluation.
+(%i2) [17 + 29, 17 + 29.0, 17 + 29b0];
+(%o2)                   [46, 46.0, 4.6b1]
 
-     maxima
-     
-     (%i1) simp : false;
-     (%o1)                         false
-     
-     
-     (%i2) '(17 + 29*11/7 - 5^3);
-                                   29 11    3
-     (%o2)                    17 + ----- - 5
-                                     7
-     
-     
-     (%i3) simp : true;
-     (%o3)                         true
-     
-     
-     (%i4) '(17 + 29*11/7 - 5^3);
-                                     437
-     (%o4)                         - ---
-                                      7
+Arithmetic computations are a simplification, not an evaluation.
 
-     Arithmetic is carried out element-by-element for lists (depending
-     on ‘listarith’) and matrices.
+maxima
 
-     maxima
-     
-     (%i1) matrix ([a, x], [h, u]) - matrix ([1, 2], [3, 4]);
-                             [ a - 1  x - 2 ]
-     (%o1)                   [              ]
-                             [ h - 3  u - 4 ]
-     
-     
-     (%i2) 5 * matrix ([a, x], [h, u]);
-                               [ 5 a  5 x ]
-     (%o2)                     [          ]
-                               [ 5 h  5 u ]
-     
-     
-     (%i3) listarith : false;
-     (%o3)                         false
-     
-     
-     (%i4) [a, c, m, t] / [1, 7, 2, 9];
-                               [a, c, m, t]
-     (%o4)                     ------------
-                               [1, 7, 2, 9]
-     
-     
-     (%i5) [a, c, m, t] ^ x;
-                                           x
-     (%o5)                     [a, c, m, t]
-     
-     
-     (%i6) listarith : true;
-     (%o6)                         true
-     
-     
-     (%i7) [a, c, m, t] / [1, 7, 2, 9];
-                                   c  m  t
-     (%o7)                     [a, -, -, -]
-                                   7  2  9
-     
-     
-     (%i8) [a, c, m, t] ^ x;
-                               x   x   x   x
-     (%o8)                   [a , c , m , t ]
+(%i1) simp : false;
+(%o1)                         false
 
-     See also: ‘orderlessp’, ‘ordergreatp’, ‘sqrt’, ‘listarith’.
+
+(%i2) '(17 + 29*11/7 - 5^3);
+                              29 11    3
+(%o2)                    17 + ----- - 5
+                                7
+
+
+(%i3) simp : true;
+(%o3)                         true
+
+
+(%i4) '(17 + 29*11/7 - 5^3);
+                                437
+(%o4)                         - ---
+                                 7
+
+Arithmetic is carried out element-by-element for lists (depending on
+‘listarith’) and matrices.
+
+maxima
+
+(%i1) matrix ([a, x], [h, u]) - matrix ([1, 2], [3, 4]);
+                        [ a - 1  x - 2 ]
+(%o1)                   [              ]
+                        [ h - 3  u - 4 ]
+
+
+(%i2) 5 * matrix ([a, x], [h, u]);
+                          [ 5 a  5 x ]
+(%o2)                     [          ]
+                          [ 5 h  5 u ]
+
+
+(%i3) listarith : false;
+(%o3)                         false
+
+
+(%i4) [a, c, m, t] / [1, 7, 2, 9];
+                          [a, c, m, t]
+(%o4)                     ------------
+                          [1, 7, 2, 9]
+
+
+(%i5) [a, c, m, t] ^ x;
+                                      x
+(%o5)                     [a, c, m, t]
+
+
+(%i6) listarith : true;
+(%o6)                         true
+
+
+(%i7) [a, c, m, t] / [1, 7, 2, 9];
+                              c  m  t
+(%o7)                     [a, -, -, -]
+                              7  2  9
+
+
+(%i8) [a, c, m, t] ^ x;
+                          x   x   x   x
+(%o8)                   [a , c , m , t ]
+
+See also: ‘orderlessp’, ‘ordergreatp’, ‘sqrt’, ‘listarith’.
 
 
-File: maxima-core-docs.info,  Node: Function,  Next: Function =,  Prev: Function,  Up: Operators
+File: maxima-core-docs.info,  Node: Function,  Next: Function 2,  Prev: Function +,  Up: Operators
 
- -- Function: . ()
-     The dot operator, for matrix (non-commutative) multiplication.
-     When ‘"."’ is used in this way, spaces should be left on both sides
-     of it, e.g. ‘A . B’ This distinguishes it plainly from a decimal
-     point in a floating point number.
+1.96.3 Function: .
+------------------
 
-     See also ‘Dot’, ‘dot0nscsimp’, ‘dot0simp’, ‘dot1simp’, ‘dotassoc’,
-     ‘dotconstrules’, ‘dotdistrib’, ‘dotexptsimp’, ‘dotident’, and
-     ‘dotscrules’.
+The dot operator, for matrix (non-commutative) multiplication.  When
+‘"."’ is used in this way, spaces should be left on both sides of it,
+e.g. ‘A . B’ This distinguishes it plainly from a decimal point in a
+floating point number.
 
-     See also: ‘Dot’, ‘dot0nscsimp’, ‘dot0simp’, ‘dot1simp’, ‘dotassoc’,
-     ‘dotconstrules’, ‘dotdistrib’, ‘dotexptsimp’, ‘dotident’,
-     ‘dotscrules’.
+See also ‘Dot’, ‘dot0nscsimp’, ‘dot0simp’, ‘dot1simp’, ‘dotassoc’,
+‘dotconstrules’, ‘dotdistrib’, ‘dotexptsimp’, ‘dotident’, and
+‘dotscrules’.
 
- -- Function: : ()
-     Assignment operator.
-
-     When the left-hand side is a simple variable (not subscripted), ‘:’
-     evaluates its right-hand side and associates that value with the
-     left-hand side.
-
-     When the left-hand side is a subscripted element of a list, matrix,
-     declared Maxima array, or Lisp array, the right-hand side is
-     assigned to that element.  The subscript must name an existing
-     element; such objects cannot be extended by naming nonexistent
-     elements.
-
-     When the left-hand side is a subscripted element of a ‘hashed
-     array’, the right-hand side is assigned to that element, if it
-     already exists, or a new element is allocated, if it does not
-     already exist.
-
-     When the left-hand side is a list of simple and/or subscripted
-     variables, the right-hand side must evaluate to a list, and the
-     elements of the right-hand side are assigned to the elements of the
-     left-hand side, in parallel.
-
-     See also ‘kill’ and ‘remvalue’, which undo the association between
-     the left-hand side and its value.
-
-     Examples:
-
-     Assignment to a simple variable.
-
-     maxima
-     
-     (%i1) a;
-     (%o1)                           a
-     
-     
-     (%i2) a : 123;
-     (%o2)                          123
-     
-     
-     (%i3) a;
-     (%o3)                          123
-
-     Assignment to an element of a list.
-
-     maxima
-     
-     (%i1) b : [1, 2, 3];
-     (%o1)                       [1, 2, 3]
-     
-     
-     (%i2) b[3] : 456;
-     (%o2)                          456
-     
-     
-     (%i3) b;
-     (%o3)                      [1, 2, 456]
-
-     Assignment to a variable that neither is the name of a list nor of
-     an array creates a ‘hashed-array’.
-
-     maxima
-     
-     (%i1) c[99] : 789;
-     (%o1)                          789
-     
-     
-     (%i2) c[99];
-     (%o2)                          789
-     
-     
-     (%i3) c;
-     (%o3)                           c
-     
-     
-     (%i4) arrayinfo (c);
-     (%o4)                   [hashed, 1, [99]]
-     
-     
-     (%i5) listarray (c);
-     (%o5)                         [789]
-
-     Multiple assignment.
-
-     maxima
-     
-     (%i1) [a, b, c] : [45, 67, 89];
-     (%o1)                     [45, 67, 89]
-     
-     
-     (%i2) a;
-     (%o2)                          45
-     
-     
-     (%i3) b;
-     (%o3)                          67
-     
-     
-     (%i4) c;
-     (%o4)                          89
-
-     Multiple assignment is carried out in parallel.  The values of ‘a’
-     and ‘b’ are exchanged in this example.
-
-     maxima
-     
-     (%i1) [a, b] : [33, 55];
-     (%o1)                       [33, 55]
-     
-     
-     (%i2) [a, b] : [b, a];
-     (%o2)                       [55, 33]
-     
-     
-     (%i3) a;
-     (%o3)                          55
-     
-     
-     (%i4) b;
-     (%o4)                          33
-
-     See also: ‘hashed-array’, ‘kill’, ‘remvalue’.
-
- -- Function: :: ()
-     Assignment operator.
-
-     ‘::’ is the same as ‘:’ (which see) except that ‘::’ evaluates its
-     left-hand side as well as its right-hand side.
-
-     Examples:
-
-     maxima
-     
-     (%i1) x : 'foo;
-     (%o1)                          foo
-     
-     
-     (%i2) x :: 123;
-     (%o2)                          123
-     
-     
-     (%i3) foo;
-     (%o3)                          123
-     
-     
-     (%i4) x : '[a, b, c];
-     (%o4)                       [a, b, c]
-     
-     
-     (%i5) x :: [11, 22, 33];
-     (%o5)                     [11, 22, 33]
-     
-     
-     (%i6) a;
-     (%o6)                          11
-     
-     
-     (%i7) b;
-     (%o7)                          22
-     
-     
-     (%i8) c;
-     (%o8)                          33
-
-     See also: ‘:’.
+See also: ‘Dot’, ‘dot0nscsimp’, ‘dot0simp’, ‘dot1simp’, ‘dotassoc’,
+‘dotconstrules’, ‘dotdistrib’, ‘dotexptsimp’, ‘dotident’, ‘dotscrules’.
 
 
-File: maxima-core-docs.info,  Node: Function =,  Next: Function <,  Prev: Function =,  Up: Operators
+File: maxima-core-docs.info,  Node: Function 2,  Next: Function 3,  Prev: Function,  Up: Operators
 
- -- Function: ::= ()
-     Macro function definition operator.  ‘::=’ defines a function
-     (called a "macro" for historical reasons) which quotes its
-     arguments, and the expression which it returns (called the "macro
-     expansion") is evaluated in the context from which the macro was
-     called.  A macro function is otherwise the same as an ordinary
-     function.
+1.96.4 Function: :
+------------------
 
-     ‘macroexpand’ returns a macro expansion (without evaluating it).
-     ‘macroexpand (foo (x))’ followed by ‘''%’ is equivalent to ‘foo
-     (x)’ when ‘foo’ is a macro function.
+Assignment operator.
 
-     ‘::=’ puts the name of the new macro function onto the global list
-     ‘macros’.  ‘kill’, ‘remove’, and ‘remfunction’ unbind macro
-     function definitions and remove names from ‘macros’.
+When the left-hand side is a simple variable (not subscripted), ‘:’
+evaluates its right-hand side and associates that value with the
+left-hand side.
 
-     ‘fundef’ or ‘dispfun’ return a macro function definition or assign
-     it to a label, respectively.
+When the left-hand side is a subscripted element of a list, matrix,
+declared Maxima array, or Lisp array, the right-hand side is assigned to
+that element.  The subscript must name an existing element; such objects
+cannot be extended by naming nonexistent elements.
 
-     Macro functions commonly contain ‘buildq’ and ‘splice’ expressions
-     to construct an expression, which is then evaluated.
+When the left-hand side is a subscripted element of a ‘hashed array’,
+the right-hand side is assigned to that element, if it already exists,
+or a new element is allocated, if it does not already exist.
 
-     Examples
+When the left-hand side is a list of simple and/or subscripted
+variables, the right-hand side must evaluate to a list, and the elements
+of the right-hand side are assigned to the elements of the left-hand
+side, in parallel.
 
-     A macro function quotes its arguments, so message (1) shows ‘y -
-     z’, not the value of ‘y - z’.  The macro expansion (the quoted
-     expression ‘'(print ("(2) x is equal to", x))’) is evaluated in the
-     context from which the macro was called, printing message (2).
+See also ‘kill’ and ‘remvalue’, which undo the association between the
+left-hand side and its value.
 
-     maxima
-     (%i1) x: %pi$
-     (%i2) y: 1234$
-     (%i3) z: 1729 * w$
-     
-     (%i4) printq1 (x) ::= block (print ("(1) x is equal to", x),
-                                     '(print ("(2) x is equal to", x)))$
-     
-     
-     (%i5) printq1 (y - z);
-     (1) x is equal to y - z 
-     (2) x is equal to %pi 
-     (%o5)                          %pi
+Examples:
 
-     An ordinary function evaluates its arguments, so message (1) shows
-     the value of ‘y - z’.  The return value is not evaluated, so
-     message (2) is not printed until the explicit evaluation ‘''%’.
+Assignment to a simple variable.
 
-     maxima
-     (%i1) x: %pi$
-     (%i2) y: 1234$
-     (%i3) z: 1729 * w$
-     
-     (%i4) printe1 (x) := block (print ("(1) x is equal to", x),
-           '(print ("(2) x is equal to", x)))$
-     
-     
-     (%i5) printe1 (y - z);
-     (1) x is equal to 1234 - 1729 w 
-     (%o5)              print((2) x is equal to, x)
-     
-     
-     (%i6) ''%;
-     (2) x is equal to %pi 
-     (%o6)                          %pi
+maxima
 
-     ‘macroexpand’ returns a macro expansion.  ‘macroexpand (foo (x))’
-     followed by ‘''%’ is equivalent to ‘foo (x)’ when ‘foo’ is a macro
-     function.
+(%i1) a;
+(%o1)                           a
 
-     maxima
-     (%i1) x: %pi$
-     (%i2) y: 1234$
-     (%i3) z: 1729 * w$
-     (%i4) g (x) ::= buildq ([x], print ("x is equal to", x))$
-     
-     (%i5) macroexpand (g (y - z));
-     (%o5)              print(x is equal to, y - z)
-     
-     
-     (%i6) ''%;
-     x is equal to 1234 - 1729 w 
-     (%o6)                     1234 - 1729 w
-     
-     
-     (%i7) g (y - z);
-     x is equal to 1234 - 1729 w 
-     (%o7)                     1234 - 1729 w
 
-     See also: ‘macroexpand’, ‘macros’, ‘kill’, ‘remove’, ‘remfunction’,
-     ‘fundef’, ‘dispfun’, ‘buildq’, ‘splice’.
+(%i2) a : 123;
+(%o2)                          123
 
- -- Function: := ()
-     The function definition operator.
 
-     ‘f(x_1, ..., x_n) := expr’ defines a function named _f_ with
-     arguments _x_1_, ..., _x_n_ and function body _expr_.  ‘:=’ never
-     evaluates the function body (unless explicitly evaluated by
-     quote-quote ‘''’).  The function body is evaluated every time the
-     function is called.
+(%i3) a;
+(%o3)                          123
 
-     ‘f[x_1, ..., x_n] := expr’ defines a so-called
-     ‘memoizing-function’.  Its function body is evaluated just once for
-     each distinct value of its arguments, and that value is returned,
-     without evaluating the function body, whenever the arguments have
-     those values again.  (A function of this kind is also known as a
-     "array function".)
+Assignment to an element of a list.
 
-     ‘f[x_1, ..., x_n](y_1, ..., y_m) := expr’ is a special case of a
-     ‘memoizing-function’.  ‘f[x_1, ..., x_n]’ is a ‘memoizing function’
-     which returns a lambda expression with arguments ‘y_1, ..., y_m’.
-     The function body is evaluated once for each distinct value of
-     ‘x_1, ..., x_n’, and the body of the lambda expression is that
-     value.
+maxima
 
-     When the last or only function argument _x_n_ is a list of one
-     element, the function defined by ‘:=’ accepts a variable number of
-     arguments.  Actual arguments are assigned one-to-one to formal
-     arguments _x_1_, ..., _x_(n - 1)_, and any further actual
-     arguments, if present, are assigned to _x_n_ as a list.
+(%i1) b : [1, 2, 3];
+(%o1)                       [1, 2, 3]
 
-     All function definitions appear in the same namespace; defining a
-     function ‘f’ within another function ‘g’ does not automatically
-     limit the scope of ‘f’ to ‘g’.  However, ‘local(f)’ makes the
-     definition of function ‘f’ effective only within the block or other
-     compound expression in which ‘local’ appears.
 
-     If some formal argument _x_k_ is a quoted symbol, the function
-     defined by ‘:=’ does not evaluate the corresponding actual
-     argument.  Otherwise all actual arguments are evaluated.
+(%i2) b[3] : 456;
+(%o2)                          456
 
-     See also ‘define’ and ‘_003a_003a_003d’.
 
-     Examples:
+(%i3) b;
+(%o3)                      [1, 2, 456]
 
-     ‘:=’ never evaluates the function body (unless explicitly evaluated
-     by quote-quote).
+Assignment to a variable that neither is the name of a list nor of an
+array creates a ‘hashed-array’.
 
-     maxima
-     
-     (%i1) expr : cos(y) - sin(x);
-     (%o1)                    cos(y) - sin(x)
-     
-     
-     (%i2) F1 (x, y) := expr;
-     (%o2)                   F1(x, y) := expr
-     
-     
-     (%i3) F1 (a, b);
-     (%o3)                    cos(y) - sin(x)
-     
-     
-     (%i4) F2 (x, y) := ''expr;
-     (%o4)              F2(x, y) := cos(y) - sin(x)
-     
-     
-     (%i5) F2 (a, b);
-     (%o5)                    cos(b) - sin(a)
+maxima
 
-     ‘f(x_1, ..., x_n) := ...’ defines an ordinary function.
+(%i1) c[99] : 789;
+(%o1)                          789
 
-     maxima
-     
-     (%i1) G1(x, y) := (print ("Evaluating G1 for x=", x, "and y=", y),
-      x.y - y.x);
-     (%o1) G1(x, y) := (print("Evaluating G1 for x=", x, "and y=", 
-                                                    y), x . y - y . x)
-     
-     
-     (%i2) G1([1, a], [2, b]);
-     Evaluating G1 for x= [1, a] and y= [2, b] 
-     (%o2)                           0
-     
-     
-     (%i3) G1([1, a], [2, b]);
-     Evaluating G1 for x= [1, a] and y= [2, b] 
-     (%o3)                           0
 
-     ‘f[x_1, ..., x_n] := ...’ defines a ‘memoizing-function’.
+(%i2) c[99];
+(%o2)                          789
 
-     maxima
-     
-     (%i1) G2[a] := (print ("Evaluating G2 for a=", a), a^2);
-                                                          2
-     (%o1)     G2  := (print("Evaluating G2 for a=", a), a )
-                 a
-     
-     
-     (%i2) G2[1234];
-     Evaluating G2 for a= 1234 
-     (%o2)                        1522756
-     
-     
-     (%i3) G2[1234];
-     (%o3)                        1522756
-     
-     
-     (%i4) G2[2345];
-     Evaluating G2 for a= 2345 
-     (%o4)                        5499025
-     
-     
-     (%i5) arrayinfo (G2);
-     (%o5)              [hashed, 1, [1234], [2345]]
-     
-     
-     (%i6) listarray (G2);
-     (%o6)                  [1522756, 5499025]
 
-     ‘f[x_1, ..., x_n](y_1, ..., y_m) := expr’ is a special case of a
-     ‘memoizing-function’.
+(%i3) c;
+(%o3)                           c
 
-     maxima
-     
-     (%i1) G3[n](x) := (print ("Evaluating G3 for n=", n), diff (sin(x)^2,
-      x, n));
-     (%o1) G3 (x) := (print("Evaluating G3 for n=", n), 
-             n
-                                                          2
-                                                  diff(sin (x), x, n))
-     
-     
-     (%i2) G3[2];
-     Evaluating G3 for n= 2 
-                                     2           2
-     (%o2)          lambda([x], 2 cos (x) - 2 sin (x))
-     
-     
-     (%i3) G3[2];
-                                     2           2
-     (%o3)          lambda([x], 2 cos (x) - 2 sin (x))
-     
-     
-     (%i4) G3[2](1);
+
+(%i4) arrayinfo (c);
+(%o4)                   [hashed, 1, [99]]
+
+
+(%i5) listarray (c);
+(%o5)                         [789]
+
+Multiple assignment.
+
+maxima
+
+(%i1) [a, b, c] : [45, 67, 89];
+(%o1)                     [45, 67, 89]
+
+
+(%i2) a;
+(%o2)                          45
+
+
+(%i3) b;
+(%o3)                          67
+
+
+(%i4) c;
+(%o4)                          89
+
+Multiple assignment is carried out in parallel.  The values of ‘a’ and
+‘b’ are exchanged in this example.
+
+maxima
+
+(%i1) [a, b] : [33, 55];
+(%o1)                       [33, 55]
+
+
+(%i2) [a, b] : [b, a];
+(%o2)                       [55, 33]
+
+
+(%i3) a;
+(%o3)                          55
+
+
+(%i4) b;
+(%o4)                          33
+
+See also: ‘hashed-array’, ‘kill’, ‘remvalue’.
+
+
+File: maxima-core-docs.info,  Node: Function 3,  Next: Function =,  Prev: Function 2,  Up: Operators
+
+1.96.5 Function: ::
+-------------------
+
+Assignment operator.
+
+‘::’ is the same as ‘:’ (which see) except that ‘::’ evaluates its
+left-hand side as well as its right-hand side.
+
+Examples:
+
+maxima
+
+(%i1) x : 'foo;
+(%o1)                          foo
+
+
+(%i2) x :: 123;
+(%o2)                          123
+
+
+(%i3) foo;
+(%o3)                          123
+
+
+(%i4) x : '[a, b, c];
+(%o4)                       [a, b, c]
+
+
+(%i5) x :: [11, 22, 33];
+(%o5)                     [11, 22, 33]
+
+
+(%i6) a;
+(%o6)                          11
+
+
+(%i7) b;
+(%o7)                          22
+
+
+(%i8) c;
+(%o8)                          33
+
+See also: ‘:’.
+
+
+File: maxima-core-docs.info,  Node: Function =,  Next: Function = 2,  Prev: Function 3,  Up: Operators
+
+1.96.6 Function: ::=
+--------------------
+
+Macro function definition operator.  ‘::=’ defines a function (called a
+"macro" for historical reasons) which quotes its arguments, and the
+expression which it returns (called the "macro expansion") is evaluated
+in the context from which the macro was called.  A macro function is
+otherwise the same as an ordinary function.
+
+‘macroexpand’ returns a macro expansion (without evaluating it).
+‘macroexpand (foo (x))’ followed by ‘''%’ is equivalent to ‘foo (x)’
+when ‘foo’ is a macro function.
+
+‘::=’ puts the name of the new macro function onto the global list
+‘macros’.  ‘kill’, ‘remove’, and ‘remfunction’ unbind macro function
+definitions and remove names from ‘macros’.
+
+‘fundef’ or ‘dispfun’ return a macro function definition or assign it to
+a label, respectively.
+
+Macro functions commonly contain ‘buildq’ and ‘splice’ expressions to
+construct an expression, which is then evaluated.
+
+Examples
+
+A macro function quotes its arguments, so message (1) shows ‘y - z’, not
+the value of ‘y - z’.  The macro expansion (the quoted expression
+‘'(print ("(2) x is equal to", x))’) is evaluated in the context from
+which the macro was called, printing message (2).
+
+maxima
+(%i1) x: %pi$
+(%i2) y: 1234$
+(%i3) z: 1729 * w$
+
+(%i4) printq1 (x) ::= block (print ("(1) x is equal to", x),
+                                '(print ("(2) x is equal to", x)))$
+
+
+(%i5) printq1 (y - z);
+(1) x is equal to y - z 
+(2) x is equal to %pi 
+(%o5)                          %pi
+
+An ordinary function evaluates its arguments, so message (1) shows the
+value of ‘y - z’.  The return value is not evaluated, so message (2) is
+not printed until the explicit evaluation ‘''%’.
+
+maxima
+(%i1) x: %pi$
+(%i2) y: 1234$
+(%i3) z: 1729 * w$
+
+(%i4) printe1 (x) := block (print ("(1) x is equal to", x),
+      '(print ("(2) x is equal to", x)))$
+
+
+(%i5) printe1 (y - z);
+(1) x is equal to 1234 - 1729 w 
+(%o5)              print((2) x is equal to, x)
+
+
+(%i6) ''%;
+(2) x is equal to %pi 
+(%o6)                          %pi
+
+‘macroexpand’ returns a macro expansion.  ‘macroexpand (foo (x))’
+followed by ‘''%’ is equivalent to ‘foo (x)’ when ‘foo’ is a macro
+function.
+
+maxima
+(%i1) x: %pi$
+(%i2) y: 1234$
+(%i3) z: 1729 * w$
+(%i4) g (x) ::= buildq ([x], print ("x is equal to", x))$
+
+(%i5) macroexpand (g (y - z));
+(%o5)              print(x is equal to, y - z)
+
+
+(%i6) ''%;
+x is equal to 1234 - 1729 w 
+(%o6)                     1234 - 1729 w
+
+
+(%i7) g (y - z);
+x is equal to 1234 - 1729 w 
+(%o7)                     1234 - 1729 w
+
+See also: ‘macroexpand’, ‘macros’, ‘kill’, ‘remove’, ‘remfunction’,
+‘fundef’, ‘dispfun’, ‘buildq’, ‘splice’.
+
+
+File: maxima-core-docs.info,  Node: Function = 2,  Next: Function ^{},  Prev: Function =,  Up: Operators
+
+1.96.7 Function: :=
+-------------------
+
+The function definition operator.
+
+‘f(x_1, ..., x_n) := expr’ defines a function named _f_ with arguments
+_x_1_, ..., _x_n_ and function body _expr_.  ‘:=’ never evaluates the
+function body (unless explicitly evaluated by quote-quote ‘''’).  The
+function body is evaluated every time the function is called.
+
+‘f[x_1, ..., x_n] := expr’ defines a so-called ‘memoizing-function’.
+Its function body is evaluated just once for each distinct value of its
+arguments, and that value is returned, without evaluating the function
+body, whenever the arguments have those values again.  (A function of
+this kind is also known as a “array function”.)
+
+‘f[x_1, ..., x_n](y_1, ..., y_m) := expr’ is a special case of a
+‘memoizing-function’.  ‘f[x_1, ..., x_n]’ is a ‘memoizing function’
+which returns a lambda expression with arguments ‘y_1, ..., y_m’.  The
+function body is evaluated once for each distinct value of ‘x_1, ...,
+x_n’, and the body of the lambda expression is that value.
+
+When the last or only function argument _x_n_ is a list of one element,
+the function defined by ‘:=’ accepts a variable number of arguments.
+Actual arguments are assigned one-to-one to formal arguments _x_1_, ...,
+_x_(n - 1)_, and any further actual arguments, if present, are assigned
+to _x_n_ as a list.
+
+All function definitions appear in the same namespace; defining a
+function ‘f’ within another function ‘g’ does not automatically limit
+the scope of ‘f’ to ‘g’.  However, ‘local(f)’ makes the definition of
+function ‘f’ effective only within the block or other compound
+expression in which ‘local’ appears.
+
+If some formal argument _x_k_ is a quoted symbol, the function defined
+by ‘:=’ does not evaluate the corresponding actual argument.  Otherwise
+all actual arguments are evaluated.
+
+See also ‘define’ and ‘_003a_003a_003d’.
+
+Examples:
+
+‘:=’ never evaluates the function body (unless explicitly evaluated by
+quote-quote).
+
+maxima
+
+(%i1) expr : cos(y) - sin(x);
+(%o1)                    cos(y) - sin(x)
+
+
+(%i2) F1 (x, y) := expr;
+(%o2)                   F1(x, y) := expr
+
+
+(%i3) F1 (a, b);
+(%o3)                    cos(y) - sin(x)
+
+
+(%i4) F2 (x, y) := ''expr;
+(%o4)              F2(x, y) := cos(y) - sin(x)
+
+
+(%i5) F2 (a, b);
+(%o5)                    cos(b) - sin(a)
+
+‘f(x_1, ..., x_n) := ...’ defines an ordinary function.
+
+maxima
+
+(%i1) G1(x, y) := (print ("Evaluating G1 for x=", x, "and y=", y),
+ x.y - y.x);
+(%o1) G1(x, y) := (print("Evaluating G1 for x=", x, "and y=", 
+                                               y), x . y - y . x)
+
+
+(%i2) G1([1, a], [2, b]);
+Evaluating G1 for x= [1, a] and y= [2, b] 
+(%o2)                           0
+
+
+(%i3) G1([1, a], [2, b]);
+Evaluating G1 for x= [1, a] and y= [2, b] 
+(%o3)                           0
+
+‘f[x_1, ..., x_n] := ...’ defines a ‘memoizing-function’.
+
+maxima
+
+(%i1) G2[a] := (print ("Evaluating G2 for a=", a), a^2);
+                                                     2
+(%o1)     G2  := (print("Evaluating G2 for a=", a), a )
+            a
+
+
+(%i2) G2[1234];
+Evaluating G2 for a= 1234 
+(%o2)                        1522756
+
+
+(%i3) G2[1234];
+(%o3)                        1522756
+
+
+(%i4) G2[2345];
+Evaluating G2 for a= 2345 
+(%o4)                        5499025
+
+
+(%i5) arrayinfo (G2);
+(%o5)              [hashed, 1, [1234], [2345]]
+
+
+(%i6) listarray (G2);
+(%o6)                  [1522756, 5499025]
+
+‘f[x_1, ..., x_n](y_1, ..., y_m) := expr’ is a special case of a
+‘memoizing-function’.
+
+maxima
+
+(%i1) G3[n](x) := (print ("Evaluating G3 for n=", n), diff (sin(x)^2,
+ x, n));
+(%o1) G3 (x) := (print("Evaluating G3 for n=", n), 
+        n
+                                                     2
+                                             diff(sin (x), x, n))
+
+
+(%i2) G3[2];
+Evaluating G3 for n= 2 
                                 2           2
-     (%o4)                 2 cos (1) - 2 sin (1)
-     
-     
-     (%i5) arrayinfo (G3);
-     (%o5)                   [hashed, 1, [2]]
-     
-     
-     (%i6) listarray (G3);
-                                     2           2
-     (%o6)         [lambda([x], 2 cos (x) - 2 sin (x))]
+(%o2)          lambda([x], 2 cos (x) - 2 sin (x))
 
-     When the last or only function argument _x_n_ is a list of one
-     element, the function defined by ‘:=’ accepts a variable number of
-     arguments.
 
-     maxima
-     
-     (%i1) H ([L]) := apply ("+", L);
-     (%o1)                H([L]) := apply("+", L)
-     
-     
-     (%i2) H (a, b, c);
-     (%o2)                       c + b + a
+(%i3) G3[2];
+                                2           2
+(%o3)          lambda([x], 2 cos (x) - 2 sin (x))
 
-     ‘local’ makes a local function definition.
 
-     maxima
-     
-     (%i1) foo (x) := 1 - x;
-     (%o1)                    foo(x) := 1 - x
-     
-     
-     (%i2) foo (100);
-     (%o2)                         - 99
-     
-     
-     (%i3) block (local (foo), foo (x) := 2 * x, foo (100));
-     (%o3)                          200
-     
-     
-     (%i4) foo (100);
-     (%o4)                         - 99
+(%i4) G3[2](1);
+                           2           2
+(%o4)                 2 cos (1) - 2 sin (1)
 
-     See also: ‘memoizing-function’, ‘local’, ‘define’, ‘::=’.
+
+(%i5) arrayinfo (G3);
+(%o5)                   [hashed, 1, [2]]
+
+
+(%i6) listarray (G3);
+                                2           2
+(%o6)         [lambda([x], 2 cos (x) - 2 sin (x))]
+
+When the last or only function argument _x_n_ is a list of one element,
+the function defined by ‘:=’ accepts a variable number of arguments.
+
+maxima
+
+(%i1) H ([L]) := apply ("+", L);
+(%o1)                H([L]) := apply("+", L)
+
+
+(%i2) H (a, b, c);
+(%o2)                       c + b + a
+
+‘local’ makes a local function definition.
+
+maxima
+
+(%i1) foo (x) := 1 - x;
+(%o1)                    foo(x) := 1 - x
+
+
+(%i2) foo (100);
+(%o2)                         - 99
+
+
+(%i3) block (local (foo), foo (x) := 2 * x, foo (100));
+(%o3)                          200
+
+
+(%i4) foo (100);
+(%o4)                         - 99
+
+See also: ‘memoizing-function’, ‘local’, ‘define’, ‘::=’.
 
 
-File: maxima-core-docs.info,  Node: Function <,  Next: Function ^^,  Prev: Function =,  Up: Operators
+File: maxima-core-docs.info,  Node: Function < =,  Next: Function ^{},  Prev: Function = 2,  Up: Operators
 
- -- Function: < ()
+ -- Function: < (=)
      The symbols ‘<’ ‘<=’ ‘>=’ and ‘>’ represent less than, less than or
      equal, greater than or equal, and greater than, respectively.  The
      names of these operators are ‘"<"’ ‘"<="’ ‘">="’ and ‘">"’, which
@@ -5665,62 +5375,64 @@ File: maxima-core-docs.info,  Node: Function <,  Next: Function ^^,  Prev: Funct
      ‘#’, ‘equal’, ‘notequal’.
 
 
-File: maxima-core-docs.info,  Node: Function ^^,  Next: Function and,  Prev: Function <,  Up: Operators
+File: maxima-core-docs.info,  Node: Function ^{},  Next: Function and,  Prev: Function = 2,  Up: Operators
 
- -- Function: ^^ ()
-     Noncommutative exponentiation operator.  ‘^^’ is the exponentiation
-     operator corresponding to noncommutative multiplication ‘.’, just
-     as the ordinary exponentiation operator ‘^’ corresponds to
-     commutative multiplication ‘*’.
+1.96.8 Function: ^{}
+--------------------
 
-     Noncommutative exponentiation is displayed by ‘^^’ in 1-dimensional
-     output, and by placing the exponent as a superscript within angle
-     brackets ‘< >’ in 2-dimensional output.
+Noncommutative exponentiation operator.  ‘^^’ is the exponentiation
+operator corresponding to noncommutative multiplication ‘.’, just as the
+ordinary exponentiation operator ‘^’ corresponds to commutative
+multiplication ‘*’.
 
-     Examples:
+Noncommutative exponentiation is displayed by ‘^^’ in 1-dimensional
+output, and by placing the exponent as a superscript within angle
+brackets ‘< >’ in 2-dimensional output.
 
-     maxima
-     
-     (%i1) a . a . b . b . b + a * a * a * b * b;
-                             3  2    <2>    <3>
-     (%o1)                  a  b  + a    . b
-     
-     
-     (%i2) string (a . a . b . b . b + a * a * a * b * b);
-     (%o2)                  a^3*b^2+a^^2 . b^^3
+Examples:
 
-
-File: maxima-core-docs.info,  Node: Function and,  Next: Function infix infix op infix op lbp rbp infix op lbp rbp lpos rpos pos,  Prev: Function ^^,  Up: Operators
+maxima
 
- -- Function: and ()
-     The logical conjunction operator.  ‘and’ is an n-ary infix
-     operator; its operands are Boolean expressions, and its result is a
-     Boolean value.
+(%i1) a . a . b . b . b + a * a * a * b * b;
+                        3  2    <2>    <3>
+(%o1)                  a  b  + a    . b
 
-     ‘and’ forces evaluation (like ‘is’) of one or more operands, and
-     may force evaluation of all operands.
 
-     Operands are evaluated in the order in which they appear.  ‘and’
-     evaluates only as many of its operands as necessary to determine
-     the result.  If any operand is ‘false’, the result is ‘false’ and
-     no further operands are evaluated.
-
-     The global flag ‘prederror’ governs the behavior of ‘and’ when an
-     evaluated operand cannot be determined to be ‘true’ or ‘false’.
-     ‘and’ prints an error message when ‘prederror’ is ‘true’.
-     Otherwise, operands which do not evaluate to ‘true’ or ‘false’ are
-     accepted, and the result is a Boolean expression.
-
-     ‘and’ is not commutative: ‘a and b’ might not be equal to ‘b and a’
-     due to the treatment of indeterminate operands.
-
-     See also: ‘is’, ‘prederror’.
+(%i2) string (a . a . b . b . b + a * a * a * b * b);
+(%o2)                  a^3*b^2+a^^2 . b^^3
 
 
-File: maxima-core-docs.info,  Node: Function infix infix op infix op lbp rbp infix op lbp rbp lpos rpos pos,  Next: Function matchfix matchfix ldelimiter rdelimiter matchfix ldelimiter rdelimiter arg_pos pos,  Prev: Function and,  Up: Operators
+File: maxima-core-docs.info,  Node: Function and,  Next: Function not,  Prev: Function ^{},  Up: Operators
 
- -- Function: infix (INFIX, OP, INFIX, OP, LBP, RBP, INFIX, OP, LBP,
-          RBP, LPOS, RPOS, POS)
+1.96.9 Function: and
+--------------------
+
+The logical conjunction operator.  ‘and’ is an n-ary infix operator; its
+operands are Boolean expressions, and its result is a Boolean value.
+
+‘and’ forces evaluation (like ‘is’) of one or more operands, and may
+force evaluation of all operands.
+
+Operands are evaluated in the order in which they appear.  ‘and’
+evaluates only as many of its operands as necessary to determine the
+result.  If any operand is ‘false’, the result is ‘false’ and no further
+operands are evaluated.
+
+The global flag ‘prederror’ governs the behavior of ‘and’ when an
+evaluated operand cannot be determined to be ‘true’ or ‘false’.  ‘and’
+prints an error message when ‘prederror’ is ‘true’.  Otherwise, operands
+which do not evaluate to ‘true’ or ‘false’ are accepted, and the result
+is a Boolean expression.
+
+‘and’ is not commutative: ‘a and b’ might not be equal to ‘b and a’ due
+to the treatment of indeterminate operands.
+
+See also: ‘is’, ‘prederror’.
+
+
+File: maxima-core-docs.info,  Node: Function infix op,  Next: Function matchfix ldelimiter rdelimiter,  Prev: Function and,  Up: Operators
+
+ -- Function: infix (OP)
      Declares _op_ to be an infix operator.  An infix operator is a
      function of two arguments, with the name of the function written
      between the arguments.  For example, the subtraction operator ‘-’
@@ -5843,10 +5555,9 @@ File: maxima-core-docs.info,  Node: Function infix infix op infix op lbp rbp inf
      See also: ‘Introduction-to-operators’.
 
 
-File: maxima-core-docs.info,  Node: Function matchfix matchfix ldelimiter rdelimiter matchfix ldelimiter rdelimiter arg_pos pos,  Next: Function nary nary op nary op bp arg_pos pos,  Prev: Function infix infix op infix op lbp rbp infix op lbp rbp lpos rpos pos,  Up: Operators
+File: maxima-core-docs.info,  Node: Function matchfix ldelimiter rdelimiter,  Next: Function nary op,  Prev: Function infix op,  Up: Operators
 
- -- Function: matchfix (MATCHFIX, LDELIMITER, RDELIMITER, MATCHFIX,
-          LDELIMITER, RDELIMITER, ARG_POS, POS)
+ -- Function: matchfix (LDELIMITER, RDELIMITER)
      Declares a matchfix operator with left and right delimiters
      _ldelimiter_ and _rdelimiter_.  The delimiters are specified as
      strings.
@@ -5963,9 +5674,9 @@ File: maxima-core-docs.info,  Node: Function matchfix matchfix ldelimiter rdelim
                                      15
 
 
-File: maxima-core-docs.info,  Node: Function nary nary op nary op bp arg_pos pos,  Next: Function nofix nofix op nofix op pos,  Prev: Function matchfix matchfix ldelimiter rdelimiter matchfix ldelimiter rdelimiter arg_pos pos,  Up: Operators
+File: maxima-core-docs.info,  Node: Function nary op,  Next: Function nofix op,  Prev: Function matchfix ldelimiter rdelimiter,  Up: Operators
 
- -- Function: nary (NARY, OP, NARY, OP, BP, ARG_POS, POS)
+ -- Function: nary (OP)
      An ‘nary’ operator is used to denote a function of any number of
      arguments, each of which is separated by an occurrence of the
      operator, e.g. A+B or A+B+C. The ‘nary("x")’ function is a syntax
@@ -5979,9 +5690,9 @@ File: maxima-core-docs.info,  Node: Function nary nary op nary op bp arg_pos pos
      See also: ‘Introduction-to-operators’.
 
 
-File: maxima-core-docs.info,  Node: Function nofix nofix op nofix op pos,  Next: Function not,  Prev: Function nary nary op nary op bp arg_pos pos,  Up: Operators
+File: maxima-core-docs.info,  Node: Function nofix op,  Next: Function not,  Prev: Function nary op,  Up: Operators
 
- -- Function: nofix (NOFIX, OP, NOFIX, OP, POS)
+ -- Function: nofix (OP)
      ‘nofix’ operators are used to denote functions of no arguments.
      The mere presence of such an operator in a command will cause the
      corresponding function to be evaluated.  For example, when one
@@ -5995,53 +5706,56 @@ File: maxima-core-docs.info,  Node: Function nofix nofix op nofix op pos,  Next:
      See also: ‘Introduction-to-operators’.
 
 
-File: maxima-core-docs.info,  Node: Function not,  Next: Function or,  Prev: Function nofix nofix op nofix op pos,  Up: Operators
+File: maxima-core-docs.info,  Node: Function not,  Next: Function or,  Prev: Function and,  Up: Operators
 
- -- Function: not ()
-     The logical negation operator.  ‘not’ is a prefix operator; its
-     operand is a Boolean expression, and its result is a Boolean value.
+1.96.10 Function: not
+---------------------
 
-     ‘not’ forces evaluation (like ‘is’) of its operand.
+The logical negation operator.  ‘not’ is a prefix operator; its operand
+is a Boolean expression, and its result is a Boolean value.
 
-     The global flag ‘prederror’ governs the behavior of ‘not’ when its
-     operand cannot be determined to be ‘true’ or ‘false’.  ‘not’ prints
-     an error message when ‘prederror’ is ‘true’.  Otherwise, operands
-     which do not evaluate to ‘true’ or ‘false’ are accepted, and the
-     result is a Boolean expression.
+‘not’ forces evaluation (like ‘is’) of its operand.
 
-     See also: ‘prederror’.
+The global flag ‘prederror’ governs the behavior of ‘not’ when its
+operand cannot be determined to be ‘true’ or ‘false’.  ‘not’ prints an
+error message when ‘prederror’ is ‘true’.  Otherwise, operands which do
+not evaluate to ‘true’ or ‘false’ are accepted, and the result is a
+Boolean expression.
 
-
-File: maxima-core-docs.info,  Node: Function or,  Next: Function postfix postfix op postfix op lbp lpos pos,  Prev: Function not,  Up: Operators
-
- -- Function: or ()
-     The logical disjunction operator.  ‘or’ is an n-ary infix operator;
-     its operands are Boolean expressions, and its result is a Boolean
-     value.
-
-     ‘or’ forces evaluation (like ‘is’) of one or more operands, and may
-     force evaluation of all operands.
-
-     Operands are evaluated in the order in which they appear.  ‘or’
-     evaluates only as many of its operands as necessary to determine
-     the result.  If any operand is ‘true’, the result is ‘true’ and no
-     further operands are evaluated.
-
-     The global flag ‘prederror’ governs the behavior of ‘or’ when an
-     evaluated operand cannot be determined to be ‘true’ or ‘false’.
-     ‘or’ prints an error message when ‘prederror’ is ‘true’.
-     Otherwise, operands which do not evaluate to ‘true’ or ‘false’ are
-     accepted, and the result is a Boolean expression.
-
-     ‘or’ is not commutative: ‘a or b’ might not be equal to ‘b or a’
-     due to the treatment of indeterminate operands.
-
-     See also: ‘is’, ‘prederror’.
+See also: ‘prederror’.
 
 
-File: maxima-core-docs.info,  Node: Function postfix postfix op postfix op lbp lpos pos,  Next: Function prefix prefix op prefix op rbp rpos pos,  Prev: Function or,  Up: Operators
+File: maxima-core-docs.info,  Node: Function or,  Next: Function postfix op,  Prev: Function not,  Up: Operators
 
- -- Function: postfix (POSTFIX, OP, POSTFIX, OP, LBP, LPOS, POS)
+1.96.11 Function: or
+--------------------
+
+The logical disjunction operator.  ‘or’ is an n-ary infix operator; its
+operands are Boolean expressions, and its result is a Boolean value.
+
+‘or’ forces evaluation (like ‘is’) of one or more operands, and may
+force evaluation of all operands.
+
+Operands are evaluated in the order in which they appear.  ‘or’
+evaluates only as many of its operands as necessary to determine the
+result.  If any operand is ‘true’, the result is ‘true’ and no further
+operands are evaluated.
+
+The global flag ‘prederror’ governs the behavior of ‘or’ when an
+evaluated operand cannot be determined to be ‘true’ or ‘false’.  ‘or’
+prints an error message when ‘prederror’ is ‘true’.  Otherwise, operands
+which do not evaluate to ‘true’ or ‘false’ are accepted, and the result
+is a Boolean expression.
+
+‘or’ is not commutative: ‘a or b’ might not be equal to ‘b or a’ due to
+the treatment of indeterminate operands.
+
+See also: ‘is’, ‘prederror’.
+
+
+File: maxima-core-docs.info,  Node: Function postfix op,  Next: Function prefix op,  Prev: Function or,  Up: Operators
+
+ -- Function: postfix (OP)
      ‘postfix’ operators like the ‘prefix’ variety denote functions of a
      single argument, but in this case the argument immediately precedes
      an occurrence of the operator in the input string, e.g. 3!.  The
@@ -6053,9 +5767,9 @@ File: maxima-core-docs.info,  Node: Function postfix postfix op postfix op lbp l
      See also: ‘Introduction-to-operators’.
 
 
-File: maxima-core-docs.info,  Node: Function prefix prefix op prefix op rbp rpos pos,  Prev: Function postfix postfix op postfix op lbp lpos pos,  Up: Operators
+File: maxima-core-docs.info,  Node: Function prefix op,  Prev: Function postfix op,  Up: Operators
 
- -- Function: prefix (PREFIX, OP, PREFIX, OP, RBP, RPOS, POS)
+ -- Function: prefix (OP)
      A ‘prefix’ operator is one which signifies a function of one
      argument, which argument immediately follows an occurrence of the
      operator.  ‘prefix("x")’ is a syntax extension function to declare
@@ -6073,17 +5787,17 @@ File: maxima-core-docs.info,  Node: Program Flow,  Next: Runtime Environment,  P
 
 * Menu:
 
-* Function backtrace backtrace backtrace n::
-* Function do ::
+* Function backtrace::
+* Function do::
 * Function errcatch expr_1 ... expr_n::
 * Variable errexp1::
 * Function error expr_1 ... expr_n::
 * Variable error_size::
 * Variable error_syms::
-* Function errormsg ::
-* Function garbage_collect ::
+* Function errormsg::
+* Function garbage_collect::
 * Function go tag::
-* Function if ::
+* Function if::
 * Function map f expr_1 ... expr_n::
 * Function mapatom expr::
 * Variable maperror::
@@ -6092,14 +5806,14 @@ File: maxima-core-docs.info,  Node: Program Flow,  Next: Runtime Environment,  P
 * Function outermap f a_1 ... a_n::
 * Variable prederror::
 * Function return value::
-* Function scanmap scanmap f expr scanmap f expr bottomup scanmap f expr topdown::
+* Function scanmap f expr::
 * Function throw expr::
 * Function warning expr_1 ... expr_n::
 
 
-File: maxima-core-docs.info,  Node: Function backtrace backtrace backtrace n,  Next: Function do,  Up: Program Flow
+File: maxima-core-docs.info,  Node: Function backtrace,  Next: Function do,  Up: Program Flow
 
- -- Function: backtrace (BACKTRACE, BACKTRACE, N)
+ -- Function: backtrace ()
      Prints the call stack, that is, the list of functions which called
      the currently active function.
 
@@ -6129,8 +5843,8 @@ File: maxima-core-docs.info,  Node: Function backtrace backtrace backtrace n,  N
      (%o5)                         ----
                                     49
 
-        •    • ‘backtrace (n)’ prints the _n_ most recent functions,
-               including the currently active function.
+        •    • ‘backtrace (n)’ prints the _n_ most recent
+               functions, including the currently active function.
 
      maxima
      (%i1) h(x) := (backtrace(1), g(x/7))$
@@ -6147,308 +5861,302 @@ File: maxima-core-docs.info,  Node: Function backtrace backtrace backtrace n,  N
                                     49
 
 
-File: maxima-core-docs.info,  Node: Function do,  Next: Function errcatch expr_1 ... expr_n,  Prev: Function backtrace backtrace backtrace n,  Up: Program Flow
+File: maxima-core-docs.info,  Node: Function do,  Next: Function if,  Prev: Function backtrace,  Up: Program Flow
 
- -- Function: do ()
-     The ‘do’ statement is used for performing iteration.  The general
-     form of the ‘do’ statements maxima supports is:
+1.97.1 Function: do
+-------------------
 
-        •    • ‘for variable: initial_value step increment thru limit do
-               body’
+The ‘do’ statement is used for performing iteration.  The general form
+of the ‘do’ statements maxima supports is:
 
-        •    • ‘for variable: initial_value step increment while
-               condition do body’
+   •    • ‘for variable: initial_value step increment thru limit do
+          body’
 
-        •    • ‘for variable: initial_value step increment unless
-               condition do body’
+   •    • ‘for variable: initial_value step increment while
+          condition do body’
 
-        •    • ‘for variable in list do body’
+   •    • ‘for variable: initial_value step increment unless
+          condition do body’
 
-        •    • ‘for variable in expr do body’
+   •    • ‘for variable in list do body’
 
-        •    • ‘for variable in hash_table do body’
+   •    • ‘for variable in expr do body’
 
-     If the loop is expected to generate a list as output the command
-     ‘makelist’ may be the appropriate command to use instead,
-     ‘Performance-considerations-for-Lists’.
+   •    • ‘for variable in hash_table do body’
 
-     _initial_value_, _increment_, _limit_, and _body_ can be any
-     expression.  If the increment is 1 then "‘step 1’" may be omitted;
-     As always, if ‘body’ needs to contain more than one command these
-     commands can be specified as a comma-separated list surrounded by
-     parenthesis or as a ‘block’.  Due to its great generality the ‘do’
-     statement will be described in two parts.  The first form of the
-     ‘do’ statement (which is shown in the first three items above) is
-     analogous to that used in several other programming languages
-     (Fortran, Algol, PL/I, etc.); then the other features will be
-     mentioned.
+If the loop is expected to generate a list as output the command
+‘makelist’ may be the appropriate command to use instead,
+‘Performance-considerations-for-Lists’.
 
-     The execution of the ‘do’ statement proceeds by first assigning the
-     _initial_value_ to the _variable_ (henceforth called the
-     control-variable).  Then: (1) If the control-variable has exceeded
-     the limit of a ‘thru’ specification, or if the condition of the
-     ‘unless’ is ‘true’, or if the condition of the ‘while’ is ‘false’
-     then the ‘do’ terminates.  (2) The _body_ is evaluated.  (3) The
-     increment is added to the control-variable.  The process from (1)
-     to (3) is performed repeatedly until the termination condition is
-     satisfied.  One may also give several termination conditions in
-     which case the ‘do’ terminates when any of them is satisfied.
+_initial_value_, _increment_, _limit_, and _body_ can be any expression.
+If the increment is 1 then "‘step 1’" may be omitted; As always, if
+‘body’ needs to contain more than one command these commands can be
+specified as a comma-separated list surrounded by parenthesis or as a
+‘block’.  Due to its great generality the ‘do’ statement will be
+described in two parts.  The first form of the ‘do’ statement (which is
+shown in the first three items above) is analogous to that used in
+several other programming languages (Fortran, Algol, PL/I, etc.); then
+the other features will be mentioned.
 
-     In general the ‘thru’ test is satisfied when the control-variable
-     is greater than the _limit_ if the _increment_ was non-negative, or
-     when the control-variable is less than the _limit_ if the
-     _increment_ was negative.  The _increment_ and _limit_ may be
-     non-numeric expressions as long as this inequality can be
-     determined.  However, unless the _increment_ is syntactically
-     negative (e.g. is a negative number) at the time the ‘do’ statement
-     is input, Maxima assumes it will be positive when the ‘do’ is
-     executed.  If it is not positive, then the ‘do’ may not terminate
-     properly.
+The execution of the ‘do’ statement proceeds by first assigning the
+_initial_value_ to the _variable_ (henceforth called the
+control-variable).  Then: (1) If the control-variable has exceeded the
+limit of a ‘thru’ specification, or if the condition of the ‘unless’ is
+‘true’, or if the condition of the ‘while’ is ‘false’ then the ‘do’
+terminates.  (2) The _body_ is evaluated.  (3) The increment is added to
+the control-variable.  The process from (1) to (3) is performed
+repeatedly until the termination condition is satisfied.  One may also
+give several termination conditions in which case the ‘do’ terminates
+when any of them is satisfied.
 
-     Note that the _limit_, _increment_, and termination condition are
-     evaluated each time through the loop.  Thus if any of these involve
-     much computation, and yield a result that does not change during
-     all the executions of the _body_, then it is more efficient to set
-     a variable to their value prior to the ‘do’ and use this variable
-     in the ‘do’ form.
+In general the ‘thru’ test is satisfied when the control-variable is
+greater than the _limit_ if the _increment_ was non-negative, or when
+the control-variable is less than the _limit_ if the _increment_ was
+negative.  The _increment_ and _limit_ may be non-numeric expressions as
+long as this inequality can be determined.  However, unless the
+_increment_ is syntactically negative (e.g. is a negative number) at the
+time the ‘do’ statement is input, Maxima assumes it will be positive
+when the ‘do’ is executed.  If it is not positive, then the ‘do’ may not
+terminate properly.
 
-     The value normally returned by a ‘do’ statement is the atom ‘done’.
-     However, the function ‘return’ may be used inside the _body_ to
-     exit the ‘do’ prematurely and give it any desired value.  Note
-     however that a ‘return’ within a ‘do’ that occurs in a ‘block’ will
-     exit only the ‘do’ and not the ‘block’.  Note also that the ‘go’
-     function may not be used to exit from a ‘do’ into a surrounding
-     ‘block’.
+Note that the _limit_, _increment_, and termination condition are
+evaluated each time through the loop.  Thus if any of these involve much
+computation, and yield a result that does not change during all the
+executions of the _body_, then it is more efficient to set a variable to
+their value prior to the ‘do’ and use this variable in the ‘do’ form.
 
-     The control-variable is always local to the ‘do’ and thus any
-     variable may be used without affecting the value of a variable with
-     the same name outside of the ‘do’.  The control-variable is unbound
-     after the ‘do’ terminates.
+The value normally returned by a ‘do’ statement is the atom ‘done’.
+However, the function ‘return’ may be used inside the _body_ to exit the
+‘do’ prematurely and give it any desired value.  Note however that a
+‘return’ within a ‘do’ that occurs in a ‘block’ will exit only the ‘do’
+and not the ‘block’.  Note also that the ‘go’ function may not be used
+to exit from a ‘do’ into a surrounding ‘block’.
 
-     maxima
-     
-     (%i1) for a:-3 thru 26 step 7 do display(a)$
-                                  a = - 3
-     
-                                   a = 4
-     
-                                  a = 11
-     
-                                  a = 18
-     
-                                  a = 25
+The control-variable is always local to the ‘do’ and thus any variable
+may be used without affecting the value of a variable with the same name
+outside of the ‘do’.  The control-variable is unbound after the ‘do’
+terminates.
 
-     maxima
-     (%i1) s: 0$
-     
-     (%i2) for i: 1 while i <= 10 do s: s+i;
-     (%o2)                         done
-     
-     
-     (%i3) s;
-     (%o3)                          55
+maxima
 
-     Note that the condition ‘while i <= 10’ is equivalent to ‘unless i
-     > 10’ and also ‘thru 10’.
+(%i1) for a:-3 thru 26 step 7 do display(a)$
+                             a = - 3
 
-     maxima
-     (%i1) series: 1$
-     (%i2) term: exp (sin (x))$
-     
-     (%i3) for p: 1 unless p > 7 do
-         (term: diff (term, x)/p,
-          series: series + subst (x=0, term)*x^p)$
-     
-     
-     (%i4) series;
-                       7    6     5    4    2
-                      x    x     x    x    x
-     (%o4)            -- - --- - -- - -- + -- + x + 1
-                      90   240   15   8    2
+                              a = 4
 
-     which gives 8 terms of the Taylor series for ‘e^sin(x)’.
+                             a = 11
 
-     maxima
-     (%i1) poly: 0$
-     
-     (%i2) for i: 1 thru 5 do
-         for j: i step -1 thru 1 do
-             poly: poly + i*x^j$
-     
-     
-     (%i3) poly;
-                       5      4       3       2
-     (%o3)          5 x  + 9 x  + 12 x  + 14 x  + 15 x
-     
-     (%i4) guess: -3.0$
-     
-     (%i5) for i: 1 thru 10 do
-         (guess: subst (guess, x, 0.5*(x + 10/x)),
-         if abs (guess^2 - 10) < 0.00005 then return (guess));
-     (%o5)                  - 3.162280701754386
+                             a = 18
 
-     This example computes the negative square root of 10 using the
-     Newton- Raphson iteration a maximum of 10 times.  Had the
-     convergence criterion not been met the value returned would have
-     been ‘done’.
+                             a = 25
 
-     Instead of always adding a quantity to the control-variable one may
-     sometimes wish to change it in some other way for each iteration.
-     In this case one may use ‘next expression’ instead of ‘step
-     increment’.  This will cause the control-variable to be set to the
-     result of evaluating _expression_ each time through the loop.
+maxima
+(%i1) s: 0$
 
-     maxima
-     
-     (%i1) for count: 2 next 3*count thru 20 do display (count)$
-                                 count = 2
-     
-                                 count = 6
-     
-                                count = 18
+(%i2) for i: 1 while i <= 10 do s: s+i;
+(%o2)                         done
 
-     As an alternative to ‘for variable: value ...do...’ the syntax ‘for
-     variable from value ...do...’ may be used.  This permits the ‘from
-     value’ to be placed after the ‘step’ or ‘next’ value or after the
-     termination condition.  If ‘from value’ is omitted then 1 is used
-     as the initial value.
 
-     Sometimes one may be interested in performing an iteration where
-     the control-variable is never actually used.  It is thus
-     permissible to give only the termination conditions omitting the
-     initialization and updating information as in the following example
-     to compute the square-root of 5 using a poor initial guess.
+(%i3) s;
+(%o3)                          55
 
-     maxima
-     (%i1) x: 1000$
-     (%i2) thru 20 do x: 0.5*(x + 5.0/x)$
-     
-     (%i3) x;
-     (%o3)                   2.23606797749979
-     
-     
-     (%i4) sqrt(5), numer;
-     (%o4)                   2.23606797749979
+Note that the condition ‘while i <= 10’ is equivalent to ‘unless i > 10’
+and also ‘thru 10’.
 
-     If it is desired one may even omit the termination conditions
-     entirely and just give ‘do body’ which will continue to evaluate
-     the _body_ indefinitely.  In this case the function ‘return’ should
-     be used to terminate execution of the ‘do’.
+maxima
+(%i1) series: 1$
+(%i2) term: exp (sin (x))$
 
-     maxima
-     
-     (%i1) newton (f, x):= ([y, df, dfx], df: diff (f ('x), 'x),
-         do (y: ev(df), x: x - f(x)/y,
-             if abs (f (x)) < 5e-6 then return (x)))$
-     warning: parser: I'll let it stand, but (...) doesn't recognize local variables.
-     warning: parser: did you mean to say: block([y, df, dfx], ...) ?
-     
-     (%i2) sqr (x) := x^2 - 5.0$
-     
-     (%i3) newton (sqr, 1000);
-     (%o3)                  2.2360680270621947
+(%i3) for p: 1 unless p > 7 do
+    (term: diff (term, x)/p,
+     series: series + subst (x=0, term)*x^p)$
 
-     (Note that ‘return’, when executed, causes the current value of ‘x’
-     to be returned as the value of the ‘do’.  The ‘block’ is exited and
-     this value of the ‘do’ is returned as the value of the ‘block’
-     because the ‘do’ is the last statement in the block.)
 
-     A ‘for’ loop can also iterate over the contents of lists, general
-     expressions, and hash tables, as follows.
+(%i4) series;
+                  7    6     5    4    2
+                 x    x     x    x    x
+(%o4)            -- - --- - -- - -- + -- + x + 1
+                 90   240   15   8    2
 
-     for variable in list end_tests do body
-     
-     for variable in expr end_tests do body
-     
-     for variable in hash_table end_tests do body
+which gives 8 terms of the Taylor series for ‘e^sin(x)’.
 
-     In each case, _body_ is evaluated once for _variable_ assigned each
-     element of _list_, each argument of _expr_, or each key-value pair
-     of _hash_table_, respectively.  If present, _end_tests_ terminate
-     the loop if any test evaluates to ‘true’; otherwise the loop
-     terminates when the elements of _list_, the arguments of _expr_, or
-     the key-value pairs of _hash_table_ are exhausted, or when ‘return’
-     is executed in _body_.
+maxima
+(%i1) poly: 0$
 
-     _hash_table_ may be an undeclared array, either as a symbol
-     property (created with ‘use_fast_arrays’ equal to ‘false’) or a
-     value (created with ‘use_fast_arrays’ equal to ‘true’), or a hash
-     table created by ‘make_array(hashed, ...)’.
+(%i2) for i: 1 thru 5 do
+    for j: i step -1 thru 1 do
+        poly: poly + i*x^j$
 
-     Values are assigned to _variable_ using the general assignment
-     operator ‘":"’.  Therefore any assignment to a symbol (not a
-     subscripted expression) which is possible via ‘":"’ is also
-     permissible for iterating over the contents of expressions.  In
-     particular, destructuring assignments are recognized; these may be
-     useful to work with the key-value pairs of a hash table.
 
-     Examples:
+(%i3) poly;
+                  5      4       3       2
+(%o3)          5 x  + 9 x  + 12 x  + 14 x  + 15 x
 
-     A ‘for’ loop can iterate over the elements of a list.
+(%i4) guess: -3.0$
 
-     maxima
-     
-     (%i1) for f in [log, rho, atan] do ldisp (f(1)) $
-     (%t1)                           0
-     
-     (%t2)                        rho(1)
-     
-                                    %pi
-     (%t3)                          ───
-                                     4
+(%i5) for i: 1 thru 10 do
+    (guess: subst (guess, x, 0.5*(x + 10/x)),
+    if abs (guess^2 - 10) < 0.00005 then return (guess));
+(%o5)                  - 3.162280701754386
 
-     A ‘for’ loop can iterate over the arguments of a general
-     expression.
+This example computes the negative square root of 10 using the Newton-
+Raphson iteration a maximum of 10 times.  Had the convergence criterion
+not been met the value returned would have been ‘done’.
 
-     maxima
-     
-     (%i1) e: a + 1/2 + %pi*2;
-                                           1
-     (%o1)                     a + 2 %pi + ─
-                                           2
-     (%i2) for v in e do ldisp (v) $
-     (%t2)                           a
-     
-     (%t3)                         2 %pi
-     
-                                     1
-     (%t4)                           ─
-                                     2
+Instead of always adding a quantity to the control-variable one may
+sometimes wish to change it in some other way for each iteration.  In
+this case one may use ‘next expression’ instead of ‘step increment’.
+This will cause the control-variable to be set to the result of
+evaluating _expression_ each time through the loop.
 
-     A ‘for’ loop can iterate over the key-value pairs of hash tables.
-     In this case, the hash table is an undeclared array.
+maxima
 
-     maxima
-     
-     (%i1) (hh["foo"]: 444, hh["bar"]: 222, hh["baz"]: 777) $
-     
-     (%i2) for p in hh do ldisp (p);
-     (%t2)                     [[bar], 222]
-     
-     (%t3)                     [[baz], 777]
-     
-     (%t4)                     [[foo], 444]
-     
-     (%o4)                         done
+(%i1) for count: 2 next 3*count thru 20 do display (count)$
+                            count = 2
 
-     Destructuring assignments are recognized; these may be useful to
-     work with the key-value pairs of a hash table.
+                            count = 6
 
-     maxima
-     
-     (%i1) (hh["foo"]: 444, hh["bar"]: 222, hh["baz"]: 777) $
-     
-     (%i2) for [[k], v] in hh do disp (printf (false, "Key ~a --> value ~a", k, v));
-                           Key bar --> value 222
-     
-                           Key baz --> value 777
-     
-                           Key foo --> value 444
-     
-     (%o2)                         done
+                           count = 18
 
-     See also: ‘makelist’, ‘Performance-considerations-for-Lists’,
-     ‘block’.
+As an alternative to ‘for variable: value ...do...’ the syntax ‘for
+variable from value ...do...’ may be used.  This permits the ‘from
+value’ to be placed after the ‘step’ or ‘next’ value or after the
+termination condition.  If ‘from value’ is omitted then 1 is used as the
+initial value.
+
+Sometimes one may be interested in performing an iteration where the
+control-variable is never actually used.  It is thus permissible to give
+only the termination conditions omitting the initialization and updating
+information as in the following example to compute the square-root of 5
+using a poor initial guess.
+
+maxima
+(%i1) x: 1000$
+(%i2) thru 20 do x: 0.5*(x + 5.0/x)$
+
+(%i3) x;
+(%o3)                   2.23606797749979
+
+
+(%i4) sqrt(5), numer;
+(%o4)                   2.23606797749979
+
+If it is desired one may even omit the termination conditions entirely
+and just give ‘do body’ which will continue to evaluate the _body_
+indefinitely.  In this case the function ‘return’ should be used to
+terminate execution of the ‘do’.
+
+maxima
+
+(%i1) newton (f, x):= ([y, df, dfx], df: diff (f ('x), 'x),
+    do (y: ev(df), x: x - f(x)/y,
+        if abs (f (x)) < 5e-6 then return (x)))$
+warning: parser: I'll let it stand, but (...) doesn't recognize local variables.
+warning: parser: did you mean to say: block([y, df, dfx], ...) ?
+
+(%i2) sqr (x) := x^2 - 5.0$
+
+(%i3) newton (sqr, 1000);
+(%o3)                  2.2360680270621947
+
+(Note that ‘return’, when executed, causes the current value of ‘x’ to
+be returned as the value of the ‘do’.  The ‘block’ is exited and this
+value of the ‘do’ is returned as the value of the ‘block’ because the
+‘do’ is the last statement in the block.)
+
+A ‘for’ loop can also iterate over the contents of lists, general
+expressions, and hash tables, as follows.
+
+for variable in list end_tests do body
+
+for variable in expr end_tests do body
+
+for variable in hash_table end_tests do body
+
+In each case, _body_ is evaluated once for _variable_ assigned each
+element of _list_, each argument of _expr_, or each key-value pair of
+_hash_table_, respectively.  If present, _end_tests_ terminate the loop
+if any test evaluates to ‘true’; otherwise the loop terminates when the
+elements of _list_, the arguments of _expr_, or the key-value pairs of
+_hash_table_ are exhausted, or when ‘return’ is executed in _body_.
+
+_hash_table_ may be an undeclared array, either as a symbol property
+(created with ‘use_fast_arrays’ equal to ‘false’) or a value (created
+with ‘use_fast_arrays’ equal to ‘true’), or a hash table created by
+‘make_array(hashed, ...)’.
+
+Values are assigned to _variable_ using the general assignment operator
+‘":"’.  Therefore any assignment to a symbol (not a subscripted
+expression) which is possible via ‘":"’ is also permissible for
+iterating over the contents of expressions.  In particular,
+destructuring assignments are recognized; these may be useful to work
+with the key-value pairs of a hash table.
+
+Examples:
+
+A ‘for’ loop can iterate over the elements of a list.
+
+maxima
+
+(%i1) for f in [log, rho, atan] do ldisp (f(1)) $
+(%t1)                           0
+
+(%t2)                        rho(1)
+
+                               %pi
+(%t3)                          ───
+                                4
+
+A ‘for’ loop can iterate over the arguments of a general expression.
+
+maxima
+
+(%i1) e: a + 1/2 + %pi*2;
+                                      1
+(%o1)                     a + 2 %pi + ─
+                                      2
+(%i2) for v in e do ldisp (v) $
+(%t2)                           a
+
+(%t3)                         2 %pi
+
+                                1
+(%t4)                           ─
+                                2
+
+A ‘for’ loop can iterate over the key-value pairs of hash tables.  In
+this case, the hash table is an undeclared array.
+
+maxima
+
+(%i1) (hh["foo"]: 444, hh["bar"]: 222, hh["baz"]: 777) $
+
+(%i2) for p in hh do ldisp (p);
+(%t2)                     [[bar], 222]
+
+(%t3)                     [[baz], 777]
+
+(%t4)                     [[foo], 444]
+
+(%o4)                         done
+
+Destructuring assignments are recognized; these may be useful to work
+with the key-value pairs of a hash table.
+
+maxima
+
+(%i1) (hh["foo"]: 444, hh["bar"]: 222, hh["baz"]: 777) $
+
+(%i2) for [[k], v] in hh do disp (printf (false, "Key ~a --> value ~a", k, v));
+                      Key bar --> value 222
+
+                      Key baz --> value 777
+
+                      Key foo --> value 444
+
+(%o2)                         done
+
+See also: ‘makelist’, ‘Performance-considerations-for-Lists’, ‘block’.
 
 
 File: maxima-core-docs.info,  Node: Function errcatch expr_1 ... expr_n,  Next: Variable errexp1,  Prev: Function do,  Up: Program Flow
@@ -6598,56 +6306,55 @@ File: maxima-core-docs.info,  Node: Function go tag,  Next: Function if,  Prev: 
      See also: ‘block’.
 
 
-File: maxima-core-docs.info,  Node: Function if,  Next: Function map f expr_1 ... expr_n,  Prev: Function go tag,  Up: Program Flow
+File: maxima-core-docs.info,  Node: Function if,  Next: Function map f expr_1 ... expr_n,  Prev: Function do,  Up: Program Flow
 
- -- Function: if ()
-     Represents conditional evaluation.  Various forms of ‘if’
-     expressions are recognized.
+1.97.2 Function: if
+-------------------
 
-     ‘if cond_1 then expr_1 else expr_0’ eva­lu­ates to _expr_1_ if
-     _cond_1_ evaluates to ‘true’, otherwise the expression evaluates to
-     _expr_0_.
+Represents conditional evaluation.  Various forms of ‘if’ expressions
+are recognized.
 
-     The command ‘if cond_1 then expr_1 elseif cond_2 then expr_2 elseif
-     ... else expr_0’ evaluates to _expr_k_ if _cond_k_ is ‘true’ and
-     all preceding conditions are ‘false’.  If none of the conditions
-     are ‘true’, the expression evaluates to ‘expr_0’.
+‘if cond_1 then expr_1 else expr_0’ eva­lu­ates to _expr_1_ if _cond_1_
+evaluates to ‘true’, otherwise the expression evaluates to _expr_0_.
 
-     A trailing ‘else false’ is assumed if ‘else’ is missing.  That is,
-     the command ‘if cond_1 then expr_1’ is equivalent to ‘if cond_1
-     then expr_1 else false’, and the command ‘if cond_1 then expr_1
-     elseif ... elseif cond_n then expr_n’ is equivalent to ‘if cond_1
-     then expr_1 elseif ... elseif cond_n then expr_n else false’.
+The command ‘if cond_1 then expr_1 elseif cond_2 then expr_2 elseif ...
+else expr_0’ evaluates to _expr_k_ if _cond_k_ is ‘true’ and all
+preceding conditions are ‘false’.  If none of the conditions are ‘true’,
+the expression evaluates to ‘expr_0’.
 
-     The alternatives _expr_0_, ..., _expr_n_ may be any Maxima
-     expressions, including nested ‘if’ expressions.  The alternatives
-     are neither simplified nor evaluated unless the corresponding
-     condition is ‘true’.
+A trailing ‘else false’ is assumed if ‘else’ is missing.  That is, the
+command ‘if cond_1 then expr_1’ is equivalent to ‘if cond_1 then expr_1
+else false’, and the command ‘if cond_1 then expr_1 elseif ... elseif
+cond_n then expr_n’ is equivalent to ‘if cond_1 then expr_1 elseif ...
+elseif cond_n then expr_n else false’.
 
-     The conditions _cond_1_, ..., _cond_n_ are expressions which
-     potentially or actually evaluate to ‘true’ or ‘false’.  When a
-     condition does not actually evaluate to ‘true’ or ‘false’, the
-     behavior of ‘if’ is governed by the global flag ‘prederror’.  When
-     ‘prederror’ is ‘true’, it is an error if any evaluated condition
-     does not evaluate to ‘true’ or ‘false’.  Otherwise, conditions
-     which do not evaluate to ‘true’ or ‘false’ are accepted, and the
-     result is a conditional expression.
+The alternatives _expr_0_, ..., _expr_n_ may be any Maxima expressions,
+including nested ‘if’ expressions.  The alternatives are neither
+simplified nor evaluated unless the corresponding condition is ‘true’.
 
-     Among other elements, conditions may comprise relational and
-     logical operators as follows.
+The conditions _cond_1_, ..., _cond_n_ are expressions which potentially
+or actually evaluate to ‘true’ or ‘false’.  When a condition does not
+actually evaluate to ‘true’ or ‘false’, the behavior of ‘if’ is governed
+by the global flag ‘prederror’.  When ‘prederror’ is ‘true’, it is an
+error if any evaluated condition does not evaluate to ‘true’ or ‘false’.
+Otherwise, conditions which do not evaluate to ‘true’ or ‘false’ are
+accepted, and the result is a conditional expression.
 
-     Operation                  Symbol       Type
-     --------------------------------------------------------------
-     less than                  ‘<’          relational infix
-     less than or equal to      ‘<=’         relational infix
-     equality (syntactic)       ‘=’          relational infix
-     equality (value)           ‘equal’      relational function
-     negation of equal          ‘notequal’   relational function
-     greater than or equal to   ‘>=’         relational infix
-     greater than               ‘>’          relational infix
-     and                        ‘and’        logical infix
-     or                         ‘or’         logical infix
-     not                        ‘not’        logical infix
+Among other elements, conditions may comprise relational and logical
+operators as follows.
+
+Operation                  Symbol       Type
+--------------------------------------------------------------
+less than                  ‘<’          relational infix
+less than or equal to      ‘<=’         relational infix
+equality (syntactic)       ‘=’          relational infix
+equality (value)           ‘equal’      relational function
+negation of equal          ‘notequal’   relational function
+greater than or equal to   ‘>=’         relational infix
+greater than               ‘>’          relational infix
+and                        ‘and’        logical infix
+or                         ‘or’         logical infix
+not                        ‘not’        logical infix
 
 
 File: maxima-core-docs.info,  Node: Function map f expr_1 ... expr_n,  Next: Function mapatom expr,  Prev: Function if,  Up: Program Flow
@@ -6935,7 +6642,7 @@ File: maxima-core-docs.info,  Node: Variable prederror,  Next: Function return v
      See also: ‘is’, ‘maybe’.
 
 
-File: maxima-core-docs.info,  Node: Function return value,  Next: Function scanmap scanmap f expr scanmap f expr bottomup scanmap f expr topdown,  Prev: Variable prederror,  Up: Program Flow
+File: maxima-core-docs.info,  Node: Function return value,  Next: Function scanmap f expr,  Prev: Variable prederror,  Up: Program Flow
 
  -- Function: return (VALUE)
      May be used to exit explicitly from the current ‘block’, ‘while’,
@@ -6983,10 +6690,9 @@ File: maxima-core-docs.info,  Node: Function return value,  Next: Function scanm
      See also: ‘block’, ‘while’, ‘for’, ‘do’.
 
 
-File: maxima-core-docs.info,  Node: Function scanmap scanmap f expr scanmap f expr bottomup scanmap f expr topdown,  Next: Function throw expr,  Prev: Function return value,  Up: Program Flow
+File: maxima-core-docs.info,  Node: Function scanmap f expr,  Next: Function throw expr,  Prev: Function return value,  Up: Program Flow
 
- -- Function: scanmap (SCANMAP, F, EXPR, SCANMAP, F, EXPR, BOTTOMUP,
-          SCANMAP, F, EXPR, TOPDOWN)
+ -- Function: scanmap (F, EXPR)
      Recursively applies _f_ to _expr_, in a top down manner.  This is
      most useful when complete factorization is desired, for example:
 
@@ -7034,7 +6740,7 @@ File: maxima-core-docs.info,  Node: Function scanmap scanmap f expr scanmap f ex
      ‘scanmap (f, expr)’.
 
 
-File: maxima-core-docs.info,  Node: Function throw expr,  Next: Function warning expr_1 ... expr_n,  Prev: Function scanmap scanmap f expr scanmap f expr bottomup scanmap f expr topdown,  Up: Program Flow
+File: maxima-core-docs.info,  Node: Function throw expr,  Next: Function warning expr_1 ... expr_n,  Prev: Function scanmap f expr,  Up: Program Flow
 
  -- Function: throw (EXPR)
      Evaluates _expr_ and throws the value back to the most recent
@@ -7054,30 +6760,30 @@ File: maxima-core-docs.info,  Node: Function warning expr_1 ... expr_n,  Prev: F
      The function ‘warning’ always returns false.
 
 
-File: maxima-core-docs.info,  Node: Runtime Environment,  Next: ,  Prev: Program Flow,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Runtime Environment,  Next: stringproc 3,  Prev: Program Flow,  Up: Maxima Core Documentation
 
 1.98 Runtime Environment
 ========================
 
 * Menu:
 
-* Function absolute_real_time ::
-* Function decode_time decode_time T tz_offset decode_time T::
-* Function elapsed_real_time ::
-* Function elapsed_run_time ::
-* Function encode_time encode_time year month day hours minutes seconds tz_offset encode_time year month day hours minutes seconds::
+* Function absolute_real_time::
+* Function decode_time T tz_offset::
+* Function elapsed_real_time::
+* Function elapsed_run_time::
+* Function encode_time year month day hours minutes seconds tz_offset::
 * Variable maxima_tempdir::
 * Variable maxima_userdir::
-* Function parse_timedate parse_timedate S::
-* Function room room room true room false::
+* Function parse_timedate S::
+* Function room::
 * Function sstatus keyword item::
-* Function status status feature status feature item::
-* Function system system command arg_1 ... arg_n system command::
+* Function status feature::
+* Function system command arg_1 ... arg_n::
 * Function time %o1 %o2 %o3 ...::
-* Function timedate timedate T tz_offset timedate T timedate::
+* Function timedate T tz_offset::
 
 
-File: maxima-core-docs.info,  Node: Function absolute_real_time,  Next: Function decode_time decode_time T tz_offset decode_time T,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Function absolute_real_time,  Next: Function decode_time T tz_offset,  Up: Runtime Environment
 
  -- Function: absolute_real_time ()
      Returns the number of seconds since midnight, January 1, 1900 GMT.
@@ -7095,9 +6801,9 @@ File: maxima-core-docs.info,  Node: Function absolute_real_time,  Next: Function
      See also: ‘elapsed_real_time’, ‘elapsed_run_time’.
 
 
-File: maxima-core-docs.info,  Node: Function decode_time decode_time T tz_offset decode_time T,  Next: Function elapsed_real_time,  Prev: Function absolute_real_time,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Function decode_time T tz_offset,  Next: Function elapsed_real_time,  Prev: Function absolute_real_time,  Up: Runtime Environment
 
- -- Function: decode_time (DECODE_TIME, T, TZ_OFFSET, DECODE_TIME, T)
+ -- Function: decode_time (T, TZ_OFFSET)
      Given the number of seconds (possibly including a fractional part)
      since midnight, January 1, 1900 GMT, returns the date and time as
      represented by a list comprising the year, month, day of the month,
@@ -7138,7 +6844,7 @@ File: maxima-core-docs.info,  Node: Function decode_time decode_time T tz_offset
      See also: ‘encode_time’.
 
 
-File: maxima-core-docs.info,  Node: Function elapsed_real_time,  Next: Function elapsed_run_time,  Prev: Function decode_time decode_time T tz_offset decode_time T,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Function elapsed_real_time,  Next: Function elapsed_run_time,  Prev: Function decode_time T tz_offset,  Up: Runtime Environment
 
  -- Function: elapsed_real_time ()
      Returns the number of seconds (including fractions of a second)
@@ -7158,7 +6864,7 @@ File: maxima-core-docs.info,  Node: Function elapsed_real_time,  Next: Function 
      See also: ‘absolute_real_time’, ‘elapsed_run_time’.
 
 
-File: maxima-core-docs.info,  Node: Function elapsed_run_time,  Next: Function encode_time encode_time year month day hours minutes seconds tz_offset encode_time year month day hours minutes seconds,  Prev: Function elapsed_real_time,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Function elapsed_run_time,  Next: Function encode_time year month day hours minutes seconds tz_offset,  Prev: Function elapsed_real_time,  Up: Runtime Environment
 
  -- Function: elapsed_run_time ()
      Returns an estimate of the number of seconds (including fractions
@@ -7179,11 +6885,10 @@ File: maxima-core-docs.info,  Node: Function elapsed_run_time,  Next: Function e
      See also: ‘absolute_real_time’, ‘elapsed_real_time’.
 
 
-File: maxima-core-docs.info,  Node: Function encode_time encode_time year month day hours minutes seconds tz_offset encode_time year month day hours minutes seconds,  Next: Variable maxima_tempdir,  Prev: Function elapsed_run_time,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Function encode_time year month day hours minutes seconds tz_offset,  Next: Variable maxima_tempdir,  Prev: Function elapsed_run_time,  Up: Runtime Environment
 
- -- Function: encode_time (ENCODE_TIME, YEAR, MONTH, DAY, HOURS,
-          MINUTES, SECONDS, TZ_OFFSET, ENCODE_TIME, YEAR, MONTH, DAY,
-          HOURS, MINUTES, SECONDS)
+ -- Function: encode_time (YEAR, MONTH, DAY, HOURS, MINUTES, SECONDS,
+          TZ_OFFSET)
      Given a time and date specified by _year_, _month_, _day_, _hours_,
      _minutes_, and _seconds_, ‘encode_time’ returns the number of
      seconds (possibly including a fractional part) since midnight,
@@ -7242,7 +6947,7 @@ File: maxima-core-docs.info,  Node: Function encode_time encode_time year month 
      See also: ‘decode_time’.
 
 
-File: maxima-core-docs.info,  Node: Variable maxima_tempdir,  Next: Variable maxima_userdir,  Prev: Function encode_time encode_time year month day hours minutes seconds tz_offset encode_time year month day hours minutes seconds,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Variable maxima_tempdir,  Next: Variable maxima_userdir,  Prev: Function encode_time year month day hours minutes seconds tz_offset,  Up: Runtime Environment
 
  -- Variable: maxima_tempdir
      ‘maxima_tempdir’ names the directory in which Maxima creates some
@@ -7256,7 +6961,7 @@ File: maxima-core-docs.info,  Node: Variable maxima_tempdir,  Next: Variable max
      ‘maxima_tempdir’ may be assigned a string which names a directory.
 
 
-File: maxima-core-docs.info,  Node: Variable maxima_userdir,  Next: Function parse_timedate parse_timedate S,  Prev: Variable maxima_tempdir,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Variable maxima_userdir,  Next: Function parse_timedate S,  Prev: Variable maxima_tempdir,  Up: Runtime Environment
 
  -- Variable: maxima_userdir
      ‘maxima_userdir’ names a directory which Maxima searches to find
@@ -7274,9 +6979,9 @@ File: maxima-core-docs.info,  Node: Variable maxima_userdir,  Next: Function par
      must be changed separately.
 
 
-File: maxima-core-docs.info,  Node: Function parse_timedate parse_timedate S,  Next: Function room room room true room false,  Prev: Variable maxima_userdir,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Function parse_timedate S,  Next: Function room,  Prev: Variable maxima_userdir,  Up: Runtime Environment
 
- -- Function: parse_timedate (PARSE_TIMEDATE, S)
+ -- Function: parse_timedate (S)
      Parses a string _S_ representing a date or date and time of day and
      returns the number of seconds since midnight, January 1, 1900 GMT.
      If there is a nonzero fractional part, the value returned is a
@@ -7369,9 +7074,9 @@ File: maxima-core-docs.info,  Node: Function parse_timedate parse_timedate S,  N
      See also: ‘timedate’, ‘absolute_real_time’.
 
 
-File: maxima-core-docs.info,  Node: Function room room room true room false,  Next: Function sstatus keyword item,  Prev: Function parse_timedate parse_timedate S,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Function room,  Next: Function sstatus keyword item,  Prev: Function parse_timedate S,  Up: Runtime Environment
 
- -- Function: room (ROOM, ROOM, TRUE, ROOM, FALSE)
+ -- Function: room ()
      Prints out a description of the state of storage and stack
      management in Maxima.  ‘room’ calls the Lisp function of the same
      name.
@@ -7383,7 +7088,7 @@ File: maxima-core-docs.info,  Node: Function room room room true room false,  Ne
         •    • ‘room (false)’ prints out a terse description.
 
 
-File: maxima-core-docs.info,  Node: Function sstatus keyword item,  Next: Function status status feature status feature item,  Prev: Function room room room true room false,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Function sstatus keyword item,  Next: Function status feature,  Prev: Function room,  Up: Runtime Environment
 
  -- Function: sstatus (KEYWORD, ITEM)
      When _keyword_ is the symbol ‘feature’, _item_ is put on the list
@@ -7398,23 +7103,24 @@ File: maxima-core-docs.info,  Node: Function sstatus keyword item,  Next: Functi
      See also: ‘status’.
 
 
-File: maxima-core-docs.info,  Node: Function status status feature status feature item,  Next: Function system system command arg_1 ... arg_n system command,  Prev: Function sstatus keyword item,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Function status feature,  Next: Function system command arg_1 ... arg_n,  Prev: Function sstatus keyword item,  Up: Runtime Environment
 
- -- Function: status (STATUS, FEATURE, STATUS, FEATURE, ITEM)
+ -- Function: status (FEATURE)
      Returns information about the presence or absence of certain
      system-dependent features.
 
-        •    • ‘status (feature)’ returns a list of system features.
-               These include Lisp version, operating system type, etc.
-               The list may vary from one Lisp type to another.
+        •    • ‘status (feature)’ returns a list of system
+               features.  These include Lisp version, operating system
+               type, etc.  The list may vary from one Lisp type to
+               another.
 
-        •    • ‘status (feature, item)’ returns ‘true’ if _item_ is on
-               the list of items returned by ‘status (feature)’ and
-               ‘false’ otherwise.  ‘status’ quotes the argument _item_.
-               The quote-quote operator ‘''’ defeats quotation.  A
-               feature whose name contains a special character, such as
-               a hyphen, must be given as a string argument.  For
-               example, ‘status (feature, "ansi-cl")’.
+        •    • ‘status (feature, item)’ returns ‘true’ if
+               _item_ is on the list of items returned by ‘status
+               (feature)’ and ‘false’ otherwise.  ‘status’ quotes the
+               argument _item_.  The quote-quote operator ‘''’ defeats
+               quotation.  A feature whose name contains a special
+               character, such as a hyphen, must be given as a string
+               argument.  For example, ‘status (feature, "ansi-cl")’.
 
      See also ‘sstatus’.
 
@@ -7425,10 +7131,9 @@ File: maxima-core-docs.info,  Node: Function status status feature status featur
      See also: ‘sstatus’.
 
 
-File: maxima-core-docs.info,  Node: Function system system command arg_1 ... arg_n system command,  Next: Function time %o1 %o2 %o3 ...,  Prev: Function status status feature status feature item,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Function system command arg_1 ... arg_n,  Next: Function time %o1 %o2 %o3 ...,  Prev: Function status feature,  Up: Runtime Environment
 
- -- Function: system (SYSTEM, COMMAND, ARG_1, ..., ARG_N, SYSTEM,
-          COMMAND)
+ -- Function: system (COMMAND, ARG_1, ..., ARG_N)
      Executes _command_ as a separate process.  The command is passed to
      the default shell for execution.
 
@@ -7502,7 +7207,7 @@ File: maxima-core-docs.info,  Node: Function system system command arg_1 ... arg
      (%o1)                           0
 
 
-File: maxima-core-docs.info,  Node: Function time %o1 %o2 %o3 ...,  Next: Function timedate timedate T tz_offset timedate T timedate,  Prev: Function system system command arg_1 ... arg_n system command,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Function time %o1 %o2 %o3 ...,  Next: Function timedate T tz_offset,  Prev: Function system command arg_1 ... arg_n,  Up: Runtime Environment
 
  -- Function: time (%O1, %O2, %O3, ...)
      Returns a list of the times, in seconds, taken to compute the
@@ -7515,9 +7220,9 @@ File: maxima-core-docs.info,  Node: Function time %o1 %o2 %o3 ...,  Next: Functi
      and elapsed time with each output line.
 
 
-File: maxima-core-docs.info,  Node: Function timedate timedate T tz_offset timedate T timedate,  Prev: Function time %o1 %o2 %o3 ...,  Up: Runtime Environment
+File: maxima-core-docs.info,  Node: Function timedate T tz_offset,  Prev: Function time %o1 %o2 %o3 ...,  Up: Runtime Environment
 
- -- Function: timedate (TIMEDATE, T, TZ_OFFSET, TIMEDATE, T, TIMEDATE)
+ -- Function: timedate (T, TZ_OFFSET)
      ‘timedate(T, tz_offset)’ returns a string representing the time _T_
      in the time zone _tz_offset_.  The string format is ‘YYYY-MM-DD
      HH:MM:SS.NNN[+|-]ZZ:ZZ’ (using as many digits as necessary to
@@ -7563,21 +7268,24 @@ File: maxima-core-docs.info,  Node: Function timedate timedate T tz_offset timed
      (%i1) timedate (1000000000, -9.5);
      (%o1)               1931-09-09 16:16:40-09:30
 
+
+File: maxima-core-docs.info,  Node: stringproc 3,  Next: Series,  Prev: Runtime Environment,  Up: Maxima Core Documentation
+
 1.99 stringproc
 ===============
 
 * Menu:
 
 * Function regex_compile pattern::
-* Function regex_match regex_match regex str regex_match regex str start regex_match regex str start end::
-* Function regex_match_pos regex_match_pos regex str regex_match_pos regex str start regex_match_pos regex str start end::
+* Function regex_match regex str::
+* Function regex_match_pos regex str::
 * Function regex_split regex str::
 * Function regex_subst replacement pattern str::
 * Function regex_subst_first replacement pattern str::
 * Function string_to_regex str::
 
 
-File: maxima-core-docs.info,  Node: Function regex_compile pattern
+File: maxima-core-docs.info,  Node: Function regex_compile pattern,  Next: Function regex_match regex str,  Up: stringproc 3
 
  -- Function: regex_compile (PATTERN)
      Compile regex string in _pattern_ to an internal form that is
@@ -7590,10 +7298,9 @@ File: maxima-core-docs.info,  Node: Function regex_compile pattern
      (%o1)         Structure [COMPILED-REGEX for "c.r"]
 
 
-File: maxima-core-docs.info,  Node: Function regex_match regex_match regex str regex_match regex str start regex_match regex str start end
+File: maxima-core-docs.info,  Node: Function regex_match regex str,  Next: Function regex_match_pos regex str,  Prev: Function regex_compile pattern,  Up: stringproc 3
 
- -- Function: regex_match (REGEX_MATCH, REGEX, STR, REGEX_MATCH, REGEX,
-          STR, START, REGEX_MATCH, REGEX, STR, START, END)
+ -- Function: regex_match (REGEX, STR)
      ‘regex_match’ is very similar to ‘regex_match_pos’ except that it
      returns the matching substrings instead of the indices of the
      match.  If no match is found, returns ‘false’.
@@ -7620,7 +7327,7 @@ File: maxima-core-docs.info,  Node: Function regex_match regex_match regex str r
      (%o3)                         false
 
      ‘sregex’ supports _clusters_ (see
-     https://ds26gte.github.io/pregexp/index.html#TAG:__tex2page_toc_TAG:__tex2page_sec_3.4pregexp
+     https//ds26gtegithubio/pregexp/indexhtml#TAG__tex2page_toc_TAG__tex2page_sec_34pregexp
      clusters) which are subpatterns denoted by being enclosed within
      parentheses.  These cause the matcher to return the submatch along
      with the overall match.
@@ -7640,7 +7347,7 @@ File: maxima-core-docs.info,  Node: Function regex_match regex_match regex str r
      match, but the overall pattern matches.  In this case, ‘false’
      represents to failed match.
 
-     The regex pattern matches "month year" or "month day, year".  The
+     The regex pattern matches “month year” or “month day, year”.  The
      subpattern matches the day, if present.
 
      (%i1) date_re : regex_compile("([a-z]+) +([0-9]+,)? *([0-9]+)");
@@ -7656,7 +7363,7 @@ File: maxima-core-docs.info,  Node: Function regex_match regex_match regex str r
      (%o3)             [jan 1970, jan, false, 1970]
 
      You can also do case-insensitive matches by using a _cloister_ (see
-     https://ds26gte.github.io/pregexp/index.html#TAG:__tex2page_toc_TAG:__tex2page_sec_3.4.3pregexp
+     https//ds26gtegithubio/pregexp/indexhtml#TAG__tex2page_toc_TAG__tex2page_sec_343pregexp
      cloisters) with the ‘i’ modifier:
 
      (%i1) regex_match("hearth", "HeartH");
@@ -7675,11 +7382,9 @@ File: maxima-core-docs.info,  Node: Function regex_match regex_match regex str r
      we matched ‘"i"’ for the cluster.
 
 
-File: maxima-core-docs.info,  Node: Function regex_match_pos regex_match_pos regex str regex_match_pos regex str start regex_match_pos regex str start end
+File: maxima-core-docs.info,  Node: Function regex_match_pos regex str,  Next: Function regex_split regex str,  Prev: Function regex_match regex str,  Up: stringproc 3
 
- -- Function: regex_match_pos (REGEX_MATCH_POS, REGEX, STR,
-          REGEX_MATCH_POS, REGEX, STR, START, REGEX_MATCH_POS, REGEX,
-          STR, START, END)
+ -- Function: regex_match_pos (REGEX, STR)
      Return a list consisting of a list of the start and end positions
      of _str_ where the first match of _regex_ occurred.  If no match is
      found, returns ‘false’.
@@ -7721,7 +7426,7 @@ File: maxima-core-docs.info,  Node: Function regex_match_pos regex_match_pos reg
      parenthesis in the given regular expression.
 
 
-File: maxima-core-docs.info,  Node: Function regex_split regex str
+File: maxima-core-docs.info,  Node: Function regex_split regex str,  Next: Function regex_subst replacement pattern str,  Prev: Function regex_match_pos regex str,  Up: stringproc 3
 
  -- Function: regex_split (REGEX, STR)
      Returns a list of strings where _str_ has been split into
@@ -7732,7 +7437,7 @@ File: maxima-core-docs.info,  Node: Function regex_split regex str
      (%o1)                  [split, pea, soup]
 
 
-File: maxima-core-docs.info,  Node: Function regex_subst replacement pattern str
+File: maxima-core-docs.info,  Node: Function regex_subst replacement pattern str,  Next: Function regex_subst_first replacement pattern str,  Prev: Function regex_split regex str,  Up: stringproc 3
 
  -- Function: regex_subst (REPLACEMENT, PATTERN, STR)
      Returns a string where every occurrence of _pattern_ has been
@@ -7742,7 +7447,7 @@ File: maxima-core-docs.info,  Node: Function regex_subst replacement pattern str
      (%o1)              liberty egality fraternity
 
 
-File: maxima-core-docs.info,  Node: Function regex_subst_first replacement pattern str
+File: maxima-core-docs.info,  Node: Function regex_subst_first replacement pattern str,  Next: Function string_to_regex str,  Prev: Function regex_subst replacement pattern str,  Up: stringproc 3
 
  -- Function: regex_subst_first (REPLACEMENT, PATTERN, STR)
      Returns a string where the first occurrence of _pattern_ in _str_
@@ -7762,7 +7467,7 @@ File: maxima-core-docs.info,  Node: Function regex_subst_first replacement patte
      (%o2)    the *nina*, the _pinta_, and the _santa maria_
 
 
-File: maxima-core-docs.info,  Node: Function string_to_regex str
+File: maxima-core-docs.info,  Node: Function string_to_regex str,  Prev: Function regex_subst_first replacement pattern str,  Up: stringproc 3
 
  -- Function: string_to_regex (STR)
      Returns a regex string where any special reqex characters in _str_
@@ -7788,7 +7493,7 @@ File: maxima-core-docs.info,  Node: Function string_to_regex str
      the ‘"."’ would match any single character.
 
 
-File: maxima-core-docs.info,  Node: Series,  Next: Limits,  Prev: ,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Series,  Next: Limits,  Prev: stringproc 3,  Up: Maxima Core Documentation
 
 1.100 Series
 ============
@@ -7801,18 +7506,17 @@ File: maxima-core-docs.info,  Node: Limits,  Next: Sums Products and Series,  Pr
 
 * Menu:
 
-* Function gruntz gruntz expr var value gruntz expr var value direction::
+* Function gruntz expr var value::
 * Variable lhospitallim::
-* Function limit limit expr x val dir limit expr x val limit expr::
+* Function limit expr x val dir::
 * Variable limsubst::
-* Function tlimit tlimit expr x val dir tlimit expr x val tlimit expr::
+* Function tlimit expr x val dir::
 * Variable tlimswitch::
 
 
-File: maxima-core-docs.info,  Node: Function gruntz gruntz expr var value gruntz expr var value direction,  Next: Variable lhospitallim,  Up: Limits
+File: maxima-core-docs.info,  Node: Function gruntz expr var value,  Next: Variable lhospitallim,  Up: Limits
 
- -- Function: gruntz (GRUNTZ, EXPR, VAR, VALUE, GRUNTZ, EXPR, VAR,
-          VALUE, DIRECTION)
+ -- Function: gruntz (EXPR, VAR, VALUE)
      Compute limit of expression _expr_ with respect to variable _var_
      at _value_.  When _value_ is not infinite (i.e., not ‘inf’ or
      ‘minf’), _direction_ must be supplied, either ‘plus’ for a limit
@@ -7842,7 +7546,7 @@ File: maxima-core-docs.info,  Node: Function gruntz gruntz expr var value gruntz
      ‘gruntz’ is one of the methods called from ‘limit’.
 
 
-File: maxima-core-docs.info,  Node: Variable lhospitallim,  Next: Function limit limit expr x val dir limit expr x val limit expr,  Prev: Function gruntz gruntz expr var value gruntz expr var value direction,  Up: Limits
+File: maxima-core-docs.info,  Node: Variable lhospitallim,  Next: Function limit expr x val dir,  Prev: Function gruntz expr var value,  Up: Limits
 
  -- Variable: lhospitallim
      Default value: 4
@@ -7854,10 +7558,9 @@ File: maxima-core-docs.info,  Node: Variable lhospitallim,  Next: Function limit
      See also: ‘limit’.
 
 
-File: maxima-core-docs.info,  Node: Function limit limit expr x val dir limit expr x val limit expr,  Next: Variable limsubst,  Prev: Variable lhospitallim,  Up: Limits
+File: maxima-core-docs.info,  Node: Function limit expr x val dir,  Next: Variable limsubst,  Prev: Variable lhospitallim,  Up: Limits
 
- -- Function: limit (LIMIT, EXPR, X, VAL, DIR, LIMIT, EXPR, X, VAL,
-          LIMIT, EXPR)
+ -- Function: limit (EXPR, X, VAL, DIR)
      Computes the limit of _expr_ as the real variable _x_ approaches
      the value _val_ from the direction _dir_.  _dir_ may have the value
      ‘plus’ for a limit from above, ‘minus’ for a limit from below, or
@@ -7902,7 +7605,7 @@ File: maxima-core-docs.info,  Node: Function limit limit expr x val dir limit ex
      ‘tlimswitch’, ‘limsubst’.
 
 
-File: maxima-core-docs.info,  Node: Variable limsubst,  Next: Function tlimit tlimit expr x val dir tlimit expr x val tlimit expr,  Prev: Function limit limit expr x val dir limit expr x val limit expr,  Up: Limits
+File: maxima-core-docs.info,  Node: Variable limsubst,  Next: Function tlimit expr x val dir,  Prev: Function limit expr x val dir,  Up: Limits
 
  -- Variable: limsubst
      Default value: ‘false’
@@ -7914,10 +7617,645 @@ File: maxima-core-docs.info,  Node: Variable limsubst,  Next: Function tlimit tl
      See also: ‘limit’.
 
 
-File: maxima-core-docs.info,  Node: Function tlimit tlimit expr x val dir tlimit expr x val tlimit expr,  Next: Variable tlimswitch,  Prev: Variable limsubst,  Up: Limits
+File: maxima-core-docs.info,  Node: Function tlimit expr x val dir,  Next: Variable tlimswitch,  Prev: Variable limsubst,  Up: Limits
 
- -- Function: tlimit (TLIMIT, EXPR, X, VAL, DIR, TLIMIT, EXPR, X, VAL,
-          TLIMIT, EXPR)
+ -- Function: tlimit (EXPR, X, VAL, DIR)
      Take the limit of the Taylor series expansion of ‘expr’ in ‘x’ at
      ‘val’ from direction ‘dir’.
+
+
+File: maxima-core-docs.info,  Node: Variable tlimswitch,  Prev: Function tlimit expr x val dir,  Up: Limits
+
+ -- Variable: tlimswitch
+     Default value: ‘true’
+
+     When ‘tlimswitch’ is ‘true’, the ‘limit’ command will use a Taylor
+     series expansion if the limit of the input expression cannot be
+     computed directly.  This allows evaluation of limits such as
+     ‘limit(x/(x-1)-1/log(x),x,1,plus)’.  When ‘tlimswitch’ is ‘false’
+     and the limit of input expression cannot be computed directly,
+     ‘limit’ will return an unevaluated limit expression.
+
+     See also: ‘limit’.
+
+
+File: maxima-core-docs.info,  Node: Sums Products and Series,  Next: zeilberger,  Prev: Limits,  Up: Maxima Core Documentation
+
+1.102 Sums, Products, and Series
+================================
+
+* Menu:
+
+* Function absint f x halfplane::
+* Function bashindices expr::
+* Variable cauchysum::
+* Variable cosnpiflag::
+* Function deftaylor f_1x_1 expr_1 ... f_nx_n expr_n::
+* Function equalp x y::
+* Function fourcos f x p::
+* Function fourexpand l x p limit::
+* Function fourier f x p::
+* Function fourint f x::
+* Function fourintcos f x::
+* Function fourintsin f x::
+* Function foursimp l::
+* Function foursin f x p::
+* Function funp f expr::
+* Function intopois a::
+* Function intosum expr::
+* Function lsum expr x L::
+* Variable maxtayorder::
+* Function niceindices expr::
+* Variable niceindicespref::
+* Function nusum expr x i_0 i_1::
+* Function outofpois a::
+* Function pade taylor_series numer_deg_bound denom_deg_bound::
+* Function poisdiff a b::
+* Function poisexpt a b::
+* Function poisint a b::
+* Variable poislim::
+* Function poismap series sinfn cosfn::
+* Function poisplus a b::
+* Function poissimp a::
+* Variable poisson::
+* Function poissubst a b c::
+* Function poistimes a b::
+* Function poistrim::
+* Function powerseries expr x a::
+* Function printpois a::
+* Function product expr i i_0 i_1::
+* Variable psexpand::
+* Function remfun f expr::
+* Function revert expr x::
+* Variable simpproduct::
+* Variable simpsum::
+* Variable sinnpiflag::
+* Function sum expr i i_0 i_1::
+* Function sumcontract expr::
+* Variable sumexpand::
+* Function taylor expr x a n::
+* Variable taylor_logexpand::
+* Variable taylor_order_coefficients::
+* Function taylor_simplifier expr::
+* Variable taylor_truncate_polynomials::
+* Variable taylordepth::
+* Function taylorinfo expr::
+* Function taylorp expr::
+* Function taytorat expr::
+* Function totalfourier f x p::
+* Function trunc expr::
+* Function unsum f n::
+* Variable verbose::
+
+
+File: maxima-core-docs.info,  Node: Function absint f x halfplane,  Next: Function bashindices expr,  Up: Sums Products and Series
+
+ -- Function: absint (F, X, HALFPLANE)
+     ‘absint (f, x, halfplane)’ returns the indefinite integral of _f_
+     with respect to _x_ in the given halfplane (‘pos’, ‘neg’, or
+     ‘both’).  _f_ may contain expressions of the form ‘abs (x)’, ‘abs
+     (sin (x))’, ‘abs (a) * exp (-abs (b) * abs (x))’.
+
+     ‘absint (f, x)’ is equivalent to ‘absint (f, x, pos)’.
+
+     ‘absint (f, x, a, b)’ returns the definite integral of _f_ with
+     respect to _x_ from _a_ to _b_.
+
+     _f_ may include absolute values.
+
+
+File: maxima-core-docs.info,  Node: Function bashindices expr,  Next: Variable cauchysum,  Prev: Function absint f x halfplane,  Up: Sums Products and Series
+
+ -- Function: bashindices (EXPR)
+     Transforms the expression _expr_ by giving each summation and
+     product a unique index.  This gives ‘changevar’ greater precision
+     when it is working with summations or products.  The form of the
+     unique index is ‘jnumber’.  The quantity _number_ is determined by
+     referring to ‘gensumnum’, which can be changed by the user.  For
+     example, ‘gensumnum:0$’ resets it.
+
+
+File: maxima-core-docs.info,  Node: Variable cauchysum,  Next: Variable cosnpiflag,  Prev: Function bashindices expr,  Up: Sums Products and Series
+
+ -- Variable: cauchysum
+     Default value: ‘false’
+
+     When multiplying together sums with ‘inf’ as their upper limit, if
+     ‘sumexpand’ is ‘true’ and ‘cauchysum’ is ‘true’ then the Cauchy
+     product will be used rather than the usual product.  In the Cauchy
+     product the index of the inner summation is a function of the index
+     of the outer one rather than varying independently.
+
+     Example:
+
+     maxima
+     (%i1) sumexpand: false$
+     (%i2) cauchysum: false$
+     
+     (%i3) s: sum (f(i), i, 0, inf) * sum (g(j), j, 0, inf);
+                           inf         inf
+                           ____        ____
+                           \           \
+     (%o3)                ( >    f(i))  >    g(j)
+                           /           /
+                           ----        ----
+                           i = 0       j = 0
+     
+     (%i4) sumexpand: true$
+     (%i5) cauchysum: true$
+     
+     (%i6) expand(s,0,0);
+                      inf     i1
+                      ____   ____
+                      \      \
+     (%o6)             >      >     g(i1 - i2) f(i2)
+                      /      /
+                      ----   ----
+                      i1 = 0 i2 = 0
+
+
+File: maxima-core-docs.info,  Node: Variable cosnpiflag,  Next: Function deftaylor f_1x_1 expr_1 ... f_nx_n expr_n,  Prev: Variable cauchysum,  Up: Sums Products and Series
+
+ -- Variable: cosnpiflag
+     Default value: ‘true’
+
+     See ‘foursimp’.
+
+
+File: maxima-core-docs.info,  Node: Function deftaylor f_1x_1 expr_1 ... f_nx_n expr_n,  Next: Function equalp x y,  Prev: Variable cosnpiflag,  Up: Sums Products and Series
+
+ -- Function: deftaylor (F_1(X_1), EXPR_1, ..., F_N(X_N), EXPR_N)
+     For each function _f_i_ of one variable _x_i_, ‘deftaylor’ defines
+     _expr_i_ as the Taylor series about zero.  _expr_i_ is typically a
+     polynomial in _x_i_ or a summation; more general expressions are
+     accepted by ‘deftaylor’ without complaint.
+
+     ‘powerseries (f_i(x_i), x_i, 0)’ returns the series defined by
+     ‘deftaylor’.
+
+     ‘deftaylor’ returns a list of the functions _f_1_, ..., _f_n_.
+     ‘deftaylor’ evaluates its arguments.
+
+     Example:
+
+     maxima
+     
+     (%i1) deftaylor (f(x), x^2 + sum(x^i/(2^i*i!^2), i, 4, inf));
+     (%o1)                          [f]
+     
+     
+     (%i2) powerseries (f(x), x, 0);
+                           inf
+                           ____      i1
+                           \        x         2
+     (%o2)                  >     -------- + x
+                           /       i1    2
+                           ----   2   i1!
+                           i1 = 4
+     
+     
+     (%i3) taylor (exp (sqrt (f(x))), x, 0, 4);
+                           2         3          4
+                          x    3073 x    12817 x
+     (%o3)/T/     1 + x + -- + ------- + -------- + . . .
+                          2     18432     307200
+
+
+File: maxima-core-docs.info,  Node: Function equalp x y,  Next: Function fourcos f x p,  Prev: Function deftaylor f_1x_1 expr_1 ... f_nx_n expr_n,  Up: Sums Products and Series
+
+ -- Function: equalp (X, Y)
+     Returns ‘true’ if ‘equal (x, y)’ otherwise ‘false’ (doesn't give an
+     error message like ‘equal (x, y)’ would do in this case).
+
+
+File: maxima-core-docs.info,  Node: Function fourcos f x p,  Next: Function fourexpand l x p limit,  Prev: Function equalp x y,  Up: Sums Products and Series
+
+ -- Function: fourcos (F, X, P)
+     Returns the Fourier cosine coefficients for ‘f(x)’ defined on ‘[0,
+     p]’.
+
+
+File: maxima-core-docs.info,  Node: Function fourexpand l x p limit,  Next: Function fourier f x p,  Prev: Function fourcos f x p,  Up: Sums Products and Series
+
+ -- Function: fourexpand (L, X, P, LIMIT)
+     Constructs and returns the Fourier series from the list of Fourier
+     coefficients _l_ up through _limit_ terms (_limit_ may be ‘inf’).
+     _x_ and _p_ have same meaning as in ‘fourier’.
+
+
+File: maxima-core-docs.info,  Node: Function fourier f x p,  Next: Function fourint f x,  Prev: Function fourexpand l x p limit,  Up: Sums Products and Series
+
+ -- Function: fourier (F, X, P)
+     Returns a list of the Fourier coefficients of ‘f(x)’ defined on the
+     interval ‘[-p, p]’.
+
+
+File: maxima-core-docs.info,  Node: Function fourint f x,  Next: Function fourintcos f x,  Prev: Function fourier f x p,  Up: Sums Products and Series
+
+ -- Function: fourint (F, X)
+     Constructs and returns a list of the Fourier integral coefficients
+     of ‘f(x)’ defined on ‘[minf, inf]’.
+
+
+File: maxima-core-docs.info,  Node: Function fourintcos f x,  Next: Function fourintsin f x,  Prev: Function fourint f x,  Up: Sums Products and Series
+
+ -- Function: fourintcos (F, X)
+     Returns the Fourier cosine integral coefficients for ‘f(x)’ on ‘[0,
+     inf]’.
+
+
+File: maxima-core-docs.info,  Node: Function fourintsin f x,  Next: Function foursimp l,  Prev: Function fourintcos f x,  Up: Sums Products and Series
+
+ -- Function: fourintsin (F, X)
+     Returns the Fourier sine integral coefficients for ‘f(x)’ on ‘[0,
+     inf]’.
+
+
+File: maxima-core-docs.info,  Node: Function foursimp l,  Next: Function foursin f x p,  Prev: Function fourintsin f x,  Up: Sums Products and Series
+
+ -- Function: foursimp (L)
+     Simplifies ‘sin (n %pi)’ to 0 if ‘sinnpiflag’ is ‘true’ and ‘cos (n
+     %pi)’ to ‘(-1)^n’ if ‘cosnpiflag’ is ‘true’.
+
+
+File: maxima-core-docs.info,  Node: Function foursin f x p,  Next: Function funp f expr,  Prev: Function foursimp l,  Up: Sums Products and Series
+
+ -- Function: foursin (F, X, P)
+     Returns the Fourier sine coefficients for ‘f(x)’ defined on ‘[0,
+     p]’.
+
+
+File: maxima-core-docs.info,  Node: Function funp f expr,  Next: Function intopois a,  Prev: Function foursin f x p,  Up: Sums Products and Series
+
+ -- Function: funp (F, EXPR)
+     ‘funp (f, expr)’ returns ‘true’ if _expr_ contains the function
+     _f_.
+
+     ‘funp (f, expr, x)’ returns ‘true’ if _expr_ contains the function
+     _f_ and the variable _x_ is somewhere in the argument of one of the
+     instances of _f_.
+
+
+File: maxima-core-docs.info,  Node: Function intopois a,  Next: Function intosum expr,  Prev: Function funp f expr,  Up: Sums Products and Series
+
+ -- Function: intopois (A)
+     Converts _a_ into a Poisson encoding.
+
+
+File: maxima-core-docs.info,  Node: Function intosum expr,  Next: Function lsum expr x L,  Prev: Function intopois a,  Up: Sums Products and Series
+
+ -- Function: intosum (EXPR)
+     Moves multiplicative factors outside a summation to inside.  If the
+     index is used in the outside expression, then the function tries to
+     find a reasonable index, the same as it does for ‘sumcontract’.
+     This is essentially the reverse idea of the ‘outative’ property of
+     summations, but note that it does not remove this property, it only
+     bypasses it.
+
+     In some cases, a ‘scanmap (multthru, expr)’ may be necessary before
+     the ‘intosum’.
+
+
+File: maxima-core-docs.info,  Node: Function lsum expr x L,  Next: Variable maxtayorder,  Prev: Function intosum expr,  Up: Sums Products and Series
+
+ -- Function: lsum (EXPR, X, L)
+     Represents the sum of _expr_ for each element _x_ in _L_. A noun
+     form ‘'lsum’ is returned if the argument _L_ does not evaluate to a
+     list.
+
+     Examples:
+
+     maxima
+     
+     (%i1) lsum (x^i, i, [1, 2, 7]);
+                                 7    2
+     (%o1)                      x  + x  + x
+     
+     
+     (%i2) lsum (i^2, i, rootsof (x^3 - 1, x));
+                        ____
+                        \                        2
+     (%o2)               >                      i
+                        /
+                        ----
+                                      3
+                        i in rootsof(x  - 1, x)
+
+
+File: maxima-core-docs.info,  Node: Variable maxtayorder,  Next: Function niceindices expr,  Prev: Function lsum expr x L,  Up: Sums Products and Series
+
+ -- Variable: maxtayorder
+     Default value: ‘true’
+
+     When ‘maxtayorder’ is ‘true’, then during algebraic manipulation of
+     (truncated) Taylor series, ‘taylor’ tries to retain as many terms
+     as are known to be correct.
+
+
+File: maxima-core-docs.info,  Node: Function niceindices expr,  Next: Variable niceindicespref,  Prev: Variable maxtayorder,  Up: Sums Products and Series
+
+ -- Function: niceindices (EXPR)
+     Renames the indices of sums and products in _expr_.  ‘niceindices’
+     attempts to rename each index to the value of ‘niceindicespref[1]’,
+     unless that name appears in the summand or multiplicand, in which
+     case ‘niceindices’ tries the succeeding elements of
+     ‘niceindicespref’ in turn, until an unused variable is found.  If
+     the entire list is exhausted, additional indices are constructed by
+     appending integers to the value of ‘niceindicespref[1]’, e.g.,
+     ‘i0’, ‘i1’, ‘i2’, ...
+
+     ‘niceindices’ returns an expression.  ‘niceindices’ evaluates its
+     argument.
+
+     Example:
+
+     maxima
+     
+     (%i1) niceindicespref;
+     (%o1)                  [i, j, k, l, m, n]
+     
+     
+     (%i2) product (sum (f (foo + i*j*bar), foo, 1, inf), bar, 1, inf);
+                      inf    inf
+                     _____   ____
+                     |   |   \
+     (%o2)           |   |    >      f(bar i j + foo)
+                     |   |   /
+                     bar = 1 ----
+                             foo = 1
+     
+     
+     (%i3) niceindices (%);
+                          inf  inf
+                         _____ ____
+                         |   | \
+     (%o3)               |   |  >    f(i j l + k)
+                         |   | /
+                         l = 1 ----
+                               k = 1
+
+
+File: maxima-core-docs.info,  Node: Variable niceindicespref,  Next: Function nusum expr x i_0 i_1,  Prev: Function niceindices expr,  Up: Sums Products and Series
+
+ -- Variable: niceindicespref
+     Default value: ‘[i, j, k, l, m, n]’
+
+     ‘niceindicespref’ is the list from which ‘niceindices’ takes the
+     names of indices for sums and products.
+
+     The elements of ‘niceindicespref’ are must be names of simple
+     variables.
+
+     Example:
+
+     maxima
+     (%i1) niceindicespref: [p, q, r, s, t, u]$
+     
+     (%i2) product (sum (f (foo + i*j*bar), foo, 1, inf), bar, 1, inf);
+                      inf    inf
+                     _____   ____
+                     |   |   \
+     (%o2)           |   |    >      f(bar i j + foo)
+                     |   |   /
+                     bar = 1 ----
+                             foo = 1
+     
+     
+     (%i3) niceindices (%);
+                          inf  inf
+                         _____ ____
+                         |   | \
+     (%o3)               |   |  >    f(i j q + p)
+                         |   | /
+                         q = 1 ----
+                               p = 1
+
+
+File: maxima-core-docs.info,  Node: Function nusum expr x i_0 i_1,  Next: Function outofpois a,  Prev: Variable niceindicespref,  Up: Sums Products and Series
+
+ -- Function: nusum (EXPR, X, I_0, I_1)
+     Carries out indefinite hypergeometric summation of _expr_ with
+     respect to _x_ using a decision procedure due to R.W. Gosper.
+     _expr_ and the result must be expressible as products of integer
+     powers, factorials, binomials, and rational functions.
+
+     The terms "definite" and "indefinite summation" are used
+     analogously to "definite" and "indefinite integration".  To sum
+     indefinitely means to give a symbolic result for the sum over
+     intervals of variable length, not just e.g. 0 to inf.  Thus, since
+     there is no formula for the general partial sum of the binomial
+     series, ‘nusum’ can't do it.
+
+     ‘nusum’ and ‘unsum’ know a little about sums and differences of
+     finite products.  See also ‘unsum’.
+
+     Examples:
+
+     maxima
+     
+     (%i1) nusum (n*n!, n, 0, n);
+     solve: dependent equations eliminated: (1)
+     (%o1)                     (n + 1)! - 1
+     
+     
+     (%i2) nusum (n^4*4^n/binomial(2*n,n), n, 0, n);
+              n              4        3       2
+           2 4  (n + 1) (63 n  + 112 n  + 18 n  - 22 n + 3)    2
+     (%o2) ------------------------------------------------ - ---
+                         693 binomial(2 n, n)                 231
+     
+     
+     (%i3) unsum (%, n);
+                                   n  4
+                                  4  n
+     (%o3)                   ----------------
+                             binomial(2 n, n)
+     
+     
+     (%i4) unsum (prod (i^2, i, 1, n), n);
+                         n - 1
+                         _____
+                         |   |  2
+     (%o4)              (|   | i ) (n - 1) (n + 1)
+                         |   |
+                         i = 1
+     
+     
+     (%i5) nusum (%, n, 1, n);
+     solve: dependent equations eliminated: (2 3)
+                                 n
+                               _____
+                               |   |  2
+     (%o5)                     |   | i  - 1
+                               |   |
+                               i = 1
+
+     See also: ‘unsum’.
+
+
+File: maxima-core-docs.info,  Node: Function outofpois a,  Next: Function pade taylor_series numer_deg_bound denom_deg_bound,  Prev: Function nusum expr x i_0 i_1,  Up: Sums Products and Series
+
+ -- Function: outofpois (A)
+     Converts _a_ from Poisson encoding to general representation.  If
+     _a_ is not in Poisson form, ‘outofpois’ carries out the conversion,
+     i.e., the return value is ‘outofpois (intopois (a))’.  This
+     function is thus a canonical simplifier for sums of powers of sine
+     and cosine terms of a particular type.
+
+
+File: maxima-core-docs.info,  Node: Function pade taylor_series numer_deg_bound denom_deg_bound,  Next: Function poisdiff a b,  Prev: Function outofpois a,  Up: Sums Products and Series
+
+ -- Function: pade (TAYLOR_SERIES, NUMER_DEG_BOUND, DENOM_DEG_BOUND)
+     Returns a list of all rational functions which have the given
+     Taylor series expansion where the sum of the degrees of the
+     numerator and the denominator is less than or equal to the
+     truncation level of the power series, i.e.  are "best"
+     approximants, and which additionally satisfy the specified degree
+     bounds.
+
+     _taylor_series_ is an univariate Taylor series.  _numer_deg_bound_
+     and _denom_deg_bound_ are positive integers specifying degree
+     bounds on the numerator and denominator.
+
+     _taylor_series_ can also be a Laurent series, and the degree bounds
+     can be ‘inf’ which causes all rational functions whose total degree
+     is less than or equal to the length of the power series to be
+     returned.  Total degree is defined as ‘numer_deg_bound +
+     denom_deg_bound’.  Length of a power series is defined as
+     ‘"truncation level" + 1 - min(0, "order of series")’.
+
+     maxima
+     
+     (%i1) taylor (1 + x + x^2 + x^3, x, 0, 3);
+                                   2    3
+     (%o1)/T/             1 + x + x  + x  + . . .
+     
+     
+     (%i2) pade (%, 1, 1);
+                                      1
+     (%o2)                       [- -----]
+                                    x - 1
+     
+     
+     (%i3) t: taylor(-(83787*x^10 - 45552*x^9 - 187296*x^8
+                  + 387072*x^7 + 86016*x^6 - 1507328*x^5
+                  + 1966080*x^4 + 4194304*x^3 - 25165824*x^2
+                  + 67108864*x - 134217728)
+      /134217728, x, 0, 10);
+                         2    3       4       5       6        7
+                  x   3 x    x    15 x    23 x    21 x    189 x
+     (%o3)/T/ 1 - - + ---- - -- - ----- + ----- - ----- - ------
+                  2    16    32   1024    2048    32768   65536
+                                       8         9          10
+                                 5853 x    2847 x    83787 x
+                               + ------- + ------- - --------- + . . .
+                                 4194304   8388608   134217728
+     
+     
+     (%i4) pade (t, 4, 4);
+     (%o4)                          []
+
+     There is no rational function of degree 4 numerator/denominator,
+     with this power series expansion.  You must in general have degree
+     of the numerator and degree of the denominator adding up to at
+     least the degree of the power series, in order to have enough
+     unknown coefficients to solve.
+
+     maxima
+     (%i5) pade (t, 5, 5);
+                          5                4                 3
+     (%o5) [- (520256329 x  - 96719020632 x  - 489651410240 x
+     
+                       2
+      - 1619100813312 x  - 2176885157888 x - 2386516803584)
+     
+                    5                 4                  3
+     /(47041365435 x  + 381702613848 x  + 1360678489152 x
+     
+                       2
+      + 2856700692480 x  + 3370143559680 x + 2386516803584)]
+
+
+File: maxima-core-docs.info,  Node: Function poisdiff a b,  Next: Function poisexpt a b,  Prev: Function pade taylor_series numer_deg_bound denom_deg_bound,  Up: Sums Products and Series
+
+ -- Function: poisdiff (A, B)
+     Differentiates _a_ with respect to _b_.  _b_ must occur only in the
+     trig arguments or only in the coefficients.
+
+
+File: maxima-core-docs.info,  Node: Function poisexpt a b,  Next: Function poisint a b,  Prev: Function poisdiff a b,  Up: Sums Products and Series
+
+ -- Function: poisexpt (A, B)
+     Functionally identical to ‘intopois (a^b)’.  _b_ must be a positive
+     integer.
+
+
+File: maxima-core-docs.info,  Node: Function poisint a b,  Next: Variable poislim,  Prev: Function poisexpt a b,  Up: Sums Products and Series
+
+ -- Function: poisint (A, B)
+     Integrates in a similarly restricted sense (to ‘poisdiff’).
+     Non-periodic terms in _b_ are dropped if _b_ is in the trig
+     arguments.
+
+
+File: maxima-core-docs.info,  Node: Variable poislim,  Next: Function poismap series sinfn cosfn,  Prev: Function poisint a b,  Up: Sums Products and Series
+
+ -- Variable: poislim
+     Default value: 5
+
+     ‘poislim’ determines the domain of the coefficients in the
+     arguments of the trig functions.  The initial value of 5
+     corresponds to the interval [-2^{(5-1)+1,2}(5-1)], or [-15,16], but
+     it can be set to [-2^(n-1)+1, 2^(n-1)].
+
+
+File: maxima-core-docs.info,  Node: Function poismap series sinfn cosfn,  Next: Function poisplus a b,  Prev: Variable poislim,  Up: Sums Products and Series
+
+ -- Function: poismap (SERIES, SINFN, COSFN)
+     will map the functions _sinfn_ on the sine terms and _cosfn_ on the
+     cosine terms of the Poisson series given.  _sinfn_ and _cosfn_ are
+     functions of two arguments which are a coefficient and a
+     trigonometric part of a term in series respectively.
+
+
+File: maxima-core-docs.info,  Node: Function poisplus a b,  Next: Function poissimp a,  Prev: Function poismap series sinfn cosfn,  Up: Sums Products and Series
+
+ -- Function: poisplus (A, B)
+     Is functionally identical to ‘intopois (a + b)’.
+
+
+File: maxima-core-docs.info,  Node: Function poissimp a,  Next: Variable poisson,  Prev: Function poisplus a b,  Up: Sums Products and Series
+
+ -- Function: poissimp (A)
+     Converts _a_ into a Poisson series for _a_ in general
+     representation.
+
+
+File: maxima-core-docs.info,  Node: Variable poisson,  Next: Function poissubst a b c,  Prev: Function poissimp a,  Up: Sums Products and Series
+
+ -- Variable: poisson
+     The symbol ‘/P/’ follows the line label of Poisson series
+     expressions.
+
+
+File: maxima-core-docs.info,  Node: Function poissubst a b c,  Next: Function poistimes a b,  Prev: Variable poisson,  Up: Sums Products and Series
+
+ -- Function: poissubst (A, B, C)
+     Substitutes _a_ for _b_ in _c_.  _c_ is a Poisson series.
+
+       1. Where _B_ is a variable _u_, _v_, _w_, _x_, _y_, or _z_, then
+          _a_ must be an expression linear in those variables (e.g.,
+          ‘6*u + 4*v’).
+
+       2. Where _b_ is other than those variables, then _a_ must also be
+          free of those variables, and furthermore, free of sines or
+          cosines.
+
+     ‘poissubst (a, b, c, d, n)’ is a special type of substitution which
+     operates on _a_ and _b_ as in type (1) above, but where _d_ is a
+     Poisson series, expands ‘cos(d)’ and ‘sin(d)’ to order _n_ so as to
+     provide the result of substituting ‘a + d’ for _b_ in _c_.  The
+     idea is that _d_ is an expansion in terms of a small parameter.
+     For example, ‘poissubst (u, v, cos(v), %e, 3)’ yields ‘cos(u)*(1 -
+     %e^2/2) - sin(u)*(%e - %e^3/6)’.
 

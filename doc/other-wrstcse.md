@@ -1,5 +1,8 @@
 ## wrstcse
 
+<!-- category: Other -->
+<!-- keywords: wc_defaultsigma -->
+<!-- signatures: wc_defaultsigma -->
 ### Variable: wc_defaultsigma
 
 Default value: `6`
@@ -76,6 +79,9 @@ maxima
 
 See also: `wc_mintypmax_rss`.
 
+<!-- category: Other -->
+<!-- keywords: wc_defaultvaluespertol -->
+<!-- signatures: wc_defaultvaluespertol -->
 ### Variable: wc_defaultvaluespertol
 
 Default value: `3`
@@ -156,7 +162,10 @@ R_2 = 1004.9999999999999], [R_1 = 101.0, R_2 = 1010.0]]
 
 See also: `wc_systematic`, `wc_mintypmax`.
 
-### Function: wc_ewc_simplify (expression, definitions, ...)
+<!-- category: Other -->
+<!-- keywords: wc_ewc_simplify -->
+<!-- signatures: wc_ewc_simplify(expression, definitions...) -->
+### Function: wc_ewc_simplify (expression, definitions...)
 
 Brute-forcing through all combinations of *tol[n]* in order to find the
 worst-case combination is O(m^n)-complete and therefore computationally intensive
@@ -349,6 +358,9 @@ E_Offset = 1.5e-6]
 
 See also: `wc_mintypmax`, `wc_montecarlo`.
 
+<!-- category: Other -->
+<!-- keywords: wc_inputvalueassumptions -->
+<!-- signatures: wc_inputvalueassumptions(expr) -->
 ### Function: wc_inputvalueassumptions (expr)
 
 Often it is good practice to keep all numeric values with tolerances in a list
@@ -425,7 +437,10 @@ maxima
 
 See also: `wc_tolassumptions`, `wc_inputvalueranges`, `assume`.
 
-### Function: wc_inputvalueranges (expression, show_tols)
+<!-- category: Other -->
+<!-- keywords: wc_inputvalueranges -->
+<!-- signatures: wc_inputvalueranges(expression, [show_tols]) -->
+### Function: wc_inputvalueranges (expression, [show_tols])
 
 Convenience function: Displays a list which parameter can vary between
 which values.
@@ -494,6 +509,9 @@ R_3 = 2.0e+3 (0.01 tol    + 1)]
 
 See also: `wc_mintypmax2tol`, `wc_inputvalueassumptions`.
 
+<!-- category: Other -->
+<!-- keywords: wc_inputvalues_max -->
+<!-- signatures: wc_inputvalues_max(listofinputvalues) -->
 ### Function: wc_inputvalues_max (listofinputvalues)
 
 Sets all the input values contained in *listofinputvalues* to their
@@ -562,6 +580,9 @@ R_3 = 2.0e+3 (0.01 tol    + 1)]
 
 See also: `wc_inputvalues_min`.
 
+<!-- category: Other -->
+<!-- keywords: wc_inputvalues_min -->
+<!-- signatures: wc_inputvalues_min(listofinputvalues) -->
 ### Function: wc_inputvalues_min (listofinputvalues)
 
 Sets all the input values contained in *listofinputvalues* to their
@@ -625,7 +646,10 @@ R_3 = 2000.0 (0.01 tol    + 1)]
 
 See also: `wc_inputvalues_min`.
 
-### Function: wc_max (expr, num)
+<!-- category: Other -->
+<!-- keywords: wc_max -->
+<!-- signatures: wc_max(expr, [num]) -->
+### Function: wc_max (expr, [num])
 
 Outputs only the maximum value of *expr*). If *num* is present it tells
 maxima how many samples to try out of the range of each tolerance.
@@ -684,7 +708,10 @@ maxima
 
 See also: `wc_max`, `wc_typicalvalues`, `wc_mintypmax`.
 
-### Function: wc_min (expr, num)
+<!-- category: Other -->
+<!-- keywords: wc_min -->
+<!-- signatures: wc_min(expr, [num]) -->
+### Function: wc_min (expr, [num])
 
 Outputs only the minimum value of *expr*). If *num* is present it tells
 maxima how many samples to try out of the range of each tolerance.
@@ -743,7 +770,10 @@ maxima
 
 See also: `wc_max`, `wc_typicalvalues`, `wc_mintypmax`.
 
-### Function: wc_mintypmax (expr, n)
+<!-- category: Other -->
+<!-- keywords: wc_mintypmax -->
+<!-- signatures: wc_mintypmax(expr, [n]) -->
+### Function: wc_mintypmax (expr, [n])
 
 Prints the minimum, maximum and typical value of *expr*. If *n*
 is positive, *n* values for each parameter will be tried systematically.
@@ -804,6 +834,9 @@ maxima
 
 See also: `wc_mintypmax_percent`, `wc_mintypmax_rss`, `wc_mintypmax_num`, `wc_min`, `wc_max`, `wc_ewc_simplify`, `wc_systematic`.
 
+<!-- category: Other -->
+<!-- keywords: wc_mintypmax2tol -->
+<!-- signatures: wc_mintypmax2tol(tolname, minval, typval, maxval) -->
 ### Function: wc_mintypmax2tol (tolname, minval, typval, maxval)
 
 Generates a parameter that uses the tolerance *tolname* and tolerates between the
@@ -849,7 +882,10 @@ U_In = ------------------]
                   [  U_In     0    0     15  ]
 ```
 
-### Function: wc_mintypmax_num (equation, var, range_min)
+<!-- category: Other -->
+<!-- keywords: wc_mintypmax_num -->
+<!-- signatures: wc_mintypmax_num(equation, var, range_min,  -->
+### Function: wc_mintypmax_num ((equation, var, range_min,)
 
 *range_max*, [*n*])
 
@@ -912,6 +948,9 @@ maxima
 
 See also: `wc_mintypmax`.
 
+<!-- category: Other -->
+<!-- keywords: wc_mintypmax_percent -->
+<!-- signatures: wc_mintypmax_percent(expr, sigmas) -->
 ### Function: wc_mintypmax_percent (expr, sigmas)
 
 Like `wc_mintypmax`, but outputs the tolerance range in percent.
@@ -974,6 +1013,9 @@ maxima
 
 See also: `wc_mintypmax`.
 
+<!-- category: Other -->
+<!-- keywords: wc_mintypmax_rss -->
+<!-- signatures: wc_mintypmax_rss(expr, sigmas) -->
 ### Function: wc_mintypmax_rss (expr, sigmas)
 
 Prints the minimum and maximum of *expr*, as well as how high the
@@ -1049,6 +1091,9 @@ maxima
 
 See also: `wc_ewc_simplify`, `wc_defaultsigma`, `wc_mintypmax_rss_percent`, `wc_mintypmax`.
 
+<!-- category: Other -->
+<!-- keywords: wc_mintypmax_rss_percent -->
+<!-- signatures: wc_mintypmax_rss_percent(expr, sigmas) -->
 ### Function: wc_mintypmax_rss_percent (expr, sigmas)
 
 Like `wc_mintypmax_rss`, but outputs the tolerance range in percent.
@@ -1111,6 +1156,9 @@ maxima
 
 See also: `wc_mintypmax_rss`.
 
+<!-- category: Other -->
+<!-- keywords: wc_montecarlo -->
+<!-- signatures: wc_montecarlo(expression, num) -->
 ### Function: wc_montecarlo (expression, num)
 
 Introduces *num* random values per parameter into
@@ -1162,7 +1210,10 @@ maxima
 
 See also: `wc_systematic`.
 
-### Function: wc_systematic (expression, num)
+<!-- category: Other -->
+<!-- keywords: wc_systematic -->
+<!-- signatures: wc_systematic(expression, [num]) -->
+### Function: wc_systematic (expression, [num])
 
 Systematically introduces *num* values per parameter into *expression*
 and returns a list of the result. If no *num* is given, *num* defaults
@@ -1233,6 +1284,9 @@ maxima
 
 See also: `wc_defaultvaluespertol`, `wc_mintypmax`, `wc_ewc_simplify`, `wc_montecarlo`.
 
+<!-- category: Other -->
+<!-- keywords: wc_tolappend -->
+<!-- signatures: wc_tolappend(list1, list2, ...) -->
 ### Function: wc_tolappend (list1, list2, ...)
 
 Appends lists of parameters from independent sources making sure that
@@ -1312,6 +1366,9 @@ R_4 = 1000.0 (0.01 tol  + 1)]
 
 See also: `append`.
 
+<!-- category: Other -->
+<!-- keywords: wc_tolassumptions -->
+<!-- signatures: wc_tolassumptions(expr) -->
 ### Function: wc_tolassumptions (expr)
 
 Adds the range of the *tol[n]* contained in *expr* to the assume
@@ -1385,6 +1442,9 @@ maxima
 
 See also: `wc_inputvalueassumptions`, `wc_inputvalueranges`, `assume`.
 
+<!-- category: Other -->
+<!-- keywords: wc_typicalvalues -->
+<!-- signatures: wc_typicalvalues(expression) -->
 ### Function: wc_typicalvalues (expression)
 
 Returns what happens if all *tol[n]* happen to be 0, which moves

@@ -1,5 +1,8 @@
 ## diag
 
+<!-- category: Other -->
+<!-- keywords: diag -->
+<!-- signatures: diag(lm) -->
 ### Function: diag (lm)
 
 Constructs a matrix that is the block sum of the elements of
@@ -42,6 +45,9 @@ Example:
 
 To use this function write first `load("diag")`.
 
+<!-- category: Other -->
+<!-- keywords: dispJordan -->
+<!-- signatures: dispJordan(l) -->
 ### Function: dispJordan (l)
 
 Returns a matrix in Jordan canonical form (JCF) corresponding to the
@@ -81,6 +87,9 @@ To use this function write first `load("diag")`. See also `jordan` and `minimalP
 
 See also: `jordan`, `minimalPoly`.
 
+<!-- category: Other -->
+<!-- keywords: JF -->
+<!-- signatures: JF(lambda, n) -->
 ### Function: JF (lambda, n)
 
 Returns the Jordan cell of order *n* with eigenvalue *lambda*.
@@ -111,6 +120,9 @@ Example:
 
 To use this function write first `load("diag")`.
 
+<!-- category: Other -->
+<!-- keywords: jordan -->
+<!-- signatures: jordan(mat) -->
 ### Function: jordan (mat)
 
 Returns the Jordan form of matrix *mat*, encoded as a list in a
@@ -188,6 +200,9 @@ To use this function write first `load("diag")`. See also `dispJordan` and `mini
 
 See also: `dispJordan`, `minimalPoly`.
 
+<!-- category: Other -->
+<!-- keywords: mat_function -->
+<!-- signatures: mat_function(f, A) -->
 ### Function: mat_function (f, A)
 
 Returns $f(A)$, where *f* is an analytic function and *A*
@@ -338,6 +353,9 @@ Power operations.
 
 To use this function write first `load("diag")`.
 
+<!-- category: Other -->
+<!-- keywords: minimalPoly -->
+<!-- signatures: minimalPoly(l) -->
 ### Function: minimalPoly (l)
 
 Returns the minimal polynomial of the matrix whose Jordan form is
@@ -369,7 +387,10 @@ To use this function write first `load("diag")`. See also `jordan` and `dispJord
 
 See also: `jordan`, `dispJordan`.
 
-### Function: ModeMatrix (A, jordan_info)
+<!-- category: Other -->
+<!-- keywords: ModeMatrix -->
+<!-- signatures: ModeMatrix(A, [jordan_info]) -->
+### Function: ModeMatrix (A, [jordan_info])
 
 Returns an invertible matrix *M* such that $(M^^-1).A.M$ is
 the Jordan form of *A*.

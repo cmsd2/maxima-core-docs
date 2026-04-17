@@ -1,5 +1,8 @@
 ## simplex
 
+<!-- category: Numerical -->
+<!-- keywords: epsilon_lp -->
+<!-- signatures: epsilon_lp -->
 ### Variable: epsilon_lp
 
 Default value: `10^-8`
@@ -37,6 +40,9 @@ See also: `linear_program`, `ratnump`.
 
 See also: `linear_program`, `ratnump`.
 
+<!-- category: Numerical -->
+<!-- keywords: linear_program -->
+<!-- signatures: linear_program(A, b, c) -->
 ### Function: linear_program (A, b, c)
 
 `linear_program` is an implementation of the simplex algorithm.
@@ -81,7 +87,10 @@ See also: `minimize_lp`, `scale_lp`, and `epsilon_lp`.
 
 See also: `minimize_lp`, `scale_lp`, `epsilon_lp`.
 
-### Function: maximize_lp (obj, cond, pos)
+<!-- category: Numerical -->
+<!-- keywords: maximize_lp -->
+<!-- signatures: maximize_lp(obj, cond, [pos]) -->
+### Function: maximize_lp (obj, cond, [pos])
 
 Maximizes linear objective function *obj* subject to some linear
 constraints *cond*. See `minimize_lp` for detailed
@@ -93,7 +102,10 @@ See also: `minimize_lp`.
 
 See also: `minimize_lp`.
 
-### Function: minimize_lp (obj, cond, pos)
+<!-- category: Numerical -->
+<!-- keywords: minimize_lp -->
+<!-- signatures: minimize_lp(obj, cond, [pos]) -->
+### Function: minimize_lp (obj, cond, [pos])
 
 Minimizes a linear objective function *obj* subject to some linear
 constraints *cond*. *cond* a list of linear equations or
@@ -201,6 +213,9 @@ See also: `maximize_lp`, `nonnegative_lp`, `epsilon_lp`.
 
 See also: `maximize_lp`, `nonnegative_lp`, `epsilon_lp`.
 
+<!-- category: Numerical -->
+<!-- keywords: nonnegative_lp, nonegative_lp -->
+<!-- signatures: nonegative_lp -->
 ### Variable: nonnegative_lp
 
 Default value: `false`
@@ -216,15 +231,24 @@ See also: `minimize_lp`.
 
 See also: `minimize_lp`.
 
+<!-- category: Numerical -->
+<!-- keywords: pivot_count_sx -->
+<!-- signatures: pivot_count_sx -->
 ### Variable: pivot_count_sx
 
 After `linear_program` returns,
 `pivot_count_sx` is the number of pivots in last computation.
 
+<!-- category: Numerical -->
+<!-- keywords: pivot_max_sx -->
+<!-- signatures: pivot_max_sx -->
 ### Variable: pivot_max_sx
 
 `pivot_max_sx` is the maximum number of pivots allowed by `linear_program`.
 
+<!-- category: Numerical -->
+<!-- keywords: scale_lp -->
+<!-- signatures: scale_lp -->
 ### Variable: scale_lp
 
 Default value: `false`

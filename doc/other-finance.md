@@ -1,5 +1,8 @@
 ## finance
 
+<!-- category: Other -->
+<!-- keywords: amortization -->
+<!-- signatures: amortization(rate, amount, num) -->
 ### Function: amortization (rate, amount, num)
 
 Amortization table determined by a specific rate.
@@ -30,6 +33,9 @@ Example:
     12.000         0.000       300.868      6017.355      6318.223
 ```
 
+<!-- category: Other -->
+<!-- keywords: annuity_fv -->
+<!-- signatures: annuity_fv(rate, FV, num) -->
 ### Function: annuity_fv (rate, FV, num)
 
 We can calculate the annuity knowing the desired value (future value),
@@ -47,6 +53,9 @@ Example:
 (%o2)                3703.970670389863
 ```
 
+<!-- category: Other -->
+<!-- keywords: annuity_pv -->
+<!-- signatures: annuity_pv(rate, PV, num) -->
 ### Function: annuity_pv (rate, PV, num)
 
 We can calculate the annuity knowing the present value (like an amount),
@@ -64,6 +73,9 @@ Example:
 (%o2)                884.9208207992202
 ```
 
+<!-- category: Other -->
+<!-- keywords: arit_amortization -->
+<!-- signatures: arit_amortization(rate, increment, amount, num) -->
 ### Function: arit_amortization (rate, increment, amount, num)
 
 The amortization table determined by a specific rate and with growing payment
@@ -98,6 +110,9 @@ Example:
     12.000        -0.000       590.301     11806.020     12396.321
 ```
 
+<!-- category: Other -->
+<!-- keywords: benefit_cost -->
+<!-- signatures: benefit_cost(rate, input, output) -->
 ### Function: benefit_cost (rate, input, output)
 
 Calculates the ratio Benefit/Cost. Benefit is the Net Present Value (NPV)
@@ -118,6 +133,9 @@ Example:
 (%o2)               1.427249324905784
 ```
 
+<!-- category: Other -->
+<!-- keywords: days360 -->
+<!-- signatures: days360(year1, month1, day1, year2, month2, day2) -->
 ### Function: days360 (year1, month1, day1, year2, month2, day2)
 
 Calculates the distance between 2 dates, assuming 360 days years, 30 days months.
@@ -133,6 +151,9 @@ Example:
 (%o2)                      - 621
 ```
 
+<!-- category: Other -->
+<!-- keywords: fv -->
+<!-- signatures: fv(rate, PV, num) -->
 ### Function: fv (rate, PV, num)
 
 We can calculate the future value of a Present one given a certain interest rate.
@@ -150,6 +171,9 @@ Example:
 (%o2)                     1404.928
 ```
 
+<!-- category: Other -->
+<!-- keywords: geo_amortization -->
+<!-- signatures: geo_amortization(rate, growing_rate, amount, num) -->
 ### Function: geo_amortization (rate, growing_rate, amount, num)
 
 The amortization table determined by rate, amount,
@@ -184,6 +208,9 @@ Example:
     12.000         0.000       358.233      7164.668      7522.901
 ```
 
+<!-- category: Other -->
+<!-- keywords: geo_annuity_fv -->
+<!-- signatures: geo_annuity_fv(rate, growing_rate, FV, num) -->
 ### Function: geo_annuity_fv (rate, growing_rate, FV, num)
 
 We can calculate the annuity knowing the desired value (future value),
@@ -201,6 +228,9 @@ Example:
 (%o2)                216.5203395312695
 ```
 
+<!-- category: Other -->
+<!-- keywords: geo_annuity_pv -->
+<!-- signatures: geo_annuity_pv(rate, growing_rate, PV, num) -->
 ### Function: geo_annuity_pv (rate, growing_rate, PV, num)
 
 We can calculate the annuity knowing the present value (like an amount),
@@ -218,6 +248,9 @@ Example:
 (%o2)                802.6888176505123
 ```
 
+<!-- category: Other -->
+<!-- keywords: graph_flow -->
+<!-- signatures: graph_flow(val) -->
 ### Function: graph_flow (val)
 
 Plots the money flow in a time line, the positive values are in blue
@@ -235,6 +268,9 @@ Example:
 (%i2) graph_flow([-5000,-3000,800,1300,1500,2000])$
 ```
 
+<!-- category: Other -->
+<!-- keywords: irr -->
+<!-- signatures: irr(val, IO) -->
 ### Function: irr (val, IO)
 
 IRR (Internal Rate of Return) is the value of rate which makes Net Present Value
@@ -254,6 +290,9 @@ Example:
 (%o3)                .03009250374237132
 ```
 
+<!-- category: Other -->
+<!-- keywords: npv -->
+<!-- signatures: npv(rate, val) -->
 ### Function: npv (rate, val)
 
 Calculates the present value of a value series to evaluate the viability in a
@@ -271,6 +310,9 @@ Example:
 (%o2)                714.4703999999999
 ```
 
+<!-- category: Other -->
+<!-- keywords: pv -->
+<!-- signatures: pv(rate, FV, num) -->
 ### Function: pv (rate, FV, num)
 
 We can calculate the present value of a Future one given a certain interest rate.
@@ -288,6 +330,9 @@ Example:
 (%o2)                711.7802478134108
 ```
 
+<!-- category: Other -->
+<!-- keywords: saving -->
+<!-- signatures: saving(rate, amount, num) -->
 ### Function: saving (rate, amount, num)
 
 The table that represents the values in a constant and periodic

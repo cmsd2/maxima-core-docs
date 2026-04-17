@@ -1,5 +1,8 @@
 ## linearalgebra
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: addmatrices -->
+<!-- signatures: addmatrices(f, M_1, ..., M_n) -->
 ### Function: addmatrices (f, M_1, ..., M_n)
 
 Using the function *f* as the addition function, return the sum of the
@@ -26,23 +29,35 @@ Examples:
 (%o4) matrix([7,10],[15,20])
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: blockmatrixp -->
+<!-- signatures: blockmatrixp(M) -->
 ### Function: blockmatrixp (M)
 
 Return true if and only if *M* is a matrix and every entry of 
 *M* is a matrix.
 
-### Function: cholesky (cholesky, M, cholesky, M, field)
+<!-- category: LinearAlgebra -->
+<!-- keywords: cholesky -->
+<!-- signatures: cholesky(M), cholesky(M, field) -->
+### Function: cholesky (M)
 
 Return the Cholesky factorization of the matrix selfadjoint (or hermitian)
 matrix *M*.  The second argument defaults to ’generalring.’ For a
 description of the possible values for *field*, see `lu_factor`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: columnop -->
+<!-- signatures: columnop(M, i, j, theta) -->
 ### Function: columnop (M, i, j, theta)
 
 If *M* is a matrix, return the matrix that results from doing the column
 operation `C_i <- C_i - theta * C_j`. If *M* doesn’t have a row
 *i* or *j*, signal an error.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: columnspace -->
+<!-- signatures: columnspace(M) -->
 ### Function: columnspace (M)
 
 If *M* is a matrix, return `span (v_1, ..., v_n)`, where the set
@@ -50,17 +65,26 @@ If *M* is a matrix, return `span (v_1, ..., v_n)`, where the set
 of the empty set is `{0}`.  Thus, when the column space has only
 one member, return `span ()`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: columnswap -->
+<!-- signatures: columnswap(M, i, j) -->
 ### Function: columnswap (M, i, j)
 
 If *M* is a matrix, swap columns *i* and *j*.  If *M* doesn’t
 have a column *i* or *j*, signal an error.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: ctranspose -->
+<!-- signatures: ctranspose(M) -->
 ### Function: ctranspose (M)
 
 Return the complex conjugate transpose of the matrix *M*.  The function
 `ctranspose` uses `matrix_element_transpose` to transpose each matrix
 element.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: diag_matrix -->
+<!-- signatures: diag_matrix(d_1, d_2, ..., d_n) -->
 ### Function: diag_matrix (d_1, d_2, ..., d_n)
 
 Return a diagonal matrix with diagonal entries *d_1*, *d_2*, ...,
@@ -90,13 +114,19 @@ returned matrix are zero matrices of the appropriate size; for example:
                                    [ 0  q ]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: dotproduct -->
+<!-- signatures: dotproduct(u, v) -->
 ### Function: dotproduct (u, v)
 
 Return the dotproduct of vectors *u* and *v*.  This is the same as
 `conjugate (transpose (u)) . v`.  The arguments *u* and
 *v* must be column vectors.
 
-### Function: eigens_by_jacobi (eigens_by_jacobi, A, eigens_by_jacobi, A, field_type)
+<!-- category: LinearAlgebra -->
+<!-- keywords: eigens_by_jacobi -->
+<!-- signatures: eigens_by_jacobi(A), eigens_by_jacobi(A, field_type) -->
+### Function: eigens_by_jacobi (A)
 
 Computes the eigenvalues and eigenvectors of *A* by the method of Jacobi
 rotations.  *A* must be a symmetric matrix (but it need not be positive
@@ -167,6 +197,9 @@ number of rotations: 1
                 [ - 7.071067811865475b-1  7.071067811865475b-1 ]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: get_lu_factors -->
+<!-- signatures: get_lu_factors(x) -->
 ### Function: get_lu_factors (x)
 
 When `x = lu_factor (A)`, then `get_lu_factors` returns a
@@ -174,12 +207,18 @@ list of the form `[P, L, U]`, where *P* is a permutation matrix,
 *L* is lower triangular with ones on the diagonal, and *U* is upper
 triangular, and `A = P L U`.
 
-### Function: hankel (hankel, col, hankel, col, row)
+<!-- category: LinearAlgebra -->
+<!-- keywords: hankel -->
+<!-- signatures: hankel(col), hankel(col, row) -->
+### Function: hankel (col)
 
 Return a Hankel matrix *H*.  The first column of *H* is *col*;
 except for the first entry, the last row of *H* is *row*.  The
 default for *row* is the zero vector with the same length as *col*.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: hessian -->
+<!-- signatures: hessian(f, x) -->
 ### Function: hessian (f, x)
 
 Returns the Hessian matrix of *f* with respect to the list of variables
@@ -217,12 +256,18 @@ Examples:
                         [         db   ]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: hilbert_matrix -->
+<!-- signatures: hilbert_matrix(n) -->
 ### Function: hilbert_matrix (n)
 
 Return the *n* by *n* Hilbert matrix.  When *n* isn’t a positive
 integer, signal an error.
 
-### Function: identfor (identfor, M, identfor, M, fld)
+<!-- category: LinearAlgebra -->
+<!-- keywords: identfor -->
+<!-- signatures: identfor(M), identfor(M, fld) -->
+### Function: identfor (M)
 
 Return an identity matrix that has the same shape as the matrix
 *M*.  The diagonal entries of the identity matrix are the 
@@ -240,11 +285,17 @@ See also `zerofor`
 
 See also: `zerofor`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: invert_by_lu -->
+<!-- signatures: invert_by_lu(M, (rng generalring)) -->
 ### Function: invert_by_lu (M, (rng generalring))
 
 Invert a matrix *M* by using the LU factorization.  The LU factorization
 is done using the ring *rng*.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: jacobian -->
+<!-- signatures: jacobian(f, x) -->
 ### Function: jacobian (f, x)
 
 Returns the Jacobian matrix of the list of functions *f* with respect to
@@ -278,10 +329,16 @@ Examples:
                            [ dy  dz ]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: kronecker_product -->
+<!-- signatures: kronecker_product(A, B) -->
 ### Function: kronecker_product (A, B)
 
 Return the Kronecker product of the matrices *A* and *B*.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: linalg_rank -->
+<!-- signatures: linalg_rank(M) -->
 ### Function: linalg_rank (M)
 
 Return the rank of the matrix *M*. This function is equivalent to
@@ -306,6 +363,9 @@ of a matrix is the dimension of its column space.
 
 See also: `rank`, `columnspace`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: locate_matrix_entry -->
+<!-- signatures: locate_matrix_entry(M, r_1, c_1, r_2, c_2, f, rel) -->
 ### Function: locate_matrix_entry (M, r_1, c_1, r_2, c_2, f, rel)
 
 The first argument must be a matrix; the arguments
@@ -338,6 +398,9 @@ Return the index of a maximizing entry.
 Scan the sub-matrix looking for an entry that minimizes *f*.
 Return the index of a minimizing entry.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: lu_backsub -->
+<!-- signatures: lu_backsub(M, b) -->
 ### Function: lu_backsub (M, b)
 
 When `M = lu_factor (A, field)`,
@@ -434,6 +497,9 @@ Examples:
                                    [ 0  0 ]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: lu_factor -->
+<!-- signatures: lu_factor(M, field) -->
 ### Function: lu_factor (M, field)
 
 Return a list of the form `[LU, perm, fld]`, or
@@ -604,7 +670,10 @@ Evaluation took 109.24 seconds (152.10 elapsed)
 
 See also: `mat_cond`, `get_lu_factors`.
 
-### Function: mat_cond (mat_cond, M, 1, mat_cond, M, inf)
+<!-- category: LinearAlgebra -->
+<!-- keywords: mat_cond -->
+<!-- signatures: mat_cond(M, 1), mat_cond(M, inf) -->
+### Function: mat_cond (M, 1)
 
 Return the *p*-norm matrix condition number of the matrix
 *m*.  The allowed values for *p* are 1 and *inf*.  This
@@ -614,23 +683,35 @@ the matrix size; `lu_factor` determines lower and upper bounds
 for the infinity norm condition number in time proportional to the
 square of the matrix size.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: mat_fullunblocker -->
+<!-- signatures: mat_fullunblocker(M) -->
 ### Function: mat_fullunblocker (M)
 
 If *M* is a block matrix, unblock the matrix to all levels.  If *M* is
 a matrix, return *M*; otherwise, signal an error.
 
-### Function: mat_norm (mat_norm, M, 1, mat_norm, M, inf, mat_norm, M, frobenius)
+<!-- category: LinearAlgebra -->
+<!-- keywords: mat_norm -->
+<!-- signatures: mat_norm(M, 1), mat_norm(M, inf), mat_norm(M, frobenius) -->
+### Function: mat_norm (M, 1)
 
 Return the matrix *p*-norm of the matrix *M*.  The allowed values for
 *p* are 1, `inf`, and `frobenius` (the Frobenius matrix norm).
 The matrix *M* should be an unblocked matrix.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: mat_trace -->
+<!-- signatures: mat_trace(M) -->
 ### Function: mat_trace (M)
 
 Return the trace of the matrix *M*.  If *M* isn’t a matrix, return a
 noun form.  When *M* is a block matrix, `mat_trace(M)` returns
 the same value as does `mat_trace(mat_unblocker(m))`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: mat_unblocker -->
+<!-- signatures: mat_unblocker(M) -->
 ### Function: mat_unblocker (M)
 
 If *M* is a block matrix, unblock *M* one level.  If *M* is a
@@ -680,15 +761,24 @@ Example:
 
 See also: `mat_fullunblocker`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: matrix_size -->
+<!-- signatures: matrix_size(M) -->
 ### Function: matrix_size (M)
 
 Return a two member list that gives the number of rows and columns, respectively
 of the matrix *M*.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: nullity -->
+<!-- signatures: nullity(M) -->
 ### Function: nullity (M)
 
 If *M* is a matrix, return the dimension of the nullspace of *M*.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: nullspace -->
+<!-- signatures: nullspace(M) -->
 ### Function: nullspace (M)
 
 If *M* is a matrix, return `span (v_1, ..., v_n)`, where the set
@@ -696,6 +786,9 @@ If *M* is a matrix, return `span (v_1, ..., v_n)`, where the set
 the empty set is `{0}`.  Thus, when the nullspace has only one member,
 return `span ()`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: orthogonal_complement -->
+<!-- signatures: orthogonal_complement(v_1, ..., v_n) -->
 ### Function: orthogonal_complement (v_1, ..., v_n)
 
 Return `span (u_1, ..., u_m)`, where the set `{u_1, ..., u_m}` is a 
@@ -704,6 +797,9 @@ basis for the orthogonal complement of the set `(v_1, ..., v_n)`.
 
 Each vector *v_1* through *v_n* must be a column vector.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: polytocompanion -->
+<!-- signatures: polytocompanion(p, x) -->
 ### Function: polytocompanion (p, x)
 
 If *p* is a polynomial in *x*, return the companion matrix of *p*.
@@ -713,6 +809,9 @@ For a monic polynomial *p* of degree *n*, we have
 
 When *p* isn’t a polynomial in *x*, signal an error.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: ptriangularize -->
+<!-- signatures: ptriangularize(M, v) -->
 ### Function: ptriangularize (M, v)
 
 If *M* is a matrix with each entry a polynomial in *v*, return 
@@ -732,18 +831,27 @@ whose entries are polynomials in *v*,
 
 Note: This function doesn’t check that every entry is a polynomial in *v*.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: rowop -->
+<!-- signatures: rowop(M, i, j, theta) -->
 ### Function: rowop (M, i, j, theta)
 
 If *M* is a matrix, return the matrix that results from doing the
 row operation `R_i <- R_i - theta * R_j`.  If *M* doesn’t have a row
 *i* or *j*, signal an error.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: rowswap -->
+<!-- signatures: rowswap(M, i, j) -->
 ### Function: rowswap (M, i, j)
 
 If *M* is a matrix, swap rows *i* and *j*.  If *M* doesn’t
 have a row *i* or *j*, signal an error.
 
-### Function: toeplitz (toeplitz, col, toeplitz, col, row)
+<!-- category: LinearAlgebra -->
+<!-- keywords: toeplitz -->
+<!-- signatures: toeplitz(col), toeplitz(col, row) -->
+### Function: toeplitz (col)
 
 Return a Toeplitz matrix *T*.  The first first column of *T* is
 *col*; except for the first entry, the first row of *T* is *row*.
@@ -771,12 +879,18 @@ The default for *row* is complex conjugate of *col*.  Example:
                               [ %I + 1    1    ]
 ```
 
-### Function: vandermonde_matrix (x_1, ..., x_n)
+<!-- category: LinearAlgebra -->
+<!-- keywords: vandermonde_matrix -->
+<!-- signatures: vandermonde_matrix([x_1, ..., x_n]) -->
+### Function: vandermonde_matrix ([x_1, ..., x_n])
 
 Return a *n* by *n* matrix whose *i*-th row is 
 `[1, x_i, x_i^2, ... x_i^(n-1)]`.
 
-### Function: zerofor (zerofor, M, zerofor, M, fld)
+<!-- category: LinearAlgebra -->
+<!-- keywords: zerofor -->
+<!-- signatures: zerofor(M), zerofor(M, fld) -->
+### Function: zerofor (M)
 
 Return a zero  matrix that has the same shape as the matrix
 *M*.  Every entry of the zero matrix is the
@@ -794,6 +908,9 @@ See also `identfor`
 
 See also: `identfor`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: zeromatrixp -->
+<!-- signatures: zeromatrixp(M) -->
 ### Function: zeromatrixp (M)
 
 If *M* is not a block matrix, return `true` if

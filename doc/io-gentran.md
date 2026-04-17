@@ -1,5 +1,8 @@
 ## gentran
 
+<!-- category: IO -->
+<!-- keywords: ccurind -->
+<!-- signatures: ccurind -->
 ### Variable: ccurind
 
 Default: 0
@@ -8,6 +11,9 @@ Default: 0
 Number of blank spaces printed at the beginning of each line of
 generated’C’ code.
 
+<!-- category: IO -->
+<!-- keywords: clinelen -->
+<!-- signatures: clinelen -->
 ### Variable: clinelen
 
 Default: 80
@@ -15,6 +21,9 @@ Default: 80
 
 Maximum number of characters printed on each line of generated ’C’ code.
 
+<!-- category: IO -->
+<!-- keywords: dblfloat -->
+<!-- signatures: dblfloat -->
 ### Variable: dblfloat
 
 Default: **false** If dblfloat is set to
@@ -24,6 +33,9 @@ same will be printed as *.d0. In implementations in which float and
 double-float are different, floats will be coerced to double-float
 before being printed.
 
+<!-- category: IO -->
+<!-- keywords: fortcurrind -->
+<!-- signatures: fortcurrind -->
 ### Variable: fortcurrind
 
 Default: 0
@@ -32,6 +44,9 @@ Default: 0
 Number of blank spaces printed at the beginning of each line of
 generated FORTRAN code (after column 6).
 
+<!-- category: IO -->
+<!-- keywords: fortlinelen -->
+<!-- signatures: fortlinelen -->
 ### Variable: fortlinelen
 
 default: 72
@@ -40,6 +55,9 @@ default: 72
 Maximum number of characters printed on each line of generated FORTRAN
 code.
 
+<!-- category: IO -->
+<!-- keywords: gendecs -->
+<!-- signatures: gendecs(name) -->
 ### Function: gendecs (name)
 
 The gendecs command can be called any time the gendecs flag is switched
@@ -47,6 +65,9 @@ off to retrieve all type declarations from Gentran’s symbol table for
 the given subprogram name (or the "current" subprogram if false is given
 as its argument).
 
+<!-- category: IO -->
+<!-- keywords: genfloat -->
+<!-- signatures: genfloat -->
 ### Variable: genfloat
 
 Default: false
@@ -59,6 +80,9 @@ step values in do-loops. An exception (for compatibility with Macsyma
 2.4) is that numbers in exponentials (with base %e only) are
 double-floated even when genfloat is false.
 
+<!-- category: IO -->
+<!-- keywords: genstmtincr -->
+<!-- signatures: genstmtincr -->
 ### Variable: genstmtincr
 
 Default: 1
@@ -67,6 +91,9 @@ Default: 1
 number by which genstmtno is incremented each time a new statement
 number is generated.
 
+<!-- category: IO -->
+<!-- keywords: genstmtno -->
+<!-- signatures: genstmtno -->
 ### Variable: genstmtno
 
 Default: 25000
@@ -76,6 +103,9 @@ Number used when a statement number must be generated. Note: it is the
 user’s responsibility to make sure this number will not clash with
 statement numbers in template files.
 
+<!-- category: IO -->
+<!-- keywords: gentran -->
+<!-- signatures: gentran(stmt1, stmt2, ..., stmtn, [f1, f2, ... , fm]) -->
 ### Function: gentran (stmt1, stmt2, ..., stmtn, [f1, f2, ... , fm])
 
 Translates each stmt into formatted code in the target language. A
@@ -117,15 +147,24 @@ names. If the output file list is omitted, output will be written to the
 current output, generally the terminal. **gentran** returns (a list
 of) the name(s) of file(s) to which code was written.
 
+<!-- category: IO -->
+<!-- keywords: gentran_off -->
+<!-- signatures: gentran_off(sw) -->
 ### Function: gentran_off (sw)
 
 Turns the given switch, *sw*, off.
 
+<!-- category: IO -->
+<!-- keywords: gentran_on -->
+<!-- signatures: gentran_on(sw) -->
 ### Function: gentran_on (sw)
 
 Turns on the mode switch *sw*.
 
-### Function: gentranin (f1, f2, ..., fn, f1, f2, ..., fm)
+<!-- category: IO -->
+<!-- keywords: gentranin -->
+<!-- signatures: gentranin(f1, f2, ..., fn, [f1, f2, ..., fm]) -->
+### Function: gentranin (f1, f2, ..., fn, [f1, f2, ..., fm])
 
 gentranin processes mixed-language template files consisting of active
 parts (delimited by <<...>>) containing Maxima statements, including
@@ -162,11 +201,17 @@ opened, written to, and closed. The output file stack will be exactly
 the same both before and after the call. gentranin returns (to the
 terminal) the name(s) of (all) file(s) written to by this command.
 
+<!-- category: IO -->
+<!-- keywords: gentraninshut -->
+<!-- signatures: gentraninshut() -->
 ### Function: gentraninshut ()
 
 A cleanup function to close input files in case where gentranin hung due
 to error in template.
 
+<!-- category: IO -->
+<!-- keywords: gentranlang -->
+<!-- signatures: gentranlang -->
 ### Variable: gentranlang
 
 Default: fortran
@@ -176,6 +221,9 @@ Selects the target numerical language. Currently, gentranlang must be
 fortran, ratfor, or c. Note that symbols entered in Maxima are
 case-sensitive. gentranlang should not be set to FORTRAN, RATFOR or C.
 
+<!-- category: IO -->
+<!-- keywords: gentranopt -->
+<!-- signatures: gentranopt -->
 ### Variable: gentranopt
 
 Default: **false**
@@ -188,6 +236,9 @@ an expression and replaces common subexpressions by temporary variable
 names. It returns the resulting assignment statement, preceded by
 common-subexpression-to-temporary-variable assignments.
 
+<!-- category: IO -->
+<!-- keywords: gentranout -->
+<!-- signatures: gentranout(f1, f2, ..., fn) -->
 ### Function: gentranout (f1, f2, ..., fn)
 
 Gentran maintains a list of files currently open for output by gentran
@@ -198,6 +249,9 @@ also resets the current output file(s) to include all files in
 *f1, f2, ... , fn*; i.e., the current output file(s) after the
 command has been executed.
 
+<!-- category: IO -->
+<!-- keywords: gentranparser -->
+<!-- signatures: gentranparser -->
 ### Variable: gentranparser
 
 Default: **false**
@@ -208,6 +262,9 @@ will be parsed and an error will be produced if an expression cannot be
 translated. Otherwise, untranslatable expressions may generate anomalous
 output, sometimes containing explicit calls to Maxima functions.
 
+<!-- category: IO -->
+<!-- keywords: gentranpop -->
+<!-- signatures: gentranpop(f1, f2, ..., fn) -->
 ### Function: gentranpop (f1, f2, ..., fn)
 
 gentranpop deletes the top-most occurrence of the single element
@@ -217,6 +274,9 @@ the output stack are closed. The current output file is reset to the
 (new) element on the top of the output stack. gentranpop returns the
 current output file(s) after this command has been executed.
 
+<!-- category: IO -->
+<!-- keywords: gentranpush -->
+<!-- signatures: gentranpush(f1, f2, ..., fn) -->
 ### Function: gentranpush (f1, f2, ..., fn)
 
 gentranpush pushes the file list onto the output stack. Each file in the
@@ -224,10 +284,16 @@ list that is not already open for output is opened at this time. The
 current output file is reset to this new element on the top of the
 stack.
 
+<!-- category: IO -->
+<!-- keywords: gentranseg -->
+<!-- signatures: gentranseg -->
 ### Variable: gentranseg
 
 Default: **true**
 
+<!-- category: IO -->
+<!-- keywords: gentranshut -->
+<!-- signatures: gentranshut(f1, f2, ..., fn) -->
 ### Function: gentranshut (f1, f2, ..., fn)
 
 gentranshut creates a list of file names from *f1, f2, ... , fn*,
@@ -237,6 +303,9 @@ current output file is reset to the terminal. gentranshut returns (a
 list of) the current output file(s) after the command has been executed.
 **gentranshut**(**all**) will close all gentran output files.
 
+<!-- category: IO -->
+<!-- keywords: literal -->
+<!-- signatures: literal(arg1, arg2, ... , argn) -->
 ### Function: literal (arg1, arg2, ... , argn)
 
 where arg1, arg2, ... , argn is an argument list containing one or more
@@ -248,6 +317,9 @@ Double quotes are stripped from all string type arg’s, and each
 occurrence of the reserved atom *tab* or *cr* is replaced by a
 tab to the current level of indentation, or an end-of-line character.
 
+<!-- category: IO -->
+<!-- keywords: lrsetq -->
+<!-- signatures: lrsetq(var, exp) -->
 ### Function: lrsetq (var, exp)
 
 Where *var* is any Maxima matrix or array element with indices
@@ -257,6 +329,9 @@ which, after evaluation, will result in an expression that can be
 translated by Gentran into the target language. This is equivalent to
 `var[eval(s1), eval(s2), ...]: eval(exp);`.
 
+<!-- category: IO -->
+<!-- keywords: lsetq -->
+<!-- signatures: lsetq(var, exp) -->
 ### Function: lsetq (var, exp)
 
 Where *var* is any Maxima user level matrix or array element with
@@ -266,16 +341,25 @@ level expression that can be translated into the target language. This
 is equivalent to `var[eval(s1), eval(s2), ...]: exp` where *s1*, *s2*, ...
 are indices.
 
+<!-- category: IO -->
+<!-- keywords: markedvarp -->
+<!-- signatures: markedvarp(vname) -->
 ### Function: markedvarp (vname)
 
 markedvarp tests whether the variable name *vname* is currently
 marked.
 
+<!-- category: IO -->
+<!-- keywords: markvar -->
+<!-- signatures: markvar(vname) -->
 ### Function: markvar (vname)
 
 markvar "marks" variable name *vname* to indicate that it currently
 holds a significant value.
 
+<!-- category: IO -->
+<!-- keywords: maxexpprintlen -->
+<!-- signatures: maxexpprintlen -->
 ### Variable: maxexpprintlen
 
 Default: 800
@@ -306,6 +390,9 @@ non-false value, then the temporary variables are declared to be of that
 type. 3. Otherwise, the variables are not declared unless
 **implicit** has been set to **true**.
 
+<!-- category: IO -->
+<!-- keywords: minclinelen -->
+<!-- signatures: minclinelen -->
 ### Variable: minclinelen
 
 Default: 40
@@ -313,6 +400,9 @@ Default: 40
 
 Minimum number of characters printed on each line of generated ’C’ code.
 
+<!-- category: IO -->
+<!-- keywords: minfortlinelen -->
+<!-- signatures: minfortlinelen -->
 ### Variable: minfortlinelen
 
 Default: 40
@@ -321,6 +411,9 @@ Default: 40
 Minimum number of characters printed on each line of generated FORTRAN
 code.
 
+<!-- category: IO -->
+<!-- keywords: optimvarname -->
+<!-- signatures: optimvarname -->
 ### Variable: optimvarname
 
 default: **’u**
@@ -333,6 +426,9 @@ gentranopt are true, the optimizer generates temporary file names using
 **optimvarname** while the segmentation routine uses
 **tempvarname** preventing conflict.
 
+<!-- category: IO -->
+<!-- keywords: ratlinelen -->
+<!-- signatures: ratlinelen -->
 ### Variable: ratlinelen
 
 Default: 80
@@ -341,6 +437,9 @@ Default: 80
 Maximum number of characters printed on each line of generated Ratfor
 code.
 
+<!-- category: IO -->
+<!-- keywords: rsetq -->
+<!-- signatures: rsetq(var, exp) -->
 ### Function: rsetq (var, exp)
 
 Where *var* is any Maxima variable, matrix or array element, and
@@ -348,6 +447,9 @@ Where *var* is any Maxima variable, matrix or array element, and
 results in an expression that can be translated by Gentran into the
 target language. This is equivalent to VAR : EVAL(EXP) ;
 
+<!-- category: IO -->
+<!-- keywords: tablen -->
+<!-- signatures: tablen -->
 ### Variable: tablen
 
 Default: 4
@@ -356,6 +458,9 @@ Default: 4
 Number of blank spaces printed for each new level of indentation.
 (Automatic indentation can be turned off by setting this variable to 0.)
 
+<!-- category: IO -->
+<!-- keywords: tempvar -->
+<!-- signatures: tempvar(type) -->
 ### Function: tempvar (type)
 
 Generates temporary variable names by concatenating **tempvarname**
@@ -366,6 +471,9 @@ declarations depending on the setting of the **gendecs** flag. It
 is the users responsibility to make sure temporary variable names do not
 conflict with the main program.
 
+<!-- category: IO -->
+<!-- keywords: tempvarname -->
+<!-- signatures: tempvarname -->
 ### Variable: tempvarname
 
 Default: **’t**
@@ -373,6 +481,9 @@ Default: **’t**
 
 Name used as the prefix when generating temporary variable names.
 
+<!-- category: IO -->
+<!-- keywords: tempvarnum -->
+<!-- signatures: tempvarnum -->
 ### Variable: tempvarnum
 
 Default: 0
@@ -385,6 +496,9 @@ value or has a different type than requested, then the number is
 incremented until one is found that was not previously generated or does
 not still hold a significant value or a different type.
 
+<!-- category: IO -->
+<!-- keywords: tempvartype -->
+<!-- signatures: tempvartype -->
 ### Variable: tempvartype
 
 Default: **false**
@@ -396,6 +510,9 @@ determined otherwise. If tempvartype is false, then generated temporary
 variables whose type cannot be determined are not automatically
 declared.
 
+<!-- category: IO -->
+<!-- keywords: type -->
+<!-- signatures: type(type,v1...vn) -->
 ### Function: type (type,v1...vn)
 
 Places information in the gentran symbol table to assign *type* to
@@ -404,11 +521,17 @@ printed by gentran depending on the setting of gendecs. **type**
 must be called from within gentran and does not evaluate its arguments
 unless **eval**() is used.
 
+<!-- category: IO -->
+<!-- keywords: unmarkvar -->
+<!-- signatures: unmarkvar(vname) -->
 ### Function: unmarkvar (vname)
 
 unmarkvar "unmarks" variable name *vname* to indicate that it no
 longer holds a significant value.
 
+<!-- category: IO -->
+<!-- keywords: usefortcomplex -->
+<!-- signatures: usefortcomplex -->
 ### Variable: usefortcomplex
 
 Default: **false**

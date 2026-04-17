@@ -1,6 +1,9 @@
 ## asympa
 
-### Function: asympa ()
+<!-- category: Algebra -->
+<!-- keywords: asympa -->
+<!-- signatures: asympa -->
+### Function: asympa
 
 `asympa` is a package for asymptotic analysis. The package contains
 simplification functions for asymptotic analysis, including the “big O”

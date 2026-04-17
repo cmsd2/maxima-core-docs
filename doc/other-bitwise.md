@@ -1,5 +1,8 @@
 ## bitwise
 
+<!-- category: Other -->
+<!-- keywords: bit_and -->
+<!-- signatures: bit_and(int1, ...) -->
 ### Function: bit_and (int1, ...)
 
 This function calculates a bitwise `and` of two or more signed integers.
@@ -58,6 +61,9 @@ is taken into consideration by the function.
 (%o4)                           1
 ```
 
+<!-- category: Other -->
+<!-- keywords: bit_length -->
+<!-- signatures: bit_length(int) -->
 ### Function: bit_length (int)
 
 determines how many bits a variable needs to be long in order to store the
@@ -91,6 +97,9 @@ number `int`. This function only operates on positive numbers.
 (%o5)                           4
 ```
 
+<!-- category: Other -->
+<!-- keywords: bit_lsh -->
+<!-- signatures: bit_lsh(int, nBits) -->
 ### Function: bit_lsh (int, nBits)
 
 This function shifts all bits of the signed integer `int` to the left by
@@ -135,6 +144,9 @@ this process. The result of `bit_lsh` therefore is `int * 2`.
 (%o7)                          - 4
 ```
 
+<!-- category: Other -->
+<!-- keywords: bit_not -->
+<!-- signatures: bit_not(int) -->
 ### Function: bit_not (int)
 
 Inverts all bits of a signed integer. The result of this action reads
@@ -173,6 +185,9 @@ Inverts all bits of a signed integer. The result of this action reads
 (%o6)                          100
 ```
 
+<!-- category: Other -->
+<!-- keywords: bit_onep -->
+<!-- signatures: bit_onep(int, nBit) -->
 ### Function: bit_onep (int, nBit)
 
 determines if bits `nBit` is set in the signed integer `int`.
@@ -278,6 +293,9 @@ is taken into consideration by the function.
 (%o4)                         true
 ```
 
+<!-- category: Other -->
+<!-- keywords: bit_or -->
+<!-- signatures: bit_or(int1, ...) -->
 ### Function: bit_or (int1, ...)
 
 This function calculates a bitwise `or` of two or more signed integers.
@@ -336,6 +354,9 @@ is taken into consideration by the function.
 (%o4)                           o
 ```
 
+<!-- category: Other -->
+<!-- keywords: bit_rsh -->
+<!-- signatures: bit_rsh(int, nBits) -->
 ### Function: bit_rsh (int, nBits)
 
 This function shifts all bits of the signed integer `int` to the right by
@@ -385,6 +406,9 @@ this process.
 (%o8)                          - 1
 ```
 
+<!-- category: Other -->
+<!-- keywords: bit_xor -->
+<!-- signatures: bit_xor(int1, ...) -->
 ### Function: bit_xor (int1, ...)
 
 This function calculates a bitwise `or` of two or more signed integers.

@@ -1,5 +1,8 @@
 ## bernstein
 
+<!-- category: Other -->
+<!-- keywords: bernstein_approx -->
+<!-- signatures: bernstein_approx(f, [x1, x1, ..., xn], n) -->
 ### Function: bernstein_approx (f, [x1, x1, ..., xn], n)
 
 Return the `n`-th order uniform Bernstein polynomial approximation for the
@@ -33,6 +36,9 @@ Examples
 
 To use `bernstein_approx`, first `load("bernstein")`.
 
+<!-- category: Other -->
+<!-- keywords: bernstein_expand -->
+<!-- signatures: bernstein_expand(e, [x1, x1, ..., xn]) -->
 ### Function: bernstein_expand (e, [x1, x1, ..., xn])
 
 Express the *polynomial* `e` exactly as a linear combination of multi-variable
@@ -53,6 +59,9 @@ Maxima signals an error when the first argument isn’t a polynomial.
 
 To use `bernstein_expand`, first `load("bernstein")`.
 
+<!-- category: Other -->
+<!-- keywords: bernstein_explicit -->
+<!-- signatures: bernstein_explicit -->
 ### Variable: bernstein_explicit
 
 Default value: `false`
@@ -75,6 +84,9 @@ into its explicit form; example:
 When both `k` and `n` are explicitly integers, `bernstein(k,n,x)` 
 *always* expands to its explicit form.
 
+<!-- category: Other -->
+<!-- keywords: bernstein_poly -->
+<!-- signatures: bernstein_poly(k, n, x) -->
 ### Function: bernstein_poly (k, n, x)
 
 Provided `k` is not a negative integer, the Bernstein polynomials
@@ -131,6 +143,9 @@ to a numeric result:
 
 To use `bernstein_poly`, first `load("bernstein")`.
 
+<!-- category: Other -->
+<!-- keywords: multibernstein_poly -->
+<!-- signatures: multibernstein_poly([k1,k2,..., kp], [n1,n2,..., np], [x1,x2,..., xp]) -->
 ### Function: multibernstein_poly ([k1,k2,..., kp], [n1,n2,..., np], [x1,x2,..., xp])
 
 The multibernstein polynomial `multibernstein_poly ([k1, k2, ..., kp], [n1, n2, ..., np], [x1, x2, ..., xp])` is the product of

@@ -1,6 +1,9 @@
 ## stirling
 
-### Function: stirling (stirling, z, n, stirling, z, n, pred)
+<!-- category: Other -->
+<!-- keywords: stirling -->
+<!-- signatures: stirling(z, n), stirling(z, n, pred) -->
+### Function: stirling (z, n)
 
 Replace `gamma(x)` with the $O(1/x^{2n-1})$ Stirling formula. when *n* isn’t
 a nonnegative integer, signal an error. With the optional third argument `pred`,

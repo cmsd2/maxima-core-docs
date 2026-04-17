@@ -1,6 +1,9 @@
 ## Evaluation
 
-### Function: ' ()
+<!-- category: Programming -->
+<!-- keywords: ' -->
+<!-- signatures: ' -->
+### Function: '
 
 The single quote operator `'` prevents evaluation.
 
@@ -207,7 +210,10 @@ quote.
 
 See also: `noundisp`, `quote-quote`, `nouns`.
 
-### Function: '' ()
+<!-- category: Programming -->
+<!-- keywords: '' -->
+<!-- signatures: '' -->
+### Function: ''
 
 The quote-quote operator `''` (two single quote marks) modifies
 evaluation in input expressions.
@@ -411,6 +417,9 @@ quote `'`.
 
 See also: `batch`, `load`, `ev`, `quote`, `nouns`.
 
+<!-- category: Programming -->
+<!-- keywords: ev -->
+<!-- signatures: ev(expr, arg_1, ..., arg_n) -->
 ### Function: ev (expr, arg_1, ..., arg_n)
 
 Evaluates the expression *expr* in the environment specified by the
@@ -607,6 +616,9 @@ Solution
 
 See also: `simp`, `noeval`, `nouns`, `expand`, `maxposex`, `maxnegex`, `detout`, `diff`, `derivlist`, `risch`, `float`, `numer`, `pred`, `eval`, `evflag`, `evfun`, `sum`, `solve`, `memoizing-functions`, `quote-quote`, `at`, `subst`.
 
+<!-- category: Programming -->
+<!-- keywords: eval -->
+<!-- signatures: eval -->
 ### Variable: eval
 
 As an argument in a call to `ev (expr)`, `eval` causes an extra
@@ -639,6 +651,9 @@ Example:
 
 See also: `ev`.
 
+<!-- category: Programming -->
+<!-- keywords: evflag -->
+<!-- signatures: evflag -->
 ### Variable: evflag
 
 When a symbol *x* has the `evflag` property, the expressions
@@ -727,6 +742,9 @@ Examples:
 (%o12)                         YES
 ```
 
+<!-- category: Programming -->
+<!-- keywords: evfun -->
+<!-- signatures: evfun -->
 ### Variable: evfun
 
 When a function *F* has the `evfun` property, the expressions
@@ -826,6 +844,9 @@ Examples:
 (%o15)                      G(F(cc))
 ```
 
+<!-- category: Programming -->
+<!-- keywords: infeval -->
+<!-- signatures: infeval -->
 ### Variable: infeval
 
 Enables "infinite evaluation" mode.  `ev` repeatedly evaluates an
@@ -836,6 +857,9 @@ generate an infinite loop.
 
 See also: `ev`.
 
+<!-- category: Programming -->
+<!-- keywords: noeval -->
+<!-- signatures: noeval -->
 ### Variable: noeval
 
 `noeval` suppresses the evaluation phase of `ev`.  This is useful in
@@ -844,6 +868,9 @@ to be resimplified without being reevaluated.
 
 See also: `ev`.
 
+<!-- category: Programming -->
+<!-- keywords: nouns -->
+<!-- signatures: nouns -->
 ### Variable: nouns
 
 `nouns` is an `evflag`.  When used as an option to the `ev`
@@ -853,6 +880,9 @@ being `ev`’d to "verbs", i.e., evaluates them.  See also
 
 See also: `evflag`, `ev`, `noun`, `nounify`, `verbify`.
 
+<!-- category: Programming -->
+<!-- keywords: pred -->
+<!-- signatures: pred -->
 ### Variable: pred
 
 As an argument in a call to `ev (expr)`, `pred` causes 

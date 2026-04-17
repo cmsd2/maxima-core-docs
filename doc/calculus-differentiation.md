@@ -1,5 +1,8 @@
 ## Differentiation
 
+<!-- category: Calculus -->
+<!-- keywords: antid -->
+<!-- signatures: antid(expr, x, u(x)) -->
 ### Function: antid (expr, x, u(x))
 
 Returns a two-element list, such that an antiderivative of *expr* with
@@ -88,7 +91,10 @@ maxima
 
 See also: `antidiff`.
 
-### Function: antidiff (expr, x, u, x)
+<!-- category: Calculus -->
+<!-- keywords: antidiff -->
+<!-- signatures: antidiff(expr, x, u(x)) -->
+### Function: antidiff (expr, x, u(x))
 
 Returns an antiderivative of *expr* with respect to *x*.
 The expression *expr* may contain an unknown function *u* and its
@@ -173,7 +179,10 @@ maxima
                   /
 ```
 
-### Function: at (at, expr, eqn_1, ..., eqn_n, at, expr, eqn)
+<!-- category: Calculus -->
+<!-- keywords: at -->
+<!-- signatures: at(expr, [eqn_1, ..., eqn_n]), at(expr, eqn) -->
+### Function: at (expr, [eqn_1, ..., eqn_n])
 
 Evaluates the expression *expr* with the variables assuming the values as
 specified for them in the list of equations `[eqn_1, ..., eqn_n]` or the single equation *eqn*.
@@ -289,12 +298,18 @@ maxima
 
 See also: `atvalue`, `subst`, `ev`, `at`.
 
+<!-- category: Calculus -->
+<!-- keywords: atomgrad -->
+<!-- signatures: atomgrad -->
 ### Variable: atomgrad
 
 `atomgrad` is the atomic gradient property of an expression.
 This property is assigned by `gradef`.
 
-### Function: atvalue (atvalue, expr, x_1, =, a_1, ..., x_m, =, a_m, c, atvalue, expr, x_1, =, a_1, c)
+<!-- category: Calculus -->
+<!-- keywords: atvalue -->
+<!-- signatures: atvalue(expr, [x_1=a_1, ..., x_m=a_m], c), atvalue(expr, x_1=a_1, c) -->
+### Function: atvalue (expr, [x_1=a_1, ..., x_m=a_m], c)
 
 Assigns the value *c* to *expr* at the point `x = a`.
 Typically boundary values are established by this mechanism.
@@ -384,6 +399,9 @@ maxima
 
 See also: `at`.
 
+<!-- category: Calculus -->
+<!-- keywords: del -->
+<!-- signatures: del(x) -->
 ### Function: del (x)
 
 `del (x)` represents the differential of the variable $x$.
@@ -426,6 +444,9 @@ maxima
 
 See also: `diff`, `del`, `derivdegree`.
 
+<!-- category: Calculus -->
+<!-- keywords: delta -->
+<!-- signatures: delta(t) -->
 ### Function: delta (t)
 
 The Dirac Delta function.
@@ -455,6 +476,9 @@ maxima
 
 See also: `laplace`.
 
+<!-- category: Calculus -->
+<!-- keywords: dependencies -->
+<!-- signatures: dependencies(f_1, ..., f_n) -->
 ### Variable: dependencies
 
 The variable `dependencies` is the list of atoms which have functional
@@ -525,6 +549,9 @@ maxima
 
 See also: `depends`, `gradef`.
 
+<!-- category: Calculus -->
+<!-- keywords: depends -->
+<!-- signatures: depends(f_1, x_1, ..., f_n, x_n) -->
 ### Function: depends (f_1, x_1, ..., f_n, x_n)
 
 Declares functional dependencies among variables for the purpose of computing
@@ -633,6 +660,9 @@ maxima
 
 See also: `dependencies`, `integrate`, `diff`, `del`, `derivdegree`, `derivabbrev`.
 
+<!-- category: Calculus -->
+<!-- keywords: derivabbrev -->
+<!-- signatures: derivabbrev -->
 ### Variable: derivabbrev
 
 Default value: `false`
@@ -642,6 +672,9 @@ When `derivabbrev` is `true`,
 symbolic derivatives (that is, `diff` nouns) are displayed as subscripts.
 Otherwise, derivatives are displayed in the Leibniz notation `dy/dx`.
 
+<!-- category: Calculus -->
+<!-- keywords: derivdegree -->
+<!-- signatures: derivdegree(expr, y, x) -->
 ### Function: derivdegree (expr, y, x)
 
 Returns the highest degree of the derivative
@@ -672,6 +705,9 @@ maxima
 (%o2)                           2
 ```
 
+<!-- category: Calculus -->
+<!-- keywords: derivlist -->
+<!-- signatures: derivlist(var_1, ..., var_k) -->
 ### Function: derivlist (var_1, ..., var_k)
 
 Causes only differentiations with respect to
@@ -679,6 +715,9 @@ the indicated variables, within the `ev` command.
 
 See also: `ev`.
 
+<!-- category: Calculus -->
+<!-- keywords: derivsubst -->
+<!-- signatures: derivsubst -->
 ### Variable: derivsubst
 
 Default value: `false`
@@ -687,7 +726,10 @@ Default value: `false`
 When `derivsubst` is `true`, a non-syntactic substitution such as
 `subst (x, 'diff (y, t), 'diff (y, t, 2))` yields `'diff (x, t)`.
 
-### Function: diff (diff, expr, x_1, n_1, ..., x_m, n_m, diff, expr, x, n, diff, expr, x, diff, expr)
+<!-- category: Calculus -->
+<!-- keywords: diff -->
+<!-- signatures: diff(expr, x_1, n_1, ..., x_m, n_m), diff(expr, x, n), diff(expr, x), diff(expr) -->
+### Function: diff (expr, x_1, n_1, ..., x_m, n_m)
 
 Returns the derivative or differential of *expr* with respect to some or
 all variables in *expr*.
@@ -794,6 +836,9 @@ treated as in (1) above.
 
 See also: `depends`, `del`, `derivdegree`, `derivabbrev`, `gradef`.
 
+<!-- category: Calculus -->
+<!-- keywords: express -->
+<!-- signatures: express(expr) -->
 ### Function: express (expr)
 
 Expands differential operator nouns into expressions in terms of partial
@@ -910,7 +955,10 @@ maxima
 
 See also: `~`, `diff`, `evfun`.
 
-### Function: gradef (gradef, f, x_1, ..., x_n, g_1, ..., g_m, gradef, a, x, expr)
+<!-- category: Calculus -->
+<!-- keywords: gradef -->
+<!-- signatures: gradef(f(x_1, ..., x_n), g_1, ..., g_m), gradef(a, x, expr) -->
+### Function: gradef (f(x_1, ..., x_n), g_1, ..., g_m)
 
 Defines the partial derivatives (i.e., the components of the gradient) of the
 function *f* or variable *a*.
@@ -964,6 +1012,9 @@ Gradients are needed when, for example, a function is not known
 explicitly but its first derivatives are and it is desired to obtain
 higher order derivatives.
 
+<!-- category: Calculus -->
+<!-- keywords: gradefs -->
+<!-- signatures: gradefs -->
 ### Variable: gradefs
 
 Default value: `[]`

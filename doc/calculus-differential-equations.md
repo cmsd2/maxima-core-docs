@@ -1,5 +1,8 @@
 ## Differential Equations
 
+<!-- category: Calculus -->
+<!-- keywords: %c -->
+<!-- signatures: %c -->
 ### Variable: %c
 
 `%c` is the integration constant in the solutions of first
@@ -7,6 +10,9 @@ order ODEs returned from `ode2`.
 
 See also: `ode2`.
 
+<!-- category: Calculus -->
+<!-- keywords: %k1 -->
+<!-- signatures: %k1 -->
 ### Variable: %k1
 
 `%k1` is the first integration constant in the solutions of second
@@ -14,6 +20,9 @@ order ODEs returned from `ode2`.
 
 See also: `ode2`.
 
+<!-- category: Calculus -->
+<!-- keywords: %k2 -->
+<!-- signatures: %k2 -->
 ### Variable: %k2
 
 `%k2` is the second integration constant in the solutions of second
@@ -21,6 +30,9 @@ order ODEs returned from `ode2`.
 
 See also: `ode2`.
 
+<!-- category: Calculus -->
+<!-- keywords: bc2 -->
+<!-- signatures: bc2(solution, xval1, yval1, xval2, yval2) -->
 ### Function: bc2 (solution, xval1, yval1, xval2, yval2)
 
 Solves a boundary value problem for a second order differential equation.
@@ -37,7 +49,10 @@ See `ode2` for an example of its usage.
 
 See also: `ode2`.
 
-### Function: desolve (desolve, eqn, y, desolve, eqn_1, ..., eqn_n, y_1, ..., y_n)
+<!-- category: Calculus -->
+<!-- keywords: desolve -->
+<!-- signatures: desolve(eqn, y), desolve([eqn_1, ..., eqn_n], [y_1, ..., y_n]) -->
+### Function: desolve (eqn, y)
 
 The function `desolve` solves systems of linear ordinary
 differential equations using Laplace transform. Here the *eqn*’s are
@@ -121,6 +136,9 @@ See also `ode2`, `drawdf` and `rk`.
 
 See also: `atvalue`, `ode2`, `drawdf`, `rk`.
 
+<!-- category: Calculus -->
+<!-- keywords: ic1 -->
+<!-- signatures: ic1(solution, xval, yval) -->
 ### Function: ic1 (solution, xval, yval)
 
 Solves initial value problems for first order differential equations.
@@ -134,6 +152,9 @@ See `ode2` for an example of its usage.
 
 See also: `ode2`.
 
+<!-- category: Calculus -->
+<!-- keywords: ic2 -->
+<!-- signatures: ic2(solution, xval, yval, dval) -->
 ### Function: ic2 (solution, xval, yval, dval)
 
 Solves initial value problems for second-order differential equations.
@@ -149,6 +170,9 @@ See `ode2` for an example of its usage.
 
 See also: `ode2`.
 
+<!-- category: Calculus -->
+<!-- keywords: method -->
+<!-- signatures: method -->
 ### Variable: method
 
 The variable `method` is set by `ode2` to the successful solution
@@ -156,6 +180,9 @@ method.
 
 See also: `ode2`.
 
+<!-- category: Calculus -->
+<!-- keywords: ode2 -->
+<!-- signatures: ode2(eqn, dvar, ivar) -->
 ### Function: ode2 (eqn, dvar, ivar)
 
 The function `ode2` solves an ordinary differential equation (ODE)
@@ -269,6 +296,9 @@ maxima
 
 See also: `%c`, `%k1`, `%k2`, `desolve`, `method`, `yp`, `ic1`, `ic2`, `bc2`, `drawdf`, `rk`.
 
+<!-- category: Calculus -->
+<!-- keywords: yp -->
+<!-- signatures: yp -->
 ### Variable: yp
 
 `yp` is the particular solution of an ODE found by `ode2`

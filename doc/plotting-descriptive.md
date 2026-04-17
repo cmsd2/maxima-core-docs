@@ -1,5 +1,8 @@
 ## descriptive
 
+<!-- category: Plotting -->
+<!-- keywords: barsplot -->
+<!-- signatures: barsplot(data1, data2, ..., option_1, option_2, ...) -->
 ### Function: barsplot (data1, data2, ..., option_1, option_2, ...)
 
 Plots bars diagrams for discrete statistical variables,
@@ -191,6 +194,9 @@ See also functions `histogram` and `piechart`.
 
 See also: `Package-draw`, `key`, `color_draw`, `fill_color`, `fill_density`, `line_width`, `barsplot`, `histogram`, `piechart`.
 
+<!-- category: Plotting -->
+<!-- keywords: barsplot_description -->
+<!-- signatures: barsplot_description(...) -->
 ### Function: barsplot_description (...)
 
 Function `barsplot_description` creates a graphic object
@@ -223,7 +229,10 @@ Example: `barsplot` in a multiplot context.
 (%i6) draw(gr2d(bp1), gr2d(bp2))$
 ```
 
-### Function: boxplot (data, boxplot, data, option_1, option_2, ...)
+<!-- category: Plotting -->
+<!-- keywords: boxplot -->
+<!-- signatures: boxplot(data), boxplot(data, option_1, option_2, ...) -->
+### Function: boxplot (data)
 
 This function plots box-and-whisker diagrams. Argument *data* can be a list,
 which is not of great interest, since these diagrams are mainly used for
@@ -368,13 +377,19 @@ Option *range* can be used to handle outliers.
     xtics = {["Low",1],["Medium",2],["High",3]}) $
 ```
 
+<!-- category: Plotting -->
+<!-- keywords: boxplot_description -->
+<!-- signatures: boxplot_description(...) -->
 ### Function: boxplot_description (...)
 
 Function `boxplot_description` creates a graphic object
 suitable for creating complex scenes, together with other
 graphic objects.
 
-### Function: histogram (histogram, list, histogram, list, option_1, option_2, ..., histogram, one_column_matrix, histogram, one_column_matrix, option_1, option_2, ..., histogram, one_row_matrix, histogram, one_row_matrix, option_1, option_2, ...)
+<!-- category: Plotting -->
+<!-- keywords: histogram -->
+<!-- signatures: histogram(list), histogram(list, option_1, option_2, ...), histogram(one_column_matrix), histogram(one_column_matrix, option_1, option_2, ...), histogram(one_row_matrix), histogram(one_row_matrix, option_1, option_2, ...) -->
+### Function: histogram (list)
 
 Constructs and displays a histogram from a data sample.
 Data must be stored as a list of numbers, or a matrix of one row or one column.
@@ -553,6 +568,9 @@ Zeitschrift fur Wahrscheinlichkeitstheorie und verwandte Gebiete 57, 453-476.
 
 See also: `Package-draw`, `key`, `fill_color`, `fill_density`, `line_width`, `continuous_freq`, `barsplot`.
 
+<!-- category: Plotting -->
+<!-- keywords: histogram_description -->
+<!-- signatures: histogram_description(...) -->
 ### Function: histogram_description (...)
 
 Creates a graphic object which represents a histogram.
@@ -591,6 +609,9 @@ We make use of `histogram_description` for setting
 
 See also: `histogram`.
 
+<!-- category: Plotting -->
+<!-- keywords: histogram_skyline -->
+<!-- signatures: histogram_skyline -->
 ### Variable: histogram_skyline
 
 Default value: `false`
@@ -643,7 +664,10 @@ Set display options for `fill_color` and `fill_density`.
 (%i12) draw (gr2d (skyline_hist), gr2d (ordinary_hist)) $
 ```
 
-### Function: piechart (piechart, list, piechart, list, option_1, option_2, ..., piechart, one_column_matrix, piechart, one_column_matrix, option_1, option_2, ..., piechart, one_row_matrix, piechart, one_row_matrix, option_1, option_2, ...)
+<!-- category: Plotting -->
+<!-- keywords: piechart -->
+<!-- signatures: piechart(list), piechart(list, option_1, option_2, ...), piechart(one_column_matrix), piechart(one_column_matrix, option_1, option_2, ...), piechart(one_row_matrix), piechart(one_row_matrix, option_1, option_2, ...) -->
+### Function: piechart (list)
 
 Similar to `barsplot`, but plots sectors instead of rectangles.
 
@@ -704,13 +728,19 @@ See also function `barsplot`.
 
 See also: `barsplot`.
 
+<!-- category: Plotting -->
+<!-- keywords: piechart_description -->
+<!-- signatures: piechart_description(...) -->
 ### Function: piechart_description (...)
 
 Function `piechart_description` creates a graphic object
 suitable for creating complex scenes, together with other
 graphic objects.
 
-### Function: scatterplot (scatterplot, list, scatterplot, list, option_1, option_2, ..., scatterplot, matrix, scatterplot, matrix, option_1, option_2, ...)
+<!-- category: Plotting -->
+<!-- keywords: scatterplot -->
+<!-- signatures: scatterplot(list), scatterplot(list, option_1, option_2, ...), scatterplot(matrix), scatterplot(matrix, option_1, option_2, ...) -->
+### Function: scatterplot (list)
 
 Plots scatter diagrams both for univariate (*list*) and multivariate 
 (*matrix*) samples.
@@ -828,12 +858,18 @@ see `points`. See also `histogram`.
 
 See also: `histogram`.
 
+<!-- category: Plotting -->
+<!-- keywords: scatterplot_description -->
+<!-- signatures: scatterplot_description(...) -->
 ### Function: scatterplot_description (...)
 
 Function `scatterplot_description` creates a graphic object
 suitable for creating complex scenes, together with other
 graphic objects.
 
+<!-- category: Plotting -->
+<!-- keywords: starplot -->
+<!-- signatures: starplot(data1, data2, ..., option_1, option_2, ...) -->
 ### Function: starplot (data1, data2, ..., option_1, option_2, ...)
 
 Plots star diagrams for discrete statistical variables,
@@ -902,13 +938,19 @@ Location and radius defined by the user.
         line_width = 2 ) $
 ```
 
+<!-- category: Plotting -->
+<!-- keywords: starplot_description -->
+<!-- signatures: starplot_description(...) -->
 ### Function: starplot_description (...)
 
 Function `starplot_description` creates a graphic object
 suitable for creating complex scenes, together with other
 graphic objects.
 
-### Function: stemplot (stemplot, data, stemplot, data, option)
+<!-- category: Plotting -->
+<!-- keywords: stemplot -->
+<!-- signatures: stemplot(data), stemplot(data, option) -->
+### Function: stemplot (data)
 
 Plots stem and leaf diagrams.
 

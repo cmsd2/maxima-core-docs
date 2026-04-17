@@ -1,5 +1,8 @@
 ## trigtools
 
+<!-- category: Trigonometry -->
+<!-- keywords: atan_contract -->
+<!-- signatures: atan_contract(r) -->
 ### Function: atan_contract (r)
 
 The function atan_contract(r) contracts atan functions. We
@@ -76,6 +79,9 @@ maxima
                                                     110443     4
 ```
 
+<!-- category: Trigonometry -->
+<!-- keywords: c2hyp -->
+<!-- signatures: c2hyp(x) -->
 ### Function: c2hyp (x)
 
 The function c2hyp (convert to hyperbolic) convert expression with exp function
@@ -114,6 +120,9 @@ maxima
           2 (sinh(y) + cosh(y)) - 3 (sinh(z) + cosh(z))
 ```
 
+<!-- category: Trigonometry -->
+<!-- keywords: c2sin, c2cos -->
+<!-- signatures: c2sin(x), c2cos(x) -->
 ### Function: c2sin (x)
 
 The function c2sin converts the expression 
@@ -278,6 +287,9 @@ or
 $x_1 = \tan^{-1}{3\over 4} + \cos^{-1}{2\over 5},$
 for $k$ any integer.
 
+<!-- category: Trigonometry -->
+<!-- keywords: c2trig -->
+<!-- signatures: c2trig(x) -->
 ### Function: c2trig (x)
 
 The function c2trig (convert to trigonometric) reduce expression with hyperbolic functions
@@ -399,6 +411,9 @@ maxima
 (%o4)                     cot(%i y + x)
 ```
 
+<!-- category: Trigonometry -->
+<!-- keywords: trigeval -->
+<!-- signatures: trigeval(x) -->
 ### Function: trigeval (x)
 
 The function trigeval compute values of expressions with 
@@ -409,6 +424,9 @@ and
 $\cot {m\pi\over n}$
 in radicals.
 
+<!-- category: Trigonometry -->
+<!-- keywords: trigfactor -->
+<!-- signatures: trigfactor(x) -->
 ### Function: trigfactor (x)
 
 The function trigfactor factors expressions of
@@ -556,6 +574,9 @@ maxima
 (%o3)                    2 cos(x) sin(x)
 ```
 
+<!-- category: Trigonometry -->
+<!-- keywords: trigsolve -->
+<!-- signatures: trigsolve(x) -->
 ### Function: trigsolve (x)
 
 The function trigsolve find solutions of trigonometric equation from
@@ -965,6 +986,9 @@ Answer:
 $x = a + 2\pi k,$
 where $a$ any from $S$, $k$ any integer.
 
+<!-- category: Trigonometry -->
+<!-- keywords: trigvalue -->
+<!-- signatures: trigvalue(x) -->
 ### Function: trigvalue (x)
 
 The function trigvalue compute values of 

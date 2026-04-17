@@ -1,6 +1,9 @@
 ## Command Line
 
-### Function: $ ()
+<!-- category: Programming -->
+<!-- keywords: $ -->
+<!-- signatures: $ -->
+### Function: $
 
 The dollar sign `$` terminates an input expression,
 and the most recent output `%` and an output label, e.g. `%o1`,
@@ -32,6 +35,9 @@ maxima
 
 See also: `;`.
 
+<!-- category: Programming -->
+<!-- keywords: %, Previous output -->
+<!-- signatures: % -->
 ### Variable: %
 
 `%` is the output expression (e.g., `%o1`, `%o2`, `%o3`,
@@ -49,6 +55,9 @@ See also `_`, `%%`, and `_0025th`.
 
 See also: `batch`, `load`, `_`, `%%`, `%th`.
 
+<!-- category: Programming -->
+<!-- keywords: %%, Previous result in compound expression -->
+<!-- signatures: %% -->
 ### Variable: %%
 
 In compound statements, namely `block`, `lambda`, or
@@ -132,6 +141,9 @@ _
 
 See also: `block`, `lambda`, `batch`, `load`, `%`, `break`.
 
+<!-- category: Programming -->
+<!-- keywords: %th -->
+<!-- signatures: %th(i) -->
 ### Function: %th (i)
 
 The value of the *i*’th previous output expression.  That is, if the next
@@ -179,7 +191,10 @@ maxima
 
 See also: `batch`, `load`, `%`, `%%`.
 
-### Function: ; ()
+<!-- category: Programming -->
+<!-- keywords: ; -->
+<!-- signatures: ; -->
+### Function: ;
 
 The semicolon `;` terminates an input expression,
 and the resulting output is displayed.
@@ -203,7 +218,10 @@ maxima
 
 See also: `$`.
 
-### Function: ? ()
+<!-- category: Programming -->
+<!-- keywords: ? -->
+<!-- signatures: ? -->
+### Function: ?
 
 As prefix to a function or variable name, `?` signifies that the name is a
 Lisp name, not a Maxima name.  For example, `?round` signifies the Lisp
@@ -217,7 +235,10 @@ request for documentation.  See also `describe`.
 
 See also: `Lisp-and-Maxima`, `describe`.
 
-### Function: ?? ()
+<!-- category: Programming -->
+<!-- keywords: ?? -->
+<!-- signatures: ?? -->
+### Function: ??
 
 The notation `?? word` (`??` followed a word, separated by whitespace)
 is equivalent to `describe("word", inexact)`.  The question mark must occur
@@ -226,6 +247,9 @@ for documentation.  See also `describe`.
 
 See also: `describe`.
 
+<!-- category: Programming -->
+<!-- keywords: _, Previous input -->
+<!-- signatures: _ -->
 ### Variable: _
 
 `_` is the most recent input expression (e.g., `%i1`, `%i2`,
@@ -317,6 +341,9 @@ maxima
 
 See also: `batch`, `load`, `__`, `%`.
 
+<!-- category: Programming -->
+<!-- keywords: __, Current input expression -->
+<!-- signatures: __ -->
 ### Variable: __
 
 `__` is the input expression currently being evaluated.  That is, while an
@@ -383,6 +410,9 @@ Current input expression = --------------
 
 See also: `batch`, `load`, `_`, `%`.
 
+<!-- category: Programming -->
+<!-- keywords: eval_string_lisp -->
+<!-- signatures: eval_string_lisp(str) -->
 ### Function: eval_string_lisp (str)
 
 Sequentially read lisp forms from the string *str* and evaluate them.
@@ -438,6 +468,9 @@ See also `eval_005fstring`.
 
 See also: `eval_string`.
 
+<!-- category: Programming -->
+<!-- keywords: inchar -->
+<!-- signatures: inchar -->
 ### Variable: inchar
 
 Default value: `%i`
@@ -481,6 +514,9 @@ maxima
 
 See also: `linenum`, `outchar`, `linechar`, `labels`.
 
+<!-- category: Programming -->
+<!-- keywords: infolists -->
+<!-- signatures: infolists -->
 ### Variable: infolists
 
 Default value: `[]`
@@ -520,7 +556,10 @@ one is not explicitly set by the user.)
 
 See also: `:`, `::`, `:=`, `define`, `hashed-arrays`, `memoizing-functions`, `::=`, `tellsimp`, `tellsimpafter`, `defmatch`, `defrule`, `alias`, `ordergreat`, `orderless`, `noun`, `declare`, `depends`, `dependencies`, `gradef`, `atvalue`, `matchdeclare`, `defstruct`, `let`, `default_let_rule_package`.
 
-### Function: kill (kill, a_1, ..., a_n, kill, labels, kill, inlabels, outlabels, linelabels, kill, n, kill, m, n, kill, values, functions, arrays, ..., kill, all, kill, allbut, a_1, ..., a_n)
+<!-- category: Programming -->
+<!-- keywords: kill -->
+<!-- signatures: kill(a_1, ..., a_n), kill(labels), kill(inlabels, outlabels, linelabels), kill(n), kill([m, n]), kill(values, functions, arrays, ...), kill(all), kill(allbut(a_1, ..., a_n)) -->
+### Function: kill (a_1, ..., a_n)
 
 Removes all bindings (value, function, array, or rule) from the arguments
 *a_1*, ..., *a_n*.  An argument *a_k* may be a symbol or a
@@ -589,6 +628,9 @@ by `kill`.
 
 See also: `inchar`, `outchar`, `linechar`, `values`, `functions`, `arrays`, `infolists`, `reset`, `remvalue`, `remfunction`, `remarray`, `remrule`, `assume`.
 
+<!-- category: Programming -->
+<!-- keywords: labels -->
+<!-- signatures: labels(symbol) -->
 ### Function: labels (symbol)
 
 Returns the list of input, output, or intermediate expression labels which begin
@@ -617,6 +659,9 @@ See also `inchar`, `outchar`, `linechar`, and
 
 See also: `inchar`, `outchar`, `linechar`, `%`, `%%`, `%th`, `programmode`, `solve`, `ldisplay`, `infolists`.
 
+<!-- category: Programming -->
+<!-- keywords: linechar -->
+<!-- signatures: linechar -->
 ### Variable: linechar
 
 Default value: `%t`
@@ -640,10 +685,16 @@ See `programmode` and `labels`.
 
 See also: `linenum`, `inchar`, `outchar`, `programmode`, `labels`.
 
+<!-- category: Programming -->
+<!-- keywords: linenum -->
+<!-- signatures: linenum -->
 ### Variable: linenum
 
 The line number of the current pair of input and output expressions.
 
+<!-- category: Programming -->
+<!-- keywords: myoptions -->
+<!-- signatures: myoptions -->
 ### Variable: myoptions
 
 Default value: `[]`
@@ -652,6 +703,9 @@ Default value: `[]`
 `myoptions` is the list of all options ever reset by the user,
 whether or not they get reset to their default value.
 
+<!-- category: Programming -->
+<!-- keywords: nolabels -->
+<!-- signatures: nolabels -->
 ### Variable: nolabels
 
 Default value: `false`
@@ -677,6 +731,9 @@ See also `batch`, `load`, and `labels`.
 
 See also: `labels`, `batch`, `load`.
 
+<!-- category: Programming -->
+<!-- keywords: optionset -->
+<!-- signatures: optionset -->
 ### Variable: optionset
 
 Default value: `false`
@@ -708,6 +765,9 @@ assignment: assigning to option gamma_expand
 (%o2)                         true
 ```
 
+<!-- category: Programming -->
+<!-- keywords: outchar -->
+<!-- signatures: outchar -->
 ### Variable: outchar
 
 Default value: `%o`
@@ -751,7 +811,10 @@ maxima
 
 See also: `linenum`, `inchar`, `linechar`, `labels`.
 
-### Function: playback (playback, playback, n, playback, m, n, playback, m, playback, input, playback, slow, playback, time, playback, grind)
+<!-- category: Programming -->
+<!-- keywords: playback -->
+<!-- signatures: playback(), playback(n), playback([m, n]), playback([m]), playback(input), playback(slow), playback(time), playback(grind) -->
+### Function: playback ()
 
 Displays input, output, and intermediate expressions, without recomputing them.
 `playback` only displays the expressions bound to labels; any other output
@@ -807,6 +870,9 @@ Arguments may be combined, e.g., `playback ([5, 10], grind, time, slow)`.
 
 See also: `print`, `describe`, `labels`, `demo`, `stringout`, `grind`.
 
+<!-- category: Programming -->
+<!-- keywords: prompt -->
+<!-- signatures: prompt -->
 ### Variable: prompt
 
 Default value: `_`
@@ -818,7 +884,10 @@ Default value: `_`
 
 See also: `demo`, `break`.
 
-### Function: quit (exit-code)
+<!-- category: Programming -->
+<!-- keywords: quit -->
+<!-- signatures: quit([exit-code]) -->
+### Function: quit ([exit-code])
 
 Terminates the Maxima session.  Note that the function must be invoked as
 `quit();` or `quit()$`, not `quit` by itself.
@@ -836,6 +905,9 @@ return to the Maxima prompt.  If `*debugger-hook*` is `nil`,
 
 See also: `Debugging`.
 
+<!-- category: Programming -->
+<!-- keywords: read -->
+<!-- signatures: read(expr_1, ..., expr_n) -->
 ### Function: read (expr_1, ..., expr_n)
 
 Prints *expr_1*, ..., *expr_n*, then reads one expression from the
@@ -863,6 +935,9 @@ foo is 42  -- enter new value.
 
 See also: `readonly`.
 
+<!-- category: Programming -->
+<!-- keywords: readonly -->
+<!-- signatures: readonly(expr_1, ..., expr_n) -->
 ### Function: readonly (expr_1, ..., expr_n)
 
 Prints *expr_1*, ..., *expr_n*, then reads one expression from the
@@ -893,6 +968,9 @@ Enter an expression:
 
 See also: `read`.
 
+<!-- category: Programming -->
+<!-- keywords: reset -->
+<!-- signatures: reset() -->
 ### Function: reset ()
 
 Resets many global variables and options, and some other variables, to their
@@ -905,6 +983,9 @@ on this list (among other actions).  Many, but not all, global variables and
 options are defined by `defmvar`, and some variables defined by
 `defmvar` are not global variables or options.
 
+<!-- category: Programming -->
+<!-- keywords: showtime -->
+<!-- signatures: showtime -->
 ### Variable: showtime
 
 Default value: `false`
@@ -922,6 +1003,9 @@ See also `timer`.
 
 See also: `time`, `playback`, `timer`.
 
+<!-- category: Programming -->
+<!-- keywords: to_lisp -->
+<!-- signatures: to_lisp() -->
 ### Function: to_lisp ()
 
 Enters the Lisp system under Maxima.  `(to-maxima)` returns to Maxima.
@@ -956,6 +1040,9 @@ Returning to Maxima
 (%o3)                       x (x + 1)
 ```
 
+<!-- category: Programming -->
+<!-- keywords: values -->
+<!-- signatures: values -->
 ### Variable: values
 
 Initial value: `[]`

@@ -1,5 +1,8 @@
 ## alt-display
 
+<!-- category: IO -->
+<!-- keywords: alt_display_output_type -->
+<!-- signatures: alt_display_output_type(form) -->
 ### Function: alt_display_output_type (form)
 
 Determine the type of output to be printed. *Form* must be a lisp
@@ -56,7 +59,10 @@ PROMPT;>>(%i5) <<PROMPT;
 
 See also: `set_prompt`.
 
-### Function: define_alt_display (function, input, expr)
+<!-- category: IO -->
+<!-- keywords: define_alt_display -->
+<!-- signatures: define_alt_display(function(input), expr) -->
+### Function: define_alt_display (function(input), expr)
 
 This function is similar to `define`: it evaluates its arguments
 and expands into a function definition. The *function* is a
@@ -103,6 +109,9 @@ The display variables `alt_display1d` and `alt_display2d` are
 both bound to `false` in the body of `time_stamp` to prevent
 an infinite recursion in `displa`.
 
+<!-- category: IO -->
+<!-- keywords: info_display -->
+<!-- signatures: info_display(form) -->
 ### Function: info_display (form)
 
 This is an alias for the default 1-d display function. It may be used as
@@ -121,6 +130,9 @@ an alternative 1-d or 2-d display function.
 (%o3) x/y
 ```
 
+<!-- category: IO -->
+<!-- keywords: mathml_display -->
+<!-- signatures: mathml_display(form) -->
 ### Function: mathml_display (form)
 
 Produces MathML output.
@@ -136,6 +148,9 @@ Produces MathML output.
  <mo>,</mo><mi>done</mi> </mfenced> </math>
 ```
 
+<!-- category: IO -->
+<!-- keywords: multi_display_for_texinfo -->
+<!-- signatures: multi_display_for_texinfo(form) -->
 ### Function: multi_display_for_texinfo (form)
 
 Produces Texinfo output using all three display functions.
@@ -169,11 +184,17 @@ Produces Texinfo output using all three display functions.
 @end ifinfo
 ```
 
+<!-- category: IO -->
+<!-- keywords: reset_displays -->
+<!-- signatures: reset_displays() -->
 ### Function: reset_displays ()
 
 Resets the prompt prefix and suffix to the empty string, and sets both
 1-d and 2-d display functions to the default.
 
+<!-- category: IO -->
+<!-- keywords: set_alt_display -->
+<!-- signatures: set_alt_display(num, display-function) -->
 ### Function: set_alt_display (num, display-function)
 
 The input *num* is the display to set; it may be either 1 or 2. The
@@ -200,6 +221,9 @@ A user-defined display function should take care that it *prints*
 its output. A display function that returns a string will appear to
 display nothing, nor cause any errors.
 
+<!-- category: IO -->
+<!-- keywords: set_prompt -->
+<!-- signatures: set_prompt(fix, expr) -->
 ### Function: set_prompt (fix, expr)
 
 Set the prompt prefix or suffix to *expr*. The input *fix* must
@@ -268,6 +292,9 @@ by an open square bracket (91); each string ends with a lower-case m
 [https://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html]() provide
 information on how to use control strings to set the terminal colors.
 
+<!-- category: IO -->
+<!-- keywords: tex_display -->
+<!-- signatures: tex_display(form) -->
 ### Function: tex_display (form)
 
 Produces TeX output.

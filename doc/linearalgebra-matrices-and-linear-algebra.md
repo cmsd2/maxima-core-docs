@@ -1,5 +1,8 @@
 ## Matrices and Linear Algebra
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: addcol -->
+<!-- signatures: addcol(M, list_1, ..., list_n) -->
 ### Function: addcol (M, list_1, ..., list_n)
 
 Appends the column(s) given by the one
@@ -10,6 +13,9 @@ See also `addrow` and `append`.
 
 See also: `addrow`, `append`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: addrow -->
+<!-- signatures: addrow(M, list_1, ..., list_n) -->
 ### Function: addrow (M, list_1, ..., list_n)
 
 Appends the row(s) given by the one or
@@ -20,12 +26,18 @@ See also `addcol` and `append`.
 
 See also: `addcol`, `append`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: adjoint -->
+<!-- signatures: adjoint(M) -->
 ### Function: adjoint (M)
 
 Returns the adjoint of the matrix *M*.
 The adjoint matrix is the transpose of the matrix of cofactors of *M*.
 
-### Function: augcoefmatrix (eqn_1, ..., eqn_m, x_1, ..., x_n)
+<!-- category: LinearAlgebra -->
+<!-- keywords: augcoefmatrix -->
+<!-- signatures: augcoefmatrix([eqn_1, ..., eqn_m], [x_1, ..., x_n]) -->
+### Function: augcoefmatrix ([eqn_1, ..., eqn_m], [x_1, ..., x_n])
 
 Returns the augmented coefficient
 matrix for the variables *x_1*, ..., *x_n* of the system of linear
@@ -49,7 +61,10 @@ maxima
                        [ a    b      c   ]
 ```
 
-### Function: cauchy_matrix (cauchy_matrix, x_1, x_2, ..., x_m, y_1, y_2, ..., y_n, cauchy_matrix, x_1, x_2, ..., x_n)
+<!-- category: LinearAlgebra -->
+<!-- keywords: cauchy_matrix -->
+<!-- signatures: cauchy_matrix([x_1, x_2, ..., x_m], [y_1, y_2, ..., y_n]), cauchy_matrix([x_1, x_2, ..., x_n]) -->
+### Function: cauchy_matrix ([x_1, x_2, ..., x_m], [y_1, y_2, ..., y_n])
 
 Returns a `n` by *m* Cauchy matrix with the elements *a[i,j]* 
 = 1/(*x_i*+*y_i*).  The second argument of `cauchy_matrix` is 
@@ -92,6 +107,9 @@ maxima
                       [ x2 + x1   2 x2   ]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: charpoly -->
+<!-- signatures: charpoly(M, x) -->
 ### Function: charpoly (M, x)
 
 Returns the characteristic polynomial for the matrix *M*
@@ -158,7 +176,10 @@ maxima
                                           sqrt(5)       sqrt(5)
 ```
 
-### Function: coefmatrix (eqn_1, ..., eqn_m, x_1, ..., x_n)
+<!-- category: LinearAlgebra -->
+<!-- keywords: coefmatrix -->
+<!-- signatures: coefmatrix([eqn_1, ..., eqn_m], [x_1, ..., x_n]) -->
+### Function: coefmatrix ([eqn_1, ..., eqn_m], [x_1, ..., x_n])
 
 Returns the coefficient matrix for the
 variables *x_1*, ..., *x_n* of the system of linear equations
@@ -178,6 +199,9 @@ maxima
                           [ a    b   ]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: col -->
+<!-- signatures: col(M, i) -->
 ### Function: col (M, i)
 
 Returns the *i*’th column of the matrix *M*.
@@ -281,6 +305,9 @@ maxima
                            [ 7  y  3 ]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: columnvector, covect -->
+<!-- signatures: columnvector(L), covect(L) -->
 ### Function: columnvector (L)
 
 Returns a matrix of one column and `length (L)` rows,
@@ -320,6 +347,9 @@ maxima
                              [ dd ]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: copymatrix -->
+<!-- signatures: copymatrix(M) -->
 ### Function: copymatrix (M)
 
 Returns a copy of the matrix *M*.  This is the only way
@@ -331,6 +361,9 @@ copy `m1`.  An assignment `m2 [i,j]: x` or `setelmx(x, i, j, m2)`
 also modifies `m1 [i,j]`.  Creating a copy with `copymatrix` and then
 using assignment creates a separate, modified copy.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: determinant -->
+<!-- signatures: determinant(M) -->
 ### Function: determinant (M)
 
 Computes the determinant of *M* by a method similar to
@@ -350,6 +383,9 @@ when the switches `ratmx` and `sparse` are both `true`.
 
 See also: `ratmx`, `sparse`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: detout -->
+<!-- signatures: detout -->
 ### Variable: detout
 
 Default value: `false`
@@ -397,6 +433,9 @@ maxima
 
 See also: `doallmxops`, `doscmxops`, `ev`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: diagmatrix -->
+<!-- signatures: diagmatrix(n, x) -->
 ### Function: diagmatrix (n, x)
 
 Returns a diagonal matrix of size *n* by *n* with the diagonal elements
@@ -412,6 +451,9 @@ an error message.
 a matrix, it is not copied; all diagonal elements refer to the same instance,
 *x*.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: display_determinant_bars -->
+<!-- signatures: display_determinant_bars -->
 ### Variable: display_determinant_bars
 
 Default value: `true`
@@ -427,7 +469,10 @@ or the determinant is not a noun expression,
 or its argument is not a literal matrix;
 in these cases, the expression is displayed as an ordinary function call.
 
-### Function: display_matrix_brackets ()
+<!-- category: LinearAlgebra -->
+<!-- keywords: display_matrix_brackets -->
+<!-- signatures: display_matrix_brackets -->
+### Function: display_matrix_brackets
 
 Default value: `true`
 
@@ -440,7 +485,10 @@ When `display_matrix_brackets` is `false`,
 matrices are not displayed with brackets;
 only the matrix elements are displayed.
 
-### Function: display_matrix_padding_horizontal ()
+<!-- category: LinearAlgebra -->
+<!-- keywords: display_matrix_padding_horizontal -->
+<!-- signatures: display_matrix_padding_horizontal -->
+### Function: display_matrix_padding_horizontal
 
 Default value: `true`
 
@@ -502,7 +550,10 @@ maxima
 
 See also: `display_matrix_brackets`, `display_matrix_padding_vertical`.
 
-### Function: display_matrix_padding_vertical ()
+<!-- category: LinearAlgebra -->
+<!-- keywords: display_matrix_padding_vertical -->
+<!-- signatures: display_matrix_padding_vertical -->
+### Function: display_matrix_padding_vertical
 
 Default value: `true`
 
@@ -556,6 +607,9 @@ maxima
 
 See also: `display_matrix_padding_horizontal`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: doallmxops -->
+<!-- signatures: doallmxops -->
 ### Variable: doallmxops
 
 Default value: `true`
@@ -567,6 +621,9 @@ all operations relating to matrices are carried out.
 When it is `false` then the setting of the
 individual `dot` switches govern which operations are performed.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: domxexpt -->
+<!-- signatures: domxexpt -->
 ### Variable: domxexpt
 
 Default value: `true`
@@ -620,6 +677,9 @@ maxima
                   [ (1 - c)       (1 - c)    ]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: domxmxops -->
+<!-- signatures: domxmxops -->
 ### Variable: domxmxops
 
 Default value: `true`
@@ -629,6 +689,9 @@ When `domxmxops` is `true`, all matrix-matrix or
 matrix-list operations are carried out (but not scalar-matrix
 operations); if this switch is `false` such operations are not carried out.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: domxnctimes -->
+<!-- signatures: domxnctimes -->
 ### Variable: domxnctimes
 
 Default value: `false`
@@ -637,6 +700,9 @@ Default value: `false`
 When `domxnctimes` is `true`, non-commutative products of
 matrices are carried out.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: dontfactor -->
+<!-- signatures: dontfactor -->
 ### Variable: dontfactor
 
 Default value: `[]`
@@ -648,6 +714,9 @@ not take place with respect to any variables which are less important, according
 the variable ordering assumed for canonical rational expression (CRE) form, than
 those on the `dontfactor` list.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: doscmxops -->
+<!-- signatures: doscmxops -->
 ### Variable: doscmxops
 
 Default value: `false`
@@ -656,6 +725,9 @@ Default value: `false`
 When `doscmxops` is `true`, scalar-matrix operations are
 carried out.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: doscmxplus -->
+<!-- signatures: doscmxplus -->
 ### Variable: doscmxplus
 
 Default value: `false`
@@ -666,6 +738,9 @@ a matrix result.  This switch is not subsumed under `doallmxops`.
 
 See also: `doallmxops`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: dot0nscsimp -->
+<!-- signatures: dot0nscsimp -->
 ### Variable: dot0nscsimp
 
 Default value: `true`
@@ -675,6 +750,9 @@ Default value: `true`
 When `dot0nscsimp` is `true`, a non-commutative product of zero
 and a nonscalar term is simplified to a commutative product.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: dot0simp -->
+<!-- signatures: dot0simp -->
 ### Variable: dot0simp
 
 Default value: `true`
@@ -685,6 +763,9 @@ When `dot0simp` is `true`,
 a non-commutative product of zero and
 a scalar term is simplified to a commutative product.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: dot1simp -->
+<!-- signatures: dot1simp -->
 ### Variable: dot1simp
 
 Default value: `true`
@@ -695,6 +776,9 @@ When `dot1simp` is `true`,
 a non-commutative product of one and
 another term is simplified to a commutative product.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: dotassoc -->
+<!-- signatures: dotassoc -->
 ### Variable: dotassoc
 
 Default value: `true`
@@ -703,6 +787,9 @@ Default value: `true`
 When `dotassoc` is `true`, an expression `(A.B).C` simplifies to
 `A.(B.C)`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: dotconstrules -->
+<!-- signatures: dotconstrules -->
 ### Variable: dotconstrules
 
 Default value: `true`
@@ -717,6 +804,9 @@ Turning on this flag effectively turns on `dot0simp`,
 
 See also: `dot0simp`, `dot0nscsimp`, `dot1simp`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: dotdistrib -->
+<!-- signatures: dotdistrib -->
 ### Variable: dotdistrib
 
 Default value: `false`
@@ -725,6 +815,9 @@ Default value: `false`
 When `dotdistrib` is `true`, an expression `A.(B + C)` simplifies
 to `A.B + A.C`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: dotexptsimp -->
+<!-- signatures: dotexptsimp -->
 ### Variable: dotexptsimp
 
 Default value: `true`
@@ -733,6 +826,9 @@ Default value: `true`
 When `dotexptsimp` is `true`, an expression `A.A` simplifies to
 `A^^2`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: dotident -->
+<!-- signatures: dotident -->
 ### Variable: dotident
 
 Default value: 1
@@ -740,6 +836,9 @@ Default value: 1
 
 `dotident` is the value returned by `X^^0`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: dotscrules -->
+<!-- signatures: dotscrules -->
 ### Variable: dotscrules
 
 Default value: `false`
@@ -748,6 +847,9 @@ Default value: `false`
 When `dotscrules` is `true`, an expression `A.SC` or `SC.A`
 simplifies to `SC*A` and `A.(SC*B)` simplifies to `SC*(A.B)`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: echelon -->
+<!-- signatures: echelon(M) -->
 ### Function: echelon (M)
 
 Returns the echelon form of the matrix *M*,
@@ -796,6 +898,9 @@ maxima
 
 See also: `triangularize`, `lu_factor`, `cholesky`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: eigenvalues, eivals -->
+<!-- signatures: eigenvalues(M), eivals(M) -->
 ### Function: eigenvalues (M)
 
 Returns a list of two lists containing the eigenvalues of the matrix *M*.
@@ -841,6 +946,9 @@ For matrices consisting of only floating-point values, see also
 
 See also: `solve`, `innerproduct`, `unitvector`, `columnvector`, `gramschmidt`, `eigenvectors`, `dgeev`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: eigenvectors, eivects -->
+<!-- signatures: eigenvectors(M), eivects(M) -->
 ### Function: eigenvectors (M)
 
 Computes eigenvectors of the matrix *M*.
@@ -1008,11 +1116,17 @@ maxima
 
 See also: `eigenvalues`, `algsys`, `dgeev`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: ematrix -->
+<!-- signatures: ematrix(m, n, x, i, j) -->
 ### Function: ematrix (m, n, x, i, j)
 
 Returns an *m* by *n* matrix, all elements of which
 are zero except for the `[i, j]` element which is *x*.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: entermatrix -->
+<!-- signatures: entermatrix(m, n) -->
 ### Function: entermatrix (m, n)
 
 Returns an *m* by *n* matrix, reading the elements interactively.
@@ -1060,7 +1174,10 @@ Matrix entered.
                 [    0         0      (b + a)  ]
 ```
 
-### Function: genmatrix (genmatrix, a, i_2, j_2, i_1, j_1, genmatrix, a, i_2, j_2, i_1, genmatrix, a, i_2, j_2)
+<!-- category: LinearAlgebra -->
+<!-- keywords: genmatrix -->
+<!-- signatures: genmatrix(a, i_2, j_2, i_1, j_1), genmatrix(a, i_2, j_2, i_1), genmatrix(a, i_2, j_2) -->
+### Function: genmatrix (a, i_2, j_2, i_1, j_1)
 
 Returns a matrix generated from *a*, taking element
 `a[i_1, j_1]` as the upper-left element and
@@ -1153,7 +1270,10 @@ maxima
 
 See also: `make_array`, `hashed-array`, `memoizing-function`, `:=`, `define`.
 
-### Function: gramschmidt (gramschmidt, x, gramschmidt, x, F)
+<!-- category: LinearAlgebra -->
+<!-- keywords: gramschmidt -->
+<!-- signatures: gramschmidt(x), gramschmidt(x, F) -->
+### Function: gramschmidt (x)
 
 Carries out the Gram-Schmidt orthogonalization algorithm on *x*, which is
 either a matrix or a list of lists.  *x* is not modified by
@@ -1246,10 +1366,16 @@ maxima
 
 See also: `innerproduct`, `factor`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: ident -->
+<!-- signatures: ident(n) -->
 ### Function: ident (n)
 
 Returns an *n* by *n* identity matrix.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: innerproduct, inprod -->
+<!-- signatures: innerproduct(x, y), inprod(x, y) -->
 ### Function: innerproduct (x, y)
 
 Returns the inner product (also called the scalar product or dot product) of
@@ -1263,6 +1389,9 @@ where `.` is the noncommutative multiplication operator.
 
 `inprod` is a synonym for `innerproduct`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: invert -->
+<!-- signatures: invert(M) -->
 ### Function: invert (M)
 
 Returns the inverse of the matrix *M*.
@@ -1296,6 +1425,9 @@ In particular, when *M* has polynomial elements,
 
 See also: `ratmx`, `detout`, `doallmxops`, `doscmxops`, `xthru`, `invert`, `ratsimp`, `expand`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: invert_by_adjoint -->
+<!-- signatures: invert_by_adjoint(M) -->
 ### Function: invert_by_adjoint (M)
 
 Returns the inverse of the matrix *M*.
@@ -1307,6 +1439,9 @@ the same as `invert`.
 
 See also: `ratmx`, `detout`, `invert`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: list_matrix_entries -->
+<!-- signatures: list_matrix_entries(M) -->
 ### Function: list_matrix_entries (M)
 
 Returns a list containing the elements of the matrix *M*.
@@ -1326,6 +1461,9 @@ maxima
 (%o1)                     [a, b, c, d]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: lmxchar -->
+<!-- signatures: lmxchar -->
 ### Variable: lmxchar
 
 Default value: `[`
@@ -1362,6 +1500,9 @@ maxima
 
 See also: `rmxchar`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: matrix -->
+<!-- signatures: matrix(row_1, ..., row_n) -->
 ### Function: matrix (row_1, ..., row_n)
 
 Returns a rectangular matrix which has the rows *row_1*, ...,
@@ -1595,6 +1736,9 @@ matrix inverse, if it exists.
 
 See also: `doallmxops`, `domxexpt`, `domxmxops`, `doscmxops`, `doscmxplus`, `lmxchar`, `rmxchar`, `ratmx`, `listarith`, `detout`, `sparse`, `eigenvalues`, `eigenvectors`, `determinant`, `charpoly`, `genmatrix`, `addcol`, `addrow`, `copymatrix`, `transpose`, `echelon`, `rank`, `display_matrix_brackets`, `display_matrix_padding_vertical`, `matrixexp`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: matrix_element_add -->
+<!-- signatures: matrix_element_add -->
 ### Variable: matrix_element_add
 
 Default value: `+`
@@ -1650,6 +1794,9 @@ maxima
 
 See also: `matrix_element_mult`, `matrix_element_transpose`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: matrix_element_mult -->
+<!-- signatures: matrix_element_mult -->
 ### Variable: matrix_element_mult
 
 Default value: `*`
@@ -1718,6 +1865,9 @@ maxima
 
 See also: `matrix_element_add`, `matrix_element_transpose`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: matrix_element_transpose -->
+<!-- signatures: matrix_element_transpose -->
 ### Variable: matrix_element_transpose
 
 Default value: `false`
@@ -1799,7 +1949,10 @@ maxima
 
 See also: `matrix_element_mult`, `transpose`, `matrix_element_add`.
 
-### Function: matrixexp (matrixexp, M, matrixexp, M, n, matrixexp, M, V)
+<!-- category: LinearAlgebra -->
+<!-- keywords: matrixexp -->
+<!-- signatures: matrixexp(M), matrixexp(M, n), matrixexp(M, V) -->
+### Function: matrixexp (M)
 
 Calculates the matrix exponential
 $e^{M\cdot V}$
@@ -1830,6 +1983,9 @@ $$e^M=\sum_{k=0}^\infty{\left(\frac{M^k}{k!}\right)}$$
 
 $$e^M=\sum_{k=0}^\infty{\left(\frac{M^k}{k!}\right)}$$
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: matrixmap -->
+<!-- signatures: matrixmap(f, M) -->
 ### Function: matrixmap (f, M)
 
 Returns a matrix with element `i,j` equal to `f(M[i,j])`.
@@ -1840,10 +1996,16 @@ See also `map`, `fullmap`, `fullmapl`, and
 
 See also: `map`, `fullmap`, `fullmapl`, `apply`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: matrixp -->
+<!-- signatures: matrixp(expr) -->
 ### Function: matrixp (expr)
 
 Returns `true` if *expr* is a matrix, otherwise `false`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: mattrace -->
+<!-- signatures: mattrace(M) -->
 ### Function: mattrace (M)
 
 Returns the trace (that is, the sum of the elements on the main diagonal) of
@@ -1859,11 +2021,17 @@ the square matrix *M*.
 
 See also: `ncharpoly`, `charpoly`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: minor -->
+<!-- signatures: minor(M, i, j) -->
 ### Function: minor (M, i, j)
 
 Returns the *i*, *j* minor of the matrix *M*.  That is, *M*
 with row *i* and column *j* removed.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: ncharpoly -->
+<!-- signatures: ncharpoly(M, x) -->
 ### Function: ncharpoly (M, x)
 
 Returns the characteristic polynomial of the matrix *M*
@@ -1885,11 +2053,17 @@ with integers, since it avoids polynomial arithmetic altogether.
 
 See also: `charpoly`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: newdet -->
+<!-- signatures: newdet(M) -->
 ### Function: newdet (M)
 
 Computes the determinant of the matrix *M* by the Johnson-Gentleman tree 
 minor algorithm.  `newdet` returns the result in CRE form.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: permanent -->
+<!-- signatures: permanent(M) -->
 ### Function: permanent (M)
 
 Computes the permanent of the matrix *M* by the Johnson-Gentleman tree
@@ -1899,6 +2073,9 @@ minor algorithm.  A permanent is like a determinant but with no sign changes.
 
 See also `newdet`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: rank -->
+<!-- signatures: rank(M) -->
 ### Function: rank (M)
 
 Computes the rank of the matrix *M*.  That is, the order of the
@@ -1910,6 +2087,9 @@ largest non-singular subdeterminant of *M*.
 wrong answer if it cannot determine that a matrix element that is
 equivalent to zero is indeed so.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: ratmx -->
+<!-- signatures: ratmx -->
 ### Variable: ratmx
 
 Default value: `false`
@@ -1929,6 +2109,9 @@ which might not always be desired.
 
 See also: `ratfac`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: rmxchar -->
+<!-- signatures: rmxchar -->
 ### Variable: rmxchar
 
 Default value: `]`
@@ -1944,6 +2127,9 @@ See also `lmxchar`.
 
 See also: `lmxchar`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: row -->
+<!-- signatures: row(M, i) -->
 ### Function: row (M, i)
 
 Returns the *i*’th row of the matrix *M*.
@@ -2031,6 +2217,9 @@ maxima
                           [ 7  y  123 ]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: scalarmatrixp -->
+<!-- signatures: scalarmatrixp -->
 ### Variable: scalarmatrixp
 
 Default value: `true`
@@ -2048,6 +2237,9 @@ then all 1 x 1 matrices are simplified to scalars.
 When `scalarmatrixp` is `false`, 1 x 1 matrices are not simplified
 to scalars.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: scalefactors -->
+<!-- signatures: scalefactors(coordinatetransform) -->
 ### Function: scalefactors (coordinatetransform)
 
 Here the argument *coordinatetransform* evaluates to the form
@@ -2064,6 +2256,9 @@ is 3, and SF[1]=SF[2]=SF[3]=SFPROD=1, corresponding to 3-dimensional rectangular
 Cartesian coordinates.  To expand an expression into physical components in the
 current coordinate system, there is a function with usage of the form
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: setelmx -->
+<!-- signatures: setelmx(x, i, j, M) -->
 ### Function: setelmx (x, i, j, M)
 
 Assigns *x* to the (*i*, *j*)’th element of the matrix *M*,
@@ -2073,6 +2268,9 @@ and returns the altered matrix.
 `M [i, j]: x` has the same effect,
 but returns *x* instead of *M*.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: similaritytransform, simtran -->
+<!-- signatures: similaritytransform(M), simtran(M) -->
 ### Function: similaritytransform (M)
 
 `similaritytransform` computes a similarity transform of the matrix
@@ -2102,6 +2300,9 @@ to be able to form `rightmatrix`.
 
 `simtran` is a synonym for `similaritytransform`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: sparse -->
+<!-- signatures: sparse -->
 ### Variable: sparse
 
 Default value: `false`
@@ -2110,11 +2311,17 @@ Default value: `false`
 When `sparse` is `true`, and if `ratmx` is `true`, then
 `determinant` will use special routines for computing sparse determinants.
 
-### Function: submatrix (submatrix, i_1, ..., i_m, M, j_1, ..., j_n, submatrix, i_1, ..., i_m, M, submatrix, M, j_1, ..., j_n)
+<!-- category: LinearAlgebra -->
+<!-- keywords: submatrix -->
+<!-- signatures: submatrix(i_1, ..., i_m, M, j_1, ..., j_n), submatrix(i_1, ..., i_m, M), submatrix(M, j_1, ..., j_n) -->
+### Function: submatrix (i_1, ..., i_m, M, j_1, ..., j_n)
 
 Returns a new matrix composed of the matrix *M* with rows *i_1*,
 ..., *i_m* deleted, and columns *j_1*, ..., *j_n* deleted.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: transpose -->
+<!-- signatures: transpose(M) -->
 ### Function: transpose (M)
 
 Returns the transpose of *M*.
@@ -2131,6 +2338,9 @@ of `length (m)` rows and 1 column, such that `N[i,1] = M[i]`.
 Otherwise *M* is a symbol,
 and the return value is a noun expression `'transpose (M)`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: triangularize -->
+<!-- signatures: triangularize(M) -->
 ### Function: triangularize (M)
 
 Returns the upper triangular form of the matrix `M`,
@@ -2167,6 +2377,9 @@ maxima
              [  0    0    626 - 74 aa  238 - 74 bb ]
 ```
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: uniteigenvectors, ueivects -->
+<!-- signatures: uniteigenvectors(M), ueivects(M) -->
 ### Function: uniteigenvectors (M)
 
 Computes unit eigenvectors of the matrix *M*.
@@ -2200,6 +2413,9 @@ eigenvectors of which do not span the vector space of the appropriate dimension.
 
 `ueivects` is a synonym for `uniteigenvectors`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: unitvector, uvect -->
+<!-- signatures: unitvector(x), uvect(x) -->
 ### Function: unitvector (x)
 
 Returns $x/norm(x)$;
@@ -2211,6 +2427,9 @@ this is a unit vector in the same direction as *x*.
 
 `uvect` is a synonym for `unitvector`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: vect_cross -->
+<!-- signatures: vect_cross -->
 ### Variable: vect_cross
 
 Default value: `false`
@@ -2220,6 +2439,9 @@ Default value: `false`
 When `vect_cross` is `true`, it allows DIFF(X~Y,T) to work where
 ~ is defined in SHARE;VECT (where VECT_CROSS is set to `true`, anyway.)
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: vectorpotential -->
+<!-- signatures: vectorpotential(givencurl) -->
 ### Function: vectorpotential (givencurl)
 
 Returns the vector potential of a given curl vector, in the current coordinate
@@ -2227,6 +2449,9 @@ system.  `potentialzeroloc` has a similar role as for `potential`, but
 the order of the left-hand sides of the equations must be a cyclic permutation
 of the coordinate variables.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: vectorsimp -->
+<!-- signatures: vectorsimp(expr) -->
 ### Function: vectorsimp (expr)
 
 Applies simplifications and expansions according to the following global flags:
@@ -2268,6 +2493,9 @@ ${\rm div}\; {\rm grad}\; p.$
 
 These flags have all been declared `evflag`.
 
+<!-- category: LinearAlgebra -->
+<!-- keywords: zeromatrix -->
+<!-- signatures: zeromatrix(m, n) -->
 ### Function: zeromatrix (m, n)
 
 Returns an *m* by *n* matrix, all elements of which are zero.

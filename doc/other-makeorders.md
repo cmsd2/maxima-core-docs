@@ -1,5 +1,8 @@
 ## makeOrders
 
+<!-- category: Other -->
+<!-- keywords: makeOrders -->
+<!-- signatures: makeOrders(indvarlist, orderlist) -->
 ### Function: makeOrders (indvarlist, orderlist)
 
 Returns a list of all powers for a polynomial up to and including the arguments. 

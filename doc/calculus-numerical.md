@@ -1,6 +1,9 @@
 ## Numerical
 
-### Function: plotdf (plotdf, dydx, options, ..., plotdf, dvdu, u, v, options, ..., plotdf, dxdt, c, dydt, options, ..., plotdf, dudt, c, dvdt, u, c, v, options, ...)
+<!-- category: Calculus -->
+<!-- keywords: plotdf -->
+<!-- signatures: plotdf(dydx, options...), plotdf(dvdu, [u, v], options...), plotdf([dxdt, cdydt], options...), plotdf([dudt, cdvdt], [u, cv], options...) -->
+### Function: plotdf (dydx, options...)
 
 The function `plotdf` creates a two-dimensional plot of the direction
 field (also called slope field) for a first-order Ordinary Differential
@@ -235,6 +238,9 @@ maxima
 
 ![figures/plotdf5](figures/plotdf5.png)![figures/plotdf6](figures/plotdf6.png)
 
+<!-- category: Calculus -->
+<!-- keywords: ploteq -->
+<!-- signatures: ploteq(exp, ...options...) -->
 ### Function: ploteq (exp, ...options...)
 
 Plots equipotential curves for *exp*, which should be an expression
@@ -273,7 +279,10 @@ maxima
 Clicking on a point will plot the equipotential curve that passes by that point
 (in red) and the orthogonal trajectory (in blue).
 
-### Function: rk (rk, ODE, var, initial, domain, rk, ODE1, ..., ODEm, v1, ..., vm, init1, ..., initm, domain)
+<!-- category: Calculus -->
+<!-- keywords: rk -->
+<!-- signatures: rk(ODE, var, initial, domain), rk([ODE1, ..., ODEm], [v1, ..., vm], [init1, ..., initm], domain) -->
+### Function: rk (ODE, var, initial, domain)
 
 The first form solves numerically one first-order ordinary differential
 equation, and the second form solves a system of m of those equations,

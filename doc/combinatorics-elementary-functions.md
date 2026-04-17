@@ -1,6 +1,9 @@
 ## Elementary Functions
 
-### Function: !! ()
+<!-- category: Combinatorics -->
+<!-- keywords: !! -->
+<!-- signatures: !! -->
+### Function: !!
 
 The double factorial operator.
 
@@ -21,6 +24,9 @@ inclusive.
 For an argument `n` which is not an integer, float, or rational, `n!!`
 yields a noun form `genfact (n, n/2, 2)`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: binomial -->
+<!-- signatures: binomial(x, y) -->
 ### Function: binomial (x, y)
 
 The binomial coefficient `x!/(y! (x - y)!)`.
@@ -67,6 +73,9 @@ maxima
 (%o5)                    binomial(11, y)
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: factcomb -->
+<!-- signatures: factcomb(expr) -->
 ### Function: factcomb (expr)
 
 Tries to combine the coefficients of factorials in *expr*
@@ -121,6 +130,9 @@ maxima
 
 See also: `sumsplitfact`, `minfactorial`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: factlim -->
+<!-- signatures: factlim -->
 ### Variable: factlim
 
 Default value: 100000
@@ -129,7 +141,10 @@ Default value: 100000
 `factlim` specifies the highest factorial which is
 automatically expanded.  If it is -1 then all integers are expanded.
 
-### Function: factorial ()
+<!-- category: Combinatorics -->
+<!-- keywords: factorial, ! -->
+<!-- signatures: ! -->
+### Function: factorial
 
 Represents the factorial function.  Maxima treats `factorial (x)`
 the same as `x!`.
@@ -297,6 +312,9 @@ maxima
 
 See also: `factlim`, `gammalim`, `minfactorial`, `factcomb`, `gamma`, `bffac`, `cbffac`, `makegamma`, `factorial_expand`, `binomial`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: factorial_expand -->
+<!-- signatures: factorial_expand -->
 ### Variable: factorial_expand
 
 Default value: false
@@ -308,6 +326,9 @@ See `factorial` for an example.
 
 See also: `factorial`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: genfact -->
+<!-- signatures: genfact(x, y, z) -->
 ### Function: genfact (x, y, z)
 
 Returns the generalized factorial, defined as
@@ -319,6 +340,9 @@ When *x* and *z* are integers,
 and `floor(y)` is an integer,
 `genfact(x, y, y)` simplifies to a number.
 
+<!-- category: Combinatorics -->
+<!-- keywords: minfactorial -->
+<!-- signatures: minfactorial(expr) -->
 ### Function: minfactorial (expr)
 
 Examines *expr* for occurrences of two factorials
@@ -352,6 +376,9 @@ maxima
                          (n + 1) (n + 2)
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: sumsplitfact -->
+<!-- signatures: sumsplitfact -->
 ### Variable: sumsplitfact
 
 Default value: `true`

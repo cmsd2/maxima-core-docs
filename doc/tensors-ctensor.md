@@ -1,5 +1,8 @@
 ## ctensor
 
+<!-- category: Tensors -->
+<!-- keywords: bdvac -->
+<!-- signatures: bdvac(f) -->
 ### Function: bdvac (f)
 
 generates the covariant components of the vacuum field equations of
@@ -11,6 +14,9 @@ with functional dependencies, e.g., `'p(x)`.
 The components of the second rank covariant field tensor are
 represented by the array `bd`.
 
+<!-- category: Tensors -->
+<!-- keywords: bimetric -->
+<!-- signatures: bimetric() -->
 ### Function: bimetric ()
 
 *** NOT YET IMPLEMENTED ***
@@ -19,6 +25,9 @@ represented by the array `bd`.
 generates the field equations of Rosen’s bimetric theory. The field
 equations are the components of an array named `rosen`.
 
+<!-- category: Tensors -->
+<!-- keywords: cdisplay -->
+<!-- signatures: cdisplay(ten) -->
 ### Function: cdisplay (ten)
 
 displays all the elements of the tensor *ten*, as represented by
@@ -238,6 +247,9 @@ riem     = [        0         - -------------         0         0 ]
 (%o5)                                done
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: cframe_flag -->
+<!-- signatures: cframe_flag -->
 ### Variable: cframe_flag
 
 Causes computations to be performed relative to a moving frame as opposed to
@@ -247,6 +259,9 @@ and the frame metric `lfg`. For computations using a Cartesian frame,
 computations in a Lorentz frame, `lfg` should have the appropriate
 signature.
 
+<!-- category: Tensors -->
+<!-- keywords: cgeodesic -->
+<!-- signatures: cgeodesic(dis) -->
 ### Function: cgeodesic (dis)
 
 A function in the `ctensor` (component tensor)
@@ -254,6 +269,9 @@ package.  `cgeodesic` computes the geodesic equations of
 motion for a given metric.  They are stored in the array `geod[i]`.  If
 the argument *dis* is `true` then these equations are displayed.
 
+<!-- category: Tensors -->
+<!-- keywords: checkdiv -->
+<!-- signatures: checkdiv() -->
 ### Function: checkdiv ()
 
 computes the covariant divergence of the mixed second rank tensor
@@ -263,6 +281,9 @@ n = `dim`. If the argument to the function is `g` then the
 divergence of the Einstein tensor will be formed and must be zero.
 In addition, the divergence (vector) is given the array name `div`.
 
+<!-- category: Tensors -->
+<!-- keywords: christof -->
+<!-- signatures: christof(dis) -->
 ### Function: christof (dis)
 
 A function in the `ctensor` (component tensor)
@@ -278,7 +299,10 @@ displayed.  If the argument is `false` then the display of the elements
 will not occur. The array elements `mcs[i,j,k]` are defined in such a
 manner that the final index is contravariant.
 
-### Function: cmetric (cmetric, dis, cmetric)
+<!-- category: Tensors -->
+<!-- keywords: cmetric -->
+<!-- signatures: cmetric(dis), cmetric() -->
+### Function: cmetric (dis)
 
 A function in the `ctensor` (component tensor) package
 that computes the metric inverse and sets up the package for
@@ -299,6 +323,9 @@ If `cframe_flag` is `true`, the function expects that the values of
 defined. From these, the frame matrix `fr` and the inverse frame
 metric `ufg` are computed.
 
+<!-- category: Tensors -->
+<!-- keywords: cnonmet_flag -->
+<!-- signatures: cnonmet_flag -->
 ### Variable: cnonmet_flag
 
 Causes the nonmetricity coefficients to be included in the computation of
@@ -306,16 +333,25 @@ the connection coefficients. The nonmetricity coefficients are computed
 from the user-supplied nonmetricity vector `nm` by the function
 `nonmetricity`.
 
+<!-- category: Tensors -->
+<!-- keywords: cograd -->
+<!-- signatures: cograd() -->
 ### Function: cograd ()
 
 Computes the covariant gradient of a scalar function allowing the
 user to choose the corresponding vector name as the example under
 `contragrad` illustrates.
 
+<!-- category: Tensors -->
+<!-- keywords: contortion -->
+<!-- signatures: contortion(tr) -->
 ### Function: contortion (tr)
 
 Computes the (2,1) contortion coefficients from the torsion tensor *tr*.
 
+<!-- category: Tensors -->
+<!-- keywords: contragrad -->
+<!-- signatures: contragrad() -->
 ### Function: contragrad ()
 
 Computes the contravariant gradient of a scalar function allowing
@@ -358,12 +394,18 @@ below for the Schwarzschild metric illustrates:
                                      r
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: csetup -->
+<!-- signatures: csetup() -->
 ### Function: csetup ()
 
 A function in the `ctensor` (component tensor) package
 which initializes the package and allows the user to enter a metric
 interactively. See `ctensor` for more details.
 
+<!-- category: Tensors -->
+<!-- keywords: ct_coords -->
+<!-- signatures: ct_coords -->
 ### Variable: ct_coords
 
 Default value: `[]`
@@ -378,7 +420,10 @@ See also `csetup`.
 
 See also: `csetup`.
 
-### Function: ct_coordsys (ct_coordsys, coordinate_system, extra_arg, ct_coordsys, coordinate_system)
+<!-- category: Tensors -->
+<!-- keywords: ct_coordsys -->
+<!-- signatures: ct_coordsys(coordinate_system, extra_arg), ct_coordsys(coordinate_system) -->
+### Function: ct_coordsys (coordinate_system, extra_arg)
 
 Sets up a predefined coordinate system and metric. The argument
 *coordinate_system* can be one of the following symbols:
@@ -523,6 +568,9 @@ The optional argument *extra_arg* can be any one of the following:
 
 If the global variable `verbose` is set to `true`, `ct_coordsys` displays the values of `dim`, `ct_coords`, and either `lg` or `lfg` and `fri`, depending on the value of `cframe_flag`.
 
+<!-- category: Tensors -->
+<!-- keywords: ctaylor -->
+<!-- signatures: ctaylor() -->
 ### Function: ctaylor ()
 
 The `ctaylor` function truncates its argument by converting
@@ -658,16 +706,25 @@ linear in the variable `l`, we get much simpler expressions:
 This capability can be useful, for instance, when working in the weak
 field limit far from a gravitational source.
 
+<!-- category: Tensors -->
+<!-- keywords: ctaypov -->
+<!-- signatures: ctaypov -->
 ### Variable: ctaypov
 
 Maximum power used in Taylor-series expansion when `ctayswitch` is
 set to `true`.
 
+<!-- category: Tensors -->
+<!-- keywords: ctaypt -->
+<!-- signatures: ctaypt -->
 ### Variable: ctaypt
 
 Point around which Taylor-series expansion is carried out when
 `ctayswitch` is set to `true`.
 
+<!-- category: Tensors -->
+<!-- keywords: ctayswitch -->
+<!-- signatures: ctayswitch -->
 ### Variable: ctayswitch
 
 If set to `true`, causes some `ctensor` computations to be carried out using
@@ -675,17 +732,26 @@ Taylor-series expansions. Presently, `christof`, `ricci`,
 `uricci`, `einstein`, and `weyl` take into account this
 setting.
 
+<!-- category: Tensors -->
+<!-- keywords: ctayvar -->
+<!-- signatures: ctayvar -->
 ### Variable: ctayvar
 
 Variable used for Taylor-series expansion if `ctayswitch` is set to
 `true`.
 
+<!-- category: Tensors -->
+<!-- keywords: ctorsion_flag -->
+<!-- signatures: ctorsion_flag -->
 ### Variable: ctorsion_flag
 
 Causes the contortion tensor to be included in the computation of the
 connection coefficients. The contortion tensor itself is computed by
 `contortion` from the user-supplied tensor `tr`.
 
+<!-- category: Tensors -->
+<!-- keywords: ctransform -->
+<!-- signatures: ctransform(M) -->
 ### Function: ctransform (M)
 
 A function in the `ctensor` (component tensor)
@@ -694,21 +760,33 @@ upon an arbitrary square symmetric matrix *M*. The user must input the
 functions which define the transformation.  (Formerly called `transform`.)
 These may also be supplied in the form of a list as an optional second argument.
 
+<!-- category: Tensors -->
+<!-- keywords: ctrgsimp -->
+<!-- signatures: ctrgsimp -->
 ### Variable: ctrgsimp
 
 Causes trigonometric simplifications to be used when tensors are computed. Presently,
 `ctrgsimp` affects only computations involving a moving frame.
 
+<!-- category: Tensors -->
+<!-- keywords: deleten -->
+<!-- signatures: deleten(L, n) -->
 ### Function: deleten (L, n)
 
 Returns a new list consisting of *L* with the *n*’th element
 deleted.
 
+<!-- category: Tensors -->
+<!-- keywords: diagmatrixp -->
+<!-- signatures: diagmatrixp(M, n) -->
 ### Function: diagmatrixp (M, n)
 
 Returns `true` if the first *n* rows and *n* columns of *M*
 form a diagonal matrix or (2D) array.
 
+<!-- category: Tensors -->
+<!-- keywords: diagmetric -->
+<!-- signatures: diagmetric -->
 ### Variable: diagmetric
 
 Default value: `false`
@@ -721,6 +799,9 @@ by taking into consideration the diagonality of the metric. Reduced
 run times will, of course, result. Note: this option is set
 automatically by `csetup` if a diagonal metric is specified.
 
+<!-- category: Tensors -->
+<!-- keywords: dim -->
+<!-- signatures: dim -->
 ### Variable: dim
 
 Default value: 4
@@ -731,6 +812,9 @@ package.  `dim` is the dimension of the manifold with the
 default 4. The command `dim: n` will reset the dimension to any other
 value `n`.
 
+<!-- category: Tensors -->
+<!-- keywords: dscalar -->
+<!-- signatures: dscalar() -->
 ### Function: dscalar ()
 
 computes the tensor d’Alembertian of the scalar function once
@@ -764,6 +848,9 @@ dependencies have been declared upon the function. For example:
                                       r
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: einstein -->
+<!-- signatures: einstein(dis) -->
 ### Function: einstein (dis)
 
 A function in the `ctensor` (component tensor)
@@ -776,10 +863,16 @@ The variable `rateinstein` will cause the rational simplification on
 these components. If `ratfac` is `true` then the components will
 also be factored.
 
+<!-- category: Tensors -->
+<!-- keywords: fb -->
+<!-- signatures: fb -->
 ### Variable: fb
 
 Frame bracket coefficients, as computed by `frame_bracket`.
 
+<!-- category: Tensors -->
+<!-- keywords: findde -->
+<!-- signatures: findde(A, n) -->
 ### Function: findde (A, n)
 
 returns a list of the unique differential equations (expressions)
@@ -844,6 +937,9 @@ below, `findde` gives the following independent differential equations:
 (%o10)                     [[1, 1], [2, 2], [4, 4]]
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: frame_bracket -->
+<!-- signatures: frame_bracket(fr, fri, diagframe) -->
 ### Function: frame_bracket (fr, fri, diagframe)
 
 The frame bracket (`fb[]`).
@@ -859,11 +955,17 @@ ifb   = ( ifri    - ifri    ) ifr   ifr
    ab         d,e       e,d      a     b
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: gdet -->
+<!-- signatures: gdet -->
 ### Variable: gdet
 
 The determinant of the metric tensor `lg`. Computed by `cmetric` when
 `cframe_flag` is set to `false`.
 
+<!-- category: Tensors -->
+<!-- keywords: init_ctensor -->
+<!-- signatures: init_ctensor() -->
 ### Function: init_ctensor ()
 
 Initializes the `ctensor` package.
@@ -871,12 +973,18 @@ Initializes the `ctensor` package.
 
 The `init_ctensor` function reinitializes the `ctensor` package. It removes all arrays and matrices used by `ctensor`, resets all flags, resets `dim` to 4, and resets the frame metric to the Lorentz-frame.
 
+<!-- category: Tensors -->
+<!-- keywords: invariant1 -->
+<!-- signatures: invariant1() -->
 ### Function: invariant1 ()
 
 generates the mixed Euler- Lagrange tensor (field equations) for the
 invariant density of R^2. The field equations are the components of an
 array named `inv1`.
 
+<!-- category: Tensors -->
+<!-- keywords: invariant2 -->
+<!-- signatures: invariant2() -->
 ### Function: invariant2 ()
 
 *** NOT YET IMPLEMENTED ***
@@ -886,31 +994,52 @@ generates the mixed Euler- Lagrange tensor (field equations) for the
 invariant density of `ric[i,j]*uriem[i,j]`. The field equations are the
 components of an array named `inv2`.
 
+<!-- category: Tensors -->
+<!-- keywords: kinvariant -->
+<!-- signatures: kinvariant -->
 ### Variable: kinvariant
 
 The Kretschmann invariant. Computed by `rinvariant`.
 
+<!-- category: Tensors -->
+<!-- keywords: kt -->
+<!-- signatures: kt -->
 ### Variable: kt
 
 The contortion tensor, computed from `tr` by `contortion`.
 
+<!-- category: Tensors -->
+<!-- keywords: leinstein -->
+<!-- signatures: leinstein(dis) -->
 ### Function: leinstein (dis)
 
 Covariant Einstein-tensor. `leinstein` stores the values of the covariant Einstein tensor in the array `lein`. The covariant Einstein-tensor is computed from the mixed Einstein tensor `ein` by multiplying it with the metric tensor. If the argument *dis* is `true`, then the non-zero values of the covariant Einstein tensor are displayed.
 
+<!-- category: Tensors -->
+<!-- keywords: lfg -->
+<!-- signatures: lfg -->
 ### Variable: lfg
 
 The covariant frame metric. By default, it is initialized to the 4-dimensional Lorentz frame with signature (+,+,+,-). Used when `cframe_flag` is `true`.
 
+<!-- category: Tensors -->
+<!-- keywords: lg -->
+<!-- signatures: lg -->
 ### Variable: lg
 
 The metric tensor. This tensor must be specified (as a `dim` by `dim` matrix)
 before other computations can be performed.
 
+<!-- category: Tensors -->
+<!-- keywords: lriem -->
+<!-- signatures: lriem -->
 ### Variable: lriem
 
 The covariant Riemann tensor. Computed by `lriemann`.
 
+<!-- category: Tensors -->
+<!-- keywords: lriemann -->
+<!-- signatures: lriemann(dis) -->
 ### Function: lriemann (dis)
 
 Covariant Riemann-tensor (`lriem[]`).
@@ -927,23 +1056,38 @@ the (3,1) Riemann tensor is computed first.
 
 For information on index ordering, see `riemann`.
 
+<!-- category: Tensors -->
+<!-- keywords: nm -->
+<!-- signatures: nm -->
 ### Variable: nm
 
 User-supplied nonmetricity vector. Used by `nonmetricity`.
 
+<!-- category: Tensors -->
+<!-- keywords: nmc -->
+<!-- signatures: nmc -->
 ### Variable: nmc
 
 The nonmetricity coefficients, computed from `nm` by `nonmetricity`.
 
+<!-- category: Tensors -->
+<!-- keywords: nonmetricity -->
+<!-- signatures: nonmetricity(nm) -->
 ### Function: nonmetricity (nm)
 
 Computes the (2,1) nonmetricity coefficients from the nonmetricity
 vector *nm*.
 
+<!-- category: Tensors -->
+<!-- keywords: np -->
+<!-- signatures: np -->
 ### Variable: np
 
 A Newman-Penrose null tetrad. Computed by `nptetrad`.
 
+<!-- category: Tensors -->
+<!-- keywords: npi -->
+<!-- signatures: npi -->
 ### Variable: npi
 
 The raised-index Newman-Penrose null tetrad. Computed by `nptetrad`.
@@ -962,6 +1106,9 @@ Defined as `ug.np`. The product `np.transpose(npi)` is constant:
                               [  0    0   1  0 ]
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: nptetrad -->
+<!-- signatures: nptetrad() -->
 ### Function: nptetrad ()
 
 Computes a Newman-Penrose null tetrad (`np`) and its raised-index
@@ -989,6 +1136,9 @@ np  = (fri  - %i fri ) / sqrt(2)
   4       3         4
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: ntermst -->
+<!-- signatures: ntermst(f) -->
 ### Function: ntermst (f)
 
 gives the user a quick picture of the "size" of the doubly subscripted
@@ -997,6 +1147,9 @@ element corresponds to NTERMS of the components specified by the first
 elements.  In this way, it is possible to quickly find the non-zero
 expressions and attempt simplification.
 
+<!-- category: Tensors -->
+<!-- keywords: petrov -->
+<!-- signatures: petrov() -->
 ### Function: petrov ()
 
 Computes the Petrov classification of the metric characterized by `psi[0]`...`psi[4]`.
@@ -1082,10 +1235,16 @@ by Pollney, Skea, and d’Inverno, Class. Quant. Grav. 17 2885-2902 (2000).
 Except for some simple test cases, the implementation is untested as of
 December 19, 2004, and is likely to contain errors.
 
+<!-- category: Tensors -->
+<!-- keywords: ratchristof -->
+<!-- signatures: ratchristof -->
 ### Variable: ratchristof
 
 Causes rational simplification to be applied by `christof`.
 
+<!-- category: Tensors -->
+<!-- keywords: rateinstein -->
+<!-- signatures: rateinstein -->
 ### Variable: rateinstein
 
 Default value: `true`
@@ -1095,6 +1254,9 @@ If `true` rational simplification will be
 performed on the non-zero components of Einstein tensors; if
 `ratfac` is `true` then the components will also be factored.
 
+<!-- category: Tensors -->
+<!-- keywords: ratriemann -->
+<!-- signatures: ratriemann -->
 ### Variable: ratriemann
 
 Default value: `true`
@@ -1105,6 +1267,9 @@ simplification of Riemann tensors; if `true`, then rational
 simplification will be done; if `ratfac` is `true` then each of the
 components will also be factored.
 
+<!-- category: Tensors -->
+<!-- keywords: ratweyl -->
+<!-- signatures: ratweyl -->
 ### Variable: ratweyl
 
 Default value: `true`
@@ -1114,10 +1279,16 @@ If `true`, this switch causes the `weyl` function
 to apply rational simplification to the values of the Weyl tensor. If
 `ratfac` is `true`, then the components will also be factored.
 
+<!-- category: Tensors -->
+<!-- keywords: ric -->
+<!-- signatures: ric -->
 ### Variable: ric
 
 The covariant Ricci-tensor. Computed by `ricci`.
 
+<!-- category: Tensors -->
+<!-- keywords: ricci -->
+<!-- signatures: ricci(dis) -->
 ### Function: ricci (dis)
 
 A function in the `ctensor` (component tensor)
@@ -1125,6 +1296,9 @@ package. `ricci` computes the covariant (symmetric)
 components `ric[i,j]` of the Ricci tensor.  If the argument *dis* is `true`,
 then the non-zero components are displayed.
 
+<!-- category: Tensors -->
+<!-- keywords: riem -->
+<!-- signatures: riem -->
 ### Variable: riem
 
 The (3,1) Riemann tensor. Computed when the function `riemann` is invoked. For information about index ordering, see the description of `riemann`.
@@ -1132,6 +1306,9 @@ The (3,1) Riemann tensor. Computed when the function `riemann` is invoked. For i
 
 If `cframe_flag` is `true`, `riem` is computed from the covariant Riemann-tensor `lriem`.
 
+<!-- category: Tensors -->
+<!-- keywords: riemann -->
+<!-- signatures: riemann(dis) -->
 ### Function: riemann (dis)
 
 A function in the `ctensor` (component tensor)
@@ -1165,6 +1342,9 @@ computed directly from the Christoffel-symbols. If `cframe_flag` is
 `true`, the covariant Riemann-tensor is computed first from the
 frame field coefficients.
 
+<!-- category: Tensors -->
+<!-- keywords: rinvariant -->
+<!-- signatures: rinvariant() -->
 ### Function: rinvariant ()
 
 Forms the Kretschmann-invariant (`kinvariant`) obtained by
@@ -1179,11 +1359,17 @@ lriem[i,j,k,l]*uriem[i,j,k,l].
 
 This object is not automatically simplified since it can be very large.
 
+<!-- category: Tensors -->
+<!-- keywords: scurvature -->
+<!-- signatures: scurvature() -->
 ### Function: scurvature ()
 
 Returns the scalar curvature (obtained by contracting
 the Ricci tensor) of the Riemannian manifold with the given metric.
 
+<!-- category: Tensors -->
+<!-- keywords: symmetricp -->
+<!-- signatures: symmetricp(M, n) -->
 ### Function: symmetricp (M, n)
 
 Returns `true` if *M* is a *n* by *n* symmetric matrix or two-dimensional array,
@@ -1194,27 +1380,45 @@ If *n* is less than the size of *M*,
 `symmetricp` considers only the *n* by *n* submatrix (respectively, subarray)
 comprising rows 1 through *n* and columns 1 through *n*.
 
+<!-- category: Tensors -->
+<!-- keywords: tensorkill -->
+<!-- signatures: tensorkill -->
 ### Variable: tensorkill
 
 Variable indicating if the tensor package has been initialized. Set and used by
 `csetup`, reset by `init_ctensor`.
 
+<!-- category: Tensors -->
+<!-- keywords: tr -->
+<!-- signatures: tr -->
 ### Variable: tr
 
 User-supplied rank-3 tensor representing torsion. Used by `contortion`.
 
+<!-- category: Tensors -->
+<!-- keywords: ufg -->
+<!-- signatures: ufg -->
 ### Variable: ufg
 
 The inverse frame metric. Computed from `lfg` when `cmetric` is called while `cframe_flag` is set to `true`.
 
+<!-- category: Tensors -->
+<!-- keywords: ug -->
+<!-- signatures: ug -->
 ### Variable: ug
 
 The inverse of the metric tensor. Computed by `cmetric`.
 
+<!-- category: Tensors -->
+<!-- keywords: uric -->
+<!-- signatures: uric -->
 ### Variable: uric
 
 The mixed-index Ricci-tensor. Computed by `uricci`.
 
+<!-- category: Tensors -->
+<!-- keywords: uricci -->
+<!-- signatures: uricci(dis) -->
 ### Function: uricci (dis)
 
 This function first computes the
@@ -1226,16 +1430,25 @@ index `i` is covariant and the index `j` is contravariant), will be displayed
 directly.  Otherwise, `ricci(false)` will simply compute the entries
 of the array `uric[i,j]` without displaying the results.
 
+<!-- category: Tensors -->
+<!-- keywords: uriem -->
+<!-- signatures: uriem -->
 ### Variable: uriem
 
 The contravariant Riemann tensor. Computed by `uriemann`.
 
+<!-- category: Tensors -->
+<!-- keywords: uriemann -->
+<!-- signatures: uriemann(dis) -->
 ### Function: uriemann (dis)
 
 Computes the contravariant components of the Riemann
 curvature tensor as array elements `uriem[i,j,k,l]`.  These are displayed
 if *dis* is `true`.
 
+<!-- category: Tensors -->
+<!-- keywords: weyl -->
+<!-- signatures: weyl(dis) -->
 ### Function: weyl (dis)
 
 Computes the Weyl conformal tensor.  If the argument *dis* is

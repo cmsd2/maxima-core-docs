@@ -1,5 +1,8 @@
 ## Runtime Environment
 
+<!-- category: Programming -->
+<!-- keywords: absolute_real_time -->
+<!-- signatures: absolute_real_time() -->
 ### Function: absolute_real_time ()
 
 Returns the number of seconds since midnight, January 1, 1900 GMT.
@@ -26,7 +29,10 @@ Example:
 
 See also: `elapsed_real_time`, `elapsed_run_time`.
 
-### Function: decode_time (decode_time, T, tz_offset, decode_time, T)
+<!-- category: Programming -->
+<!-- keywords: decode_time -->
+<!-- signatures: decode_time(T, tz_offset), decode_time(T) -->
+### Function: decode_time (T, tz_offset)
 
 Given the number of seconds (possibly including a fractional part)
 since midnight, January 1, 1900 GMT,
@@ -82,6 +88,9 @@ Examples:
 
 See also: `encode_time`.
 
+<!-- category: Programming -->
+<!-- keywords: elapsed_real_time -->
+<!-- signatures: elapsed_real_time() -->
 ### Function: elapsed_real_time ()
 
 Returns the number of seconds (including fractions of a second)
@@ -111,6 +120,9 @@ Example:
 
 See also: `absolute_real_time`, `elapsed_run_time`.
 
+<!-- category: Programming -->
+<!-- keywords: elapsed_run_time -->
+<!-- signatures: elapsed_run_time() -->
 ### Function: elapsed_run_time ()
 
 Returns an estimate of the number of seconds (including fractions of a second)
@@ -140,7 +152,10 @@ Example:
 
 See also: `absolute_real_time`, `elapsed_real_time`.
 
-### Function: encode_time (encode_time, year, month, day, hours, minutes, seconds, tz_offset, encode_time, year, month, day, hours, minutes, seconds)
+<!-- category: Programming -->
+<!-- keywords: encode_time -->
+<!-- signatures: encode_time(year, month, day, hours, minutes, seconds, tz_offset), encode_time(year, month, day, hours, minutes, seconds) -->
+### Function: encode_time (year, month, day, hours, minutes, seconds, tz_offset)
 
 Given a time and date specified by
 *year*, *month*, *day*, *hours*, *minutes*, and *seconds*,
@@ -219,6 +234,9 @@ Examples:
 
 See also: `decode_time`.
 
+<!-- category: Programming -->
+<!-- keywords: maxima_tempdir -->
+<!-- signatures: maxima_tempdir -->
 ### Variable: maxima_tempdir
 
 `maxima_tempdir` names the directory in which Maxima creates some temporary
@@ -232,6 +250,9 @@ Maxima can locate it; otherwise Maxima makes a guess about a suitable directory.
 
 `maxima_tempdir` may be assigned a string which names a directory.
 
+<!-- category: Programming -->
+<!-- keywords: maxima_userdir -->
+<!-- signatures: maxima_userdir -->
 ### Variable: maxima_userdir
 
 `maxima_userdir` names a directory which Maxima searches to find Maxima and
@@ -249,7 +270,10 @@ However, assigning to `maxima_userdir` does not automatically change
 `file_search_maxima` and `file_search_lisp`;
 those variables must be changed separately.
 
-### Function: parse_timedate (parse_timedate, S)
+<!-- category: Programming -->
+<!-- keywords: parse_timedate -->
+<!-- signatures: parse_timedate(S) -->
+### Function: parse_timedate (S)
 
 Parses a string *S* representing a date or date and time of day
 and returns the number of seconds since midnight, January 1, 1900 GMT.
@@ -384,7 +408,10 @@ Midnight, January 1, 1900, GMT, in different indicated time zones.
 
 See also: `timedate`, `absolute_real_time`.
 
-### Function: room (room, room, true, room, false)
+<!-- category: Programming -->
+<!-- keywords: room -->
+<!-- signatures: room(), room(true), room(false) -->
+### Function: room ()
 
 Prints out a description of the state of storage and
 stack management in Maxima.  `room` calls the Lisp function of 
@@ -399,6 +426,9 @@ the same name.
 - *
 `room (false)` prints out a terse description.
 
+<!-- category: Programming -->
+<!-- keywords: sstatus -->
+<!-- signatures: sstatus(keyword, item) -->
 ### Function: sstatus (keyword, item)
 
 When *keyword* is the symbol `feature`, *item* is put on the list
@@ -413,7 +443,10 @@ See also `status`.
 
 See also: `status`.
 
-### Function: status (status, feature, status, feature, item)
+<!-- category: Programming -->
+<!-- keywords: status -->
+<!-- signatures: status(feature), status(feature, item) -->
+### Function: status (feature)
 
 Returns information about the presence or absence of certain system-dependent 
 features.
@@ -442,7 +475,10 @@ information.
 
 See also: `sstatus`.
 
-### Function: system (system, command, arg_1, ..., arg_n, system, command)
+<!-- category: Programming -->
+<!-- keywords: system -->
+<!-- signatures: system(command, arg_1, ..., arg_n), system(command) -->
+### Function: system (command, arg_1, ..., arg_n)
 
 Executes *command* as a separate process.
 The command is passed to the default shell for execution.
@@ -558,6 +594,9 @@ the call to `system` returns after *command* has completed.
 (%o1)                           0
 ```
 
+<!-- category: Programming -->
+<!-- keywords: time -->
+<!-- signatures: time(%o1, %o2, %o3, ...) -->
 ### Function: time (%o1, %o2, %o3, ...)
 
 Returns a list of the times, in seconds, taken to compute the output lines
@@ -570,7 +609,10 @@ can only be applied to output line variables; for any other variables,
 Set `showtime: true` to make Maxima print out the computation time 
 and elapsed time with each output line.
 
-### Function: timedate (timedate, T, tz_offset, timedate, T, timedate)
+<!-- category: Programming -->
+<!-- keywords: timedate -->
+<!-- signatures: timedate(T, tz_offset), timedate(T), timedate() -->
+### Function: timedate (T, tz_offset)
 
 `timedate(T, tz_offset)` returns a string
 representing the time *T* in the time zone *tz_offset*.

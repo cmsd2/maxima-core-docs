@@ -1,5 +1,8 @@
 ## Simplification
 
+<!-- category: Simplification -->
+<!-- keywords: additive -->
+<!-- signatures: additive -->
 ### Variable: additive
 
 If `declare(f,additive)` has been executed, then:
@@ -41,6 +44,9 @@ maxima
 (%o3)                 F3(c) + F3(b) + F3(a)
 ```
 
+<!-- category: Simplification -->
+<!-- keywords: antisymmetric -->
+<!-- signatures: antisymmetric -->
 ### Variable: antisymmetric
 
 If `declare(h,antisymmetric)` is done, this tells the simplifier that
@@ -101,6 +107,9 @@ maxima
 
 See also: `symmetric`, `commutative`.
 
+<!-- category: Simplification -->
+<!-- keywords: combine -->
+<!-- signatures: combine(expr) -->
 ### Function: combine (expr)
 
 Simplifies the sum *expr* by combining terms with the same
@@ -135,6 +144,9 @@ maxima
 
 See also: `rncombine`.
 
+<!-- category: Simplification -->
+<!-- keywords: commutative -->
+<!-- signatures: commutative -->
 ### Variable: commutative
 
 If `declare(h, commutative)` is done, this tells the simplifier that
@@ -183,6 +195,9 @@ maxima
 
 See also: `symmetric`.
 
+<!-- category: Simplification -->
+<!-- keywords: define_opproperty -->
+<!-- signatures: define_opproperty(property_name, simplifier_fn) -->
 ### Function: define_opproperty (property_name, simplifier_fn)
 
 Declares the symbol *property_name* to be an operator property,
@@ -249,6 +264,9 @@ maxima
 
 See also: `opproperties`.
 
+<!-- category: Simplification -->
+<!-- keywords: demoivre -->
+<!-- signatures: demoivre(expr) -->
 ### Function: demoivre (expr)
 
 The function `demoivre (expr)` converts one expression
@@ -268,6 +286,9 @@ The default value of `demoivre` is `false`.
 form.  `demoivre` and `exponentialize` cannot both be true at the same
 time.
 
+<!-- category: Simplification -->
+<!-- keywords: distrib -->
+<!-- signatures: distrib(expr) -->
 ### Function: distrib (expr)
 
 Distributes sums over products.  It differs from `expand` in that it works
@@ -309,6 +330,9 @@ maxima
                       b d + a d + b c + a c
 ```
 
+<!-- category: Simplification -->
+<!-- keywords: distribute_over -->
+<!-- signatures: distribute_over -->
 ### Variable: distribute_over
 
 Default value: `true`
@@ -450,6 +474,9 @@ maxima
 
 See also: `properties`.
 
+<!-- category: Simplification -->
+<!-- keywords: domain -->
+<!-- signatures: domain -->
 ### Variable: domain
 
 Default value: `real`
@@ -458,6 +485,9 @@ Default value: `real`
 When `domain` is set to `complex`, `sqrt (x^2)` will remain
 `sqrt (x^2)` instead of returning `abs(x)`.
 
+<!-- category: Simplification -->
+<!-- keywords: evenfun, oddfun -->
+<!-- signatures: oddfun -->
 ### Variable: evenfun
 
 `declare(f, evenfun)` or `declare(f, oddfun)` tells Maxima to recognize
@@ -503,7 +533,10 @@ maxima
 (%o6)                           0
 ```
 
-### Function: expand (expand, expr, expand, expr, p, n)
+<!-- category: Simplification -->
+<!-- keywords: expand -->
+<!-- signatures: expand(expr), expand(expr, p, n) -->
+### Function: expand (expr)
 
 Expand expression *expr*.
 Products of sums and exponentiated sums are
@@ -649,6 +682,9 @@ maxima
 
 See also: `resimplify`, `ev`.
 
+<!-- category: Simplification -->
+<!-- keywords: expandwrt -->
+<!-- signatures: expandwrt(expr, x_1, ..., x_n) -->
 ### Function: expandwrt (expr, x_1, ..., x_n)
 
 Expands expression `expr` with respect to the 
@@ -666,6 +702,9 @@ means of the switch `expandwrt_denom`.
 This function is autoloaded from
 `simplification/stopex.mac`.
 
+<!-- category: Simplification -->
+<!-- keywords: expandwrt_denom -->
+<!-- signatures: expandwrt_denom -->
 ### Variable: expandwrt_denom
 
 Default value: `false`
@@ -677,6 +716,9 @@ denominator of the expression will be expanded according to the
 arguments of `expandwrt`, but if `expandwrt_denom` is `false`,
 then only the numerator will be expanded in that way.
 
+<!-- category: Simplification -->
+<!-- keywords: expandwrt_factored -->
+<!-- signatures: expandwrt_factored(expr, x_1, ..., x_n) -->
 ### Function: expandwrt_factored (expr, x_1, ..., x_n)
 
 is similar to `expandwrt`, but treats expressions that are products
@@ -687,6 +729,9 @@ of `expr` that contain the variables *x_1*, ..., *x_n*.
 
 This function is autoloaded from `simplification/stopex.mac`.
 
+<!-- category: Simplification -->
+<!-- keywords: expon -->
+<!-- signatures: expon -->
 ### Variable: expon
 
 Default value: 0
@@ -697,6 +742,9 @@ is automatically expanded (independent of calls to `expand`).  For
 example, if `expon` is 4 then `(x+1)^(-5)` will not be automatically
 expanded.
 
+<!-- category: Simplification -->
+<!-- keywords: exponentialize -->
+<!-- signatures: exponentialize(expr) -->
 ### Function: exponentialize (expr)
 
 The function `exponentialize (expr)` converts 
@@ -713,6 +761,9 @@ The default value is `false`.
 `exponentialize` and `demoivre` cannot
 both be true at the same time.
 
+<!-- category: Simplification -->
+<!-- keywords: expop -->
+<!-- signatures: expop -->
 ### Variable: expop
 
 Default value: 0
@@ -725,6 +776,9 @@ Thus `(x + 1)^3`, when typed, will be automatically expanded only if
 executing `expand ((x + 1)^n)` will work only if `maxposex` is not
 less than n.
 
+<!-- category: Simplification -->
+<!-- keywords: lassociative -->
+<!-- signatures: lassociative -->
 ### Variable: lassociative
 
 `declare (g, lassociative)` tells the Maxima simplifier that `g` is
@@ -736,6 +790,9 @@ See also `rassociative`.
 
 See also: `rassociative`.
 
+<!-- category: Simplification -->
+<!-- keywords: linear -->
+<!-- signatures: linear -->
 ### Variable: linear
 
 One of Maxima’s operator properties.  For univariate `f` so
@@ -819,6 +876,9 @@ maxima
 
 See also: `sum`, `integrate`, `additive`, `outative`, `opproperties`.
 
+<!-- category: Simplification -->
+<!-- keywords: maxnegex -->
+<!-- signatures: maxnegex -->
 ### Variable: maxnegex
 
 Default value: 1000
@@ -829,6 +889,9 @@ be expanded by the `expand` command, see also `maxposex`.
 
 See also: `maxposex`.
 
+<!-- category: Simplification -->
+<!-- keywords: maxposex -->
+<!-- signatures: maxposex -->
 ### Variable: maxposex
 
 Default value: 1000
@@ -839,6 +902,9 @@ expanded with the `expand` command, see also `maxnegex`.
 
 See also: `maxnegex`.
 
+<!-- category: Simplification -->
+<!-- keywords: multiplicative -->
+<!-- signatures: multiplicative -->
 ### Variable: multiplicative
 
 `declare(f, multiplicative)` tells the Maxima simplifier that `f`
@@ -917,7 +983,10 @@ maxima
                         i = 1     i = 1
 ```
 
-### Function: multthru (multthru, expr, multthru, expr_1, expr_2)
+<!-- category: Simplification -->
+<!-- keywords: multthru -->
+<!-- signatures: multthru(expr), multthru(expr_1, expr_2) -->
+### Function: multthru (expr)
 
 Multiplies a factor (which should be a sum) of *expr* by the other factors
 of *expr*.  That is, *expr* is `f_1 f_2 ... f_n`
@@ -988,6 +1057,9 @@ maxima
 (%i8) expand (a.(b+c.(d+e)+f));
 ```
 
+<!-- category: Simplification -->
+<!-- keywords: negdistrib -->
+<!-- signatures: negdistrib -->
 ### Variable: negdistrib
 
 Default value: `true`
@@ -1030,6 +1102,9 @@ maxima
 (%o4)                       - (y + x)
 ```
 
+<!-- category: Simplification -->
+<!-- keywords: opproperties -->
+<!-- signatures: opproperties -->
 ### Variable: opproperties
 
 `opproperties` is the list of the special operator properties recognized
@@ -1057,6 +1132,9 @@ lassociative, rassociative]
 
 See also: `define_opproperty`.
 
+<!-- category: Simplification -->
+<!-- keywords: outative -->
+<!-- signatures: outative -->
 ### Variable: outative
 
 `declare(f, outative)` tells the Maxima simplifier that constant factors
@@ -1113,6 +1191,9 @@ maxima
 
 See also: `sum`, `integrate`, `limit`.
 
+<!-- category: Simplification -->
+<!-- keywords: radcan -->
+<!-- signatures: radcan(expr) -->
 ### Function: radcan (expr)
 
 Simplifies *expr*, which can contain logs, exponentials, and radicals, by 
@@ -1171,6 +1252,9 @@ maxima
 (%o3)                       %e    - 1
 ```
 
+<!-- category: Simplification -->
+<!-- keywords: radexpand -->
+<!-- signatures: radexpand -->
 ### Variable: radexpand
 
 Default value: `true`
@@ -1202,6 +1286,9 @@ If `radexpand` is `false`, or `radexpand` is `true` and
 
 Note that `domain` only matters when `radexpand` is `true`.
 
+<!-- category: Simplification -->
+<!-- keywords: rassociative -->
+<!-- signatures: rassociative -->
 ### Variable: rassociative
 
 `declare (g, rassociative)` tells the Maxima
@@ -1213,6 +1300,9 @@ See also `lassociative`.
 
 See also: `lassociative`.
 
+<!-- category: Simplification -->
+<!-- keywords: resimplify -->
+<!-- signatures: resimplify(expr) -->
 ### Function: resimplify (expr)
 
 Resimplifies the expression *expr* based on the current environment.  This
@@ -1259,6 +1349,9 @@ maxima
 (%o5)                           1
 ```
 
+<!-- category: Simplification -->
+<!-- keywords: scsimp -->
+<!-- signatures: scsimp(expr, rule_1, ..., rule_n) -->
 ### Function: scsimp (expr, rule_1, ..., rule_n)
 
 Sequential Comparative Simplification (method due to Stoute).
@@ -1271,6 +1364,9 @@ simplifications are tried, it returns the original answer.
 
 `example (scsimp)` displays some examples.
 
+<!-- category: Simplification -->
+<!-- keywords: simp -->
+<!-- signatures: simp -->
 ### Variable: simp
 
 Default value: `true`
@@ -1350,6 +1446,9 @@ maxima
 
 See also: `ev`.
 
+<!-- category: Simplification -->
+<!-- keywords: symmetric -->
+<!-- signatures: symmetric -->
 ### Variable: symmetric
 
 `declare (h, symmetric)` tells the Maxima
@@ -1361,6 +1460,9 @@ simplifies to `h (x, y, z)`.
 
 See also: `commutative`.
 
+<!-- category: Simplification -->
+<!-- keywords: xthru -->
+<!-- signatures: xthru(expr) -->
 ### Function: xthru (expr)
 
 Combines all terms of *expr* (which should be a sum) over a common

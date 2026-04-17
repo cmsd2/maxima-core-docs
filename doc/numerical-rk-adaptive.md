@@ -1,6 +1,9 @@
 ## rk_adaptive
 
-### Function: rk_adaptive (expr, vars, vars_initval, var)
+<!-- category: Numerical -->
+<!-- keywords: rk_adaptive -->
+<!-- signatures: rk_adaptive(expr, vars, vars_initval, var,  -->
+### Function: rk_adaptive ((expr, vars, vars_initval, var,)
 
 *startval*, *endval*, *params1...*)
 

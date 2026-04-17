@@ -1,6 +1,9 @@
 ## hompack
 
-### Function: hompack_polsys (eqnlist, varlist, iflg1, epsbig, epssml, numrr)
+<!-- category: Numerical -->
+<!-- keywords: hompack_polsys -->
+<!-- signatures: hompack_polsys(eqnlist, varlist[, iflg1, epsbig, epssml, numrr]) -->
+### Function: hompack_polsys (eqnlist, varlist[, iflg1, epsbig, epssml, numrr])
 
 Finds the roots of the system of polynomials in the variables
 *varlist* in the system of equations in *eqnlist*.  The number

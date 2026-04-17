@@ -1,6 +1,9 @@
 ## to_poly_solve
 
-### Function: %and ()
+<!-- category: Solving -->
+<!-- keywords: %and -->
+<!-- signatures: %and -->
+### Function: %and
 
 The operator `%and` is a simplifying nonshort-circuited logical
 conjunction.  Maxima simplifies an `%and` expression to either true,
@@ -112,6 +115,9 @@ neither is there support for distributing a logical negation over
 specifications of this function might change and its functionality
 might be merged into other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: %if -->
+<!-- signatures: %if(bool, a, b) -->
 ### Function: %if (bool, a, b)
 
 The operator `%if` is a simplifying conditional.  The
@@ -174,7 +180,10 @@ inequation.
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
-### Function: %or ()
+<!-- category: Solving -->
+<!-- keywords: %or -->
+<!-- signatures: %or -->
+### Function: %or
 
 The operator `%or` is a simplifying nonshort-circuited logical
 disjunction.  Maxima simplifies an `%or` expression to either
@@ -288,7 +297,10 @@ neither is there support for distributing a logical negation over
 specifications of this function might change and its functionality
 might be merged into other Maxima functions.
 
-### Function: %union (%union, soln_1, soln_2, soln_3, ..., %union)
+<!-- category: Solving -->
+<!-- keywords: %union -->
+<!-- signatures: %union(soln_1, soln_2, soln_3, ...), %union() -->
+### Function: %union (soln_1, soln_2, soln_3, ...)
 
 `%union(soln_1, soln_2, soln_3, ...)` represents the union of its arguments,
 each of which represents a solution set,
@@ -365,6 +377,9 @@ of logical operators.
 (%o4)                       %union()
 ```
 
+<!-- category: Solving -->
+<!-- keywords: complex_number_p -->
+<!-- signatures: complex_number_p(x) -->
 ### Function: complex_number_p (x)
 
 The predicate `complex_number_p` returns true if its argument is
@@ -395,6 +410,9 @@ numbers (including big floating point); for all other inputs,
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: compose_functions -->
+<!-- signatures: compose_functions(l) -->
 ### Function: compose_functions (l)
 
 The function call `compose_functions(l)` returns a lambda form that is
@@ -473,6 +491,9 @@ deduce that these lambda forms are semantically equal:
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: dfloat -->
+<!-- signatures: dfloat(x) -->
 ### Function: dfloat (x)
 
 The function `dfloat` is a similar to `float`, but the function
@@ -514,6 +535,9 @@ value false) and a function name.
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: elim -->
+<!-- signatures: elim(l, x) -->
 ### Function: elim (l, x)
 
 The function `elim` eliminates the variables in the set or list
@@ -602,6 +626,9 @@ equations can have *spurious* solutions.
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: elim_allbut -->
+<!-- signatures: elim_allbut(l, x) -->
 ### Function: elim_allbut (l, x)
 
 This function is similar to `elim`, except that it eliminates all the
@@ -631,6 +658,9 @@ in in the list `x`
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: eliminate_using -->
+<!-- signatures: eliminate_using(l, e, x) -->
 ### Function: eliminate_using (l, e, x)
 
 Using `e` as the pivot, eliminate the symbol `x` from the
@@ -671,7 +701,10 @@ returns a set.
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
-### Function: fourier_elim (eq1, eq2, ..., var1, var, ...)
+<!-- category: Solving -->
+<!-- keywords: fourier_elim -->
+<!-- signatures: fourier_elim([eq1, eq2, ...], [var1, var, ...]) -->
+### Function: fourier_elim ([eq1, eq2, ...], [var1, var, ...])
 
 Fourier elimination is the analog of Gauss elimination for linear inequations
 (equations or inequalities).  The function call `fourier_elim([eq1, eq2, ...], [var1, var2, ...])` does Fourier elimination on a list of linear
@@ -777,6 +810,9 @@ handles some expressions that are the product or quotient of linear terms:
 
 **To use** `load("fourier_elim")`
 
+<!-- category: Solving -->
+<!-- keywords: isreal_p -->
+<!-- signatures: isreal_p(e) -->
 ### Function: isreal_p (e)
 
 The predicate `isreal_p` returns true when Maxima is able to
@@ -839,6 +875,9 @@ return false; however
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: new_variable -->
+<!-- signatures: new_variable(type) -->
 ### Function: new_variable (type)
 
 Return a unique symbol of the form `%[z,n,r,c,g]k`, where
@@ -897,7 +936,10 @@ will protect against errors similar to
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
-### Function: nicedummies ()
+<!-- category: Solving -->
+<!-- keywords: nicedummies -->
+<!-- signatures: nicedummies -->
+### Function: nicedummies
 
 Starting with zero, the function `nicedummies` re-indexes the variables 
 in an expression that were introduced by `new_variable`;
@@ -924,6 +966,9 @@ in an expression that were introduced by `new_variable`;
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: parg -->
+<!-- signatures: parg(x) -->
 ### Function: parg (x)
 
 The function `parg` is a simplifying version of the complex argument function 
@@ -991,6 +1036,9 @@ to be complex, the `parg` can return incorrect values; for example
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: real_imagpart_to_conjugate -->
+<!-- signatures: real_imagpart_to_conjugate(e) -->
 ### Function: real_imagpart_to_conjugate (e)
 
 The function `real_imagpart_to_conjugate` replaces all occurrences
@@ -1016,6 +1064,9 @@ involving the `conjugate`.
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: rectform_log_if_constant -->
+<!-- signatures: rectform_log_if_constant(e) -->
 ### Function: rectform_log_if_constant (e)
 
 The function `rectform_log_if_constant` converts all terms of the form
@@ -1046,6 +1097,9 @@ either a declared constant expression or explicitly declared constant
 experimental; the specifications of this function might change might change and its functionality
 might be merged into other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: simp_inequality -->
+<!-- signatures: simp_inequality(e) -->
 ### Function: simp_inequality (e)
 
 The function `simp_inequality` applies basic simplifications to inequations,
@@ -1173,6 +1227,9 @@ for example:
 (%o15) x<0 and x>0
 ```
 
+<!-- category: Solving -->
+<!-- keywords: standardize_inverse_trig -->
+<!-- signatures: standardize_inverse_trig(e) -->
 ### Function: standardize_inverse_trig (e)
 
 This function applies the identities `cot(x) = atan(1/x), acsc(x) = asin(1/x),` and similarly for `asec, acoth, acsch`
@@ -1187,6 +1244,9 @@ Eqs. 4.4.6 through 4.4.8 and 4.6.4 through 4.6.6.
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: subst_parallel -->
+<!-- signatures: subst_parallel(l, e) -->
 ### Function: subst_parallel (l, e)
 
 When `l` is a single equation or a list of equations, substitute
@@ -1269,6 +1329,9 @@ log: encountered log(0).
 specifications of this function might change might change and its
 functionality might be merged into other Maxima functions.
 
+<!-- category: Solving -->
+<!-- keywords: to_poly -->
+<!-- signatures: to_poly(e, l) -->
 ### Function: to_poly (e, l)
 
 The function `to_poly` attempts to convert the equation `e`
@@ -1351,7 +1414,10 @@ one of its roots, use the commands
 specifications might change and its functionality might be merged into
 other Maxima functions.
 
-### Function: to_poly_solve (e, l, options)
+<!-- category: Solving -->
+<!-- keywords: to_poly_solve -->
+<!-- signatures: to_poly_solve(e, l, [options]) -->
+### Function: to_poly_solve (e, l, [options])
 
 The function `to_poly_solve` tries to solve the equations $e$
 for the variables $l$.  The equation(s) $e$ can either be a

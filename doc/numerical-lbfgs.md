@@ -1,6 +1,9 @@
 ## lbfgs
 
-### Function: lbfgs (lbfgs, FOM, X, X0, epsilon, iprint, lbfgs, FOM, grad, X, X0, epsilon, iprint)
+<!-- category: Numerical -->
+<!-- keywords: lbfgs -->
+<!-- signatures: lbfgs(FOM, X, X0, epsilon, iprint), lbfgs([FOM, grad]X, X0, epsilon, iprint) -->
+### Function: lbfgs (FOM, X, X0, epsilon, iprint)
 
 Finds an approximate solution of the unconstrained minimization of the figure of merit *FOM*
 over the list of variables *X*,
@@ -390,6 +393,9 @@ THE MINIMIZATION TERMINATED WITHOUT DETECTING ERRORS.
 
 See also: `lbfgs_nfeval_max`, `lbfgs_ncorrections`.
 
+<!-- category: Numerical -->
+<!-- keywords: lbfgs_ncorrections -->
+<!-- signatures: lbfgs_ncorrections -->
 ### Variable: lbfgs_ncorrections
 
 Default value: 25
@@ -398,6 +404,9 @@ Default value: 25
 `lbfgs_ncorrections` is the number of corrections applied
 to the approximate inverse Hessian matrix which is maintained by `lbfgs`.
 
+<!-- category: Numerical -->
+<!-- keywords: lbfgs_nfeval_max -->
+<!-- signatures: lbfgs_nfeval_max -->
 ### Variable: lbfgs_nfeval_max
 
 Default value: 100

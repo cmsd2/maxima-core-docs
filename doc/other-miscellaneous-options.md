@@ -1,5 +1,8 @@
 ## Miscellaneous Options
 
+<!-- category: Other -->
+<!-- keywords: askexp -->
+<!-- signatures: askexp -->
 ### Variable: askexp
 
 When `asksign` is called,
@@ -9,6 +12,9 @@ When `asksign` is called,
 At one time, it was possible for a user to inspect `askexp`
 by entering a Maxima break with control-A.
 
+<!-- category: Other -->
+<!-- keywords: genindex -->
+<!-- signatures: genindex -->
 ### Variable: genindex
 
 Default value: `i`
@@ -17,6 +23,9 @@ Default value: `i`
 `genindex` is the alphabetic prefix used to generate the
 next variable of summation when necessary.
 
+<!-- category: Other -->
+<!-- keywords: gensumnum -->
+<!-- signatures: gensumnum -->
 ### Variable: gensumnum
 
 Default value: 0
@@ -26,7 +35,10 @@ Default value: 0
 of summation.  If it is set to `false` then the index will consist only
 of `genindex` with no numeric suffix.
 
-### Function: gensym (gensym, gensym, x)
+<!-- category: Other -->
+<!-- keywords: gensym -->
+<!-- signatures: gensym(), gensym(x) -->
+### Function: gensym ()
 
 `gensym()` creates and returns a fresh symbol.
 
@@ -67,6 +79,9 @@ Examples:
 (%o3)                         g123
 ```
 
+<!-- category: Other -->
+<!-- keywords: packagefile -->
+<!-- signatures: packagefile -->
 ### Variable: packagefile
 
 Default value: `false`
@@ -84,7 +99,10 @@ creating Maxima init files.
 
 See also: `save`, `translate`, `values`, `functions`.
 
-### Function: remvalue (remvalue, name_1, ..., name_n, remvalue, all)
+<!-- category: Other -->
+<!-- keywords: remvalue -->
+<!-- signatures: remvalue(name_1, ..., name_n), remvalue(all) -->
+### Function: remvalue (name_1, ..., name_n)
 
 Removes the values of user variables *name_1*, ..., *name_n*
 (which can be subscripted) from the system.
@@ -99,6 +117,9 @@ See also `values`.
 
 See also: `values`.
 
+<!-- category: Other -->
+<!-- keywords: rncombine -->
+<!-- signatures: rncombine(expr) -->
 ### Function: rncombine (expr)
 
 Transforms *expr* by combining all terms of *expr* that have
@@ -118,6 +139,9 @@ cancellations.
 
 See also: `combine`.
 
+<!-- category: Other -->
+<!-- keywords: setup_autoload -->
+<!-- signatures: setup_autoload(filename, function_1, ..., function_n) -->
 ### Function: setup_autoload (filename, function_1, ..., function_n)
 
 Specifies that if any of *function_1*, ..., *function_n* are
@@ -166,7 +190,10 @@ Warning - you are redefining the Macsyma function legendre_p
 
 See also: `memoizing-functions`.
 
-### Function: tcl_output (tcl_output, list, i0, skip, tcl_output, list, i0, tcl_output, list_1, ..., list_n, i)
+<!-- category: Other -->
+<!-- keywords: tcl_output -->
+<!-- signatures: tcl_output(list, i0, skip), tcl_output(list, i0), tcl_output([list_1, ..., list_n], i) -->
+### Function: tcl_output (list, i0, skip)
 
 Prints elements of a list enclosed by curly braces `{ }`,
 suitable as part of a program in the Tcl/Tk language.

@@ -1,5 +1,8 @@
 ## sym
 
+<!-- category: Algebra -->
+<!-- keywords: comp2pui -->
+<!-- signatures: comp2pui(n, L) -->
 ### Function: comp2pui (n, L)
 
 implements passing from the complete symmetric functions given in the list
@@ -19,6 +22,9 @@ otherwise the size is set to *n*.
 (%o1)    [4, g, 2 h2 - g , 3 h3 - g h2 + g (g  - 2 h2)]
 ```
 
+<!-- category: Algebra -->
+<!-- keywords: cont2part -->
+<!-- signatures: cont2part(pc, lvar) -->
 ### Function: cont2part (pc, lvar)
 
 returns the partitioned polynomial associated to the contracted form
@@ -40,7 +46,10 @@ returns the partitioned polynomial associated to the contracted form
 (%o2)              [[1, 5, 0], [2 a  b, 4, 1]]
 ```
 
-### Function: direct (p_1, ..., p_n, y, f, lvar_1, ..., lvar_n)
+<!-- category: Algebra -->
+<!-- keywords: direct -->
+<!-- signatures: direct([p_1, ..., p_n], y, f, [lvar_1, ..., lvar_n]) -->
+### Function: direct ([p_1, ..., p_n], y, f, [lvar_1, ..., lvar_n])
 
 calculates the direct image (see M. Giusti, D. Lazard et A. Valibouze,
 ISSAC 1988, Rome) associated to the function *f*, in the lists of
@@ -145,6 +154,9 @@ Functions of `sym` used in this function:
 (so `elem`), `multi_pui` (so `pui`), `pui2ele`, `ele2pui`
 (if the flag `direct` is in `puissances`).
 
+<!-- category: Algebra -->
+<!-- keywords: ele2comp -->
+<!-- signatures: ele2comp(m, L) -->
 ### Function: ele2comp (m, L)
 
 Goes from the elementary symmetric functions to the compete functions.
@@ -153,6 +165,9 @@ Similar to `comp2ele` and `comp2pui`.
 
 Other functions for changing bases: `comp2ele`.
 
+<!-- category: Algebra -->
+<!-- keywords: ele2polynome -->
+<!-- signatures: ele2polynome(L, z) -->
 ### Function: ele2polynome (L, z)
 
 returns the polynomial in *z* s.t. the elementary symmetric
@@ -187,6 +202,9 @@ The inverse: `polynome2ele (P, z)`.
 Also see:
 `polynome2ele`, `pui2polynome`.
 
+<!-- category: Algebra -->
+<!-- keywords: ele2pui -->
+<!-- signatures: ele2pui(m, L) -->
 ### Function: ele2pui (m, L)
 
 goes from the elementary symmetric functions to the complete functions.
@@ -195,6 +213,9 @@ Similar to `comp2ele` and `comp2pui`.
 
 Other functions for changing bases: `comp2ele`.
 
+<!-- category: Algebra -->
+<!-- keywords: elem -->
+<!-- signatures: elem(ele, sym, lvar) -->
 ### Function: elem (ele, sym, lvar)
 
 decomposes the symmetric polynomial *sym*, in the variables
@@ -236,6 +257,9 @@ contracted form (which here depends on only two of its variables) is
 
 Other functions for changing bases: `comp2ele`.
 
+<!-- category: Algebra -->
+<!-- keywords: explose -->
+<!-- signatures: explose(pc, lvar) -->
 ### Function: explose (pc, lvar)
 
 returns the symmetric polynomial associated with the contracted form
@@ -250,6 +274,9 @@ returns the symmetric polynomial associated with the contracted form
 (%o1)                  a z + a y + a x + 1
 ```
 
+<!-- category: Algebra -->
+<!-- keywords: kostka -->
+<!-- signatures: kostka(part_1, part_2) -->
 ### Function: kostka (part_1, part_2)
 
 written by P. Esperet, calculates the Kostka number of the partition
@@ -264,6 +291,9 @@ written by P. Esperet, calculates the Kostka number of the partition
 (%o1)                           6
 ```
 
+<!-- category: Algebra -->
+<!-- keywords: lgtreillis -->
+<!-- signatures: lgtreillis(n, m) -->
 ### Function: lgtreillis (n, m)
 
 returns the list of partitions of weight *n* and length *m*.
@@ -282,6 +312,9 @@ Also see: `ltreillis`, `treillis` and `treinat`.
 
 See also: `ltreillis`, `treillis`, `treinat`.
 
+<!-- category: Algebra -->
+<!-- keywords: ltreillis -->
+<!-- signatures: ltreillis(n, m) -->
 ### Function: ltreillis (n, m)
 
 returns the list of partitions of weight *n* and length less than or
@@ -301,6 +334,9 @@ Also see: `lgtreillis`, `treillis` and `treinat`.
 
 See also: `lgtreillis`, `treillis`, `treinat`.
 
+<!-- category: Algebra -->
+<!-- keywords: mon2schur -->
+<!-- signatures: mon2schur(L) -->
 ### Function: mon2schur (L)
 
 The list *L* represents the Schur function $S_L$: we have
@@ -356,6 +392,9 @@ Other functions for changing bases: `comp2ele`.
 
 See also: `treinat`, `kostka`.
 
+<!-- category: Algebra -->
+<!-- keywords: multi_elem -->
+<!-- signatures: multi_elem(l_elem, multi_pc, l_var) -->
 ### Function: multi_elem (l_elem, multi_pc, l_var)
 
 decomposes a multi-symmetric polynomial in the multi-contracted form
@@ -383,7 +422,10 @@ decomposes a multi-symmetric polynomial in the multi-contracted form
 
 Other functions for changing bases: `comp2ele`.
 
-### Function: multi_orbit (P, lvar_1, lvar_2, ..., lvar_p)
+<!-- category: Algebra -->
+<!-- keywords: multi_orbit -->
+<!-- signatures: multi_orbit(P, [lvar_1, lvar_2, ..., lvar_p]) -->
+### Function: multi_orbit (P, [lvar_1, lvar_2, ..., lvar_p])
 
 *P* is a polynomial in the set of variables contained in the lists
 *lvar_1*, *lvar_2*, ..., *lvar_p*. This function returns the
@@ -408,7 +450,10 @@ lists.
 
 Also see: `orbit` for the action of a single symmetric group.
 
-### Function: multi_pui ()
+<!-- category: Algebra -->
+<!-- keywords: multi_pui -->
+<!-- signatures: multi_pui -->
+### Function: multi_pui
 
 is to the function `pui` what the function `multi_elem` is to
 the function `elem`.
@@ -426,6 +471,9 @@ the function `elem`.
                                    2       2
 ```
 
+<!-- category: Algebra -->
+<!-- keywords: multinomial -->
+<!-- signatures: multinomial(r, part) -->
 ### Function: multinomial (r, part)
 
 where *r* is the weight of the partition *part*.  This function
@@ -433,6 +481,9 @@ returns the associate multinomial coefficient: if the parts of
 *part* are *i_1*, *i_2*, ..., *i_k*, the result is
 `r!/(i_1! i_2! ... i_k!)`.
 
+<!-- category: Algebra -->
+<!-- keywords: multsym -->
+<!-- signatures: multsym(ppart_1, ppart_2, n) -->
 ### Function: multsym (ppart_1, ppart_2, n)
 
 returns the product of the two symmetric polynomials in *n*
@@ -461,6 +512,9 @@ Functions for changing the representations of a symmetric polynomial:
 `contract`, `cont2part`, `explose`, `part2cont`,
 `partpol`, `tcontract`, `tpartpol`.
 
+<!-- category: Algebra -->
+<!-- keywords: orbit -->
+<!-- signatures: orbit(P, lvar) -->
 ### Function: orbit (P, lvar)
 
 computes the orbit of the polynomial *P* in the variables in the list
@@ -488,6 +542,9 @@ groups on a polynomial.
 
 See also: `multi_orbit`.
 
+<!-- category: Algebra -->
+<!-- keywords: part2cont -->
+<!-- signatures: part2cont(ppart, lvar) -->
 ### Function: part2cont (ppart, lvar)
 
 goes from the partitioned form to the contracted form of a symmetric polynomial.
@@ -503,6 +560,9 @@ The contracted form is rendered with the variables in *lvar*.
 (%o1)                      2 a  b x  y
 ```
 
+<!-- category: Algebra -->
+<!-- keywords: partpol -->
+<!-- signatures: partpol(psym, lvar) -->
 ### Function: partpol (psym, lvar)
 
 *psym* is a symmetric polynomial in the variables of the list
@@ -517,10 +577,16 @@ The contracted form is rendered with the variables in *lvar*.
 (%o1)               [[3, 1, 1], [- a, 1, 0]]
 ```
 
+<!-- category: Algebra -->
+<!-- keywords: permut -->
+<!-- signatures: permut(L) -->
 ### Function: permut (L)
 
 returns the list of permutations of the list *L*.
 
+<!-- category: Algebra -->
+<!-- keywords: polynome2ele -->
+<!-- signatures: polynome2ele(P, x) -->
 ### Function: polynome2ele (P, x)
 
 gives the list `l = [n, e_1, ..., e_n]`
@@ -546,6 +612,9 @@ of the roots of *P*.
 
 The inverse: `ele2polynome (l, x)`
 
+<!-- category: Algebra -->
+<!-- keywords: prodrac -->
+<!-- signatures: prodrac(L, k) -->
 ### Function: prodrac (L, k)
 
 *L* is a list containing the elementary symmetric functions 
@@ -555,6 +624,9 @@ are the *k* by *k* products of the elements of *A*.
 
 Also see `somrac`.
 
+<!-- category: Algebra -->
+<!-- keywords: pui -->
+<!-- signatures: pui(L, sym, lvar) -->
 ### Function: pui (L, sym, lvar)
 
 decomposes the symmetric polynomial *sym*, in the variables in the
@@ -596,6 +668,9 @@ be 2). The function `pui` is used in the same way.
 
 Other functions for changing bases: `comp2ele`.
 
+<!-- category: Algebra -->
+<!-- keywords: pui2comp -->
+<!-- signatures: pui2comp(n, lpui) -->
 ### Function: pui2comp (n, lpui)
 
 renders the list of the first *n* complete functions (with the
@@ -637,6 +712,9 @@ otherwise it is its first element (as in `comp2ele` and
 
 Other functions for changing bases: `comp2ele`.
 
+<!-- category: Algebra -->
+<!-- keywords: pui2ele -->
+<!-- signatures: pui2ele(n, lpui) -->
 ### Function: pui2ele (n, lpui)
 
 effects the passage from power functions to the elementary symmetric functions.
@@ -647,6 +725,9 @@ elementary symmetric functions from 1 to *n*, and if the flag is
 
 Other functions for changing bases: `comp2ele`.
 
+<!-- category: Algebra -->
+<!-- keywords: pui2polynome -->
+<!-- signatures: pui2polynome(x, lpui) -->
 ### Function: pui2polynome (x, lpui)
 
 calculates the polynomial in *x* whose power functions of the roots
@@ -686,7 +767,10 @@ See also:
 
 See also: `polynome2ele`, `ele2polynome`.
 
-### Function: pui_direct (orbite, lvar_1, ..., lvar_n, d_1, d_2, ..., d_n)
+<!-- category: Algebra -->
+<!-- keywords: pui_direct -->
+<!-- signatures: pui_direct(orbite, [lvar_1, ..., lvar_n], [d_1, d_2, ..., d_n]) -->
+### Function: pui_direct (orbite, [lvar_1, ..., lvar_n], [d_1, d_2, ..., d_n])
 
 Let *f* be a polynomial in *n* blocks of variables *lvar_1*,
 ..., *lvar_n*.  Let *c_i* be the number of variables in
@@ -749,6 +833,9 @@ element is kept per orbit, under the action of *SD*.
               9 x  y + 12 a x y + 3 x  + 6 a x  + 12 a  x + 8 a ]
 ```
 
+<!-- category: Algebra -->
+<!-- keywords: puireduc -->
+<!-- signatures: puireduc(n, lpui) -->
 ### Function: puireduc (n, lpui)
 
 *lpui* is a list whose first element is an integer *m*.
@@ -774,7 +861,10 @@ first *m*.
                                      2
 ```
 
-### Function: resolvante (P, x, f, x_1, ..., x_d)
+<!-- category: Algebra -->
+<!-- keywords: resolvante -->
+<!-- signatures: resolvante(P, x, f, [x_1, ..., x_d]) -->
+### Function: resolvante (P, x, f, [x_1, ..., x_d])
 
 calculates the resolvent of the polynomial *P* in *x* of degree
 `n >= d` by the function *f* expressed in the variables
@@ -1038,6 +1128,9 @@ See also:
 
 See also: `resolvante_bipartite`, `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante_alternee1`, `resolvante_klein`, `resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`.
 
+<!-- category: Algebra -->
+<!-- keywords: resolvante_alternee1 -->
+<!-- signatures: resolvante_alternee1(P, x) -->
 ### Function: resolvante_alternee1 (P, x)
 
 calculates the transformation
@@ -1054,6 +1147,9 @@ See also:
 
 See also: `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante`, `resolvante_klein`, `resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`, `resolvante_bipartite`.
 
+<!-- category: Algebra -->
+<!-- keywords: resolvante_bipartite -->
+<!-- signatures: resolvante_bipartite(P, x) -->
 ### Function: resolvante_bipartite (P, x)
 
 calculates the transformation of
@@ -1082,6 +1178,9 @@ See also:
 
 See also: `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante`, `resolvante_klein`, `resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`, `resolvante_alternee1`.
 
+<!-- category: Algebra -->
+<!-- keywords: resolvante_diedrale -->
+<!-- signatures: resolvante_diedrale(P, x) -->
 ### Function: resolvante_diedrale (P, x)
 
 calculates the transformation of `P(x)` by the function
@@ -1112,6 +1211,9 @@ See also:
 
 See also: `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante_alternee1`, `resolvante_klein`, `resolvante_klein3`, `resolvante_vierer`, `resolvante`.
 
+<!-- category: Algebra -->
+<!-- keywords: resolvante_klein -->
+<!-- signatures: resolvante_klein(P, x) -->
 ### Function: resolvante_klein (P, x)
 
 calculates the transformation of `P(x)` by the function
@@ -1127,6 +1229,9 @@ See also:
 
 See also: `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante_alternee1`, `resolvante`, `resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`.
 
+<!-- category: Algebra -->
+<!-- keywords: resolvante_klein3 -->
+<!-- signatures: resolvante_klein3(P, x) -->
 ### Function: resolvante_klein3 (P, x)
 
 calculates the transformation of `P(x)` by the function
@@ -1142,6 +1247,9 @@ See also:
 
 See also: `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante_alternee1`, `resolvante_klein`, `resolvante`, `resolvante_vierer`, `resolvante_diedrale`.
 
+<!-- category: Algebra -->
+<!-- keywords: resolvante_produit_sym -->
+<!-- signatures: resolvante_produit_sym(P, x) -->
 ### Function: resolvante_produit_sym (P, x)
 
 calculates the list of all product resolvents of the polynomial
@@ -1187,6 +1295,9 @@ See also:
 
 See also: `resolvante`, `resolvante_unitaire`, `resolvante_alternee1`, `resolvante_klein`, `resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`.
 
+<!-- category: Algebra -->
+<!-- keywords: resolvante_unitaire -->
+<!-- signatures: resolvante_unitaire(P, Q, x) -->
 ### Function: resolvante_unitaire (P, Q, x)
 
 computes the resolvent of the polynomial `P(x)` by the
@@ -1202,6 +1313,9 @@ See also:
 
 See also: `resolvante_produit_sym`, `resolvante`, `resolvante_alternee1`, `resolvante_klein`, `resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`.
 
+<!-- category: Algebra -->
+<!-- keywords: resolvante_vierer -->
+<!-- signatures: resolvante_vierer(P, x) -->
 ### Function: resolvante_vierer (P, x)
 
 computes the transformation of
@@ -1217,6 +1331,9 @@ See also:
 
 See also: `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante_alternee1`, `resolvante_klein`, `resolvante_klein3`, `resolvante`, `resolvante_diedrale`.
 
+<!-- category: Algebra -->
+<!-- keywords: schur2comp -->
+<!-- signatures: schur2comp(P, l_var) -->
 ### Function: schur2comp (P, l_var)
 
 *P* is a polynomial in the variables of the list *l_var*.  Each
@@ -1243,6 +1360,9 @@ functions.
                                3
 ```
 
+<!-- category: Algebra -->
+<!-- keywords: somrac -->
+<!-- signatures: somrac(L, k) -->
 ### Function: somrac (L, k)
 
 The list *L* contains elementary symmetric functions of a polynomial
@@ -1252,18 +1372,27 @@ The list *L* contains elementary symmetric functions of a polynomial
 
 Also see `prodrac`.
 
+<!-- category: Algebra -->
+<!-- keywords: tcontract -->
+<!-- signatures: tcontract(pol, lvar) -->
 ### Function: tcontract (pol, lvar)
 
 tests if the polynomial *pol* is symmetric in the variables of the
 list *lvar*.  If so, it returns a contracted representation like the
 function `contract`.
 
+<!-- category: Algebra -->
+<!-- keywords: tpartpol -->
+<!-- signatures: tpartpol(pol, lvar) -->
 ### Function: tpartpol (pol, lvar)
 
 tests if the polynomial *pol* is symmetric in the variables of the
 list *lvar*.  If so, it returns its partitioned representation like
 the function `partpol`.
 
+<!-- category: Algebra -->
+<!-- keywords: treillis -->
+<!-- signatures: treillis(n) -->
 ### Function: treillis (n)
 
 returns all partitions of weight *n*.
@@ -1282,6 +1411,9 @@ See also: `lgtreillis`, `ltreillis` and `treinat`.
 
 See also: `lgtreillis`, `ltreillis`, `treinat`.
 
+<!-- category: Algebra -->
+<!-- keywords: treinat -->
+<!-- signatures: treinat(part) -->
 ### Function: treinat (part)
 
 returns the list of partitions inferior to the partition *part* w.r.t.

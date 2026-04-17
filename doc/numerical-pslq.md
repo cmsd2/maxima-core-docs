@@ -1,5 +1,8 @@
 ## pslq
 
+<!-- category: Numerical -->
+<!-- keywords: guess_exact_value -->
+<!-- signatures: guess_exact_value(x) -->
 ### Function: guess_exact_value (x)
 
 When *x* is a floating point number or bigfloat,
@@ -58,6 +61,9 @@ Example:
                                 2                      2
 ```
 
+<!-- category: Numerical -->
+<!-- keywords: pslq_depth -->
+<!-- signatures: pslq_depth -->
 ### Variable: pslq_depth
 
 Default value: `20 * n`
@@ -69,6 +75,9 @@ Number of iterations of the PSLQ algorithm.
 The default value is 20 times *n*,
 where *n* is the length of the list of numbers supplied to `pslq_integer_relation`.
 
+<!-- category: Numerical -->
+<!-- keywords: pslq_integer_relation -->
+<!-- signatures: pslq_integer_relation(L) -->
 ### Function: pslq_integer_relation (L)
 
 Implements the PSLQ algorithm [1] to find integer relations between bigfloat numbers.
@@ -114,6 +123,9 @@ Example:
 (%o7)                         true
 ```
 
+<!-- category: Numerical -->
+<!-- keywords: pslq_precision -->
+<!-- signatures: pslq_precision -->
 ### Variable: pslq_precision
 
 Default value: `10^(fpprec - 2)`
@@ -123,6 +135,9 @@ Maximum magnitude of some intermediate results in `pslq_integer_relation`.
 The search fails if one of the intermediate results has elements
 larger than `pslq_precision`.
 
+<!-- category: Numerical -->
+<!-- keywords: pslq_status -->
+<!-- signatures: pslq_status -->
 ### Variable: pslq_status
 
 Indicates success or failure for an integer relation search by `pslq_integer_relation`.
@@ -139,6 +154,9 @@ because some intermediate results are larger than `pslq_precision`.
 When `pslq_status` is 3, it indicates an integer relation was not found
 because the number of iterations `pslq_depth` was reached.
 
+<!-- category: Numerical -->
+<!-- keywords: pslq_threshold -->
+<!-- signatures: pslq_threshold -->
 ### Variable: pslq_threshold
 
 Default value: `10^(2 - fpprec)`

@@ -1,5 +1,8 @@
 ## Elliptic Functions
 
+<!-- category: Calculus -->
+<!-- keywords: carlson_rc -->
+<!-- signatures: carlson_rc(x, y) -->
 ### Function: carlson_rc (x, y)
 
 Carlson’s RC integral is defined by
@@ -65,6 +68,9 @@ R_C(0,i) &= (1-i)\frac{\pi}{2\sqrt{2}} \cr
 }
 $$
 
+<!-- category: Calculus -->
+<!-- keywords: carlson_rd -->
+<!-- signatures: carlson_rd(x, y, z) -->
 ### Function: carlson_rd (x, y, z)
 
 Carlson’s RD integral is defined by
@@ -115,6 +121,9 @@ $$
 
 See also: `elliptic_ec`.
 
+<!-- category: Calculus -->
+<!-- keywords: carlson_rf -->
+<!-- signatures: carlson_rf(x, y, z) -->
 ### Function: carlson_rf (x, y, z)
 
 Carlson’s RF integral is defined by
@@ -163,6 +172,9 @@ $$
 
 See also: `elliptic_ec`.
 
+<!-- category: Calculus -->
+<!-- keywords: carlson_rj -->
+<!-- signatures: carlson_rj(x, y, z, p) -->
 ### Function: carlson_rj (x, y, z, p)
 
 Carlson’s RJ integral is defined by
@@ -202,6 +214,9 @@ sign of the parameter $n$.
 
 See also: `elliptic_pi`.
 
+<!-- category: Calculus -->
+<!-- keywords: elliptic_e -->
+<!-- signatures: elliptic_e(phi, m) -->
 ### Function: elliptic_e (phi, m)
 
 The incomplete elliptic integral of the second kind, defined as
@@ -220,6 +235,9 @@ See also `elliptic_005ff` and `elliptic_005fec`.
 
 See also: `elliptic_f`, `elliptic_ec`.
 
+<!-- category: Calculus -->
+<!-- keywords: elliptic_ec -->
+<!-- signatures: elliptic_ec(m) -->
 ### Function: elliptic_ec (m)
 
 The complete elliptic integral of the second kind, defined as
@@ -239,6 +257,9 @@ terms of `gamma` functions.  Use `makegamma` to evaluate them.
 
 See also: `gamma`, `makegamma`.
 
+<!-- category: Calculus -->
+<!-- keywords: elliptic_eu -->
+<!-- signatures: elliptic_eu(u, m) -->
 ### Function: elliptic_eu (u, m)
 
 The incomplete elliptic integral of the second kind, defined as
@@ -274,6 +295,9 @@ See also `elliptic_005fe`.
 
 See also: `elliptic_e`.
 
+<!-- category: Calculus -->
+<!-- keywords: elliptic_f -->
+<!-- signatures: elliptic_f(phi, m) -->
 ### Function: elliptic_f (phi, m)
 
 The incomplete elliptic integral of the first kind, defined as
@@ -292,6 +316,9 @@ See also `elliptic_005fe` and `elliptic_005fkc`.
 
 See also: `elliptic_e`, `elliptic_kc`.
 
+<!-- category: Calculus -->
+<!-- keywords: elliptic_kc -->
+<!-- signatures: elliptic_kc(m) -->
 ### Function: elliptic_kc (m)
 
 The complete elliptic integral of the first kind, defined as
@@ -311,6 +338,9 @@ terms of `gamma` functions.  Use `makegamma` to evaluate them.
 
 See also: `gamma`, `makegamma`.
 
+<!-- category: Calculus -->
+<!-- keywords: elliptic_pi -->
+<!-- signatures: elliptic_pi(n, phi, m) -->
 ### Function: elliptic_pi (n, phi, m)
 
 The incomplete elliptic integral of the third kind, defined as

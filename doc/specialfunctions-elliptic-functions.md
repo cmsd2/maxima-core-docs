@@ -1,5 +1,8 @@
 ## Elliptic Functions
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: inverse_jacobi_cd -->
+<!-- signatures: inverse_jacobi_cd(u, m) -->
 ### Function: inverse_jacobi_cd (u, m)
 
 The inverse of the Jacobian elliptic function 
@@ -13,6 +16,9 @@ $${\rm inverse\_jacobi\_cd}(u, m) = \int_u^1 {dt\over \sqrt{(1-t^2)(1-mt^2)}}$$
 
 $${\rm inverse\_jacobi\_cd}(u, m) = \int_u^1 {dt\over \sqrt{(1-t^2)(1-mt^2)}}$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: inverse_jacobi_cs -->
+<!-- signatures: inverse_jacobi_cs(u, m) -->
 ### Function: inverse_jacobi_cs (u, m)
 
 The inverse of the Jacobian elliptic function 
@@ -24,6 +30,9 @@ $${\rm inverse\_jacobi\_cs}(u, m) = \int_u^{\infty} {dt\over \sqrt{(1+t^2)(t^2+(
 
 $${\rm inverse\_jacobi\_cs}(u, m) = \int_u^{\infty} {dt\over \sqrt{(1+t^2)(t^2+(1-m))}}$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: inverse_jacobi_dc -->
+<!-- signatures: inverse_jacobi_dc(u, m) -->
 ### Function: inverse_jacobi_dc (u, m)
 
 The inverse of the Jacobian elliptic function 
@@ -37,6 +46,9 @@ $${\rm inverse\_jacobi\_dc}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(t^2-m)}}$$
 
 $${\rm inverse\_jacobi\_dc}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(t^2-m)}}$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: inverse_jacobi_dn -->
+<!-- signatures: inverse_jacobi_dn(u, m) -->
 ### Function: inverse_jacobi_dn (u, m)
 
 The inverse of the Jacobian elliptic function 
@@ -50,6 +62,9 @@ $${\rm inverse\_jacobi\_dn}(u, m) = \int_u^1 {dt\over \sqrt{(1-t^2)(t^2-(1-m))}}
 
 $${\rm inverse\_jacobi\_dn}(u, m) = \int_u^1 {dt\over \sqrt{(1-t^2)(t^2-(1-m))}}$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: inverse_jacobi_ds -->
+<!-- signatures: inverse_jacobi_ds(u, m) -->
 ### Function: inverse_jacobi_ds (u, m)
 
 The inverse of the Jacobian elliptic function 
@@ -63,6 +78,9 @@ $${\rm inverse\_jacobi\_ds}(u, m) = \int_u^{\infty} {dt\over \sqrt{(t^2+m)(t^2-(
 
 $${\rm inverse\_jacobi\_ds}(u, m) = \int_u^{\infty} {dt\over \sqrt{(t^2+m)(t^2-(1-m))}}$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: inverse_jacobi_nc -->
+<!-- signatures: inverse_jacobi_nc(u, m) -->
 ### Function: inverse_jacobi_nc (u, m)
 
 The inverse of the Jacobian elliptic function 
@@ -76,6 +94,9 @@ $${\rm inverse\_jacobi\_nc}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(m+(1-m)t^2)}
 
 $${\rm inverse\_jacobi\_nc}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(m+(1-m)t^2)}}$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: inverse_jacobi_nd -->
+<!-- signatures: inverse_jacobi_nd(u, m) -->
 ### Function: inverse_jacobi_nd (u, m)
 
 The inverse of the Jacobian elliptic function 
@@ -89,6 +110,9 @@ $${\rm inverse\_jacobi\_nd}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(1-(1-m)t^2)}
 
 $${\rm inverse\_jacobi\_nd}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(1-(1-m)t^2)}}$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: inverse_jacobi_ns -->
+<!-- signatures: inverse_jacobi_ns(u, m) -->
 ### Function: inverse_jacobi_ns (u, m)
 
 The inverse of the Jacobian elliptic function 
@@ -102,6 +126,9 @@ $${\rm inverse\_jacobi\_ns}(u, m) = \int_u^{\infty} {dt\over \sqrt{(1-t^2)(t^2-m
 
 $${\rm inverse\_jacobi\_ns}(u, m) = \int_u^{\infty} {dt\over \sqrt{(1-t^2)(t^2-m)}}$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: inverse_jacobi_sc -->
+<!-- signatures: inverse_jacobi_sc(u, m) -->
 ### Function: inverse_jacobi_sc (u, m)
 
 The inverse of the Jacobian elliptic function 
@@ -113,6 +140,9 @@ $${\rm inverse\_jacobi\_sc}(u, m) = \int_0^u {dt\over \sqrt{(1+t^2)(1+(1-m)t^2)}
 
 $${\rm inverse\_jacobi\_sc}(u, m) = \int_0^u {dt\over \sqrt{(1+t^2)(1+(1-m)t^2)}}$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: inverse_jacobi_sd -->
+<!-- signatures: inverse_jacobi_sd(u, m) -->
 ### Function: inverse_jacobi_sd (u, m)
 
 The inverse of the Jacobian elliptic function 
@@ -126,6 +156,9 @@ $${\rm inverse\_jacobi\_sd}(u, m) = \int_0^u {dt\over \sqrt{(1-(1-m)t^2)(1+mt^2)
 
 $${\rm inverse\_jacobi\_sd}(u, m) = \int_0^u {dt\over \sqrt{(1-(1-m)t^2)(1+mt^2)}}$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_am -->
+<!-- signatures: jacobi_am(u, m) -->
 ### Function: jacobi_am (u, m)
 
 The Jacobi amplitude function, `jacobi_am`, is defined implicitly by (see
@@ -201,61 +234,97 @@ Compare this plot with the plot from [https://dlmf.nist.gov/22.16.ivDLMF 22.16.i
 
 See also: `jacobi_am`, `elliptic_f`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_cd -->
+<!-- signatures: jacobi_cd(u, m) -->
 ### Function: jacobi_cd (u, m)
 
 The Jacobian elliptic function 
 ${\rm cd}(u,m) = {\rm cn}(u,m)/{\rm dn}(u,m).$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_cn -->
+<!-- signatures: jacobi_cn(u, m) -->
 ### Function: jacobi_cn (u, m)
 
 The Jacobian elliptic function 
 ${\rm cn}(u,m).$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_cs -->
+<!-- signatures: jacobi_cs(u, m) -->
 ### Function: jacobi_cs (u, m)
 
 The Jacobian elliptic function 
 ${\rm cs}(u,m) = {\rm cn}(u,m)/{\rm sn}(u,m).$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_dc -->
+<!-- signatures: jacobi_dc(u, m) -->
 ### Function: jacobi_dc (u, m)
 
 The Jacobian elliptic function 
 ${\rm dc}(u,m) = {\rm dn}(u,m)/{\rm cn}(u,m).$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_dn -->
+<!-- signatures: jacobi_dn(u, m) -->
 ### Function: jacobi_dn (u, m)
 
 The Jacobian elliptic function 
 ${\rm dn}(u,m).$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_ds -->
+<!-- signatures: jacobi_ds(u, m) -->
 ### Function: jacobi_ds (u, m)
 
 The Jacobian elliptic function 
 ${\rm ds}(u,m) = {\rm dn}(u,m)/{\rm sn}(u,m).$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_nc -->
+<!-- signatures: jacobi_nc(u, m) -->
 ### Function: jacobi_nc (u, m)
 
 The Jacobian elliptic function 
 ${\rm nc}(u,m) = 1/{\rm cn}(u,m).$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_nd -->
+<!-- signatures: jacobi_nd(u, m) -->
 ### Function: jacobi_nd (u, m)
 
 The Jacobian elliptic function 
 ${\rm nd}(u,m) = 1/{\rm dn}(u,m).$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_ns -->
+<!-- signatures: jacobi_ns(u, m) -->
 ### Function: jacobi_ns (u, m)
 
 The Jacobian elliptic function 
 ${\rm ns}(u,m) = 1/{\rm sn}(u,m).$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_sc -->
+<!-- signatures: jacobi_sc(u, m) -->
 ### Function: jacobi_sc (u, m)
 
 The Jacobian elliptic function 
 ${\rm sc}(u,m) = {\rm sn}(u,m)/{\rm cn}(u,m).$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_sd -->
+<!-- signatures: jacobi_sd(u, m) -->
 ### Function: jacobi_sd (u, m)
 
 The Jacobian elliptic function 
 ${\rm sd}(u,m) = {\rm sn}(u,m)/{\rm dn}(u,m).$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: jacobi_sn -->
+<!-- signatures: jacobi_sn(u, m) -->
 ### Function: jacobi_sn (u, m)
 
 The Jacobian elliptic function 

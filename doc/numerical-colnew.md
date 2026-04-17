@@ -1,6 +1,9 @@
 ## colnew
 
-### Function: colnew_appsln (colnew_appsln, x, zlen, fspace, ispace)
+<!-- category: Numerical -->
+<!-- keywords: colnew_appsln -->
+<!-- signatures: colnew_appsln(x, zlen, fspace, ispace) -->
+### Function: colnew_appsln (x, zlen, fspace, ispace)
 
 Return a list of solution values from `colnew_expert` results.
 
@@ -16,7 +19,10 @@ The function arguments are:
 
 See also: `colnew_expert`.
 
-### Function: colnew_expert (colnew_expert, ncomp, m, aleft, aright, zeta, ipar, ltol, tol, fixpnt, ispace, fspace, iflag, fsub, dfsub, gsub, dgsub, guess)
+<!-- category: Numerical -->
+<!-- keywords: colnew_expert -->
+<!-- signatures: colnew_expert(ncomp, m, aleft, aright, zeta, ipar, ltol, tol, fixpnt, ispace, fspace, iflag, fsub, dfsub, gsub, dgsub, guess) -->
+### Function: colnew_expert (ncomp, m, aleft, aright, zeta, ipar, ltol, tol, fixpnt, ispace, fspace, iflag, fsub, dfsub, gsub, dgsub, guess)
 
 *colnew_expert* solves mixed-order systems of boundary-value problems (BVPs) in ordinary
 differential equations (ODEs) using a numerical collocation method.

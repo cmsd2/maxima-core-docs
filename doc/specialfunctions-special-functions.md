@@ -1,6 +1,9 @@
 ## Special Functions
 
-### Function: %f (p, q, [a],[b],z)
+<!-- category: SpecialFunctions -->
+<!-- keywords: %f -->
+<!-- signatures: %f[p, q]([a],[b],z) -->
+### Function: %f ([p, q]([a],[b],z))
 
 The 
 $_{p}F_{q}(a_1,a_2,...,a_p;b_1,b_2,...,b_q;z)$
@@ -8,7 +11,10 @@ hypergeometric function,
 where *a* a list of length *p* and 
 *b* a list of length *q*.
 
-### Function: %m (k, u, z)
+<!-- category: SpecialFunctions -->
+<!-- keywords: %m -->
+<!-- signatures: %m[k, u](z) -->
+### Function: %m ([k, u](z))
 
 Whittaker M function ([https://personal.math.ubc.ca/~cbm/aands/page_505.htmA&S eqn 13.1.32]()):
 
@@ -32,7 +38,10 @@ $$M_{\kappa,\mu}(z) = e^{-{1\over 2} z} z^{{1\over 2} + \mu} \sum_{s=0}^{\infty}
 $$M_{\kappa,\mu}(z) = e^{-{1\over 2} z} z^{{1\over 2} + \mu}
 \sum_{s=0}^{\infty} {\left({1\over 2} + \mu - \kappa\right)_s \over (1 + 2\mu)_s s!} z^s$$
 
-### Function: %s (u, v, z)
+<!-- category: SpecialFunctions -->
+<!-- keywords: %s -->
+<!-- signatures: %s[u, v](z) -->
+### Function: %s ([u, v](z))
 
 Lommel’s little
 $s_{\mu,\nu}(z)$
@@ -72,7 +81,10 @@ $$a_k(\mu,\nu) = \prod_{m=1}^k \left(\left(\mu + 2m-1\right)^2-\nu^2\right) = 4^
 
 $$a_k(\mu,\nu) = \prod_{m=1}^k \left(\left(\mu + 2m-1\right)^2-\nu^2\right) = 4^k\left(\mu-\nu+1\over 2\right)_k \left(\mu+\nu+1\over 2\right)_k$$
 
-### Function: %w (k, u, z)
+<!-- category: SpecialFunctions -->
+<!-- keywords: %w -->
+<!-- signatures: %w[k, u](z) -->
+### Function: %w ([k, u](z))
 
 Whittaker W function ([https://personal.math.ubc.ca/~cbm/aands/page_505.htmA&S eqn 13.1.33]()):
 
@@ -86,6 +98,9 @@ $$W_{\kappa,\mu}(z) = e^{-{1\over 2}z} z^{{1\over 2} + \mu} U\left({1\over 2} + 
 
 where $U(a,b,z)$ is Kummer’s second solution of the confluent hypergeometric equation.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: airy_ai -->
+<!-- signatures: airy_ai(x) -->
 ### Function: airy_ai (x)
 
 The Airy function 
@@ -97,6 +112,9 @@ See also `airy_bi`, `airy_dai`, and `airy_005fdbi`.
 
 See also: `airy_bi`, `airy_dai`, `airy_dbi`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: airy_bi -->
+<!-- signatures: airy_bi(x) -->
 ### Function: airy_bi (x)
 
 The Airy function 
@@ -108,6 +126,9 @@ See `airy_ai`, and `airy_005fdbi`.
 
 See also: `airy_ai`, `airy_dbi`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: airy_dai -->
+<!-- signatures: airy_dai(x) -->
 ### Function: airy_dai (x)
 
 The derivative of the Airy function 
@@ -127,6 +148,9 @@ See `airy_005fai`.
 
 See also: `airy_ai`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: airy_dbi -->
+<!-- signatures: airy_dbi(x) -->
 ### Function: airy_dbi (x)
 
 The derivative of the Airy function 
@@ -146,6 +170,9 @@ See `airy_ai`, and `airy_005fbi`.
 
 See also: `airy_ai`, `airy_bi`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: bessel_i -->
+<!-- signatures: bessel_i(v, z) -->
 ### Function: bessel_i (v, z)
 
 The modified Bessel function of the first kind of order $v$ and argument
@@ -172,6 +199,9 @@ See `besselexpand`.
 
 See also: `bessel_i`, `besselexpand`, `true`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: bessel_j -->
+<!-- signatures: bessel_j(v, z) -->
 ### Function: bessel_j (v, z)
 
 The Bessel function of the first kind of order $v$ and argument $z$.
@@ -199,6 +229,9 @@ See `besselexpand`.
 
 See also: `bessel_j`, `besselexpand`, `true`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: bessel_k -->
+<!-- signatures: bessel_k(v, z) -->
 ### Function: bessel_k (v, z)
 
 The modified Bessel function of the second kind of order $v$ and argument
@@ -225,6 +258,9 @@ See `besselexpand`.
 
 See also: `bessel_k`, `besselexpand`, `true`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: bessel_y -->
+<!-- signatures: bessel_y(v, z) -->
 ### Function: bessel_y (v, z)
 
 The Bessel function of the second kind of order $v$ and argument $z$.
@@ -251,6 +287,9 @@ See `besselexpand`.
 
 See also: `bessel_y`, `besselexpand`, `true`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: besselexpand -->
+<!-- signatures: besselexpand -->
 ### Variable: besselexpand
 
 Default value: `false`
@@ -322,6 +361,9 @@ maxima
 
 See also: `false`, `besselexpand`, `true`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: beta -->
+<!-- signatures: beta(a, b) -->
 ### Function: beta (a, b)
 
 The beta function is defined as
@@ -557,6 +599,9 @@ maxima
 
 See also: `beta_args_sum_to_integer`, `true`, `beta_expand`, `beta`, `log_gamma`, `makegamma`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: beta_args_sum_to_integer -->
+<!-- signatures: beta_args_sum_to_integer -->
 ### Variable: beta_args_sum_to_integer
 
 Default value: false
@@ -570,6 +615,9 @@ When `beta_args_sum_to_integer` is `true`, Maxima simplifies
 
 See also: `beta_args_sum_to_integer`, `true`, `beta`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: beta_expand -->
+<!-- signatures: beta_expand -->
 ### Variable: beta_expand
 
 Default value: false
@@ -584,6 +632,9 @@ where $n$ is an integer.
 
 See also: `beta_expand`, `true`, `beta`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: beta_incomplete -->
+<!-- signatures: beta_incomplete(a, b, z) -->
 ### Function: beta_incomplete (a, b, z)
 
 The basic definition of the incomplete beta function
@@ -892,6 +943,9 @@ maxima
 
 See also: `beta_incomplete`, `beta`, `beta_expand`, `true`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: beta_incomplete_generalized -->
+<!-- signatures: beta_incomplete_generalized(a, b, z1, z2) -->
 ### Function: beta_incomplete_generalized (a, b, z1, z2)
 
 The basic definition of the generalized incomplete beta function is
@@ -1131,6 +1185,9 @@ maxima
 
 See also: `beta_incomplete_regularized`, `beta_incomplete_generalized`, `beta_incomplete`, `beta`, `beta_expand`, `true`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: beta_incomplete_regularized -->
+<!-- signatures: beta_incomplete_regularized(a, b, z) -->
 ### Function: beta_incomplete_regularized (a, b, z)
 
 The regularized incomplete beta function ([https://dlmf.nist.gov/8.17.E2DLMF 8.17.E2]() and
@@ -1317,6 +1374,9 @@ maxima
 
 See also: `beta_incomplete`, `beta_incomplete_regularized`, `beta_expand`, `true`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: bffac -->
+<!-- signatures: bffac(expr, n) -->
 ### Function: bffac (expr, n)
 
 Bigfloat version of the factorial (shifted gamma)
@@ -1345,6 +1405,9 @@ maxima
 (%o3)          8.862269254527580136490837416707b-1
 ```
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: bfpsi, bfpsi0 -->
+<!-- signatures: bfpsi(n, z, fpprec), bfpsi0(z, fpprec) -->
 ### Function: bfpsi (n, z, fpprec)
 
 `bfpsi` is the polygamma function of real argument *z* and
@@ -1397,6 +1460,9 @@ maxima
 
 See also: `bfpsi`, `polygamma`, `bfpsi0`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: cbffac -->
+<!-- signatures: cbffac(z, fpprec) -->
 ### Function: cbffac (z, fpprec)
 
 Complex bigfloat factorial.
@@ -1421,6 +1487,9 @@ maxima
 (%o2)      0.3430658398165453 %i + 0.6529654964201667
 ```
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: erf -->
+<!-- signatures: erf(z) -->
 ### Function: erf (z)
 
 The Error Function erf(z):
@@ -1441,6 +1510,9 @@ of a hypergeometric function.  `hypergeometric_005frepresentation`.
 
 See also: `erfflag`, `hypergeometric_representation`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: erf_generalized -->
+<!-- signatures: erf_generalized(z1, z2) -->
 ### Function: erf_generalized (z1, z2)
 
 Generalized Error function Erf(z1,z2):
@@ -1458,6 +1530,9 @@ of a hypergeometric function.  `hypergeometric_005frepresentation`.
 
 See also: `hypergeometric_representation`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: erf_representation -->
+<!-- signatures: erf_representation -->
 ### Variable: erf_representation
 
 Default value: false
@@ -1627,6 +1702,9 @@ maxima
 
 See also: `erf_representation`, `false`, `erf`, `erfc`, `erfi`, `erf_generalized`, `fresnel_s`, `fresnel_c`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: erfc -->
+<!-- signatures: erfc(z) -->
 ### Function: erfc (z)
 
 The Complementary Error Function erfc(z):
@@ -1647,6 +1725,9 @@ of a hypergeometric function.  `hypergeometric_005frepresentation`.
 
 See also: `hypergeometric_representation`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: erfi -->
+<!-- signatures: erfi(z) -->
 ### Function: erfi (z)
 
 The Imaginary Error Function. 
@@ -1656,6 +1737,9 @@ $${\rm erfi}\ z = -i\, {\rm erf}(i z)$$
 
 $${\rm erfi}\ z = -i\, {\rm erf}(i z)$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: expand_hypergeometric -->
+<!-- signatures: expand_hypergeometric -->
 ### Variable: expand_hypergeometric
 
 Default value: `false`
@@ -1666,6 +1750,9 @@ the hypergeometric function represents a polynomial.
 
 See also: `false`, `true`, `hypergeometric`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: fresnel_c -->
+<!-- signatures: fresnel_c(z) -->
 ### Function: fresnel_c (z)
 
 The Fresnel Integral
@@ -1698,6 +1785,9 @@ See flags `erf_representation` and `hypergeometric_representation`.
 
 See also: `trigsign`, `%iargs`, `erf_representation`, `hypergeometric_representation`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: fresnel_s -->
+<!-- signatures: fresnel_s(z) -->
 ### Function: fresnel_s (z)
 
 The Fresnel Integral
@@ -1729,6 +1819,9 @@ See flags `erf_representation` and `hypergeometric_representation`.
 
 See also: `trigsign`, `%iargs`, `erf_representation`, `hypergeometric_representation`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: gamma -->
+<!-- signatures: gamma(z) -->
 ### Function: gamma (z)
 
 The basic definition of the gamma function ([https://dlmf.nist.gov/5.2.E1DLMF 5.2.E1]() and [https://personal.math.ubc.ca/~cbm/aands/page_255.htmA&S eqn 6.1.1]()) is
@@ -1885,6 +1978,9 @@ The Euler-Mascheroni constant is `%gamma`.
 
 See also: `gamma`, `factlim`, `gammalim`, `gamma_expand`, `true`, `makegamma`, `%gamma`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: gamma_expand -->
+<!-- signatures: gamma_expand -->
 ### Variable: gamma_expand
 
 Default value: `false`
@@ -1951,6 +2047,9 @@ maxima
 
 See also: `false`, `gamma_expand`, `gamma_incomplete`, `true`, `exp`, `erfc`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: gamma_incomplete -->
+<!-- signatures: gamma_incomplete(a, z) -->
 ### Function: gamma_incomplete (a, z)
 
 The incomplete upper gamma function ([https://dlmf.nist.gov/8.2.E2DLMF 8.2.E2]() and [https://personal.math.ubc.ca/~cbm/aands/page_260.htmA&S eqn 6.5.3]()):
@@ -1974,6 +2073,9 @@ Also see the related functions `gamma_incomplete_regularized` and
 
 See also: `gamma_expand`, `gamma_incomplete`, `erfc`, `gamma_incomplete_regularized`, `gamma_incomplete_generalized`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: gamma_incomplete_generalized -->
+<!-- signatures: gamma_incomplete_generalized(a, z1, z1) -->
 ### Function: gamma_incomplete_generalized (a, z1, z1)
 
 The generalized incomplete gamma function.
@@ -1991,6 +2093,9 @@ Also see `gamma_incomplete` and `gamma_incomplete_regularized`.
 
 See also: `gamma_incomplete`, `gamma_incomplete_regularized`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: gamma_incomplete_lower -->
+<!-- signatures: gamma_incomplete_lower(a, z) -->
 ### Function: gamma_incomplete_lower (a, z)
 
 The lower incomplete gamma function ([https://dlmf.nist.gov/8.2.E1DLMF 8.2.E1]() and [https://personal.math.ubc.ca/~cbm/aands/page_260.htmA&S eqn 6.5.2]()):
@@ -2008,6 +2113,9 @@ See also `gamma_incomplete` (upper incomplete gamma function).
 
 See also: `gamma_incomplete`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: gamma_incomplete_regularized -->
+<!-- signatures: gamma_incomplete_regularized(a, z) -->
 ### Function: gamma_incomplete_regularized (a, z)
 
 The regularized incomplete upper gamma function ([https://dlmf.nist.gov/8.2.E4DLMF 8.2.E4]()):
@@ -2030,6 +2138,9 @@ Also see `gamma_incomplete`.
 
 See also: `gamma_expand`, `gamma_incomplete`, `erfc`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: gammalim -->
+<!-- signatures: gammalim -->
 ### Variable: gammalim
 
 Default value: 10000
@@ -2044,6 +2155,9 @@ simplification of the result of `gamma` of an integer argument as well.
 
 See also: `gammalim`, `factlim`, `gamma`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: generalized_lambert_w -->
+<!-- signatures: generalized_lambert_w(k, z) -->
 ### Function: generalized_lambert_w (k, z)
 
 The *k*-th branch of Lambert’s W function W(z) ([https://dlmf.nist.gov/4.13DLMF 4.13]()), the solution
@@ -2063,6 +2177,9 @@ in DLMF, is `generalized_005flambert_005fw`.
 
 See also: `lambert_w`, `generalized_lambert_w`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: hankel_1 -->
+<!-- signatures: hankel_1(v, z) -->
 ### Function: hankel_1 (v, z)
 
 The Hankel function of the first kind of order $v$ and argument $z$.
@@ -2159,6 +2276,9 @@ maxima
 
 See also: `hankel_1`, `besselexpand`, `true`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: hankel_2 -->
+<!-- signatures: hankel_2(v, z) -->
 ### Function: hankel_2 (v, z)
 
 The Hankel function of the second kind of order $v$ and argument $z$.
@@ -2193,6 +2313,9 @@ For examples see `hankel_1`.
 
 See also: `hankel_2`, `besselexpand`, `true`, `hankel_1`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: hgfred -->
+<!-- signatures: hgfred(a, b, t) -->
 ### Function: hgfred (a, b, t)
 
 Simplify the generalized hypergeometric function in terms of other,
@@ -2275,7 +2398,10 @@ maxima
 
 See also: `hgfred`, `%f`.
 
-### Function: hypergeometric (a1, ..., ap, b1, ..., bq, x)
+<!-- category: SpecialFunctions -->
+<!-- keywords: hypergeometric -->
+<!-- signatures: hypergeometric([a1, ..., ap], [b1, ..., bq], x) -->
+### Function: hypergeometric ([a1, ..., ap], [b1, ..., bq], x)
 
 The hypergeometric function. Unlike Maxima’s `%f` hypergeometric
 function, the function `hypergeometric` is a simplifying
@@ -2358,6 +2484,9 @@ maxima
 
 See also: `%f`, `hypergeometric`, `expand_hypergeometric`, `true`, `false`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: hypergeometric_representation -->
+<!-- signatures: hypergeometric_representation -->
 ### Variable: hypergeometric_representation
 
 Default value: false
@@ -2444,6 +2573,9 @@ maxima
 
 See also: `fresnel_s`, `fresnel_c`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: hypergeometric_simp -->
+<!-- signatures: hypergeometric_simp(e) -->
 ### Function: hypergeometric_simp (e)
 
 `hypergeometric_simp` simplifies hypergeometric functions
@@ -2501,7 +2633,10 @@ maxima
 
 See also: `hypergeometric_simp`, `hgfred`, `hypergeometric`, `%f`, `%w`, `%m`.
 
-### Function: kbateman (v, x)
+<!-- category: SpecialFunctions -->
+<!-- keywords: kbateman -->
+<!-- signatures: kbateman[v](x) -->
+### Function: kbateman ([v](x))
 
 The Bateman k function
 
@@ -2621,6 +2756,9 @@ or `specint`, as shown below:
 
 See also: `%w`, `kbateman`, `laplace`, `specint`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: lambert_w -->
+<!-- signatures: lambert_w(z) -->
 ### Function: lambert_w (z)
 
 The principal branch of Lambert’s W function W(z) ([https://dlmf.nist.gov/4.13DLMF 4.13]()), the solution of 
@@ -2630,6 +2768,9 @@ $$z = W(z)e^{W(z)}$$
 
 $$z = W(z)e^{W(z)}$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: log_gamma -->
+<!-- signatures: log_gamma(z) -->
 ### Function: log_gamma (z)
 
 The natural logarithm of the gamma function.
@@ -2656,6 +2797,9 @@ maxima
 (%o3)                  0.5723649429247004
 ```
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: makefact -->
+<!-- signatures: makefact(expr) -->
 ### Function: makefact (expr)
 
 Transforms instances of binomial, gamma, and beta
@@ -2692,6 +2836,9 @@ maxima
 
 See also: `makegamma`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: makegamma -->
+<!-- signatures: makegamma(expr) -->
 ### Function: makegamma (expr)
 
 Transforms instances of binomial, factorial, and beta
@@ -2728,6 +2875,9 @@ maxima
 
 See also: `makefact`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: maxpsifracdenom -->
+<!-- signatures: maxpsifracdenom -->
 ### Variable: maxpsifracdenom
 
 Default value: 6
@@ -2782,6 +2932,9 @@ maxima
 
 See also: `maxpsifracdenom`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: maxpsifracnum -->
+<!-- signatures: maxpsifracnum -->
 ### Variable: maxpsifracnum
 
 Default value: 6
@@ -2836,6 +2989,9 @@ maxima
 
 See also: `maxpsifracnum`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: maxpsinegint -->
+<!-- signatures: maxpsinegint -->
 ### Variable: maxpsinegint
 
 Default value: -10
@@ -2891,6 +3047,9 @@ maxima
 
 See also: `maxpsinegint`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: maxpsiposint -->
+<!-- signatures: maxpsiposint -->
 ### Variable: maxpsiposint
 
 Default value: 20
@@ -2937,6 +3096,9 @@ maxima
 
 See also: `maxpsiposint`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: numfactor -->
+<!-- signatures: numfactor(expr) -->
 ### Function: numfactor (expr)
 
 Returns the numerical factor multiplying the expression
@@ -2969,6 +3131,9 @@ maxima
 
 See also: `content`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: nzeta -->
+<!-- signatures: nzeta(z) -->
 ### Function: nzeta (z)
 
 The Plasma Dispersion Function 
@@ -2978,14 +3143,23 @@ $${\rm nzeta}(z) = i\sqrt{\pi}e^{-z^2}(1-{\rm erf}(-iz))$$
 
 $${\rm nzeta}(z) = i\sqrt{\pi}e^{-z^2}(1-{\rm erf}(-iz))$$
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: nzetai -->
+<!-- signatures: nzetai(z) -->
 ### Function: nzetai (z)
 
 Returns `imagpart(nzeta(z))`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: nzetar -->
+<!-- signatures: nzetar(z) -->
 ### Function: nzetar (z)
 
 Returns `realpart(nzeta(z))`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: parabolic_cylinder_d -->
+<!-- signatures: parabolic_cylinder_d(v, z) -->
 ### Function: parabolic_cylinder_d (v, z)
 
 The parabolic cylinder function `parabolic_005fcylinder_005fd`. ([https://personal.math.ubc.ca/~cbm/aands/page_687.htmA&S eqn 19.3.1]()).
@@ -3012,7 +3186,10 @@ Function `specint` can return expressions containing
 
 See also: `parabolic_cylinder_d`, `specint`, `prefer_d`, `true`.
 
-### Function: psi (n, x)
+<!-- category: SpecialFunctions -->
+<!-- keywords: psi -->
+<!-- signatures: psi[n](x) -->
+### Function: psi ([n](x))
 
 `psi` is the polygamma function ([https://dlmf.nist.gov/5.2E2DLMF 5.2E2](),
 [https://dlmf.nist.gov/5.15DLMF 5.15](), [https://personal.math.ubc.ca/~cbm/aands/page_258.htmA&S eqn 6.3.1]() and [https://personal.math.ubc.ca/~cbm/aands/page_260.htmA&S eqn 6.4.1]()) defined by
@@ -3091,6 +3268,9 @@ maxima
 
 See also: `psi`, `maxpsiposint`, `maxpsinegint`, `maxpsifracnum`, `maxpsifracdenom`, `bfpsi`, `bffac`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: scaled_bessel_i -->
+<!-- signatures: scaled_bessel_i(v, z) -->
 ### Function: scaled_bessel_i (v, z)
 
 The scaled modified Bessel function of the first kind of order
@@ -3113,18 +3293,27 @@ However, maxima does not otherwise know much about this function.  For
 symbolic work, it is probably preferable to work with the expression
 `exp(-abs(z))*bessel_i(v, z)`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: scaled_bessel_i0 -->
+<!-- signatures: scaled_bessel_i0(z) -->
 ### Function: scaled_bessel_i0 (z)
 
 Identical to `scaled_005fbessel_005fi`.
 
 See also: `scaled_bessel_i`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: scaled_bessel_i1 -->
+<!-- signatures: scaled_bessel_i1(z) -->
 ### Function: scaled_bessel_i1 (z)
 
 Identical to `scaled_005fbessel_005fi`.
 
 See also: `scaled_bessel_i`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: sinc -->
+<!-- signatures: sinc(x) -->
 ### Function: sinc (x)
 
 The function `sinc` is defined by 
@@ -3206,7 +3395,10 @@ maxima
 
 See also: `sinc`, `%piargs`, `numer`.
 
-### Function: slommel (u, v, z)
+<!-- category: SpecialFunctions -->
+<!-- keywords: slommel -->
+<!-- signatures: slommel[u, v](z) -->
+### Function: slommel ([u, v](z))
 
 Lommel’s big
 $S_{\mu,\nu}(z)$
@@ -3242,6 +3434,9 @@ negative integer, the limit must be used.
 
 See also: `%s`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: struve_h -->
+<!-- signatures: struve_h(v, z) -->
 ### Function: struve_h (v, z)
 
 The Struve Function H of order 
@@ -3267,6 +3462,9 @@ See `besselexpand`.
 
 See also: `besselexpand`, `true`, `struve_h`.
 
+<!-- category: SpecialFunctions -->
+<!-- keywords: struve_l -->
+<!-- signatures: struve_l(v, z) -->
 ### Function: struve_l (v, z)
 
 The Modified Struve Function L of order 

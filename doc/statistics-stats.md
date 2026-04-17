@@ -1,5 +1,8 @@
 ## stats
 
+<!-- category: Statistics -->
+<!-- keywords: cdf_rank_sum -->
+<!-- signatures: cdf_rank_sum(x, n, m) -->
 ### Function: cdf_rank_sum (x, n, m)
 
 Cumulative distribution function of the exact distribution of the
@@ -11,6 +14,9 @@ See also `test_005frank_005fsum`.
 
 See also: `test_rank_sum`.
 
+<!-- category: Statistics -->
+<!-- keywords: cdf_signed_rank -->
+<!-- signatures: cdf_signed_rank(x, n) -->
 ### Function: cdf_signed_rank (x, n)
 
 Cumulative distribution function of the exact distribution of the
@@ -22,6 +28,9 @@ See also `test_005fsigned_005frank`.
 
 See also: `test_signed_rank`.
 
+<!-- category: Statistics -->
+<!-- keywords: inference_result -->
+<!-- signatures: inference_result(title, values, numbers) -->
 ### Function: inference_result (title, values, numbers)
 
 Constructs an `inference_result` object of the type returned by the
@@ -85,11 +94,17 @@ See also `take_005finference`.
 
 See also: `take_inference`.
 
+<!-- category: Statistics -->
+<!-- keywords: inferencep -->
+<!-- signatures: inferencep(obj) -->
 ### Function: inferencep (obj)
 
 Returns `true` or `false`, depending on whether *obj* is an
 `inference_result` object or not.
 
+<!-- category: Statistics -->
+<!-- keywords: items_inference -->
+<!-- signatures: items_inference(obj) -->
 ### Function: items_inference (obj)
 
 Returns a list with the names of the items stored in *obj*, which must
@@ -120,7 +135,10 @@ of all items, no matter they are displayed or not.
 (%o3)                        [pi, e]
 ```
 
-### Function: linear_regression (linear_regression, x, linear_regression, x, option)
+<!-- category: Statistics -->
+<!-- keywords: linear_regression -->
+<!-- signatures: linear_regression(x), linear_regression(xoption) -->
+### Function: linear_regression (x)
 
 Multivariate linear regression, 
 $y_i = b0 + b1*x_1i + b2*x_2i + ... + bk*x_ki + u_i$,
@@ -234,6 +252,9 @@ v_distribution, residuals, adc, aic, bic]
     points(take_inference('residuals, res)) )$
 ```
 
+<!-- category: Statistics -->
+<!-- keywords: pdf_rank_sum -->
+<!-- signatures: pdf_rank_sum(x, n, m) -->
 ### Function: pdf_rank_sum (x, n, m)
 
 Probability density function of the exact distribution of the
@@ -245,6 +266,9 @@ See also `test_005frank_005fsum`.
 
 See also: `test_rank_sum`.
 
+<!-- category: Statistics -->
+<!-- keywords: pdf_signed_rank -->
+<!-- signatures: pdf_signed_rank(x, n) -->
 ### Function: pdf_signed_rank (x, n)
 
 Probability density function of the exact distribution of the
@@ -256,6 +280,9 @@ See also `test_005fsigned_005frank`.
 
 See also: `test_signed_rank`.
 
+<!-- category: Statistics -->
+<!-- keywords: stats_numer -->
+<!-- signatures: stats_numer -->
 ### Variable: stats_numer
 
 Default value: `true`
@@ -265,7 +292,10 @@ If `stats_numer` is `true`, inference statistical functions
 return their results in floating point numbers. If it is `false`,
 results are given in symbolic and rational format.
 
-### Function: take_inference (take_inference, n, obj, take_inference, name, obj, take_inference, list, obj)
+<!-- category: Statistics -->
+<!-- keywords: take_inference -->
+<!-- signatures: take_inference(n, obj), take_inference(name, obj), take_inference(list, obj) -->
+### Function: take_inference (n, obj)
 
 Returns the *n*-th value stored in *obj* if *n* is a positive integer,
 or the item named *name* if this is the name of an item. If the first
@@ -331,7 +361,10 @@ See also `inference_result`, and `take_005finference`.
 
 See also: `inference_result`, `take_inference`.
 
-### Function: test_mean (test_mean, x, test_mean, x, options, ...)
+<!-- category: Statistics -->
+<!-- keywords: test_mean -->
+<!-- signatures: test_mean(x), test_mean(x, options...) -->
+### Function: test_mean (x)
 
 This is the mean *t*-test. Argument *x* is a list or a column matrix
 containing an one dimensional sample. It also performs an asymptotic test
@@ -454,7 +487,10 @@ this procedure should be applied to large samples.
           |             p_value = .004471474652002261
 ```
 
-### Function: test_means_difference (test_means_difference, x1, x2, test_means_difference, x1, x2, options, ...)
+<!-- category: Statistics -->
+<!-- keywords: test_means_difference -->
+<!-- signatures: test_means_difference(x1, x2), test_means_difference(x1, x2, options...) -->
+### Function: test_means_difference (x1, x2)
 
 This is the difference of means *t*-test for two samples.
 Arguments *x1* and *x2* are lists or column matrices
@@ -594,6 +630,9 @@ equal.
             |            p_value = .05560320992529344
 ```
 
+<!-- category: Statistics -->
+<!-- keywords: test_normality -->
+<!-- signatures: test_normality(x) -->
 ### Function: test_normality (x)
 
 Shapiro-Wilk test for normality. Argument *x* is a list of numbers, and sample
@@ -645,7 +684,10 @@ Checks for the normality of a population, based on a sample of size 9.
                        |  p_value = .4361763918860381
 ```
 
-### Function: test_proportion (test_proportion, x, n, test_proportion, x, n, options, ...)
+<!-- category: Statistics -->
+<!-- keywords: test_proportion -->
+<!-- signatures: test_proportion(x, n), test_proportion(x, n, options...) -->
+### Function: test_proportion (x, n)
 
 Inferences on a proportion. Argument *x* is the number of successes
 in *n* trials in a Bernoulli experiment with unknown probability.
@@ -755,7 +797,10 @@ A two sided asymptotic test. Confidence level is 99/100.
       |                p_value = .19662
 ```
 
-### Function: test_proportions_difference (test_proportions_difference, x1, n1, x2, n2, test_proportions_difference, x1, n1, x2, n2, options, ...)
+<!-- category: Statistics -->
+<!-- keywords: test_proportions_difference -->
+<!-- signatures: test_proportions_difference(x1, n1, x2, n2), test_proportions_difference(x1, n1, x2, n2, options...) -->
+### Function: test_proportions_difference (x1, n1, x2, n2)
 
 Inferences on the difference of two proportions. Argument *x1* is the number of successes
 in *n1* trials in a Bernoulli experiment in the first population, and *x2* and *n2*
@@ -861,7 +906,10 @@ distribution when the data are unknown.
                            n2 + n1
 ```
 
-### Function: test_rank_sum (test_rank_sum, x1, x2, test_rank_sum, x1, x2, option)
+<!-- category: Statistics -->
+<!-- keywords: test_rank_sum -->
+<!-- signatures: test_rank_sum(x1, x2), test_rank_sum(x1, x2, option) -->
+### Function: test_rank_sum (x1, x2)
 
 This is the Wilcoxon-Mann-Whitney test for comparing the medians of two
 continuous populations. The first two arguments *x1* and *x2* are lists
@@ -963,7 +1011,10 @@ $H_1: median1 < median2$.
              |           p_value = .05096985666598441
 ```
 
-### Function: test_sign (test_sign, x, test_sign, x, options, ...)
+<!-- category: Statistics -->
+<!-- keywords: test_sign -->
+<!-- signatures: test_sign(x), test_sign(x, options...) -->
+### Function: test_sign (x)
 
 This is the non parametric sign test for the median of a continuous population.
 Argument *x* is a list or a column matrix containing an one dimensional sample.
@@ -1025,7 +1076,10 @@ against the alternative $H_1: median > 6$.
                |         p_value = .05468749999999989
 ```
 
-### Function: test_signed_rank (test_signed_rank, x, test_signed_rank, x, options, ...)
+<!-- category: Statistics -->
+<!-- keywords: test_signed_rank -->
+<!-- signatures: test_signed_rank(x), test_signed_rank(x, options...) -->
+### Function: test_signed_rank (x)
 
 This is the Wilcoxon signed rank test to make inferences about the median of a
 continuous population. Argument *x* is a list or a column matrix
@@ -1133,7 +1187,10 @@ since there are ties.
              |           p_value = .3628097734643669
 ```
 
-### Function: test_variance (test_variance, x, test_variance, x, options, ...)
+<!-- category: Statistics -->
+<!-- keywords: test_variance -->
+<!-- signatures: test_variance(x), test_variance(x, options, ...) -->
+### Function: test_variance (x)
 
 This is the variance *chi^2*-test. Argument *x* is a list or a column matrix
 containing an one dimensional sample taken from a normal population.
@@ -1206,7 +1263,10 @@ is equal to or greater than 200.
              |           p_value = .8163948512777689
 ```
 
-### Function: test_variance_ratio (test_variance_ratio, x1, x2, test_variance_ratio, x1, x2, options, ...)
+<!-- category: Statistics -->
+<!-- keywords: test_variance_ratio -->
+<!-- signatures: test_variance_ratio(x1, x2), test_variance_ratio(x1, x2, options...) -->
+### Function: test_variance_ratio (x1, x2)
 
 This is the variance ratio *F*-test for two normal populations.
 Arguments *x1* and *x2* are lists or column matrices

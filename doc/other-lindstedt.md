@@ -1,5 +1,8 @@
 ## lindstedt
 
+<!-- category: Other -->
+<!-- keywords: Lindstedt -->
+<!-- signatures: Lindstedt(eq, pvar, torder, ic) -->
 ### Function: Lindstedt (eq, pvar, torder, ic)
 
 This is a first pass at a Lindstedt code.  It can solve problems

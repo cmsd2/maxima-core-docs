@@ -1,5 +1,8 @@
 ## combinatorics
 
+<!-- category: Combinatorics -->
+<!-- keywords: apply_cycles -->
+<!-- signatures: apply_cycles(cl, l) -->
 ### Function: apply_cycles (cl, l)
 
 Permutes the list or set *l* applying to it the list of cycles
@@ -36,6 +39,9 @@ Example:
 
 See also: `permute`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: cyclep -->
+<!-- signatures: cyclep(c, n) -->
 ### Function: cyclep (c, n)
 
 Returns true if *c* is a valid cycle of order *n* namely, a list
@@ -78,6 +84,9 @@ Examples:
 
 See also: `permp`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: perm_cycles -->
+<!-- signatures: perm_cycles(p) -->
 ### Function: perm_cycles (p)
 
 Returns permutation *p* as a product of cycles. The cycles are
@@ -105,6 +114,9 @@ Example:
 
 See also: `perm_decomp`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: perm_decomp -->
+<!-- signatures: perm_decomp(p) -->
 ### Function: perm_decomp (p)
 
 Returns the minimum set of adjacent transpositions whose product equals
@@ -132,6 +144,9 @@ Example:
 
 See also: `perm_cycles`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: perm_inverse -->
+<!-- signatures: perm_inverse(p) -->
 ### Function: perm_inverse (p)
 
 Returns the inverse of a permutation of *p*, namely, a permutation
@@ -160,6 +175,9 @@ Example:
 
 See also: `permult`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: perm_length -->
+<!-- signatures: perm_length(p) -->
 ### Function: perm_length (p)
 
 Determines the minimum number of adjacent transpositions necessary to
@@ -188,6 +206,9 @@ Example:
 
 See also: `perm_decomp`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: perm_lex_next -->
+<!-- signatures: perm_lex_next(p) -->
 ### Function: perm_lex_next (p)
 
 Returns the permutation that comes after the given permutation *p*,
@@ -209,6 +230,9 @@ Example:
 (%o2)                [4, 6, 3, 1, 7, 5, 8, 2]
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: perm_lex_rank -->
+<!-- signatures: perm_lex_rank(p) -->
 ### Function: perm_lex_rank (p)
 
 Finds the position of permutation *p*, an integer from 1 to the
@@ -236,6 +260,9 @@ Example:
 
 See also: `perm_lex_unrank`, `perms_lex`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: perm_lex_unrank -->
+<!-- signatures: perm_lex_unrank(n, i) -->
 ### Function: perm_lex_unrank (n, i)
 
 Returns the *n*-degree permutation at position *i* (from 1 to
@@ -262,6 +289,9 @@ Example:
 
 See also: `perm_lex_rank`, `perms_lex`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: perm_next -->
+<!-- signatures: perm_next(p) -->
 ### Function: perm_next (p)
 
 Returns the permutation that comes after the given permutation *p*,
@@ -288,6 +318,9 @@ Example:
 
 See also: `perms`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: perm_parity -->
+<!-- signatures: perm_parity(p) -->
 ### Function: perm_parity (p)
 
 Finds the parity of permutation *p*: 0 if the minimum number of
@@ -315,6 +348,9 @@ Example:
 
 See also: `perm_decomp`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: perm_rank -->
+<!-- signatures: perm_rank(p) -->
 ### Function: perm_rank (p)
 
 Finds the position of permutation *p*, an integer from 1 to the
@@ -342,6 +378,9 @@ Example:
 
 See also: `perm_unrank`, `perms`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: perm_undecomp -->
+<!-- signatures: perm_undecomp(cl, n) -->
 ### Function: perm_undecomp (cl, n)
 
 Converts the list of cycles *cl* of degree *n* into an *n*
@@ -368,6 +407,9 @@ Example:
 
 See also: `perm_decomp`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: perm_unrank -->
+<!-- signatures: perm_unrank(n, i) -->
 ### Function: perm_unrank (n, i)
 
 Returns the *n*-degree permutation at position *i* (from 1 to
@@ -394,6 +436,9 @@ Example:
 
 See also: `perm_rank`, `perms`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: permp -->
+<!-- signatures: permp(p) -->
 ### Function: permp (p)
 
 Returns true if *p* is a valid permutation namely, a list of length
@@ -421,7 +466,10 @@ Examples:
 (%o3)                          true
 ```
 
-### Function: perms (perms, n, perms, n, i, perms, n, i, j)
+<!-- category: Combinatorics -->
+<!-- keywords: perms -->
+<!-- signatures: perms(n), perms(n, i), perms(n, i, j) -->
+### Function: perms (n)
 
 `perms(n)` returns a list of all
 *n*-degree permutations in the so-called Trotter-Johnson order.
@@ -477,7 +525,10 @@ Examples:
 
 See also: `perm_next`, `perm_rank`, `perm_unrank`.
 
-### Function: perms_lex (perms_lex, n, perms_lex, n, i, perms_lex, n, i, j)
+<!-- category: Combinatorics -->
+<!-- keywords: perms_lex -->
+<!-- signatures: perms_lex(n), perms_lex(n, i), perms_lex(n, i, j) -->
+### Function: perms_lex (n)
 
 `perms_lex(n)` returns a list of all
 *n*-degree permutations in the so-called lexicographic order.
@@ -538,6 +589,9 @@ Examples:
 
 See also: `perm_lex_next`, `perm_lex_rank`, `perm_lex_unrank`.
 
+<!-- category: Combinatorics -->
+<!-- keywords: permult -->
+<!-- signatures: permult(p_1, ..., p_m) -->
 ### Function: permult (p_1, ..., p_m)
 
 Returns the product of two or more permutations *p_1*, ..., *p_m*.
@@ -558,6 +612,9 @@ Example:
 (%o2)                        [2, 1, 3]
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: permute -->
+<!-- signatures: permute(p, l) -->
 ### Function: permute (p, l)
 
 Applies the permutation *p* to the elements of the list (or set)
@@ -588,6 +645,9 @@ Example:
                      2                 y
 ```
 
+<!-- category: Combinatorics -->
+<!-- keywords: random_perm -->
+<!-- signatures: random_perm(n) -->
 ### Function: random_perm (n)
 
 Returns a random permutation of degree *n*.

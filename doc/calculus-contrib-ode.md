@@ -1,5 +1,8 @@
 ## contrib_ode
 
+<!-- category: Calculus -->
+<!-- keywords: bessel_simplify -->
+<!-- signatures: bessel_simplify(expr) -->
 ### Function: bessel_simplify (expr)
 
 Simplifies expressions containing Bessel functions `bessel_j`,
@@ -49,11 +52,17 @@ differ by less than 2.
 
 See also: `bessel_j`, `bessel_y`, `bessel_i`, `bessel_k`, `hankel_1`, `hankel_2`, `struve_h`, `struve_l`.
 
+<!-- category: Calculus -->
+<!-- keywords: contrib_ode -->
+<!-- signatures: contrib_ode(eqn, y, x) -->
 ### Function: contrib_ode (eqn, y, x)
 
 Returns a list of solutions of the ODE *eqn* with 
 independent variable *x* and dependent variable *y*.
 
+<!-- category: Calculus -->
+<!-- keywords: dgauss_a -->
+<!-- signatures: dgauss_a(a, b, c, x) -->
 ### Function: dgauss_a (a, b, c, x)
 
 The derivative with respect to *x* 
@@ -61,6 +70,9 @@ of `gauss_a``(a, b, c, x)`.
 
 See also: `gauss_a`.
 
+<!-- category: Calculus -->
+<!-- keywords: dgauss_b -->
+<!-- signatures: dgauss_b(a, b, c, x) -->
 ### Function: dgauss_b (a, b, c, x)
 
 The derivative with respect to *x* 
@@ -68,6 +80,9 @@ of `gauss_b``(a, b, c, x)`.
 
 See also: `gauss_b`.
 
+<!-- category: Calculus -->
+<!-- keywords: dkummer_m -->
+<!-- signatures: dkummer_m(a, b, x) -->
 ### Function: dkummer_m (a, b, x)
 
 The derivative with respect to *x*
@@ -75,6 +90,9 @@ of `kummer_m``(a, b, x)`.
 
 See also: `kummer_m`.
 
+<!-- category: Calculus -->
+<!-- keywords: dkummer_u -->
+<!-- signatures: dkummer_u(a, b, x) -->
 ### Function: dkummer_u (a, b, x)
 
 The derivative with respect to *x*
@@ -82,6 +100,9 @@ of `kummer_u``(a, b, x)`.
 
 See also: `kummer_u`.
 
+<!-- category: Calculus -->
+<!-- keywords: expintegral_e_simplify -->
+<!-- signatures: expintegral_e_simplify(expr) -->
 ### Function: expintegral_e_simplify (expr)
 
 Simplify expressions containing exponential integral `expintegral_e`
@@ -95,6 +116,9 @@ expintegral_e(n+1,z)
 
 See also: `expintegral_e`.
 
+<!-- category: Calculus -->
+<!-- keywords: gauss_a -->
+<!-- signatures: gauss_a(a, b, c, x) -->
 ### Function: gauss_a (a, b, c, x)
 
 `gauss_a(a,b,c,x)` and `gauss_b(a,b,c,x)` are 2F1 
@@ -113,12 +137,18 @@ See also `gauss_b`, `dgauss_a` and `gauss_005fb`.
 
 See also: `odelin`, `contrib_ode`, `gauss_b`, `dgauss_a`.
 
+<!-- category: Calculus -->
+<!-- keywords: gauss_b -->
+<!-- signatures: gauss_b(a, b, c, x) -->
 ### Function: gauss_b (a, b, c, x)
 
 See `gauss_005fa`.
 
 See also: `gauss_a`.
 
+<!-- category: Calculus -->
+<!-- keywords: kummer_m -->
+<!-- signatures: kummer_m(a, b, x) -->
 ### Function: kummer_m (a, b, x)
 
 Kummer’s M function, see [https://personal.math.ubc.ca/~cbm/aands/page_504.htmA&S eqn 13.1.2]() and [https://dlmf.nist.gov/13.2DLMF 13.2]().
@@ -133,6 +163,9 @@ See also `kummer_u`, `dkummer_m`, and `dkummer_005fu`.
 
 See also: `odelin`, `contrib_ode`, `kummer_u`, `dkummer_m`, `dkummer_u`.
 
+<!-- category: Calculus -->
+<!-- keywords: kummer_u -->
+<!-- signatures: kummer_u(a, b, x) -->
 ### Function: kummer_u (a, b, x)
 
 Kummer’s U function, see [https://personal.math.ubc.ca/~cbm/aands/page_504.htmA&S eqn 13.1.3]() and [https://dlmf.nist.gov/13.2.6DLMF 13.2.6]().
@@ -142,6 +175,9 @@ See `kummer_005fm`.
 
 See also: `kummer_m`.
 
+<!-- category: Calculus -->
+<!-- keywords: ode_check -->
+<!-- signatures: ode_check(eqn, soln) -->
 ### Function: ode_check (eqn, soln)
 
 Returns the value of ODE *eqn* after substituting a
@@ -182,6 +218,9 @@ zero if *soln* is a solution of *eqn*.
 (%o4)                           0
 ```
 
+<!-- category: Calculus -->
+<!-- keywords: odelin -->
+<!-- signatures: odelin(eqn, y, x) -->
 ### Function: odelin (eqn, y, x)
 
 `odelin` solves linear homogeneous ODEs of first and 

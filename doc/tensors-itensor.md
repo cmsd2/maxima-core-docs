@@ -1,5 +1,8 @@
 ## itensor
 
+<!-- category: Tensors -->
+<!-- keywords: allsym -->
+<!-- signatures: allsym -->
 ### Variable: allsym
 
 Default value: `false`
@@ -11,7 +14,10 @@ indices. If `false` then no symmetries of any kind are assumed
 in these indices. Derivative indices are always taken to be symmetric
 unless `iframe_flag` is set to `true`.
 
-### Function: canform (canform, expr, canform, expr, rename)
+<!-- category: Tensors -->
+<!-- keywords: canform -->
+<!-- signatures: canform(expr), canform(expr, rename) -->
+### Function: canform (expr)
 
 Simplifies *expr* by renaming dummy
 indices and reordering all indices as dictated by symmetry conditions
@@ -30,6 +36,9 @@ The optional second parameter *rename*, if set to `false`, suppresses renaming.
 
 See also: `rename`, `decsym`.
 
+<!-- category: Tensors -->
+<!-- keywords: canten -->
+<!-- signatures: canten(expr) -->
 ### Function: canten (expr)
 
 Simplifies *expr* by renaming (see `rename`)
@@ -46,6 +55,9 @@ set to `true`.
 
 See also: `rename`, `canform`, `allsym`.
 
+<!-- category: Tensors -->
+<!-- keywords: changename -->
+<!-- signatures: changename(old, new, expr) -->
 ### Function: changename (old, new, expr)
 
 will change the name of all indexed objects called *old* to *new*
@@ -54,6 +66,9 @@ in *expr*. *old* may be either a symbol or a list of the form
 *name* with *m* covariant and *n* contravariant indices will be
 renamed to *new*.
 
+<!-- category: Tensors -->
+<!-- keywords: components -->
+<!-- signatures: components(tensor, expr) -->
 ### Function: components (tensor, expr)
 
 permits one to assign an indicial value to an expression
@@ -170,12 +185,18 @@ of covariant and contravariant indices and no derivative indices, and
 
 See also: `remcomps`, `kdelta`, `defrule`, `applyb1`.
 
+<!-- category: Tensors -->
+<!-- keywords: concan -->
+<!-- signatures: concan(expr) -->
 ### Function: concan (expr)
 
 Similar to `canten` but also performs index contraction.
 
 See also: `canten`.
 
+<!-- category: Tensors -->
+<!-- keywords: conmetderiv -->
+<!-- signatures: conmetderiv(expr, tensor) -->
 ### Function: conmetderiv (expr, tensor)
 
 Simplifies expressions containing ordinary derivatives of
@@ -199,6 +220,9 @@ symbols as seen from the following:
                                    %1 c              %1 c
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: contract -->
+<!-- signatures: contract(expr) -->
 ### Function: contract (expr)
 
 Carries out the tensorial contractions in *expr* which may be any
@@ -211,6 +235,9 @@ cancellations are unnecessary.
 
 See also: `ratexpand`, `gcd`.
 
+<!-- category: Tensors -->
+<!-- keywords: coord -->
+<!-- signatures: coord(tensor_1, tensor_2, ...) -->
 ### Function: coord (tensor_1, tensor_2, ...)
 
 Gives *tensor_i* the coordinate differentiation property that the
@@ -219,6 +246,9 @@ derivative of contravariant vector whose name is one of the
 been done then `idiff(x([],[i]),j)` gives `kdelta([i],[j])`.
 `coord` is a list of all indexed objects having this property.
 
+<!-- category: Tensors -->
+<!-- keywords: covdiff -->
+<!-- signatures: covdiff(expr, v_1, v_2, ...) -->
 ### Function: covdiff (expr, v_1, v_2, ...)
 
 Yields the covariant derivative of *expr* with
@@ -270,7 +300,10 @@ Enter a list of the derivative indices: [];
 (%i6)
 ```
 
-### Function: decsym (tensor, m, n, cov_1, cov_2, ..., contr_1, contr_2, ...)
+<!-- category: Tensors -->
+<!-- keywords: decsym -->
+<!-- signatures: decsym(tensor, m, n, [cov_1, cov_2, ...], [contr_1, contr_2, ...]) -->
+### Function: decsym (tensor, m, n, [cov_1, cov_2, ...], [contr_1, contr_2, ...])
 
 Declares symmetry properties for *tensor* of *m* covariant and
 *n* contravariant indices. The *cov_i* and *contr_i* are
@@ -324,7 +357,10 @@ illustrates.
 (%o12)                     [[cyc, [[1, 2, 3]], []]]
 ```
 
-### Function: defcon (defcon, tensor_1, defcon, tensor_1, tensor_2, tensor_3)
+<!-- category: Tensors -->
+<!-- keywords: defcon -->
+<!-- signatures: defcon(tensor_1), defcon(tensor_1, tensor_2, tensor_3) -->
+### Function: defcon (tensor_1)
 
 gives *tensor_1* the property that the
 contraction of a product of *tensor_1* and *tensor_2* results in *tensor_3*
@@ -342,12 +378,18 @@ used.
 `contractions` is a list of those indexed objects which have been given
 contraction properties with `defcon`.
 
-### Function: dispcon (dispcon, tensor_1, tensor_2, ..., dispcon, all)
+<!-- category: Tensors -->
+<!-- keywords: dispcon -->
+<!-- signatures: dispcon(tensor_1, tensor_2, ...), dispcon(all) -->
+### Function: dispcon (tensor_1, tensor_2, ...)
 
 Displays the contraction properties of its arguments as were given to
 `defcon`.  `dispcon (all)` displays all the contraction properties
 which were defined.
 
+<!-- category: Tensors -->
+<!-- keywords: dispsym -->
+<!-- signatures: dispsym(tensor, m, n) -->
 ### Function: dispsym (tensor, m, n)
 
 Displays all of the defined symmetries from *tensor* which has *m*
@@ -356,6 +398,9 @@ for an example.
 
 See also: `decsym`.
 
+<!-- category: Tensors -->
+<!-- keywords: entertensor -->
+<!-- signatures: entertensor(name) -->
 ### Function: entertensor (name)
 
 is a function which, by prompting, allows one to create an indexed
@@ -365,6 +410,9 @@ null) is acceptable input (see the example under `covdiff`).
 
 See also: `covdiff`.
 
+<!-- category: Tensors -->
+<!-- keywords: evundiff -->
+<!-- signatures: evundiff(expr) -->
 ### Function: evundiff (expr)
 
 Equivalent to the execution of `undiff`, followed by `ev` and
@@ -437,6 +485,9 @@ so `evundiff` is no longer necessary for expressions like this:
 
 See also: `undiff`, `ev`, `rediff`, `icurvature`.
 
+<!-- category: Tensors -->
+<!-- keywords: extdiff -->
+<!-- signatures: extdiff(expr, i) -->
 ### Function: extdiff (expr, i)
 
 Computes the exterior derivative of *expr* with respect to the index
@@ -474,6 +525,9 @@ For instance:
 
 See also: `igeowedge_flag`.
 
+<!-- category: Tensors -->
+<!-- keywords: flipflag -->
+<!-- signatures: flipflag -->
 ### Variable: flipflag
 
 Default value: `false`
@@ -491,21 +545,33 @@ index in the list is renamed to `%1`, the next to `%2`, etc.
 Then sorting occurs after the `rename`-ing (see the example
 under `rename`).
 
+<!-- category: Tensors -->
+<!-- keywords: flush -->
+<!-- signatures: flush(expr, tensor_1, tensor_2, ...) -->
 ### Function: flush (expr, tensor_1, tensor_2, ...)
 
 Set to zero, in
 *expr*, all occurrences of the *tensor_i* that have no derivative indices.
 
+<!-- category: Tensors -->
+<!-- keywords: flush1deriv -->
+<!-- signatures: flush1deriv(expr, tensor) -->
 ### Function: flush1deriv (expr, tensor)
 
 Set to zero, in `expr`, all occurrences of `tensor` that have
 exactly one derivative index.
 
+<!-- category: Tensors -->
+<!-- keywords: flushd -->
+<!-- signatures: flushd(expr, tensor_1, tensor_2, ...) -->
 ### Function: flushd (expr, tensor_1, tensor_2, ...)
 
 Set to zero, in
 *expr*, all occurrences of the *tensor_i* that have derivative indices.
 
+<!-- category: Tensors -->
+<!-- keywords: flushnd -->
+<!-- signatures: flushnd(expr, tensor, n) -->
 ### Function: flushnd (expr, tensor, n)
 
 Set to zero, in *expr*, all
@@ -526,6 +592,9 @@ derivative indices as the following example demonstrates.
                                      i,k r
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: hodge -->
+<!-- signatures: hodge(expr) -->
 ### Function: hodge (expr)
 
 Compute the Hodge-dual of *expr*. For instance:
@@ -580,6 +649,9 @@ Compute the Hodge-dual of *expr*. For instance:
                               %106 %107 %108
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: ic_convert -->
+<!-- signatures: ic_convert(eqn) -->
 ### Function: ic_convert (eqn)
 
 Converts the `itensor` equation *eqn* to a `ctensor` assignment statement.
@@ -647,6 +719,9 @@ function.
 
 See also: `diff`, `ct_coords`, `ichr1`, `ichr2`, `do`, `ev`.
 
+<!-- category: Tensors -->
+<!-- keywords: icc1 -->
+<!-- signatures: icc1 -->
 ### Variable: icc1
 
 Connection coefficients of the first kind. In `itensor`, defined as
@@ -669,6 +744,9 @@ Lastly, of `inonmet_flag` is `false`,
 
 See also: `ikt1`, `inmc1`.
 
+<!-- category: Tensors -->
+<!-- keywords: icc2 -->
+<!-- signatures: icc2 -->
 ### Variable: icc2
 
 Connection coefficients of the second kind. In `itensor`, defined as
@@ -692,7 +770,10 @@ Lastly, of `inonmet_flag` is `false`,
 
 See also: `inmc2`.
 
-### Function: ichr1 (i, j, k)
+<!-- category: Tensors -->
+<!-- keywords: ichr1 -->
+<!-- signatures: ichr1([i, j, k]) -->
+### Function: ichr1 ([i, j, k])
 
 Yields the Christoffel symbol of the first kind via the
 definition
@@ -707,7 +788,10 @@ definition
 To evaluate the Christoffel symbols for a particular metric, the
 variable `imetric` must be assigned a name as in the example under `chr2`.
 
-### Function: ichr2 (i, j, k)
+<!-- category: Tensors -->
+<!-- keywords: ichr2 -->
+<!-- signatures: ichr2([i, j], [k]) -->
+### Function: ichr2 ([i, j], [k])
 
 Yields the Christoffel symbol of the second kind
 defined by the relation
@@ -719,6 +803,9 @@ ks
                              is,j     js,i     ij,s
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: icounter -->
+<!-- signatures: icounter -->
 ### Variable: icounter
 
 Default value: `1`
@@ -730,7 +817,10 @@ determined by the option `idummy` (default: `%`).
 
 See also: `idummy`.
 
-### Function: icurvature (i, j, k, h)
+<!-- category: Tensors -->
+<!-- keywords: icurvature -->
+<!-- signatures: icurvature([i, j, k], [h]) -->
+### Function: icurvature ([i, j, k], [h])
 
 Yields the Riemann
 curvature tensor in terms of the Christoffel symbols of the second
@@ -746,7 +836,10 @@ h             h            h         %1         h
                             %1 k       i j
 ```
 
-### Function: idiff (expr, v_1, n_1, v_2, n_2, ...)
+<!-- category: Tensors -->
+<!-- keywords: idiff -->
+<!-- signatures: idiff(expr, v_1, [n_1, [v_2, n_2]...]) -->
+### Function: idiff (expr, v_1, [n_1, [v_2, n_2]...])
 
 Indicial differentiation. Unlike `diff`, which differentiates
 with respect to an independent variable, `idiff)` can be used
@@ -762,11 +855,17 @@ tensor. Thus, if `imetric` has been bound to `G` then
 `2 * determinant(g) * ichr2([%i,k],[%i])` where the dummy index `%i`
 is chosen appropriately.
 
+<!-- category: Tensors -->
+<!-- keywords: idim -->
+<!-- signatures: idim(n) -->
 ### Function: idim (n)
 
 Sets the dimensions of the metric. Also initializes the antisymmetry
 properties of the Levi-Civita symbols for the given dimension.
 
+<!-- category: Tensors -->
+<!-- keywords: idummy -->
+<!-- signatures: idummy() -->
 ### Function: idummy ()
 
 Increments `icounter` and returns as its value an index of the form
@@ -776,6 +875,9 @@ already in use (see the example under `indices`).
 
 See also: `icounter`, `indices`.
 
+<!-- category: Tensors -->
+<!-- keywords: idummyx -->
+<!-- signatures: idummyx -->
 ### Variable: idummyx
 
 Default value: `%`
@@ -785,6 +887,9 @@ Is the prefix for dummy indices (see the example under `indices`).
 
 See also: `indices`.
 
+<!-- category: Tensors -->
+<!-- keywords: ifb -->
+<!-- signatures: ifb -->
 ### Variable: ifb
 
 The frame bracket. The contribution of the frame metric to the connection
@@ -824,6 +929,9 @@ ifb    = (ifr    ifr    - ifr    ifr   ) ifri
    abc       b      c,e      b,e    c        a d
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: ifc1 -->
+<!-- signatures: ifc1 -->
 ### Variable: ifc1
 
 Frame coefficient of the first kind (also known as Ricci-rotation
@@ -840,6 +948,9 @@ ifc1    = --------------------------------
     abc                   2
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: ifc2 -->
+<!-- signatures: ifc2 -->
 ### Variable: ifc2
 
 Frame coefficient of the second kind. This tensor represents the contribution
@@ -857,6 +968,9 @@ ifc2   = ifg   ifc1
 
 See also: `ifb`.
 
+<!-- category: Tensors -->
+<!-- keywords: ifg -->
+<!-- signatures: ifg -->
 ### Variable: ifg
 
 The frame metric. Defaults to `kdelta`, but can be changed using
@@ -864,6 +978,9 @@ The frame metric. Defaults to `kdelta`, but can be changed using
 
 See also: `kdelta`, `components`.
 
+<!-- category: Tensors -->
+<!-- keywords: ifgi -->
+<!-- signatures: ifgi -->
 ### Variable: ifgi
 
 The inverse frame metric. Contracts with the frame metric (`ifg`)
@@ -871,6 +988,9 @@ to `kdelta`.
 
 See also: `ifg`, `kdelta`.
 
+<!-- category: Tensors -->
+<!-- keywords: ifr -->
+<!-- signatures: ifr -->
 ### Variable: ifr
 
 The frame field. Contracts with the inverse frame field (`ifri`) to
@@ -878,6 +998,9 @@ form the frame metric (`ifg`).
 
 See also: `ifri`, `ifg`.
 
+<!-- category: Tensors -->
+<!-- keywords: iframe_bracket_form -->
+<!-- signatures: iframe_bracket_form -->
 ### Variable: iframe_bracket_form
 
 Default value: `true`
@@ -887,6 +1010,9 @@ Specifies how the frame bracket (`ifb`) is computed.
 
 See also: `ifb`.
 
+<!-- category: Tensors -->
+<!-- keywords: iframes -->
+<!-- signatures: iframes() -->
 ### Function: iframes ()
 
 Since in this version of Maxima, contraction identities for `ifr` and
@@ -895,12 +1021,18 @@ function does nothing.
 
 See also: `ifr`, `ifri`, `ifb`.
 
+<!-- category: Tensors -->
+<!-- keywords: ifri -->
+<!-- signatures: ifri -->
 ### Variable: ifri
 
 The inverse frame field. Specifies the frame base (dual basis vectors). Along
 with the frame metric, it forms the basis of all calculations based on
 frames.
 
+<!-- category: Tensors -->
+<!-- keywords: igeodesic_coords -->
+<!-- signatures: igeodesic_coords(expr, name) -->
 ### Function: igeodesic_coords (expr, name)
 
 Causes undifferentiated Christoffel symbols and
@@ -944,6 +1076,9 @@ curvature tensor using the `igeodesic_coords` function.
 
 See also: `igeodesic_coords`.
 
+<!-- category: Tensors -->
+<!-- keywords: igeowedge_flag -->
+<!-- signatures: igeowedge_flag -->
 ### Variable: igeowedge_flag
 
 Default value: `false`
@@ -955,6 +1090,9 @@ correspond with that of a totally antisymmetric covariant tensor field.
 When set to `true`, differential forms will agree with the notion
 of the volume element.
 
+<!-- category: Tensors -->
+<!-- keywords: ikt1 -->
+<!-- signatures: ikt1 -->
 ### Variable: ikt1
 
 Covariant permutation of the torsion tensor (also known as contorsion).
@@ -975,6 +1113,9 @@ ikt1    = ----------------------------------
 
 See also: `ifg`.
 
+<!-- category: Tensors -->
+<!-- keywords: ikt2 -->
+<!-- signatures: ikt2 -->
 ### Variable: ikt2
 
 Contravariant permutation of the torsion tensor (also known as contorsion).
@@ -993,6 +1134,9 @@ ikt2   = g   ikt1
 
 See also: `ifg`.
 
+<!-- category: Tensors -->
+<!-- keywords: imetric -->
+<!-- signatures: imetric(g) -->
 ### Function: imetric (g)
 
 Specifies the metric by assigning the variable `imetric:g` in
@@ -1001,6 +1145,9 @@ executing the commands `defcon(g), defcon(g, g, kdelta)`.
 The variable `imetric` (unbound by default), is bound to the metric, assigned by
 the `imetric(g)` command.
 
+<!-- category: Tensors -->
+<!-- keywords: indexed_tensor -->
+<!-- signatures: indexed_tensor(tensor) -->
 ### Function: indexed_tensor (tensor)
 
 Must be executed before assigning components to a *tensor* for which
@@ -1009,6 +1156,9 @@ a built in value already exists as with `ichr1`, `ichr2`,
 
 See also: `icurvature`.
 
+<!-- category: Tensors -->
+<!-- keywords: indices -->
+<!-- signatures: indices(expr) -->
 ### Function: indices (expr)
 
 Returns a list of two elements.  The first is a list of the free
@@ -1035,6 +1185,9 @@ illegal. `indices` attempts to deal with these expressions in a
 reasonable manner; however, when it is called to operate upon such an
 illegal expression, its behavior should be considered undefined.
 
+<!-- category: Tensors -->
+<!-- keywords: inm -->
+<!-- signatures: inm -->
 ### Variable: inm
 
 The nonmetricity vector. Conformal nonmetricity is defined through the
@@ -1049,6 +1202,9 @@ g     =- g  inm
  ij;k     ij   k
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: inmc1 -->
+<!-- signatures: inmc1 -->
 ### Variable: inmc1
 
 Covariant permutation of the nonmetricity vector components. Defined as
@@ -1067,6 +1223,9 @@ inmc1    = ------------------------------
 
 See also: `ifg`.
 
+<!-- category: Tensors -->
+<!-- keywords: inmc2 -->
+<!-- signatures: inmc2 -->
 ### Variable: inmc2
 
 Contravariant permutation of the nonmetricity vector components. Used
@@ -1088,6 +1247,9 @@ inmc2   = -------------------------------------------
 
 See also: `ifg`.
 
+<!-- category: Tensors -->
+<!-- keywords: ishow -->
+<!-- signatures: ishow(expr) -->
 ### Function: ishow (expr)
 
 displays *expr* with the indexed objects in it shown having their
@@ -1096,6 +1258,9 @@ superscripts. The derivative indices are displayed as subscripts,
 separated from the covariant indices by a comma (see the examples
 throughout this document).
 
+<!-- category: Tensors -->
+<!-- keywords: itr -->
+<!-- signatures: itr -->
 ### Variable: itr
 
 The torsion tensor. For a metric with torsion, repeated covariant
@@ -1154,6 +1319,9 @@ by the following example:
                                     ,%1    i j
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: kdels -->
+<!-- signatures: kdels(L1, L2) -->
 ### Function: kdels (L1, L2)
 
 Symmetrized Kronecker delta, used in some calculations. For instance:
@@ -1177,6 +1345,9 @@ Symmetrized Kronecker delta, used in some calculations. For instance:
                              a       b         a       b
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: kdelta -->
+<!-- signatures: kdelta(L1, L2) -->
 ### Function: kdelta (L1, L2)
 
 is the generalized Kronecker delta function defined in
@@ -1193,6 +1364,9 @@ and no covariant indices, in effect providing a co(ntra)variant "unit matrix"
 capability. This is strictly considered a programming aid and not meant to
 imply that `kdelta([i,j],[])` is a valid tensorial object.
 
+<!-- category: Tensors -->
+<!-- keywords: lc2kdt -->
+<!-- signatures: lc2kdt(expr) -->
 ### Function: lc2kdt (expr)
 
 Simplifies expressions containing the Levi-Civita symbol, converting these
@@ -1275,7 +1449,10 @@ To re-enable the Lisp debugger set *debugger-hook* to nil.
 
 See also: `rename`, `contract`, `imetric`.
 
-### Function: lc_l ()
+<!-- category: Tensors -->
+<!-- keywords: lc_l -->
+<!-- signatures: lc_l -->
+### Function: lc_l
 
 Simplification rule used for expressions containing the unevaluated Levi-Civita
 symbol (`levi_civita`). Along with `lc_u`, it can be used to simplify
@@ -1303,7 +1480,10 @@ For example:
 
 See also: `levi_civita`, `lc_u`.
 
-### Function: lc_u ()
+<!-- category: Tensors -->
+<!-- keywords: lc_u -->
+<!-- signatures: lc_u -->
+### Function: lc_u
 
 Simplification rule used for expressions containing the unevaluated Levi-Civita
 symbol (`levi_civita`). Along with `lc_u`, it can be used to simplify
@@ -1312,6 +1492,9 @@ For details, see `lc_l`.
 
 See also: `levi_civita`, `lc_l`.
 
+<!-- category: Tensors -->
+<!-- keywords: levi_civita -->
+<!-- signatures: levi_civita(L) -->
 ### Function: levi_civita (L)
 
 is the permutation (or Levi-Civita) tensor which yields 1 if
@@ -1319,6 +1502,9 @@ the list *L* consists of an even permutation of integers, -1 if it
 consists of an odd permutation, and 0 if some indices in *L* are
 repeated.
 
+<!-- category: Tensors -->
+<!-- keywords: liediff -->
+<!-- signatures: liediff(v, ten) -->
 ### Function: liediff (v, ten)
 
 Computes the Lie-derivative of the tensorial expression *ten* with
@@ -1341,7 +1527,10 @@ field. For example:
                               ,%1 l    ,l  ,%1    ,l  ,%1   i j
 ```
 
-### Function: listoftens ()
+<!-- category: Tensors -->
+<!-- keywords: listoftens -->
+<!-- signatures: listoftens -->
+### Function: listoftens
 
 Lists all tensors in a tensorial expression, complete with their indices. E.g.,
 
@@ -1358,12 +1547,18 @@ Lists all tensors in a tensorial expression, complete with their indices. E.g.,
                                i j   u,v   x y
 ```
 
+<!-- category: Tensors -->
+<!-- keywords: lorentz_gauge -->
+<!-- signatures: lorentz_gauge(expr) -->
 ### Function: lorentz_gauge (expr)
 
 Imposes the Lorentz condition by substituting 0 for all
 indexed objects in *expr* that have a derivative index identical to a
 contravariant index.
 
+<!-- category: Tensors -->
+<!-- keywords: makebox -->
+<!-- signatures: makebox(expr, g) -->
 ### Function: makebox (expr, g)
 
 Display *expr* using the metric *g* such that
@@ -1371,6 +1566,9 @@ any tensor d’Alembertian occurring in *expr* will be indicated using the
 symbol `[]`.  For example, `[]p([m],[n])` represents
 `g([],[i,j])*p([m],[n],i,j)`.
 
+<!-- category: Tensors -->
+<!-- keywords: rediff -->
+<!-- signatures: rediff(ten) -->
 ### Function: rediff (ten)
 
 Evaluates all occurrences of the `idiff` command in the tensorial
@@ -1378,6 +1576,9 @@ expression *ten*.
 
 See also: `idiff`.
 
+<!-- category: Tensors -->
+<!-- keywords: remcomps -->
+<!-- signatures: remcomps(tensor) -->
 ### Function: remcomps (tensor)
 
 Unbinds all values from *tensor* which were assigned with the
@@ -1385,24 +1586,36 @@ Unbinds all values from *tensor* which were assigned with the
 
 See also: `components`.
 
-### Function: remcon (remcon, tensor_1, ..., tensor_n, remcon, all)
+<!-- category: Tensors -->
+<!-- keywords: remcon -->
+<!-- signatures: remcon(tensor_1, ..., tensor_n), remcon(all) -->
+### Function: remcon (tensor_1, ..., tensor_n)
 
 Removes all the contraction properties
 from the (*tensor_1*, ..., *tensor_n*). `remcon(all)` removes all contraction
 properties from all indexed objects.
 
-### Function: remcoord (remcoord, tensor_1, tensor_2, ..., remcoord, all)
+<!-- category: Tensors -->
+<!-- keywords: remcoord -->
+<!-- signatures: remcoord(tensor_1, tensor_2, ...), remcoord(all) -->
+### Function: remcoord (tensor_1, tensor_2, ...)
 
 Removes the coordinate differentiation property from the `tensor_i`
 that was established by the function `coord`.  `remcoord(all)`
 removes this property from all indexed objects.
 
+<!-- category: Tensors -->
+<!-- keywords: remsym -->
+<!-- signatures: remsym(tensor, m, n) -->
 ### Function: remsym (tensor, m, n)
 
 Removes all symmetry properties from *tensor* which has *m*
 covariant indices and *n* contravariant indices.
 
-### Function: rename (rename, expr, rename, expr, count)
+<!-- category: Tensors -->
+<!-- keywords: rename -->
+<!-- signatures: rename(expr), rename(expr, count) -->
+### Function: rename (expr)
 
 Returns an expression equivalent to *expr* but with the dummy indices
 in each term chosen from the set `[%1, %2,...]`, if the optional second
@@ -1466,6 +1679,9 @@ ichr2([%3,%5],[%1])*ichr2([%4,%6],[%3])*ichr2([%7,r],[%2]),noeval$
 
 See also: `allsym`, `flipflag`.
 
+<!-- category: Tensors -->
+<!-- keywords: showcomps -->
+<!-- signatures: showcomps(tensor) -->
 ### Function: showcomps (tensor)
 
 Shows component assignments of a tensor, as made using the `components`
@@ -1516,7 +1732,10 @@ rank higher than 2.
 
 See also: `components`.
 
-### Function: simpmetderiv (simpmetderiv, expr, simpmetderiv, expr, stop)
+<!-- category: Tensors -->
+<!-- keywords: simpmetderiv -->
+<!-- signatures: simpmetderiv(expr), simpmetderiv(expr[, stop]) -->
+### Function: simpmetderiv (expr)
 
 Simplifies expressions containing products of the derivatives of the
 metric tensor. Specifically, `simpmetderiv` recognizes two identities:
@@ -1611,6 +1830,9 @@ and `conmetderiv` together to simplify contractions of the Weyl tensor.
 
 See also: `flipflag`, `simpmetderiv`, `conmetderiv`.
 
+<!-- category: Tensors -->
+<!-- keywords: tentex -->
+<!-- signatures: tentex(expr) -->
 ### Function: tentex (expr)
 
 To use the `tentex` function, you must first load `tentex`,
@@ -1652,6 +1874,9 @@ of the percent sign in the TeX expression, which may lead to compile errors.
 
 NB: This version of the `tentex` function is somewhat experimental.
 
+<!-- category: Tensors -->
+<!-- keywords: undiff -->
+<!-- signatures: undiff(expr) -->
 ### Function: undiff (expr)
 
 Returns an expression equivalent to *expr* but with all derivatives

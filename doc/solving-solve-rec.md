@@ -1,5 +1,8 @@
 ## solve_rec
 
+<!-- category: Solving -->
+<!-- keywords: harmonic_number -->
+<!-- signatures: harmonic_number(x) -->
 ### Function: harmonic_number (x)
 
 When *x* is positive integer $n$, `harmonic_number` is
@@ -40,6 +43,9 @@ the $n$’th harmonic number.  More generally,
 
 See also: `polygamma`.
 
+<!-- category: Solving -->
+<!-- keywords: harmonic_to_psi -->
+<!-- signatures: harmonic_to_psi(x) -->
 ### Function: harmonic_to_psi (x)
 
 Converts expressions with `harmonic_number` to the equivalent
@@ -61,6 +67,9 @@ expression involving `psi[0]` (see `polygamma`).
 
 See also: `polygamma`.
 
+<!-- category: Solving -->
+<!-- keywords: product_use_gamma -->
+<!-- signatures: product_use_gamma -->
 ### Variable: product_use_gamma
 
 Default value: `true`
@@ -74,6 +83,9 @@ See also: `simplify_products`, `solve_005frec`.
 
 See also: `simplify_products`, `solve_rec`.
 
+<!-- category: Solving -->
+<!-- keywords: reduce_order -->
+<!-- signatures: reduce_order(rec, sol, var) -->
 ### Function: reduce_order (rec, sol, var)
 
 Reduces the order of linear recurrence *rec* when a particular solution
@@ -132,6 +144,9 @@ So the general solution is
              j = 0
 ```
 
+<!-- category: Solving -->
+<!-- keywords: simplify_products -->
+<!-- signatures: simplify_products -->
 ### Variable: simplify_products
 
 Default value: `true`
@@ -145,6 +160,9 @@ See also: `solve_005frec`.
 
 See also: `solve_rec`.
 
+<!-- category: Solving -->
+<!-- keywords: simplify_sum -->
+<!-- signatures: simplify_sum(expr) -->
 ### Function: simplify_sum (expr)
 
 Tries to simplify all sums appearing in *expr* to a closed form.
@@ -181,7 +199,10 @@ Example:
 (%o3)                   2        + 2  - 2
 ```
 
-### Function: solve_rec (eqn, var, init)
+<!-- category: Solving -->
+<!-- keywords: solve_rec -->
+<!-- signatures: solve_rec(eqn, var, [init]) -->
+### Function: solve_rec (eqn, var, [init])
 
 Solves for hypergeometrical solutions to linear recurrence *eqn* with
 polynomials coefficient in variable *var*. Optional arguments *init*
@@ -270,7 +291,10 @@ See also: `solve_rec_rat`, `simplify_products` and `product_005fuse_005fgamma`.
 
 See also: `solve_rec_rat`, `simplify_products`, `product_use_gamma`.
 
-### Function: solve_rec_rat (eqn, var, init)
+<!-- category: Solving -->
+<!-- keywords: solve_rec_rat -->
+<!-- signatures: solve_rec_rat(eqn, var, [init]) -->
+### Function: solve_rec_rat (eqn, var, [init])
 
 Solves for rational solutions to linear recurrences. See solve_rec for
 description of arguments.
@@ -305,7 +329,10 @@ See also: `solve_005frec`.
 
 See also: `solve_rec`.
 
-### Function: summand_to_rec (summand_to_rec, summand, k, n, summand_to_rec, summand, k, lo, hi, n)
+<!-- category: Solving -->
+<!-- keywords: summand_to_rec -->
+<!-- signatures: summand_to_rec(summand, k, n), summand_to_rec(summand, [k, lo, hi], n) -->
+### Function: summand_to_rec (summand, k, n)
 
 Returns the recurrence satisfied by the sum
 

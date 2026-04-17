@@ -1,5 +1,8 @@
 ## stringproc
 
+<!-- category: Plotting -->
+<!-- keywords: base64 -->
+<!-- signatures: base64(arg) -->
 ### Function: base64 (arg)
 
 Returns the base64-representation of *arg* as a string. 
@@ -30,7 +33,10 @@ Note that if *arg* contains umlauts (resp. octets larger than 127)
 the resulting base64-string is platform dependent.
 However the decoded string will be equal to the original.
 
-### Function: base64_decode (base64_decode, base64-string, base64_decode, base64-string, return-type)
+<!-- category: Plotting -->
+<!-- keywords: base64_decode -->
+<!-- signatures: base64_decode(base64-string), base64_decode(base64-string, return-type) -->
+### Function: base64_decode (base64-string)
 
 By default `base64_decode` decodes the *base64-string* back to the original string. 
 
@@ -44,7 +50,10 @@ Example: See `base64`.
 
 See also: `base64`.
 
-### Function: crc24sum (crc24sum, octets, crc24sum, octets, return-type)
+<!-- category: Plotting -->
+<!-- keywords: crc24sum -->
+<!-- signatures: crc24sum(octets), crc24sum(octets, return-type) -->
+### Function: crc24sum (octets)
 
 By default `crc24sum` returns the `CRC24` checksum of an octet-list 
 as a string.
@@ -91,7 +100,10 @@ WdiwkSPZ3gnIBhM9SuC076gLWZUNs6NqTeE3UzMjDAFhH3jYk1T7mysCvdtIkms=
 (%o5)                              WmeC
 ```
 
-### Function: md5sum (md5sum, arg, md5sum, arg, return-type)
+<!-- category: Plotting -->
+<!-- keywords: md5sum -->
+<!-- signatures: md5sum(arg), md5sum(arg, return-type) -->
+### Function: md5sum (arg)
 
 Returns the `MD5` checksum of a string, non-negative integer,
 list of octets, or binary (not character) input stream.
@@ -146,7 +158,10 @@ The argument may be a binary input stream.
 (%o3)                         true
 ```
 
-### Function: mgf1_sha1 (mgf1_sha1, seed, len, mgf1_sha1, seed, len, return-type)
+<!-- category: Plotting -->
+<!-- keywords: mgf1_sha1 -->
+<!-- signatures: mgf1_sha1(seed, len), mgf1_sha1(seed, len, return-type) -->
+### Function: mgf1_sha1 (seed, len)
 
 Returns a pseudo random number of variable length. 
 By default the returned value is a number with a length of *len* octets.
@@ -175,6 +190,9 @@ Example:
 (%o3)                  [0E0,25,2E,5A,2A,42,0FE,0A1]
 ```
 
+<!-- category: Plotting -->
+<!-- keywords: number_to_octets -->
+<!-- signatures: number_to_octets(number) -->
 ### Function: number_to_octets (number)
 
 Returns an octet-representation of *number* as a list of octets.
@@ -194,6 +212,9 @@ Example:
 (%o4)                      [0CA, 0FE, 0BA, 0BE]
 ```
 
+<!-- category: Plotting -->
+<!-- keywords: octets_to_number -->
+<!-- signatures: octets_to_number(octets) -->
 ### Function: octets_to_number (octets)
 
 Returns a number by concatenating the octets in the list of *octets*.
@@ -203,6 +224,9 @@ Example: See `number_005fto_005foctets`.
 
 See also: `number_to_octets`.
 
+<!-- category: Plotting -->
+<!-- keywords: octets_to_oid -->
+<!-- signatures: octets_to_oid(octets) -->
 ### Function: octets_to_oid (octets)
 
 Computes an object identifier (OID) from the list of *octets*.
@@ -220,7 +244,10 @@ Example: RSA encryption OID
 (%o3)               [2A, 86, 48, 86, 0F7, 0D, 1, 1, 1]
 ```
 
-### Function: octets_to_string (octets_to_string, octets, octets_to_string, octets, encoding)
+<!-- category: Plotting -->
+<!-- keywords: octets_to_string -->
+<!-- signatures: octets_to_string(octets), octets_to_string(octets, encoding) -->
+### Function: octets_to_string (octets)
 
 Decodes the list of *octets* into a string according to current system defaults. 
 When decoding octets corresponding to Non-US-ASCII characters 
@@ -277,6 +304,9 @@ Example (continued): Using the optional encoding argument
 
 See also: `adjust_external_format`.
 
+<!-- category: Plotting -->
+<!-- keywords: oid_to_octets -->
+<!-- signatures: oid_to_octets(oid-string) -->
 ### Function: oid_to_octets (oid-string)
 
 Converts an object identifier (OID) to a list of *octets*.
@@ -286,7 +316,10 @@ Example: See `octets_005fto_005foid`.
 
 See also: `octets_to_oid`.
 
-### Function: sha1sum (sha1sum, arg, sha1sum, arg, return-type)
+<!-- category: Plotting -->
+<!-- keywords: sha1sum -->
+<!-- signatures: sha1sum(arg), sha1sum(arg, return-type) -->
+### Function: sha1sum (arg)
 
 Returns the `SHA1` fingerprint of a string, a non-negative integer or 
 a list of octets. The default return value is a string containing 40 hex characters.
@@ -318,7 +351,10 @@ Example:
 Note that in case *arg* contains German umlauts or other non-ASCII 
 characters (resp. octets larger than 127) the `SHA1` fingerprint is platform dependent.
 
-### Function: sha256sum (sha256sum, arg, sha256sum, arg, return-type)
+<!-- category: Plotting -->
+<!-- keywords: sha256sum -->
+<!-- signatures: sha256sum(arg), sha256sum(arg, return-type) -->
+### Function: sha256sum (arg)
 
 Returns the `SHA256` fingerprint of a string, a non-negative integer or 
 a list of octets. The default return value is a string containing 64 hex characters.
@@ -343,7 +379,10 @@ characters (resp. octets larger than 127) the `SHA256` fingerprint is platform d
 
 See also: `sha1sum`.
 
-### Function: string_to_octets (string_to_octets, string, string_to_octets, string, encoding)
+<!-- category: Plotting -->
+<!-- keywords: string_to_octets -->
+<!-- signatures: string_to_octets(string), string_to_octets(string, encoding) -->
+### Function: string_to_octets (string)
 
 Encodes a *string* into a list of octets according to current system defaults. 
 When encoding strings containing Non-US-ASCII characters 

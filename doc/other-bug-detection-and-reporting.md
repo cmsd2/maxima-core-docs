@@ -1,5 +1,8 @@
 ## Bug Detection and Reporting
 
+<!-- category: Other -->
+<!-- keywords: bug_report -->
+<!-- signatures: bug_report() -->
 ### Function: bug_report ()
 
 Prints out Maxima and Lisp version numbers, and gives a link
@@ -15,6 +18,9 @@ and Lisp version information into the bug report.
 
 See also: `build_info`.
 
+<!-- category: Other -->
+<!-- keywords: build_info -->
+<!-- signatures: build_info() -->
 ### Function: build_info ()
 
 Returns a summary of the parameters of the Maxima build,
@@ -146,7 +152,10 @@ by setting the variables `maxima_frontend` and
 
 See also: `display2d`, `bug_report`.
 
-### Function: run_testsuite (options)
+<!-- category: Other -->
+<!-- keywords: run_testsuite -->
+<!-- signatures: run_testsuite([options]) -->
+### Function: run_testsuite ([options])
 
 Run the Maxima test suite.  Tests producing the desired answer are
 considered “passes,” as are tests that do not produce the desired
@@ -197,6 +206,9 @@ and then defines functions and variables appropriate to the test.
 
 See also: `testsuite_files`, `batch_answers_from_file`, `kill`.
 
+<!-- category: Other -->
+<!-- keywords: share_testsuite_files -->
+<!-- signatures: share_testsuite_files -->
 ### Variable: share_testsuite_files
 
 `share_testsuite_files` is the set of tests from the `share`
@@ -205,6 +217,9 @@ directory that is run as a part of the test suite by
 
 See also: `run_testsuite`.
 
+<!-- category: Other -->
+<!-- keywords: testsuite_files -->
+<!-- signatures: testsuite_files -->
 ### Variable: testsuite_files
 
 `testsuite_files` is the set of tests to be run by

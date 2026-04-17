@@ -1,6 +1,9 @@
 ## romberg
 
-### Function: romberg (romberg, expr, x, a, b, romberg, F, a, b)
+<!-- category: Calculus -->
+<!-- keywords: romberg -->
+<!-- signatures: romberg(expr, x, a, b), romberg(F, a, b) -->
+### Function: romberg (expr, x, a, b)
 
 Computes a numerical integration by Romberg’s method.
 
@@ -151,6 +154,9 @@ A 2-dimensional integration, implemented by nested calls to `romberg`.
 
 See also: `Introduction-to-QUADPACK`.
 
+<!-- category: Calculus -->
+<!-- keywords: rombergabs -->
+<!-- signatures: rombergabs -->
 ### Variable: rombergabs
 
 Default value: 0.0
@@ -169,6 +175,9 @@ See also `rombergit` and `rombergmin`.
 
 See also: `rombergit`, `rombergmin`.
 
+<!-- category: Calculus -->
+<!-- keywords: rombergit -->
+<!-- signatures: rombergit -->
 ### Variable: rombergit
 
 Default value: 11
@@ -184,6 +193,9 @@ See also `rombergabs` and `rombergtol`.
 
 See also: `rombergabs`, `rombergtol`.
 
+<!-- category: Calculus -->
+<!-- keywords: rombergmin -->
+<!-- signatures: rombergmin -->
 ### Variable: rombergmin
 
 Default value: 0
@@ -197,6 +209,9 @@ See also `rombergit`, `rombergabs`, and `rombergtol`.
 
 See also: `rombergit`, `rombergabs`, `rombergtol`.
 
+<!-- category: Calculus -->
+<!-- keywords: rombergtol -->
+<!-- signatures: rombergtol -->
 ### Variable: rombergtol
 
 Default value: 1e-4
