@@ -4,11 +4,7 @@
 *.ERR
 .mxpm.json
 
-# Doc build artifacts
-*.info
-*.info-*
-*-index.lisp
-*-doc-index.json
+# Intermediate build artifacts
 doc/*.texi
 doc/*.expanded.md
 doc/book/

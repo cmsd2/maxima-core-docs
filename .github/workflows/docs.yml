@@ -31,3 +31,12 @@ jobs:
 
       - name: Build docs
         run: mxpm doc build
+
+      - name: Commit doc artifacts
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add doc/*-doc-index.json doc/*.info doc/*.info-* doc/*-index.lisp
+          git diff --cached --quiet || git commit -m "Update doc build artifacts"
+          git push
