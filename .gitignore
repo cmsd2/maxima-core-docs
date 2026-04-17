@@ -7,6 +7,8 @@
 # Intermediate build artifacts
 doc/*.texi
 doc/*.expanded.md
+doc/*.info
+doc/*.info-*
 doc/book/
 
 # Figures: only PNGs are used in docs
