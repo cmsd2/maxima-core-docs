@@ -94,7 +94,7 @@ written in a canonical form, in which the lowest index in the cycle is
 placed in the first position.
 
 
-See also `perm_005fdecomp`.
+See also `perm_decomp`.
 
 
 Example:
@@ -123,7 +123,7 @@ Returns the minimum set of adjacent transpositions whose product equals
 the given permutation *p*.
 
 
-See also `perm_005fcycles`.
+See also `perm_cycles`.
 
 
 Example:
@@ -186,7 +186,7 @@ adjacent transposition is a cycle with only two numbers, which are
 consecutive integers.
 
 
-See also `perm_005fdecomp`.
+See also `perm_decomp`.
 
 
 Example:
@@ -240,7 +240,7 @@ degree *n* of the permutation, in the sequence of permutations in
 lexicographic order.
 
 
-See also `perm_lex_unrank` and `perms_005flex`.
+See also `perm_lex_unrank` and `perms_lex`.
 
 
 Example:
@@ -269,7 +269,7 @@ Returns the *n*-degree permutation at position *i* (from 1 to
 *n*!) in the lexicographic ordering of permutations.
 
 
-See also `perm_lex_rank` and `perms_005flex`.
+See also `perm_lex_rank` and `perms_lex`.
 
 
 Example:
@@ -328,7 +328,7 @@ adjacent transpositions necessary to write permutation *p* as a
 product of adjacent transpositions is even, or 1 if that number is odd.
 
 
-See also `perm_005fdecomp`.
+See also `perm_decomp`.
 
 
 Example:
@@ -387,7 +387,7 @@ Converts the list of cycles *cl* of degree *n* into an *n*
 degree permutation, equal to their product.
 
 
-See also `perm_005fdecomp`.
+See also `perm_decomp`.
 
 
 Example:
@@ -490,7 +490,7 @@ identity permutation and each consecutive permutation can be obtained
 from the previous one a by single adjacent transposition.
 
 
-See also `perm_next`, `perm_rank` and `perm_005funrank`.
+See also `perm_next`, `perm_rank` and `perm_unrank`.
 
 
 Examples:
@@ -554,7 +554,7 @@ integers are placed first and so on.
 
 
 See also `perm_lex_next`, `perm_lex_rank` and
-`perm_005flex_005funrank`.
+`perm_lex_unrank`.
 
 
 Examples:
@@ -653,7 +653,7 @@ Example:
 Returns a random permutation of degree *n*.
 
 
-See also `random_005fpermutation`.
+See also `random_permutation`.
 
 
 Example:

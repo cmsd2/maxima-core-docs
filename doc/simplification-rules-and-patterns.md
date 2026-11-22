@@ -1293,7 +1293,7 @@ and `:lisp (symbol-function '$foorule1)` displays its definition.
 
 
 See also `matchdeclare`, `defmatch`, `defrule`, `tellsimp`,
-`let`, `kill`, `remrule` and `clear_005frules`.
+`let`, `kill`, `remrule` and `clear_rules`.
 
 
 Examples:

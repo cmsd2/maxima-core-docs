@@ -220,7 +220,7 @@ Example:
 Returns a number by concatenating the octets in the list of *octets*.
 
 
-Example: See `number_005fto_005foctets`.
+Example: See `number_to_octets`.
 
 See also: `number_to_octets`.
 
@@ -279,7 +279,7 @@ simply passes through the UTF-8-octets encoded by the GNU/Linux terminal).
 
 In case the external format of the Lisp reader is equal to UTF-8 the optional 
 argument *encoding* allows to set the encoding for the octet to string conversion. 
-If necessary see `adjust_005fexternal_005fformat` for changing the external format. 
+If necessary see `adjust_external_format` for changing the external format. 
 
 
 Some names of supported encodings (see corresponding Lisp manual for more): 
@@ -312,7 +312,7 @@ See also: `adjust_external_format`.
 Converts an object identifier (OID) to a list of *octets*.
 
 
-Example: See `octets_005fto_005foid`.
+Example: See `octets_to_oid`.
 
 See also: `octets_to_oid`.
 
@@ -391,10 +391,10 @@ the result depends on the platform, application and underlying Lisp.
 
 In case the external format of the Lisp reader is equal to UTF-8 the optional 
 argument *encoding* allows to set the encoding for the string to octet conversion. 
-If necessary see `adjust_005fexternal_005fformat` for changing the external format. 
+If necessary see `adjust_external_format` for changing the external format. 
 
 
-See `octets_005fto_005fstring` for examples and some more information.
+See `octets_to_string` for examples and some more information.
 
 See also: `adjust_external_format`, `octets_to_string`.
 

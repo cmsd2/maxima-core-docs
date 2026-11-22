@@ -13,8 +13,8 @@ the encoding or prints some help or instruction.
 been changed and `false` otherwise.
 
 
-Functions like `cint`, `unicode`, `octets_005fto_005fstring` 
-and `string_005fto_005foctets` need UTF-8 as the external format of the 
+Functions like `cint`, `unicode`, `octets_to_string` 
+and `string_to_octets` need UTF-8 as the external format of the 
 Lisp reader to work properly over the full range of Unicode characters. 
 
 
@@ -91,7 +91,7 @@ the underlying Lisp must provide full Unicode support.
 E.g. a German umlaut is detected as an alphabetic character with SBCL in GNU/Linux 
 but not with GCL. 
 (In Windows Maxima, when compiled with SBCL, must be set to UTF-8. 
-See `adjust_005fexternal_005fformat` for more.) 
+See `adjust_external_format` for more.) 
 
 
 Example: Examination of non-US-ASCII characters.
@@ -262,7 +262,7 @@ Examples: The hexadecimal code point of some characters
 
 Warning: It is not possible to enter characters corresponding to code points 
 larger than 16 bit in wxMaxima with SBCL on Windows when the external format 
-has not been set to UTF-8. See `adjust_005fexternal_005fformat`.
+has not been set to UTF-8. See `adjust_external_format`.
 
 
 
@@ -286,7 +286,7 @@ Converting a character to a code point via UTF-8-octets may serve as a workaroun
 
 
 
-See `utf8_005fto_005funicode`, `string_005fto_005foctets`.
+See `utf8_to_unicode`, `string_to_octets`.
 
 See also: `adjust_external_format`, `utf8_to_unicode`, `string_to_octets`.
 
@@ -369,7 +369,7 @@ Examples:
 ```
 
 
-See also `parse_005fstring` and `eval_005fstring_005flisp`.
+See also `parse_string` and `eval_string_lisp`.
 
 See also: `parse_string`, `eval_string_lisp`.
 
@@ -437,7 +437,7 @@ Returns a string containing all the characters currently present in
 The returned characters are removed from *stream*.
 
 
-Example: See `make_005fstring_005foutput_005fstream` .
+Example: See `make_string_output_stream` .
 
 See also: `make_string_output_stream`.
 
@@ -480,7 +480,7 @@ t e x
 ### Function: make_string_output_stream ()
 
 Returns an output stream that accepts characters. Characters currently present 
-in this stream can be retrieved by `get_005foutput_005fstream_005fstring`.
+in this stream can be retrieved by `get_output_stream_string`.
 
  
 
@@ -600,7 +600,7 @@ Examples:
 ```
 
 
-See also `eval_005fstring`.
+See also `eval_string`.
 
 See also: `eval_string`.
 
@@ -793,7 +793,7 @@ Removes and returns the first character in *stream*.
 If the end of file is encountered `readchar` returns `false`.
 
 
-Example: See `make_005fstring_005finput_005fstream`.
+Example: See `make_string_input_stream`.
 
 See also: `make_string_input_stream`.
 
@@ -1285,7 +1285,7 @@ Example: Characters defined by hexadecimal code points
 
 Warning: In wxMaxima with SBCL on Windows it is not possible to convert 
 code points larger than 16 bit to characters when the external format 
-has not been set to UTF-8. See `adjust_005fexternal_005fformat` for more information.
+has not been set to UTF-8. See `adjust_external_format` for more information.
 
 
 
@@ -1309,7 +1309,7 @@ Converting a code point to a character via UTF-8 octets may serve as a workaroun
 
 
 
-See `octets_005fto_005fstring`, `unicode_005fto_005futf8`.
+See `octets_to_string`, `unicode_to_utf8`.
 
 
 In case the underlying Lisp provides full Unicode support the character might be 
@@ -1389,7 +1389,7 @@ On GNU/Linux this is true when Maxima is built with GCL
 and on Windows in wxMaxima with GCL- and SBCL-builds. 
 With SBCL it is recommended to change the external format to UTF-8. 
 Setting `us_ascii_only` is unnecessary then. 
-See `adjust_005fexternal_005fformat` for details. 
+See `adjust_external_format` for details. 
 
 
 `us_ascii_only` is `false` by default. 
@@ -1411,7 +1411,7 @@ Returns a Unicode code point corresponding to the *list* which must contain
 the UTF-8 encoding of a single character.
 
 
-Examples: See `unicode_005fto_005futf8`.
+Examples: See `unicode_to_utf8`.
 
 See also: `unicode_to_utf8`.
 

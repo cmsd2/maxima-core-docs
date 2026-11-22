@@ -7,7 +7,7 @@
 
 Prints out Maxima and Lisp version numbers, and gives a link
 to the Maxima project [https://sourceforge.net/p/maxima/bugsbug report web page]().
-The version information is the same as reported by `build_005finfo`.
+The version information is the same as reported by `build_info`.
 
 
 When a bug is reported, it is helpful to copy the Maxima
@@ -55,7 +55,7 @@ maxima_frontend Name of user interface, if any (value of `maxima_frontend`)
 maxima_frontend_version User interface version when `maxima_frontend` is present (value of `maxima_frontend_version`)
 
 
-See also `bug_005freport`.
+See also `bug_report`.
 
 
 Examples:
@@ -171,7 +171,7 @@ fails.  (Defaults to `false`).
 **display_known_bugs** — Displays tests that are marked as known bugs.  (Default is `false`).
 **tests** — This is a single test or a list of tests that should be run.  Each test can be specified by
 either a string or a symbol.  By default, all tests are run.  The complete set
-of tests is specified by `testsuite_005ffiles`.
+of tests is specified by `testsuite_files`.
 **time** — Display time information.  If `true`, the time taken for each
 test file is displayed.  If `all`, the time for each individual
 test is shown if `display_all` is `true`.  The default is
@@ -184,7 +184,7 @@ Of course, the actual set of test that are run can be controlled by
 the `tests` option. The default is `false`.
 **answers_from_file** — Read answers to interactive questions from the source file. May only be
 `false` or `true` (default). See also
-`batch_005fanswers_005ffrom_005ffile`.
+`batch_answers_from_file`.
 
 
 For example `run_testsuite(display_known_bugs = true, tests=[rtest5])`
@@ -213,7 +213,7 @@ See also: `testsuite_files`, `batch_answers_from_file`, `kill`.
 
 `share_testsuite_files` is the set of tests from the `share`
 directory that is run as a part of the test suite by
-`run_005ftestsuite`..
+`run_testsuite`..
 
 See also: `run_testsuite`.
 
@@ -223,7 +223,7 @@ See also: `run_testsuite`.
 ### Variable: testsuite_files
 
 `testsuite_files` is the set of tests to be run by
-`run_005ftestsuite`.  It is a list of names of the files containing
+`run_testsuite`.  It is a list of names of the files containing
 the tests to run.  If some of the tests in a file are known to fail,
 then instead of listing the name of the file, a list containing the
 file name and the test numbers that fail is used.

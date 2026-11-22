@@ -207,8 +207,8 @@ maxima
 – Arc Cosine.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -221,8 +221,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Hyperbolic Arc Cosine.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -235,8 +235,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Arc Cotangent.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -249,8 +249,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Hyperbolic Arc Cotangent.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -263,8 +263,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Arc Cosecant.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -277,8 +277,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Hyperbolic Arc Cosecant.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -291,8 +291,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Arc Secant.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -305,8 +305,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Hyperbolic Arc Secant.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -319,8 +319,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Arc Sine.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -333,8 +333,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Hyperbolic Arc Sine.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -350,8 +350,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 See also `atan2`.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `atan2`, `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -377,8 +377,8 @@ is continuous with the second quadrant.
 See also `atan`.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `atan`, `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -391,8 +391,8 @@ See also: `atan`, `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Hyperbolic Arc Tangent.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -422,8 +422,8 @@ Do `load("atrig1");` to use them.
 – Cosine.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -436,8 +436,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Hyperbolic Cosine.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -450,8 +450,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Cotangent.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -464,8 +464,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Hyperbolic Cotangent.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -478,8 +478,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Cosecant.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -492,8 +492,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Hyperbolic Cosecant.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -515,10 +515,10 @@ $0 \le x < 2\pi,$
 $\sin{x\over 2}$
 simplifies to a simple formula:
 
-$${\sqrt{1-\cos x}\over\sqrt{2}}$$
+$$
+{\sqrt{1-\cos x}\over\sqrt{2}}
+$$
 
-
-$${\sqrt{1-\cos x}\over\sqrt{2}}$$
 
 
 
@@ -526,13 +526,10 @@ $${\sqrt{1-\cos x}\over\sqrt{2}}$$
 A complicated factor is needed to make this formula correct for all complex 
 arguments $z = x+iy$:
 
-$$(-1)^{\lfloor{x/(2\pi)}\rfloor} \left[1-\rm{unit\_step}(-y) \left(1+(-1)^{\lfloor{x/(2\pi)}\rfloor - \lceil{x/(2\pi)}\rceil}\right)\right]$$
-
-
-$$(-1)^{\lfloor{x/(2\pi)}\rfloor}
-\left[1-\rm{unit\_step}(-y)
-\left(1+(-1)^{\lfloor{x/(2\pi)}\rfloor - \lceil{x/(2\pi)}\rceil}\right)\right]
 $$
+(-1)^{\lfloor{x/(2\pi)}\rfloor} \left[1-\rm{unit\_step}(-y) \left(1+(-1)^{\lfloor{x/(2\pi)}\rfloor - \lceil{x/(2\pi)}\rceil}\right)\right]
+$$
+
 
 
 
@@ -599,8 +596,8 @@ used to simplify trigonometric function whose arguments are of the form
 – Secant.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -613,8 +610,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Hyperbolic Secant.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -627,8 +624,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Sine.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -641,8 +638,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Hyperbolic Sine.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -655,8 +652,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Tangent.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
@@ -669,8 +666,8 @@ See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.
 – Hyperbolic Tangent.
 
 
-For variables that control simplification `_0025piargs`,
-`_0025iargs`, `halfangles`, `triginverses`, and
+For variables that control simplification `%piargs`,
+`%iargs`, `halfangles`, `triginverses`, and
 `trigsign`.
 
 See also: `%piargs`, `%iargs`, `halfangles`, `triginverses`, `trigsign`.

@@ -518,7 +518,7 @@ the Lisp compiler.
 translates Maxima into Lisp, and then executes the Lisp compiler.
 
 
-See also `translate`, `translate_file`, and `compile_005ffile`.
+See also `translate`, `translate_file`, and `compile_file`.
 
 See also: `translate`, `translate_file`, `compile_file`.
 
@@ -658,7 +658,7 @@ function defined by `define` does not evaluate the corresponding actual
 argument.  Otherwise all actual arguments are evaluated.
 
 
-See also `:=` and `_003a_003a_003d`.
+See also `:=` and `::=`.
 
 
 Examples:
@@ -2315,7 +2315,7 @@ single-word integers.
 If the type of function parameters and results doesn’t match the declaration by
 `mode_declare` the function may misbehave or a warning or an error might
 occur, see `mode_checkp`, `mode_check_errorp` and
-`mode_005fcheck_005fwarnp`.
+`mode_check_warnp`.
 
 
 See `mode_identity` for declaring the type of lists and `define_variable` for
@@ -2445,6 +2445,11 @@ Default value: `true`
 When `savedef` is `true`, the Maxima version of a user function is
 preserved when the function is translated.  This permits the definition to be
 displayed by `dispfun` and allows the function to be edited.
+
+
+When `savedef` is `all`, files written by `translate_file` and
+`compfile` additionally contain the Maxima version of each translated
+function, so that it is preserved even when the translated file is loaded.
 
 
 When `savedef` is `false`, the names of translated functions are
@@ -2894,7 +2899,7 @@ See also
 `tr_warn_meval`,
 `tr_warn_mode`,
 `tr_warn_undeclared`,
-and `tr_005fwarn_005fundefined_005fvariable`.
+and `tr_warn_undefined_variable`.
 
 See also: `tr_bound_function_applyp`, `tr_file_tty_messagesp`, `tr_float_can_branch_complex`, `tr_function_call_default`, `tr_numer`, `tr_optimize_max_loop`, `tr_state_vars`, `tr_warnings_get`, `tr_warn_fexpr`, `tr_warn_meval`, `tr_warn_mode`, `tr_warn_undeclared`, `tr_warn_undefined_variable`.
 

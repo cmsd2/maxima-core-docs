@@ -1,28 +1,29 @@
 {
   "version": 1,
   "package": "maxima-core-docs",
-  "source": "/Users/cmsd2/Development/maxima-core-docs/doc/maxima-core-docs.md",
+  "source": "./doc/maxima-core-docs.md",
   "symbols": {
     "!!": {
       "type": "Function",
-      "signature": "!!",
-      "summary": "The double factorial operator.",
+      "signature": "double_factorial(z)",
+      "summary": "The double factorial operator. !! and double_factorial are equivalent. The operator is displayed as !! whether input as !! or double_factorial.",
       "body_md": "",
       "examples": [],
       "see_also": [],
       "category": "Combinatorics",
       "section": "Elementary Functions",
       "keywords": [
-        "!!"
+        "!!",
+        "double_factorial"
       ],
       "signatures": [
-        "!!"
+        "double_factorial(z)"
       ]
     },
     "#": {
       "type": "Function",
       "signature": "#",
-      "summary": "Represents the negation of syntactic equality _003d.",
+      "summary": "Represents the negation of syntactic equality =.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -2050,7 +2051,7 @@
     "animation": {
       "type": "Variable",
       "signature": "animation[animation, property, positions]",
-      "summary": "property should be one of the following 4 object’s properties: object_005forigin, object_005fscale, object_005fposition or object_005forientation and positions should be a list of points. When the play button is pressed, the object property will be changed sequentially through all the values in the list, at intervals of time given by the option scene_005ftstep. The rewind button can be used to point at the start of the sequence making the animation restart after the play button is pressed again.",
+      "summary": "property should be one of the following 4 object’s properties: object_origin, object_scale, object_position or object_orientation and positions should be a list of points. When the play button is pressed, the object property will be changed sequentially through all the values in the list, at intervals of time given by the option scene_tstep. The rewind button can be used to point at the start of the sequence making the animation restart after the play button is pressed again.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -2511,6 +2512,22 @@
       ],
       "signatures": [
         "asinh(x)"
+      ]
+    },
+    "ask_hide_prompt": {
+      "type": "Variable",
+      "signature": "ask_hide_prompt",
+      "summary": "Default value: false",
+      "body_md": "",
+      "examples": [],
+      "see_also": [],
+      "category": "Programming",
+      "section": "Maxima’s Database",
+      "keywords": [
+        "ask_hide_prompt"
+      ],
+      "signatures": [
+        "ask_hide_prompt"
       ]
     },
     "askequal": {
@@ -3265,7 +3282,7 @@
     "batch": {
       "type": "Function",
       "signature": "batch(filename)",
-      "summary": "batch(filename) reads Maxima expressions from filename and evaluates them.  batch searches for filename in the list file_005fsearch_005fmaxima.  See also file_005fsearch.",
+      "summary": "batch(filename) reads Maxima expressions from filename and evaluates them.  batch searches for filename in the list file_search_maxima.  See also file_search.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -3557,7 +3574,7 @@
     "bessel_simplify": {
       "type": "Function",
       "signature": "bessel_simplify(expr)",
-      "summary": "Simplifies expressions containing Bessel functions bessel_j, bessel_y, bessel_i, bessel_k, hankel_1, hankel_2, struve_h and struve_005fl. Recurrence relations  [https://personal.math.ubc.ca/~cbm/aands/page_361.htmA&S eqn 9.1.27]() and [https://dlmf.nist.gov/10.6#iDLMF 10.6#i]()",
+      "summary": "Simplifies expressions containing Bessel functions bessel_j, bessel_y, bessel_i, bessel_k, hankel_1, hankel_2, struve_h and struve_l. Recurrence relations  [https://personal.math.ubc.ca/~cbm/aands/page_361.htmA&S eqn 9.1.27]() and [https://dlmf.nist.gov/10.6#iDLMF 10.6#i]()",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -4461,7 +4478,7 @@
     "bug_report": {
       "type": "Function",
       "signature": "bug_report()",
-      "summary": "Prints out Maxima and Lisp version numbers, and gives a link to the Maxima project [https://sourceforge.net/p/maxima/bugsbug report web page](). The version information is the same as reported by build_005finfo.",
+      "summary": "Prints out Maxima and Lisp version numbers, and gives a link to the Maxima project [https://sourceforge.net/p/maxima/bugsbug report web page](). The version information is the same as reported by build_info.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -6643,7 +6660,7 @@
     "cone": {
       "type": "Variable",
       "signature": "cone[cone, options]",
-      "summary": "Creates a regular pyramid with height equal to 1 and a hexagonal base with vertices 0.5 units away from the axis. Options object_005fheight and object_005fradius can be used to change those defaults and option object_005fresolution can be used to change the number of edges of the base; higher values will make it look like a cone. By default, the axis will be along the x axis, the middle point of the axis will be at the origin and the vertex on the positive side of the x axis; use options object_005forientation and object_005fcenter to change those defaults.",
+      "summary": "Creates a regular pyramid with height equal to 1 and a hexagonal base with vertices 0.5 units away from the axis. Options object_height and object_radius can be used to change those defaults and option object_resolution can be used to change the number of edges of the base; higher values will make it look like a cone. By default, the axis will be along the x axis, the middle point of the axis will be at the origin and the vertex on the positive side of the x axis; use options object_orientation and object_center to change those defaults.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -7596,7 +7613,7 @@
     "cube": {
       "type": "Variable",
       "signature": "cube[cube, options]",
-      "summary": "A cube with edges of 1 unit and faces parallel to the xy, xz and yz planes. The lengths of the three edges can be changed with options object_005fxlength, object_005fylength and object_005fzlength, turning it into a rectangular box and the faces can be rotated with option object_005forientation.",
+      "summary": "A cube with edges of 1 unit and faces parallel to the xy, xz and yz planes. The lengths of the three edges can be changed with options object_xlength, object_ylength and object_zlength, turning it into a rectangular box and the faces can be rotated with option object_orientation.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -7725,7 +7742,7 @@
     "cylinder": {
       "type": "Variable",
       "signature": "cylinder[cylinder, options]",
-      "summary": "Creates a regular prism with height equal to 1 and a hexagonal base with vertices 0.5 units away from the axis. Options object_005fheight and object_005fradius can be used to change those defaults and option object_005fresolution can be used to change the number of edges of the base; higher values will make it look like a cylinder. The default height can be changed with the option object_005fheight. By default, the axis will be along the x axis and the middle point of the axis will be at the origin; use options object_005forientation and object_005fcenter to change those defaults.",
+      "summary": "Creates a regular prism with height equal to 1 and a hexagonal base with vertices 0.5 units away from the axis. Options object_height and object_radius can be used to change those defaults and option object_resolution can be used to change the number of edges of the base; higher values will make it look like a cylinder. The default height can be changed with the option object_height. By default, the axis will be along the x axis and the middle point of the axis will be at the origin; use options object_orientation and object_center to change those defaults.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -8439,7 +8456,7 @@
     "denom": {
       "type": "Function",
       "signature": "denom(expr)",
-      "summary": "Returns the denominator of the rational expression expr.",
+      "summary": "Returns the denominator of expr if it is a ratio. If expr is not a ratio, 1 is returned. For %e^-x, 2^-x and x/2, the behavior depends on %edispflag, exptdispflag, and pfeformat, respectively.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -10544,22 +10561,6 @@
         "elliptic_ec(m)"
       ]
     },
-    "elliptic_eu": {
-      "type": "Function",
-      "signature": "elliptic_eu(u, m)",
-      "summary": "The incomplete elliptic integral of the second kind, defined as",
-      "body_md": "",
-      "examples": [],
-      "see_also": [],
-      "category": "Calculus",
-      "section": "Elliptic Functions",
-      "keywords": [
-        "elliptic_eu"
-      ],
-      "signatures": [
-        "elliptic_eu(u, m)"
-      ]
-    },
     "elliptic_f": {
       "type": "Function",
       "signature": "elliptic_f(phi, m)",
@@ -11013,7 +11014,7 @@
     "errexp1": {
       "type": "Variable",
       "signature": "errexp1",
-      "summary": "See error_005fsyms.",
+      "summary": "See error_syms.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -12545,6 +12546,22 @@
         "file_search_cache"
       ]
     },
+    "file_search_ignore_dirs": {
+      "type": "Variable",
+      "signature": "file_search_ignore_dirs",
+      "summary": "Default value: [\".bzr\", \".git\", \".github\", \".hg\", \".svn\", \".eclipse\", \".idea\", \".vs\", \".vscode\", \".zed\"]",
+      "body_md": "",
+      "examples": [],
+      "see_also": [],
+      "category": "IO",
+      "section": "File Input and Output",
+      "keywords": [
+        "file_search_ignore_dirs"
+      ],
+      "signatures": [
+        "file_search_ignore_dirs"
+      ]
+    },
     "file_search_maxima": {
       "type": "Variable",
       "signature": "file_search_lisp",
@@ -12603,7 +12620,7 @@
     "file_type_maxima": {
       "type": "Variable",
       "signature": "file_type_maxima",
-      "summary": "Default value:  [mac, mc, demo, dem, dm1, dm2, dm3, dmt, wxm]",
+      "summary": "Default value:  [mac, mc, demo, dem, dm1, dm2, dm3, dmt, wxm, wxmx]",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -14031,7 +14048,7 @@
     "gauss_b": {
       "type": "Function",
       "signature": "gauss_b(a, b, c, x)",
-      "summary": "See gauss_005fa.",
+      "summary": "See gauss_a.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -14661,7 +14678,7 @@
     "geomview": {
       "type": "Variable",
       "signature": "geomview",
-      "summary": "This is an abbreviation for [plot_format, geomview]. See plot_005fformat.",
+      "summary": "This is an abbreviation for [plot_format, geomview]. See plot_format.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -15051,7 +15068,7 @@
     "gnuplot": {
       "type": "Variable",
       "signature": "gnuplot",
-      "summary": "This is an abbreviation for [plot_format, gnuplot]. See plot_005fformat.",
+      "summary": "This is an abbreviation for [plot_format, gnuplot]. See plot_format.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -15227,7 +15244,7 @@
     "gnuplot_pipes": {
       "type": "Variable",
       "signature": "gnuplot_pipes",
-      "summary": "This is an abbreviation for [plot_format, gnuplot_pipes]. See plot_005fformat.",
+      "summary": "This is an abbreviation for [plot_format, gnuplot_pipes]. See plot_format.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -15275,7 +15292,7 @@
     "gnuplot_postamble": {
       "type": "Variable",
       "signature": "gnuplot_postamble[gnuplot_postamble, string]",
-      "summary": "This option inserts gnuplot commands after other commands sent to Gnuplot and right before the plot command is sent. Any valid gnuplot commands may be used. Multiple commands should be separated with a semi-colon. See also gnuplot_005fpreamble.",
+      "summary": "This option inserts gnuplot commands after other commands sent to Gnuplot and right before the plot command is sent. Any valid gnuplot commands may be used. Multiple commands should be separated with a semi-colon. See also gnuplot_preamble.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -15291,7 +15308,7 @@
     "gnuplot_preamble": {
       "type": "Variable",
       "signature": "gnuplot_preamble[gnuplot_preamble, string]",
-      "summary": "This option inserts gnuplot commands before any other commands sent to Gnuplot. Any valid gnuplot commands may be used. Multiple commands should be separated with a semi-colon. See also gnuplot_005fpostamble.",
+      "summary": "This option inserts gnuplot commands before any other commands sent to Gnuplot. Any valid gnuplot commands may be used. Multiple commands should be separated with a semi-colon. See also gnuplot_postamble.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -17162,7 +17179,7 @@
     "imagpart": {
       "type": "Function",
       "signature": "imagpart(expr)",
-      "summary": "Returns the imaginary part of the expression expr.",
+      "summary": "Returns the imaginary part of the expression expr. If both the real and the imaginary part of an expression are of interest, then calling rectform or real_imag_part is more efficient than calling realpart and imagpart on the same expression.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -18611,7 +18628,7 @@
     "jacobi_am": {
       "type": "Function",
       "signature": "jacobi_am(u, m)",
-      "summary": "The Jacobi amplitude function, jacobi_am, is defined implicitly by (see [http://functions.wolfram.com/09.24.02.0001.01]()) $z = {\\rm am}(w, m)$ where $w = F(z,m)$ where $F(z,m)$ is the incomplete elliptic integral of the first kind (elliptic_005ff).  It is defined for all real and complex values of $z$ and $m$.  In particular for real $z$ and $m$ with $|m|<1$, ${\\rm am}(z,m)$ maps the entire real line to the entire real line.  For other values of $z$ and $m$, the following relationship is used: ${\\rm am}(z,m) = \\sin^{-1}({\\rm jacobi\\_sn}(z, m)).$",
+      "summary": "The Jacobi amplitude function, jacobi_am, is defined implicitly by (see [http://functions.wolfram.com/09.24.02.0001.01]()) $z = {\\rm am}(w, m)$ where $w = F(z,m)$ where $F(z,m)$ is the incomplete elliptic integral of the first kind (elliptic_f).  It is defined for all real and complex values of $z$ and $m$.  In particular for real $z$ and $m$ with $|m|<1$, ${\\rm am}(z,m)$ maps the entire real line to the entire real line.  For other values of $z$ and $m$, the following relationship is used: ${\\rm am}(z,m) = \\sin^{-1}({\\rm jacobi\\_sn}(z, m)).$",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -18718,6 +18735,22 @@
       ],
       "signatures": [
         "jacobi_ds(u, m)"
+      ]
+    },
+    "jacobi_epsilon": {
+      "type": "Function",
+      "signature": "jacobi_epsilon(u, m)",
+      "summary": "The Jacobi epsilon function, ${\\cal E}(u, m)$ is defined by (see [https://dlmf.nist.gov/22.16.E17DLMF 22.16.E17]() and [https://dlmf.nist.gov/22.16.E14DLMF 22.16.E14]())",
+      "body_md": "",
+      "examples": [],
+      "see_also": [],
+      "category": "Calculus",
+      "section": "Elliptic Functions",
+      "keywords": [
+        "jacobi_epsilon"
+      ],
+      "signatures": [
+        "jacobi_epsilon(u, m)"
       ]
     },
     "jacobi_nc": {
@@ -20294,7 +20327,7 @@
     "levin_u_sum": {
       "type": "Function",
       "signature": "levin_u_sum(a, n, n_0, nterms, mode)",
-      "summary": "Estimate sum(a(n), n, n_0, inf) using at most nterms terms using the Levin u-transform levin_002d1973.",
+      "summary": "Estimate sum(a(n), n, n_0, inf) using at most nterms terms using the Levin u-transform levin-1973.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -21997,7 +22030,7 @@
     "make_string_output_stream": {
       "type": "Function",
       "signature": "make_string_output_stream()",
-      "summary": "Returns an output stream that accepts characters. Characters currently present in this stream can be retrieved by get_005foutput_005fstream_005fstring.",
+      "summary": "Returns an output stream that accepts characters. Characters currently present in this stream can be retrieved by get_output_stream_string.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -22013,7 +22046,7 @@
     "make_transform": {
       "type": "Function",
       "signature": "make_transform([var1, var2, var3], fx, fy, fz)",
-      "summary": "Returns a function suitable to be used in the option transform_xy of plot3d.  The three variables var1, var2, var3 are three dummy variable names, which represent the 3 variables given by the plot3d command (first the two independent variables and then the function that depends on those two variables).  The three functions fx, fy, fz must depend only on those 3 variables, and will give the corresponding x, y and z coordinates that should be plotted.  There are two transformations defined by default: polar_to_xy and spherical_005fto_005fxyz. See the documentation for those two transformations.",
+      "summary": "Returns a function suitable to be used in the option transform_xy of plot3d.  The three variables var1, var2, var3 are three dummy variable names, which represent the 3 variables given by the plot3d command (first the two independent variables and then the function that depends on those two variables).  The three functions fx, fy, fz must depend only on those 3 variables, and will give the corresponding x, y and z coordinates that should be plotted.  There are two transformations defined by default: polar_to_xy and spherical_to_xyz. See the documentation for those two transformations.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -23489,7 +23522,7 @@
     "min": {
       "type": "Function",
       "signature": "min(x_1, ..., x_n)",
-      "summary": "Return a simplified value for the numerical minimum of the expressions x_1 through x_n. For an empty argument list, minf yields inf.",
+      "summary": "Return a simplified value for the numerical minimum of the expressions x_1 through x_n. For an empty argument list, min yields inf.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -25165,7 +25198,7 @@
     "num": {
       "type": "Function",
       "signature": "num(expr)",
-      "summary": "Returns the numerator of expr if it is a ratio. If expr is not a ratio, expr is returned.",
+      "summary": "Returns the numerator of expr if it is a ratio. If expr is not a ratio, expr is returned. For %e^-x, 2^-x and x/2, the behavior depends on %edispflag, exptdispflag, and pfeformat, respectively.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -25176,6 +25209,22 @@
       ],
       "signatures": [
         "num(expr)"
+      ]
+    },
+    "num_denom": {
+      "type": "Function",
+      "signature": "num_denom(expr)",
+      "summary": "Returns a list [num(expr), denom(expr)], but does so more efficiently.",
+      "body_md": "",
+      "examples": [],
+      "see_also": [],
+      "category": "Polynomials",
+      "section": "Polynomials",
+      "keywords": [
+        "num_denom"
+      ],
+      "signatures": [
+        "num_denom(expr)"
       ]
     },
     "num_distinct_partitions": {
@@ -26153,7 +26202,7 @@
     "parabolic_cylinder_d": {
       "type": "Function",
       "signature": "parabolic_cylinder_d(v, z)",
-      "summary": "The parabolic cylinder function parabolic_005fcylinder_005fd. ([https://personal.math.ubc.ca/~cbm/aands/page_687.htmA&S eqn 19.3.1]()).",
+      "summary": "The parabolic cylinder function parabolic_cylinder_d. ([https://personal.math.ubc.ca/~cbm/aands/page_687.htmA&S eqn 19.3.1]()).",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -26346,7 +26395,7 @@
     "partition_series": {
       "type": "Function",
       "signature": "partition_series(expr, test, v, O)",
-      "summary": "<!-- category: IO --> <!-- keywords: partition_Taylor --> <!-- signatures: partition_Taylor(expr, test, v, O) -->",
+      "summary": "",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -27610,7 +27659,7 @@
     "plot_options": {
       "type": "Variable",
       "signature": "plot_options",
-      "summary": "This variable is being kept for compatibility with older versions of Wxmaxima, but its use is deprecated. To set global plotting options, see their current values or remove options, use set_plot_option, get_plot_option remove_plot_option, and reset_005fplot_005foptions.",
+      "summary": "This variable is being kept for compatibility with older versions of Wxmaxima, but its use is deprecated. To set global plotting options, see their current values or remove options, use set_plot_option, get_plot_option remove_plot_option, and reset_plot_options.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -28587,7 +28636,7 @@
     "poly_polysaturation_extension": {
       "type": "Function",
       "signature": "poly_polysaturation_extension(poly, polylist, varlist1, varlist2)",
-      "summary": "<!-- category: Polynomials --> <!-- keywords: poly_primary_elimination_order --> <!-- signatures: poly_primary_elimination_order -->",
+      "summary": "",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -30417,7 +30466,7 @@
     "quantile_normal": {
       "type": "Function",
       "signature": "quantile_normal(q, m, s)",
-      "summary": "Returns the q-quantile of a ${\\it Normal}(m, s)$ random variable, with $s>0$; in other words, this is the inverse of cdf_005fnormal. Argument q must be an element of $[0,1]$. To make use of this function, write first load(\"distrib\").",
+      "summary": "Returns the q-quantile of a ${\\it Normal}(m, s)$ random variable, with $s>0$; in other words, this is the inverse of cdf_normal. Argument q must be an element of $[0,1]$. To make use of this function, write first load(\"distrib\").",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -32096,6 +32145,25 @@
         "read_nested_list(S, separator_flag)"
       ]
     },
+    "read_struct": {
+      "type": "Function",
+      "signature": "read_struct(S)",
+      "summary": "Reads the source S, whose first line names the fields and whose later lines hold one value for each of them, and returns a structure with one field per column.  That is the shape a measuring instrument or a spreadsheet usually writes, so a file measurement.csv beginning",
+      "body_md": "",
+      "examples": [],
+      "see_also": [],
+      "category": "IO",
+      "section": "numericalio",
+      "keywords": [
+        "read_struct"
+      ],
+      "signatures": [
+        "read_struct(S)",
+        "read_struct(S, name)",
+        "read_struct(S, separator_flag)",
+        "read_struct(S, name, separator_flag)"
+      ]
+    },
     "read_xpm": {
       "type": "Function",
       "signature": "read_xpm(xpm_file)",
@@ -32211,6 +32279,22 @@
         "real_fft(x)"
       ]
     },
+    "real_imag_part": {
+      "type": "Function",
+      "signature": "real_imag_part(expr)",
+      "summary": "Returns a list [a, b] such that a + b %i is equivalent to expr and a and b are purely real.",
+      "body_md": "",
+      "examples": [],
+      "see_also": [],
+      "category": "NumberTheory",
+      "section": "Elementary Functions",
+      "keywords": [
+        "real_imag_part"
+      ],
+      "signatures": [
+        "real_imag_part(expr)"
+      ]
+    },
     "real_imagpart_to_conjugate": {
       "type": "Function",
       "signature": "real_imagpart_to_conjugate(e)",
@@ -32246,7 +32330,7 @@
     "realpart": {
       "type": "Function",
       "signature": "realpart(expr)",
-      "summary": "Returns the real part of expr.  realpart and imagpart will work on expressions involving trigonometric and hyperbolic functions, as well as square root, logarithm, and exponentiation.",
+      "summary": "Returns the real part of expr.  realpart and imagpart will work on expressions involving trigonometric and hyperbolic functions, as well as square root, logarithm, and exponentiation. If both the real and the imaginary part of an expression are of interest, then calling rectform or real_imag_part is more efficient than calling realpart and imagpart on the same expression.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -32313,7 +32397,7 @@
     "rectform": {
       "type": "Function",
       "signature": "rectform(expr)",
-      "summary": "Returns an expression a + b %i equivalent to expr, such that a and b are purely real.",
+      "summary": "Returns an expression a + b %i equivalent to expr, such that a and b are purely real. To retrieve a and b directly, use real_imag_part.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -32780,7 +32864,7 @@
     "remove_constvalue": {
       "type": "Function",
       "signature": "remove_constvalue(a)",
-      "summary": "Reverts the effect of declare_005fconstvalue. This function should be loaded with load (\"ezunits\").",
+      "summary": "Reverts the effect of declare_constvalue. This function should be loaded with load (\"ezunits\").",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -33817,7 +33901,7 @@
     "same_xy": {
       "type": "Variable",
       "signature": "same_xy[same_xy, value]",
-      "summary": "It can be either true or false. If true, the scales used in the x and y axes will be the same, in either 2d or 3d plots. See also yx_005fratio. same_xy and nosame_xy are synonyms for [same_xy, true] and [same_xy, false].",
+      "summary": "It can be either true or false. If true, the scales used in the x and y axes will be the same, in either 2d or 3d plots. See also yx_ratio. same_xy and nosame_xy are synonyms for [same_xy, true] and [same_xy, false].",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -34050,7 +34134,7 @@
     "scaled_bessel_i0": {
       "type": "Function",
       "signature": "scaled_bessel_i0(z)",
-      "summary": "Identical to scaled_005fbessel_005fi.",
+      "summary": "Identical to scaled_bessel_i.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -34066,7 +34150,7 @@
     "scaled_bessel_i1": {
       "type": "Function",
       "signature": "scaled_bessel_i1(z)",
-      "summary": "Identical to scaled_005fbessel_005fi.",
+      "summary": "Identical to scaled_bessel_i.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -34151,7 +34235,7 @@
     "scene": {
       "type": "Function",
       "signature": "scene(objects, ..., options, ...);",
-      "summary": "Accepts an empty list or a list of several scene_005fobjects and scene_005foptions. The program launches Xmaxima, which opens an external window representing the given objects in a 3-dimensional space and applying the options given. Each object must belong to one of the following 4 classes: sphere, cube, cylinder or cone (see scene_005fobjects). Objects are identified by giving their name or by a list in which the first element is the class name and the following elements are options for that object.",
+      "summary": "Accepts an empty list or a list of several scene_objects and scene_options. The program launches Xmaxima, which opens an external window representing the given objects in a 3-dimensional space and applying the options given. Each object must belong to one of the following 4 classes: sphere, cube, cylinder or cone (see scene_objects). Objects are identified by giving their name or by a list in which the first element is the class name and the following elements are options for that object.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -34733,7 +34817,7 @@
     "share_testsuite_files": {
       "type": "Variable",
       "signature": "share_testsuite_files",
-      "summary": "share_testsuite_files is the set of tests from the share directory that is run as a part of the test suite by run_005ftestsuite..",
+      "summary": "share_testsuite_files is the set of tests from the share directory that is run as a part of the test suite by run_testsuite..",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -37986,7 +38070,7 @@
     "surface": {
       "type": "Variable",
       "signature": "surface[surface]",
-      "summary": "The surfaces of the object will be rendered and the lines and points of the triangulation used to build the surface will not be shown. This is the default behavior, which can be changed using either the option object_005fpoints or object_005fwireframe.",
+      "summary": "The surfaces of the object will be rendered and the lines and points of the triangulation used to build the surface will not be shown. This is the default behavior, which can be changed using either the option object_points or object_wireframe.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -38757,7 +38841,7 @@
     "testsuite_files": {
       "type": "Variable",
       "signature": "testsuite_files",
-      "summary": "testsuite_files is the set of tests to be run by run_005ftestsuite.  It is a list of names of the files containing the tests to run.  If some of the tests in a file are known to fail, then instead of listing the name of the file, a list containing the file name and the test numbers that fail is used.",
+      "summary": "testsuite_files is the set of tests to be run by run_testsuite.  It is a list of names of the files containing the tests to run.  If some of the tests in a file are known to fail, then instead of listing the name of the file, a list containing the file name and the test numbers that fail is used.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -39596,7 +39680,7 @@
     "track": {
       "type": "Variable",
       "signature": "track[track, positions]",
-      "summary": "positions should be a list of points. When the play button is pressed, the object position will be changed sequentially through all the points in the list, at intervals of time given by the option scene_005ftstep, leaving behind a track of the object’s trajectory. The rewind button can be used to point at the start of the sequence making the animation restart after the play button is pressed again.",
+      "summary": "positions should be a list of points. When the play button is pressed, the object position will be changed sequentially through all the points in the list, at intervals of time given by the option scene_tstep, leaving behind a track of the object’s trajectory. The rewind button can be used to point at the start of the sequence making the animation restart after the play button is pressed again.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -41752,6 +41836,38 @@
         "wc_defaultvaluespertol"
       ]
     },
+    "wc_distrib2rssparams": {
+      "type": "Function",
+      "signature": "wc_distrib2rssparams(data)",
+      "summary": "Determines root sum square parameters from measured data: Returns a wc_rssparams structure containing the mean value (field mu) and the standard deviation (field sigma) of the list of sample values data.",
+      "body_md": "",
+      "examples": [],
+      "see_also": [],
+      "category": "Other",
+      "section": "wrstcse",
+      "keywords": [
+        "wc_distrib2rssparams"
+      ],
+      "signatures": [
+        "wc_distrib2rssparams(data)"
+      ]
+    },
+    "wc_distrib2toldata": {
+      "type": "Function",
+      "signature": "wc_distrib2toldata(tol, data, [sigmas])",
+      "summary": "Generates the value of an input parameter, expressed by the tolerance parameter tol (a tol[n] or a detailled tolerance tol[n,m]), from the distribution of the measured sample values data. The range tol=-1...1 of the result spans sigmas sigmas of the measured distribution; if no sigmas is given it defaults to wc_defaultsigma.",
+      "body_md": "",
+      "examples": [],
+      "see_also": [],
+      "category": "Other",
+      "section": "wrstcse",
+      "keywords": [
+        "wc_distrib2toldata"
+      ],
+      "signatures": [
+        "wc_distrib2toldata(tol, data, [sigmas])"
+      ]
+    },
     "wc_ewc_simplify": {
       "type": "Function",
       "signature": "wc_ewc_simplify(expression, definitions...)",
@@ -41766,6 +41882,22 @@
       ],
       "signatures": [
         "wc_ewc_simplify(expression, definitions...)"
+      ]
+    },
+    "wc_getrssparams": {
+      "type": "Function",
+      "signature": "wc_getrssparams(expression)",
+      "summary": "Determines the parameters of a root sum square tolerance calculation for expression: Returns a wc_rssparams structure whose field mu contains the typical value of expression and whose field sigma contains the sigma of the distribution of expression, assuming that all input tolerances are gauss-shaped and orthogonal to each other.",
+      "body_md": "",
+      "examples": [],
+      "see_also": [],
+      "category": "Other",
+      "section": "wrstcse",
+      "keywords": [
+        "wc_getrssparams"
+      ],
+      "signatures": [
+        "wc_getrssparams(expression)"
       ]
     },
     "wc_inputvalueassumptions": {
@@ -41990,6 +42122,22 @@
       ],
       "signatures": [
         "wc_systematic(expression, [num])"
+      ]
+    },
+    "wc_tol_sigmas": {
+      "type": "Function",
+      "signature": "wc_tol_sigmas(tol, sigmas)",
+      "summary": "Declares that for the given tol[n] (or detailled tolerance tol[n,m]) the range -1...1 represents sigmas sigmas of its tolerance distribution instead of wc_defaultsigma. This allows to mix input values whose tolerance ranges are known to different confidence levels in one root sum square calculation.",
+      "body_md": "",
+      "examples": [],
+      "see_also": [],
+      "category": "Other",
+      "section": "wrstcse",
+      "keywords": [
+        "wc_tol_sigmas"
+      ],
+      "signatures": [
+        "wc_tol_sigmas(tol, sigmas)"
       ]
     },
     "wc_tolappend": {
@@ -42510,7 +42658,7 @@
     "xmaxima": {
       "type": "Variable",
       "signature": "xmaxima",
-      "summary": "This is an abbreviation for [plot_format, xmaxima]. See plot_005fformat.",
+      "summary": "This is an abbreviation for [plot_format, xmaxima]. See plot_format.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -43094,7 +43242,7 @@
     "yx_ratio": {
       "type": "Variable",
       "signature": "yx_ratio[yx_ratio, r]",
-      "summary": "In a 2d plot, the ratio between the vertical and the horizontal sides of the rectangle used to make the plot. See also same_005fxy.",
+      "summary": "In a 2d plot, the ratio between the vertical and the horizontal sides of the rectangle used to make the plot. See also same_xy.",
       "body_md": "",
       "examples": [],
       "see_also": [],
@@ -43633,7 +43781,7 @@
     "zn_primroot": {
       "type": "Function",
       "signature": "zn_primroot(n)",
-      "summary": "If the multiplicative group (Z/nZ) is cyclic, zn_primroot computes the smallest primitive root modulo n.  (Z/nZ) is cyclic if n is equal to 2, 4, p^k or 2*p^k, where p is prime and greater than 2 and k is a natural number.  zn_primroot performs an according pretest if the option variable zn_primroot_pretest (default: false) is set to true.  In any case the computation is limited by the upper bound zn_005fprimroot_005flimit.",
+      "summary": "If the multiplicative group (Z/nZ) is cyclic, zn_primroot computes the smallest primitive root modulo n.  (Z/nZ) is cyclic if n is equal to 2, 4, p^k or 2*p^k, where p is prime and greater than 2 and k is a natural number.  zn_primroot performs an according pretest if the option variable zn_primroot_pretest (default: false) is set to true.  In any case the computation is limited by the upper bound zn_primroot_limit.",
       "body_md": "",
       "examples": [],
       "see_also": [],

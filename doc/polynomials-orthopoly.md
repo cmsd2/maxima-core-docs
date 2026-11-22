@@ -12,10 +12,10 @@ is a solution of the differential equation:
 
 
 
-$$(1-z^2){d^2 w\over dz^2} - 2z{dw\over dz} + \left[n(n+1)-{m^2\over 1-z^2}\right] w = 0$$
+$$
+(1-z^2){d^2 w\over dz^2} - 2z{dw\over dz} + \left[n(n+1)-{m^2\over 1-z^2}\right] w = 0
+$$
 
-
-$$(1-z^2){d^2 w\over dz^2} - 2z{dw\over dz} + \left[n(n+1)-{m^2\over 1-z^2}\right] w = 0$$
 
 
 
@@ -25,10 +25,10 @@ via
 
 
 
-$$P_n^m(x) = (-1)^m\left(1-x^2\right)^{m/2} {d^m\over dx^m} P_n(x)$$
+$$
+P_n^m(x) = (-1)^m\left(1-x^2\right)^{m/2} {d^m\over dx^m} P_n(x)
+$$
 
-
-$$P_n^m(x) = (-1)^m\left(1-x^2\right)^{m/2} {d^m\over dx^m} P_n(x)$$
 
 
 
@@ -87,10 +87,10 @@ is a solution of the differential equation:
 
 
 
-$$(1-z^2){d^2 w\over dz^2} - 2z{dw\over dz} + \left[n(n+1)-{m^2\over 1-z^2}\right] w = 0$$
+$$
+(1-z^2){d^2 w\over dz^2} - 2z{dw\over dz} + \left[n(n+1)-{m^2\over 1-z^2}\right] w = 0
+$$
 
-
-$$(1-z^2){d^2 w\over dz^2} - 2z{dw\over dz} + \left[n(n+1)-{m^2\over 1-z^2}\right] w = 0$$
 
 
 
@@ -146,10 +146,10 @@ can be written in terms of a hypergeometric function:
 
 
 
-$$T_n(x) = {_{2}}F_{1}\left(-n, n; {1\over 2}; {1-x\over 2}\right)$$
+$$
+T_n(x) = {_{2}}F_{1}\left(-n, n; {1\over 2}; {1-x\over 2}\right)
+$$
 
-
-$$T_n(x) = {_{2}}F_{1}\left(-n, n; {1\over 2}; {1-x\over 2}\right)$$
 
 
 
@@ -157,10 +157,10 @@ The polynomials can also be defined in terms of the sum
 
 
 
-$$T_n(x) = {n\over 2} \sum_{r=0}^{\lfloor {n/2}\rfloor} {(-1)^r\over n-r} {n-r\choose k}(2x)^{n-2r}$$
+$$
+T_n(x) = {n\over 2} \sum_{r=0}^{\lfloor {n/2}\rfloor} {(-1)^r\over n-r} {n-r\choose k}(2x)^{n-2r}
+$$
 
-
-$$T_n(x) = {n\over 2} \sum_{r=0}^{\lfloor {n/2}\rfloor} {(-1)^r\over n-r} {n-r\choose k}(2x)^{n-2r}$$
 
 
 
@@ -168,10 +168,10 @@ or the Rodrigues formula
 
 
 
-$$T_n(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)(1-x^2)^n\right)$$
+$$
+T_n(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)(1-x^2)^n\right)
+$$
 
-
-$$T_n(x) = {1\over \kappa_n  w(x)} {d^n\over dx^n}\left(w(x)(1-x^2)^n\right)$$
 
 
 
@@ -179,13 +179,10 @@ where
 
 
 
-$$\eqalign{ w(x) &= 1/\sqrt{1-x^2} \cr \kappa_n &= (-2)^n\left(1\over 2\right)_n }$$
+$$
+\begin{aligned} w(x) &= 1/\sqrt{1-x^2} \cr \kappa_n &= (-2)^n\left(1\over 2\right)_n \end{aligned}
+$$
 
-
-$$\eqalign{
-w(x) &= 1/\sqrt{1-x^2} \cr
-\kappa_n &= (-2)^n\left(1\over 2\right)_n
-}$$
 
 
 
@@ -237,10 +234,10 @@ can be written in terms of a hypergeometric function:
 
 
 
-$$U_n(x) = (n+1)\; {_{2}F_{1}}\left(-n, n+2; {3\over 2}; {1-x\over 2}\right)$$
+$$
+U_n(x) = (n+1)\; {_{2}F_{1}}\left(-n, n+2; {3\over 2}; {1-x\over 2}\right)
+$$
 
-
-$$U_n(x) = (n+1)\; {_{2}F_{1}}\left(-n, n+2; {3\over 2}; {1-x\over 2}\right)$$
 
 
 
@@ -248,10 +245,10 @@ The polynomials can also be defined in terms of the sum
 
 
 
-$$U_n(x) = \sum_{r=0}^{\lfloor n/2 \rfloor} (-1)^r {n-r \choose r} (2x)^{n-2r}$$
+$$
+U_n(x) = \sum_{r=0}^{\lfloor n/2 \rfloor} (-1)^r {n-r \choose r} (2x)^{n-2r}
+$$
 
-
-$$U_n(x) = \sum_{r=0}^{\lfloor n/2 \rfloor} (-1)^r {n-r \choose r} (2x)^{n-2r}$$
 
 
 
@@ -259,10 +256,10 @@ or the Rodrigues formula
 
 
 
-$$U_n(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)(1-x^2)^n\right)$$
+$$
+U_n(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)(1-x^2)^n\right)
+$$
 
-
-$$U_n(x) = {1\over \kappa_n  w(x)} {d^n\over dx^n}\left(w(x)(1-x^2)^n\right)$$
 
 
 
@@ -270,13 +267,10 @@ where
 
 
 
-$$\eqalign{ w(x) &= \sqrt{1-x^2} \cr \kappa_n &= {(-2)^n\left({3\over 2}\right)_n \over n+1} }$$
+$$
+\begin{aligned} w(x) &= \sqrt{1-x^2} \cr \kappa_n &= {(-2)^n\left({3\over 2}\right)_n \over n+1} \end{aligned}
+$$
 
-
-$$\eqalign{
-w(x) &= \sqrt{1-x^2} \cr
-\kappa_n &= {(-2)^n\left({3\over 2}\right)_n \over n+1}
-}$$
 
 .
 
@@ -324,10 +318,10 @@ These can be defined by
 
 
 
-$$L_n^{(\alpha)}(x) = {n+\alpha \choose n}\; {_1F_1}(-n; \alpha+1; x)$$
+$$
+L_n^{(\alpha)}(x) = {n+\alpha \choose n}\; {_1F_1}(-n; \alpha+1; x)
+$$
 
-
-$$L_n^{(\alpha)}(x) = {n+\alpha \choose n}\; {_1F_1}(-n; \alpha+1; x)$$
 
 
 
@@ -335,10 +329,10 @@ The polynomials can also be defined by the sum
 
 
 
-$$L_n^{(\alpha)}(x) = \sum_{k=0}^n {(\alpha + k + 1)_{n-k} \over (n-k)! k!} (-x)^k$$
+$$
+L_n^{(\alpha)}(x) = \sum_{k=0}^n {(\alpha + k + 1)_{n-k} \over (n-k)! k!} (-x)^k
+$$
 
-
-$$L_n^{(\alpha)}(x) = \sum_{k=0}^n {(\alpha + k + 1)_{n-k} \over (n-k)! k!} (-x)^k$$
 
 
 
@@ -346,10 +340,10 @@ or the Rodrigues formula
 
 
 
-$$L_n^{(\alpha)}(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)x^n\right)$$
+$$
+L_n^{(\alpha)}(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)x^n\right)
+$$
 
-
-$$L_n^{(\alpha)}(x) = {1\over \kappa_n  w(x)} {d^n\over dx^n}\left(w(x)x^n\right)$$
 
 
 
@@ -357,13 +351,10 @@ where
 
 
 
-$$\eqalign{ w(x) &= e^{-x}x^{\alpha} \cr \kappa_n &= n! }$$
+$$
+\begin{aligned} w(x) &= e^{-x}x^{\alpha} \cr \kappa_n &= n! \end{aligned}
+$$
 
-
-$$\eqalign{
-w(x) &= e^{-x}x^{\alpha} \cr
-\kappa_n &= n!
-}$$
 
 
 
@@ -418,10 +409,10 @@ These polynomials may be defined by a hypergeometric function
 
 
 
-$$H_n(x) = (2x)^n\; {_2F_0}\left(-{1\over 2} n, -{1\over 2}n+{1\over 2};;-{1\over x^2}\right)$$
+$$
+H_n(x) = (2x)^n\; {_2F_0}\left(-{1\over 2} n, -{1\over 2}n+{1\over 2};;-{1\over x^2}\right)
+$$
 
-
-$$H_n(x) = (2x)^n\; {_2F_0}\left(-{1\over 2} n, -{1\over 2}n+{1\over 2};;-{1\over x^2}\right)$$
 
 
 
@@ -429,10 +420,10 @@ or by the series
 
 
 
-$$H_n(x) = n! \sum_{k=0}^{\lfloor n/2 \rfloor} {(-1)^k(2x)^{n-2k} \over k! (n-2k)!}$$
+$$
+H_n(x) = n! \sum_{k=0}^{\lfloor n/2 \rfloor} {(-1)^k(2x)^{n-2k} \over k! (n-2k)!}
+$$
 
-
-$$H_n(x) = n! \sum_{k=0}^{\lfloor n/2 \rfloor} {(-1)^k(2x)^{n-2k} \over k! (n-2k)!}$$
 
 
 
@@ -440,10 +431,10 @@ or the Rodrigues formula
 
 
 
-$$H_n(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)\right)$$
+$$
+H_n(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)\right)
+$$
 
-
-$$H_n(x) = {1\over \kappa_n  w(x)} {d^n\over dx^n}\left(w(x)\right)$$
 
 
 
@@ -451,13 +442,10 @@ where
 
 
 
-$$\eqalign{ w(x) &= e^{-{x^2/2}} \cr \kappa_n &= (-1)^n }$$
+$$
+\begin{aligned} w(x) &= e^{-{x^2/2}} \cr \kappa_n &= (-1)^n \end{aligned}
+$$
 
-
-$$\eqalign{
-w(x) &= e^{-{x^2/2}} \cr
-\kappa_n &= (-1)^n
-}$$
 
 
 
@@ -532,10 +520,10 @@ The polynomial may be defined in terms of hypergeometric functions:
 
 
 
-$$P_n^{(a,b)}(x) = {n+a\choose n} {_1F_2}\left(-n, n + a + b + 1; a+1; {1-x\over 2}\right)$$
+$$
+P_n^{(a,b)}(x) = {n+a\choose n} {_1F_2}\left(-n, n + a + b + 1; a+1; {1-x\over 2}\right)
+$$
 
-
-$$P_n^{(a,b)}(x) = {n+a\choose n} {_1F_2}\left(-n, n + a + b + 1; a+1; {1-x\over 2}\right)$$
 
 
 
@@ -543,10 +531,10 @@ or the Rodrigues formula
 
 
 
-$$P_n^{(a, b)}(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)\left(1-x^2\right)^n\right)$$
+$$
+P_n^{(a, b)}(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)\left(1-x^2\right)^n\right)
+$$
 
-
-$$P_n^{(a, b)}(x) = {1\over \kappa_n  w(x)} {d^n\over dx^n}\left(w(x)\left(1-x^2\right)^n\right)$$
 
 
 
@@ -554,13 +542,10 @@ where
 
 
 
-$$\eqalign{ w(x) &= (1-x)^a(1-x)^b \cr \kappa_n &= (-2)^n n! }$$
+$$
+\begin{aligned} w(x) &= (1-x)^a(1-x)^b \cr \kappa_n &= (-2)^n n! \end{aligned}
+$$
 
-
-$$\eqalign{
-w(x) &= (1-x)^a(1-x)^b \cr
-\kappa_n &= (-2)^n n!
-}$$
 
 
 
@@ -603,10 +588,10 @@ These are related to the generalized Laguerre polynomial by
 
 
 
-$$L_n(x) = L_n^{(0)}(x)$$
+$$
+L_n(x) = L_n^{(0)}(x)
+$$
 
-
-$$L_n(x) = L_n^{(0)}(x)$$
 
 
 
@@ -614,10 +599,10 @@ The polynomials are given by the sum
 
 
 
-$$L_n(x) = \sum_{k=0}^{n} {(-1)^k\over k!}{n \choose k} x^k$$
+$$
+L_n(x) = \sum_{k=0}^{n} {(-1)^k\over k!}{n \choose k} x^k
+$$
 
-
-$$L_n(x) = \sum_{k=0}^{n} {(-1)^k\over k!}{n \choose k} x^k$$
 
 
 
@@ -673,10 +658,10 @@ The Legendre polynomial is related to the Jacobi polynomials by
 
 
 
-$$P_n(x) = P_n^{(0,0)}(x)$$
+$$
+P_n(x) = P_n^{(0,0)}(x)
+$$
 
-
-$$P_n(x) = P_n^{(0,0)}(x)$$
 
 
 
@@ -684,10 +669,10 @@ or the Rodrigues formula
 
 
 
-$$P_n(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)\left(1-x^2\right)^n\right)$$
+$$
+P_n(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)\left(1-x^2\right)^n\right)
+$$
 
-
-$$P_n(x) = {1\over \kappa_n  w(x)} {d^n\over dx^n}\left(w(x)\left(1-x^2\right)^n\right)$$
 
 
 
@@ -695,13 +680,10 @@ where
 
 
 
-$$\eqalign{ w(x) &= 1 \cr \kappa_n &= (-2)^n n! }$$
+$$
+\begin{aligned} w(x) &= 1 \cr \kappa_n &= (-2)^n n! \end{aligned}
+$$
 
-
-$$\eqalign{
-w(x) &= 1 \cr
-\kappa_n &= (-2)^n n!
-}$$
 
 
 
@@ -765,10 +747,10 @@ by
 
 
 
-$$Q_n(x) = Q_n^0(x)$$
+$$
+Q_n(x) = Q_n^0(x)
+$$
 
-
-$$Q_n(x) = Q_n^0(x)$$
 
 
 
@@ -1024,10 +1006,10 @@ It is related to the Bessel function by
 
 
 
-$$j_n(x) = \sqrt{\pi\over 2x} J_{n+1/2}(x)$$
+$$
+j_n(x) = \sqrt{\pi\over 2x} J_{n+1/2}(x)
+$$
 
-
-$$j_n(x) = \sqrt{\pi\over 2x} J_{n+1/2}(x)$$
 
 
 
@@ -1082,10 +1064,10 @@ It is related to the Bessel function by
 
 
 
-$$y_n(x) = \sqrt{\pi\over 2x} Y_{n+1/2}(x)$$
+$$
+y_n(x) = \sqrt{\pi\over 2x} Y_{n+1/2}(x)
+$$
 
-
-$$y_n(x) = \sqrt{\pi\over 2x} Y_{n+1/2}(x)$$
 
 
 
@@ -1139,10 +1121,10 @@ This is defined by
 
 
 
-$$h_n^{(1)}(x) = j_n(x) + iy_n(x)$$
+$$
+h_n^{(1)}(x) = j_n(x) + iy_n(x)
+$$
 
-
-$$h_n^{(1)}(x) = j_n(x) + iy_n(x)$$
 
 
 
@@ -1168,10 +1150,10 @@ This is defined by
 
 
 
-$$h_n^{(2)}(x) = j_n(x) + iy_n(x)$$
+$$
+h_n^{(2)}(x) = j_n(x) + iy_n(x)
+$$
 
-
-$$h_n^{(2)}(x) = j_n(x) + iy_n(x)$$
 
 
 
@@ -1203,10 +1185,10 @@ spherical harmonic function can be defined by
 
 
 
-$$Y_n^m(\theta, \phi) = (-1)^m \sqrt{{2n+1\over 4\pi} {(n-m)!\over (n+m)!}} P_n^m(\cos\theta) e^{im\phi}$$
+$$
+Y_n^m(\theta, \phi) = (-1)^m \sqrt{{2n+1\over 4\pi} {(n-m)!\over (n+m)!}} P_n^m(\cos\theta) e^{im\phi}
+$$
 
-
-$$Y_n^m(\theta, \phi) = (-1)^m \sqrt{{2n+1\over 4\pi} {(n-m)!\over (n+m)!}} P_n^m(\cos\theta) e^{im\phi}$$
 
 
  
@@ -1290,12 +1272,10 @@ These polynomials can be given in terms of Jacobi polynomials:
 
 
 
-$$C_n^{(\alpha)}(x) = {\Gamma\left(\alpha + {1\over 2}\right) \over \Gamma(2\alpha)} {\Gamma(n+2\alpha) \over \Gamma\left(n+\alpha + {1\over 2}\right)} P_n^{(\alpha-1/2, \alpha-1/2)}(x)$$
+$$
+C_n^{(\alpha)}(x) = {\Gamma\left(\alpha + {1\over 2}\right) \over \Gamma(2\alpha)} {\Gamma(n+2\alpha) \over \Gamma\left(n+\alpha + {1\over 2}\right)} P_n^{(\alpha-1/2, \alpha-1/2)}(x)
+$$
 
-
-$$C_n^{(\alpha)}(x) = {\Gamma\left(\alpha + {1\over 2}\right) \over \Gamma(2\alpha)}
-   {\Gamma(n+2\alpha) \over \Gamma\left(n+\alpha + {1\over 2}\right)}
-   P_n^{(\alpha-1/2, \alpha-1/2)}(x)$$
 
 
 
@@ -1303,10 +1283,10 @@ or the series
 
 
 
-$$C_n^{(\alpha)}(x) = \sum_{k=0}^{\lfloor n/2 \rfloor} {(-1)^k (\alpha)_{n-k} \over k! (n-2k)!}(2x)^{n-2k}$$
+$$
+C_n^{(\alpha)}(x) = \sum_{k=0}^{\lfloor n/2 \rfloor} {(-1)^k (\alpha)_{n-k} \over k! (n-2k)!}(2x)^{n-2k}
+$$
 
-
-$$C_n^{(\alpha)}(x) = \sum_{k=0}^{\lfloor n/2 \rfloor} {(-1)^k (\alpha)_{n-k} \over k! (n-2k)!}(2x)^{n-2k}$$
 
 
 
@@ -1314,10 +1294,10 @@ or the Rodrigues formula
 
 
 
-$$C_n^{(\alpha)}(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)\left(1-x^2\right)^n\right)$$
+$$
+C_n^{(\alpha)}(x) = {1\over \kappa_n w(x)} {d^n\over dx^n}\left(w(x)\left(1-x^2\right)^n\right)
+$$
 
-
-$$C_n^{(\alpha)}(x) = {1\over \kappa_n  w(x)} {d^n\over dx^n}\left(w(x)\left(1-x^2\right)^n\right)$$
 
 
 
@@ -1325,13 +1305,10 @@ where
 
 
 
-$$\eqalign{ w(x) &= \left(1-x^2\right)^{\alpha-{1\over 2}} \cr \kappa_n &= {(-2)^n\left(\alpha + {1\over 2}\right)_n n!\over (2\alpha)_n} \cr }$$
+$$
+\begin{aligned} w(x) &= \left(1-x^2\right)^{\alpha-{1\over 2}} \cr \kappa_n &= {(-2)^n\left(\alpha + {1\over 2}\right)_n n!\over (2\alpha)_n} \cr \end{aligned}
+$$
 
-
-$$\eqalign{
-w(x) &= \left(1-x^2\right)^{\alpha-{1\over 2}} \cr
-\kappa_n &= {(-2)^n\left(\alpha + {1\over 2}\right)_n n!\over (2\alpha)_n} \cr
-}$$
 
 
 

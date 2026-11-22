@@ -47,7 +47,7 @@ Default value: `0.0`
 
 
 The maximum absolute value that isn’t automatically converted to the engineering format.
-See also `engineering_format_min` and `engineering_005fformat_005ffloats`.
+See also `engineering_format_min` and `engineering_format_floats`.
 
 See also: `engineering_format_min`, `engineering_format_floats`.
 
@@ -60,7 +60,7 @@ Default value: `0.0`
 
 
 The minimum absolute value that isn’t automatically converted to the engineering format.
-See also `engineering_format_max` and `engineering_005fformat_005ffloats`.
+See also `engineering_format_max` and `engineering_format_floats`.
 
 
 

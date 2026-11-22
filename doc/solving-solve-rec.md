@@ -79,7 +79,7 @@ When simplifying products, `solve_rec` introduces gamma function
 into the expression if `product_use_gamma` is `true`.
 
 
-See also: `simplify_products`, `solve_005frec`.
+See also: `simplify_products`, `solve_rec`.
 
 See also: `simplify_products`, `solve_rec`.
 
@@ -156,7 +156,7 @@ If `simplify_products` is `true`, `solve_rec` will try to
 simplify products in result.
 
 
-See also: `solve_005frec`.
+See also: `solve_rec`.
 
 See also: `solve_rec`.
 
@@ -287,7 +287,7 @@ Example of Ricatti type recurrence:
 
 
 
-See also: `solve_rec_rat`, `simplify_products` and `product_005fuse_005fgamma`.
+See also: `solve_rec_rat`, `simplify_products` and `product_use_gamma`.
 
 See also: `solve_rec_rat`, `simplify_products`, `product_use_gamma`.
 
@@ -325,7 +325,7 @@ Example:
 
 
 
-See also: `solve_005frec`.
+See also: `solve_rec`.
 
 See also: `solve_rec`.
 

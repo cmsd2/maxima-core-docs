@@ -2259,7 +2259,7 @@ Example:
 Returns the minimum edge cut in the graph *gr*.
 
 
-See also `edge_005fconnectivity`.
+See also `edge_connectivity`.
 
 See also: `edge_connectivity`.
 
@@ -2278,7 +2278,7 @@ Returns the minimum vertex cover of the graph *gr*.
 Returns the minimum vertex cut in the graph *gr*.
 
 
-See also `vertex_005fconnectivity`.
+See also `vertex_connectivity`.
 
 See also: `vertex_connectivity`.
 
@@ -3069,7 +3069,7 @@ Example:
 Returns the vertex connectivity of the graph *g*.
 
 
-See also `min_005fvertex_005fcut`.
+See also `min_vertex_cut`.
 
 See also: `min_vertex_cut`.
 

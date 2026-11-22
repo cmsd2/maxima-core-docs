@@ -20,10 +20,10 @@ Whittaker M function ([https://personal.math.ubc.ca/~cbm/aands/page_505.htmA&S e
 
 
 
-$$M_{\kappa,\mu}(z) = e^{-{1\over 2}z} z^{{1\over 2} + \mu} M\left({1\over 2} + \mu - \kappa, 1 + 2\mu, z\right)$$
+$$
+M_{\kappa,\mu}(z) = e^{-{1\over 2}z} z^{{1\over 2} + \mu} M\left({1\over 2} + \mu - \kappa, 1 + 2\mu, z\right)
+$$
 
-
-$$M_{\kappa,\mu}(z) = e^{-{1\over 2}z} z^{{1\over 2} + \mu} M\left({1\over 2} + \mu - \kappa, 1 + 2\mu, z\right)$$
 
 
 
@@ -32,11 +32,9 @@ where $M(a,b,z)$ is Kummer’s solution of the confluent hypergeometric equation
 
 This can also be expressed by the series ([https://dlmf.nist.gov/13.14.E6DLMF 13.14.E6]()):
 
-$$M_{\kappa,\mu}(z) = e^{-{1\over 2} z} z^{{1\over 2} + \mu} \sum_{s=0}^{\infty} {\left({1\over 2} + \mu - \kappa\right)_s \over (1 + 2\mu)_s s!} z^s$$
-
-
-$$M_{\kappa,\mu}(z) = e^{-{1\over 2} z} z^{{1\over 2} + \mu}
-\sum_{s=0}^{\infty} {\left({1\over 2} + \mu - \kappa\right)_s \over (1 + 2\mu)_s s!} z^s$$
+$$
+M_{\kappa,\mu}(z) = e^{-{1\over 2} z} z^{{1\over 2} + \mu} \sum_{s=0}^{\infty} {\left({1\over 2} + \mu - \kappa\right)_s \over (1 + 2\mu)_s s!} z^s
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: %s -->
@@ -54,10 +52,10 @@ Bessel differential equation:
 
 
 
-$${d^2\over dz^2} + {1\over z}{dw\over dz} + \left(1-{\nu^2\over z^2}\right) w = z^{\mu-1}$$
+$$
+{d^2\over dz^2} + {1\over z}{dw\over dz} + \left(1-{\nu^2\over z^2}\right) w = z^{\mu-1}
+$$
 
-
-$${d^2\over dz^2} + {1\over z}{dw\over dz} + \left(1-{\nu^2\over z^2}\right) w = z^{\mu-1}$$
 
 
 
@@ -65,10 +63,10 @@ This can be defined by the series
 
 
 
-$$s_{\mu,\nu}(z) = z^{\mu+1}\sum_{k=0}^{\infty} (-1)^k {z^{2k}\over a_{k+1}(\mu, \nu)}$$
+$$
+s_{\mu,\nu}(z) = z^{\mu+1}\sum_{k=0}^{\infty} (-1)^k {z^{2k}\over a_{k+1}(\mu, \nu)}
+$$
 
-
-$$s_{\mu,\nu}(z) = z^{\mu+1}\sum_{k=0}^{\infty} (-1)^k {z^{2k}\over a_{k+1}(\mu, \nu)}$$
 
 
 
@@ -76,10 +74,9 @@ where
 
 
 
-$$a_k(\mu,\nu) = \prod_{m=1}^k \left(\left(\mu + 2m-1\right)^2-\nu^2\right) = 4^k\left(\mu-\nu+1\over 2\right)_k \left(\mu+\nu+1\over 2\right)_k$$
-
-
-$$a_k(\mu,\nu) = \prod_{m=1}^k \left(\left(\mu + 2m-1\right)^2-\nu^2\right) = 4^k\left(\mu-\nu+1\over 2\right)_k \left(\mu+\nu+1\over 2\right)_k$$
+$$
+a_k(\mu,\nu) = \prod_{m=1}^k \left(\left(\mu + 2m-1\right)^2-\nu^2\right) = 4^k\left(\mu-\nu+1\over 2\right)_k \left(\mu+\nu+1\over 2\right)_k
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: %w -->
@@ -88,10 +85,10 @@ $$a_k(\mu,\nu) = \prod_{m=1}^k \left(\left(\mu + 2m-1\right)^2-\nu^2\right) = 4^
 
 Whittaker W function ([https://personal.math.ubc.ca/~cbm/aands/page_505.htmA&S eqn 13.1.33]()):
 
-$$W_{\kappa,\mu}(z) = e^{-{1\over 2}z} z^{{1\over 2} + \mu} U\left({1\over 2} + \mu - \kappa, 1+2\mu,z\right)$$
+$$
+W_{\kappa,\mu}(z) = e^{-{1\over 2}z} z^{{1\over 2} + \mu} U\left({1\over 2} + \mu - \kappa, 1+2\mu,z\right)
+$$
 
-
-$$W_{\kappa,\mu}(z) = e^{-{1\over 2}z} z^{{1\over 2} + \mu} U\left({1\over 2} + \mu - \kappa, 1+2\mu,z\right)$$
 
 
 
@@ -108,7 +105,7 @@ ${\rm Ai}(x).$
 See [https://personal.math.ubc.ca/~cbm/aands/page_446.htmA&S eqn 10.4.2]() and [https://dlmf.nist.gov/9DLMF 9]().
 
 
-See also `airy_bi`, `airy_dai`, and `airy_005fdbi`.
+See also `airy_bi`, `airy_dai`, and `airy_dbi`.
 
 See also: `airy_bi`, `airy_dai`, `airy_dbi`.
 
@@ -122,7 +119,7 @@ ${\rm Bi}(x).$
 See [https://personal.math.ubc.ca/~cbm/aands/page_446.htmA&S eqn 10.4.3]() and  [https://dlmf.nist.gov/9DLMF 9]().
 
 
-See `airy_ai`, and `airy_005fdbi`.
+See `airy_ai`, and `airy_dbi`.
 
 See also: `airy_ai`, `airy_dbi`.
 
@@ -137,14 +134,14 @@ ${\rm Ai}(x):$
 
 
 
-$${\rm airy\_dai}(x) = {d\over dx}{\rm Ai}(x)$$
+$$
+{\rm airy\_dai}(x) = {d\over dx}{\rm Ai}(x)
+$$
 
-
-$${\rm airy\_dai}(x) = {d\over dx}{\rm Ai}(x)$$
 
  
 
-See `airy_005fai`.
+See `airy_ai`.
 
 See also: `airy_ai`.
 
@@ -159,14 +156,14 @@ ${\rm Bi}(x):$
 
 
 
-$${\rm airy\_dbi}(x) = {d\over dx}{\rm Bi}(x)$$
+$$
+{\rm airy\_dbi}(x) = {d\over dx}{\rm Bi}(x)
+$$
 
 
-$${\rm airy\_dbi}(x) = {d\over dx}{\rm Bi}(x)$$
 
 
-
-See `airy_ai`, and `airy_005fbi`.
+See `airy_ai`, and `airy_bi`.
 
 See also: `airy_ai`, `airy_bi`.
 
@@ -181,11 +178,10 @@ $z$. See [https://personal.math.ubc.ca/~cbm/aands/page_375.htmA&S eqn 9.6.10]() 
 
 `bessel_i` is defined as
 
-$$I_v(z) = \sum_{k=0}^{\infty } {{1\over{k!\,\Gamma \left(v+k+1\right)}} {\left(z\over 2\right)^{v+2\,k}}}$$
+$$
+I_v(z) = \sum_{k=0}^{\infty } {{1\over{k!\,\Gamma \left(v+k+1\right)}} {\left(z\over 2\right)^{v+2\,k}}}
+$$
 
-
-$$I_v(z) = \sum_{k=0}^{\infty } {{1\over{k!\,\Gamma
- \left(v+k+1\right)}} {\left(z\over 2\right)^{v+2\,k}}}$$
 
 
 
@@ -212,11 +208,10 @@ See [https://personal.math.ubc.ca/~cbm/aands/page_360.htmA&S eqn 9.1.10]() and [
 
 
 
-$$J_v(z) = \sum_{k=0}^{\infty }{{{\left(-1\right)^{k}\,\left(z\over 2\right)^{v+2\,k} }\over{k!\,\Gamma\left(v+k+1\right)}}}$$
+$$
+J_v(z) = \sum_{k=0}^{\infty }{{{\left(-1\right)^{k}\,\left(z\over 2\right)^{v+2\,k} }\over{k!\,\Gamma\left(v+k+1\right)}}}
+$$
 
-
-$$J_v(z) = \sum_{k=0}^{\infty }{{{\left(-1\right)^{k}\,\left(z\over 2\right)^{v+2\,k}
- }\over{k!\,\Gamma\left(v+k+1\right)}}}$$
 
 
 
@@ -240,10 +235,10 @@ $z$. See [https://personal.math.ubc.ca/~cbm/aands/page_375.htmA&S eqn 9.6.2]() a
 
 `bessel_k` is defined as
 
-$$K_v(z) = {1\over 2} \pi\, {I_{-v}(z)-I_{v}(z) \over \sin v\pi}$$
+$$
+K_v(z) = {1\over 2} \pi\, {I_{-v}(z)-I_{v}(z) \over \sin v\pi}
+$$
 
-
-$$K_v(z) = {1\over 2} \pi\, {I_{-v}(z)-I_{v}(z) \over \sin v\pi}$$
 
 
 
@@ -269,10 +264,10 @@ See [https://personal.math.ubc.ca/~cbm/aands/page_358.htmA&S eqn 9.1.2]() and [h
 
 `bessel_y` is defined as
 
-$$Y_v(z) = {{\cos(\pi v)\, J_v(z) - J_{-v}(z)}\over{\sin{\pi v}}}$$
+$$
+Y_v(z) = {{\cos(\pi v)\, J_v(z) - J_{-v}(z)}\over{\sin{\pi v}}}
+$$
 
-
-$$Y_v(z) = {{\cos(\pi v)\, J_v(z) - J_{-v}(z)}\over{\sin{\pi v}}}$$
 
 
 
@@ -368,10 +363,10 @@ See also: `false`, `besselexpand`, `true`.
 
 The beta function is defined as
 
-$${\rm B}(a, b) = {{\Gamma(a) \Gamma(b)}\over{\Gamma(a+b)}}$$
+$$
+{\rm B}(a, b) = {{\Gamma(a) \Gamma(b)}\over{\Gamma(a+b)}}
+$$
 
-
-$${\rm B}(a, b) = {{\Gamma(a) \Gamma(b)}\over{\Gamma(a+b)}}$$
 
 
 
@@ -642,10 +637,10 @@ The basic definition of the incomplete beta function
 
 
 
-$${\rm B}_z(a,b) = \int_0^z t^{a-1}(1-t)^{b-1}\; dt$$
+$$
+{\rm B}_z(a,b) = \int_0^z t^{a-1}(1-t)^{b-1}\; dt
+$$
 
-
-$${\rm B}_z(a,b) = \int_0^z t^{a-1}(1-t)^{b-1}\; dt$$
 
 
 
@@ -687,10 +682,10 @@ the incomplete beta function is defined through
 
 
 
-$$z^{n-1}\sum_{k=0}^{m-1} {{(1-m)_k z^k} \over {k! (n-k)}}$$
+$$
+z^{n-1}\sum_{k=0}^{m-1} {{(1-m)_k z^k} \over {k! (n-k)}}
+$$
 
-
-$$z^{n-1}\sum_{k=0}^{m-1} {{(1-m)_k z^k} \over {k! (n-k)}}$$
 
 
 
@@ -726,8 +721,8 @@ incomplete beta function in continued fractions is used.
 
 
 When the option variable `beta_expand` is `true`, Maxima expands
-expressions like `beta_005fincomplete` and
-`beta_005fincomplete` where $n$ is a positive integer.
+expressions like `beta_incomplete` and
+`beta_incomplete` where $n$ is a positive integer.
 
 
 Maxima knows the derivatives of `beta_incomplete` with respect to the 
@@ -952,10 +947,10 @@ The basic definition of the generalized incomplete beta function is
 
 
 
-$$\int_{z_1}^{z_2} t^{a-1}(1-t)^{b-1}\; dt$$
+$$
+\int_{z_1}^{z_2} t^{a-1}(1-t)^{b-1}\; dt
+$$
 
-
-$$\int_{z_1}^{z_2} t^{a-1}(1-t)^{b-1}\; dt$$
 
 
 
@@ -1195,10 +1190,10 @@ The regularized incomplete beta function ([https://dlmf.nist.gov/8.17.E2DLMF 8.1
 
 
 
-$$I_z(a,b) = {{\rm B}_z(a,b)\over {\rm B}(a,b)}$$
+$$
+I_z(a,b) = {{\rm B}_z(a,b)\over {\rm B}(a,b)}
+$$
 
-
-$$I_z(a,b) = {{\rm B}_z(a,b)\over {\rm B}(a,b)}$$
 
 
 
@@ -1494,10 +1489,10 @@ maxima
 
 The Error Function erf(z):
 
-$${\rm erf}\ z = {{2\over \sqrt{\pi}}} \int_0^z e^{-t^2}\, dt$$
+$$
+{\rm erf}\ z = {{2\over \sqrt{\pi}}} \int_0^z e^{-t^2}\, dt
+$$
 
-
-$${\rm erf}\ z = {{2\over \sqrt{\pi}}} \int_0^z e^{-t^2}\, dt$$
 
 
 
@@ -1506,7 +1501,7 @@ $${\rm erf}\ z = {{2\over \sqrt{\pi}}} \int_0^z e^{-t^2}\, dt$$
 
 
 See also flag `erfflag`.  This can also be expressed in terms
-of a hypergeometric function.  `hypergeometric_005frepresentation`.
+of a hypergeometric function.  `hypergeometric_representation`.
 
 See also: `erfflag`, `hypergeometric_representation`.
 
@@ -1517,16 +1512,16 @@ See also: `erfflag`, `hypergeometric_representation`.
 
 Generalized Error function Erf(z1,z2):
 
-$${\rm erf}(z_1, z_2) = {{2\over \sqrt{\pi}}} \int_{z_1}^{z_2} e^{-t^2}\, dt$$
+$$
+{\rm erf}(z_1, z_2) = {{2\over \sqrt{\pi}}} \int_{z_1}^{z_2} e^{-t^2}\, dt
+$$
 
-
-$${\rm erf}(z_1, z_2) = {{2\over \sqrt{\pi}}} \int_{z_1}^{z_2} e^{-t^2}\, dt$$
 
 
 
 
 This can also be expressed in terms
-of a hypergeometric function.  `hypergeometric_005frepresentation`.
+of a hypergeometric function.  `hypergeometric_representation`.
 
 See also: `hypergeometric_representation`.
 
@@ -1709,10 +1704,10 @@ See also: `erf_representation`, `false`, `erf`, `erfc`, `erfi`, `erf_generalized
 
 The Complementary Error Function erfc(z):
 
-$${\rm erfc}\ z = 1 - {\rm erf}\ z$$
+$$
+{\rm erfc}\ z = 1 - {\rm erf}\ z
+$$
 
-
-$${\rm erfc}\ z = 1 - {\rm erf}\ z$$
 
 
 
@@ -1721,7 +1716,7 @@ $${\rm erfc}\ z = 1 - {\rm erf}\ z$$
 
 
 This can also be expressed in terms
-of a hypergeometric function.  `hypergeometric_005frepresentation`.
+of a hypergeometric function.  `hypergeometric_representation`.
 
 See also: `hypergeometric_representation`.
 
@@ -1732,10 +1727,9 @@ See also: `hypergeometric_representation`.
 
 The Imaginary Error Function. 
 
-$${\rm erfi}\ z = -i\, {\rm erf}(i z)$$
-
-
-$${\rm erfi}\ z = -i\, {\rm erf}(i z)$$
+$$
+{\rm erfi}\ z = -i\, {\rm erf}(i z)
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: expand_hypergeometric -->
@@ -1759,10 +1753,10 @@ The Fresnel Integral
 
 
 
-$$C(z) = \int_0^z \cos\left({\pi \over 2} t^2\right)\, dt$$
+$$
+C(z) = \int_0^z \cos\left({\pi \over 2} t^2\right)\, dt
+$$
 
-
-$$C(z) = \int_0^z \cos\left({\pi \over 2} t^2\right)\, dt$$
 
 
 
@@ -1792,10 +1786,10 @@ See also: `trigsign`, `%iargs`, `erf_representation`, `hypergeometric_representa
 
 The Fresnel Integral
 
-$$S(z) = \int_0^z \sin\left({\pi \over 2} t^2\right)\, dt$$
+$$
+S(z) = \int_0^z \sin\left({\pi \over 2} t^2\right)\, dt
+$$
 
-
-$$S(z) = \int_0^z \sin\left({\pi \over 2} t^2\right)\, dt$$
 
 
 
@@ -1828,10 +1822,10 @@ The basic definition of the gamma function ([https://dlmf.nist.gov/5.2.E1DLMF 5.
 
 
 
-$$\Gamma\left(z\right)=\int_{0}^{\infty }{t^{z-1}\,e^ {- t }\;dt}$$
+$$
+\Gamma\left(z\right)=\int_{0}^{\infty }{t^{z-1}\,e^ {- t }\;dt}
+$$
 
-
-$$\Gamma\left(z\right)=\int_{0}^{\infty }{t^{z-1}\,e^ {- t }\;dt}$$
 
 
 
@@ -1987,7 +1981,7 @@ Default value: `false`
 
 
 `gamma_expand` controls expansion of `gamma_incomplete`.
-When `gamma_expand` is `true`, `gamma_005fincomplete`
+When `gamma_expand` is `true`, `gamma_incomplete`
 is expanded in terms of
 `z`, `exp`, and `gamma_incomplete` or `erfc` when possible.
 
@@ -2056,10 +2050,10 @@ The incomplete upper gamma function ([https://dlmf.nist.gov/8.2.E2DLMF 8.2.E2]()
 
 
 
-$$\Gamma\left(a , z\right)=\int_{z}^{\infty }{t^{a-1}\,e^ {- t }\;dt}$$
+$$
+\Gamma\left(a , z\right)=\int_{z}^{\infty }{t^{a-1}\,e^ {- t }\;dt}
+$$
 
-
-$$\Gamma\left(a , z\right)=\int_{z}^{\infty }{t^{a-1}\,e^ {- t }\;dt}$$
 
 
 
@@ -2082,10 +2076,10 @@ The generalized incomplete gamma function.
 
 
 
-$$\Gamma\left(a , z_{1}, z_{2}\right)=\int_{z_{1}}^{z_{2}}{t^{a-1}\,e^ {- t }\;dt}$$
+$$
+\Gamma\left(a , z_{1}, z_{2}\right)=\int_{z_{1}}^{z_{2}}{t^{a-1}\,e^ {- t }\;dt}
+$$
 
-
-$$\Gamma\left(a , z_{1}, z_{2}\right)=\int_{z_{1}}^{z_{2}}{t^{a-1}\,e^ {- t }\;dt}$$
 
 
 
@@ -2102,10 +2096,10 @@ The lower incomplete gamma function ([https://dlmf.nist.gov/8.2.E1DLMF 8.2.E1]()
 
 
 
-$$\gamma\left(a , z\right)=\int_{0}^{z}{t^{a-1}\,e^ {- t }\;dt}$$
+$$
+\gamma\left(a , z\right)=\int_{0}^{z}{t^{a-1}\,e^ {- t }\;dt}
+$$
 
-
-$$\gamma\left(a , z\right)=\int_{0}^{z}{t^{a-1}\,e^ {- t }\;dt}$$
 
 
 
@@ -2122,10 +2116,10 @@ The regularized incomplete upper gamma function ([https://dlmf.nist.gov/8.2.E4DL
 
 
 
-$$Q\left(a , z\right)={{\Gamma\left(a , z\right)}\over{\Gamma\left(a\right)}}$$
+$$
+Q\left(a , z\right)={{\Gamma\left(a , z\right)}\over{\Gamma\left(a\right)}}
+$$
 
-
-$$Q\left(a , z\right)={{\Gamma\left(a , z\right)}\over{\Gamma\left(a\right)}}$$
 
 
 
@@ -2167,13 +2161,13 @@ $z=W(z)e^{W(z)}.$
 
 The principal branch, denoted 
 $W_p(z)$
-in DLMF, is `lambert_005fw` `=`
-`generalized_005flambert_005fw`.
+in DLMF, is `lambert_w` `=`
+`generalized_lambert_w`.
 
 
 The other branch with real values, denoted 
 $W_m(z)$
-in DLMF, is `generalized_005flambert_005fw`.
+in DLMF, is `generalized_lambert_w`.
 
 See also: `lambert_w`, `generalized_lambert_w`.
 
@@ -2190,10 +2184,10 @@ See [https://personal.math.ubc.ca/~cbm/aands/page_358.htmA&S eqn 9.1.3]() and [h
 
 
 
-$$H^{(1)}_v(z) = J_v(z) + i Y_v(z)$$
+$$
+H^{(1)}_v(z) = J_v(z) + i Y_v(z)
+$$
 
-
-$$H^{(1)}_v(z) = J_v(z) + i Y_v(z)$$
 
 
 
@@ -2289,10 +2283,10 @@ See [https://personal.math.ubc.ca/~cbm/aands/page_358.htmA&S eqn 9.1.4]() and [h
 
 
 
-$$H^{(2)}_v(z) = J_v(z) - i Y_v(z)$$
+$$
+H^{(2)}_v(z) = J_v(z) - i Y_v(z)
+$$
 
-
-$$H^{(2)}_v(z) = J_v(z) - i Y_v(z)$$
 
 
 
@@ -2324,7 +2318,7 @@ is a list of the denominator parameters.
 
 
 If `hgfred` cannot simplify the hypergeometric function, it returns
-an expression of the form `_0025f` where *p* is
+an expression of the form `%f` where *p* is
 the number of elements in *a*, and *q* is the number of elements
 in *b*.  This is the usual 
 $_pF_q$
@@ -2642,11 +2636,10 @@ The Bateman k function
 
 
 
-$$k_v(x) = \frac{2}{\pi} \int_0^{\pi/2} \cos(x \tan\theta-v\theta)d\theta$$
+$$
+k_v(x) = \frac{2}{\pi} \int_0^{\pi/2} \cos(x \tan\theta-v\theta)d\theta
+$$
 
-
-$$k_v(x)
- = \frac{2}{\pi} \int_0^{\pi/2} \cos(x \tan\theta-v\theta)d\theta$$
 
 
 
@@ -2655,10 +2648,10 @@ theory of turbulence:
 
 
 
-$$x {d^2u\over dx^2} = (x-\nu)u$$
+$$
+x {d^2u\over dx^2} = (x-\nu)u
+$$
 
-
-$$x {d^2u\over dx^2} = (x-\nu)u$$
 
 
 
@@ -2667,27 +2660,25 @@ $x > 0$:
 
 
 
-$$k_v(x) = {e^{-x}\over{\Gamma\left(1+{1\over 2}\nu\right)}} U\left(-{1\over 2} \nu, 0, 2x\right)$$
+$$
+k_v(x) = {e^{-x}\over{\Gamma\left(1+{1\over 2}\nu\right)}} U\left(-{1\over 2} \nu, 0, 2x\right)
+$$
 
-
-$$k_v(x)
- = {e^{-x}\over{\Gamma\left(1+{1\over 2}\nu\right)}} U\left(-{1\over 2}
- \nu, 0, 2x\right)$$
 
 
 where $U$ is the confluent hypergeometric function.  Also, we
 have
 
-$$k_{2\nu}(z) = {1\over\Gamma(\nu+1)} W_{\nu,1/2}(2z)$$
+$$
+k_{2\nu}(z) = {1\over\Gamma(\nu+1)} W_{\nu,1/2}(2z)
+$$
 
-
-$$k_{2\nu}(z) = {1\over\Gamma(\nu+1)} W_{\nu,1/2}(2z)$$
 
 
 
 where
 $W$
-is the `_0025w`.
+is the `%w`.
 
 
 Some examples:
@@ -2763,10 +2754,9 @@ See also: `%w`, `kbateman`, `laplace`, `specint`.
 
 The principal branch of Lambert’s W function W(z) ([https://dlmf.nist.gov/4.13DLMF 4.13]()), the solution of 
 
-$$z = W(z)e^{W(z)}$$
-
-
-$$z = W(z)e^{W(z)}$$
+$$
+z = W(z)e^{W(z)}
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: log_gamma -->
@@ -3138,10 +3128,9 @@ See also: `content`.
 
 The Plasma Dispersion Function 
 
-$${\rm nzeta}(z) = i\sqrt{\pi}e^{-z^2}(1-{\rm erf}(-iz))$$
-
-
-$${\rm nzeta}(z) = i\sqrt{\pi}e^{-z^2}(1-{\rm erf}(-iz))$$
+$$
+{\rm nzeta}(z) = i\sqrt{\pi}e^{-z^2}(1-{\rm erf}(-iz))
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: nzetai -->
@@ -3162,16 +3151,16 @@ Returns `realpart(nzeta(z))`.
 <!-- signatures: parabolic_cylinder_d(v, z) -->
 ### Function: parabolic_cylinder_d (v, z)
 
-The parabolic cylinder function `parabolic_005fcylinder_005fd`. ([https://personal.math.ubc.ca/~cbm/aands/page_687.htmA&S eqn 19.3.1]()).
+The parabolic cylinder function `parabolic_cylinder_d`. ([https://personal.math.ubc.ca/~cbm/aands/page_687.htmA&S eqn 19.3.1]()).
 
 
 
 The solution of the Weber differential equation
 
-$$y''(z) + \left(\nu + {1\over 2} - {1\over 4} z^2\right) y(z) = 0$$
+$$
+y''(z) + \left(\nu + {1\over 2} - {1\over 4} z^2\right) y(z) = 0
+$$
 
-
-$$y''(z) + \left(\nu + {1\over 2} - {1\over 4} z^2\right) y(z) = 0$$
 
 
 
@@ -3181,7 +3170,7 @@ the parabolic cylinder d function.
 
 
 Function `specint` can return expressions containing
-`parabolic_005fcylinder_005fd` if the option variable
+`parabolic_cylinder_d` if the option variable
 `prefer_d` is `true`.
 
 See also: `parabolic_cylinder_d`, `specint`, `prefer_d`, `true`.
@@ -3194,10 +3183,10 @@ See also: `parabolic_cylinder_d`, `specint`, `prefer_d`, `true`.
 `psi` is the polygamma function ([https://dlmf.nist.gov/5.2E2DLMF 5.2E2](),
 [https://dlmf.nist.gov/5.15DLMF 5.15](), [https://personal.math.ubc.ca/~cbm/aands/page_258.htmA&S eqn 6.3.1]() and [https://personal.math.ubc.ca/~cbm/aands/page_260.htmA&S eqn 6.4.1]()) defined by
 
-$$\psi^{(n)}(x) = {d^{n+1}\over{dx^{n+1}}} \log\Gamma(x)$$
+$$
+\psi^{(n)}(x) = {d^{n+1}\over{dx^{n+1}}} \log\Gamma(x)
+$$
 
-
-$$\psi^{(n)}(x) = {d^{n+1}\over{dx^{n+1}}} \log\Gamma(x)$$
 
 
 
@@ -3278,10 +3267,10 @@ $v$ and argument $z$.  That is,
 
 
 
-$${\rm scaled\_bessel\_i}(v,z) = e^{-|z|} I_v(z).$$
+$$
+{\rm scaled\_bessel\_i}(v,z) = e^{-|z|} I_v(z).
+$$
 
-
-$${\rm scaled\_bessel\_i}(v,z) = e^{-|z|} I_v(z).$$
 
 
 
@@ -3298,7 +3287,7 @@ symbolic work, it is probably preferable to work with the expression
 <!-- signatures: scaled_bessel_i0(z) -->
 ### Function: scaled_bessel_i0 (z)
 
-Identical to `scaled_005fbessel_005fi`.
+Identical to `scaled_bessel_i`.
 
 See also: `scaled_bessel_i`.
 
@@ -3307,7 +3296,7 @@ See also: `scaled_bessel_i`.
 <!-- signatures: scaled_bessel_i1(z) -->
 ### Function: scaled_bessel_i1 (z)
 
-Identical to `scaled_005fbessel_005fi`.
+Identical to `scaled_bessel_i`.
 
 See also: `scaled_bessel_i`.
 
@@ -3318,18 +3307,10 @@ See also: `scaled_bessel_i`.
 
 The function `sinc` is defined by 
 
-$${\rm sinc}(x) = \left@{ \matrix{ \displaystyle{\frac{\sin x}{x}} & {\rm if}\> x \neq 0\cr & \cr % For extra vertical space 1 & {\rm if}\> x = 0 } \right.$$
-
-
-$${\rm sinc}(x) = 
-\left@{
-\matrix{
-\displaystyle{\frac{\sin x}{x}} & {\rm if}\> x \neq 0\cr
- & \cr % For extra vertical space
-1                & {\rm if}\> x = 0
-}
-\right.
 $$
+{\rm sinc}(x) = \left@{ \matrix{ \displaystyle{\frac{\sin x}{x}} & {\rm if}\> x \neq 0\cr & \cr % For extra vertical space 1 & {\rm if}\> x = 0 } \right.
+$$
+
 
 
 
@@ -3408,7 +3389,7 @@ function.
 
 Lommels big S function is another particular solution of the
 inhomogeneous Bessel differential equation
-(`_0025s`) defined for all values
+(`%s`) defined for all values
 of
 $\mu$
 and
@@ -3417,13 +3398,10 @@ where
 
 
 
-$$\eqalign{ S_{\mu,\nu}(z) = s_{\mu,\nu}(z) + 2^{\mu-1} & \Gamma\left({\mu\over 2} + {\nu\over 2} + {1\over 2}\right) \Gamma\left({\mu\over 2} - {\nu\over 2} + {1\over 2}\right) \cr & \times \left(\sin\left({(\mu-\nu)\pi\over 2}\right) J_{\nu}(z) - \cos\left({(\mu-\nu)\pi\over 2}\right) Y_{\nu}(z)\right) }$$
+$$
+\begin{aligned} S_{\mu,\nu}(z) = s_{\mu,\nu}(z) + 2^{\mu-1} & \Gamma\left({\mu\over 2} + {\nu\over 2} + {1\over 2}\right) \Gamma\left({\mu\over 2} - {\nu\over 2} + {1\over 2}\right) \cr & \times \left(\sin\left({(\mu-\nu)\pi\over 2}\right) J_{\nu}(z) - \cos\left({(\mu-\nu)\pi\over 2}\right) Y_{\nu}(z)\right) \end{aligned}
+$$
 
-
-$$\eqalign{
-S_{\mu,\nu}(z) = s_{\mu,\nu}(z) + 2^{\mu-1} & \Gamma\left({\mu\over 2} + {\nu\over 2} + {1\over 2}\right) \Gamma\left({\mu\over 2} - {\nu\over 2} + {1\over 2}\right) \cr
-& \times \left(\sin\left({(\mu-\nu)\pi\over 2}\right) J_{\nu}(z) - \cos\left({(\mu-\nu)\pi\over 2}\right) Y_{\nu}(z)\right)
-}$$
 
 
 
@@ -3445,11 +3423,10 @@ and argument $z$:
 
 
 
-$${\bf H}_{\nu}(z) = \left({z\over 2}\right)^{\nu+1} \sum_{k=0}^{\infty} {(-1)^k\left({z\over 2}\right)^{2k} \over \Gamma\left(k + {3\over 2}\right) \Gamma\left(k + \nu + {3\over 2}\right)}$$
+$$
+{\bf H}_{\nu}(z) = \left({z\over 2}\right)^{\nu+1} \sum_{k=0}^{\infty} {(-1)^k\left({z\over 2}\right)^{2k} \over \Gamma\left(k + {3\over 2}\right) \Gamma\left(k + \nu + {3\over 2}\right)}
+$$
 
-
-$${\bf H}_{\nu}(z) = \left({z\over 2}\right)^{\nu+1}
-\sum_{k=0}^{\infty} {(-1)^k\left({z\over 2}\right)^{2k} \over \Gamma\left(k + {3\over 2}\right) \Gamma\left(k + \nu + {3\over 2}\right)}$$
 
 
 
@@ -3471,10 +3448,10 @@ The Modified Struve Function L of order
 $\nu$
 and argument $z$:
 
-$${\bf L}_{\nu}(z) = -ie^{-{i\nu\pi\over 2}} {\bf H}_{\nu}(iz)$$
+$$
+{\bf L}_{\nu}(z) = -ie^{-{i\nu\pi\over 2}} {\bf H}_{\nu}(iz)
+$$
 
-
-$${\bf L}_{\nu}(z) = -ie^{-{i\nu\pi\over 2}} {\bf H}_{\nu}(iz)$$
 
 
 

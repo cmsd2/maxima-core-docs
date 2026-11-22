@@ -481,7 +481,7 @@ There is no way to change the default separator.
 Each symbol has its own value of `display_index_separator`.
 
 
-See also `put`, `get`, and `declare_005findex_005fproperties`.
+See also `put`, `get`, and `declare_index_properties`.
 
 
 Examples:
@@ -763,7 +763,7 @@ Default value: `true`
 
 
 When `exptdispflag` is `true`, Maxima displays expressions
-with negative exponents using quotients.  See also `_0025edispflag`.
+with negative exponents using quotients.  See also `%edispflag`.
 
 
 Example:
@@ -809,7 +809,7 @@ See also: `%edispflag`.
 Returns the properties for *a* established by `declare_index_properties`.
 
 
-See also `remove_005findex_005fproperties`.
+See also `remove_index_properties`.
 
 See also: `remove_index_properties`.
 

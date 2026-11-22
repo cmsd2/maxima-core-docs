@@ -182,7 +182,9 @@ n
 ```
 
 
-$${{1\over{n}}{\sum_{i=1}^{n}{(x_{i}-\bar{x})^k}}}$$
+$$
+{{1\over{n}}{\sum_{i=1}^{n}{(x_{i}-\bar{x})^k}}}
+$$
 
 
 The weighted central moment of order *k* is defined as
@@ -200,7 +202,9 @@ n
 ```
 
 
-$${{1\over{Z}}{\sum_{i=1}^{n}{w_{i} (x_{i}-\bar{x})^k}}}$$
+$$
+{{1\over{Z}}{\sum_{i=1}^{n}{w_{i} (x_{i}-\bar{x})^k}}}
+$$
 
 
 where *Z* is the sum of the weights,
@@ -218,7 +222,9 @@ n
 ```
 
 
-$${Z={\sum_{i=1}^{n}{w_{i}}}}$$
+$$
+{Z={\sum_{i=1}^{n}{w_{i}}}}
+$$
 
 
 Examples:
@@ -535,7 +541,9 @@ n
 ```
 
 
-$${S={1\over{n}}{\sum_{j=1}^{n}{\left(X_{j}-\bar{X}\right)\,\left(X_{j}-\bar{X}\right)'}}}$$
+$$
+{S={1\over{n}}{\sum_{j=1}^{n}{\left(X_{j}-\bar{X}\right)\,\left(X_{j}-\bar{X}\right)'}}}
+$$
 
 
 where *X[j]* is the *j*’th row of the sample matrix.
@@ -556,7 +564,9 @@ n
 ```
 
 
-$${S={1\over{Z}}{\sum_{j=1}^{n}{w_j \left(X_{j}-\bar{X}\right)\,\left(X_{j}-\bar{X}\right)'}}}$$
+$$
+{S={1\over{Z}}{\sum_{j=1}^{n}{w_j \left(X_{j}-\bar{X}\right)\,\left(X_{j}-\bar{X}\right)'}}}
+$$
 
 
 where *Z* is the sum of the weights,
@@ -574,7 +584,9 @@ n
 ```
 
 
-$${Z={\sum_{i=1}^{n}{w_{i}}}}$$
+$$
+{Z={\sum_{i=1}^{n}{w_{i}}}}
+$$
 
 
 Example:
@@ -628,7 +640,9 @@ n
 ```
 
 
-$${{1\over{n-1}}{\sum_{j=1}^{n}{\left(X_{j}-\bar{X}\right)\,\left(X_{j}-\bar{X}\right)'}}}$$
+$$
+{{1\over{n-1}}{\sum_{j=1}^{n}{\left(X_{j}-\bar{X}\right)\,\left(X_{j}-\bar{X}\right)'}}}
+$$
 
 where $X_j$ is the $j$-th row of the sample matrix.
 
@@ -786,7 +800,9 @@ The geometric mean, defined as
 ```
 
 
-$$\left(\prod_{i=1}^{n}{x_{i}}\right)^{{{1}\over{n}}}$$
+$$
+\left(\prod_{i=1}^{n}{x_{i}}\right)^{{{1}\over{n}}}
+$$
 
 
 Example:
@@ -815,7 +831,7 @@ Example:
 ```
 
 
-See also functions `mean` and `harmonic_005fmean`.
+See also functions `mean` and `harmonic_mean`.
 
 See also: `mean`, `harmonic_mean`.
 
@@ -922,7 +938,9 @@ n
 ```
 
 
-$${{n}\over{\sum_{i=1}^{n}{{{1}\over{x_{i}}}}}}$$
+$$
+{{n}\over{\sum_{i=1}^{n}{{{1}\over{x_{i}}}}}}
+$$
 
 
 Example:
@@ -951,7 +969,7 @@ Example:
 ```
 
 
-See also functions `mean` and `geometric_005fmean`.
+See also functions `mean` and `geometric_mean`.
 
 See also: `mean`, `geometric_mean`.
 
@@ -1045,7 +1063,9 @@ n
 ```
 
 
-$${{1\over{n s^4}}{\sum_{i=1}^{n}{(x_{i}-\bar{x})^4}}-3}$$
+$$
+{{1\over{n s^4}}{\sum_{i=1}^{n}{(x_{i}-\bar{x})^4}}-3}
+$$
 
 
 Example:
@@ -1097,7 +1117,9 @@ Function `list_correlations` returns a list of correlation measures:
        1         i,j = 1,2,...,p
 ```
 
-$${S_{1}^{-1}}={\left(s^{ij}\right)_{i,j=1,2,\ldots, p}}$$
+$$
+{S_{1}^{-1}}={\left(s^{ij}\right)_{i,j=1,2,\ldots, p}}
+$$
 - *
 *multiple correlation vector*:  $(R_1^2, R_2^2, ..., R_p^2)$, with 
 
@@ -1109,7 +1131,9 @@ $${S_{1}^{-1}}={\left(s^{ij}\right)_{i,j=1,2,\ldots, p}}$$
                     ii
 ```
 
-$${R_{i}^{2}}={1-{{1}\over{s^{ii}s_{ii}}}}$$
+$$
+{R_{i}^{2}}={1-{{1}\over{s^{ii}s_{ii}}}}
+$$
 being an indicator of the goodness of fit of the linear multivariate regression model on $X_i$ when the rest of variables are used as regressors.
 - *
 *partial correlation matrix*: with element $(i, j)$ being
@@ -1123,7 +1147,9 @@ ij
                    \       /
 ```
 
-$${r_{ij.rest}}={-{{s^{ij}}\over \sqrt{s^{ii}s^{jj}}}}$$
+$$
+{r_{ij.rest}}={-{{s^{ij}}\over \sqrt{s^{ii}s^{jj}}}}
+$$
 
 
 Option:
@@ -1233,7 +1259,9 @@ n
 ```
 
 
-$${\bar{x}={1\over{n}}{\sum_{i=1}^{n}{x_{i}}}}$$
+$$
+{\bar{x}={1\over{n}}{\sum_{i=1}^{n}{x_{i}}}}
+$$
 
 
 The weighted sample mean is defined as
@@ -1251,7 +1279,9 @@ n
 ```
 
 
-$${\bar{x}={1\over{Z}}{\sum_{i=1}^{n}{w_{i} x_{i}}}}$$
+$$
+{\bar{x}={1\over{Z}}{\sum_{i=1}^{n}{w_{i} x_{i}}}}
+$$
 
 
 where *Z* is the sum of the weights,
@@ -1269,7 +1299,9 @@ n
 ```
 
 
-$${Z={\sum_{i=1}^{n}{w_{i}}}}$$
+$$
+{Z={\sum_{i=1}^{n}{w_{i}}}}
+$$
 
 
 Examples:
@@ -1375,7 +1407,9 @@ n
 ```
 
 
-$${{1\over{n}}{\sum_{i=1}^{n}{|x_{i}-\bar{x}|}}}$$
+$$
+{{1\over{n}}{\sum_{i=1}^{n}{|x_{i}-\bar{x}|}}}
+$$
 
 
 Example:
@@ -1471,7 +1505,9 @@ n
 ```
 
 
-$${{1\over{n}}{\sum_{i=1}^{n}{|x_{i}-med|}}}$$
+$$
+{{1\over{n}}{\sum_{i=1}^{n}{|x_{i}-med|}}}
+$$
 
 where `med` is the median of *list*.
 
@@ -1547,7 +1583,9 @@ n
 ```
 
 
-$${{1\over{n}}{\sum_{i=1}^{n}{x_{i}^k}}}$$
+$$
+{{1\over{n}}{\sum_{i=1}^{n}{x_{i}^k}}}
+$$
 
 
 The weighted noncentral moment of order *k* is defined as
@@ -1565,7 +1603,9 @@ n
 ```
 
 
-$${{1\over{Z}}{\sum_{i=1}^{n}{w_{i} x_{i}^k}}}$$
+$$
+{{1\over{Z}}{\sum_{i=1}^{n}{w_{i} x_{i}^k}}}
+$$
 
 
 where *Z* is the sum of the weights,
@@ -1583,7 +1623,9 @@ n
 ```
 
 
-$${Z={\sum_{i=1}^{n}{w_{i}}}}$$
+$$
+{Z={\sum_{i=1}^{n}{w_{i}}}}
+$$
 
 
 Examples:
@@ -1632,7 +1674,7 @@ Fifth noncentral moment of each column of a matrix.
 ```
 
 
-See also function `central_005fmoment`.
+See also function `central_moment`.
 
 See also: `central_moment`.
 
@@ -1652,7 +1694,9 @@ _
 ```
 
 
-$${{3\,\left(\bar{x}-med\right)}\over{s}}$$
+$$
+{{3\,\left(\bar{x}-med\right)}\over{s}}
+$$
 
 where *med* is the median of *list*.
 
@@ -1913,8 +1957,10 @@ c    - 2 c    + c
 ```
 
 
-$${{c_{{{3}\over{4}}}-2\,c_{{{1}\over{2}}}+c_{{{1}\over{4}}}}\over{c
- _{{{3}\over{4}}}-c_{{{1}\over{4}}}}}$$
+$$
+{{c_{{{3}\over{4}}}-2\,c_{{{1}\over{2}}}+c_{{{1}\over{4}}}}\over{c
+ _{{{3}\over{4}}}-c_{{{1}\over{4}}}}}
+$$
 
 where $c_p$ is the *p*-quantile of sample *list*.
 
@@ -2000,7 +2046,9 @@ n
 ```
 
 
-$${{1\over{n s^3}}{\sum_{i=1}^{n}{(x_{i}-\bar{x})^3}}}$$
+$$
+{{1\over{n s^3}}{\sum_{i=1}^{n}{(x_{i}-\bar{x})^3}}}
+$$
 
 
 Example:
@@ -2507,7 +2555,9 @@ n
 ```
 
 
-$${{1}\over{n}}{\sum_{i=1}^{n}{(x_{i}-\bar{x})^2}}$$
+$$
+{{1}\over{n}}{\sum_{i=1}^{n}{(x_{i}-\bar{x})^2}}
+$$
 
 
 The weighted sample variance is defined as
@@ -2525,7 +2575,9 @@ n
 ```
 
 
-$${{1}\over{Z}}{\sum_{i=1}^{n}{(x_{i}-\bar{x})^2}}$$
+$$
+{{1}\over{Z}}{\sum_{i=1}^{n}{(x_{i}-\bar{x})^2}}
+$$
 
 
 where *Z* is the sum of the weights,
@@ -2543,7 +2595,9 @@ n
 ```
 
 
-$${Z={\sum_{i=1}^{n}{w_{i}}}}$$
+$$
+{Z={\sum_{i=1}^{n}{w_{i}}}}
+$$
 
 
 Example:
@@ -2656,7 +2710,9 @@ n
 ```
 
 
-$${{1\over{n-1}}{\sum_{i=1}^{n}{(x_{i}-\bar{x})^2}}}$$
+$$
+{{1\over{n-1}}{\sum_{i=1}^{n}{(x_{i}-\bar{x})^2}}}
+$$
 
 
 Example:

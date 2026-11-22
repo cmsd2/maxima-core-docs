@@ -542,7 +542,7 @@ See also: `errormsg`.
 <!-- signatures: errexp1 -->
 ### Variable: errexp1
 
-See `error_005fsyms`.
+See `error_syms`.
 
 See also: `error_syms`.
 
@@ -584,7 +584,7 @@ Otherwise, the expression is smaller than `error_size`, and the expression
 is displayed in the message.
 
 
-See also `error` and `error_005fsyms`.
+See also `error` and `error_syms`.
 
 
 Example:
@@ -648,7 +648,7 @@ If there are more too-large expressions than there are elements of
 symbol equivalent to `concat ('errexp, n)`.
 
 
-See also `error` and `error_005fsize`.
+See also `error` and `error_size`.
 
 See also: `error_size`, `error`.
 

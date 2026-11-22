@@ -179,11 +179,11 @@ See `demoivre`.
 
 
 `%emode`, when `true`, causes `%e^(%pi %i x)` to be simplified.
-See `_0025emode`.
+See `%emode`.
 
 
 `%enumer`, when `true` causes `%e` to be replaced by
-2.718... whenever `numer` is `true`.  See `_0025enumer`.
+2.718... whenever `numer` is `true`.  See `%enumer`.
 
 
 
@@ -226,10 +226,10 @@ defined by the infinite series
 
 
 
-$${\rm Li}_s \left(z\right) = \sum_{k=1}^\infty {z^k \over k^s}$$
+$$
+{\rm Li}_s \left(z\right) = \sum_{k=1}^\infty {z^k \over k^s}
+$$
 
-
-$${\rm Li}_s \left(z\right) = \sum_{k=1}^\infty {z^k \over k^s}$$
 
 
 

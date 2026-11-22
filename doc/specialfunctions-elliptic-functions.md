@@ -11,10 +11,9 @@ For
 $-1\le u \le 1,$
 it can also be written ([https://dlmf.nist.gov/22.15.E15DLMF 22.15.E15]()):
 
-$${\rm inverse\_jacobi\_cd}(u, m) = \int_u^1 {dt\over \sqrt{(1-t^2)(1-mt^2)}}$$
-
-
-$${\rm inverse\_jacobi\_cd}(u, m) = \int_u^1 {dt\over \sqrt{(1-t^2)(1-mt^2)}}$$
+$$
+{\rm inverse\_jacobi\_cd}(u, m) = \int_u^1 {dt\over \sqrt{(1-t^2)(1-mt^2)}}
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: inverse_jacobi_cs -->
@@ -25,10 +24,9 @@ The inverse of the Jacobian elliptic function
 ${\rm cs}(u,m).$
 For all $u$ it can also be written ([https://dlmf.nist.gov/22.15.E23DLMF 22.15.E23]()):
 
-$${\rm inverse\_jacobi\_cs}(u, m) = \int_u^{\infty} {dt\over \sqrt{(1+t^2)(t^2+(1-m))}}$$
-
-
-$${\rm inverse\_jacobi\_cs}(u, m) = \int_u^{\infty} {dt\over \sqrt{(1+t^2)(t^2+(1-m))}}$$
+$$
+{\rm inverse\_jacobi\_cs}(u, m) = \int_u^{\infty} {dt\over \sqrt{(1+t^2)(t^2+(1-m))}}
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: inverse_jacobi_dc -->
@@ -41,10 +39,9 @@ For
 $1 \le u,$
 it can also be written ([https://dlmf.nist.gov/22.15.E18DLMF 22.15.E18]()):
 
-$${\rm inverse\_jacobi\_dc}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(t^2-m)}}$$
-
-
-$${\rm inverse\_jacobi\_dc}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(t^2-m)}}$$
+$$
+{\rm inverse\_jacobi\_dc}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(t^2-m)}}
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: inverse_jacobi_dn -->
@@ -57,10 +54,9 @@ For
 $\sqrt{1-m}\le u \le 1,$
 it can also be written ([https://dlmf.nist.gov/22.15.E14DLMF 22.15.E14]()):
 
-$${\rm inverse\_jacobi\_dn}(u, m) = \int_u^1 {dt\over \sqrt{(1-t^2)(t^2-(1-m))}}$$
-
-
-$${\rm inverse\_jacobi\_dn}(u, m) = \int_u^1 {dt\over \sqrt{(1-t^2)(t^2-(1-m))}}$$
+$$
+{\rm inverse\_jacobi\_dn}(u, m) = \int_u^1 {dt\over \sqrt{(1-t^2)(t^2-(1-m))}}
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: inverse_jacobi_ds -->
@@ -73,10 +69,9 @@ For
 $\sqrt{1-m}\le u,$
 it can also be written ([https://dlmf.nist.gov/22.15.E22DLMF 22.15.E22]()):
 
-$${\rm inverse\_jacobi\_ds}(u, m) = \int_u^{\infty} {dt\over \sqrt{(t^2+m)(t^2-(1-m))}}$$
-
-
-$${\rm inverse\_jacobi\_ds}(u, m) = \int_u^{\infty} {dt\over \sqrt{(t^2+m)(t^2-(1-m))}}$$
+$$
+{\rm inverse\_jacobi\_ds}(u, m) = \int_u^{\infty} {dt\over \sqrt{(t^2+m)(t^2-(1-m))}}
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: inverse_jacobi_nc -->
@@ -89,10 +84,9 @@ For
 $1\le u,$
 it can also be written ([https://dlmf.nist.gov/22.15.E19DLMF 22.15.E19]()):
 
-$${\rm inverse\_jacobi\_nc}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(m+(1-m)t^2)}}$$
-
-
-$${\rm inverse\_jacobi\_nc}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(m+(1-m)t^2)}}$$
+$$
+{\rm inverse\_jacobi\_nc}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(m+(1-m)t^2)}}
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: inverse_jacobi_nd -->
@@ -105,10 +99,9 @@ For
 $1\le u \le 1/\sqrt{1-m},$
 it can also be written ([https://dlmf.nist.gov/22.15.E17DLMF 22.15.E17]()):
 
-$${\rm inverse\_jacobi\_nd}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(1-(1-m)t^2)}}$$
-
-
-$${\rm inverse\_jacobi\_nd}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(1-(1-m)t^2)}}$$
+$$
+{\rm inverse\_jacobi\_nd}(u, m) = \int_1^u {dt\over \sqrt{(t^2-1)(1-(1-m)t^2)}}
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: inverse_jacobi_ns -->
@@ -121,10 +114,9 @@ For
 $1 \le u,$
 it can also be written ([https://dlmf.nist.gov/22.15.E121DLMF 22.15.E121]()):
 
-$${\rm inverse\_jacobi\_ns}(u, m) = \int_u^{\infty} {dt\over \sqrt{(1-t^2)(t^2-m)}}$$
-
-
-$${\rm inverse\_jacobi\_ns}(u, m) = \int_u^{\infty} {dt\over \sqrt{(1-t^2)(t^2-m)}}$$
+$$
+{\rm inverse\_jacobi\_ns}(u, m) = \int_u^{\infty} {dt\over \sqrt{(1-t^2)(t^2-m)}}
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: inverse_jacobi_sc -->
@@ -135,10 +127,9 @@ The inverse of the Jacobian elliptic function
 ${\rm sc}(u,m).$
 For all $u$ it can also be written ([https://dlmf.nist.gov/22.15.E20DLMF 22.15.E20]()):
 
-$${\rm inverse\_jacobi\_sc}(u, m) = \int_0^u {dt\over \sqrt{(1+t^2)(1+(1-m)t^2)}}$$
-
-
-$${\rm inverse\_jacobi\_sc}(u, m) = \int_0^u {dt\over \sqrt{(1+t^2)(1+(1-m)t^2)}}$$
+$$
+{\rm inverse\_jacobi\_sc}(u, m) = \int_0^u {dt\over \sqrt{(1+t^2)(1+(1-m)t^2)}}
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: inverse_jacobi_sd -->
@@ -151,10 +142,9 @@ For
 $-1/\sqrt{1-m}\le u \le 1/\sqrt{1-m},$
 it can also be written ([https://dlmf.nist.gov/22.15.E16DLMF 22.15.E16]()):
 
-$${\rm inverse\_jacobi\_sd}(u, m) = \int_0^u {dt\over \sqrt{(1-(1-m)t^2)(1+mt^2)}}$$
-
-
-$${\rm inverse\_jacobi\_sd}(u, m) = \int_0^u {dt\over \sqrt{(1-(1-m)t^2)(1+mt^2)}}$$
+$$
+{\rm inverse\_jacobi\_sd}(u, m) = \int_0^u {dt\over \sqrt{(1-(1-m)t^2)(1+mt^2)}}
+$$
 
 <!-- category: SpecialFunctions -->
 <!-- keywords: jacobi_am -->
@@ -165,7 +155,7 @@ The Jacobi amplitude function, `jacobi_am`, is defined implicitly by (see
 [http://functions.wolfram.com/09.24.02.0001.01]())
 $z = {\rm am}(w, m)$
 where $w = F(z,m)$ where $F(z,m)$ is the incomplete elliptic
-integral of the first kind (`elliptic_005ff`).  It is defined for
+integral of the first kind (`elliptic_f`).  It is defined for
 all real and complex values of $z$ and $m$.  In particular
 for real $z$ and $m$ with $|m|<1$,
 ${\rm am}(z,m)$

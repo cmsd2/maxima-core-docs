@@ -57,7 +57,7 @@ http://www.swarthmore.edu/NatSci/echeeve1/Ref/Bode/BodeHow.html,
 ```
 
 
-To use this function write first `load("bode")`. See also `bode_005fphase`.
+To use this function write first `load("bode")`. See also `bode_phase`.
 
 See also: `bode_phase`.
 
@@ -124,7 +124,7 @@ http://www.swarthmore.edu/NatSci/echeeve1/Ref/Bode/BodeHow.html,
 ```
 
 
-To use this function write first `load("bode")`. See also `bode_005fgain`.
+To use this function write first `load("bode")`. See also `bode_gain`.
 
 See also: `bode_gain`.
 

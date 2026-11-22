@@ -31,7 +31,7 @@ When the global flag `noundisp` is `true`, nouns display with a single
 quote.  This switch is always `true` when displaying function definitions.
 
 
-See also the quote-quote operator `quote_002dquote` and `nouns`.
+See also the quote-quote operator `quote-quote` and `nouns`.
 
 
 Examples:
@@ -543,7 +543,7 @@ evaluated and that `ev(F(x))` thus may behave like `F(ev(x))`.
 repeated.
 
 
-See also `quote_002dquote`, `at` and `subst`.
+See also `quote-quote`, `at` and `subst`.
 
 
 Examples:

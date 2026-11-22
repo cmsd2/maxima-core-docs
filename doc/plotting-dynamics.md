@@ -6,17 +6,17 @@
 ### Variable: animation
 
 *property* should be one of the following 4 object’s properties:
-`object_005forigin`, `object_005fscale`,
-`object_005fposition` or
-`object_005forientation` and *positions* should be a
+`object_origin`, `object_scale`,
+`object_position` or
+`object_orientation` and *positions* should be a
 list of points. When the play button is pressed, the object property
 will be changed sequentially through all the values in the list, at
-intervals of time given by the option `scene_005ftstep`. The
+intervals of time given by the option `scene_tstep`. The
 rewind button can be used to point at the start of the sequence making
 the animation restart after the play button is pressed again.
 
 
-See also `object_005ftrack`.
+See also `object_track`.
 
 See also: `object_origin`, `object_scale`, `object_position`, `object_orientation`, `scene_tstep`, `object_track`.
 
@@ -42,7 +42,7 @@ Default value: `[0, 0, 0]`
 
 
 The coordinates of the object’s geometric center, with respect to its
-`object_005fposition`. *point* can be a list with 3
+`object_position`. *point* can be a list with 3
 real numbers, or 3 real numbers separated by commas. In a cylinder, cone
 or cube it will be at half its height and in a sphere at its center.
 
@@ -84,13 +84,13 @@ See also: `plot2d`.
 
 Creates a regular pyramid with height equal to 1 and a hexagonal base
 with vertices 0.5 units away from the axis. Options
-`object_005fheight` and `object_005fradius` can be used
-to change those defaults and option `object_005fresolution`
+`object_height` and `object_radius` can be used
+to change those defaults and option `object_resolution`
 can be used to change the number of edges of the base; higher values
 will make it look like a cone. By default, the axis will be along the x
 axis, the middle point of the axis will be at the origin and the vertex
 on the positive side of the x axis; use options
-`object_005forientation` and `object_005fcenter` to
+`object_orientation` and `object_center` to
 change those defaults.
 
 
@@ -113,9 +113,9 @@ See also: `object_height`, `object_radius`, `object_resolution`, `object_orienta
 
 A cube with edges of 1 unit and faces parallel to the xy, xz and yz
 planes. The lengths of the three edges can be changed with options
-`object_005fxlength`, `object_005fylength` and
-`object_005fzlength`, turning it into a rectangular box and
-the faces can be rotated with option `object_005forientation`.
+`object_xlength`, `object_ylength` and
+`object_zlength`, turning it into a rectangular box and
+the faces can be rotated with option `object_orientation`.
 
 See also: `object_xlength`, `object_ylength`, `object_zlength`, `object_orientation`.
 
@@ -126,13 +126,13 @@ See also: `object_xlength`, `object_ylength`, `object_zlength`, `object_orientat
 
 Creates a regular prism with height equal to 1 and a hexagonal base with
 vertices 0.5 units away from the axis. Options
-`object_005fheight` and `object_005fradius` can be
-used to change those defaults and option `object_005fresolution` can be used to change the number of edges of the base;
+`object_height` and `object_radius` can be
+used to change those defaults and option `object_resolution` can be used to change the number of edges of the base;
 higher values will make it look like a cylinder. The default height can
-be changed with the option `object_005fheight`. By default,
+be changed with the option `object_height`. By default,
 the axis will be along the x axis and the middle point of the axis will
-be at the origin; use options `object_005forientation` and
-`object_005fcenter` to change those defaults.
+be at the origin; use options `object_orientation` and
+`object_center` to change those defaults.
 
 See also: `object_height`, `object_radius`, `object_resolution`, `object_orientation`, `object_center`.
 
@@ -151,8 +151,8 @@ which the surface will end. A value smaller than 180 will eliminate a
 part of the sphere’s surface.
 
 
-See also `object_005fstartphi` and
-`object_005fphiresolution`.
+See also `object_startphi` and
+`object_phiresolution`.
 
 See also: `object_startphi`, `object_phiresolution`.
 
@@ -171,8 +171,8 @@ surface will end. A value smaller than 360 will eliminate a part of
 the sphere’s surface.
 
 
-See also `object_005fstarttheta` and
-`object_005fthetaresolution`.
+See also `object_starttheta` and
+`object_thetaresolution`.
 
 See also: `object_starttheta`, `object_thetaresolution`.
 
@@ -192,7 +192,9 @@ y(n+1) = F(y(n))
 ```
 
 
-$$y_{n+1} = F(y_n)$$
+$$
+y_{n+1} = F(y_n)
+$$
 
 
 With initial value *y(0)* equal to *y0*. *F* must be an
@@ -229,7 +231,9 @@ u(n+1) = F(u(n), v(n))    v(n+1) = G(u(n), v(n))
 ```
 
 
-$$\cases{u_{n+1} = F(u_n, v_n) &\cr v_{n+1} = G(u_n, v_n)}$$
+$$
+\begin{cases}u_{n+1} = F(u_n, v_n) &\cr v_{n+1} = G(u_n, v_n)\end{cases}
+$$
 
 
 With initial values *u0* and *v0*. *F* and *G* must be
@@ -327,7 +331,7 @@ See also: `chaosgame`, `plot2d`.
 Default value: `1`
 
 
-The width of the lines, when option `object_005fwireframe` is
+The width of the lines, when option `object_wireframe` is
 used. *value* must be a positive number.
 
 See also: `object_wireframe`.
@@ -428,12 +432,12 @@ Default value: ``
 
 
 The number of sub-intervals into which the phi angle interval from
-`object_005fstartphi` to `object_005fendphi`
+`object_startphi` to `object_endphi`
 will be divided. *num* must be a positive integer.
 
 
-See also `object_005fstartphi` and
-`object_005fendphi`.
+See also `object_startphi` and
+`object_endphi`.
 
 See also: `object_startphi`, `object_endphi`.
 
@@ -445,7 +449,7 @@ See also: `object_startphi`, `object_endphi`.
 Default value: `1`
 
 
-The size of the points, when option `object_005fpoints` is
+The size of the points, when option `object_points` is
 used. *value* must be a positive number.
 
 See also: `object_points`.
@@ -515,12 +519,12 @@ unchanged.
 <!-- signatures: scene(objects, ..., options, ...); -->
 ### Function: scene ((objects, ..., options, ...);)
 
-Accepts an empty list or a list of several `scene_005fobjects`
-and `scene_005foptions`. The program launches Xmaxima, which
+Accepts an empty list or a list of several `scene_objects`
+and `scene_options`. The program launches Xmaxima, which
 opens an external window representing the given objects in a
 3-dimensional space and applying the options given. Each object must
 belong to one of the following 4 classes: sphere, cube, cylinder or cone
-(see `scene_005fobjects`). Objects are identified by
+(see `scene_objects`). Objects are identified by
 giving their name or by a list in which the first element is the class
 name and the following elements are options for that object.
 
@@ -541,8 +545,8 @@ name and the following elements are options for that object.
 
 By holding down the left button of the mouse while it is moved on the
 graphics window, the camera can be rotated showing different views of
-the pyramid. The two plot options `scene_005felevation` and
-`scene_005fazimuth` can also be used to change the initial
+the pyramid. The two plot options `scene_elevation` and
+`scene_azimuth` can also be used to change the initial
 orientation of the viewing camera. The camera can be moved by holding
 the middle mouse button while moving it and holding the right-side mouse
 button while moving it up or down will zoom in or out.
@@ -550,7 +554,7 @@ button while moving it up or down will zoom in or out.
 
 Each object option should be a list starting with the option name,
 followed by its value. The list of allowed options can be found in the
-`object_005foptions` section.
+`object_options` section.
 
 
 **Example**. This will show a sphere falling to the ground and
@@ -615,7 +619,9 @@ y(n+1) = F(y(n))
 ```
 
 
-$$y_{n+1} = F(y_n)$$
+$$
+y_{n+1} = F(y_n)
+$$
 
 
 The interpretation and allowed values of the input parameters is the
@@ -656,8 +662,8 @@ which the surface will start. A value bigger than 0 will eliminate a
 part of the sphere’s surface.
 
 
-See also `object_005fendphi` and
-`object_005fphiresolution`.
+See also `object_endphi` and
+`object_phiresolution`.
 
 See also: `object_endphi`, `object_phiresolution`.
 
@@ -676,8 +682,8 @@ the surface will start. A value bigger than 0 will eliminate a part of
 the sphere’s surface.
 
 
-See also `object_005fendtheta` and
-`object_005fthetaresolution`.
+See also `object_endtheta` and
+`object_thetaresolution`.
 
 See also: `object_endtheta`, `object_thetaresolution`.
 
@@ -689,7 +695,7 @@ See also: `object_endtheta`, `object_thetaresolution`.
 The surfaces of the object will be rendered and the lines and points of
 the triangulation used to build the surface will not be shown. This is
 the default behavior, which can be changed using either the option
-`object_005fpoints` or `object_005fwireframe`.
+`object_points` or `object_wireframe`.
 
 See also: `object_points`, `object_wireframe`.
 
@@ -702,12 +708,12 @@ Default value: ``
 
 
 The number of sub-intervals into which the theta angle interval from
-`object_005fstarttheta` to `object_005fendtheta`
+`object_starttheta` to `object_endtheta`
 will be divided. *num* must be a positive integer.
 
 
-See also `object_005fstarttheta` and
-`object_005fendtheta`.
+See also `object_starttheta` and
+`object_endtheta`.
 
 See also: `object_starttheta`, `object_endtheta`.
 
@@ -719,7 +725,7 @@ See also: `object_starttheta`, `object_endtheta`.
 *positions* should be a list of points. When the play button is
 pressed, the object position will be changed sequentially through all
 the points in the list, at intervals of time given by the option
-`scene_005ftstep`, leaving behind a track of the object’s
+`scene_tstep`, leaving behind a track of the object’s
 trajectory. The rewind button can be used to point at the start of the
 sequence making the animation restart after the play button is pressed
 again.
@@ -743,7 +749,7 @@ be neglected:
 ```
 
 
-See also `object_005fanimation`.
+See also `object_animation`.
 
 See also: `scene_tstep`, `object_animation`.
 
@@ -801,8 +807,8 @@ Only the edges of the triangulation used to render the surface will be
 shown. **Example**: `[cube, [wireframe]]`
 
 
-See also `object_005fsurface` and
-`object_005fpoints`.
+See also `object_surface` and
+`object_points`.
 
 See also: `object_surface`, `object_points`.
 
@@ -815,8 +821,8 @@ Default value: `1`
 
 
 The height of a cube in the x direction. *length* must be a positive
-number. See also `object_005fylength` and
-`object_005fzlength`.
+number. See also `object_ylength` and
+`object_zlength`.
 
 See also: `object_ylength`, `object_zlength`.
 
@@ -829,8 +835,8 @@ Default value: `1`
 
 
 The height of a cube in the y direction. *length* must be a positive
-number. See also `object_005fxlength` and
-`object_005fzlength`.
+number. See also `object_xlength` and
+`object_zlength`.
 
 See also: `object_xlength`, `object_zlength`.
 
@@ -843,8 +849,8 @@ Default value: `1`
 
 
 The height of a cube in z the direction. *length* must be a positive
- number.  See also `object_005fxlength` and
- `object_005fylength`.
+ number.  See also `object_xlength` and
+ `object_ylength`.
 
 See also: `object_xlength`, `object_ylength`.
 

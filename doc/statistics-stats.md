@@ -10,7 +10,7 @@ rank sum statistic. Argument *x* is a real
 number and *n* and *m* are both positive integers. 
 
 
-See also `test_005frank_005fsum`.
+See also `test_rank_sum`.
 
 See also: `test_rank_sum`.
 
@@ -24,7 +24,7 @@ signed rank statistic. Argument *x* is a real
 number and *n* a positive integer. 
 
 
-See also `test_005fsigned_005frank`.
+See also `test_signed_rank`.
 
 See also: `test_signed_rank`.
 
@@ -90,7 +90,7 @@ not displayed; to access its value, make use of function `take_inference`.
 ```
 
 
-See also `take_005finference`.
+See also `take_inference`.
 
 See also: `take_inference`.
 
@@ -262,7 +262,7 @@ rank sum statistic. Argument *x* is a real
 number and *n* and *m* are both positive integers. 
 
 
-See also `test_005frank_005fsum`.
+See also `test_rank_sum`.
 
 See also: `test_rank_sum`.
 
@@ -276,7 +276,7 @@ signed rank statistic. Argument *x* is a real
 number and *n* a positive integer.
 
 
-See also `test_005fsigned_005frank`.
+See also `test_signed_rank`.
 
 See also: `test_signed_rank`.
 
@@ -357,7 +357,7 @@ called in order to extract some information stored in it.
 ```
 
 
-See also `inference_result`, and `take_005finference`.
+See also `inference_result`, and `take_inference`.
 
 See also: `inference_result`, `take_inference`.
 

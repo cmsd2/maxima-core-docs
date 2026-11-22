@@ -51,7 +51,7 @@ If you want to set your own values for this option or want to build
 complex scenes, make use of `barsplot_description`. See example below.
 - *
 The following local `Package-draw` options: `key`, `color_draw`,
-`fill_color`, `fill_density` and `line_005fwidth`.
+`fill_color`, `fill_density` and `line_width`.
 See also
 `barsplot`.
 
@@ -414,10 +414,25 @@ It is assumed that class intervals are contiguous.
 That is, the right endpoint of one interval is equal to the left endpoint of the next.
 - *
 `frequency` (default, `absolute`): indicates the scale of the vertical axis.
-Possible values are:  `absolute` (heights of bars add up to number of data),
-`relative` (heights of bars add up to 1),
-`percent` (heights of bars add up to 100),
-and `density` (total area of histogram is 1).
+In the following, let $M$ be the number of data which fall into the bins specified by `nclasses`,
+and let $N$ be the total number of data.
+(When all data are covered by `nclasses`, $M$ is equal to $N$.)
+Let $m[k]$ be the number of data falling into the $k$’th bin,
+and let $w[k]$ be the width of the $k$’th bin.
+Then the possible values of `frequency` are as follows.
+
+  - *
+`absolute` Height of each bar is equal to $m[k]$,
+                and the sum of all heights is $M$.
+  - *
+`relative` Height of each bar is equal to $m[k]/N$,
+                and the sum of all heights is $M/N$.
+  - *
+`percent`  Height of each bar is equal to 100 times $m[k]/N$,
+                and the sum of all heights is 100 times $M/N$.
+  - *
+`density`  Height of each bar is equal to $m[k]/N/w[k]$,
+                and the sum of all bar areas (width times height) is equal to $M/N$.
 - *
 `htics` (default, `auto`): format of tic marks on the horizontal axis.
 Possible values are: `auto` (tics are placed automatically),
@@ -431,7 +446,7 @@ If you want to set your own values for these options, make use of
 `histogram_description`.
 - *
 The following local `Package-draw` options: `key`,
-`fill_color`, `fill_density`, and `line_005fwidth`.
+`fill_color`, `fill_density`, and `line_width`.
 Note that the outlines of bars,
 as well as the interior of bars when `fill_density` is nonzero,
 are drawn with `fill_color`, not `color`.

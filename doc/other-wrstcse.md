@@ -12,7 +12,7 @@ Defines how many sigmas of the gauss distribution that represents the
 tolerances of a parameter correspond to a *tol[n]* value of -1...1.
 
 
-See also `wc_005fmintypmax_005frss`.
+See also `wc_mintypmax_rss`.
 
 
 Example:
@@ -91,7 +91,7 @@ Defines how many samples per *tol[n]* the EWC method of
 `wc_systematic` and `wc_mintypmax` shall use by default.
 
 
-See also `wc_systematic` and `wc_005fmintypmax`.
+See also `wc_systematic` and `wc_mintypmax`.
 
 
 Example:
@@ -163,6 +163,92 @@ R_2 = 1004.9999999999999], [R_1 = 101.0, R_2 = 1010.0]]
 See also: `wc_systematic`, `wc_mintypmax`.
 
 <!-- category: Other -->
+<!-- keywords: wc_distrib2rssparams -->
+<!-- signatures: wc_distrib2rssparams(data) -->
+### Function: wc_distrib2rssparams (data)
+
+Determines root sum square parameters from measured data: Returns a
+`wc_rssparams` structure containing the mean value (field `mu`)
+and the standard deviation (field `sigma`) of the list of sample
+values *data*.
+
+
+See also `wc_getrssparams` and `wc_distrib2toldata`.
+
+
+Example:
+
+
+
+
+
+
+
+```maxima
+maxima
+(%i1) load("wrstcse")$
+(%i2) ratprint:false$
+
+(%i3) wc_distrib2rssparams([1,2,2,1]);
+                                             1          3
+(%o3)                wc_rssparams(sigma = -------, mu = -)
+                                          sqrt(3)       2
+```
+
+See also: `wc_getrssparams`, `wc_distrib2toldata`.
+
+<!-- category: Other -->
+<!-- keywords: wc_distrib2toldata -->
+<!-- signatures: wc_distrib2toldata(tol, data, [sigmas]) -->
+### Function: wc_distrib2toldata (tol, data, [sigmas])
+
+Generates the value of an input parameter, expressed by the tolerance
+parameter *tol* (a *tol[n]* or a detailled tolerance
+*tol[n,m]*), from the distribution of the measured sample values
+*data*. The range *tol*=-1...1 of the result spans *sigmas*
+sigmas of the measured distribution; if no *sigmas* is given it
+defaults to `wc_defaultsigma`.
+
+
+This sigma width is also declared via `wc_tol_sigmas` so that the
+root sum square functions stay consistent with the generated data, as the
+example shows: feeding the generated value back into
+`wc_getrssparams` reproduces the measured distribution even though
+*sigmas* differs from `wc_defaultsigma`.
+
+
+See also `wc_distrib2rssparams` and `wc_tol_sigmas`.
+
+
+Example:
+
+
+
+
+
+
+
+
+```maxima
+maxima
+(%i1) load("wrstcse")$
+(%i2) ratprint:false$
+
+(%i3) wc_distrib2toldata(tol[1],[1,2,2,1],3);
+                                              3
+(%o3)                          sqrt(3) tol  + -
+                                          1   2
+
+
+(%i4) wc_getrssparams(%);
+                                             1          3
+(%o4)                wc_rssparams(sigma = -------, mu = -)
+                                          sqrt(3)       2
+```
+
+See also: `wc_defaultsigma`, `wc_tol_sigmas`, `wc_getrssparams`, `wc_distrib2rssparams`.
+
+<!-- category: Other -->
 <!-- keywords: wc_ewc_simplify -->
 <!-- signatures: wc_ewc_simplify(expression, definitions...) -->
 ### Function: wc_ewc_simplify (expression, definitions...)
@@ -179,13 +265,19 @@ of *expression* doesn’t change sign in the *tol[n]* space, still yields the
 same results for the brute-force approaches to worst-case analysis.
 
 
+As a first step, detailled tolerances with more than one subscript, like
+`tol["R_1","initial"]` and `tol["R_1","aging"]`, are merged into
+their common `tol[n]` (here: `tol["R_1"]`). Giving a detailled
+tolerance a value in *definitions* excempts it from this merge, too.
+
+
 Note that changing the number of *tol[n]* will change the statistical distribution
 of the results over the *tol[n]* space and therefore will change the statistical
 distribution of the montecarlo method and the results of the root sum square functions.
 
 
 
-See also `wc_mintypmax` and `wc_005fmontecarlo`.
+See also `wc_mintypmax` and `wc_montecarlo`.
 
 
 *definitions* allows to temporarily asssign values to specific *tol[n]* during
@@ -359,6 +451,46 @@ E_Offset = 1.5e-6]
 See also: `wc_mintypmax`, `wc_montecarlo`.
 
 <!-- category: Other -->
+<!-- keywords: wc_getrssparams -->
+<!-- signatures: wc_getrssparams(expression) -->
+### Function: wc_getrssparams (expression)
+
+Determines the parameters of a root sum square tolerance calculation for
+*expression*: Returns a `wc_rssparams` structure whose field
+`mu` contains the typical value of *expression* and whose field
+`sigma` contains the sigma of the distribution of *expression*,
+assuming that all input tolerances are gauss-shaped and orthogonal to each
+other.
+
+
+How many sigmas of an input value’s tolerance distribution its range of
+*tol[n]*=-1...1 corresponds to is taken from `wc_defaultsigma`,
+unless `wc_tol_sigmas` declared something else for that tolerance.
+
+
+See also `wc_mintypmax_rss` and `wc_distrib2rssparams`.
+
+
+Example:
+
+
+
+
+
+
+
+```maxima
+maxima
+(%i1) load("wrstcse")$
+(%i2) ratprint:false$
+
+(%i3) wc_getrssparams(100*(1+0.01*tol[1])+100*(1+0.01*tol[2]));
+(%o3)         wc_rssparams(sigma = 0.23570226039551585, mu = 200)
+```
+
+See also: `wc_defaultsigma`, `wc_tol_sigmas`, `wc_mintypmax_rss`, `wc_distrib2rssparams`.
+
+<!-- category: Other -->
 <!-- keywords: wc_inputvalueassumptions -->
 <!-- signatures: wc_inputvalueassumptions(expr) -->
 ### Function: wc_inputvalueassumptions (expr)
@@ -450,7 +582,7 @@ If *show_tols* is `true` then this function additionally displays
 which *tol[n]* each variable is affected by.
 
 
-See also `wc_mintypmax2tol` and `wc_005finputvalueassumptions`.
+See also `wc_mintypmax2tol` and `wc_inputvalueassumptions`.
 
 
 Example:
@@ -519,7 +651,7 @@ maximum values and returns the result. Helpful for example when trying
 to determine the maximum result of complicated filters;
 
 
-See also `wc_005finputvalues_005fmin`.
+See also `wc_inputvalues_min`.
 
 
 Example:
@@ -590,7 +722,7 @@ minimum values and returns the result. Helpful for example when trying
 to determine the minimum result of complicated filters;
 
 
-See also `wc_005finputvalues_005fmin`.
+See also `wc_inputvalues_min`.
 
 
 Example:
@@ -655,7 +787,7 @@ Outputs only the maximum value of *expr*). If *num* is present it tells
 maxima how many samples to try out of the range of each tolerance.
 
 
-See also `wc_max`, `wc_typicalvalues` and `wc_005fmintypmax`.
+See also `wc_max`, `wc_typicalvalues` and `wc_mintypmax`.
 
 
 Example:
@@ -717,7 +849,7 @@ Outputs only the minimum value of *expr*). If *num* is present it tells
 maxima how many samples to try out of the range of each tolerance.
 
 
-See also `wc_max`, `wc_typicalvalues` and `wc_005fmintypmax`.
+See also `wc_max`, `wc_typicalvalues` and `wc_mintypmax`.
 
 
 Example:
@@ -785,7 +917,7 @@ See also `wc_mintypmax_percent`, `wc_mintypmax_rss`,
 `wc_mintypmax_num`,
 `wc_min`,
 `wc_max`,
-`wc_ewc_simplify` and `wc_005fsystematic`.
+`wc_ewc_simplify` and `wc_systematic`.
 
 
 Example:
@@ -896,6 +1028,12 @@ of *var* that solves *equation*. Expects the value of *var* to be in the range
 to change sign within that range.
 
 
+Unless *n* is negative (which selects the monte carlo method), detailled
+tolerances with more than one subscript like `tol["R_1","aging"]` are
+merged into their common `tol[n]` first, the same way
+`wc_systematic` does.
+
+
 See also `wc_mintypmax`,
 
 
@@ -946,7 +1084,7 @@ maxima
                                         max = 0.2646539803703126]
 ```
 
-See also: `wc_mintypmax`.
+See also: `wc_systematic`, `wc_mintypmax`.
 
 <!-- category: Other -->
 <!-- keywords: wc_mintypmax_percent -->
@@ -956,7 +1094,7 @@ See also: `wc_mintypmax`.
 Like `wc_mintypmax`, but outputs the tolerance range in percent.
 
 
-See `wc_005fmintypmax`.
+See `wc_mintypmax`.
 
 
 Example:
@@ -1040,7 +1178,7 @@ direction that is less wide.
 
 
 See also `wc_defaultsigma` `wc_mintypmax_rss_percent`, and
-`wc_005fmintypmax`.
+`wc_mintypmax`.
 
 
 Example:
@@ -1099,7 +1237,7 @@ See also: `wc_ewc_simplify`, `wc_defaultsigma`, `wc_mintypmax_rss_percent`, `wc_
 Like `wc_mintypmax_rss`, but outputs the tolerance range in percent.
 
 
-See `wc_005fmintypmax_005frss`.
+See `wc_mintypmax_rss`.
 
 
 Example:
@@ -1165,7 +1303,7 @@ Introduces *num* random values per parameter into
 *expression* and returns a list of the result.
 
 
-See also `wc_005fsystematic`.
+See also `wc_systematic`.
 
 
 Example:
@@ -1222,6 +1360,16 @@ to *wc_defaultvaluespertol*. Negative values for *num* make
 instead.
 
 
+Detailled tolerances with more than one subscript, like
+`tol["R_1","initial"]` and `tol["R_1","aging"]`, describe
+contributions that are orthogonal to each other, which the rss methods
+profit from. Since the extreme worst case only lies in the corners of the
+`tol[n]` space, `wc_systematic` merges them into their common
+`tol[n]` (here: `tol["R_1"]`) first, which saves memory and
+computing power. The monte carlo method (negative *num*) keeps them
+independent, instead.
+
+
 If an equation uses the following values with tolerances:
 
 
@@ -1239,7 +1387,7 @@ be tested, instead:
 
 See also `wc_defaultvaluespertol`, `wc_mintypmax`,
 `wc_defaultvaluespertol`,
-`wc_ewc_simplify` and `wc_005fmontecarlo`.
+`wc_ewc_simplify` and `wc_montecarlo`.
 
 
 Example:
@@ -1283,6 +1431,72 @@ maxima
 ```
 
 See also: `wc_defaultvaluespertol`, `wc_mintypmax`, `wc_ewc_simplify`, `wc_montecarlo`.
+
+<!-- category: Other -->
+<!-- keywords: wc_tol_sigmas -->
+<!-- signatures: wc_tol_sigmas(tol, sigmas) -->
+### Function: wc_tol_sigmas (tol, sigmas)
+
+Declares that for the given *tol[n]* (or detailled tolerance
+*tol[n,m]*) the range -1...1 represents *sigmas* sigmas of its
+tolerance distribution instead of `wc_defaultsigma`. This allows to
+mix input values whose tolerance ranges are known to different confidence
+levels in one root sum square calculation.
+
+
+The declarations are stored in the hashed array `%wc_tolsigmas`;
+`remarray(%wc_tolsigmas)` therefore makes all tolerances use
+`wc_defaultsigma` again.
+
+
+See also `wc_defaultsigma` and `wc_mintypmax_rss`.
+
+
+Example:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```maxima
+maxima
+(%i1) load("wrstcse")$
+(%i2) ratprint:false$
+
+(%i3) vals: [
+   R_1= 1000.0*(1+tol[1]*.01),
+   R_2= 1000.0*(1+tol[2]*.01)
+ ];
+(%o3) [R_1 = 1000.0 (0.01 tol  + 1),
+                             1
+                                    R_2 = 1000.0 (0.01 tol  + 1)]
+                                                          2
+
+(%i4) assume(U_In>0);
+(%o4)                            [U_In > 0]
+
+(%i5) divider:U_Out=U_In*R_1/(R_1+R_2);
+                                R_1 U_In
+(%o5)                   U_Out = ---------
+                                R_2 + R_1
+
+(%i6) wc_tol_sigmas(tol[1],3)$
+
+(%i7) lhs(divider)=wc_mintypmax_rss(subst(vals,rhs(divider)),6);
+(%o7) U_Out = [min = 0.4943817387500006 U_In, typ = 0.5 U_In,
+ max = 0.5056182612499994 U_In, Fail = 0.0019731752898266565 ppm]
+```
+
+See also: `wc_defaultsigma`, `wc_mintypmax_rss`.
 
 <!-- category: Other -->
 <!-- keywords: wc_tolappend -->

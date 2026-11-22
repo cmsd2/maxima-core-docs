@@ -155,7 +155,7 @@ respectively.
 `cartesian_product` complains if any argument is not a literal set.
 
 
-See also `cartesian_005fproduct_005flist`.
+See also `cartesian_product_list`.
 
 
 Examples:
@@ -225,7 +225,7 @@ The length of the list returned by `cartesian_product_list`
 is equal to the product of the lengths of the arguments *b_1*, ..., *b_n*.
 
 
-See also `cartesian_005fproduct`.
+See also `cartesian_product`.
 
 
 `cartesian_product_list` complains if any argument is not a list.

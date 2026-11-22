@@ -1,5 +1,1405 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.1 from
+This is maxima-core-docs.info, produced by makeinfo version 7.3 from
 maxima-core-docs.texi.
+
+
+File: maxima-core-docs.info,  Node: Function part expr n_1 ... n_k,  Next: Function partition expr x,  Prev: Function ordergreatp expr_1 expr_2,  Up: Expressions
+
+ -- Function: part (EXPR, N_1, ..., N_K)
+     Returns parts of the displayed form of ‘expr’.  It obtains the part
+     of ‘expr’ as specified by the indices _n_1_, ..., _n_k_.  First
+     part _n_1_ of ‘expr’ is obtained, then part _n_2_ of that, etc.
+     The result is part _n_k_ of ... part _n_2_ of part _n_1_ of ‘expr’.
+     If no indices are specified ‘expr’ is returned.
+
+     ‘part’ can be used to obtain an element of a list, a row of a
+     matrix, etc.
+
+     If the last argument to a ‘part’ function is a list of indices then
+     several subexpressions are picked out, each one corresponding to an
+     index of the list.  Thus ‘part (x + y + z, [1, 3])’ is ‘z+x’.
+
+     ‘piece’ holds the last expression selected when using the ‘part’
+     functions.  It is set during the execution of the function and thus
+     may be referred to in the function itself as shown below.
+
+     If ‘partswitch’ is set to ‘true’ then ‘end’ is returned when a
+     selected part of an expression doesn't exist, otherwise an error
+     message is given.
+
+     See also ‘inpart’, ‘substpart’, ‘substinpart’, ‘dpart’, and
+     ‘lpart’.
+
+     Examples:
+
+     maxima
+     
+     (%i1) part(z+2*y+a,2);
+     (%o1)                          2 y
+     
+     
+     (%i2) part(z+2*y+a,[1,3]);
+     (%o2)                         z + a
+     
+     
+     (%i3) part(z+2*y+a,2,1);
+     (%o3)                           2
+
+     ‘example (part)’ displays additional examples.
+
+     See also: ‘piece’, ‘partswitch’, ‘inpart’, ‘substpart’,
+     ‘substinpart’, ‘dpart’, ‘lpart’.
+
+
+File: maxima-core-docs.info,  Node: Function partition expr x,  Next: Variable partswitch,  Prev: Function part expr n_1 ... n_k,  Up: Expressions
+
+ -- Function: partition (EXPR, X)
+     Returns a list of two expressions.  They are (1) the factors of
+     _expr_ (if it is a product), the terms of _expr_ (if it is a sum),
+     or the list (if it is a list) which don't contain _x_ and, (2) the
+     factors, terms, or list which do.
+
+     Examples:
+
+     maxima
+     
+     (%i1) partition (2*a*x*f(x), x);
+     (%o1)                     [2 a, x f(x)]
+     
+     
+     (%i2) partition (a+b, x);
+     (%o2)                      [b + a, 0]
+     
+     
+     (%i3) partition ([a, b, f(a), c], a);
+     (%o3)                  [[b, c], [a, f(a)]]
+
+
+File: maxima-core-docs.info,  Node: Variable partswitch,  Next: Function pickapart expr n,  Prev: Function partition expr x,  Up: Expressions
+
+ -- Variable: partswitch
+     Default value: ‘false’
+
+     When ‘partswitch’ is ‘true’, ‘end’ is returned when a selected part
+     of an expression doesn't exist, otherwise an error message is
+     given.
+
+
+File: maxima-core-docs.info,  Node: Function pickapart expr n,  Next: Variable piece,  Prev: Variable partswitch,  Up: Expressions
+
+ -- Function: pickapart (EXPR, N)
+     Assigns intermediate expression labels to subexpressions of _expr_
+     at depth _n_, an integer.  Subexpressions at greater or lesser
+     depths are not assigned labels.  ‘pickapart’ returns an expression
+     in terms of intermediate expressions equivalent to the original
+     expression _expr_.
+
+     See also ‘part’, ‘dpart’, ‘lpart’, ‘inpart’, and ‘reveal’.
+
+     Examples:
+
+     (%i1) expr: (a+b)/2 + sin (x^2)/3 - log (1 + sqrt(x+1));
+                                               2
+                                          sin(x )   b + a
+     (%o1)       - log(sqrt(x + 1) + 1) + ------- + -----
+                                             3        2
+     (%i2) pickapart (expr, 0);
+     
+                                               2
+                                          sin(x )   b + a
+     (%t2)       - log(sqrt(x + 1) + 1) + ------- + -----
+                                             3        2
+     
+     (%o2)                          %t2
+     (%i3) pickapart (expr, 1);
+     
+     (%t3)                - log(sqrt(x + 1) + 1)
+     
+     
+                                       2
+                                  sin(x )
+     (%t4)                        -------
+                                     3
+     
+     
+                                   b + a
+     (%t5)                         -----
+                                     2
+     
+     (%o5)                    %t5 + %t4 + %t3
+     (%i5) pickapart (expr, 2);
+     
+     (%t6)                 log(sqrt(x + 1) + 1)
+     
+     
+                                       2
+     (%t7)                        sin(x )
+     
+     
+     (%t8)                         b + a
+     
+                              %t8   %t7
+     (%o8)                    --- + --- - %t6
+                               2     3
+     (%i8) pickapart (expr, 3);
+     
+     (%t9)                    sqrt(x + 1) + 1
+     
+     
+                                     2
+     (%t10)                         x
+     
+                       b + a              sin(%t10)
+     (%o10)            ----- - log(%t9) + ---------
+                         2                    3
+     (%i10) pickapart (expr, 4);
+     
+     (%t11)                     sqrt(x + 1)
+     
+                           2
+                      sin(x )   b + a
+     (%o11)           ------- + ----- - log(%t11 + 1)
+                         3        2
+     
+     (%i11) pickapart (expr, 5);
+     
+     (%t12)                        x + 1
+     
+                        2
+                   sin(x )   b + a
+     (%o12)        ------- + ----- - log(sqrt(%t12) + 1)
+                      3        2
+     (%i12) pickapart (expr, 6);
+                       2
+                  sin(x )   b + a
+     (%o12)       ------- + ----- - log(sqrt(x + 1) + 1)
+                     3        2
+
+     See also: ‘part’, ‘dpart’, ‘lpart’, ‘inpart’, ‘reveal’.
+
+
+File: maxima-core-docs.info,  Node: Variable piece,  Next: Function psubst list expr,  Prev: Function pickapart expr n,  Up: Expressions
+
+ -- Variable: piece
+     Holds the last expression selected when using the ‘part’ functions.
+
+     It is set during the execution of the function and thus may be
+     referred to in the function itself.
+
+     See also: ‘part’.
+
+
+File: maxima-core-docs.info,  Node: Function psubst list expr,  Next: Function rembox expr unlabelled,  Prev: Variable piece,  Up: Expressions
+
+ -- Function: psubst (LIST, EXPR)
+     ‘psubst(a, b, expr)’ is similar to ‘subst’.  See ‘subst’.
+
+     In distinction from ‘subst’ the function ‘psubst’ makes parallel
+     substitutions, if the first argument _list_ is a list of equations.
+
+     See also ‘sublis’ for making parallel substitutions and ‘let’ and
+     ‘letsimp’ for others ways to do substitutions.
+
+     Example:
+
+     The first example shows parallel substitution with ‘psubst’.  The
+     second example shows the result for the function ‘subst’, which
+     does a serial substitution.
+
+     maxima
+     
+     (%i1) psubst ([a^2=b, b=a], sin(a^2) + sin(b));
+     (%o1)                    sin(b) + sin(a)
+     
+     
+     (%i2) subst ([a^2=b, b=a], sin(a^2) + sin(b));
+     (%o2)                       2 sin(a)
+
+     See also: ‘subst’, ‘sublis’, ‘let’, ‘letsimp’.
+
+
+File: maxima-core-docs.info,  Node: Function rembox expr unlabelled,  Next: Function reveal expr depth,  Prev: Function psubst list expr,  Up: Expressions
+
+ -- Function: rembox (EXPR, UNLABELLED)
+     Removes boxes from _expr_.
+
+     ‘rembox (expr, unlabelled)’ removes all unlabelled boxes from
+     _expr_.
+
+     ‘rembox (expr, label)’ removes only boxes bearing _label_.
+
+     ‘rembox (expr)’ removes all boxes, labelled and unlabelled.
+
+     Boxes are drawn by the ‘box’, ‘dpart’, and ‘lpart’ functions.
+
+     Examples:
+
+     maxima
+     
+     (%i1) expr: (a*d - b*c)/h^2 + sin(%pi*x);
+                                       a d - b c
+     (%o1)                sin(%pi x) + ---------
+                                           2
+                                          h
+     
+     
+     (%i2) dpart (dpart (expr, 1, 1), 2, 2);
+                             """""""    a d - b c
+     (%o2)               sin("%pi x") + ---------
+                             """""""      """"
+                                          " 2"
+                                          "h "
+                                          """"
+     
+     
+     (%i3) expr2: lpart (BAR, lpart (FOO, %, 1), 2);
+                       FOO"""""""""""   BAR""""""""
+                       "    """"""" "   "a d - b c"
+     (%o3)             "sin("%pi x")" + "---------"
+                       "    """"""" "   "  """"   "
+                       """"""""""""""   "  " 2"   "
+                                        "  "h "   "
+                                        "  """"   "
+                                        """""""""""
+     
+     
+     (%i4) rembox (expr2, unlabelled);
+                                       BAR""""""""
+                        FOO"""""""""   "a d - b c"
+     (%o4)              "sin(%pi x)" + "---------"
+                        """"""""""""   "    2    "
+                                       "   h     "
+                                       """""""""""
+     
+     
+     (%i5) rembox (expr2, FOO);
+                                       BAR""""""""
+                            """""""    "a d - b c"
+     (%o5)              sin("%pi x") + "---------"
+                            """""""    "  """"   "
+                                       "  " 2"   "
+                                       "  "h "   "
+                                       "  """"   "
+                                       """""""""""
+     
+     
+     (%i6) rembox (expr2, BAR);
+                        FOO"""""""""""
+                        "    """"""" "   a d - b c
+     (%o6)              "sin("%pi x")" + ---------
+                        "    """"""" "     """"
+                        """"""""""""""     " 2"
+                                           "h "
+                                           """"
+     
+     
+     (%i7) rembox (expr2);
+                                       a d - b c
+     (%o7)                sin(%pi x) + ---------
+                                           2
+                                          h
+
+     See also: ‘box’, ‘dpart’, ‘lpart’.
+
+
+File: maxima-core-docs.info,  Node: Function reveal expr depth,  Next: Function sqrtdenest expr,  Prev: Function rembox expr unlabelled,  Up: Expressions
+
+ -- Function: reveal (EXPR, DEPTH)
+     Replaces parts of _expr_ at the specified integer _depth_ with
+     descriptive summaries.
+
+        •    • Sums and differences are replaced by ‘Sum(n)’
+               where _n_ is the number of operands of the sum.
+
+        •    • Products are replaced by ‘Product(n)’ where _n_
+               is the number of operands of the product.
+
+        •    • Exponentials are replaced by ‘Expt’.
+
+        •    • Quotients are replaced by ‘Quotient’.
+
+        •    • Unary negation is replaced by ‘Negterm’.
+
+        •    • Lists are replaced by ‘List(n)’ where _n_ is
+               the number of elements of the list.
+
+     When _depth_ is greater than or equal to the maximum depth of
+     _expr_, ‘reveal (expr, depth)’ returns _expr_ unmodified.
+
+     ‘reveal’ evaluates its arguments.  ‘reveal’ returns the summarized
+     expression.
+
+     Example:
+
+     maxima
+     
+     (%i1) e: expand ((a - b)^2)/expand ((exp(a) + exp(b))^2);
+                               2            2
+                              b  - 2 a b + a
+     (%o1)               -------------------------
+                             b + a     2 b     2 a
+                         2 %e      + %e    + %e
+     
+     
+     (%i2) reveal (e, 1);
+     (%o2)                       Quotient
+     
+     
+     (%i3) reveal (e, 2);
+                                  Sum(3)
+     (%o3)                        ------
+                                  Sum(3)
+     
+     
+     (%i4) reveal (e, 3);
+                          Expt + Negterm + Expt
+     (%o4)               ------------------------
+                         Product(2) + Expt + Expt
+     
+     
+     (%i5) reveal (e, 4);
+                            2                 2
+                           b  - Product(3) + a
+     (%o5)         ------------------------------------
+                              Product(2)     Product(2)
+                   2 Expt + %e           + %e
+     
+     
+     (%i6) reveal (e, 5);
+                              2            2
+                             b  - 2 a b + a
+     (%o6)              --------------------------
+                            Sum(2)     2 b     2 a
+                        2 %e       + %e    + %e
+     
+     
+     (%i7) reveal (e, 6);
+                               2            2
+                              b  - 2 a b + a
+     (%o7)               -------------------------
+                             b + a     2 b     2 a
+                         2 %e      + %e    + %e
+
+
+File: maxima-core-docs.info,  Node: Function sqrtdenest expr,  Next: Function sublis list expr,  Prev: Function reveal expr depth,  Up: Expressions
+
+ -- Function: sqrtdenest (EXPR)
+     Denests ‘sqrt’ of simple, numerical, binomial surds, where
+     possible.  E.g.
+
+     maxima
+     
+     (%i1) sqrt(sqrt(3)/2+1)/sqrt(11*sqrt(2)-12);
+                                  sqrt(3)
+                             sqrt(------- + 1)
+                                     2
+     (%o1)                 ---------------------
+                           sqrt(11 sqrt(2) - 12)
+     
+     
+     (%i2) sqrtdenest(%);
+                                sqrt(3)   1
+                                ------- + -
+                                   2      2
+     (%o2)                     -------------
+                                  1/4    3/4
+                               3 2    - 2
+
+     Sometimes it helps to apply ‘sqrtdenest’ more than once, on such as
+     ‘(19601-13860 sqrt(2))^(7/4)’.
+
+
+File: maxima-core-docs.info,  Node: Function sublis list expr,  Next: Variable sublis_apply_lambda,  Prev: Function sqrtdenest expr,  Up: Expressions
+
+ -- Function: sublis (LIST, EXPR)
+     Makes multiple parallel substitutions into an expression.  _list_
+     is a list of equations.  The left hand side of the equations must
+     be an atom.
+
+     The variable ‘sublis_apply_lambda’ controls simplification after
+     ‘sublis’.
+
+     See also ‘psubst’ for making parallel substitutions.
+
+     Example:
+
+     maxima
+     
+     (%i1) sublis ([a=b, b=a], sin(a) + cos(b));
+     (%o1)                    sin(b) + cos(a)
+
+     See also: ‘sublis_apply_lambda’, ‘psubst’.
+
+
+File: maxima-core-docs.info,  Node: Variable sublis_apply_lambda,  Next: Variable subnumsimp,  Prev: Function sublis list expr,  Up: Expressions
+
+ -- Variable: sublis_apply_lambda
+     Default value: ‘true’
+
+     Controls whether ‘lambda’'s substituted are applied in
+     simplification after ‘sublis’ is used or whether you have to do an
+     ‘ev’ to get things to apply.  ‘true’ means do the application.
+
+     See also: ‘ev’.
+
+
+File: maxima-core-docs.info,  Node: Variable subnumsimp,  Next: Function subst a b c,  Prev: Variable sublis_apply_lambda,  Up: Expressions
+
+ -- Variable: subnumsimp
+     Default value: ‘false’
+
+     If ‘true’ then the functions ‘subst’ and ‘psubst’ can substitute a
+     subscripted variable ‘f[x]’ with a number, when only the symbol ‘f’
+     is given.
+
+     See also ‘subst’.
+
+     subst: cannot substitute 100 for operator g in expression g x - an
+     error.  To debug this try: debugmode(true);
+
+     maxima
+     (%i1) subst(100,g,g[x]+2);
+     
+     (%i2) subst(100,g,g[x]+2),subnumsimp:true;
+     (%o2)                          102
+
+     See also: ‘subst’, ‘psubst’.
+
+
+File: maxima-core-docs.info,  Node: Function subst a b c,  Next: Function substinpart x expr n_1 ... n_k,  Prev: Variable subnumsimp,  Up: Expressions
+
+ -- Function: subst (A, B, C)
+     Substitutes _a_ for _b_ in _c_.  _b_ must be an atom or a complete
+     subexpression of _c_.  For example, ‘x+y+z’ is a complete
+     subexpression of ‘2*(x+y+z)/w’ while ‘x+y’ is not.  When _b_ does
+     not have these characteristics, one may sometimes use ‘substpart’
+     or ‘ratsubst’ (see below).  Alternatively, if _b_ is of the form
+     ‘e/f’ then one could use ‘subst (a*f, e, c)’ while if _b_ is of the
+     form ‘e^(1/f)’ then one could use ‘subst (a^f, e, c)’.  The ‘subst’
+     command also discerns the ‘x^y’ in ‘x^-y’ so that ‘subst (a,
+     sqrt(x), 1/sqrt(x))’ yields ‘1/a’.  _a_ and _b_ may also be
+     operators of an expression enclosed in double-quotes ‘"’ or they
+     may be function names.  If one wishes to substitute for the
+     independent variable in derivative forms then the ‘at’ function
+     (see below) should be used.
+
+     ‘subst’ is an alias for ‘substitute’.
+
+     The commands ‘subst (eq_1, expr)’ or ‘subst ([eq_1, ..., eq_k],
+     expr)’ are other permissible forms.  The _eq_i_ are equations
+     indicating substitutions to be made.  For each equation, the right
+     side will be substituted for the left in the expression _expr_.
+     The equations are substituted in serial from left to right in
+     _expr_.  See the functions ‘sublis’ and ‘psubst’ for making
+     parallel substitutions.
+
+     ‘exptsubst’ if ‘true’ permits substitutions like ‘y’ for ‘%e^x’ in
+     ‘%e^(a*x)’ to take place.
+
+     When ‘opsubst’ is ‘false’, ‘subst’ will not attempt to substitute
+     into the operator of an expression.  E.g.  ‘(opsubst: false, subst
+     (x^2, r, r+r[0]))’ will work.
+
+     See also ‘at’, ‘ev’ and ‘psubst’, as well as ‘let’ and ‘letsimp’.
+
+     Examples:
+
+     maxima
+     
+     (%i1) subst (a, x+y, x + (x+y)^2 + y);
+                                         2
+     (%o1)                      y + x + a
+     
+     
+     (%i2) subst (-%i, %i, a + b*%i);
+     (%o2)                       a - %i b
+
+     The substitution is done in serial for a list of equations.
+     Compare this with a parallel substitution:
+
+     maxima
+     
+     (%i1) subst([a=b, b=c], a+b);
+     (%o1)                          2 c
+     
+     
+     (%i2) sublis([a=b, b=c], a+b);
+     (%o2)                         c + b
+
+     Single-character Operators like ‘+’ and ‘-’ have to be quoted in
+     order to be replaced by subst.  It is to note, though, that ‘a+b-c’
+     might be expressed as ‘a+b+(-1*c)’ internally.
+
+     maxima
+     
+     (%i1) subst(["+"="-"],a+b-c);
+     (%o1)                       c - b + a
+
+     The difference between ‘subst’ and ‘at’ can be seen in the
+     following example:
+
+     maxima
+     
+     (%i1) g1:y(t)=a*x(t)+b*diff(x(t),t);
+                                 d
+     (%o1)             y(t) = b (-- (x(t))) + a x(t)
+                                 dt
+     
+     
+     (%i2) subst('diff(x(t),t)=1,g1);
+     (%o2)                   y(t) = a x(t) + b
+     
+     
+     (%i3) at(g1,'diff(x(t),t)=1);
+                                   |
+                          d        |
+     (%o3)      y(t) = b (-- (x(t))|             ) + a x(t)
+                          dt       |d
+                                   |-- (x(t)) = 1
+                                    dt
+
+     For further examples, do ‘example (subst)’.
+
+     See also: ‘substpart’, ‘ratsubst’, ‘exptsubst’, ‘at’, ‘ev’,
+     ‘psubst’, ‘let’, ‘letsimp’.
+
+
+File: maxima-core-docs.info,  Node: Function substinpart x expr n_1 ... n_k,  Next: Function substpart x expr n_1 ... n_k,  Prev: Function subst a b c,  Up: Expressions
+
+ -- Function: substinpart (X, EXPR, N_1, ..., N_K)
+     Similar to ‘substpart’, but ‘substinpart’ works on the internal
+     representation of _expr_.
+
+     Examples:
+
+     maxima
+     
+     (%i1) x . 'diff (f(x), x, 2);
+                                   2
+                                  d
+     (%o1)                   x . (--- (f(x)))
+                                    2
+                                  dx
+     
+     
+     (%i2) substinpart (d^2, %, 2);
+                                       2
+     (%o2)                        x . d
+     
+     
+     (%i3) substinpart (f1, f[1](x + 1), 0);
+     (%o3)                       f1(x + 1)
+
+     If the last argument to a ‘part’ function is a list of indices then
+     several subexpressions are picked out, each one corresponding to an
+     index of the list.  Thus
+
+     maxima
+     
+     (%i1) part (x + y + z, [1, 3]);
+     (%o1)                         z + x
+
+     ‘piece’ holds the value of the last expression selected when using
+     the ‘part’ functions.  It is set during the execution of the
+     function and thus may be referred to in the function itself as
+     shown below.  If ‘partswitch’ is set to ‘true’ then ‘end’ is
+     returned when a selected part of an expression doesn't exist,
+     otherwise an error message is given.
+
+     maxima
+     
+     (%i1) expr: 27*y^3 + 54*x*y^2 + 36*x^2*y + y + 8*x^3 + x + 1;
+                   3         2       2            3
+     (%o1)     27 y  + 54 x y  + 36 x  y + y + 8 x  + x + 1
+     
+     
+     (%i2) part (expr, 2, [1, 3]);
+                                       2
+     (%o2)                         54 y
+     
+     
+     (%i3) sqrt (piece/54);
+     (%o3)                        abs(y)
+     
+     
+     (%i4) substpart (factor (piece), expr, [1, 2, 3, 5]);
+                                    3
+     (%o4)               (3 y + 2 x)  + y + x + 1
+     
+     
+     (%i5) expr: 1/x + y/x - 1/z;
+                                  1   y   1
+     (%o5)                      - - + - + -
+                                  z   x   x
+     
+     
+     (%i6) substpart (xthru (piece), expr, [2, 3]);
+                                 y + 1   1
+     (%o6)                       ----- - -
+                                   x     z
+
+     Also, setting the option ‘inflag’ to ‘true’ and calling ‘part’ or
+     ‘substpart’ is the same as calling ‘inpart’ or ‘substinpart’.
+
+     See also: ‘substpart’, ‘piece’, ‘partswitch’, ‘inflag’, ‘part’,
+     ‘inpart’.
+
+
+File: maxima-core-docs.info,  Node: Function substpart x expr n_1 ... n_k,  Next: Function symbolp expr,  Prev: Function substinpart x expr n_1 ... n_k,  Up: Expressions
+
+ -- Function: substpart (X, EXPR, N_1, ..., N_K)
+     Substitutes _x_ for the subexpression picked out by the rest of the
+     arguments as in ‘part’.  It returns the new value of _expr_.  _x_
+     may be some operator to be substituted for an operator of _expr_.
+     In some cases _x_ needs to be enclosed in double-quotes ‘"’ (e.g.
+     ‘substpart ("+", a*b, 0)’ yields ‘b + a’).
+
+     Example:
+
+     maxima
+     
+     (%i1) 1/(x^2 + 2);
+                                    1
+     (%o1)                        ------
+                                   2
+                                  x  + 2
+     
+     
+     (%i2) substpart (3/2, %, 2, 1, 2);
+                                    1
+     (%o2)                       --------
+                                  3/2
+                                 x    + 2
+     
+     
+     (%i3) a*x + f(b, y);
+     (%o3)                     a x + f(b, y)
+     
+     
+     (%i4) substpart ("+", %, 1, 0);
+     (%o4)                    x + f(b, y) + a
+
+     Also, setting the option ‘inflag’ to ‘true’ and calling ‘part’ or
+     ‘substpart’ is the same as calling ‘inpart’ or ‘substinpart’.
+
+     See also: ‘part’, ‘inflag’, ‘substinpart’.
+
+
+File: maxima-core-docs.info,  Node: Function symbolp expr,  Next: Function unorder,  Prev: Function substpart x expr n_1 ... n_k,  Up: Expressions
+
+ -- Function: symbolp (EXPR)
+     Returns ‘true’ if _expr_ is a symbol, else ‘false’.
+
+     See also ‘Identifiers’.
+
+     See also: ‘Identifiers’.
+
+
+File: maxima-core-docs.info,  Node: Function unorder,  Next: Function verbify f,  Prev: Function symbolp expr,  Up: Expressions
+
+ -- Function: unorder ()
+     Disables the aliasing created by the last use of the ordering
+     commands ‘ordergreat’ and ‘orderless’.  ‘ordergreat’ and
+     ‘orderless’ may not be used more than one time each without calling
+     ‘unorder’.  ‘unorder’ does not substitute back in expressions the
+     original symbols for the aliases introduced by ‘ordergreat’ and
+     ‘orderless’.  Therefore, after execution of ‘unorder’ the aliases
+     appear in previous expressions.
+
+     See also ‘ordergreat’ and ‘orderless’.
+
+     Examples:
+
+     ‘ordergreat(a)’ introduces an alias for the symbol ‘a’.  Therefore,
+     the difference of ‘%o2’ and ‘%o4’ does not vanish.  ‘unorder’ does
+     not substitute back the symbol ‘a’ and the alias appears in the
+     output ‘%o7’.
+
+     maxima
+     
+     (%i1) unorder();
+     (%o1)                          []
+     
+     
+     (%i2) b*x + a^2;
+                                        2
+     (%o2)                       b x + a
+     
+     
+     (%i3) ordergreat (a);
+     (%o3)                         done
+     
+     
+     (%i4) b*x + a^2;
+      %th(1) - %th(3);
+                                  2
+     (%o4)                       a  + b x
+     
+     
+     (%i5) unorder();
+                                   2    2
+     (%o5)                        a  - a
+     
+     
+     (%i6) %th(2);
+     (%o6)                          [a]
+
+
+File: maxima-core-docs.info,  Node: Function verbify f,  Prev: Function unorder,  Up: Expressions
+
+ -- Function: verbify (F)
+     Returns the verb form of the function name _f_.  See also ‘verb’,
+     ‘noun’, and ‘nounify’.
+
+     Examples:
+
+     maxima
+     
+     (%i1) verbify ('foo);
+     (%o1)                          foo
+     
+     
+     (%i2) :lisp $%
+     $FOO
+     
+     
+     (%i2) nounify (foo);
+     (%o2)                          foo
+     
+     
+     (%i3) :lisp $%
+     %FOO
+
+
+File: maxima-core-docs.info,  Node: Function Definition,  Next: Help,  Prev: Expressions,  Up: Maxima Core Documentation
+
+1.93 Function Definition
+========================
+
+* Menu:
+
+* Function apply F [arg_1 ... arg_n]::
+* Function block [v_1 ... v_m] expr_1 ... expr_n::
+* Function break expr_1 ... expr_n::
+* Function buildq L expr::
+* Function catch expr_1 ... expr_n::
+* Function compfile filename f_1 ... f_n::
+* Function compile f_1 ... f_n::
+* Function compile_file filename::
+* Function declare_translated f_1 f_2 ...::
+* Function define fx_1 ... x_n expr::
+* Function define_variable name default_value mode::
+* Function dispfun f_1 ... f_n::
+* Function fullmap f expr_1 ...::
+* Function fullmapl f list_1 ...::
+* Variable functions::
+* Function fundef f::
+* Function funmake F [arg_1 ... arg_n]::
+* Function lambda [x_1 ... x_m] expr_1 ... expr_n::
+* Function local v_1 ... v_n::
+* Function macroexpand expr::
+* Function macroexpand1 expr::
+* Variable macroexpansion::
+* Variable macros::
+* Variable mode_check_errorp::
+* Variable mode_check_warnp::
+* Variable mode_checkp::
+* Function mode_declare y_1 mode_1 ... y_n mode_n::
+* Function mode_identity arg_1 arg_2::
+* Function remfunction f_1 ... f_n::
+* Variable savedef::
+* Function splice a::
+* Variable tr_array_as_ref::
+* Variable tr_bound_function_applyp::
+* Variable tr_file_tty_messagesp::
+* Variable tr_float_can_branch_complex::
+* Variable tr_function_call_default::
+* Variable tr_numer::
+* Variable tr_optimize_max_loop::
+* Variable tr_state_vars::
+* Variable tr_warn_bad_function_calls::
+* Variable tr_warn_fexpr::
+* Variable tr_warn_meval::
+* Variable tr_warn_mode::
+* Variable tr_warn_undeclared::
+* Variable tr_warn_undefined_variable::
+* Function tr_warnings_get::
+* Function translate f_1 ... f_n::
+* Function translate_file maxima_filename::
+* Variable transrun::
+
+
+File: maxima-core-docs.info,  Node: Function apply F [arg_1 ... arg_n],  Next: Function block [v_1 ... v_m] expr_1 ... expr_n,  Up: Function Definition
+
+ -- Function: apply (F, [ARG_1, ..., ARG_N])
+     Constructs and evaluates an expression ‘F(arg_1, ..., arg_n)’.  The
+     function arguments ‘[arg_1, ..., arg_n]’ may be of any length and
+     comprise any expressions.  ‘apply’ evaluates all of its arguments,
+     _F_ and _arg_1_, ..., _arg_n_ alike, unless evaluation is prevented
+     by quotation.
+
+     ‘apply’ does not attempt to distinguish a ‘memoizing function’ from
+     an ordinary function; when _F_ is the name of a memoizing function,
+     ‘apply’ evaluates ‘F(...)’ (that is, a function call with
+     parentheses instead of square brackets).  ‘arrayapply’ evaluates a
+     function call with square brackets in this case.
+
+     See also ‘funmake’ and ‘args’.
+
+     Examples:
+
+     The function arguments ‘[arg_1, ..., arg_n]’ may be of any length.
+     Here ‘min’ and ‘"+"’ are applied to a list ‘L’.
+
+     maxima
+     
+     (%i1) L : [1, 5, -10.2, 4, 3];
+     (%o1)                 [1, 5, - 10.2, 4, 3]
+     
+     
+     (%i2) apply (min, L);
+     (%o2)                        - 10.2
+     
+     
+     (%i3) apply ("+", L);
+     (%o3)                  2.8000000000000007
+
+     ‘apply’ evaluates all of its arguments, unless evaluation is
+     prevented by quotation.  First example: ‘dispfun’ ordinarily does
+     not evaluate its argument, but we can ensure the evaluation of the
+     argument via ‘apply’.
+
+     fundef: no such function: fname - an error.  To debug this try:
+     debugmode(true);
+
+     maxima
+     
+     (%i1) F (x) := x / 1729;
+                                        x
+     (%o1)                     F(x) := ----
+                                       1729
+     
+     
+     (%i2) fname : F;
+     (%o2)                           F
+     
+     
+     (%i3) dispfun (F);
+                                        x
+     (%t3)                     F(x) := ----
+                                       1729
+     
+     (%o3)                         [%t3]
+     
+     (%i4) dispfun (fname);
+     
+     (%i5) apply (dispfun, [fname]);
+                                        x
+     (%t5)                     F(x) := ----
+                                       1729
+     
+     (%o5)                         [%t5]
+
+     ‘apply’ evaluates all of its arguments, unless evaluation is
+     prevented by quotation.  Second example: create a function that
+     declares all of its arguments to be complex.
+
+     maxima
+     (%i1) g([u]):=apply('declare,[u,complex])$
+     (%i2) g(a,b,c)$
+     
+     (%i3) facts();
+     (%o3) [kind(a, complex), kind(b, complex), kind(c, complex)]
+
+     ‘apply’ evaluates all of its arguments, unless evaluation is
+     prevented by quotation.  Third example: ‘apply’ ordinarily
+     evaluates its first argument, but single quote ‘'’ prevents
+     evaluation.  Note that ‘demoivre’ is the name of a global variable
+     and also a function.
+
+     apply: found false where a function was expected.  - an error.  To
+     debug this try: debugmode(true);
+
+     maxima
+     
+     (%i1) demoivre;
+     (%o1)                         false
+     
+     
+     (%i2) demoivre (exp (%i * x));
+     (%o2)                  %i sin(x) + cos(x)
+     
+     (%i3) apply (demoivre, [exp (%i * x)]);
+     
+     (%i4) apply ('demoivre, [exp (%i * x)]);
+     (%o4)                  %i sin(x) + cos(x)
+
+     The function arguments ‘[arg_1, ..., arg_n]’ may be of any length
+     and comprise any expressions.  Convert a nested list into a matrix
+     by calling ‘apply’.
+
+     maxima
+     
+     (%i1) a:[[1,2],[3,4]];
+     (%o1)                   [[1, 2], [3, 4]]
+     
+     
+     (%i2) apply(matrix,a);
+                                 [ 1  2 ]
+     (%o2)                       [      ]
+                                 [ 3  4 ]
+
+     See also: ‘memoizing-function’, ‘funmake’, ‘args’.
+
+
+File: maxima-core-docs.info,  Node: Function block [v_1 ... v_m] expr_1 ... expr_n,  Next: Function break expr_1 ... expr_n,  Prev: Function apply F [arg_1 ... arg_n],  Up: Function Definition
+
+ -- Function: block ([V_1, ..., V_M], EXPR_1, ..., EXPR_N)
+     The function ‘block’ allows to make the variables _v_1_, ..., _v_m_
+     to be local for a sequence of commands.  If these variables are
+     already bound ‘block’ saves the current values of the variables
+     _v_1_, ..., _v_m_ (if any) upon entry to the block, then unbinds
+     the variables so that they evaluate to themselves; The local
+     variables may be bound to arbitrary values within the block but
+     when the block is exited the saved values are restored, and the
+     values assigned within the block are lost.
+
+     If there is no need to define local variables then the list at the
+     beginning of the ‘block’ command may be omitted.  In this case if
+     neither ‘return’ nor ‘go’ are used ‘block’ behaves similar to the
+     following construct:
+
+     maxima
+     ( expr_1, expr_2,... , expr_n );
+
+     _expr_1_, ..., _expr_n_ will be evaluated in sequence and the value
+     of the last expression will be returned.  The sequence can be
+     modified by the ‘go’, ‘throw’, and ‘return’ functions.  The last
+     expression is _expr_n_ unless ‘return’ or an expression containing
+     ‘throw’ is evaluated.
+
+     The declaration ‘local(v_1, ..., v_m)’ within ‘block’ saves the
+     properties associated with the symbols _v_1_, ..., _v_m_, removes
+     any properties before evaluating other expressions, and restores
+     any saved properties on exit from the block.  Some declarations are
+     implemented as properties of a symbol, including ‘:=’, ‘array’,
+     ‘dependencies’, ‘atvalue’, ‘matchdeclare’, ‘atomgrad’, ‘constant’,
+     ‘nonscalar’, ‘assume’, and some others.  The effect of ‘local’ is
+     to make such declarations effective only within the block;
+     otherwise declarations within a block are actually global
+     declarations.
+
+     ‘block’ may appear within another ‘block’.  Local variables are
+     established each time a new ‘block’ is evaluated.  Local variables
+     appear to be global to any enclosed blocks.  If a variable is
+     non-local in a block, its value is the value most recently assigned
+     by an enclosing block, if any, otherwise, it is the value of the
+     variable in the global environment.  This policy may coincide with
+     the usual understanding of "dynamic scope".
+
+     The value of the block is the value of the last statement or the
+     value of the argument to the function ‘return’ which may be used to
+     exit explicitly from the block.  The function ‘go’ may be used to
+     transfer control to the statement of the block that is tagged with
+     the argument to ‘go’.  To tag a statement, precede it by an atomic
+     argument as another statement in the block.  For example: ‘block
+     ([x], x:1, loop, x: x+1, ..., go(loop), ...)’.  The argument to
+     ‘go’ must be the name of a tag appearing within the block.  One
+     cannot use ‘go’ to transfer to a tag in a block other than the one
+     containing the ‘go’.
+
+     Blocks typically appear on the right side of a function definition
+     but can be used in other places as well.
+
+     See also ‘return’ and ‘go’.
+
+     See also: ‘return’, ‘go’.
+
+
+File: maxima-core-docs.info,  Node: Function break expr_1 ... expr_n,  Next: Function buildq L expr,  Prev: Function block [v_1 ... v_m] expr_1 ... expr_n,  Up: Function Definition
+
+ -- Function: break (EXPR_1, ..., EXPR_N)
+     Evaluates and prints _expr_1_, ..., _expr_n_ and then causes a
+     Maxima break at which point the user can examine and change his
+     environment.  Upon typing ‘exit;’ the computation resumes.
+
+
+File: maxima-core-docs.info,  Node: Function buildq L expr,  Next: Function catch expr_1 ... expr_n,  Prev: Function break expr_1 ... expr_n,  Up: Function Definition
+
+ -- Function: buildq (L, EXPR)
+     Substitutes variables named by the list _L_ into the expression
+     _expr_, in parallel, without evaluating _expr_.  The resulting
+     expression is simplified, but not evaluated, after ‘buildq’ carries
+     out the substitution.
+
+     The elements of _L_ are symbols or assignment expressions ‘symbol:
+     value’, evaluated in parallel.  That is, the binding of a variable
+     on the right-hand side of an assignment is the binding of that
+     variable in the context from which ‘buildq’ was called, not the
+     binding of that variable in the variable list _L_. If some variable
+     in _L_ is not given an explicit assignment, its binding in ‘buildq’
+     is the same as in the context from which ‘buildq’ was called.
+
+     Then the variables named by _L_ are substituted into _expr_ in
+     parallel.  That is, the substitution for every variable is
+     determined before any substitution is made, so the substitution for
+     one variable has no effect on any other.
+
+     If any variable _x_ appears as ‘splice (x)’ in _expr_, then _x_
+     must be bound to a list, and the list is spliced (interpolated)
+     into _expr_ instead of substituted.
+
+     Any variables in _expr_ not appearing in _L_ are carried into the
+     result verbatim, even if they have bindings in the context from
+     which ‘buildq’ was called.
+
+     Examples
+
+     ‘a’ is explicitly bound to ‘x’, while ‘b’ has the same binding
+     (namely 29) as in the calling context, and ‘c’ is carried through
+     verbatim.  The resulting expression is not evaluated until the
+     explicit evaluation ‘''%’.
+
+     maxima
+     (%i1) (a: 17, b: 29, c: 1729)$
+     
+     (%i2) buildq ([a: x, b], a + b + c);
+     (%o2)                      x + c + 29
+     
+     
+     (%i3) ''%;
+     (%o3)                       x + 1758
+
+     ‘e’ is bound to a list, which appears as such in the arguments of
+     ‘foo’, and interpolated into the arguments of ‘bar’.
+
+     maxima
+     
+     (%i1) buildq ([e: [a, b, c]], foo (x, e, y));
+     (%o1)                 foo(x, [a, b, c], y)
+     
+     
+     (%i2) buildq ([e: [a, b, c]], bar (x, splice (e), y));
+     (%o2)                  bar(x, a, b, c, y)
+
+     The result is simplified after substitution.  If simplification
+     were applied before substitution, these two results would be the
+     same.
+
+     maxima
+     
+     (%i1) buildq ([e: [a, b, c]], splice (e) + splice (e));
+     (%o1)                    2 c + 2 b + 2 a
+     
+     
+     (%i2) buildq ([e: [a, b, c]], 2 * splice (e));
+     (%o2)                        2 a b c
+
+     The variables in _L_ are bound in parallel; if bound sequentially,
+     the first result would be ‘foo (b, b)’.  Substitutions are carried
+     out in parallel; compare the second result with the result of
+     ‘subst’, which carries out substitutions sequentially.
+
+     maxima
+     
+     (%i1) buildq ([a: b, b: a], foo (a, b));
+     (%o1)                       foo(b, a)
+     
+     
+     (%i2) buildq ([u: v, v: w, w: x, x: y, y: z, z: u],
+                   bar (u, v, w, x, y, z));
+     (%o2)                 bar(v, w, x, y, z, u)
+     
+     
+     (%i3) subst ([u=v, v=w, w=x, x=y, y=z, z=u],
+                  bar (u, v, w, x, y, z));
+     (%o3)                 bar(u, u, u, u, u, u)
+
+     Construct a list of equations with some variables or expressions on
+     the left-hand side and their values on the right-hand side.
+     ‘macroexpand’ shows the expression returned by ‘show_values’.
+
+     maxima
+     
+     (%i1) show_values ([L]) ::= buildq ([L], map ("=", 'L, L));
+     (%o1)   show_values([L]) ::= buildq([L], map("=", 'L, L))
+     
+     (%i2) (a: 17, b: 29, c: 1729)$
+     
+     (%i3) show_values (a, b, c - a - b);
+     (%o3)          [a = 17, b = 29, c - b - a = 1683]
+     
+     
+     (%i4) macroexpand (show_values (a, b, c - a - b));
+     (%o4)    map(=, '([a, b, c - b - a]), [a, b, c - b - a])
+
+     Given a function of several arguments, create another function for
+     which some of the arguments are fixed.
+
+     maxima
+     
+     (%i1) curry (f, [a]) :=
+             buildq ([f, a], lambda ([[x]], apply (f, append (a, x))))$
+     
+     
+     (%i2) by3 : curry ("*", 3);
+     (%o2)        lambda([[x]], apply(*, append([3], x)))
+     
+     
+     (%i3) by3 (a + b);
+     (%o3)                       3 (b + a)
+
+
+File: maxima-core-docs.info,  Node: Function catch expr_1 ... expr_n,  Next: Function compfile filename f_1 ... f_n,  Prev: Function buildq L expr,  Up: Function Definition
+
+ -- Function: catch (EXPR_1, ..., EXPR_N)
+     Evaluates _expr_1_, ..., _expr_n_ one by one; if any leads to the
+     evaluation of an expression of the form ‘throw (arg)’, then the
+     value of the ‘catch’ is the value of ‘throw (arg)’, and no further
+     expressions are evaluated.  This "non-local return" thus goes
+     through any depth of nesting to the nearest enclosing ‘catch’.  If
+     there is no ‘catch’ enclosing a ‘throw’, an error message is
+     printed.
+
+     If the evaluation of the arguments does not lead to the evaluation
+     of any ‘throw’ then the value of ‘catch’ is the value of _expr_n_.
+
+     maxima
+     (%i1) lambda ([x], if x < 0 then throw(x) else f(x))$
+     (%i2) g(l) := catch (map (''%, l))$
+     
+     (%i3) g ([1, 2, 3, 7]);
+     (%o3)               [f(1), f(2), f(3), f(7)]
+     
+     
+     (%i4) g ([1, 2, -3, 7]);
+     (%o4)                          - 3
+
+     The function ‘g’ returns a list of ‘f’ of each element of ‘l’ if
+     ‘l’ consists only of non-negative numbers; otherwise, ‘g’ "catches"
+     the first negative element of ‘l’ and "throws" it up.
+
+
+File: maxima-core-docs.info,  Node: Function compfile filename f_1 ... f_n,  Next: Function compile f_1 ... f_n,  Prev: Function catch expr_1 ... expr_n,  Up: Function Definition
+
+ -- Function: compfile (FILENAME, F_1, ..., F_N)
+     Translates Maxima functions into Lisp and writes the translated
+     code into the file _filename_.
+
+     ‘compfile(filename, f_1, ..., f_n)’ translates the specified
+     functions.  ‘compfile (filename, functions)’ and ‘compfile
+     (filename, all)’ translate all user-defined functions.
+
+     The Lisp translations are not evaluated, nor is the output file
+     processed by the Lisp compiler.
+
+     ‘translate’ creates and evaluates Lisp translations.
+     ‘compile_file’ translates Maxima into Lisp, and then executes the
+     Lisp compiler.
+
+     See also ‘translate’, ‘translate_file’, and ‘compile_file’.
+
+     See also: ‘translate’, ‘translate_file’, ‘compile_file’.
+
+
+File: maxima-core-docs.info,  Node: Function compile f_1 ... f_n,  Next: Function compile_file filename,  Prev: Function compfile filename f_1 ... f_n,  Up: Function Definition
+
+ -- Function: compile (F_1, ..., F_N)
+     Translates Maxima functions _f_1_, ..., _f_n_ into Lisp, evaluates
+     the Lisp translations, and calls the Lisp function ‘COMPILE’ on
+     each translated function.  ‘compile’ returns a list of the names of
+     the compiled functions.
+
+     ‘compile (all)’ or ‘compile (functions)’ compiles all user-defined
+     functions.
+
+     ‘compile’ quotes its arguments; the quote-quote operator ‘''’
+     defeats quotation.
+
+     Compiling a function to native code can mean a big increase in
+     speed and might cause the memory footprint to reduce drastically.
+     Code tends to be especially effective when the flexibility it needs
+     to provide is limited.  If compilation doesn't provide the speed
+     that is needed a few ways to limit the code's functionality are the
+     following:
+
+        •    • If the function accesses global variables the
+               complexity of the function can be drastically be reduced
+               by limiting these variables to one data type, for example
+               using ‘mode_declare’ or a statement like the following
+               one: ‘put(x_1, bigfloat, numerical_type)’
+
+        •    • The compiler might warn about undeclared
+               variables if text could either be a named option to a
+               command or (if they are assigned a value to) the name of
+               a variable.  Prepending the option with a single quote
+               ‘'’ tells the compiler that the text is meant as an
+               option.
+
+     See also: ‘mode_declare’.
+
+
+File: maxima-core-docs.info,  Node: Function compile_file filename,  Next: Function declare_translated f_1 f_2 ...,  Prev: Function compile f_1 ... f_n,  Up: Function Definition
+
+ -- Function: compile_file (FILENAME)
+     Translates the Maxima file _filename_ into Lisp, and executes the
+     Lisp compiler.  The compiled code is not loaded into Maxima.
+
+     ‘compile_file’ returns a list of the names of four files: the
+     original Maxima file, the Lisp translation, notes on translation,
+     and the compiled code.  If the compilation fails, the fourth item
+     is ‘false’.
+
+     Some declarations and definitions take effect as soon as the Lisp
+     code is compiled (without loading the compiled code).  These
+     include functions defined with the ‘:=’ operator, macros define
+     with the ‘::=’ operator,
+
+     ‘alias’, ‘declare’, ‘define_variable’, ‘mode_declare’, and ‘infix’,
+     ‘matchfix’, ‘nofix’, ‘postfix’, ‘prefix’, and ‘compfile’.
+
+     Assignments and function calls are not evaluated until the compiled
+     code is loaded.  In particular, within the Maxima file, assignments
+     to the translation flags (‘tr_numer’, etc.)  have no effect on the
+     translation.
+
+     _filename_ may not contain ‘:lisp’ statements.
+
+     ‘compile_file’ evaluates its arguments.
+
+
+File: maxima-core-docs.info,  Node: Function declare_translated f_1 f_2 ...,  Next: Function define fx_1 ... x_n expr,  Prev: Function compile_file filename,  Up: Function Definition
+
+ -- Function: declare_translated (F_1, F_2, ...)
+     When translating a file of Maxima code to Lisp, it is important for
+     the translator to know which functions it sees in the file are to
+     be called as translated or compiled functions, and which ones are
+     just Maxima functions or undefined.  Putting this declaration at
+     the top of the file, lets it know that although a symbol does which
+     does not yet have a Lisp function value, will have one at call
+     time.  ‘(MFUNCTION-CALL fn arg1 arg2 ...)’ is generated when the
+     translator does not know ‘fn’ is going to be a Lisp function.
+
+
+File: maxima-core-docs.info,  Node: Function define fx_1 ... x_n expr,  Next: Function define_variable name default_value mode,  Prev: Function declare_translated f_1 f_2 ...,  Up: Function Definition
+
+ -- Function: define (F(X_1, ..., X_N), EXPR)
+     Defines a function named _f_ with arguments _x_1_, ..., _x_n_ and
+     function body _expr_.  ‘define’ always evaluates its second
+     argument (unless explicitly quoted).  The function so defined may
+     be an ordinary Maxima function (with arguments enclosed in
+     parentheses) or a ‘memoizing function’ (with arguments enclosed in
+     square brackets).
+
+     When the last or only function argument _x_n_ is a list of one
+     element, the function defined by ‘define’ accepts a variable number
+     of arguments.  Actual arguments are assigned one-to-one to formal
+     arguments _x_1_, ..., _x_(n - 1)_, and any further actual
+     arguments, if present, are assigned to _x_n_ as a list.
+
+     When the first argument of ‘define’ is an expression of the form
+     ‘f(x_1, ..., x_n)’ or ‘f[x_1, ..., x_n]’, the function arguments
+     are evaluated but _f_ is not evaluated, even if there is already a
+     function or variable by that name.
+
+     When the first argument is an expression with operator ‘funmake’,
+     ‘arraymake’, or ‘ev’, the first argument is evaluated; this allows
+     for the function name to be computed, as well as the body.
+
+     All function definitions appear in the same namespace; defining a
+     function ‘f’ within another function ‘g’ does not automatically
+     limit the scope of ‘f’ to ‘g’.  However, ‘local(f)’ makes the
+     definition of function ‘f’ effective only within the block or other
+     compound expression in which ‘local’ appears.
+
+     If some formal argument _x_k_ is a quoted symbol (after
+     evaluation), the function defined by ‘define’ does not evaluate the
+     corresponding actual argument.  Otherwise all actual arguments are
+     evaluated.
+
+     See also ‘:=’ and ‘::=’.
+
+     Examples:
+
+     ‘define’ always evaluates its second argument (unless explicitly
+     quoted).
+
+     maxima
+     
+     (%i1) expr : cos(y) - sin(x);
+     (%o1)                    cos(y) - sin(x)
+     
+     
+     (%i2) define (F1 (x, y), expr);
+     (%o2)              F1(x, y) := cos(y) - sin(x)
+     
+     
+     (%i3) F1 (a, b);
+     (%o3)                    cos(b) - sin(a)
+     
+     
+     (%i4) F2 (x, y) := expr;
+     (%o4)                   F2(x, y) := expr
+     
+     
+     (%i5) F2 (a, b);
+     (%o5)                    cos(y) - sin(x)
+
+     The function defined by ‘define’ may be an ordinary Maxima function
+     or a ‘memoizing function’.
+
+     maxima
+     
+     (%i1) define (G1 (x, y), x.y - y.x);
+     (%o1)               G1(x, y) := x . y - y . x
+     
+     
+     (%i2) define (G2 [x, y], x.y - y.x);
+     (%o2)                G2     := x . y - y . x
+                            x, y
+
+     When the last or only function argument _x_n_ is a list of one
+     element, the function defined by ‘define’ accepts a variable number
+     of arguments.
+
+     maxima
+     
+     (%i1) define (H ([L]), '(apply ("+", L)));
+     (%o1)                H([L]) := apply("+", L)
+     
+     
+     (%i2) H (a, b, c);
+     (%o2)                       c + b + a
+
+     When the first argument is an expression with operator ‘funmake’,
+     ‘arraymake’, or ‘ev’, the first argument is evaluated.
+
+     maxima
+     
+     (%i1) [F : I, u : x];
+     (%o1)                        [I, x]
+     
+     
+     (%i2) funmake (F, [u]);
+     (%o2)                         I(x)
+     
+     
+     (%i3) define (funmake (F, [u]), cos(u) + 1);
+     (%o3)                  I(x) := cos(x) + 1
+     
+     
+     (%i4) define (arraymake (F, [u]), cos(u) + 1);
+     (%o4)                   I  := cos(x) + 1
+                              x
+     
+     
+     (%i5) define (foo (x, y), bar (y, x));
+     (%o5)                foo(x, y) := bar(y, x)
+     
+     
+     (%i6) define (ev (foo (x, y)), sin(x) - cos(y));
+     (%o6)             bar(y, x) := sin(x) - cos(y)
+
+     See also: ‘memoizing-function’, ‘:=’, ‘::=’.
 
 
 File: maxima-core-docs.info,  Node: Function define_variable name default_value mode,  Next: Function dispfun f_1 ... f_n,  Prev: Function define fx_1 ... x_n expr,  Up: Function Definition
@@ -8,13 +1408,13 @@ File: maxima-core-docs.info,  Node: Function define_variable name default_value 
      Introduces a global variable into the Maxima environment.
      ‘define_variable’ is useful in user-written packages, which are
      often translated or compiled as it gives the compiler hints of the
-     type ("mode") of a variable and therefore avoids requiring it to
+     type (“mode”) of a variable and therefore avoids requiring it to
      generate generic code that can deal with every variable being an
      integer, float, maxima object, array etc.
 
      ‘define_variable’ carries out the following steps:
 
-       1. ‘mode_declare (name, mode)’ declares the mode ("type") of
+       1. ‘mode_declare (name, mode)’ declares the mode (“type”) of
           _name_ to the translator which can considerably speed up
           compiled code as it allows having to create generic code.  See
           ‘mode_declare’ for a list of the possible modes.
@@ -96,7 +1496,7 @@ File: maxima-core-docs.info,  Node: Function define_variable name default_value 
      mode ‘any_check’ is like ‘any’, but ‘any_check’ enables the
      ‘value_check’ mechanism, and ‘any’ does not.
 
-     Cannot assign to 'baz_quux'.  - an error.  To debug this try:
+     Cannot assign to ‘baz_quux'.  - an error.  To debug this try:
      debugmode(true);
 
      maxima
@@ -348,20 +1748,22 @@ File: maxima-core-docs.info,  Node: Function fundef f,  Next: Function funmake F
 
         •    • the name of a macro (defined with ‘::=’),
 
-        •    • an ordinary function (defined with ‘:=’ or ‘define’),
+        •    • an ordinary function (defined with ‘:=’ or
+               ‘define’),
 
-        •    • a ‘memoizing function’ (defined with ‘:=’ or ‘define’,
-               but enclosing arguments in square brackets ‘[ ]’),
+        •    • a ‘memoizing function’ (defined with ‘:=’ or
+               ‘define’, but enclosing arguments in square brackets ‘[
+               ]’),
 
-        •    • a subscripted function (defined with ‘:=’ or ‘define’,
-               but enclosing some arguments in square brackets and
-               others in parentheses ‘( )’),
+        •    • a subscripted function (defined with ‘:=’ or
+               ‘define’, but enclosing some arguments in square brackets
+               and others in parentheses ‘( )’),
 
-        •    • one of a family of subscripted functions selected by a
-               particular subscript value,
+        •    • one of a family of subscripted functions
+               selected by a particular subscript value,
 
-        •    • or a subscripted function defined with a constant
-               subscript.
+        •    • or a subscripted function defined with a
+               constant subscript.
 
      ‘fundef’ quotes its argument; the quote-quote operator ‘''’ defeats
      quotation.
@@ -540,8 +1942,8 @@ File: maxima-core-docs.info,  Node: Function lambda [x_1 ... x_m] expr_1 ... exp
 
      Examples:
 
-        •    • A lambda expression can be assigned to a variable and
-               evaluated like an ordinary function.
+        •    • A lambda expression can be assigned to a
+               variable and evaluated like an ordinary function.
 
      maxima
      
@@ -554,8 +1956,8 @@ File: maxima-core-docs.info,  Node: Function lambda [x_1 ... x_m] expr_1 ... exp
                                      2
      (%o2)                          a
 
-        •    • A lambda expression may appear in contexts in which a
-               function evaluation is expected.
+        •    • A lambda expression may appear in contexts in
+               which a function evaluation is expected.
 
      maxima
      
@@ -573,11 +1975,11 @@ File: maxima-core-docs.info,  Node: Function lambda [x_1 ... x_m] expr_1 ... exp
                              2   2   2   2   2
      (%o3)                 [a , b , c , d , e ]
 
-        •    • Argument variables are local variables.  Other variables
-               appear to be global variables.  Global variables are
-               evaluated at the time the lambda expression is evaluated,
-               unless some special evaluation is forced by some means,
-               such as ‘''’.
+        •    • Argument variables are local variables.  Other
+               variables appear to be global variables.  Global
+               variables are evaluated at the time the lambda expression
+               is evaluated, unless some special evaluation is forced by
+               some means, such as ‘''’.
 
      maxima
      (%i1) a: %pi$
@@ -604,10 +2006,10 @@ File: maxima-core-docs.info,  Node: Function lambda [x_1 ... x_m] expr_1 ... exp
      (%o8)                        ------
                                     2
 
-        •    • Lambda expressions may be nested.  Local variables within
-               the outer lambda expression appear to be global to the
-               inner expression unless masked by local variables of the
-               same names.
+        •    • Lambda expressions may be nested.  Local
+               variables within the outer lambda expression appear to be
+               global to the inner expression unless masked by local
+               variables of the same names.
 
      maxima
      
@@ -622,10 +2024,10 @@ File: maxima-core-docs.info,  Node: Function lambda [x_1 ... x_m] expr_1 ... exp
      (%o2)                        ------
                                     2
 
-        •    • Since ‘lambda’ quotes its arguments, lambda expression
-               ‘i’ below does not define a "multiply by ‘a’" function.
-               Such a function can be defined via ‘buildq’, as in lambda
-               expression ‘i2’ below.
+        •    • Since ‘lambda’ quotes its arguments, lambda
+               expression ‘i’ below does not define a "multiply by ‘a’"
+               function.  Such a function can be defined via ‘buildq’,
+               as in lambda expression ‘i2’ below.
 
      maxima
      
@@ -652,8 +2054,8 @@ File: maxima-core-docs.info,  Node: Function lambda [x_1 ... x_m] expr_1 ... exp
      (%o5)                          ---
                                      2
 
-        •    • A lambda expression may take a variable number of
-               arguments, which are indicated by ‘[L]’ as the sole or
+        •    • A lambda expression may take a variable number
+               of arguments, which are indicated by ‘[L]’ as the sole or
                final argument.  The arguments appear within the function
                body as a list.
 
@@ -1051,7 +2453,7 @@ File: maxima-core-docs.info,  Node: Function mode_declare y_1 mode_1 ... y_n mod
 
  -- Function: mode_declare (Y_1, MODE_1, ..., Y_N, MODE_N)
      A ‘mode_declare’ informs the compiler which type (lisp programmers
-     name the type: "mode") a function parameter or its return value
+     name the type: “mode”) a function parameter or its return value
      will be of.  This can greatly boost the efficiency of the code the
      compiler generates: Without knowing the type of all variables and
      knowing the return value of all functions a function uses in
@@ -1060,7 +2462,7 @@ File: maxima-core-docs.info,  Node: Function mode_declare y_1 mode_1 ... y_n mod
 
      The arguments of ‘mode_declare’ are pairs consisting of a variable
      (or a list of variables all having the same mode) and a mode.
-     Available modes ("types") are:
+     Available modes (“types”) are:
 
      array            an declared array (see the detailed description below)
      boolean          true or false
@@ -1090,7 +2492,7 @@ File: maxima-core-docs.info,  Node: Function mode_declare y_1 mode_1 ... y_n mod
      implementations).
 
      Another way to tell that all entries of the array ‘a’ are of the
-     type ("mode") ‘m’ and have been assigned a value to would be:
+     type (“mode”) ‘m’ and have been assigned a value to would be:
 
      maxima
      mode_declare (completearray (a), m))
@@ -1119,7 +2521,7 @@ File: maxima-core-docs.info,  Node: Function mode_declare y_1 mode_1 ... y_n mod
      If the type of function parameters and results doesn't match the
      declaration by ‘mode_declare’ the function may misbehave or a
      warning or an error might occur, see ‘mode_checkp’,
-     ‘mode_check_errorp’ and ‘mode_005fcheck_005fwarnp’.
+     ‘mode_check_errorp’ and ‘mode_check_warnp’.
 
      See ‘mode_identity’ for declaring the type of lists and
      ‘define_variable’ for declaring the type of all global variables
@@ -1219,6 +2621,11 @@ File: maxima-core-docs.info,  Node: Variable savedef,  Next: Function splice a, 
      preserved when the function is translated.  This permits the
      definition to be displayed by ‘dispfun’ and allows the function to
      be edited.
+
+     When ‘savedef’ is ‘all’, files written by ‘translate_file’ and
+     ‘compfile’ additionally contain the Maxima version of each
+     translated function, so that it is preserved even when the
+     translated file is loaded.
 
      When ‘savedef’ is ‘false’, the names of translated functions are
      removed from the ‘functions’ list.
@@ -1554,7 +2961,7 @@ File: maxima-core-docs.info,  Node: Function translate_file maxima_filename,  Ne
 
      See also
 
-     ‘tr_array_as_ref’
+          tr_array_as_ref
 
      ‘tr_bound_function_applyp’,
 
@@ -1565,7 +2972,7 @@ File: maxima-core-docs.info,  Node: Function translate_file maxima_filename,  Ne
 
      ‘tr_warn_bad_function_calls’ ‘tr_warn_fexpr’, ‘tr_warn_meval’,
      ‘tr_warn_mode’, ‘tr_warn_undeclared’, and
-     ‘tr_005fwarn_005fundefined_005fvariable’.
+     ‘tr_warn_undefined_variable’.
 
      See also: ‘tr_bound_function_applyp’, ‘tr_file_tty_messagesp’,
      ‘tr_float_can_branch_complex’, ‘tr_function_call_default’,
@@ -1663,7 +3070,7 @@ File: maxima-core-docs.info,  Node: Variable browser,  Next: Function demo filen
      You may replace the default value of ‘browser’ with other valid
      browser in your system, e.g. ‘"chrome"’ or ‘"iexplore"’.
 
-     See also ‘output_format_for_help’, and ‘url_005fbase’.
+     See also ‘output_format_for_help’, and ‘url_base’.
 
      See also: ‘output_format_for_help’, ‘url_base’.
 
@@ -1679,7 +3086,7 @@ File: maxima-core-docs.info,  Node: Function demo filename,  Next: Function desc
 
      ‘demo’ searches the list of directories ‘file_search_demo’ to find
      ‘filename’.  If the file has the suffix ‘dem’, the suffix may be
-     omitted.  See also ‘file_005fsearch’.
+     omitted.  See also ‘file_search’.
 
      ‘demo’ evaluates its argument.  ‘demo’ returns the name of the
      demonstration file.
@@ -1732,8 +3139,8 @@ File: maxima-core-docs.info,  Node: Function describe string,  Next: Function ex
      documentation is found, otherwise ‘false’.
 
      To display the topics using a Web browser see
-     ‘output_005fformat_005ffor_005fhelp’.  Also see ‘browser’ and
-     ‘url_base’ to configure how to display the HTML files.
+     ‘output_format_for_help’.  Also see ‘browser’ and ‘url_base’ to
+     configure how to display the HTML files.
 
      See also ‘Documentation’.
 
@@ -1847,7 +3254,7 @@ File: maxima-core-docs.info,  Node: Variable output_format_for_help,  Next: Vari
 
      Any other value is a error.
 
-     See also ‘browser’, and ‘url_005fbase’.
+     See also ‘browser’, and ‘url_base’.
 
      See also: ‘browser’, ‘url_base’.
 
@@ -1870,7 +3277,7 @@ File: maxima-core-docs.info,  Node: Variable url_base,  Prev: Variable output_fo
      using, otherwise the help topics you are searching might not be
      found.
 
-     See also ‘output_005fformat_005ffor_005fhelp’ and ‘browser’.
+     See also ‘output_format_for_help’ and ‘browser’.
 
      See also: ‘output_format_for_help’, ‘browser’.
 
@@ -1885,6 +3292,7 @@ File: maxima-core-docs.info,  Node: Maxima's Database,  Next: Operators,  Prev: 
 * Function activate context_1 ... context_n::
 * Variable activecontexts::
 * Variable alphabetic::
+* Variable ask_hide_prompt::
 * Function askequal expr1 expr2::
 * Function askinteger expr integer::
 * Function asksign expr::
@@ -1966,7 +3374,7 @@ File: maxima-core-docs.info,  Node: Variable activecontexts,  Next: Variable alp
      See also: ‘activate’.
 
 
-File: maxima-core-docs.info,  Node: Variable alphabetic,  Next: Function askequal expr1 expr2,  Prev: Variable activecontexts,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Variable alphabetic,  Next: Variable ask_hide_prompt,  Prev: Variable activecontexts,  Up: Maxima's Database
 
  -- Variable: alphabetic
      ‘alphabetic’ is a property type recognized by ‘declare’.  The
@@ -1997,7 +3405,18 @@ File: maxima-core-docs.info,  Node: Variable alphabetic,  Next: Function askequa
      See also: ‘declare’, ‘Identifiers’.
 
 
-File: maxima-core-docs.info,  Node: Function askequal expr1 expr2,  Next: Function askinteger expr integer,  Prev: Variable alphabetic,  Up: Maxima's Database
+File: maxima-core-docs.info,  Node: Variable ask_hide_prompt,  Next: Function askequal expr1 expr2,  Prev: Variable alphabetic,  Up: Maxima's Database
+
+ -- Variable: ask_hide_prompt
+     Default value: ‘false’
+
+     When set to ‘true’, the functions ‘askequal’, ‘askinteger’, and
+     ‘asksign’ do not print a prompt when requesting input from the
+     user.  This is useful for reducing in non-interactive sessions or
+     automated tests.
+
+
+File: maxima-core-docs.info,  Node: Function askequal expr1 expr2,  Next: Function askinteger expr integer,  Prev: Variable ask_hide_prompt,  Up: Maxima's Database
 
  -- Function: askequal (EXPR1, EXPR2)
      ‘askequal(expr1, expr2)’ attempts to determine from the ‘assume’
@@ -2172,7 +3591,7 @@ File: maxima-core-docs.info,  Node: Variable assume_pos_pred,  Next: Variable as
      By default, a parameter is _x_ such that ‘symbolp (x)’ or ‘subvarp
      (x)’.
 
-     See also ‘assume’ and ‘assume_005fpos’.
+     See also ‘assume’ and ‘assume_pos’.
 
      Examples:
 
@@ -2516,6 +3935,10 @@ File: maxima-core-docs.info,  Node: Variable contexts,  Next: Function csign exp
 
      When a fresh Maxima is started up, the user is in a context called
      ‘initial’, which has ‘global’ as a subcontext.
+
+     The context ‘global’ cannot be modified: It cannot be made the
+     current context, and the facts it contains cannot be removed.
+     ‘facts’ can still be used to inspect it.
 
      See also ‘facts’, ‘newcontext’, ‘supcontext’, ‘killcontext’,
      ‘activate’, ‘deactivate’, ‘assume’, and ‘forget’.
@@ -2958,10 +4381,23 @@ File: maxima-core-docs.info,  Node: Function forget pred_1 ... pred_n,  Next: Fu
      expressions equivalent to (but not necessarily identical to) those
      previously assumed.
 
+     ‘forget’ only sees the facts that are active in the current
+     context: those in the current context itself, in its subcontexts
+     and in the contexts activated by ‘activate’.  Facts in other
+     contexts are not removed, and a predicate found only there counts
+     as not in the database.  If the same fact is stored in several
+     active contexts, the one in the current context is removed first.
+
+     ‘forget’ returns the facts it removed, ‘redundant’ for facts not in
+     the database, and ‘not_done’ for built-in assertions in the context
+     ‘global’.  Note that this refers to the stored facts, not to what
+     can be deduced from them: After ‘assume(x > 1)’, ‘forget(x > 0)’
+     removes nothing and ‘is(x > 0)’ is still ‘true’.
+
      ‘forget (L)’, where _L_ is a list of predicates, forgets each item
      on the list.
 
-     See also: ‘assume’.
+     See also: ‘assume’, ‘activate’.
 
 
 File: maxima-core-docs.info,  Node: Function get a i,  Next: Variable integer,  Prev: Function forget pred_1 ... pred_n,  Up: Maxima's Database
@@ -3144,12 +4580,17 @@ File: maxima-core-docs.info,  Node: Function killcontext context_1 ... context_n
      ‘initial’ context is killed, a new, empty ‘initial’ context is
      created.
 
-     ‘killcontext’ refuses to kill a context which is currently active,
-     either because it is a subcontext of the current context, or by use
-     of the function ‘activate’.
+     ‘killcontext’ refuses to kill a context which is a subcontext of
+     the current context or of a context activated by ‘activate’, since
+     that context depends on it.  A context which has been activated
+     itself is deactivated before it is killed.
 
-     ‘killcontext’ evaluates its arguments.  ‘killcontext’ returns
-     ‘done’.
+     ‘killcontext’ evaluates its arguments.
+
+     ‘killcontext’ returns ‘not_done’ if any of the named contexts could
+     not be killed, because it does not exist, is a subcontext of the
+     current or an activated context, or is the context ‘global’.
+     Otherwise, it returns ‘done’.
 
      See also: ‘activate’.
 
@@ -3482,6 +4923,11 @@ File: maxima-core-docs.info,  Node: Function remove a_1 p_1 ... a_n p_n,  Next: 
  -- Function: remove (A_1, P_1, ..., A_N, P_N)
      Removes properties associated with atoms.
 
+     Assertions in the context ‘global’ are built into Maxima and cannot
+     be removed by ‘remove’.  In this case, ‘remove’ returns ‘not_done’.
+     The return value ‘done’ does not imply that any of the properties
+     was present, though.
+
      ‘remove (a_1, p_1, ..., a_n, p_n)’ removes property ‘p_k’ from atom
      ‘a_k’.
 
@@ -3493,8 +4939,8 @@ File: maxima-core-docs.info,  Node: Function remove a_1 p_1 ... a_n p_n,  Next: 
      have it.
 
      The removed properties may be system-defined properties such as
-     ‘function’, ‘macro’, or ‘mode_005fdeclare’.  ‘remove’ does not
-     remove properties defined by ‘put’.
+     ‘function’, ‘macro’, or ‘mode_declare’.  ‘remove’ does not remove
+     properties defined by ‘put’.
 
      A property may be ‘transfun’ to remove the translated Lisp version
      of a function.  After executing this, the Maxima version of the
@@ -3502,9 +4948,8 @@ File: maxima-core-docs.info,  Node: Function remove a_1 p_1 ... a_n p_n,  Next: 
 
      ‘remove ("a", operator)’ or, equivalently, ‘remove ("a", op)’
      removes from _a_ the operator properties declared by ‘prefix’,
-     ‘infix’, ‘function_005fnary’, ‘postfix’, ‘matchfix’, or ‘nofix’.
-     Note that the name of the operator must be written as a quoted
-     string.
+     ‘infix’, ‘function_nary’, ‘postfix’, ‘matchfix’, or ‘nofix’.  Note
+     that the name of the operator must be written as a quoted string.
 
      ‘remove’ always returns ‘done’ whether or not an atom has a
      specified property.  This behavior is unlike the more specific
@@ -3600,13 +5045,16 @@ File: maxima-core-docs.info,  Node: Function zeroequiv expr v,  Prev: Function u
        4. The algorithm uses evaluation at randomly chosen points for
           carefully selected subexpressions.  This is always a somewhat
           hazardous business, although the algorithm tries to minimize
-          the potential for error.
+          the potential for error.  The tolerance of the numeric test is
+          controlled by ‘rootsepsilon’.
 
      For example ‘zeroequiv (sin(2 * x) - 2 * sin(x) * cos(x), x)’
      returns ‘true’ and ‘zeroequiv (%e^x + x, x)’ returns ‘false’.  On
      the other hand ‘zeroequiv (log(a * b) - log(a) - log(b), a)’
      returns ‘dontknow’ because of the presence of an extra parameter
      ‘b’.
+
+     See also: ‘rootsepsilon’.
 
 
 File: maxima-core-docs.info,  Node: Operators,  Next: Program Flow,  Prev: Maxima's Database,  Up: Maxima Core Documentation
@@ -3618,13 +5066,13 @@ File: maxima-core-docs.info,  Node: Operators,  Next: Program Flow,  Prev: Maxim
 
 * Function **::
 * Function +::
-* Function ::
-* Function ::
-* Function ::
+* Function::
+* Function : Function 2.
+* Function : Function 3.
 * Function =::
-* Function =::
+* Function =: Function = 2.
 * Function < =::
-* Function ^^::
+* Function ^{}::
 * Function and::
 * Function infix op::
 * Function matchfix ldelimiter rdelimiter::
@@ -3879,7 +5327,7 @@ maxima
 See also: ‘orderlessp’, ‘ordergreatp’, ‘sqrt’, ‘listarith’.
 
 
-File: maxima-core-docs.info,  Node: Function,  Next: ,  Prev: Function +,  Up: Operators
+File: maxima-core-docs.info,  Node: Function,  Next: Function 2,  Prev: Function +,  Up: Operators
 
 1.96.3 Function: .
 ------------------
@@ -3895,6 +5343,9 @@ See also ‘Dot’, ‘dot0nscsimp’, ‘dot0simp’, ‘dot1simp’, ‘dotass
 
 See also: ‘Dot’, ‘dot0nscsimp’, ‘dot0simp’, ‘dot1simp’, ‘dotassoc’,
 ‘dotconstrules’, ‘dotdistrib’, ‘dotexptsimp’, ‘dotident’, ‘dotscrules’.
+
+
+File: maxima-core-docs.info,  Node: Function 2,  Next: Function 3,  Prev: Function,  Up: Operators
 
 1.96.4 Function: :
 ------------------
@@ -4019,6 +5470,9 @@ maxima
 
 See also: ‘hashed-array’, ‘kill’, ‘remvalue’.
 
+
+File: maxima-core-docs.info,  Node: Function 3,  Next: Function =,  Prev: Function 2,  Up: Operators
+
 1.96.5 Function: ::
 -------------------
 
@@ -4065,7 +5519,7 @@ maxima
 See also: ‘:’.
 
 
-File: maxima-core-docs.info,  Node: Function =,  Next: ,  Prev: ,  Up: Operators
+File: maxima-core-docs.info,  Node: Function =,  Next: Function = 2,  Prev: Function 3,  Up: Operators
 
 1.96.6 Function: ::=
 --------------------
@@ -4159,6 +5613,9 @@ x is equal to 1234 - 1729 w
 See also: ‘macroexpand’, ‘macros’, ‘kill’, ‘remove’, ‘remfunction’,
 ‘fundef’, ‘dispfun’, ‘buildq’, ‘splice’.
 
+
+File: maxima-core-docs.info,  Node: Function = 2,  Next: Function ^{},  Prev: Function =,  Up: Operators
+
 1.96.7 Function: :=
 -------------------
 
@@ -4173,7 +5630,7 @@ function body is evaluated every time the function is called.
 Its function body is evaluated just once for each distinct value of its
 arguments, and that value is returned, without evaluating the function
 body, whenever the arguments have those values again.  (A function of
-this kind is also known as a "array function".)
+this kind is also known as a “array function”.)
 
 ‘f[x_1, ..., x_n](y_1, ..., y_m) := expr’ is a special case of a
 ‘memoizing-function’.  ‘f[x_1, ..., x_n]’ is a ‘memoizing function’
@@ -4197,7 +5654,7 @@ If some formal argument _x_k_ is a quoted symbol, the function defined
 by ‘:=’ does not evaluate the corresponding actual argument.  Otherwise
 all actual arguments are evaluated.
 
-See also ‘define’ and ‘_003a_003a_003d’.
+See also ‘define’ and ‘::=’.
 
 Examples:
 
@@ -4346,7 +5803,7 @@ maxima
 See also: ‘memoizing-function’, ‘local’, ‘define’, ‘::=’.
 
 
-File: maxima-core-docs.info,  Node: Function < =,  Next: Function ^^,  Prev: Function =,  Up: Operators
+File: maxima-core-docs.info,  Node: Function < =,  Next: Function ^{},  Prev: Function = 2,  Up: Operators
 
  -- Function: < (=)
      The symbols ‘<’ ‘<=’ ‘>=’ and ‘>’ represent less than, less than or
@@ -4427,10 +5884,10 @@ File: maxima-core-docs.info,  Node: Function < =,  Next: Function ^^,  Prev: Fun
      ‘#’, ‘equal’, ‘notequal’.
 
 
-File: maxima-core-docs.info,  Node: Function ^^,  Next: Function and,  Prev: ,  Up: Operators
+File: maxima-core-docs.info,  Node: Function ^{},  Next: Function and,  Prev: Function = 2,  Up: Operators
 
-1.96.8 Function: ^^
--------------------
+1.96.8 Function: ^{}
+--------------------
 
 Noncommutative exponentiation operator.  ‘^^’ is the exponentiation
 operator corresponding to noncommutative multiplication ‘.’, just as the
@@ -4454,7 +5911,7 @@ maxima
 (%o2)                  a^3*b^2+a^^2 . b^^3
 
 
-File: maxima-core-docs.info,  Node: Function and,  Next: Function not,  Prev: Function ^^,  Up: Operators
+File: maxima-core-docs.info,  Node: Function and,  Next: Function not,  Prev: Function ^{},  Up: Operators
 
 1.96.9 Function: and
 --------------------
@@ -4839,15 +6296,15 @@ File: maxima-core-docs.info,  Node: Program Flow,  Next: Runtime Environment,  P
 
 * Menu:
 
-* Function backtrace ::
+* Function backtrace::
 * Function do::
 * Function errcatch expr_1 ... expr_n::
 * Variable errexp1::
 * Function error expr_1 ... expr_n::
 * Variable error_size::
 * Variable error_syms::
-* Function errormsg ::
-* Function garbage_collect ::
+* Function errormsg::
+* Function garbage_collect::
 * Function go tag::
 * Function if::
 * Function map f expr_1 ... expr_n::
@@ -4895,8 +6352,8 @@ File: maxima-core-docs.info,  Node: Function backtrace,  Next: Function do,  Up:
      (%o5)                         ----
                                     49
 
-        •    • ‘backtrace (n)’ prints the _n_ most recent functions,
-               including the currently active function.
+        •    • ‘backtrace (n)’ prints the _n_ most recent
+               functions, including the currently active function.
 
      maxima
      (%i1) h(x) := (backtrace(1), g(x/7))$
@@ -4924,11 +6381,11 @@ of the ‘do’ statements maxima supports is:
    •    • ‘for variable: initial_value step increment thru limit do
           body’
 
-   •    • ‘for variable: initial_value step increment while condition do
-          body’
+   •    • ‘for variable: initial_value step increment while
+          condition do body’
 
-   •    • ‘for variable: initial_value step increment unless condition
-          do body’
+   •    • ‘for variable: initial_value step increment unless
+          condition do body’
 
    •    • ‘for variable in list do body’
 
@@ -5231,7 +6688,7 @@ File: maxima-core-docs.info,  Node: Function errcatch expr_1 ... expr_n,  Next: 
 File: maxima-core-docs.info,  Node: Variable errexp1,  Next: Function error expr_1 ... expr_n,  Prev: Function errcatch expr_1 ... expr_n,  Up: Program Flow
 
  -- Variable: errexp1
-     See ‘error_005fsyms’.
+     See ‘error_syms’.
 
      See also: ‘error_syms’.
 
@@ -5267,7 +6724,7 @@ File: maxima-core-docs.info,  Node: Variable error_size,  Next: Variable error_s
      Otherwise, the expression is smaller than ‘error_size’, and the
      expression is displayed in the message.
 
-     See also ‘error’ and ‘error_005fsyms’.
+     See also ‘error’ and ‘error_syms’.
 
      Example:
 
@@ -5315,7 +6772,7 @@ File: maxima-core-docs.info,  Node: Variable error_syms,  Next: Function errorms
      ‘error_syms’, symbols are constructed automatically, with the
      _n_-th symbol equivalent to ‘concat ('errexp, n)’.
 
-     See also ‘error’ and ‘error_005fsize’.
+     See also ‘error’ and ‘error_size’.
 
      See also: ‘error_size’, ‘error’.
 
@@ -5812,22 +7269,22 @@ File: maxima-core-docs.info,  Node: Function warning expr_1 ... expr_n,  Prev: F
      The function ‘warning’ always returns false.
 
 
-File: maxima-core-docs.info,  Node: Runtime Environment,  Next: ,  Prev: Program Flow,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Runtime Environment,  Next: stringproc 3,  Prev: Program Flow,  Up: Maxima Core Documentation
 
 1.98 Runtime Environment
 ========================
 
 * Menu:
 
-* Function absolute_real_time ::
+* Function absolute_real_time::
 * Function decode_time T tz_offset::
-* Function elapsed_real_time ::
-* Function elapsed_run_time ::
+* Function elapsed_real_time::
+* Function elapsed_run_time::
 * Function encode_time year month day hours minutes seconds tz_offset::
 * Variable maxima_tempdir::
 * Variable maxima_userdir::
 * Function parse_timedate S::
-* Function room ::
+* Function room::
 * Function sstatus keyword item::
 * Function status feature::
 * Function system command arg_1 ... arg_n::
@@ -5841,7 +7298,7 @@ File: maxima-core-docs.info,  Node: Function absolute_real_time,  Next: Function
      Returns the number of seconds since midnight, January 1, 1900 GMT.
      The return value is an integer.
 
-     See also ‘elapsed_real_time’ and ‘elapsed_005frun_005ftime’.
+     See also ‘elapsed_real_time’ and ‘elapsed_run_time’.
 
      Example:
 
@@ -5870,7 +7327,7 @@ File: maxima-core-docs.info,  Node: Function decode_time T tz_offset,  Next: Fun
      If _tz_offset_ is not present, the offset of the local time zone is
      assumed.
 
-     See also ‘encode_005ftime’.
+     See also ‘encode_time’.
 
      Examples:
 
@@ -5903,7 +7360,7 @@ File: maxima-core-docs.info,  Node: Function elapsed_real_time,  Next: Function 
      since Maxima was most recently started or restarted.  The return
      value is a floating-point number.
 
-     See also ‘absolute_real_time’ and ‘elapsed_005frun_005ftime’.
+     See also ‘absolute_real_time’ and ‘elapsed_run_time’.
 
      Example:
 
@@ -5924,7 +7381,7 @@ File: maxima-core-docs.info,  Node: Function elapsed_run_time,  Next: Function e
      was most recently started or restarted.  The return value is a
      floating-point number.
 
-     See also ‘absolute_real_time’ and ‘elapsed_005freal_005ftime’.
+     See also ‘absolute_real_time’ and ‘elapsed_real_time’.
 
      Example:
 
@@ -5975,7 +7432,7 @@ File: maxima-core-docs.info,  Node: Function encode_time year month day hours mi
      If _tz_offset_ is not present, the offset of the local time zone is
      assumed.
 
-     See also ‘decode_005ftime’.
+     See also ‘decode_time’.
 
      Examples:
 
@@ -6082,7 +7539,7 @@ File: maxima-core-docs.info,  Node: Function parse_timedate S,  Next: Function r
      carriage return) is ignored, but any other leading or trailing
      characters cause ‘parse_timedate’ to fail and return ‘false’.
 
-     See also ‘timedate’ and ‘absolute_005freal_005ftime’.
+     See also ‘timedate’ and ‘absolute_real_time’.
 
      Examples:
 
@@ -6161,17 +7618,18 @@ File: maxima-core-docs.info,  Node: Function status feature,  Next: Function sys
      Returns information about the presence or absence of certain
      system-dependent features.
 
-        •    • ‘status (feature)’ returns a list of system features.
-               These include Lisp version, operating system type, etc.
-               The list may vary from one Lisp type to another.
+        •    • ‘status (feature)’ returns a list of system
+               features.  These include Lisp version, operating system
+               type, etc.  The list may vary from one Lisp type to
+               another.
 
-        •    • ‘status (feature, item)’ returns ‘true’ if _item_ is on
-               the list of items returned by ‘status (feature)’ and
-               ‘false’ otherwise.  ‘status’ quotes the argument _item_.
-               The quote-quote operator ‘''’ defeats quotation.  A
-               feature whose name contains a special character, such as
-               a hyphen, must be given as a string argument.  For
-               example, ‘status (feature, "ansi-cl")’.
+        •    • ‘status (feature, item)’ returns ‘true’ if
+               _item_ is on the list of items returned by ‘status
+               (feature)’ and ‘false’ otherwise.  ‘status’ quotes the
+               argument _item_.  The quote-quote operator ‘''’ defeats
+               quotation.  A feature whose name contains a special
+               character, such as a hyphen, must be given as a string
+               argument.  For example, ‘status (feature, "ansi-cl")’.
 
      See also ‘sstatus’.
 
@@ -6319,6 +7777,9 @@ File: maxima-core-docs.info,  Node: Function timedate T tz_offset,  Prev: Functi
      (%i1) timedate (1000000000, -9.5);
      (%o1)               1931-09-09 16:16:40-09:30
 
+
+File: maxima-core-docs.info,  Node: stringproc 3,  Next: Series,  Prev: Runtime Environment,  Up: Maxima Core Documentation
+
 1.99 stringproc
 ===============
 
@@ -6333,7 +7794,7 @@ File: maxima-core-docs.info,  Node: Function timedate T tz_offset,  Prev: Functi
 * Function string_to_regex str::
 
 
-File: maxima-core-docs.info,  Node: Function regex_compile pattern
+File: maxima-core-docs.info,  Node: Function regex_compile pattern,  Next: Function regex_match regex str,  Up: stringproc 3
 
  -- Function: regex_compile (PATTERN)
      Compile regex string in _pattern_ to an internal form that is
@@ -6346,7 +7807,7 @@ File: maxima-core-docs.info,  Node: Function regex_compile pattern
      (%o1)         Structure [COMPILED-REGEX for "c.r"]
 
 
-File: maxima-core-docs.info,  Node: Function regex_match regex str
+File: maxima-core-docs.info,  Node: Function regex_match regex str,  Next: Function regex_match_pos regex str,  Prev: Function regex_compile pattern,  Up: stringproc 3
 
  -- Function: regex_match (REGEX, STR)
      ‘regex_match’ is very similar to ‘regex_match_pos’ except that it
@@ -6375,7 +7836,7 @@ File: maxima-core-docs.info,  Node: Function regex_match regex str
      (%o3)                         false
 
      ‘sregex’ supports _clusters_ (see
-     https://ds26gte.github.io/pregexp/index.html#TAG:__tex2page_toc_TAG:__tex2page_sec_3.4pregexp
+     https//ds26gtegithubio/pregexp/indexhtml#TAG__tex2page_toc_TAG__tex2page_sec_34pregexp
      clusters) which are subpatterns denoted by being enclosed within
      parentheses.  These cause the matcher to return the submatch along
      with the overall match.
@@ -6395,7 +7856,7 @@ File: maxima-core-docs.info,  Node: Function regex_match regex str
      match, but the overall pattern matches.  In this case, ‘false’
      represents to failed match.
 
-     The regex pattern matches "month year" or "month day, year".  The
+     The regex pattern matches “month year” or “month day, year”.  The
      subpattern matches the day, if present.
 
      (%i1) date_re : regex_compile("([a-z]+) +([0-9]+,)? *([0-9]+)");
@@ -6411,7 +7872,7 @@ File: maxima-core-docs.info,  Node: Function regex_match regex str
      (%o3)             [jan 1970, jan, false, 1970]
 
      You can also do case-insensitive matches by using a _cloister_ (see
-     https://ds26gte.github.io/pregexp/index.html#TAG:__tex2page_toc_TAG:__tex2page_sec_3.4.3pregexp
+     https//ds26gtegithubio/pregexp/indexhtml#TAG__tex2page_toc_TAG__tex2page_sec_343pregexp
      cloisters) with the ‘i’ modifier:
 
      (%i1) regex_match("hearth", "HeartH");
@@ -6430,7 +7891,7 @@ File: maxima-core-docs.info,  Node: Function regex_match regex str
      we matched ‘"i"’ for the cluster.
 
 
-File: maxima-core-docs.info,  Node: Function regex_match_pos regex str
+File: maxima-core-docs.info,  Node: Function regex_match_pos regex str,  Next: Function regex_split regex str,  Prev: Function regex_match regex str,  Up: stringproc 3
 
  -- Function: regex_match_pos (REGEX, STR)
      Return a list consisting of a list of the start and end positions
@@ -6474,7 +7935,7 @@ File: maxima-core-docs.info,  Node: Function regex_match_pos regex str
      parenthesis in the given regular expression.
 
 
-File: maxima-core-docs.info,  Node: Function regex_split regex str
+File: maxima-core-docs.info,  Node: Function regex_split regex str,  Next: Function regex_subst replacement pattern str,  Prev: Function regex_match_pos regex str,  Up: stringproc 3
 
  -- Function: regex_split (REGEX, STR)
      Returns a list of strings where _str_ has been split into
@@ -6485,7 +7946,7 @@ File: maxima-core-docs.info,  Node: Function regex_split regex str
      (%o1)                  [split, pea, soup]
 
 
-File: maxima-core-docs.info,  Node: Function regex_subst replacement pattern str
+File: maxima-core-docs.info,  Node: Function regex_subst replacement pattern str,  Next: Function regex_subst_first replacement pattern str,  Prev: Function regex_split regex str,  Up: stringproc 3
 
  -- Function: regex_subst (REPLACEMENT, PATTERN, STR)
      Returns a string where every occurrence of _pattern_ has been
@@ -6495,7 +7956,7 @@ File: maxima-core-docs.info,  Node: Function regex_subst replacement pattern str
      (%o1)              liberty egality fraternity
 
 
-File: maxima-core-docs.info,  Node: Function regex_subst_first replacement pattern str
+File: maxima-core-docs.info,  Node: Function regex_subst_first replacement pattern str,  Next: Function string_to_regex str,  Prev: Function regex_subst replacement pattern str,  Up: stringproc 3
 
  -- Function: regex_subst_first (REPLACEMENT, PATTERN, STR)
      Returns a string where the first occurrence of _pattern_ in _str_
@@ -6515,7 +7976,7 @@ File: maxima-core-docs.info,  Node: Function regex_subst_first replacement patte
      (%o2)    the *nina*, the _pinta_, and the _santa maria_
 
 
-File: maxima-core-docs.info,  Node: Function string_to_regex str
+File: maxima-core-docs.info,  Node: Function string_to_regex str,  Prev: Function regex_subst_first replacement pattern str,  Up: stringproc 3
 
  -- Function: string_to_regex (STR)
      Returns a regex string where any special reqex characters in _str_
@@ -6541,7 +8002,7 @@ File: maxima-core-docs.info,  Node: Function string_to_regex str
      the ‘"."’ would match any single character.
 
 
-File: maxima-core-docs.info,  Node: Series,  Next: Limits,  Prev: ,  Up: Maxima Core Documentation
+File: maxima-core-docs.info,  Node: Series,  Next: Limits,  Prev: stringproc 3,  Up: Maxima Core Documentation
 
 1.100 Series
 ============
@@ -6728,7 +8189,7 @@ File: maxima-core-docs.info,  Node: Sums Products and Series,  Next: zeilberger,
 * Variable poisson::
 * Function poissubst a b c::
 * Function poistimes a b::
-* Function poistrim ::
+* Function poistrim::
 * Function powerseries expr x a::
 * Function printpois a::
 * Function product expr i i_0 i_1::
@@ -6820,1443 +8281,4 @@ File: maxima-core-docs.info,  Node: Variable cauchysum,  Next: Variable cosnpifl
                       /      /
                       ----   ----
                       i1 = 0 i2 = 0
-
-
-File: maxima-core-docs.info,  Node: Variable cosnpiflag,  Next: Function deftaylor f_1x_1 expr_1 ... f_nx_n expr_n,  Prev: Variable cauchysum,  Up: Sums Products and Series
-
- -- Variable: cosnpiflag
-     Default value: ‘true’
-
-     See ‘foursimp’.
-
-
-File: maxima-core-docs.info,  Node: Function deftaylor f_1x_1 expr_1 ... f_nx_n expr_n,  Next: Function equalp x y,  Prev: Variable cosnpiflag,  Up: Sums Products and Series
-
- -- Function: deftaylor (F_1(X_1), EXPR_1, ..., F_N(X_N), EXPR_N)
-     For each function _f_i_ of one variable _x_i_, ‘deftaylor’ defines
-     _expr_i_ as the Taylor series about zero.  _expr_i_ is typically a
-     polynomial in _x_i_ or a summation; more general expressions are
-     accepted by ‘deftaylor’ without complaint.
-
-     ‘powerseries (f_i(x_i), x_i, 0)’ returns the series defined by
-     ‘deftaylor’.
-
-     ‘deftaylor’ returns a list of the functions _f_1_, ..., _f_n_.
-     ‘deftaylor’ evaluates its arguments.
-
-     Example:
-
-     maxima
-     
-     (%i1) deftaylor (f(x), x^2 + sum(x^i/(2^i*i!^2), i, 4, inf));
-     (%o1)                          [f]
-     
-     
-     (%i2) powerseries (f(x), x, 0);
-                           inf
-                           ____      i1
-                           \        x         2
-     (%o2)                  >     -------- + x
-                           /       i1    2
-                           ----   2   i1!
-                           i1 = 4
-     
-     
-     (%i3) taylor (exp (sqrt (f(x))), x, 0, 4);
-                           2         3          4
-                          x    3073 x    12817 x
-     (%o3)/T/     1 + x + -- + ------- + -------- + . . .
-                          2     18432     307200
-
-
-File: maxima-core-docs.info,  Node: Function equalp x y,  Next: Function fourcos f x p,  Prev: Function deftaylor f_1x_1 expr_1 ... f_nx_n expr_n,  Up: Sums Products and Series
-
- -- Function: equalp (X, Y)
-     Returns ‘true’ if ‘equal (x, y)’ otherwise ‘false’ (doesn't give an
-     error message like ‘equal (x, y)’ would do in this case).
-
-
-File: maxima-core-docs.info,  Node: Function fourcos f x p,  Next: Function fourexpand l x p limit,  Prev: Function equalp x y,  Up: Sums Products and Series
-
- -- Function: fourcos (F, X, P)
-     Returns the Fourier cosine coefficients for ‘f(x)’ defined on ‘[0,
-     p]’.
-
-
-File: maxima-core-docs.info,  Node: Function fourexpand l x p limit,  Next: Function fourier f x p,  Prev: Function fourcos f x p,  Up: Sums Products and Series
-
- -- Function: fourexpand (L, X, P, LIMIT)
-     Constructs and returns the Fourier series from the list of Fourier
-     coefficients _l_ up through _limit_ terms (_limit_ may be ‘inf’).
-     _x_ and _p_ have same meaning as in ‘fourier’.
-
-
-File: maxima-core-docs.info,  Node: Function fourier f x p,  Next: Function fourint f x,  Prev: Function fourexpand l x p limit,  Up: Sums Products and Series
-
- -- Function: fourier (F, X, P)
-     Returns a list of the Fourier coefficients of ‘f(x)’ defined on the
-     interval ‘[-p, p]’.
-
-
-File: maxima-core-docs.info,  Node: Function fourint f x,  Next: Function fourintcos f x,  Prev: Function fourier f x p,  Up: Sums Products and Series
-
- -- Function: fourint (F, X)
-     Constructs and returns a list of the Fourier integral coefficients
-     of ‘f(x)’ defined on ‘[minf, inf]’.
-
-
-File: maxima-core-docs.info,  Node: Function fourintcos f x,  Next: Function fourintsin f x,  Prev: Function fourint f x,  Up: Sums Products and Series
-
- -- Function: fourintcos (F, X)
-     Returns the Fourier cosine integral coefficients for ‘f(x)’ on ‘[0,
-     inf]’.
-
-
-File: maxima-core-docs.info,  Node: Function fourintsin f x,  Next: Function foursimp l,  Prev: Function fourintcos f x,  Up: Sums Products and Series
-
- -- Function: fourintsin (F, X)
-     Returns the Fourier sine integral coefficients for ‘f(x)’ on ‘[0,
-     inf]’.
-
-
-File: maxima-core-docs.info,  Node: Function foursimp l,  Next: Function foursin f x p,  Prev: Function fourintsin f x,  Up: Sums Products and Series
-
- -- Function: foursimp (L)
-     Simplifies ‘sin (n %pi)’ to 0 if ‘sinnpiflag’ is ‘true’ and ‘cos (n
-     %pi)’ to ‘(-1)^n’ if ‘cosnpiflag’ is ‘true’.
-
-
-File: maxima-core-docs.info,  Node: Function foursin f x p,  Next: Function funp f expr,  Prev: Function foursimp l,  Up: Sums Products and Series
-
- -- Function: foursin (F, X, P)
-     Returns the Fourier sine coefficients for ‘f(x)’ defined on ‘[0,
-     p]’.
-
-
-File: maxima-core-docs.info,  Node: Function funp f expr,  Next: Function intopois a,  Prev: Function foursin f x p,  Up: Sums Products and Series
-
- -- Function: funp (F, EXPR)
-     ‘funp (f, expr)’ returns ‘true’ if _expr_ contains the function
-     _f_.
-
-     ‘funp (f, expr, x)’ returns ‘true’ if _expr_ contains the function
-     _f_ and the variable _x_ is somewhere in the argument of one of the
-     instances of _f_.
-
-
-File: maxima-core-docs.info,  Node: Function intopois a,  Next: Function intosum expr,  Prev: Function funp f expr,  Up: Sums Products and Series
-
- -- Function: intopois (A)
-     Converts _a_ into a Poisson encoding.
-
-
-File: maxima-core-docs.info,  Node: Function intosum expr,  Next: Function lsum expr x L,  Prev: Function intopois a,  Up: Sums Products and Series
-
- -- Function: intosum (EXPR)
-     Moves multiplicative factors outside a summation to inside.  If the
-     index is used in the outside expression, then the function tries to
-     find a reasonable index, the same as it does for ‘sumcontract’.
-     This is essentially the reverse idea of the ‘outative’ property of
-     summations, but note that it does not remove this property, it only
-     bypasses it.
-
-     In some cases, a ‘scanmap (multthru, expr)’ may be necessary before
-     the ‘intosum’.
-
-
-File: maxima-core-docs.info,  Node: Function lsum expr x L,  Next: Variable maxtayorder,  Prev: Function intosum expr,  Up: Sums Products and Series
-
- -- Function: lsum (EXPR, X, L)
-     Represents the sum of _expr_ for each element _x_ in _L_. A noun
-     form ‘'lsum’ is returned if the argument _L_ does not evaluate to a
-     list.
-
-     Examples:
-
-     maxima
-     
-     (%i1) lsum (x^i, i, [1, 2, 7]);
-                                 7    2
-     (%o1)                      x  + x  + x
-     
-     
-     (%i2) lsum (i^2, i, rootsof (x^3 - 1, x));
-                        ____
-                        \                        2
-     (%o2)               >                      i
-                        /
-                        ----
-                                      3
-                        i in rootsof(x  - 1, x)
-
-
-File: maxima-core-docs.info,  Node: Variable maxtayorder,  Next: Function niceindices expr,  Prev: Function lsum expr x L,  Up: Sums Products and Series
-
- -- Variable: maxtayorder
-     Default value: ‘true’
-
-     When ‘maxtayorder’ is ‘true’, then during algebraic manipulation of
-     (truncated) Taylor series, ‘taylor’ tries to retain as many terms
-     as are known to be correct.
-
-
-File: maxima-core-docs.info,  Node: Function niceindices expr,  Next: Variable niceindicespref,  Prev: Variable maxtayorder,  Up: Sums Products and Series
-
- -- Function: niceindices (EXPR)
-     Renames the indices of sums and products in _expr_.  ‘niceindices’
-     attempts to rename each index to the value of ‘niceindicespref[1]’,
-     unless that name appears in the summand or multiplicand, in which
-     case ‘niceindices’ tries the succeeding elements of
-     ‘niceindicespref’ in turn, until an unused variable is found.  If
-     the entire list is exhausted, additional indices are constructed by
-     appending integers to the value of ‘niceindicespref[1]’, e.g.,
-     ‘i0’, ‘i1’, ‘i2’, ...
-
-     ‘niceindices’ returns an expression.  ‘niceindices’ evaluates its
-     argument.
-
-     Example:
-
-     maxima
-     
-     (%i1) niceindicespref;
-     (%o1)                  [i, j, k, l, m, n]
-     
-     
-     (%i2) product (sum (f (foo + i*j*bar), foo, 1, inf), bar, 1, inf);
-                      inf    inf
-                     _____   ____
-                     |   |   \
-     (%o2)           |   |    >      f(bar i j + foo)
-                     |   |   /
-                     bar = 1 ----
-                             foo = 1
-     
-     
-     (%i3) niceindices (%);
-                          inf  inf
-                         _____ ____
-                         |   | \
-     (%o3)               |   |  >    f(i j l + k)
-                         |   | /
-                         l = 1 ----
-                               k = 1
-
-
-File: maxima-core-docs.info,  Node: Variable niceindicespref,  Next: Function nusum expr x i_0 i_1,  Prev: Function niceindices expr,  Up: Sums Products and Series
-
- -- Variable: niceindicespref
-     Default value: ‘[i, j, k, l, m, n]’
-
-     ‘niceindicespref’ is the list from which ‘niceindices’ takes the
-     names of indices for sums and products.
-
-     The elements of ‘niceindicespref’ are must be names of simple
-     variables.
-
-     Example:
-
-     maxima
-     (%i1) niceindicespref: [p, q, r, s, t, u]$
-     
-     (%i2) product (sum (f (foo + i*j*bar), foo, 1, inf), bar, 1, inf);
-                      inf    inf
-                     _____   ____
-                     |   |   \
-     (%o2)           |   |    >      f(bar i j + foo)
-                     |   |   /
-                     bar = 1 ----
-                             foo = 1
-     
-     
-     (%i3) niceindices (%);
-                          inf  inf
-                         _____ ____
-                         |   | \
-     (%o3)               |   |  >    f(i j q + p)
-                         |   | /
-                         q = 1 ----
-                               p = 1
-
-
-File: maxima-core-docs.info,  Node: Function nusum expr x i_0 i_1,  Next: Function outofpois a,  Prev: Variable niceindicespref,  Up: Sums Products and Series
-
- -- Function: nusum (EXPR, X, I_0, I_1)
-     Carries out indefinite hypergeometric summation of _expr_ with
-     respect to _x_ using a decision procedure due to R.W. Gosper.
-     _expr_ and the result must be expressible as products of integer
-     powers, factorials, binomials, and rational functions.
-
-     The terms "definite" and "indefinite summation" are used
-     analogously to "definite" and "indefinite integration".  To sum
-     indefinitely means to give a symbolic result for the sum over
-     intervals of variable length, not just e.g. 0 to inf.  Thus, since
-     there is no formula for the general partial sum of the binomial
-     series, ‘nusum’ can't do it.
-
-     ‘nusum’ and ‘unsum’ know a little about sums and differences of
-     finite products.  See also ‘unsum’.
-
-     Examples:
-
-     maxima
-     
-     (%i1) nusum (n*n!, n, 0, n);
-     solve: dependent equations eliminated: (1)
-     (%o1)                     (n + 1)! - 1
-     
-     
-     (%i2) nusum (n^4*4^n/binomial(2*n,n), n, 0, n);
-              n              4        3       2
-           2 4  (n + 1) (63 n  + 112 n  + 18 n  - 22 n + 3)    2
-     (%o2) ------------------------------------------------ - ---
-                         693 binomial(2 n, n)                 231
-     
-     
-     (%i3) unsum (%, n);
-                                   n  4
-                                  4  n
-     (%o3)                   ----------------
-                             binomial(2 n, n)
-     
-     
-     (%i4) unsum (prod (i^2, i, 1, n), n);
-                         n - 1
-                         _____
-                         |   |  2
-     (%o4)              (|   | i ) (n - 1) (n + 1)
-                         |   |
-                         i = 1
-     
-     
-     (%i5) nusum (%, n, 1, n);
-     solve: dependent equations eliminated: (2 3)
-                                 n
-                               _____
-                               |   |  2
-     (%o5)                     |   | i  - 1
-                               |   |
-                               i = 1
-
-     See also: ‘unsum’.
-
-
-File: maxima-core-docs.info,  Node: Function outofpois a,  Next: Function pade taylor_series numer_deg_bound denom_deg_bound,  Prev: Function nusum expr x i_0 i_1,  Up: Sums Products and Series
-
- -- Function: outofpois (A)
-     Converts _a_ from Poisson encoding to general representation.  If
-     _a_ is not in Poisson form, ‘outofpois’ carries out the conversion,
-     i.e., the return value is ‘outofpois (intopois (a))’.  This
-     function is thus a canonical simplifier for sums of powers of sine
-     and cosine terms of a particular type.
-
-
-File: maxima-core-docs.info,  Node: Function pade taylor_series numer_deg_bound denom_deg_bound,  Next: Function poisdiff a b,  Prev: Function outofpois a,  Up: Sums Products and Series
-
- -- Function: pade (TAYLOR_SERIES, NUMER_DEG_BOUND, DENOM_DEG_BOUND)
-     Returns a list of all rational functions which have the given
-     Taylor series expansion where the sum of the degrees of the
-     numerator and the denominator is less than or equal to the
-     truncation level of the power series, i.e.  are "best"
-     approximants, and which additionally satisfy the specified degree
-     bounds.
-
-     _taylor_series_ is an univariate Taylor series.  _numer_deg_bound_
-     and _denom_deg_bound_ are positive integers specifying degree
-     bounds on the numerator and denominator.
-
-     _taylor_series_ can also be a Laurent series, and the degree bounds
-     can be ‘inf’ which causes all rational functions whose total degree
-     is less than or equal to the length of the power series to be
-     returned.  Total degree is defined as ‘numer_deg_bound +
-     denom_deg_bound’.  Length of a power series is defined as
-     ‘"truncation level" + 1 - min(0, "order of series")’.
-
-     maxima
-     
-     (%i1) taylor (1 + x + x^2 + x^3, x, 0, 3);
-                                   2    3
-     (%o1)/T/             1 + x + x  + x  + . . .
-     
-     
-     (%i2) pade (%, 1, 1);
-                                      1
-     (%o2)                       [- -----]
-                                    x - 1
-     
-     
-     (%i3) t: taylor(-(83787*x^10 - 45552*x^9 - 187296*x^8
-                  + 387072*x^7 + 86016*x^6 - 1507328*x^5
-                  + 1966080*x^4 + 4194304*x^3 - 25165824*x^2
-                  + 67108864*x - 134217728)
-      /134217728, x, 0, 10);
-                         2    3       4       5       6        7
-                  x   3 x    x    15 x    23 x    21 x    189 x
-     (%o3)/T/ 1 - - + ---- - -- - ----- + ----- - ----- - ------
-                  2    16    32   1024    2048    32768   65536
-                                       8         9          10
-                                 5853 x    2847 x    83787 x
-                               + ------- + ------- - --------- + . . .
-                                 4194304   8388608   134217728
-     
-     
-     (%i4) pade (t, 4, 4);
-     (%o4)                          []
-
-     There is no rational function of degree 4 numerator/denominator,
-     with this power series expansion.  You must in general have degree
-     of the numerator and degree of the denominator adding up to at
-     least the degree of the power series, in order to have enough
-     unknown coefficients to solve.
-
-     maxima
-     (%i5) pade (t, 5, 5);
-                          5                4                 3
-     (%o5) [- (520256329 x  - 96719020632 x  - 489651410240 x
-     
-                       2
-      - 1619100813312 x  - 2176885157888 x - 2386516803584)
-     
-                    5                 4                  3
-     /(47041365435 x  + 381702613848 x  + 1360678489152 x
-     
-                       2
-      + 2856700692480 x  + 3370143559680 x + 2386516803584)]
-
-
-File: maxima-core-docs.info,  Node: Function poisdiff a b,  Next: Function poisexpt a b,  Prev: Function pade taylor_series numer_deg_bound denom_deg_bound,  Up: Sums Products and Series
-
- -- Function: poisdiff (A, B)
-     Differentiates _a_ with respect to _b_.  _b_ must occur only in the
-     trig arguments or only in the coefficients.
-
-
-File: maxima-core-docs.info,  Node: Function poisexpt a b,  Next: Function poisint a b,  Prev: Function poisdiff a b,  Up: Sums Products and Series
-
- -- Function: poisexpt (A, B)
-     Functionally identical to ‘intopois (a^b)’.  _b_ must be a positive
-     integer.
-
-
-File: maxima-core-docs.info,  Node: Function poisint a b,  Next: Variable poislim,  Prev: Function poisexpt a b,  Up: Sums Products and Series
-
- -- Function: poisint (A, B)
-     Integrates in a similarly restricted sense (to ‘poisdiff’).
-     Non-periodic terms in _b_ are dropped if _b_ is in the trig
-     arguments.
-
-
-File: maxima-core-docs.info,  Node: Variable poislim,  Next: Function poismap series sinfn cosfn,  Prev: Function poisint a b,  Up: Sums Products and Series
-
- -- Variable: poislim
-     Default value: 5
-
-     ‘poislim’ determines the domain of the coefficients in the
-     arguments of the trig functions.  The initial value of 5
-     corresponds to the interval [-2^{(5-1)+1,2}(5-1)], or [-15,16], but
-     it can be set to [-2^(n-1)+1, 2^(n-1)].
-
-
-File: maxima-core-docs.info,  Node: Function poismap series sinfn cosfn,  Next: Function poisplus a b,  Prev: Variable poislim,  Up: Sums Products and Series
-
- -- Function: poismap (SERIES, SINFN, COSFN)
-     will map the functions _sinfn_ on the sine terms and _cosfn_ on the
-     cosine terms of the Poisson series given.  _sinfn_ and _cosfn_ are
-     functions of two arguments which are a coefficient and a
-     trigonometric part of a term in series respectively.
-
-
-File: maxima-core-docs.info,  Node: Function poisplus a b,  Next: Function poissimp a,  Prev: Function poismap series sinfn cosfn,  Up: Sums Products and Series
-
- -- Function: poisplus (A, B)
-     Is functionally identical to ‘intopois (a + b)’.
-
-
-File: maxima-core-docs.info,  Node: Function poissimp a,  Next: Variable poisson,  Prev: Function poisplus a b,  Up: Sums Products and Series
-
- -- Function: poissimp (A)
-     Converts _a_ into a Poisson series for _a_ in general
-     representation.
-
-
-File: maxima-core-docs.info,  Node: Variable poisson,  Next: Function poissubst a b c,  Prev: Function poissimp a,  Up: Sums Products and Series
-
- -- Variable: poisson
-     The symbol ‘/P/’ follows the line label of Poisson series
-     expressions.
-
-
-File: maxima-core-docs.info,  Node: Function poissubst a b c,  Next: Function poistimes a b,  Prev: Variable poisson,  Up: Sums Products and Series
-
- -- Function: poissubst (A, B, C)
-     Substitutes _a_ for _b_ in _c_.  _c_ is a Poisson series.
-
-       1. Where _B_ is a variable _u_, _v_, _w_, _x_, _y_, or _z_, then
-          _a_ must be an expression linear in those variables (e.g.,
-          ‘6*u + 4*v’).
-
-       2. Where _b_ is other than those variables, then _a_ must also be
-          free of those variables, and furthermore, free of sines or
-          cosines.
-
-     ‘poissubst (a, b, c, d, n)’ is a special type of substitution which
-     operates on _a_ and _b_ as in type (1) above, but where _d_ is a
-     Poisson series, expands ‘cos(d)’ and ‘sin(d)’ to order _n_ so as to
-     provide the result of substituting ‘a + d’ for _b_ in _c_.  The
-     idea is that _d_ is an expansion in terms of a small parameter.
-     For example, ‘poissubst (u, v, cos(v), %e, 3)’ yields ‘cos(u)*(1 -
-     %e^2/2) - sin(u)*(%e - %e^3/6)’.
-
-
-File: maxima-core-docs.info,  Node: Function poistimes a b,  Next: Function poistrim,  Prev: Function poissubst a b c,  Up: Sums Products and Series
-
- -- Function: poistimes (A, B)
-     Is functionally identical to ‘intopois (a*b)’.
-
-
-File: maxima-core-docs.info,  Node: Function poistrim,  Next: Function powerseries expr x a,  Prev: Function poistimes a b,  Up: Sums Products and Series
-
- -- Function: poistrim ()
-     is a reserved function name which (if the user has defined it) gets
-     applied during Poisson multiplication.  It is a predicate function
-     of 6 arguments which are the coefficients of the _u_, _v_, ..., _z_
-     in a term.  Terms for which ‘poistrim’ is ‘true’ (for the
-     coefficients of that term) are eliminated during multiplication.
-
-
-File: maxima-core-docs.info,  Node: Function powerseries expr x a,  Next: Function printpois a,  Prev: Function poistrim,  Up: Sums Products and Series
-
- -- Function: powerseries (EXPR, X, A)
-     Returns the general form of the power series expansion for _expr_
-     in the variable _x_ about the point _a_ (which may be ‘inf’ for
-     infinity):
-
-     inf
-                ====
-                \               n
-                 >    b  (x - a)
-                /      n
-                ====
-                n = 0
-
-     If ‘powerseries’ is unable to expand _expr_, ‘taylor’ may give the
-     first several terms of the series.
-
-     When ‘verbose’ is ‘true’, ‘powerseries’ prints progress messages.
-
-     maxima
-     (%i1) verbose: true$
-     
-     (%i2) powerseries (log(sin(x)/x), x, 0);
-     trigreduce: failed to expand.
-     
-                                    sin(x)
-                                log(------)
-                                      x
-     
-     trigreduce: try again after applying rule:
-                                      d   sin(x)
-                                    / -- (------)
-                          sin(x)    | dx    x
-                      log(------) = | ----------- dx
-                            x       |   sin(x)
-                                    /   ------
-                                          x
-     
-     
-     powerseries: first simplification returned 
-         x
-        /
-        |  csc(g3955) sin(g3955) - g3955 cos(g3955) csc(g3955)
-      - |  --------------------------------------------------- dg3955
-        |                         g3955
-        /
-         0
-     
-     
-     powerseries: first simplification returned 
-                            g3955 cot(g3955) - 1
-                          - --------------------
-                                   g3955
-     
-     powerseries: attempt rational function expansion of
-                                     1
-                                   -----
-                                   g3955
-                 inf
-                 ____        i2  2 i2 - 1             2 i2
-                 \      (- 1)   2         bern(2 i2) x
-     (%o2)        >     ----------------------------------
-                 /                  i2 (2 i2)!
-                 ----
-                 i2 = 1
-
-
-File: maxima-core-docs.info,  Node: Function printpois a,  Next: Function product expr i i_0 i_1,  Prev: Function powerseries expr x a,  Up: Sums Products and Series
-
- -- Function: printpois (A)
-     Prints a Poisson series in a readable format.  In common with
-     ‘outofpois’, it will convert _a_ into a Poisson encoding first, if
-     necessary.
-
-
-File: maxima-core-docs.info,  Node: Function product expr i i_0 i_1,  Next: Variable psexpand,  Prev: Function printpois a,  Up: Sums Products and Series
-
- -- Function: product (EXPR, I, I_0, I_1)
-     Represents a product of the values of _expr_ as the index _i_
-     varies from _i_0_ to _i_1_.  The noun form ‘'product’ is displayed
-     as an uppercase letter pi.
-
-     ‘product’ evaluates _expr_ and lower and upper limits _i_0_ and
-     _i_1_, ‘product’ quotes (does not evaluate) the index _i_.
-
-     If the upper and lower limits differ by an integer, _expr_ is
-     evaluated for each value of the index _i_, and the result is an
-     explicit product.
-
-     Otherwise, the range of the index is indefinite.  Some rules are
-     applied to simplify the product.  When the global variable
-     ‘simpproduct’ is ‘true’, additional rules are applied.  In some
-     cases, simplification yields a result which is not a product;
-     otherwise, the result is a noun form ‘'product’.
-
-     See also ‘nouns’ and ‘evflag’.
-
-     Examples:
-
-     maxima
-     
-     (%i1) product (x + i*(i+1)/2, i, 1, 4);
-     (%o1)           (x + 1) (x + 3) (x + 6) (x + 10)
-     
-     
-     (%i2) product (i^2, i, 1, 7);
-     (%o2)                       25401600
-     
-     
-     (%i3) product (a[i], i, 1, 7);
-     (%o3)                 a  a  a  a  a  a  a
-                            1  2  3  4  5  6  7
-     
-     
-     (%i4) product (a(i), i, 1, 7);
-     (%o4)          a(1) a(2) a(3) a(4) a(5) a(6) a(7)
-     
-     
-     (%i5) product (a(i), i, 1, n);
-                                  n
-                                _____
-                                |   |
-     (%o5)                      |   | a(i)
-                                |   |
-                                i = 1
-     
-     
-     (%i6) product (k, k, 1, n);
-                                    n
-                                  _____
-                                  |   |
-     (%o6)                        |   | k
-                                  |   |
-                                  k = 1
-     
-     
-     (%i7) product (k, k, 1, n), simpproduct;
-     (%o7)                          n!
-     
-     
-     (%i8) product (integrate (x^k, x, 0, 1), k, 1, n);
-                                  n
-                                _____
-                                |   |   1
-     (%o8)                      |   | -----
-                                |   | k + 1
-                                k = 1
-     
-     
-     (%i9) product (if k <= 5 then a^k else b^k, k, 1, 10);
-                                   15  40
-     (%o9)                        a   b
-
-     See also: ‘nouns’, ‘evflag’.
-
-
-File: maxima-core-docs.info,  Node: Variable psexpand,  Next: Function remfun f expr,  Prev: Function product expr i i_0 i_1,  Up: Sums Products and Series
-
- -- Variable: psexpand
-     Default value: ‘false’
-
-     When ‘psexpand’ is ‘true’, an extended rational function expression
-     is displayed fully expanded.  The switch ‘ratexpand’ has the same
-     effect.
-
-     When ‘psexpand’ is ‘false’, a multivariate expression is displayed
-     just as in the rational function package.
-
-     When ‘psexpand’ is ‘multi’, then terms with the same total degree
-     in the variables are grouped together.
-
-
-File: maxima-core-docs.info,  Node: Function remfun f expr,  Next: Function revert expr x,  Prev: Variable psexpand,  Up: Sums Products and Series
-
- -- Function: remfun (F, EXPR)
-     ‘remfun (f, expr)’ replaces all occurrences of ‘f (arg)’ by _arg_
-     in _expr_.
-
-     ‘remfun (f, expr, x)’ replaces all occurrences of ‘f (arg)’ by
-     _arg_ in _expr_ only if _arg_ contains the variable _x_.
-
-
-File: maxima-core-docs.info,  Node: Function revert expr x,  Next: Variable simpproduct,  Prev: Function remfun f expr,  Up: Sums Products and Series
-
- -- Function: revert (EXPR, X)
-     These functions return the reversion of _expr_, a Taylor series
-     about zero in the variable _x_.  ‘revert’ returns a polynomial of
-     degree equal to the highest power in _expr_.  ‘revert2’ returns a
-     polynomial of degree _n_, which may be greater than, equal to, or
-     less than the degree of _expr_.
-
-     ‘load ("revert")’ loads these functions.
-
-     Examples:
-
-     maxima
-     (%i1) load ("revert")$
-     
-     (%i2) t: taylor (exp(x) - 1, x, 0, 6);
-                        2    3    4    5     6
-                       x    x    x    x     x
-     (%o2)/T/      x + -- + -- + -- + --- + --- + . . .
-                       2    6    24   120   720
-     
-     
-     (%i3) revert (t, x);
-                    6       5       4       3       2
-                10 x  - 12 x  + 15 x  - 20 x  + 30 x  - 60 x
-     (%o3)/R/ - --------------------------------------------
-                                     60
-     
-     
-     (%i4) ratexpand (%);
-                          6    5    4    3    2
-                         x    x    x    x    x
-     (%o4)             - -- + -- - -- + -- - -- + x
-                         6    5    4    3    2
-     
-     
-     (%i5) taylor (log(x+1), x, 0, 6);
-                         2    3    4    5    6
-                        x    x    x    x    x
-     (%o5)/T/       x - -- + -- - -- + -- - -- + . . .
-                        2    3    4    5    6
-     
-     
-     (%i6) ratsimp (revert (t, x) - taylor (log(x+1), x, 0, 6));
-     (%o6)                           0
-     
-     
-     (%i7) revert2 (t, x, 4);
-                               4    3    2
-                              x    x    x
-     (%o7)                  - -- + -- - -- + x
-                              4    3    2
-
-
-File: maxima-core-docs.info,  Node: Variable simpproduct,  Next: Variable simpsum,  Prev: Function revert expr x,  Up: Sums Products and Series
-
- -- Variable: simpproduct
-     Default value: ‘false’
-
-     When ‘simpproduct’ is ‘true’, the result of a ‘product’ is
-     simplified.  This simplification may sometimes be able to produce a
-     closed form.  If ‘simpproduct’ is ‘false’ or if the quoted form
-     ‘'product’ is used, the value is a product noun form which is a
-     representation of the pi notation used in mathematics.
-
-
-File: maxima-core-docs.info,  Node: Variable simpsum,  Next: Variable sinnpiflag,  Prev: Variable simpproduct,  Up: Sums Products and Series
-
- -- Variable: simpsum
-     Default value: ‘false’
-
-     When ‘simpsum’ is ‘true’, the result of a ‘sum’ is simplified.
-     This simplification may sometimes be able to produce a closed form.
-     If ‘simpsum’ is ‘false’ or if the quoted form ‘'sum’ is used, the
-     value is a sum noun form which is a representation of the sigma
-     notation used in mathematics.
-
-
-File: maxima-core-docs.info,  Node: Variable sinnpiflag,  Next: Function sum expr i i_0 i_1,  Prev: Variable simpsum,  Up: Sums Products and Series
-
- -- Variable: sinnpiflag
-     Default value: ‘true’
-
-     See ‘foursimp’.
-
-
-File: maxima-core-docs.info,  Node: Function sum expr i i_0 i_1,  Next: Function sumcontract expr,  Prev: Variable sinnpiflag,  Up: Sums Products and Series
-
- -- Function: sum (EXPR, I, I_0, I_1)
-     Represents a summation of the values of _expr_ as the index _i_
-     varies from _i_0_ to _i_1_.  The noun form ‘'sum’ is displayed as
-     an uppercase letter sigma.
-
-     ‘sum’ evaluates its summand _expr_ and lower and upper limits _i_0_
-     and _i_1_, ‘sum’ quotes (does not evaluate) the index _i_.
-
-     If the upper and lower limits differ by an integer, the summand
-     _expr_ is evaluated for each value of the summation index _i_, and
-     the result is an explicit sum.
-
-     Otherwise, the range of the index is indefinite.  Some rules are
-     applied to simplify the summation.  When the global variable
-     ‘simpsum’ is ‘true’, additional rules are applied.  In some cases,
-     simplification yields a result which is not a summation; otherwise,
-     the result is a noun form ‘'sum’.
-
-     When the ‘evflag’ (evaluation flag) ‘cauchysum’ is ‘true’, a
-     product of summations is expressed as a Cauchy product, in which
-     the index of the inner summation is a function of the index of the
-     outer one, rather than varying independently.
-
-     The global variable ‘genindex’ is the alphabetic prefix used to
-     generate the next index of summation, when an automatically
-     generated index is needed.
-
-     ‘gensumnum’ is the numeric suffix used to generate the next index
-     of summation, when an automatically generated index is needed.
-     When ‘gensumnum’ is ‘false’, an automatically-generated index is
-     only ‘genindex’ with no numeric suffix.
-
-     Note that ‘sum’ is slow for symbolic sums that result in many
-     terms, such as ‘sum(x^i, i, 1, 10000)’.  For such cases, using
-     ‘tree_reduce’ and ‘makelist’ is significantly faster, e.g.
-     ‘tree_reduce("+", makelist(x^i, i, 1, 10000))’.
-
-     See also ‘lsum’, ‘sumcontract’, ‘intosum’, ‘bashindices’,
-     ‘niceindices’, ‘nouns’, ‘evflag’, and ‘Package-zeilberger’
-
-     Examples:
-
-     maxima
-     
-     (%i1) sum (i^2, i, 1, 7);
-     (%o1)                          140
-     
-     
-     (%i2) sum (a[i], i, 1, 7);
-     (%o2)           a  + a  + a  + a  + a  + a  + a
-                      7    6    5    4    3    2    1
-     
-     
-     (%i3) sum (a(i), i, 1, 7);
-     (%o3)    a(7) + a(6) + a(5) + a(4) + a(3) + a(2) + a(1)
-     
-     
-     (%i4) sum (a(i), i, 1, n);
-                                 n
-                                ____
-                                \
-     (%o4)                       >    a(i)
-                                /
-                                ----
-                                i = 1
-     
-     
-     (%i5) sum (2^i + i^2, i, 0, n);
-                               n
-                              ____
-                              \       2    i
-     (%o5)                     >    (i  + 2 )
-                              /
-                              ----
-                              i = 0
-     
-     
-     (%i6) sum (2^i + i^2, i, 0, n), simpsum;
-                          3      2
-                       2 n  + 3 n  + n    n + 1
-     (%o6)             --------------- + 2      - 1
-                              6
-     
-     
-     (%i7) sum (1/3^i, i, 1, inf);
-                                 inf
-                                 ____
-                                 \     1
-     (%o7)                        >    --
-                                 /      i
-                                 ----  3
-                                 i = 1
-     
-     
-     (%i8) sum (1/3^i, i, 1, inf), simpsum;
-                                     1
-     (%o8)                           -
-                                     2
-     
-     
-     (%i9) sum (i^2, i, 1, 4) * sum (1/i^2, i, 1, inf);
-                                   inf
-                                   ____
-                                   \     1
-     (%o9)                      30  >    --
-                                   /      2
-                                   ----  i
-                                   i = 1
-     
-     
-     (%i10) sum (i^2, i, 1, 4) * sum (1/i^2, i, 1, inf), simpsum;
-                                       2
-     (%o10)                       5 %pi
-     
-     
-     (%i11) sum (integrate (x^k, x, 0, 1), k, 1, n);
-                                 n
-                                ____
-                                \       1
-     (%o11)                      >    -----
-                                /     k + 1
-                                ----
-                                k = 1
-     
-     
-     (%i12) sum (if k <= 5 then a^k else b^k, k, 1, 10);
-               10    9    8    7    6    5    4    3    2
-     (%o12)   b   + b  + b  + b  + b  + a  + a  + a  + a  + a
-
-     See also: ‘lsum’, ‘sumcontract’, ‘intosum’, ‘bashindices’,
-     ‘niceindices’, ‘nouns’, ‘evflag’, ‘Package-zeilberger’.
-
-
-File: maxima-core-docs.info,  Node: Function sumcontract expr,  Next: Variable sumexpand,  Prev: Function sum expr i i_0 i_1,  Up: Sums Products and Series
-
- -- Function: sumcontract (EXPR)
-     Combines all sums of an addition that have upper and lower bounds
-     that differ by constants.  The result is an expression containing
-     one summation for each set of such summations added to all
-     appropriate extra terms that had to be extracted to form this sum.
-     ‘sumcontract’ combines all compatible sums and uses one of the
-     indices from one of the sums if it can, and then try to form a
-     reasonable index if it cannot use any supplied.
-
-     It may be necessary to do an ‘intosum (expr)’ before the
-     ‘sumcontract’.
-
-
-File: maxima-core-docs.info,  Node: Variable sumexpand,  Next: Function taylor expr x a n,  Prev: Function sumcontract expr,  Up: Sums Products and Series
-
- -- Variable: sumexpand
-     Default value: ‘false’
-
-     When ‘sumexpand’ is ‘true’, products of sums and exponentiated sums
-     simplify to nested sums.
-
-     See also ‘cauchysum’.
-
-     Examples:
-
-     maxima
-     (%i1) sumexpand: true$
-     
-     (%i2) sum (f (i), i, 0, m) * sum (g (j), j, 0, n);
-                          m      n
-                         ____   ____
-                         \      \
-     (%o2)                >      >     f(i1) g(i2)
-                         /      /
-                         ----   ----
-                         i1 = 0 i2 = 0
-     
-     
-     (%i3) sum (f (i), i, 0, m)^2;
-                          m      m
-                         ____   ____
-                         \      \
-     (%o3)                >      >     f(i3) f(i4)
-                         /      /
-                         ----   ----
-                         i3 = 0 i4 = 0
-
-     See also: ‘cauchysum’.
-
-
-File: maxima-core-docs.info,  Node: Function taylor expr x a n,  Next: Variable taylor_logexpand,  Prev: Variable sumexpand,  Up: Sums Products and Series
-
- -- Function: taylor (EXPR, X, A, N)
-     ‘taylor (expr, x, a, n)’ expands the expression _expr_ in a
-     truncated Taylor or Laurent series in the variable _x_ around the
-     point _a_, containing terms through ‘(x - a)^n’.
-
-     If _expr_ is of the form ‘f(x)/g(x)’ and ‘g(x)’ has no terms up to
-     degree _n_ then ‘taylor’ attempts to expand ‘g(x)’ up to degree ‘2
-     n’.  If there are still no nonzero terms, ‘taylor’ doubles the
-     degree of the expansion of ‘g(x)’ so long as the degree of the
-     expansion is less than or equal to ‘n 2^taylordepth’.
-
-     ‘taylor (expr, [x_1, x_2, ...], a, n)’ returns a truncated power
-     series of degree _n_ in all variables _x_1_, _x_2_, ... about the
-     point ‘(a, a, ...)’.
-
-     ‘taylor (expr, [x_1, a_1, n_1], [x_2, a_2, n_2], ...)’ returns a
-     truncated power series in the variables _x_1_, _x_2_, ... about the
-     point ‘(a_1, a_2, ...)’, truncated at _n_1_, _n_2_, ...
-
-     ‘taylor (expr, [x_1, x_2, ...], [a_1, a_2, ...], [n_1, n_2, ...])’
-     returns a truncated power series in the variables _x_1_, _x_2_, ...
-     about the point ‘(a_1, a_2, ...)’, truncated at _n_1_, _n_2_, ...
-
-     ‘taylor (expr, [x, a, n, 'asymp])’ returns an expansion of _expr_
-     in negative powers of ‘x - a’.  The highest order term is ‘(x -
-     a)^-n’.
-
-     When ‘maxtayorder’ is ‘true’, then during algebraic manipulation of
-     (truncated) Taylor series, ‘taylor’ tries to retain as many terms
-     as are known to be correct.
-
-     When ‘psexpand’ is ‘true’, an extended rational function expression
-     is displayed fully expanded.  The switch ‘ratexpand’ has the same
-     effect.  When ‘psexpand’ is ‘false’, a multivariate expression is
-     displayed just as in the rational function package.  When
-     ‘psexpand’ is ‘multi’, then terms with the same total degree in the
-     variables are grouped together.
-
-     See also the ‘taylor_logexpand’ switch for controlling expansion.
-
-     Examples:
-
-     maxima
-     
-     (%i1) taylor (sqrt (sin(x) + a*x + 1), x, 0, 3);
-                                2             2
-                  (a + 1) x   (a  + 2 a + 1) x
-     (%o1)/T/ 1 + --------- - -----------------
-                      2               8
-                                        3      2             3
-                                    (3 a  + 9 a  + 9 a - 1) x
-                                  + -------------------------- + . . .
-                                                48
-     
-     
-     (%i2) %^2;
-                                         3
-                                        x
-     (%o2)/T/           1 + (a + 1) x - -- + . . .
-                                        6
-     
-     
-     (%i3) taylor (sqrt (x + 1), x, 0, 5);
-                            2    3      4      5
-                       x   x    x    5 x    7 x
-     (%o3)/T/      1 + - - -- + -- - ---- + ---- + . . .
-                       2   8    16   128    256
-     
-     
-     (%i4) %^2;
-     (%o4)/T/                  1 + x + . . .
-     
-     
-     (%i5) product ((1 + x^i)^2.5, i, 1, inf)/(1 + x^2);
-                              inf
-                             _____
-                             |   |   i     2.5
-                             |   | (x  + 1)
-                             |   |
-                             i = 1
-     (%o5)                   -----------------
-                                   2
-                                  x  + 1
-     
-     
-     (%i6) ev (taylor(%, x,  0, 3), keepfloat);
-                                    2           3
-     (%o6)/T/    1 + 2.5 x + 3.375 x  + 6.5625 x  + . . .
-     
-     
-     (%i7) taylor (1/log (x + 1), x, 0, 3);
-                                    2       3
-                      1   1   x    x    19 x
-     (%o7)/T/         - + - - -- + -- - ----- + . . .
-                      x   2   12   24    720
-     
-     
-     (%i8) taylor (cos(x) - sec(x), x, 0, 5);
-                                     4
-                                2   x
-     (%o8)/T/                - x  - -- + . . .
-                                    6
-     
-     
-     (%i9) taylor ((cos(x) - sec(x))^3, x, 0, 5);
-     (%o9)/T/                    0 + . . .
-     
-     
-     (%i10) taylor (1/(cos(x) - sec(x))^3, x, 0, 5);
-                                                    2          4
-                 1     1       11      347    6767 x    15377 x
-     (%o10)/T/ - -- + ---- + ------ - ----- - ------- - --------
-                  6      4        2   15120   604800    7983360
-                 x    2 x    120 x
-                                                               + . . .
-     
-     
-     (%i11) taylor (sqrt (1 - k^2*sin(x)^2), x, 0, 6);
-                    2  2       4      2   4
-                   k  x    (3 k  - 4 k ) x
-     (%o11)/T/ 1 - ----- - ----------------
-                     2            24
-                                         6       4       2   6
-                                    (45 k  - 60 k  + 16 k ) x
-                                  - -------------------------- + . . .
-                                               720
-     
-     
-     (%i12) taylor ((x + 1)^n, x, 0, 4);
-                           2       2     3      2         3
-                         (n  - n) x    (n  - 3 n  + 2 n) x
-     (%o12)/T/ 1 + n x + ----------- + --------------------
-                              2                 6
-                                    4      3       2         4
-                                  (n  - 6 n  + 11 n  - 6 n) x
-                                + ---------------------------- + . . .
-                                               24
-     
-     
-     (%i13) taylor (sin (y + x), x, 0, 3, y, 0, 3);
-                   3                      2
-                  y                      y
-     (%o13)/T/ (- -- + y + . . .) + (1 - -- + . . .) x
-                  6                      2
-                         3                       2
-                    y   y            2      1   y            3
-               + (- - + -- + . . .) x  + (- - + -- + . . .) x  + . . .
-                    2   12                  6   12
-     
-     
-     (%i14) taylor (sin (y + x), [x, y], 0, 3);
-                           3        2      2      3
-                          x  + 3 y x  + 3 y  x + y
-     (%o14)/T/  (y + x) - ------------------------- + . . .
-                                      6
-     
-     
-     (%i15) taylor (1/sin (y + x), x, 0, 3, y, 0, 3);
-                y   1               1    1
-     (%o15)/T/ (- + - + . . .) + (- -- + - + . . .) x
-                6   y                2   6
-                                    y
-                            1            2      1            3
-                         + (-- + . . .) x  + (- -- + . . .) x  + . . .
-                             3                   4
-                            y                   y
-     
-     
-     (%i16) taylor (1/sin (y + x), [x, y], 0, 3);
-                                  3         2       2        3
-                 1     x + y   7 x  + 21 y x  + 21 y  x + 7 y
-     (%o16)/T/ ----- + ----- + ------------------------------- + . . .
-               x + y     6                   360
-
-     See also: ‘taylor_logexpand’.
-
-
-File: maxima-core-docs.info,  Node: Variable taylor_logexpand,  Next: Variable taylor_order_coefficients,  Prev: Function taylor expr x a n,  Up: Sums Products and Series
-
- -- Variable: taylor_logexpand
-     Default value: ‘true’
-
-     ‘taylor_logexpand’ controls expansions of logarithms in ‘taylor’
-     series.
-
-     When ‘taylor_logexpand’ is ‘true’, all logarithms are expanded
-     fully so that zero-recognition problems involving logarithmic
-     identities do not disturb the expansion process.  However, this
-     scheme is not always mathematically correct since it ignores branch
-     information.
-
-     When ‘taylor_logexpand’ is set to ‘false’, then the only expansion
-     of logarithms that occur is that necessary to obtain a formal power
-     series.
-
-
-File: maxima-core-docs.info,  Node: Variable taylor_order_coefficients,  Next: Function taylor_simplifier expr,  Prev: Variable taylor_logexpand,  Up: Sums Products and Series
-
- -- Variable: taylor_order_coefficients
-     Default value: ‘true’
-
-     ‘taylor_order_coefficients’ controls the ordering of coefficients
-     in a Taylor series.
-
-     When ‘taylor_order_coefficients’ is ‘true’, coefficients of taylor
-     series are ordered canonically.
-
-
-File: maxima-core-docs.info,  Node: Function taylor_simplifier expr,  Next: Variable taylor_truncate_polynomials,  Prev: Variable taylor_order_coefficients,  Up: Sums Products and Series
-
- -- Function: taylor_simplifier (EXPR)
-     Simplifies coefficients of the power series _expr_.  ‘taylor’ calls
-     this function.
-
-
-File: maxima-core-docs.info,  Node: Variable taylor_truncate_polynomials,  Next: Variable taylordepth,  Prev: Function taylor_simplifier expr,  Up: Sums Products and Series
-
- -- Variable: taylor_truncate_polynomials
-     Default value: ‘true’
-
-     When ‘taylor_truncate_polynomials’ is ‘true’, polynomials are
-     truncated based upon the input truncation levels.
-
-     Otherwise, polynomials input to ‘taylor’ are considered to have
-     infinite precision.
-
-
-File: maxima-core-docs.info,  Node: Variable taylordepth,  Next: Function taylorinfo expr,  Prev: Variable taylor_truncate_polynomials,  Up: Sums Products and Series
-
- -- Variable: taylordepth
-     Default value: 3
-
-     If there are still no nonzero terms, ‘taylor’ doubles the degree of
-     the expansion of ‘g(x)’ so long as the degree of the expansion is
-     less than or equal to ‘n 2^taylordepth’.
-
-
-File: maxima-core-docs.info,  Node: Function taylorinfo expr,  Next: Function taylorp expr,  Prev: Variable taylordepth,  Up: Sums Products and Series
-
- -- Function: taylorinfo (EXPR)
-     Returns information about the Taylor series _expr_.  The return
-     value is a list of lists.  Each list comprises the name of a
-     variable, the point of expansion, and the degree of the expansion.
-
-     ‘taylorinfo’ returns ‘false’ if _expr_ is not a Taylor series.
-
-     Example:
-
-     maxima
-     
-     (%i1) taylor ((1 - y^2)/(1 - x), x, 0, 3, [y, a, inf]);
-                     2                         2
-     (%o1)/T/ ((1 - a ) - 2 a (y - a) - (y - a) )
-                  2                       2
-      + (- (y - a)  - 2 a (y - a) + (1 - a )) x
-                  2                       2    2
-      + (- (y - a)  - 2 a (y - a) + (1 - a )) x
-                  2                       2    3
-      + (- (y - a)  - 2 a (y - a) + (1 - a )) x  + . . .
-     
-     
-     (%i2) taylorinfo(%);
-     (%o2)               [[x, 0, 3], [y, a, inf]]
-
-
-File: maxima-core-docs.info,  Node: Function taylorp expr,  Next: Function taytorat expr,  Prev: Function taylorinfo expr,  Up: Sums Products and Series
-
- -- Function: taylorp (EXPR)
-     Returns ‘true’ if _expr_ is a Taylor series, and ‘false’ otherwise.
-
-
-File: maxima-core-docs.info,  Node: Function taytorat expr,  Next: Function totalfourier f x p,  Prev: Function taylorp expr,  Up: Sums Products and Series
-
- -- Function: taytorat (EXPR)
-     Converts _expr_ from ‘taylor’ form to canonical rational expression
-     (CRE) form.  The effect is the same as ‘rat (ratdisrep (expr))’,
-     but faster.
-
-
-File: maxima-core-docs.info,  Node: Function totalfourier f x p,  Next: Function trunc expr,  Prev: Function taytorat expr,  Up: Sums Products and Series
-
- -- Function: totalfourier (F, X, P)
-     Returns ‘fourexpand (foursimp (fourier (f, x, p)), x, p, 'inf)’.
-
-
-File: maxima-core-docs.info,  Node: Function trunc expr,  Next: Function unsum f n,  Prev: Function totalfourier f x p,  Up: Sums Products and Series
-
- -- Function: trunc (EXPR)
-     Annotates the internal representation of the general expression
-     _expr_ so that it is displayed as if its sums were truncated Taylor
-     series.  _expr_ is not otherwise modified.
-
-     Example:
-
-     maxima
-     
-     (%i1) expr: x^2 + x + 1;
-                                 2
-     (%o1)                      x  + x + 1
-     
-     
-     (%i2) trunc (expr);
-                                     2
-     (%o2)                  1 + x + x  + . . .
-     
-     
-     (%i3) is (expr = trunc (expr));
-     (%o3)                         true
-
-
-File: maxima-core-docs.info,  Node: Function unsum f n,  Next: Variable verbose,  Prev: Function trunc expr,  Up: Sums Products and Series
-
- -- Function: unsum (F, N)
-     Returns the first backward difference ‘f(n) - f(n - 1)’.  Thus
-     ‘unsum’ in a sense is the inverse of ‘sum’.
-
-     See also ‘nusum’.
-
-     Examples:
-
-     maxima
-     
-     (%i1) g(p) := p*4^n/binomial(2*n,n);
-                                          n
-                                       p 4
-     (%o1)               g(p) := ----------------
-                                 binomial(2 n, n)
-     
-     
-     (%i2) g(n^4);
-                                   n  4
-                                  4  n
-     (%o2)                   ----------------
-                             binomial(2 n, n)
-     
-     
-     (%i3) nusum (%, n, 0, n);
-              n              4        3       2
-           2 4  (n + 1) (63 n  + 112 n  + 18 n  - 22 n + 3)    2
-     (%o3) ------------------------------------------------ - ---
-                         693 binomial(2 n, n)                 231
-     
-     
-     (%i4) unsum (%, n);
-                                   n  4
-                                  4  n
-     (%o4)                   ----------------
-                             binomial(2 n, n)
-
-     See also: ‘nusum’.
-
-
-File: maxima-core-docs.info,  Node: Variable verbose,  Prev: Function unsum f n,  Up: Sums Products and Series
-
- -- Variable: verbose
-     Default value: ‘false’
-
-     When ‘verbose’ is ‘true’, ‘powerseries’ prints progress messages.
-
-
-File: maxima-core-docs.info,  Node: zeilberger,  Next: Simplification,  Prev: Sums Products and Series,  Up: Maxima Core Documentation
-
-1.103 zeilberger
-================
-
-* Menu:
-
-* Function AntiDifference F_k k::
-* Variable ev_point::
-* Function Gosper F_k k::
-* Variable Gosper_in_Zeilberger::
-* Function GosperSum F_k k a b::
-* Variable linear_solver::
-* Variable MAX_ORD::
-* Variable mod_big_prime::
-* Variable mod_test::
-* Variable mod_threshold::
-* Variable modular_linear_solver::
-* Function parGosper F_nk k n d::
-* Variable simplified_output::
-* Variable trivial_solutions::
-* Variable warnings::
-* Function Zeilberger F_nk k n::
-
-
-File: maxima-core-docs.info,  Node: Function AntiDifference F_k k,  Next: Variable ev_point,  Up: zeilberger
-
- -- Function: AntiDifference (F_K, K)
-     Returns the hypergeometric anti-difference of F_k, if it exists.
-
-     Otherwise ‘AntiDifference’ returns ‘no_hyp_antidifference’.
-
-
-File: maxima-core-docs.info,  Node: Variable ev_point,  Next: Function Gosper F_k k,  Prev: Function AntiDifference F_k k,  Up: zeilberger
-
- -- Variable: ev_point
-     Default value: ‘big_primes[10]’
-
-     ‘ev_point’ is the value at which the variable _n_ is evaluated when
-     executing the modular test in ‘parGosper’.
-
-
-File: maxima-core-docs.info,  Node: Function Gosper F_k k,  Next: Variable Gosper_in_Zeilberger,  Prev: Variable ev_point,  Up: zeilberger
-
- -- Function: Gosper (F_K, K)
-     Returns the rational certificate R(k) for F_k, that is, a rational
-     function such that F_k = R\left(k+1\right) \, F_{k+1} -
-     R\left(k\right) \, F_k, if it exists.  Otherwise, ‘Gosper’ returns
-     ‘no_hyp_sol’.
-
-
-File: maxima-core-docs.info,  Node: Variable Gosper_in_Zeilberger,  Next: Function GosperSum F_k k a b,  Prev: Function Gosper F_k k,  Up: zeilberger
-
- -- Variable: Gosper_in_Zeilberger
-     Default value: ‘true’
-
-     When ‘Gosper_in_Zeilberger’ is ‘true’, the ‘Zeilberger’ function
-     calls ‘Gosper’ before calling ‘parGosper’.  Otherwise, ‘Zeilberger’
-     goes immediately to ‘parGosper’.
-
-
-File: maxima-core-docs.info,  Node: Function GosperSum F_k k a b,  Next: Variable linear_solver,  Prev: Variable Gosper_in_Zeilberger,  Up: zeilberger
-
- -- Function: GosperSum (F_K, K, A, B)
-     Returns the summation of F_k from k = a to k = b if F_k has a
-     hypergeometric anti-difference.  Otherwise, ‘GosperSum’ returns
-     ‘nongosper_summable’.
-
-     Examples:
-
-     (%i1) load ("zeilberger")$
-     
-     (%i2) GosperSum ((-1)^k*k / (4*k^2 - 1), k, 1, n);
-                                n + 1      3
-                           (- 1)      (n + -)
-                                           2    1
-     (%o2)               - ------------------ - -
-                                       2        4
-                           2 (4 (n + 1)  - 1)
-     
-     
-     (%i3) GosperSum (1 / (4*k^2 - 1), k, 1, n);
-                                     3
-                               - n - -
-                                     2       1
-     (%o3)                  -------------- + -
-                                     2       2
-                            4 (n + 1)  - 1
-     
-     
-     (%i4) GosperSum (x^k, k, 1, n);
-                               n + 1
-                              x          x
-     (%o4)                    ------ - -----
-                              x - 1    x - 1
-     
-     
-     (%i5) GosperSum ((-1)^k*a! / (k!*(a - k)!), k, 1, n);
-                          n + 1
-                     (- 1)      a! (n + 1)         a!
-     (%o5)       - ------------------------- - ----------
-                   a (- n + a - 1)! (n + 1)!   (a - 1)! a
-     
-     
-     (%i6) GosperSum (k*k!, k, 1, n);
-     (%o6)                     (n + 1)! - 1
-     
-     
-     (%i7) GosperSum ((k + 1)*k! / (k + 1)!, k, 1, n);
-                       (n + 1) (n + 2) (n + 1)!
-     (%o7)             ------------------------ - 1
-                               (n + 2)!
-     
-     
-     (%i8) GosperSum (1 / ((a - k)!*k!), k, 1, n);
-     (%o8)                  NON_GOSPER_SUMMABLE
 

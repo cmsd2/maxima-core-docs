@@ -14,7 +14,7 @@ evaluation.
 
 
 See also `sconcat`, that works on non-atoms, too, `simplode`,
-`string` and `eval_005fstring`.
+`string` and `eval_string`.
 For complex string conversions see also `printf`.
 
 
@@ -87,7 +87,7 @@ Concatenates its arguments into a string.  Unlike `concat`, the
 arguments do *not* need to be atoms.
 
 
-See also `concat`, `simplode`, `string` and `eval_005fstring`.
+See also `concat`, `simplode`, `string` and `eval_string`.
 For complex string conversions see also `printf`.
 
 
@@ -133,7 +133,7 @@ computation.
 
 
 See also `concat`, `sconcat`, `simplode` and
-`eval_005fstring`.
+`eval_string`.
 
 See also: `concat`, `sconcat`, `simplode`, `eval_string`.
 

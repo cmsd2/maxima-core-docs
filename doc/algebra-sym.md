@@ -350,7 +350,9 @@ This Schur function can be written in terms of monomials by using
 `treinat` and `kostka`.  The form returned is a symmetric
 polynomial in a contracted representation in the variables
 
-$x_1,x_2,\ldots$
+$$
+x_1,x_2,\ldots
+$$
 
 $x_1,x_2,...$
 
@@ -1124,7 +1126,7 @@ See also:
 
 `resolvante_bipartite`, `resolvante_produit_sym`,
 `resolvante_unitaire`, `resolvante_alternee1`, `resolvante_klein`, 
-`resolvante_klein3`, `resolvante_vierer`, `resolvante_005fdiedrale`.
+`resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`.
 
 See also: `resolvante_bipartite`, `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante_alternee1`, `resolvante_klein`, `resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`.
 
@@ -1143,7 +1145,7 @@ See also:
 
 `resolvante_produit_sym`, `resolvante_unitaire`,
 `resolvante`,  `resolvante_klein`, `resolvante_klein3`,
-`resolvante_vierer`, `resolvante_diedrale`, `resolvante_005fbipartite`.
+`resolvante_vierer`, `resolvante_diedrale`, `resolvante_bipartite`.
 
 See also: `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante`, `resolvante_klein`, `resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`, `resolvante_bipartite`.
 
@@ -1174,7 +1176,7 @@ See also:
 
 `resolvante_produit_sym`, `resolvante_unitaire`,
 `resolvante`, `resolvante_klein`, `resolvante_klein3`,
-`resolvante_vierer`, `resolvante_diedrale`, `resolvante_005falternee1`.
+`resolvante_vierer`, `resolvante_diedrale`, `resolvante_alternee1`.
 
 See also: `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante`, `resolvante_klein`, `resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`, `resolvante_alternee1`.
 
@@ -1225,7 +1227,7 @@ See also:
 
 `resolvante_produit_sym`, `resolvante_unitaire`,
 `resolvante_alternee1`, `resolvante`, `resolvante_klein3`,
-`resolvante_vierer`, `resolvante_005fdiedrale`.
+`resolvante_vierer`, `resolvante_diedrale`.
 
 See also: `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante_alternee1`, `resolvante`, `resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`.
 
@@ -1243,7 +1245,7 @@ See also:
 
 `resolvante_produit_sym`, `resolvante_unitaire`,
 `resolvante_alternee1`, `resolvante_klein`, `resolvante`,
-`resolvante_vierer`, `resolvante_005fdiedrale`.
+`resolvante_vierer`, `resolvante_diedrale`.
 
 See also: `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante_alternee1`, `resolvante_klein`, `resolvante`, `resolvante_vierer`, `resolvante_diedrale`.
 
@@ -1291,7 +1293,7 @@ See also:
 `resolvante`, `resolvante_unitaire`,
 `resolvante_alternee1`, `resolvante_klein`,
 `resolvante_klein3`, `resolvante_vierer`,
-`resolvante_005fdiedrale`.
+`resolvante_diedrale`.
 
 See also: `resolvante`, `resolvante_unitaire`, `resolvante_alternee1`, `resolvante_klein`, `resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`.
 
@@ -1309,7 +1311,7 @@ See also:
 
 `resolvante_produit_sym`, `resolvante`,
 `resolvante_alternee1`, `resolvante_klein`, `resolvante_klein3`,
-`resolvante_vierer`, `resolvante_005fdiedrale`.
+`resolvante_vierer`, `resolvante_diedrale`.
 
 See also: `resolvante_produit_sym`, `resolvante`, `resolvante_alternee1`, `resolvante_klein`, `resolvante_klein3`, `resolvante_vierer`, `resolvante_diedrale`.
 
@@ -1327,7 +1329,7 @@ See also:
 
 `resolvante_produit_sym`, `resolvante_unitaire`,
 `resolvante_alternee1`, `resolvante_klein`, `resolvante_klein3`,
-`resolvante`, `resolvante_005fdiedrale`.
+`resolvante`, `resolvante_diedrale`.
 
 See also: `resolvante_produit_sym`, `resolvante_unitaire`, `resolvante_alternee1`, `resolvante_klein`, `resolvante_klein3`, `resolvante`, `resolvante_diedrale`.
 

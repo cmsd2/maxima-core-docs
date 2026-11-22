@@ -38,7 +38,7 @@ of two elements:
 
 
 
-See also `dlsode_005fstep`.  `Getting-Started-with-ODEPACK` for
+See also `dlsode_step`.  `Getting-Started-with-ODEPACK` for
 an example of usage.
 
 See also: `dlsode_step`, `Getting-Started-with-ODEPACK`.
@@ -93,7 +93,7 @@ The output is a list of the following items:
 
 
 
-See also `dlsode_005finit`.  `Getting-Started-with-ODEPACK` for
+See also `dlsode_init`.  `Getting-Started-with-ODEPACK` for
 an example of usage.
 
 See also: `dlsode_init`, `Getting-Started-with-ODEPACK`.

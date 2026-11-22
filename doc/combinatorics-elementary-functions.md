@@ -1,28 +1,261 @@
 ## Elementary Functions
 
 <!-- category: Combinatorics -->
-<!-- keywords: !! -->
-<!-- signatures: !! -->
+<!-- keywords: !!, double_factorial -->
+<!-- signatures: double_factorial(z) -->
 ### Function: !!
 
 The double factorial operator.
+`!!` and `double_factorial` are equivalent.
+The operator is displayed as `!!`
+whether input as `!!` or `double_factorial`.
 
 
-For an integer, float, or rational number `n`, `n!!` evaluates to the
-product `n (n-2) (n-4) (n-6) ... (n - 2 (k-1))` where `k` is equal to
-`entier (n/2)`, that is, the largest integer less than or equal to
-`n/2`.  Note that this definition does not coincide with other published
-definitions for arguments which are not integers.
+`0!!` simplifies to `1` and `(- 1)!!` simplifies to `1`.
+
+
+For a positive integer *n*,
+`n!!` simplifies to
+the product `n (n - 2) (n - 4) (n - 6) ... 5 3 1` for odd *n*
+and `n (n - 2) (n - 4) ... 6 4 2` for even *n*.
+
+
+For a negative odd integer *n*,
+the double factorial is equal to `(- 1)^((n - 1)/2)*n/(- n)!!`.
+The double factorial is not defined for negative even integers.
+
+
+For real or complex float or bigfloat argument *z*,
+`z!!` simplifies to a real or complex float or bigfloat result,
+equal to `sqrt(2/%pi)^((1 - cos(%pi*z))/2)*(2^(z/2))*gamma(1 + z/2)`.
+This expression agrees with the product definitions for even and odd positive integers.
+
+
+When the global flag `factorial_expand` is `true`,
+`(z - 1)!!` simplifies to `z!/z!!`,
+where *z* is any expression.
+
+
+Also when the global flag `factorial_expand` is `true` and `k` is an even positive integer,
+`(z + k)!!` simplifies to
+`(z + 2) (z + 4) (z + 6) ... (z + k) z!!`,
+and `z - k` simplifies to
+`z!!/((z - k + 2) (z - k + 4) (z - k + 6) ... z)`.
+
+
+Maxima knows the derivative of the double factorial.
+
+
+`!!` distributes over lists, matrices, and equations.
+See `distribute_over`.
+
+
+Examples:
+
+
+`!!` and `double_factorial` are equivalent.
 
 
 
-For an even (or odd) integer `n`, `n!!` evaluates to the product of
-all the consecutive even (or odd) integers from 2 (or 1) through `n`
-inclusive.
 
 
-For an argument `n` which is not an integer, float, or rational, `n!!`
-yields a noun form `genfact (n, n/2, 2)`.
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) 8!!;
+(%o1)                          384
+
+
+(%i2) double_factorial (8);
+(%o2)                          384
+
+
+(%i3) x!!;
+(%o3)                          x!!
+
+
+(%i4) double_factorial (x);
+(%o4)                          x!!
+
+
+(%i5) is (x!! = double_factorial (x));
+(%o5)                         true
+```
+
+
+Double factorial of even and odd positive integers.
+
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) makelist (n!!, n, 1, 9);
+(%o1)          [1, 2, 3, 8, 15, 48, 105, 384, 945]
+```
+
+
+Double factorial of odd negative integers.
+
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) makelist (n!!, n, -9, -1, 2);
+                       1     1   1
+(%o1)                [---, - --, -, - 1, 1]
+                      105    15  3
+```
+
+
+Double factorial of float and bigfloat values.
+
+
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) makelist ((float (k + 1/2))!!, k, -5, 5, 2);
+(%o1) [0.7363534302684733, - 1.8408835756711817, 
+0.9204417878355904, 1.3806626817533858, 4.8323193861368505, 
+26.577756623752663]
+
+
+(%i2) makelist ((bfloat (k + 1/2))!!, k, -5, 5, 2);
+(%o2) [7.363534302684728b-1, - 1.840883575671182b0, 
+9.20441787835591b-1, 1.380662681753387b0, 4.832319386136853b0, 
+2.657775662375269b1]
+```
+
+
+Double factorial of complex float and complex bigfloat values.
+
+
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) makelist ((float (k + %i/2))!!, k, -5, 5, 2);
+(%o1) [0.0738293842296815 %i + 0.20245223746676777, 
+- 0.12026203395566047 %i - 0.644271404515144, 
+0.7044024214929739 - 0.2018736683019115 %i, 
+0.15032754244457538 %i + 0.8053392556439295, 
+0.8536522551556902 %i + 2.3408539957095003, 
+5.438688273633204 %i + 11.27744385096966]
+
+
+(%i2) makelist ((bfloat (k + %i/2))!!, k, -5, 5, 2);
+(%o2) [7.382938422968142b-2 %i + 2.024522374667677b-1, 
+- 1.202620339556604b-1 %i - 6.442714045151438b-1, 
+7.04402421492974b-1 - 2.018736683019115b-1 %i, 
+1.503275424445755b-1 %i + 8.053392556439297b-1, 
+8.536522551556913b-1 %i + 2.340853995709501b0, 
+5.438688273633207b0 %i + 1.127744385096966b1]
+```
+
+
+Simplification of double factorial when `factorial_expand` is `true`.
+
+
+
+
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) factorial_expand: true;
+(%o1)                         true
+
+
+(%i2) (n - 1)!!;
+                               n!
+(%o2)                          ---
+                               n!!
+
+
+(%i3) (n + 6)!!;
+(%o3)              (n + 2) (n + 4) (n + 6) n!!
+
+
+(%i4) (n - 6)!!;
+                               n!!
+(%o4)                   -----------------
+                        (n - 4) (n - 2) n
+```
+
+
+Derivative of the double factorial.
+
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) diff (x!!, x);
+                    2
+           %pi log(---) sin(%pi x)
+                   %pi                    x
+      x!! (----------------------- + psi (- + 1) + log(2))
+                      2                 0 2
+(%o1) ----------------------------------------------------
+                               2
+```
+
+
+Distributing the double factorial over a list, a matrix, and an equation.
+
+
+
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) [ 1, 3, 7, 9 ]!!;
+(%o1)                   [1, 3, 105, 945]
+
+
+(%i2) matrix ([1, 3, 7], [9, 11, 13])!!;
+                     [  1     3     105   ]
+(%o2)                [                    ]
+                     [ 945  10395  135135 ]
+
+
+(%i3) (z = 7)!!;
+(%o3)                       z!! = 105
+```
+
+See also: `distribute_over`.
 
 <!-- category: Combinatorics -->
 <!-- keywords: binomial -->

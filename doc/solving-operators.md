@@ -5,7 +5,7 @@
 <!-- signatures: # -->
 ### Function: #
 
-Represents the negation of syntactic equality `_003d`.
+Represents the negation of syntactic equality `=`.
 
 
 Note that because of the rules for evaluation of predicate expressions
@@ -80,7 +80,7 @@ syntactically equal, in contrast to equivalent expressions, for which
 equivalent and not syntactically equal.
 
 
-The negation of `=` is represented by `_0023`.
+The negation of `=` is represented by `#`.
 As with `=`, an expression `a # b`, by itself, is not
 evaluated.  `is(a # b)` evaluates `a # b` to
 `true` or `false`.
