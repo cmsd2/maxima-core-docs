@@ -1,4 +1,4 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.3 from
+This is maxima-core-docs.info, produced by makeinfo version 7.2 from
 maxima-core-docs.texi.
 
 
@@ -2961,7 +2961,7 @@ File: maxima-core-docs.info,  Node: Function translate_file maxima_filename,  Ne
 
      See also
 
-          tr_array_as_ref
+     ‘tr_array_as_ref’
 
      ‘tr_bound_function_applyp’,
 
@@ -5072,7 +5072,7 @@ File: maxima-core-docs.info,  Node: Operators,  Next: Program Flow,  Prev: Maxim
 * Function =::
 * Function =: Function = 2.
 * Function < =::
-* Function ^{}::
+* Function ^^::
 * Function and::
 * Function infix op::
 * Function matchfix ldelimiter rdelimiter::
@@ -5614,7 +5614,7 @@ See also: ‘macroexpand’, ‘macros’, ‘kill’, ‘remove’, ‘remfunct
 ‘fundef’, ‘dispfun’, ‘buildq’, ‘splice’.
 
 
-File: maxima-core-docs.info,  Node: Function = 2,  Next: Function ^{},  Prev: Function =,  Up: Operators
+File: maxima-core-docs.info,  Node: Function = 2,  Next: Function ^^,  Prev: Function =,  Up: Operators
 
 1.96.7 Function: :=
 -------------------
@@ -5803,7 +5803,7 @@ maxima
 See also: ‘memoizing-function’, ‘local’, ‘define’, ‘::=’.
 
 
-File: maxima-core-docs.info,  Node: Function < =,  Next: Function ^{},  Prev: Function = 2,  Up: Operators
+File: maxima-core-docs.info,  Node: Function < =,  Next: Function ^^,  Prev: Function = 2,  Up: Operators
 
  -- Function: < (=)
      The symbols ‘<’ ‘<=’ ‘>=’ and ‘>’ represent less than, less than or
@@ -5884,10 +5884,10 @@ File: maxima-core-docs.info,  Node: Function < =,  Next: Function ^{},  Prev: Fu
      ‘#’, ‘equal’, ‘notequal’.
 
 
-File: maxima-core-docs.info,  Node: Function ^{},  Next: Function and,  Prev: Function = 2,  Up: Operators
+File: maxima-core-docs.info,  Node: Function ^^,  Next: Function and,  Prev: Function = 2,  Up: Operators
 
-1.96.8 Function: ^{}
---------------------
+1.96.8 Function: ^^
+-------------------
 
 Noncommutative exponentiation operator.  ‘^^’ is the exponentiation
 operator corresponding to noncommutative multiplication ‘.’, just as the
@@ -5911,7 +5911,7 @@ maxima
 (%o2)                  a^3*b^2+a^^2 . b^^3
 
 
-File: maxima-core-docs.info,  Node: Function and,  Next: Function not,  Prev: Function ^{},  Up: Operators
+File: maxima-core-docs.info,  Node: Function and,  Next: Function not,  Prev: Function ^^,  Up: Operators
 
 1.96.9 Function: and
 --------------------
@@ -7546,7 +7546,7 @@ File: maxima-core-docs.info,  Node: Function parse_timedate S,  Next: Function r
      Midnight, January 1, 1900, in the local time zone, in each
      acceptable format.  The result is the number of seconds the local
      time zone is ahead (negative result) or behind (positive result)
-     GMT. In this example, the local time zone is 8 hours behind GMT.
+     GMT.  In this example, the local time zone is 8 hours behind GMT.
 
      (%i1) parse_timedate ("1900-01-01 00:00:00,000");
      (%o1)                         28800

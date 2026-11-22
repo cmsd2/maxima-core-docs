@@ -1,4 +1,4 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.3 from
+This is maxima-core-docs.info, produced by makeinfo version 7.2 from
 maxima-core-docs.texi.
 
 
@@ -115,7 +115,7 @@ File: maxima-core-docs.info,  Node: Function ratnumer expr,  Next: Function ratp
      over a common denominator.
 
      ‘num’ is similar, but returns an ordinary expression instead of a
-     CRE. Also, ‘num’ does not attempt to place all terms over a common
+     CRE.  Also, ‘num’ does not attempt to place all terms over a common
      denominator, and thus some expressions which are considered ratios
      by ‘ratnumer’ are not considered ratios by ‘num’.
 
