@@ -367,7 +367,9 @@ The MSE is defined as:
 
 
 
-$${1 \over n} \, \sum_{i=1}^n \left[{\rm lhs}\left(e_i\right) - {\rm rhs}\left(e_i\right)\right]^2,$$
+$$
+{1 \over n} \, \sum_{i=1}^n \left[{\rm lhs}\left(e_i\right) - {\rm rhs}\left(e_i\right)\right]^2,
+$$
 
 
 ```maxima
@@ -500,7 +502,9 @@ The residual MSE is defined as:
 
 
 
-$${1 \over n} \, \sum_{i=1}^n \left[{\rm lhs}\left(e_i\right) - {\rm rhs}\left(e_i\right)\right]^2,$$
+$$
+{1 \over n} \, \sum_{i=1}^n \left[{\rm lhs}\left(e_i\right) - {\rm rhs}\left(e_i\right)\right]^2,
+$$
 
 
 ```maxima
@@ -586,7 +590,9 @@ The residuals are defined as:
 
 
 
-$${\rm lhs}\left(e_i\right) - {\rm rhs}\left(e_i\right),$$
+$$
+{\rm lhs}\left(e_i\right) - {\rm rhs}\left(e_i\right),
+$$
 
 
 ```maxima

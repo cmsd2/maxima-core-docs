@@ -198,7 +198,7 @@ computations. `rembox` removes the box again.
 `dpart` and `lpart` functions.
 
 
-See also `rembox`, `dpart`, `lpart`, and `display_005fbox_005fdouble_005flines`.
+See also `rembox`, `dpart`, `lpart`, and `display_box_double_lines`.
 
 
 Examples:
@@ -881,7 +881,7 @@ can all be substituted back by evaluating the expression in which they occur.
 
 
 `isolate_wrt_times` if `true`, then `isolate` will also isolate
-with respect to products.  See `isolate_005fwrt_005ftimes`. See also `disolate`.
+with respect to products.  See `isolate_wrt_times`. See also `disolate`.
 
 
 

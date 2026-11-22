@@ -63,7 +63,9 @@ The Hurwitz zeta function is defined as
 
 
 
-$$\zeta \left(s,h\right) = \sum_{k=0}^\infty {1 \over \left(k+h\right)^{s}}$$
+$$
+\zeta \left(s,h\right) = \sum_{k=0}^\infty {1 \over \left(k+h\right)^{s}}
+$$
 
 
 ```maxima
@@ -505,7 +507,7 @@ ifactor produces detailed output about what it is doing including
 immediate feedback as soon as a factor has been found.
 
 
-The value returned by `ifactors` is controlled by the option variable `factors_005fonly`.
+The value returned by `ifactors` is controlled by the option variable `factors_only`.
 The default `false` causes `ifactors` to provide information about 
 the multiplicities of the computed prime factors. If `factors_only` 
 is set to `true`, `ifactors` simply returns the list of 
@@ -1038,7 +1040,7 @@ the value `false`.
 The Riemann zeta function distributes over lists, matrices, and equations.
 
 
-See also `bfzeta` and `zeta_0025pi`.
+See also `bfzeta` and `zeta%pi`.
 
 
 Examples:
@@ -1120,7 +1122,7 @@ See also: `true`.
 Shows an addition table of all elements in (Z/*n*Z).
 
 
-See also `zn_mult_table`,  `zn_005fpower_005ftable`.
+See also `zn_mult_table`,  `zn_power_table`.
 
 See also: `zn_mult_table`, `zn_power_table`.
 
@@ -1133,7 +1135,7 @@ Returns `1` if *n* is `1` and otherwise
 the greatest characteristic factor of the totient of *n*.
 
 
-For remarks and examples see `zn_005fcharacteristic_005ffactors`.
+For remarks and examples see `zn_characteristic_factors`.
 
 See also: `zn_characteristic_factors`.
 
@@ -1166,7 +1168,7 @@ If `n > 2`, then `totient(n)/2^r` is the number of quadratic residues,
 and each of these has `2^r` square roots.
 
 
-See also `totient`,  `zn_primroot`,  `zn_005ffactor_005fgenerators`.
+See also `totient`,  `zn_primroot`,  `zn_factor_generators`.
 
 
 Examples:
@@ -1288,7 +1290,7 @@ In that case `zn_determinant` computes the determinant non-modular
 and reduces thereafter.
 
 
-See also `zn_005finvert_005fby_005flu`.
+See also `zn_invert_by_lu`.
 
 
 Examples:
@@ -1337,7 +1339,7 @@ Returns a list containing factor generators corresponding to the
 characteristic factors of the totient of *n*.
 
 
-For remarks and examples see `zn_005fcharacteristic_005ffactors`.
+For remarks and examples see `zn_characteristic_factors`.
 
 See also: `zn_characteristic_factors`.
 
@@ -1352,7 +1354,7 @@ invertible. `zn_invert_by_lu` returns `false` if *matrix*
 is not invertible.
 
 
-See also `zn_005fdeterminant`.
+See also `zn_determinant`.
 
 
 Example:
@@ -1556,7 +1558,7 @@ The second example shows an alternative way to create a multiplication table
 for subgroups.
 
 
-See also `zn_add_table`,  `zn_005fpower_005ftable`.
+See also `zn_add_table`,  `zn_power_table`.
 
 
 Examples:
@@ -1972,7 +1974,7 @@ If the optional third argument *max_exp* is given, the exponent loops from
 `1` to *max_exp*. 
 
 
-See also `zn_add_table`,  `zn_005fmult_005ftable`.
+See also `zn_add_table`,  `zn_mult_table`.
 
 
 Examples:
@@ -2096,7 +2098,7 @@ smallest primitive root modulo *n*.  (Z/*n*Z)* is cyclic if *n* is equal to
 greater than `2` and `k` is a natural number.  `zn_primroot` 
 performs an according pretest if the option variable `zn_primroot_pretest`
 (default: `false`) is set to `true`.  In any case the computation is limited 
-by the upper bound `zn_005fprimroot_005flimit`.
+by the upper bound `zn_primroot_limit`.
 
 
 If (Z/*n*Z)* is not cyclic or if there is no primitive root up to 
@@ -2319,7 +2321,7 @@ Default value: `false`
 
 
 Controls whether `zn_primroot` prints a message when reaching 
-`zn_005fprimroot_005flimit`.
+`zn_primroot_limit`.
 
 See also: `zn_primroot`, `zn_primroot_limit`.
 

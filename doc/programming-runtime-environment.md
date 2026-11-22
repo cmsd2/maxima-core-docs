@@ -9,7 +9,7 @@ Returns the number of seconds since midnight, January 1, 1900 GMT.
 The return value is an integer.
 
 
-See also `elapsed_real_time` and `elapsed_005frun_005ftime`.
+See also `elapsed_real_time` and `elapsed_run_time`.
 
 
 Example:
@@ -50,7 +50,7 @@ it is rounded to the nearest multiple of 1/3600.
 If *tz_offset* is not present, the offset of the local time zone is assumed.
 
 
-See also `encode_005ftime`.
+See also `encode_time`.
 
 
 Examples:
@@ -98,7 +98,7 @@ since Maxima was most recently started or restarted.
 The return value is a floating-point number.
 
 
-See also `absolute_real_time` and `elapsed_005frun_005ftime`.
+See also `absolute_real_time` and `elapsed_run_time`.
 
 
 Example:
@@ -130,7 +130,7 @@ which Maxima has spent in computations since Maxima was most recently started
 or restarted.  The return value is a floating-point number.
 
 
-See also `absolute_real_time` and `elapsed_005freal_005ftime`.
+See also `absolute_real_time` and `elapsed_real_time`.
 
 
 Example:
@@ -198,7 +198,7 @@ it is rounded to the nearest multiple of 1/3600.
 If *tz_offset* is not present, the offset of the local time zone is assumed.
 
 
-See also `decode_005ftime`.
+See also `decode_time`.
 
 
 Examples:
@@ -336,7 +336,7 @@ Any leading or trailing whitespace (space, tab, newline, and carriage return) is
 but any other leading or trailing characters cause `parse_timedate` to fail and return `false`.
 
 
-See also `timedate` and `absolute_005freal_005ftime`.
+See also `timedate` and `absolute_real_time`.
 
 
 Examples:

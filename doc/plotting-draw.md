@@ -118,7 +118,7 @@ Example:
 ![draw_axis_bottom](figures/draw_axis_bottom.png)
 
 
-See also `axis_left`,  `axis_top`, `axis_right` and `axis_005f3d`.
+See also `axis_left`,  `axis_top`, `axis_right` and `axis_3d`.
 
 See also: `axis_left`, `axis_top`, `axis_right`, `axis_3d`.
 
@@ -147,7 +147,7 @@ Example:
 ```
 
 
-See also `axis_bottom`,  `axis_top`, `axis_right` and `axis_005f3d`.
+See also `axis_bottom`,  `axis_top`, `axis_right` and `axis_3d`.
 
 See also: `axis_bottom`, `axis_top`, `axis_right`, `axis_3d`.
 
@@ -176,7 +176,7 @@ Example:
 ```
 
 
-See also `axis_bottom`,  `axis_left`, `axis_top` and `axis_005f3d`.
+See also `axis_bottom`,  `axis_left`, `axis_top` and `axis_3d`.
 
 See also: `axis_bottom`, `axis_left`, `axis_top`, `axis_3d`.
 
@@ -205,7 +205,7 @@ Example:
 ```
 
 
-See also `axis_bottom`,   `axis_left`,  `axis_right`,  and `axis_005f3d`.
+See also `axis_bottom`,   `axis_left`,  `axis_right`,  and `axis_3d`.
 
 See also: `axis_bottom`, `axis_left`, `axis_right`, `axis_3d`.
 
@@ -246,7 +246,7 @@ and widths *w1*, *w2*, ...
 
 
 This object is affected by the following *graphic options*: `key`, 
-`fill_color`, `fill_density` and `line_005fwidth`.
+`fill_color`, `fill_density` and `line_width`.
 
 
 Example:
@@ -489,7 +489,7 @@ Color scale and 3D coloured object.
 ![draw_colorbox2](figures/draw_colorbox2.png)
 
 
-See also `palette_005fdraw`.
+See also `palette_draw`.
 
 See also: `palette_draw`.
 
@@ -965,7 +965,7 @@ the function does not give a real value.
 
 
 This option affects objects `explicit` and `parametric` in 2D and 3D, and
-`parametric_005fsurface`.
+`parametric_surface`.
 
 
 Example:
@@ -1322,12 +1322,12 @@ arguments must be of the form `[x, y, ydelta]` or
 `[x, y, xdelta, ydelta]` or `[x, y, xlow, xhigh, ylow, yhigh]`.
 
 
-See also `error_005ftype`.
+See also `error_type`.
 
 
 This object is affected by the following *graphic options*: `error_type`,  
 `points_joined`,  `line_width`,  `key`,  `line_type`,  
-`color`  `fill_density`,  `xaxis_secondary`  and  `yaxis_005fsecondary`.
+`color`  `fill_density`,  `xaxis_secondary`  and  `yaxis_secondary`.
 
 
 Option `fill_density` is only relevant when `error_type=boxes`.
@@ -1470,7 +1470,7 @@ Example:
 ```
 
 
-See also `terminal`,  `dimensions_005fdraw`.
+See also `terminal`,  `dimensions_draw`.
 
 See also: `terminal`, `dimensions_draw`.
 
@@ -1574,7 +1574,7 @@ Since this is a global graphics option, its position in the scene description
 does not matter.
 
 
-See also `font_005fsize`.
+See also `font_size`.
 
 
 Gnuplot doesn’t handle fonts by itself, it leaves this task to the
@@ -1905,7 +1905,7 @@ Example:
 ```
 
 
-See also `data_005ffile_005fname`.
+See also `data_file_name`.
 
 See also: `data_file_name`.
 
@@ -2048,7 +2048,7 @@ Example:
 ![draw_head_angle](figures/draw_head_angle.png)
 
 
-See also `head_both`,  `head_length`,  and `head_005ftype`.
+See also `head_both`,  `head_length`,  and `head_type`.
 
 See also: `head_both`, `head_length`, `head_type`.
 
@@ -2083,7 +2083,7 @@ Example:
 ![draw_head_both](figures/draw_head_both.png)
 
 
-See also `head_length`,  `head_angle`,  and `head_005ftype`.
+See also `head_length`,  `head_angle`,  and `head_type`.
 
 See also: `head_length`, `head_angle`, `head_type`.
 
@@ -2120,7 +2120,7 @@ Example:
 ![draw_head_length](figures/draw_head_length.png)
 
 
-See also `head_both`,  `head_angle`,  and `head_005ftype`.
+See also `head_both`,  `head_angle`,  and `head_type`.
 
 See also: `head_both`, `head_angle`, `head_type`.
 
@@ -2158,7 +2158,7 @@ Example:
 ![draw_head_type](figures/draw_head_type.png)
 
 
-See also `head_both`,  `head_angle`,  and `head_005flength`.
+See also `head_both`,  `head_angle`,  and `head_length`.
 
 See also: `head_both`, `head_angle`, `head_length`.
 
@@ -2300,7 +2300,7 @@ An xpm file is read and then rendered.
 ```
 
 
-See also `make_level_picture`,  `make_rgb_picture` and `read_005fxpm`.
+See also `make_level_picture`,  `make_rgb_picture` and `read_xpm`.
 
 
 [http://www.telefonica.net/web2/biomates/maxima/gpdraw/image]()
@@ -2537,7 +2537,7 @@ This option affects the following graphic objects:
 `parametric` and `polar`.
 - *
 `gr3d`: `points`, `explicit`, `parametric`
-and `parametric_005fsurface`.
+and `parametric_surface`.
 
 
 Example:
@@ -2701,7 +2701,7 @@ This option affects the following graphic objects:
 `ellipse`, `vector`, `explicit`, `implicit`, 
 `parametric` and `polar`.
 - *
-`gr3d`: `points`, `explicit`, `parametric` and `parametric_005fsurface`.
+`gr3d`: `points`, `explicit`, `parametric` and `parametric_surface`.
 
 
 Example:
@@ -2718,7 +2718,7 @@ Example:
 ![draw_line_type](figures/draw_line_type.png)
 
 
-See also `line_005fwidth`.
+See also `line_width`.
 
 See also: `points`, `polygon`, `rectangle`, `ellipse`, `vector`, `explicit`, `implicit`, `parametric`, `polar`, `parametric_surface`, `line_width`.
 
@@ -2760,7 +2760,7 @@ Example:
 ![draw_line_width](figures/draw_line_width.png)
 
 
-See also `line_005ftype`.
+See also `line_type`.
 
 See also: `points`, `polygon`, `rectangle`, `ellipse`, `vector`, `explicit`, `implicit`, `parametric`, `polar`, `line_type`.
 
@@ -2917,7 +2917,7 @@ Example:
 ```
 
 
-See also `logx_draw` and `logy_005fdraw`.
+See also `logx_draw` and `logy_draw`.
 
 See also: `logx_draw`, `logy_draw`.
 
@@ -3947,7 +3947,7 @@ defined by $[minval1, maxval1]$ and $[minval2, maxval2]$.
 
 
 This object is affected by the following *graphic options*: `fill_color`, `fill_density`,
-`key`, `x_voxel` and `y_005fvoxel`.
+`key`, `x_voxel` and `y_voxel`.
 
 
 Example:
@@ -4686,7 +4686,7 @@ Example:
 ![draw_xaxis](figures/draw_xaxis.png)
 
 
-See also `xaxis_width`,  `xaxis_type` and `xaxis_005fcolor`.
+See also `xaxis_width`,  `xaxis_type` and `xaxis_color`.
 
 See also: `xaxis_width`, `xaxis_type`, `xaxis_color`.
 
@@ -4717,7 +4717,7 @@ Example:
 ```
 
 
-See also `xaxis`,  `xaxis_width` and `xaxis_005ftype`.
+See also `xaxis`,  `xaxis_width` and `xaxis_type`.
 
 See also: `xaxis`, `xaxis_width`, `xaxis_type`.
 
@@ -4755,7 +4755,7 @@ Example:
 
 
 See also `xrange_secondary`,  `xtics_secondary`,  `xtics_rotate_secondary`, 
-`xtics_axis_secondary` and `xaxis_005fsecondary`.
+`xtics_axis_secondary` and `xaxis_secondary`.
 
 See also: `xrange_secondary`, `xtics_secondary`, `xtics_rotate_secondary`, `xaxis_secondary`.
 
@@ -4786,7 +4786,7 @@ Example:
 ```
 
 
-See also `xaxis`,  `xaxis_width` and `xaxis_005fcolor`.
+See also `xaxis`,  `xaxis_width` and `xaxis_color`.
 
 See also: `xaxis`, `xaxis_width`, `xaxis_color`.
 
@@ -4817,7 +4817,7 @@ Example:
 ```
 
 
-See also `xaxis`,  `xaxis_type` and `xaxis_005fcolor`.
+See also `xaxis`,  `xaxis_type` and `xaxis_color`.
 
 See also: `xaxis`, `xaxis_type`, `xaxis_color`.
 
@@ -4853,7 +4853,7 @@ Example:
 ![draw_ylabel_secondary](figures/draw_ylabel_secondary.png)
 
 
-See also `xlabel_draw`,  `ylabel_draw`,  `ylabel_secondary` and `zlabel_005fdraw`.
+See also `xlabel_draw`,  `ylabel_draw`,  `ylabel_secondary` and `zlabel_draw`.
 
 See also: `xlabel_draw`, `ylabel_draw`, `ylabel_secondary`, `zlabel_draw`.
 
@@ -4911,7 +4911,7 @@ Since this is a global graphics option, its position in the scene description
 does not matter.
 
 
-See also `xrange`,  `yrange`,  `zrange` and `yrange_005fsecondary`.
+See also `xrange`,  `yrange`,  `zrange` and `yrange_secondary`.
 
 See also: `xrange`, `yrange`, `zrange`, `yrange_secondary`.
 
@@ -5021,7 +5021,7 @@ Example:
 ```
 
 
-See also `yv_005fgrid`.
+See also `yv_grid`.
 
 See also: `yv_grid`.
 
@@ -5109,7 +5109,7 @@ Example:
 ```
 
 
-See also `yaxis_width`,  `yaxis_type` and `yaxis_005fcolor`.
+See also `yaxis_width`,  `yaxis_type` and `yaxis_color`.
 
 See also: `yaxis_width`, `yaxis_type`, `yaxis_color`.
 
@@ -5140,7 +5140,7 @@ Example:
 ```
 
 
-See also `yaxis`,  `yaxis_width` and `yaxis_005ftype`.
+See also `yaxis`,  `yaxis_width` and `yaxis_type`.
 
 See also: `yaxis`, `yaxis_width`, `yaxis_type`.
 
@@ -5206,7 +5206,7 @@ Example:
 ```
 
 
-See also `yaxis`,  `yaxis_width` and `yaxis_005fcolor`.
+See also `yaxis`,  `yaxis_width` and `yaxis_color`.
 
 See also: `yaxis`, `yaxis_width`, `yaxis_color`.
 
@@ -5237,7 +5237,7 @@ Example:
 ```
 
 
-See also `yaxis`,  `yaxis_type` and `yaxis_005fcolor`.
+See also `yaxis`,  `yaxis_type` and `yaxis_color`.
 
 See also: `yaxis`, `yaxis_type`, `yaxis_color`.
 
@@ -5276,7 +5276,7 @@ Example:
 ```
 
 
-See also `xlabel_draw`,  `xlabel_secondary`,  `ylabel_draw` and `zlabel_005fdraw`.
+See also `xlabel_draw`,  `xlabel_secondary`,  `ylabel_draw` and `zlabel_draw`.
 
 See also: `xlabel_draw`, `xlabel_secondary`, `ylabel_draw`, `zlabel_draw`.
 
@@ -5461,7 +5461,7 @@ Example:
 ![draw_xugrid](figures/draw_xugrid.png)
 
 
-See also `xu_005fgrid`.
+See also `xu_grid`.
 
 See also: `explicit`, `parametric_surface`, `xu_grid`.
 
@@ -5505,7 +5505,7 @@ Example:
 ```
 
 
-See also `zaxis_width`,  `zaxis_type` and `zaxis_005fcolor`.
+See also `zaxis_width`,  `zaxis_type` and `zaxis_color`.
 
 See also: `zaxis_width`, `zaxis_type`, `zaxis_color`.
 
@@ -5538,7 +5538,7 @@ Example:
 ```
 
 
-See also `zaxis`,  `zaxis_width` and `zaxis_005ftype`.
+See also `zaxis`,  `zaxis_width` and `zaxis_type`.
 
 See also: `zaxis`, `zaxis_width`, `zaxis_type`.
 
@@ -5570,7 +5570,7 @@ Example:
 ```
 
 
-See also `zaxis`,  `zaxis_width` and `zaxis_005fcolor`.
+See also `zaxis`,  `zaxis_width` and `zaxis_color`.
 
 See also: `zaxis`, `zaxis_width`, `zaxis_color`.
 
@@ -5602,7 +5602,7 @@ Example:
 ```
 
 
-See also `zaxis`,  `zaxis_type` and `zaxis_005fcolor`.
+See also `zaxis`,  `zaxis_type` and `zaxis_color`.
 
 See also: `zaxis`, `zaxis_type`, `zaxis_color`.
 
@@ -5636,7 +5636,7 @@ Example:
 ```
 
 
-See also `zlabel_005fdraw`.
+See also `zlabel_draw`.
 
 See also: `zlabel_draw`.
 

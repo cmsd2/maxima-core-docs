@@ -33,11 +33,10 @@ $v_j$
 
 
 
-$$\mathbf{A} v_j = \lambda_j v_j$$
-
-
-$${\bf A} v_j = \lambda_j v_j
 $$
+\mathbf{A} v_j = \lambda_j v_j
+$$
+
 
 
 
@@ -50,11 +49,10 @@ $u_j$
 
 
 
-$$u_j^\mathbf{H} \mathbf{A} = \lambda_j u_j^\mathbf{H}$$
-
-
-$$u_j^{\bf H} {\bf A} = \lambda_j u_j^{\bf H}
 $$
+u_j^\mathbf{H} \mathbf{A} = \lambda_j u_j^\mathbf{H}
+$$
+
 
 
 
@@ -333,10 +331,10 @@ can be decomposed as
 
 
 
-$$\mathbf{A} = \mathbf{Q}\mathbf{R}$$
+$$
+\mathbf{A} = \mathbf{Q}\mathbf{R}
+$$
 
-
-$${\bf A} = {\bf Q} {\bf R}$$
 
 
 
@@ -580,10 +578,10 @@ such that
 
 
 
-$$\mathbf{A} = \mathbf{U} \mathbf{\Sigma} \mathbf{V}^T$$
+$$
+\mathbf{A} = \mathbf{U} \mathbf{\Sigma} \mathbf{V}^T
+$$
 
-
-$${\bf A} = {\bf U} {\bf \Sigma} {\bf V}^T$$
 
 
 

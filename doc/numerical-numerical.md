@@ -70,10 +70,10 @@ Then for $k$ from 0 through $n - 1$,
 
 
 
-$$y[k] = {1\over n} \sum_{j=0}^{n-1} x[j] e^{+2i\pi j k / n}$$
+$$
+y[k] = {1\over n} \sum_{j=0}^{n-1} x[j] e^{+2i\pi j k / n}
+$$
 
-
-$$y[k] = {1\over n} \sum_{j=0}^{n-1} x[j] e^{+2i\pi j k / n}$$
 
 
 
@@ -86,11 +86,10 @@ real coefficients `a` and `b` can be computed such that
 
 
 
-$$x[j] = \sum_{k=0}^{n/2} \left(a[k] \cos {2\pi j k\over n} + b[k] \sin {2\pi j k \over n}\right)$$
+$$
+x[j] = \sum_{k=0}^{n/2} \left(a[k] \cos {2\pi j k\over n} + b[k] \sin {2\pi j k \over n}\right)
+$$
 
-
-$$x[j] = \sum_{k=0}^{n/2} \left(a[k] \cos {2\pi j k\over n} + b[k]
-\sin {2\pi j k \over n}\right)$$
 
 
 
@@ -98,13 +97,10 @@ with
 
 
 
-$$\eqalign{ a[0] &= {\rm realpart}(y[0])\cr b[0] &= 0 }$$
+$$
+\begin{aligned} a[0] &= {\rm realpart}(y[0])\cr b[0] &= 0 \end{aligned}
+$$
 
-
-$$\eqalign{
-a[0] &= {\rm realpart}(y[0])\cr
-b[0] &= 0
-}$$
 
 
 
@@ -112,13 +108,10 @@ and, for $k$ from 1 through $n/2 - 1$,
 
 
 
-$$\eqalign{ a[k] &= {\rm realpart}(y[k] + y[n-k]) \cr b[k] &= {\rm imagpart}(y[n-k] - y[k]) }$$
+$$
+\begin{aligned} a[k] &= {\rm realpart}(y[k] + y[n-k]) \cr b[k] &= {\rm imagpart}(y[n-k] - y[k]) \end{aligned}
+$$
 
-
-$$\eqalign{
-a[k] &= {\rm realpart}(y[k] + y[n-k]) \cr
-b[k] &= {\rm imagpart}(y[n-k] - y[k])
-}$$
 
 
 
@@ -126,13 +119,10 @@ and
 
 
 
-$$\eqalign{ a\left[{n\over 2}\right] &= {\rm realpart}\left(y\left[{n\over 2}\right]\right) \cr b\left[{n\over 2}\right] &= 0 }$$
+$$
+\begin{aligned} a\left[{n\over 2}\right] &= {\rm realpart}\left(y\left[{n\over 2}\right]\right) \cr b\left[{n\over 2}\right] &= 0 \end{aligned}
+$$
 
-
-$$\eqalign{
-a\left[{n\over 2}\right] &= {\rm realpart}\left(y\left[{n\over 2}\right]\right) \cr
-b\left[{n\over 2}\right] &= 0
-}$$
 
 
 
@@ -427,10 +417,10 @@ Then for $j$ from 0 through $n - 1$,
 
 
 
-$$x[j] = \sum_{k=0}^{n-1} y[k] e^{-2i\pi j k/n}$$
+$$
+x[j] = \sum_{k=0}^{n-1} y[k] e^{-2i\pi j k/n}
+$$
 
-
-$$x[j] = \sum_{k=0}^{n-1} y[k] e^{-2i\pi j k/n}$$
 
 
 
@@ -545,13 +535,10 @@ The outputs are calculated as
 
 
 
-$$\eqalign{ a &= r \cos t \cr b &= r \sin t }$$
+$$
+\begin{aligned} a &= r \cos t \cr b &= r \sin t \end{aligned}
+$$
 
-
-$$\eqalign{
-a &= r \cos t \cr
-b &= r \sin t
-}$$
 
 
 
@@ -604,13 +591,10 @@ The outputs are calculated as
 
 
 
-$$\eqalign{ r &= \sqrt{a^2+b^2} \cr t &= {\rm atan2}(b, a) }$$
+$$
+\begin{aligned} r &= \sqrt{a^2+b^2} \cr t &= {\rm atan2}(b, a) \end{aligned}
+$$
 
-
-$$\eqalign{
-r &= \sqrt{a^2+b^2} \cr
-t &= {\rm atan2}(b, a)
-}$$
 
 
 

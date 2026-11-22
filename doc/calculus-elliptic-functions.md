@@ -9,11 +9,10 @@ Carlson’s RC integral is defined by
 
 
 
-$$R_C(x, y) = \frac{1}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}(t+y)}\, dt$$
-
-
-$$R_C(x, y) = \frac{1}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}(t+y)}\, dt
 $$
+R_C(x, y) = \frac{1}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}(t+y)}\, dt
+$$
+
 
 
 
@@ -27,19 +26,10 @@ way:
 
 
 
-$$\eqalign{ \log x &= (x-1) R_C\left(\left({\frac{1+x}{2}}\right)^2, x\right), \quad x > 0 \cr \sin^{-1} x &= x R_C(1-x^2, 1), \quad |x| \le 1 \cr \cos^{-1} x &= \sqrt{1-x^2} R_C(x^2,1), \quad 0 \le x \le 1 \cr \tan^{-1} x &= x R_C(1,1+x^2) \cr \sinh^{-1} x &= x R_C(1+x^2,1) \cr \cosh^{-1} x &= \sqrt{x^2-1} R_C(x^2,1), \quad x \ge 1 \cr \tanh^{-1}(x) &= x R_C(1,1-x^2), \quad |x| \le 1 }$$
-
-
-$$\eqalign{
-\log x &= (x-1) R_C\left(\left({\frac{1+x}{2}}\right)^2, x\right), \quad x > 0 \cr
-\sin^{-1} x &= x R_C(1-x^2, 1), \quad |x| \le 1 \cr
-\cos^{-1} x &= \sqrt{1-x^2} R_C(x^2,1), \quad 0 \le x \le 1  \cr
-\tan^{-1} x &= x  R_C(1,1+x^2)  \cr
-\sinh^{-1} x &= x  R_C(1+x^2,1)  \cr
-\cosh^{-1} x &= \sqrt{x^2-1}  R_C(x^2,1), \quad x \ge 1  \cr
-\tanh^{-1}(x) &= x  R_C(1,1-x^2), \quad |x| \le 1
-}
 $$
+\begin{aligned} \log x &= (x-1) R_C\left(\left({\frac{1+x}{2}}\right)^2, x\right), \quad x > 0 \cr \sin^{-1} x &= x R_C(1-x^2, 1), \quad |x| \le 1 \cr \cos^{-1} x &= \sqrt{1-x^2} R_C(x^2,1), \quad 0 \le x \le 1 \cr \tan^{-1} x &= x R_C(1,1+x^2) \cr \sinh^{-1} x &= x R_C(1+x^2,1) \cr \cosh^{-1} x &= \sqrt{x^2-1} R_C(x^2,1), \quad x \ge 1 \cr \tanh^{-1}(x) &= x R_C(1,1-x^2), \quad |x| \le 1 \end{aligned}
+$$
+
 
 
 
@@ -47,25 +37,17 @@ Also, we have the relationship
 
 
 
-$$R_C(x,y) = R_F(x,y,y)$$
-
-
-$$R_C(x,y) = R_F(x,y,y)
 $$
+R_C(x,y) = R_F(x,y,y)
+$$
+
 
 
 
 Some special values:
 
-$$\eqalign{R_C(0, 1) &= \frac{\pi}{2} \cr R_C(0, 1/4) &= \pi \cr R_C(2,1) &= \log(\sqrt{2} + 1) \cr R_C(i,i+1) &= \frac{\pi}{4} + \frac{i}{2} \log(\sqrt{2}-1) \cr R_C(0,i) &= (1-i)\frac{\pi}{2\sqrt{2}} \cr }$$
-
-
-$$\eqalign{R_C(0, 1) &= \frac{\pi}{2} \cr
-R_C(0, 1/4) &= \pi \cr
-R_C(2,1) &= \log(\sqrt{2} + 1) \cr
-R_C(i,i+1) &= \frac{\pi}{4} + \frac{i}{2} \log(\sqrt{2}-1) \cr
-R_C(0,i) &= (1-i)\frac{\pi}{2\sqrt{2}} \cr
-}
+$$
+\begin{aligned}R_C(0, 1) &= \frac{\pi}{2} \cr R_C(0, 1/4) &= \pi \cr R_C(2,1) &= \log(\sqrt{2} + 1) \cr R_C(i,i+1) &= \frac{\pi}{4} + \frac{i}{2} \log(\sqrt{2}-1) \cr R_C(0,i) &= (1-i)\frac{\pi}{2\sqrt{2}} \cr \end{aligned}
 $$
 
 <!-- category: Calculus -->
@@ -77,11 +59,10 @@ Carlson’s RD integral is defined by
 
 
 
-$$R_D(x,y,z) = \frac{3}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}\,(t+z)}\, dt$$
-
-
-$$R_D(x,y,z) = \frac{3}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}\,(t+z)}\, dt
 $$
+R_D(x,y,z) = \frac{3}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}\,(t+z)}\, dt
+$$
+
 
 
 
@@ -94,15 +75,10 @@ We also have the special values
 
 
 
-$$\eqalign{ R_D(x,x,x) &= x^{-\frac{3}{2}} \cr R_D(0,y,y) &= \frac{3}{4} \pi y^{-\frac{3}{2}} \cr R_D(0,2,1) &= 3 \sqrt{\pi} \frac{\Gamma(\frac{3}{4})}{\Gamma(\frac{1}{4})} }$$
-
-
-$$\eqalign{
-R_D(x,x,x) &= x^{-\frac{3}{2}} \cr
-R_D(0,y,y) &= \frac{3}{4} \pi y^{-\frac{3}{2}} \cr
-R_D(0,2,1) &= 3 \sqrt{\pi} \frac{\Gamma(\frac{3}{4})}{\Gamma(\frac{1}{4})}
-}
 $$
+\begin{aligned} R_D(x,x,x) &= x^{-\frac{3}{2}} \cr R_D(0,y,y) &= \frac{3}{4} \pi y^{-\frac{3}{2}} \cr R_D(0,2,1) &= 3 \sqrt{\pi} \frac{\Gamma(\frac{3}{4})}{\Gamma(\frac{1}{4})} \end{aligned}
+$$
+
 
 
 
@@ -113,10 +89,8 @@ kind, $E$,
 
 
 
-$$E(m) = R_F(0, 1 - m, 1) - \frac{m}{3} R_D(0, 1 - m, 1)$$
-
-
-$$E(m) = R_F(0, 1 - m, 1) - \frac{m}{3} R_D(0, 1 - m, 1)
+$$
+E(m) = R_F(0, 1 - m, 1) - \frac{m}{3} R_D(0, 1 - m, 1)
 $$
 
 See also: `elliptic_ec`.
@@ -130,11 +104,10 @@ Carlson’s RF integral is defined by
 
 
 
-$$R_F(x,y,z) = \frac{1}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}}\, dt$$
-
-
-$$R_F(x,y,z) = \frac{1}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}}\, dt
 $$
+R_F(x,y,z) = \frac{1}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}}\, dt
+$$
+
 
 
 
@@ -147,14 +120,10 @@ We also have the special values
 
 
 
-$$\eqalign{ R_F(0,1,2) &= \frac{\Gamma({\frac{1}{4}})^2}{4\sqrt{2\pi}} \cr R_F(i,-i,0) &= \frac{\Gamma({\frac{1}{4}})^2}{4\sqrt{\pi}} }$$
-
-
-$$\eqalign{
-R_F(0,1,2)  &= \frac{\Gamma({\frac{1}{4}})^2}{4\sqrt{2\pi}} \cr
-R_F(i,-i,0) &= \frac{\Gamma({\frac{1}{4}})^2}{4\sqrt{\pi}}
-}
 $$
+\begin{aligned} R_F(0,1,2) &= \frac{\Gamma({\frac{1}{4}})^2}{4\sqrt{2\pi}} \cr R_F(i,-i,0) &= \frac{\Gamma({\frac{1}{4}})^2}{4\sqrt{\pi}} \end{aligned}
+$$
+
 
 
 
@@ -164,10 +133,8 @@ kind, $E$,
 
 
 
-$$E(m) = R_F(0, 1 - m, 1) - \frac{m}{3} R_D(0, 1 - m, 1)$$
-
-
-$$E(m) = R_F(0, 1 - m, 1) - \frac{m}{3} R_D(0, 1 - m, 1)
+$$
+E(m) = R_F(0, 1 - m, 1) - \frac{m}{3} R_D(0, 1 - m, 1)
 $$
 
 See also: `elliptic_ec`.
@@ -181,11 +148,10 @@ Carlson’s RJ integral is defined by
 
 
 
-$$R_J(x,y,z) = \frac{1}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}\,(t+p)}\, dt$$
-
-
-$$R_J(x,y,z) = \frac{1}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}\,(t+p)}\, dt
 $$
+R_J(x,y,z) = \frac{1}{2} \int_0^{\infty} \frac{1}{\sqrt{t+x}\sqrt{t+y}\sqrt{t+z}\,(t+p)}\, dt
+$$
+
 
 
 
@@ -199,11 +165,10 @@ by
 
 
 
-$$\int_0^\phi {1\over \left(1+n\sin^2\theta\right) \sqrt{1-m\sin^2\theta}} \, d\theta = R_F(c-1,c-m,c) - {n\over 3}R_j(c-1,c-m,c,c+n)$$
+$$
+\int_0^\phi {1\over \left(1+n\sin^2\theta\right) \sqrt{1-m\sin^2\theta}} \, d\theta = R_F(c-1,c-m,c) - {n\over 3}R_j(c-1,c-m,c,c+n)
+$$
 
-
-$$\int_0^\phi {1\over \left(1+n\sin^2\theta\right) \sqrt{1-m\sin^2\theta}}
-\, d\theta = R_F(c-1,c-m,c) - {n\over 3}R_j(c-1,c-m,c,c+n)$$
 
 
 
@@ -223,15 +188,14 @@ The incomplete elliptic integral of the second kind, defined as
 
 
 
-$$\int_0^\phi {\sqrt{1 - m\sin^2\theta}}\, d\theta$$
-
-
-$$\int_0^\phi {\sqrt{1 - m\sin^2\theta}}\, d\theta
+$$
+\int_0^\phi {\sqrt{1 - m\sin^2\theta}}\, d\theta
 $$
 
 
 
-See also `elliptic_005ff` and `elliptic_005fec`.
+
+See also `elliptic_f` and `elliptic_ec`.
 
 See also: `elliptic_f`, `elliptic_ec`.
 
@@ -244,11 +208,10 @@ The complete elliptic integral of the second kind, defined as
 
 
 
-$$\int_0^{\frac{\pi}{2}} \sqrt{1 - m\sin^2\theta}\, d\theta$$
-
-
-$$\int_0^{\frac{\pi}{2}} \sqrt{1 - m\sin^2\theta}\, d\theta
 $$
+\int_0^{\frac{\pi}{2}} \sqrt{1 - m\sin^2\theta}\, d\theta
+$$
+
 
 
 
@@ -256,44 +219,6 @@ For certain values of $m$, the value of the integral is known in
 terms of `gamma` functions.  Use `makegamma` to evaluate them.
 
 See also: `gamma`, `makegamma`.
-
-<!-- category: Calculus -->
-<!-- keywords: elliptic_eu -->
-<!-- signatures: elliptic_eu(u, m) -->
-### Function: elliptic_eu (u, m)
-
-The incomplete elliptic integral of the second kind, defined as
-
-
-
-$$E(u, m) = \int_0^u {\rm dn}(v, m)\, dv = \int_0^\tau \sqrt{\frac{1-m t^2}{1-t^2}}\, dt$$
-
-
-$$E(u, m) = \int_0^u {\rm dn}(v, m)\, dv  = \int_0^\tau \sqrt{\frac{1-m t^2}{1-t^2}}\, dt
-$$
-
-
-
-where 
-$\tau = {\rm sn}(u,m) .$
-
-
-
-This is related to `elliptic_e` by
-
-
-
-$$E(u,m) = E(\sin^{-1} {\rm sn}(u, m), m)$$
-
-
-$$E(u,m) = E(\sin^{-1} {\rm sn}(u, m), m)
-$$
-
-
-
-See also `elliptic_005fe`.
-
-See also: `elliptic_e`.
 
 <!-- category: Calculus -->
 <!-- keywords: elliptic_f -->
@@ -304,15 +229,14 @@ The incomplete elliptic integral of the first kind, defined as
 
 
 
-$$\int_0^{\phi} {\frac{d\theta}{\sqrt{1-m\sin^2\theta}}}$$
-
-
-$$\int_0^{\phi} {\frac{d\theta}{\sqrt{1-m\sin^2\theta}}}
+$$
+\int_0^{\phi} {\frac{d\theta}{\sqrt{1-m\sin^2\theta}}}
 $$
 
 
 
-See also `elliptic_005fe` and `elliptic_005fkc`.
+
+See also `elliptic_e` and `elliptic_kc`.
 
 See also: `elliptic_e`, `elliptic_kc`.
 
@@ -325,11 +249,10 @@ The complete elliptic integral of the first kind, defined as
 
 
 
-$$\int_0^{\frac{\pi}{2}} {{d\theta}\over{\sqrt{1 - m\sin^2\theta}}}$$
-
-
-$$\int_0^{\frac{\pi}{2}} {{d\theta}\over{\sqrt{1 - m\sin^2\theta}}}
 $$
+\int_0^{\frac{\pi}{2}} {{d\theta}\over{\sqrt{1 - m\sin^2\theta}}}
+$$
+
 
 
 
@@ -347,9 +270,84 @@ The incomplete elliptic integral of the third kind, defined as
 
 
 
-$$\int_0^\phi {{d\theta}\over{(1-n\sin^2 \theta)\sqrt{1 - m\sin^2\theta}}}$$
-
-
-$$\int_0^\phi {{d\theta}\over{(1-n\sin^2 \theta)\sqrt{1 - m\sin^2\theta}}}
 $$
+\int_0^\phi {{d\theta}\over{(1-n\sin^2 \theta)\sqrt{1 - m\sin^2\theta}}}
+$$
+
+<!-- category: Calculus -->
+<!-- keywords: jacobi_epsilon -->
+<!-- signatures: jacobi_epsilon(u, m) -->
+### Function: jacobi_epsilon (u, m)
+
+The Jacobi epsilon function,
+${\cal E}(u, m)$
+is defined by (see [https://dlmf.nist.gov/22.16.E17DLMF 22.16.E17]() and [https://dlmf.nist.gov/22.16.E14DLMF 22.16.E14]())
+
+
+
+$$
+{\cal E}(u, m) = \int_0^u {\rm dn}^2(v, m)\, dv = \int_0^\tau \sqrt{\frac{1-m t^2}{1-t^2}}\, dt
+$$
+
+
+
+
+where 
+$\tau = {\rm sn}(u,m) .$
+
+
+
+This is related to `elliptic_e` by
+
+
+
+$$
+{\cal E}(u,m) = E({\rm am}(u, m), m)
+$$
+
+
+
+
+See also `elliptic_e` and `jacobi_am`.
+
+
+Some examples:
+
+
+
+
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) jacobi_epsilon(u, m);
+(%o1)                 jacobi_epsilon(u, m)
+
+
+(%i2) jacobi_epsilon(u, 0);
+(%o2)                           u
+
+
+(%i3) jacobi_epsilon(u, 1);
+(%o3)                        tanh(u)
+
+
+(%i4) jacobi_epsilon(2*elliptic_kc(m),m);
+(%o4)                   2 elliptic_ec(m)
+
+
+(%i5) jacobi_epsilon(1/2+elliptic_kc(m), m);
+                                 1               1
+(%o5) elliptic_ec(m) - jacobi_cd(-, m) jacobi_sn(-, m) m
+                                 2               2
+                                                            1
+                                           + jacobi_epsilon(-, m)
+                                                            2
+```
+
+See also: `elliptic_e`, `jacobi_am`.
 

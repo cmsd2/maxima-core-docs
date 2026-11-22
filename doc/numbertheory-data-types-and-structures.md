@@ -695,7 +695,7 @@ variables in `expr` which have been given numerals to be replaced by
 their values.  It also sets the `float` switch on.
 
 
-See also `_0025enumer`.
+See also `%enumer`.
 
 
 Examples:

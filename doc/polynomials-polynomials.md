@@ -423,10 +423,14 @@ maxima
 <!-- signatures: denom(expr) -->
 ### Function: denom (expr)
 
-Returns the denominator of the rational expression *expr*.
+Returns the denominator of *expr* if it is a ratio.
+If *expr* is not a ratio, `1` is returned.
+For `%e^-x`, `2^-x` and `x/2`, the behavior depends on
+`%edispflag`, `exptdispflag`, and `pfeformat`,
+respectively.
 
 
-See also `num`
+See also `num` and `num_denom`.
 
 
 
@@ -461,7 +465,7 @@ maxima
 (%o4)                         10 y
 ```
 
-See also: `num`.
+See also: `%edispflag`, `exptdispflag`, `pfeformat`, `num`, `num_denom`.
 
 <!-- category: Polynomials -->
 <!-- keywords: divide -->
@@ -561,7 +565,7 @@ always uses the `ezgcd` algorithm.
 
 
 See also `gcd`, `gcdex`, `gcdivide`, and
-`poly_005fgcd`.
+`poly_gcd`.
 
 
 Examples:
@@ -1148,7 +1152,7 @@ maxima
 
 
 - *
-`fullratsubst` catches potential infinite recursions. `lrats_005fmax_005fiter`.
+`fullratsubst` catches potential infinite recursions. `lrats_max_iter`.
 
 
 
@@ -1207,7 +1211,7 @@ calculation if gcds are not required.
 
 
 See also `ezgcd`, `gcdex`, `gcdivide`, and
-`poly_005fgcd`.
+`poly_gcd`.
 
 
 Example:
@@ -1298,7 +1302,7 @@ The arguments *f* and *g* can be integers.  For this case the function
 
 
 See also `ezgcd`, `gcd`, `gcdivide`, and
-`poly_005fgcd`.
+`poly_gcd`.
 
 
 Examples:
@@ -1735,12 +1739,15 @@ maxima
 
 Returns the numerator of *expr* if it is a ratio.
 If *expr* is not a ratio, *expr* is returned.
+For `%e^-x`, `2^-x` and `x/2`, the behavior depends on
+`%edispflag`, `exptdispflag`, and `pfeformat`,
+respectively.
 
 
 `num` evaluates its argument.
 
 
-See also `denom`
+See also `denom` and `num_denom`.
 
 
 
@@ -1774,7 +1781,65 @@ maxima
 (%o4)                     cos(x) sin(x)
 ```
 
-See also: `denom`.
+See also: `%edispflag`, `exptdispflag`, `pfeformat`, `denom`, `num_denom`.
+
+<!-- category: Polynomials -->
+<!-- keywords: num_denom -->
+<!-- signatures: num_denom(expr) -->
+### Function: num_denom (expr)
+
+Returns a list `[num(expr), denom(expr)]`, but does so more
+efficiently.
+
+
+`num_denom` evaluates its argument.
+
+
+See also `num` and `denom`.
+
+
+
+
+
+
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) g1:(x+2)*(x+1)/((x+3)^2);
+                         (x + 1) (x + 2)
+(%o1)                    ---------------
+                                   2
+                            (x + 3)
+
+
+(%i2) num_denom(g1);
+                                            2
+(%o2)              [(x + 1) (x + 2), (x + 3) ]
+
+
+(%i3) g2:sin(x)/10*cos(x)/y;
+                          cos(x) sin(x)
+(%o3)                     -------------
+                              10 y
+
+
+(%i4) num_denom(g2);
+(%o4)                 [cos(x) sin(x), 10 y]
+
+
+(%i5) [n, d] : num_denom(g2)$
+
+
+(%i6) print("The numerator is", n, "and the denominator is", d)$
+The numerator is cos(x) sin(x) and the denominator is 10 y
+```
+
+See also: `num`, `denom`.
 
 <!-- category: Polynomials -->
 <!-- keywords: polydecomp -->
@@ -2981,7 +3046,7 @@ If *p_1* or *p_2* can be factored, it may be desirable to call
 
 The option variable `resultant` controls which algorithm will be used to
 compute the resultant.  See the option variable
-`option_005fresultant`.
+`option_resultant`.
 
 
 The function `bezout` takes the same arguments as `resultant` and

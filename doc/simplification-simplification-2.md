@@ -213,7 +213,7 @@ To use this function write first `load("functs")`.
 
 
 See also `ezgcd`, `gcd`, `gcdex`, and
-`poly_005fgcd`.
+`poly_gcd`.
 
 
 Example:

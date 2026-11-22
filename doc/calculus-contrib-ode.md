@@ -8,7 +8,7 @@
 Simplifies expressions containing Bessel functions `bessel_j`,
 `bessel_y`, `bessel_i`, `bessel_k`,
 `hankel_1`, `hankel_2`, `struve_h`
-and `struve_005fl`.
+and `struve_l`.
 Recurrence relations  [https://personal.math.ubc.ca/~cbm/aands/page_361.htmA&S eqn 9.1.27]() and [https://dlmf.nist.gov/10.6#iDLMF 10.6#i]()
 
 are used to replace functions of highest order n
@@ -133,7 +133,7 @@ The only use of these functions is in solutions of ODEs returned by
 functions may change in future releases of Maxima.
 
 
-See also `gauss_b`, `dgauss_a` and `gauss_005fb`.
+See also `gauss_b`, `dgauss_a` and `gauss_b`.
 
 See also: `odelin`, `contrib_ode`, `gauss_b`, `dgauss_a`.
 
@@ -142,7 +142,7 @@ See also: `odelin`, `contrib_ode`, `gauss_b`, `dgauss_a`.
 <!-- signatures: gauss_b(a, b, c, x) -->
 ### Function: gauss_b (a, b, c, x)
 
-See `gauss_005fa`.
+See `gauss_a`.
 
 See also: `gauss_a`.
 
@@ -159,7 +159,7 @@ The only use of this function is in solutions of ODEs returned by
 function may change in future releases of Maxima.
 
 
-See also `kummer_u`, `dkummer_m`, and `dkummer_005fu`.
+See also `kummer_u`, `dkummer_m`, and `dkummer_u`.
 
 See also: `odelin`, `contrib_ode`, `kummer_u`, `dkummer_m`, `dkummer_u`.
 
@@ -171,7 +171,7 @@ See also: `odelin`, `contrib_ode`, `kummer_u`, `dkummer_m`, `dkummer_u`.
 Kummer’s U function, see [https://personal.math.ubc.ca/~cbm/aands/page_504.htmA&S eqn 13.1.3]() and [https://dlmf.nist.gov/13.2.6DLMF 13.2.6]().
 
 
-See `kummer_005fm`.
+See `kummer_m`.
 
 See also: `kummer_m`.
 

@@ -19,10 +19,10 @@ that solve the least squares problem
 
 
 
-$$\sum_i^m f_i(x_1, x_2,...,x_n)^2$$
+$$
+\sum_i^m f_i(x_1, x_2,...,x_n)^2
+$$
 
-
-$$\sum_i^m f_i(x_1, x_2,...,x_n)^2$$
 
 
 
@@ -127,10 +127,10 @@ in $n$ variables:
 
 
 
-$$f_i(x_1, x_2, ..., x_n) = 0$$
+$$
+f_i(x_1, x_2, ..., x_n) = 0
+$$
 
-
-$$f_i(x_1, x_2, ..., x_n) = 0$$
 
 
 

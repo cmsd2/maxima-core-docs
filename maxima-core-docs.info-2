@@ -1,5 +1,95 @@
-This is maxima-core-docs.info, produced by makeinfo version 7.1 from
+This is maxima-core-docs.info, produced by makeinfo version 7.3 from
 maxima-core-docs.texi.
+
+
+File: maxima-core-docs.info,  Node: Function random_perm n,  Prev: Function permute p l,  Up: combinatorics
+
+ -- Function: random_perm (N)
+     Returns a random permutation of degree _n_.
+
+     See also ‘random_permutation’.
+
+     Example:
+
+     (%i1) load("combinatorics")$
+     
+     (%i2) random_perm (7);
+     (%o2)                  [6, 3, 4, 7, 5, 1, 2]
+
+     See also: ‘random_permutation’.
+
+
+File: maxima-core-docs.info,  Node: IO,  Next: Command Line,  Prev: combinatorics,  Up: Maxima Core Documentation
+
+1.20 IO
+=======
+
+
+File: maxima-core-docs.info,  Node: Command Line,  Next: Data Types and Structures,  Prev: IO,  Up: Maxima Core Documentation
+
+1.21 Command Line
+=================
+
+* Menu:
+
+* Variable %edispflag::
+* Variable absboxchar::
+* Function declare_index_properties a [p_1 p_2 p_3 ...]::
+* Function disp expr_1 expr_2 ...::
+* Function display expr_1 expr_2 ...::
+* Variable display2d::
+* Variable display2d_unicode::
+* Variable display_format_internal::
+* Variable display_index_separator::
+* Function dispterms expr::
+* Function expt a b::
+* Variable exptdispflag::
+* Function get_index_properties a::
+* Function grind expr::
+* Variable ibase::
+* Function ldisp expr_1 ... expr_n::
+* Function ldisplay expr_1 ... expr_n::
+* Variable leftjust::
+* Variable linel::
+* Variable lispdisp::
+* Variable negsumdispflag::
+* Variable obase::
+* Variable pfeformat::
+* Variable powerdisp::
+* Function print expr_1 ... expr_n::
+* Function remove_index_properties a b c ...::
+* Variable sqrtdispflag::
+* Variable stardisp::
+* Variable ttyoff::
+* Function with_default_2d_display expr::
+
+
+File: maxima-core-docs.info,  Node: Variable %edispflag,  Next: Variable absboxchar,  Up: Command Line
+
+ -- Variable: %edispflag
+     Default value: ‘false’
+
+     When ‘%edispflag’ is ‘true’, Maxima displays ‘%e’ to a negative
+     exponent as a quotient.  For example, ‘%e^-x’ is displayed as
+     ‘1/%e^x’.  See also ‘exptdispflag’.
+
+     Example:
+
+     maxima
+     
+     (%i1) %e^-10;
+                                    - 10
+     (%o1)                        %e
+     
+     (%i2) %edispflag:true$
+     
+     (%i3) %e^-10;
+                                    1
+     (%o3)                         ----
+                                     10
+                                   %e
+
+     See also: ‘exptdispflag’.
 
 
 File: maxima-core-docs.info,  Node: Variable absboxchar,  Next: Function declare_index_properties a [p_1 p_2 p_3 ...],  Prev: Variable %edispflag,  Up: Command Line
@@ -266,18 +356,16 @@ File: maxima-core-docs.info,  Node: Variable display2d_unicode,  Next: Variable 
 
  [image src="figures/maxima-unicode-display-variety-1.png" alt="maxima-unicode-display-variety-1" ]
 
-
      maxima-unicode-display-variety-1
      Same expressions, displayed using only ASCII characters
      (‘display2d_unicode’ equal to ‘false’), shown as an image:
 
  [image src="figures/maxima-unicode-display-variety-1-ascii.png" alt="maxima-unicode-display-variety-1-ascii" ]
 
-
      maxima-unicode-display-variety-1-ascii
      Footnotes:
 
-     [1] https://en.wikipedia.org/wiki/Box-drawing_character
+     [1] https//enwikipediaorg/wiki/Box-drawing_character
 
 
 File: maxima-core-docs.info,  Node: Variable display_format_internal,  Next: Variable display_index_separator,  Prev: Variable display2d_unicode,  Up: Command Line
@@ -332,7 +420,7 @@ File: maxima-core-docs.info,  Node: Variable display_index_separator,  Next: Fun
 
      Each symbol has its own value of ‘display_index_separator’.
 
-     See also ‘put’, ‘get’, and ‘declare_005findex_005fproperties’.
+     See also ‘put’, ‘get’, and ‘declare_index_properties’.
 
      Examples:
 
@@ -533,7 +621,7 @@ File: maxima-core-docs.info,  Node: Variable exptdispflag,  Next: Function get_i
      Default value: ‘true’
 
      When ‘exptdispflag’ is ‘true’, Maxima displays expressions with
-     negative exponents using quotients.  See also ‘_0025edispflag’.
+     negative exponents using quotients.  See also ‘%edispflag’.
 
      Example:
 
@@ -567,7 +655,7 @@ File: maxima-core-docs.info,  Node: Function get_index_properties a,  Next: Func
      Returns the properties for _a_ established by
      ‘declare_index_properties’.
 
-     See also ‘remove_005findex_005fproperties’.
+     See also ‘remove_index_properties’.
 
      See also: ‘remove_index_properties’.
 
@@ -1204,7 +1292,7 @@ File: maxima-core-docs.info,  Node: Function concat arg_1 arg_2 ...,  Next: Func
      evaluation.
 
      See also ‘sconcat’, that works on non-atoms, too, ‘simplode’,
-     ‘string’ and ‘eval_005fstring’.  For complex string conversions see
+     ‘string’ and ‘eval_string’.  For complex string conversions see
      also ‘printf’.
 
      (%i1) y: 7$
@@ -1247,7 +1335,7 @@ File: maxima-core-docs.info,  Node: Function sconcat arg_1 arg_2 ...,  Next: Fun
      Concatenates its arguments into a string.  Unlike ‘concat’, the
      arguments do _not_ need to be atoms.
 
-     See also ‘concat’, ‘simplode’, ‘string’ and ‘eval_005fstring’.  For
+     See also ‘concat’, ‘simplode’, ‘string’ and ‘eval_string’.  For
      complex string conversions see also ‘printf’.
 
      (%i1) sconcat ("xx[", 3, "]:", expand ((x+y)^3));
@@ -1275,7 +1363,7 @@ File: maxima-core-docs.info,  Node: Function string expr,  Next: Variable string
      The return value of ‘string’ is a string, and thus it cannot be
      used in a computation.
 
-     See also ‘concat’, ‘sconcat’, ‘simplode’ and ‘eval_005fstring’.
+     See also ‘concat’, ‘sconcat’, ‘simplode’ and ‘eval_string’.
 
      See also: ‘concat’, ‘sconcat’, ‘simplode’, ‘eval_string’.
 
@@ -1321,11 +1409,12 @@ File: maxima-core-docs.info,  Node: File Input and Output,  Next: alt-display,  
 * Function batch filename::
 * Variable batch_answers_from_file::
 * Function batchload filename::
-* Function closefile ::
+* Function closefile::
 * Function directory path::
 * Variable file_output_append::
 * Function file_search filename::
 * Variable file_search_cache::
+* Variable file_search_ignore_dirs::
 * Variable file_search_maxima::
 * Function file_type filename::
 * Variable file_type_lisp::
@@ -1335,7 +1424,7 @@ File: maxima-core-docs.info,  Node: File Input and Output,  Next: alt-display,  
 * Function fortran expr::
 * Variable fortspaces::
 * Function get_tex_environment op::
-* Function get_tex_environment_default ::
+* Function get_tex_environment_default::
 * Function load filename::
 * Variable load_pathname::
 * Function loadfile filename::
@@ -1369,7 +1458,7 @@ File: maxima-core-docs.info,  Node: Function batch filename,  Next: Variable bat
  -- Function: batch (FILENAME)
      ‘batch(filename)’ reads Maxima expressions from _filename_ and
      evaluates them.  ‘batch’ searches for _filename_ in the list
-     ‘file_005fsearch_005fmaxima’.  See also ‘file_005fsearch’.
+     ‘file_search_maxima’.  See also ‘file_search’.
 
      ‘batch(S)’ reads Maxima expressions from the input stream _S_ as
      created by ‘openr’.  The behavior of ‘batch’ in this case is the
@@ -1379,17 +1468,17 @@ File: maxima-core-docs.info,  Node: Function batch filename,  Next: Variable bat
      do not apply to streams.
 
      ‘batch(filename, demo)’ is like ‘demo(filename)’.  In this case
-     ‘batch’ searches for _filename_ in the list
-     ‘file_005fsearch_005fdemo’.  See ‘demo’.
+     ‘batch’ searches for _filename_ in the list ‘file_search_demo’.
+     See ‘demo’.
 
      ‘batch(filename, test)’ is like ‘run_testsuite’ with the option
      ‘display_all=true’.  For this case ‘batch’ searches _filename_ in
      the list ‘file_search_maxima’ and not in the list
      ‘file_search_tests’ like ‘run_testsuite’.  Furthermore,
-     ‘run_testsuite’ runs tests which are in the list
-     ‘testsuite_005ffiles’.  With ‘batch’ it is possible to run any file
-     in a test mode, which can be found in the list
-     ‘file_search_maxima’.  This is useful, when writing a test file.
+     ‘run_testsuite’ runs tests which are in the list ‘testsuite_files’.
+     With ‘batch’ it is possible to run any file in a test mode, which
+     can be found in the list ‘file_search_maxima’.  This is useful,
+     when writing a test file.
 
      _filename_ comprises a sequence of Maxima expressions, each
      terminated with ‘;’ or ‘$’.  The special variable ‘%’ and the
@@ -1397,6 +1486,10 @@ File: maxima-core-docs.info,  Node: Function batch filename,  Next: Variable bat
      may include ‘:lisp’ constructs.  Spaces, tabs, and newlines in the
      file are ignored.  A suitable input file may be created by a text
      editor or by the ‘stringout’ function.
+
+     _filename_ may also be a wxMaxima worksheet, that is a file with
+     the extension ‘wxmx’.  Then ‘batch’ reads the input cells of the
+     worksheet and ignores the rest of it, as ‘load’ does; see ‘load’.
 
      ‘batch’ reads each input expression from _filename_, displays the
      input to the console, computes the corresponding output expression,
@@ -1407,7 +1500,7 @@ File: maxima-core-docs.info,  Node: Function batch filename,  Next: Variable bat
      or ‘askinteger’, for example) ‘batch’ pauses to collect the
      requisite input and then continue; if ‘batch_answers_from_file’ is
      ‘true’, the input is read from the file itself.  See also
-     ‘batch_005fanswers_005ffrom_005ffile’.
+     ‘batch_answers_from_file’.
 
      It may be possible to halt ‘batch’ by typing ‘control-C’ at the
      console.  The effect of ‘control-C’ depends on the underlying Lisp
@@ -1435,8 +1528,8 @@ File: maxima-core-docs.info,  Node: Function batch filename,  Next: Variable bat
 
      See also: ‘file_search_maxima’, ‘file_search’, ‘openr’,
      ‘file_search_demo’, ‘demo’, ‘run_testsuite’, ‘file_search_tests’,
-     ‘testsuite_files’, ‘%’, ‘%th’, ‘stringout’, ‘asksign’,
-     ‘askinteger’, ‘batch_answers_from_file’, ‘load’, ‘batchload’.
+     ‘testsuite_files’, ‘%’, ‘%th’, ‘stringout’, ‘load’, ‘asksign’,
+     ‘askinteger’, ‘batch_answers_from_file’, ‘batchload’.
 
 
 File: maxima-core-docs.info,  Node: Variable batch_answers_from_file,  Next: Function batchload filename,  Prev: Function batch filename,  Up: File Input and Output
@@ -1463,7 +1556,7 @@ File: maxima-core-docs.info,  Node: Variable batch_answers_from_file,  Next: Fun
      The command-line option ‘--batch-string’ binds
      ‘batch_answers_from_file’ to ‘true’.  The ‘run_testsuite’ function,
      as a default, also binds ‘batch_answers_from_file’ to ‘true’.  See
-     also ‘command_line_options’ and ‘run_005ftestsuite’.
+     also ‘command_line_options’ and ‘run_testsuite’.
 
      See also: ‘command_line_options’, ‘run_testsuite’.
 
@@ -1547,8 +1640,17 @@ File: maxima-core-docs.info,  Node: Function file_search filename,  Next: Variab
      variables.
 
      ‘file_search’ first checks if the actual name passed exists, before
-     attempting to match it to "wildcard" file search patterns.  See
+     attempting to match it to “wildcard” file search patterns.  See
      ‘file_search_maxima’ concerning file search patterns.
+
+     While a file is being loaded, that is while ‘load_pathname’ names a
+     file, ‘file_search’ looks for _filename_ in the directory of that
+     file before it searches the path list.  A file that is loaded thus
+     finds the files beside it whatever directory Maxima was started in,
+     the way a C ‘#include "..."’ directive does.  The search patterns
+     of the path list are reused for that directory, so a neighbour is
+     found under its base name alone as well as under its full name.  A
+     file the name passed names outright still wins over both.
 
      The argument _filename_ can be a path and file name, or just a file
      name, or, if a file search directory includes a file search
@@ -1572,26 +1674,24 @@ File: maxima-core-docs.info,  Node: Function file_search filename,  Next: Variab
      one-element list.
 
      The user may modify the default search directories.  See
-     ‘file_005fsearch_005fmaxima’.
+     ‘file_search_maxima’.
 
      ‘file_search’ is invoked by ‘load’ with ‘file_search_maxima’ and
      ‘file_search_lisp’ as the search directories.
 
-     See also ‘file_005fsearch_005fcache’.
+     See also ‘file_search_cache’.
 
      See also: ‘file_search_maxima’, ‘file_search_lisp’,
-     ‘file_search_demo’, ‘load’, ‘file_search_cache’.
+     ‘file_search_demo’, ‘load_pathname’, ‘load’, ‘file_search_cache’.
 
 
-File: maxima-core-docs.info,  Node: Variable file_search_cache,  Next: Variable file_search_maxima,  Prev: Function file_search filename,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Variable file_search_cache,  Next: Variable file_search_ignore_dirs,  Prev: Function file_search filename,  Up: File Input and Output
 
  -- Variable: file_search_cache
      Default value: ‘auto’
 
      ‘file_search_cache’ controls the use of a cache by ‘file_search’ in
-     order to speed up the search.  Currently, it can only speed up
-     searches where the filename part does not contain wildcards (but
-     the directory part may).
+     order to speed up the search.
 
      When ‘file_search_cache’ is ‘auto’ (the default value), the cache
      will be activated if a one-time check determines that the system
@@ -1600,12 +1700,27 @@ File: maxima-core-docs.info,  Node: Variable file_search_cache,  Next: Variable 
      is not recommended.  The value ‘false’ prevents the use of the
      cache.
 
-     See also ‘file_005fsearch’.
+     See also ‘file_search’.
 
      See also: ‘file_search’.
 
 
-File: maxima-core-docs.info,  Node: Variable file_search_maxima,  Next: Function file_type filename,  Prev: Variable file_search_cache,  Up: File Input and Output
+File: maxima-core-docs.info,  Node: Variable file_search_ignore_dirs,  Next: Variable file_search_maxima,  Prev: Variable file_search_cache,  Up: File Input and Output
+
+ -- Variable: file_search_ignore_dirs
+     Default value: ‘[".bzr", ".git", ".github", ".hg", ".svn",
+     ".eclipse", ".idea", ".vs", ".vscode", ".zed"]’
+
+     ‘file_search_ignore_dirs’ contains directory names (not complete
+     paths) that are excluded in the file search in order to speed up
+     the search.
+
+     See also ‘file_search’.
+
+     See also: ‘file_search’.
+
+
+File: maxima-core-docs.info,  Node: Variable file_search_maxima,  Next: Function file_type filename,  Prev: Variable file_search_ignore_dirs,  Up: File Input and Output
 
  -- Variable: file_search_maxima
      These variables specify lists of directories to be searched by
@@ -1650,8 +1765,8 @@ File: maxima-core-docs.info,  Node: Variable file_search_maxima,  Next: Function
      Maxima tries to, say, ‘load("file")’.
 
      Further information about Common Lisp pathnames maybe be found in
-     http://www.lispworks.com/documentation/HyperSpec/Body/19_b.htmCLHS
-     Section 19.2: Pathnames.
+     http//wwwlispworkscom/documentation/HyperSpec/Body/19_bhtmCLHS
+     Section 192 Pathnames.
 
      See also: ‘load’, ‘demo’, ‘Introduction-for-Runtime-Environment’.
 
@@ -1669,7 +1784,7 @@ File: maxima-core-docs.info,  Node: Function file_type filename,  Next: Variable
      matches one of the values in ‘file_type_lisp’, ‘file_type’ returns
      ‘lisp’.  If none of the above, ‘file_type’ returns ‘object’.
 
-     See also ‘pathname_005ftype’.
+     See also ‘pathname_type’.
 
      See ‘file_type_maxima’ and ‘file_type_lisp’ for the default values.
 
@@ -1692,7 +1807,7 @@ File: maxima-core-docs.info,  Node: Variable file_type_lisp,  Next: Variable fil
      ‘file_type_lisp’ is a list of file extensions that maxima
      recognizes as denoting a Lisp source file.
 
-     See also ‘file_005ftype’.
+     See also ‘file_type’.
 
      See also: ‘file_type’.
 
@@ -1700,12 +1815,13 @@ File: maxima-core-docs.info,  Node: Variable file_type_lisp,  Next: Variable fil
 File: maxima-core-docs.info,  Node: Variable file_type_maxima,  Next: Function filename_merge path filename,  Prev: Variable file_type_lisp,  Up: File Input and Output
 
  -- Variable: file_type_maxima
-     Default value: ‘[mac, mc, demo, dem, dm1, dm2, dm3, dmt, wxm]’
+     Default value: ‘[mac, mc, demo, dem, dm1, dm2, dm3, dmt, wxm,
+     wxmx]’
 
      ‘file_type_maxima’ is a list of file extensions that maxima
      recognizes as denoting a Maxima source file.
 
-     See also ‘file_005ftype’.
+     See also ‘file_type’.
 
      See also: ‘file_type’.
 
@@ -1763,7 +1879,7 @@ File: maxima-core-docs.info,  Node: Function fortran expr,  Next: Variable forts
      ‘fortran’ evaluates its arguments; quoting an argument defeats
      evaluation.  ‘fortran’ always returns ‘done’.
 
-     See also the function ‘function_005ff90’ for printing one or more
+     See also the function ‘function_f90’ for printing one or more
      expressions as a Fortran 90 program.
 
      Examples:
@@ -1932,9 +2048,19 @@ File: maxima-core-docs.info,  Node: Function load filename,  Next: Variable load
      while processing _filename_, the global variables ‘_’, ‘__’, ‘%’,
      and ‘%th’ have whatever bindings they had when ‘load’ was called.
 
-     Note also that structures will only be read back as structures if
-     they have been defined by ‘defstruct’ before the ‘load’ command is
-     called.
+     A wxMaxima worksheet, that is a file with the extension ‘wxmx’, is
+     loaded as a Maxima file: ‘load’ evaluates the input cells of the
+     worksheet, in the order the worksheet has them, and ignores
+     everything else it holds -- the title, section and text cells, and
+     the output wxMaxima stored with the input.  The answers a worksheet
+     may have recorded for questions ‘asksign’ and friends asked are not
+     replayed either; a worksheet that asks a question asks it again
+     while it is loaded.
+
+     A ‘wxmx’ file is a ‘zip’ container, but ‘load’ reads it without a
+     ‘zip’ decompressor, because wxMaxima stores the worksheet itself
+     uncompressed.  Should a worksheet ever be met whose text part is
+     compressed, ‘load’ says so instead of loading part of it.
 
      See also ‘loadfile’, for Lisp files; and ‘batch’, ‘batchload’, and
      ‘demo’.  for Maxima files.
@@ -1944,13 +2070,15 @@ File: maxima-core-docs.info,  Node: Function load filename,  Next: Variable load
      and other data files.
 
      During Maxima file loading, the variable ‘load_pathname’ is bound
-     to the pathname of the file being loaded.
+     to the pathname of the file being loaded.  A ‘load’ inside the file
+     being loaded therefore searches the directory of that file before
+     the usual search lists; see ‘file_search’.
 
      ‘load’ evaluates its argument.
 
      See also: ‘filename_merge’, ‘file_search’, ‘file_search_maxima’,
      ‘file_search_lisp’, ‘save’, ‘translate_file’, ‘compile_file’,
-     ‘stringout’, ‘loadfile’, ‘batchload’, ‘batch’, ‘demo’,
+     ‘stringout’, ‘loadfile’, ‘batchload’, ‘asksign’, ‘batch’, ‘demo’,
      ‘numericalio’, ‘load_pathname’.
 
 
@@ -1996,8 +2124,8 @@ File: maxima-core-docs.info,  Node: Function loadfile filename,  Next: Variable 
      and as much of the path as needed to find the file.
 
      ‘loadfile’ can process files created by ‘save’, ‘translate_file’,
-     and ‘compile_005ffile’.  The user may find it more convenient to
-     use ‘load’ instead of ‘loadfile’.
+     and ‘compile_file’.  The user may find it more convenient to use
+     ‘load’ instead of ‘loadfile’.
 
      See also: ‘file_search’, ‘save’, ‘translate_file’, ‘compile_file’,
      ‘load’.
@@ -2010,16 +2138,19 @@ File: maxima-core-docs.info,  Node: Variable loadprint,  Next: Function pathname
 
      ‘loadprint’ tells whether to print a message when a file is loaded.
 
-        •    • When ‘loadprint’ is ‘true’, always print a message.
+        •    • When ‘loadprint’ is ‘true’, always print a
+               message.
 
-        •    • When ‘loadprint’ is ‘'loadfile’, print a message only if
-               a file is loaded by the function ‘loadfile’.
+        •    • When ‘loadprint’ is ‘'loadfile’, print a
+               message only if a file is loaded by the function
+               ‘loadfile’.
 
-        •    • When ‘loadprint’ is ‘'autoload’, print a message only if
-               a file is automatically loaded.  See
-               ‘setup_005fautoload’.
+        •    • When ‘loadprint’ is ‘'autoload’, print a
+               message only if a file is automatically loaded.  See
+               ‘setup_autoload’.
 
-        •    • When ‘loadprint’ is ‘false’, never print a message.
+        •    • When ‘loadprint’ is ‘false’, never print a
+               message.
 
      See also: ‘setup_autoload’.
 
@@ -2054,7 +2185,7 @@ File: maxima-core-docs.info,  Node: Function printfile path,  Next: Function sav
      If _path_ names a file which is accessible from the current working
      directory, that file is printed to the console.  Otherwise,
      ‘printfile’ attempts to locate the file by appending _path_ to each
-     of the elements of ‘file_search_usage’ via ‘filename_005fmerge’.
+     of the elements of ‘file_search_usage’ via ‘filename_merge’.
 
      ‘printfile’ returns _path_ if it names an existing file, or
      otherwise the result of a successful filename merge.
@@ -2525,7 +2656,7 @@ File: maxima-core-docs.info,  Node: alt-display,  Next: engineering-format,  Pre
 * Function info_display form::
 * Function mathml_display form::
 * Function multi_display_for_texinfo form::
-* Function reset_displays ::
+* Function reset_displays::
 * Function set_alt_display num display-function::
 * Function set_prompt fix expr::
 * Function tex_display form::
@@ -2548,7 +2679,7 @@ File: maxima-core-docs.info,  Node: Function alt_display_output_type form,  Next
      printed between matching PROMPT;>> and <<PROMPT; tags.
 
      Thanks to
-     https://sourceforge.net/p/maxima/mailman/maxima-discuss/thread/7792c096-7e07-842d-0c3a-b2f039ef1f15%40gmail.com/#msg37235035Eric
+     https//sourceforgenet/p/maxima/mailman/maxima-discuss/thread/7792c096-7e07-842d-0c3a-b2f039ef1f15%40gmailcom/#msg37235035Eric
      Stemmler.
 
      (%i1) (load("mactex-utilities"), load("alt-display.mac")) $
@@ -2751,13 +2882,12 @@ File: maxima-core-docs.info,  Node: Function set_prompt fix expr,  Next: Functio
 
  [image src="figures/color_terminal.png" alt="color_terminal" ]
 
-
      color_terminal
      Each prompt string starts with the ASCII escape character (27)
      followed by an open square bracket (91); each string ends with a
      lower-case m (109).  The webpages
-     https://misc.flogisoft.com/bash/tip_colors_and_formatting and
-     https://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html provide
+     https//miscflogisoftcom/bash/tip_colors_and_formatting and
+     https//wwwtldporg/HOWTO/Bash-Prompt-HOWTO/x329html provide
      information on how to use control strings to set the terminal
      colors.
 
@@ -2817,7 +2947,7 @@ File: maxima-core-docs.info,  Node: Variable engineering_format_max,  Next: Vari
 
      The maximum absolute value that isn't automatically converted to
      the engineering format.  See also ‘engineering_format_min’ and
-     ‘engineering_005fformat_005ffloats’.
+     ‘engineering_format_floats’.
 
      See also: ‘engineering_format_min’, ‘engineering_format_floats’.
 
@@ -2829,7 +2959,7 @@ File: maxima-core-docs.info,  Node: Variable engineering_format_min,  Prev: Vari
 
      The minimum absolute value that isn't automatically converted to
      the engineering format.  See also ‘engineering_format_max’ and
-     ‘engineering_005fformat_005ffloats’.
+     ‘engineering_format_floats’.
 
      (%i1) lst: float([.05,.5,5,500,5000,500000]);
      (%o1)       [0.05, 0.5, 5.0, 500.0, 5000.0, 500000.0]
@@ -3098,11 +3228,11 @@ File: maxima-core-docs.info,  Node: gentran,  Next: numericalio,  Prev: format, 
 * Variable genfloat::
 * Variable genstmtincr::
 * Variable genstmtno::
-* Function gentran stmt1 stmt2 ... stmtn [f1 f2 ...  fm]::
+* Function gentran stmt1 stmt2 ... stmtn [f1 f2 ... fm]::
 * Function gentran_off sw::
 * Function gentran_on sw::
 * Function gentranin f1 f2 ... fn [f1 f2 ... fm]::
-* Function gentraninshut ::
+* Function gentraninshut::
 * Variable gentranlang::
 * Variable gentranopt::
 * Function gentranout f1 f2 ... fn::
@@ -3111,7 +3241,7 @@ File: maxima-core-docs.info,  Node: gentran,  Next: numericalio,  Prev: format, 
 * Function gentranpush f1 f2 ... fn::
 * Variable gentranseg::
 * Function gentranshut f1 f2 ... fn::
-* Function literal arg1 arg2 ...  argn::
+* Function literal arg1 arg2 ... argn::
 * Function lrsetq var exp::
 * Function lsetq var exp::
 * Function markedvarp vname::
@@ -3636,6 +3766,7 @@ File: maxima-core-docs.info,  Node: numericalio,  Next: operatingsystem,  Prev: 
 * Function read_list S::
 * Function read_matrix S::
 * Function read_nested_list S::
+* Function read_struct S::
 * Function write_binary_data X D::
 * Function write_data X D::
 
@@ -3700,7 +3831,7 @@ File: maxima-core-docs.info,  Node: Function read_array S A,  Next: Function rea
      space-delimited.
 
      See also ‘openr’, ‘read_matrix’, ‘read_hashed_array’, ‘read_list’,
-     ‘read_binary_array’ and ‘read_005fnested_005flist’.
+     ‘read_binary_array’ and ‘read_nested_list’.
 
      See also: ‘openr’, ‘read_matrix’, ‘read_hashed_array’, ‘read_list’,
      ‘read_binary_array’, ‘read_nested_list’.
@@ -3719,7 +3850,7 @@ File: maxima-core-docs.info,  Node: Function read_binary_array S A,  Next: Funct
      The byte order in elements of the source is specified by
      ‘assume_external_byte_order’.
 
-     See also ‘read_005farray’.
+     See also ‘read_array’.
 
      See also: ‘read_array’.
 
@@ -3738,7 +3869,7 @@ File: maxima-core-docs.info,  Node: Function read_binary_list S,  Next: Function
      The byte order in elements of the source is specified by
      ‘assume_external_byte_order’.
 
-     See also ‘read_005flist’.
+     See also ‘read_list’.
 
      See also: ‘read_list’.
 
@@ -3755,7 +3886,7 @@ File: maxima-core-docs.info,  Node: Function read_binary_matrix S M,  Next: Func
      The byte order in elements of the source is specified by
      ‘assume_external_byte_order’.
 
-     See also ‘read_005fmatrix’.
+     See also ‘read_matrix’.
 
      See also: ‘read_matrix’.
 
@@ -3780,7 +3911,7 @@ File: maxima-core-docs.info,  Node: Function read_hashed_array S A,  Next: Funct
      space-delimited.
 
      See also ‘openr’, ‘read_matrix’, ‘read_array’, ‘read_list’ and
-     ‘read_005fnested_005flist’.
+     ‘read_nested_list’.
 
      See also: ‘hashed-array’, ‘openr’, ‘read_matrix’, ‘read_array’,
      ‘read_list’, ‘read_nested_list’.
@@ -3805,7 +3936,7 @@ File: maxima-core-docs.info,  Node: Function read_list S,  Next: Function read_m
      space-delimited.
 
      See also ‘openr’, ‘read_matrix’, ‘read_array’, ‘read_nested_list’,
-     ‘read_binary_list’ and ‘read_005fhashed_005farray’.
+     ‘read_binary_list’ and ‘read_hashed_array’.
 
      See also: ‘openr’, ‘read_matrix’, ‘read_array’, ‘read_nested_list’,
      ‘read_binary_list’, ‘read_hashed_array’.
@@ -3842,13 +3973,13 @@ File: maxima-core-docs.info,  Node: Function read_matrix S,  Next: Function read
      space-delimited.
 
      See also ‘openr’, ‘read_array’, ‘read_hashed_array’, ‘read_list’,
-     ‘read_binary_matrix’, ‘write_data’ and ‘read_005fnested_005flist’.
+     ‘read_binary_matrix’, ‘write_data’ and ‘read_nested_list’.
 
      See also: ‘openr’, ‘read_array’, ‘read_hashed_array’, ‘read_list’,
      ‘read_binary_matrix’, ‘write_data’, ‘read_nested_list’.
 
 
-File: maxima-core-docs.info,  Node: Function read_nested_list S,  Next: Function write_binary_data X D,  Prev: Function read_matrix S,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function read_nested_list S,  Next: Function read_struct S,  Prev: Function read_matrix S,  Up: numericalio
 
  -- Function: read_nested_list (S)
      Reads the source _S_ and returns its entire content as a nested
@@ -3866,13 +3997,76 @@ File: maxima-core-docs.info,  Node: Function read_nested_list S,  Next: Function
      space-delimited.
 
      See also ‘openr’, ‘read_matrix’, ‘read_array’, ‘read_list’ and
-     ‘read_005fhashed_005farray’.
+     ‘read_hashed_array’.
 
      See also: ‘openr’, ‘read_matrix’, ‘read_array’, ‘read_list’,
      ‘read_hashed_array’.
 
 
-File: maxima-core-docs.info,  Node: Function write_binary_data X D,  Next: Function write_data X D,  Prev: Function read_nested_list S,  Up: numericalio
+File: maxima-core-docs.info,  Node: Function read_struct S,  Next: Function write_binary_data X D,  Prev: Function read_nested_list S,  Up: numericalio
+
+ -- Function: read_struct (S)
+     Reads the source _S_, whose first line names the fields and whose
+     later lines hold one value for each of them, and returns a
+     structure with one field per column.  That is the shape a measuring
+     instrument or a spreadsheet usually writes, so a file
+     ‘measurement.csv’ beginning
+
+     t,U_In,U_Out
+     0,0.0,0.1
+     1,1.5,2.9
+
+     is read back as
+
+     maxima
+     (%i1) load (numericalio)$
+     (%i2) data : read_struct ("measurement.csv");
+     (%o2) measurement(t = [0, 1], U_In = [0.0, 1.5], U_Out = [0.1, 2.9])
+     (%i3) data@U_Out;
+     (%o3)                            [0.1, 2.9]
+
+     Every field holds a whole column, so ‘data@t’ is the list of all
+     the values written under the heading ‘t’.  The source _S_ may be a
+     file name or a stream.
+
+     A heading may be written plainly or in quotes: ‘t’ and ‘"t"’ name
+     the same field.  ‘read_struct’ complains if the first line names no
+     fields, if it names one field twice, or if a later line does not
+     hold exactly one value for each field.  An empty line is not a row,
+     so the file may end in a newline.
+
+     ‘read_struct’ defines the structure it returns the way ‘defstruct’
+     does, and ‘structures’ lists it afterwards.  _name_ is the name to
+     give it.  Without _name_ a fresh name is generated by ‘gensym’,
+     carrying the name of the file as its stem, so that
+     ‘measurement.csv’ is read into a structure named ‘measurement1’,
+     ‘measurement2’ and so on; a stream is read into ‘data1’, ‘data2’
+     and so on.  The fields of a structure hang on the template its name
+     carries, so two sources read under one name would leave the
+     structure read first with the fields of the one read last: a name
+     of its own per call cannot collide that way, and it is worth
+     passing _name_ only where a name that stays the same is wanted.
+     Every call leaves a structure behind in ‘structures’, which ‘kill’
+     removes.
+
+     The recognized values of _separator_flag_ are ‘comma’, ‘pipe’,
+     ‘semicolon’, and ‘space’.  Equivalently, the separator may be
+     specified as a string of one character: ‘","’ (comma), ‘"|"’
+     (pipe), ‘";"’ (semicolon), ‘" "’ (space), or ‘" "’ (tab).  If
+     _separator_flag_ is not specified, a file whose name ends in ‘csv’
+     is assumed comma-delimited, and anything else space-delimited.
+     Since the separator flags are recognized by name, a structure
+     cannot be named ‘comma’, ‘pipe’, ‘semicolon’, ‘space’, ‘tab’ or
+     ‘csv’.
+
+     See also ‘openr’, ‘read_matrix’, ‘read_nested_list’, ‘defstruct’
+     and ‘structures’.
+
+     See also: ‘defstruct’, ‘structures’, ‘gensym’, ‘kill’, ‘openr’,
+     ‘read_matrix’, ‘read_nested_list’.
+
+
+File: maxima-core-docs.info,  Node: Function write_binary_data X D,  Next: Function write_data X D,  Prev: Function read_struct S,  Up: numericalio
 
  -- Function: write_binary_data (X, D)
      Writes the object _X_, comprising binary 8-byte IEEE 754
@@ -3895,7 +4089,7 @@ File: maxima-core-docs.info,  Node: Function write_binary_data X D,  Next: Funct
      The byte order in elements of the destination is specified by
      ‘assume_external_byte_order’.
 
-     See also ‘write_005fdata’.
+     See also ‘write_data’.
 
      See also: ‘write_data’.
 
@@ -3933,7 +4127,7 @@ File: maxima-core-docs.info,  Node: Function write_data X D,  Prev: Function wri
      _separator_flag_ is not specified, the file is assumed
      space-delimited.
 
-     See also ‘openw’ and ‘read_005fmatrix’.
+     See also ‘openw’ and ‘read_matrix’.
 
      See also: ‘openw’, ‘read_matrix’.
 
@@ -3975,7 +4169,7 @@ File: maxima-core-docs.info,  Node: stringproc,  Next: LinearAlgebra,  Prev: ope
 
 * Menu:
 
-* Function adjust_external_format ::
+* Function adjust_external_format::
 * Function alphacharp char::
 * Function alphanumericp char::
 * Function ascii int::
@@ -3996,12 +4190,12 @@ File: maxima-core-docs.info,  Node: stringproc,  Next: LinearAlgebra,  Prev: ope
 * Function flength stream::
 * Function flush_output stream::
 * Function fposition stream::
-* Function freshline ::
+* Function freshline::
 * Function get_output_stream_string stream::
 * Function lowercasep char::
 * Function make_string_input_stream string::
-* Function make_string_output_stream ::
-* Function newline ::
+* Function make_string_output_stream::
+* Function newline::
 * Function opena file::
 * Function openr file::
 * Function openw file::
@@ -4058,10 +4252,9 @@ File: maxima-core-docs.info,  Node: Function adjust_external_format,  Next: Func
      some help or instruction.  ‘adjust_external_format’ returns ‘true’
      when the external format has been changed and ‘false’ otherwise.
 
-     Functions like ‘cint’, ‘unicode’, ‘octets_005fto_005fstring’ and
-     ‘string_005fto_005foctets’ need UTF-8 as the external format of the
-     Lisp reader to work properly over the full range of Unicode
-     characters.
+     Functions like ‘cint’, ‘unicode’, ‘octets_to_string’ and
+     ‘string_to_octets’ need UTF-8 as the external format of the Lisp
+     reader to work properly over the full range of Unicode characters.
 
      Examples (Maxima on Windows, March 2016): Using
      ‘adjust_external_format’ when the default external format is not
@@ -4118,8 +4311,8 @@ File: maxima-core-docs.info,  Node: Function alphacharp char,  Next: Function al
      underlying Lisp must provide full Unicode support.  E.g.  a German
      umlaut is detected as an alphabetic character with SBCL in
      GNU/Linux but not with GCL. (In Windows Maxima, when compiled with
-     SBCL, must be set to UTF-8.  See ‘adjust_005fexternal_005fformat’
-     for more.)
+     SBCL, must be set to UTF-8.  See ‘adjust_external_format’ for
+     more.)
 
      Example: Examination of non-US-ASCII characters.
 
@@ -4251,7 +4444,7 @@ File: maxima-core-docs.info,  Node: Function cint char,  Next: Function clessp c
      Warning: It is not possible to enter characters corresponding to
      code points larger than 16 bit in wxMaxima with SBCL on Windows
      when the external format has not been set to UTF-8.  See
-     ‘adjust_005fexternal_005fformat’.
+     ‘adjust_external_format’.
 
      CMUCL doesn't process these characters as one character.  ‘cint’
      then returns ‘false’.
@@ -4259,9 +4452,9 @@ File: maxima-core-docs.info,  Node: Function cint char,  Next: Function clessp c
      Converting a character to a code point via UTF-8-octets may serve
      as a workaround:
 
-     ‘utf8_to_unicode(string_to_octets(character));’
+          utf8_to_unicode(string_to_octets(character));
 
-     See ‘utf8_005fto_005funicode’, ‘string_005fto_005foctets’.
+     See ‘utf8_to_unicode’, ‘string_to_octets’.
 
      See also: ‘adjust_external_format’, ‘utf8_to_unicode’,
      ‘string_to_octets’.
@@ -4330,7 +4523,7 @@ File: maxima-core-docs.info,  Node: Function eval_string str,  Next: Function fl
      (%i2) eval_string ("(foo: 42, bar: foo^2 + baz)");
      (%o2)                   baz + 1764
 
-     See also ‘parse_005fstring’ and ‘eval_005fstring_005flisp’.
+     See also ‘parse_string’ and ‘eval_string_lisp’.
 
      See also: ‘parse_string’, ‘eval_string_lisp’.
 
@@ -4391,7 +4584,7 @@ File: maxima-core-docs.info,  Node: Function get_output_stream_string stream,  N
      _stream_ which must be an open string-output stream.  The returned
      characters are removed from _stream_.
 
-     Example: See ‘make_005fstring_005foutput_005fstream’ .
+     Example: See ‘make_string_output_stream’ .
 
      See also: ‘make_string_output_stream’.
 
@@ -4427,7 +4620,7 @@ File: maxima-core-docs.info,  Node: Function make_string_output_stream,  Next: F
  -- Function: make_string_output_stream ()
      Returns an output stream that accepts characters.  Characters
      currently present in this stream can be retrieved by
-     ‘get_005foutput_005fstream_005fstring’.
+     ‘get_output_stream_string’.
 
      (%i1) ostream : make_string_output_stream();
      (%o1)               #<string-output stream 09622ea0>
@@ -4478,7 +4671,7 @@ File: maxima-core-docs.info,  Node: Function openr file,  Next: Function openw f
      about its encoding passing the correct string as the argument
      _encoding_ might help.  The available encodings and their names
      depend on the lisp being used.  For sbcl a list of suitable strings
-     can be found at http://www.sbcl.org/manual/#External-Formats.
+     can be found at http//wwwsbclorg/manual/#External-Formats.
 
      For binary input see
      ‘Functions-and-Variables-for-binary-input-and-output’ .  See also
@@ -4527,7 +4720,7 @@ File: maxima-core-docs.info,  Node: Function parse_string str,  Next: Function p
                                         2
      (%o2)          (foo : 42, bar : foo  + baz)
 
-     See also ‘eval_005fstring’.
+     See also ‘eval_string’.
 
      See also: ‘eval_string’.
 
@@ -4687,7 +4880,7 @@ File: maxima-core-docs.info,  Node: Function readchar stream,  Next: Function re
      Removes and returns the first character in _stream_.  If the end of
      file is encountered ‘readchar’ returns ‘false’.
 
-     Example: See ‘make_005fstring_005finput_005fstream’.
+     Example: See ‘make_string_input_stream’.
 
      See also: ‘make_string_input_stream’.
 
@@ -4857,7 +5050,7 @@ File: maxima-core-docs.info,  Node: Function sposition char string,  Next: Funct
 File: maxima-core-docs.info,  Node: Function sprint expr_1 ... expr_n,  Next: Function sremove seq string,  Prev: Function sposition char string,  Up: stringproc
 
  -- Function: sprint (EXPR_1, ..., EXPR_N)
-     Evaluates and displays its arguments one after the other 'on a
+     Evaluates and displays its arguments one after the other ‘on a
      line' starting at the leftmost position.  The expressions are
      printed with a space character right next to the number, and it
      disregards line length.
@@ -5077,7 +5270,7 @@ File: maxima-core-docs.info,  Node: Function unicode arg,  Next: Function unicod
      Warning: In wxMaxima with SBCL on Windows it is not possible to
      convert code points larger than 16 bit to characters when the
      external format has not been set to UTF-8.  See
-     ‘adjust_005fexternal_005fformat’ for more information.
+     ‘adjust_external_format’ for more information.
 
      CMUCL doesn't process code points larger than 16 bit.  In these
      cases ‘unicode’ returns ‘false’.
@@ -5085,9 +5278,9 @@ File: maxima-core-docs.info,  Node: Function unicode arg,  Next: Function unicod
      Converting a code point to a character via UTF-8 octets may serve
      as a workaround:
 
-     ‘octets_to_string(unicode_to_utf8(code_point));’
+          octets_to_string(unicode_to_utf8(code_point));
 
-     See ‘octets_005fto_005fstring’, ‘unicode_005fto_005futf8’.
+     See ‘octets_to_string’, ‘unicode_to_utf8’.
 
      In case the underlying Lisp provides full Unicode support the
      character might be specified by its name.  The following is
@@ -5151,8 +5344,8 @@ File: maxima-core-docs.info,  Node: Variable us_ascii_only,  Next: Function utf8
      On GNU/Linux this is true when Maxima is built with GCL and on
      Windows in wxMaxima with GCL- and SBCL-builds.  With SBCL it is
      recommended to change the external format to UTF-8.  Setting
-     ‘us_ascii_only’ is unnecessary then.  See
-     ‘adjust_005fexternal_005fformat’ for details.
+     ‘us_ascii_only’ is unnecessary then.  See ‘adjust_external_format’
+     for details.
 
      ‘us_ascii_only’ is ‘false’ by default.  Maxima itself then (i.e. in
      the above described situation) parses the UTF-8 encoding.
@@ -5171,7 +5364,7 @@ File: maxima-core-docs.info,  Node: Function utf8_to_unicode list,  Next: Functi
      Returns a Unicode code point corresponding to the _list_ which must
      contain the UTF-8 encoding of a single character.
 
-     Examples: See ‘unicode_005fto_005futf8’.
+     Examples: See ‘unicode_to_utf8’.
 
      See also: ‘unicode_to_utf8’.
 
@@ -5692,7 +5885,7 @@ immediately adjacent to the left bracket, and the last column is
 immediately adjacent to the right bracket, if the brackets are present
 (see ‘display_matrix_brackets’).
 
-See also ‘display_005fmatrix_005fpadding_005fvertical’.
+See also ‘display_matrix_padding_vertical’.
 
 Examples:
 
@@ -5738,7 +5931,7 @@ When ‘display_matrix_padding_vertical’ is ‘false’, matrices are not
 displayed with an empty line between successive rows; successive rows
 are immediately adjacent to each other.
 
-See also ‘display_005fmatrix_005fpadding_005fhorizontal’.
+See also ‘display_matrix_padding_horizontal’.
 
 Examples:
 
@@ -6560,14 +6753,16 @@ File: maxima-core-docs.info,  Node: Function matrix row_1 ... row_n,  Next: Vari
                              [ - -    --    ]
                              [   a    b     ]
 
-        •    • Matrix to a scalar exponent, element by element.
+        •    • Matrix to a scalar exponent, element by
+               element.
 
      (%i7) x ^ 3;
                               [ 4913    27  ]
      (%o7)                    [             ]
                               [ - 512  1331 ]
 
-        •    • Scalar base to a matrix exponent, element by element.
+        •    • Scalar base to a matrix exponent, element by
+               element.
 
      (%i8) exp(y); 
                               [   %pi    %e ]
@@ -6576,8 +6771,8 @@ File: maxima-core-docs.info,  Node: Function matrix row_1 ... row_n,  Next: Vari
                               [    a     b  ]
                               [  %e    %e   ]
 
-        •    • Matrix base to a matrix exponent.  This is not carried
-               out element by element.  See also ‘matrixexp’.
+        •    • Matrix base to a matrix exponent.  This is not
+               carried out element by element.  See also ‘matrixexp’.
 
      (%i9) x ^ y;
                                      [ %pi  %e ]
@@ -6598,9 +6793,9 @@ File: maxima-core-docs.info,  Node: Function matrix row_1 ... row_n,  Next: Vari
      (%o11)          [                              ]
                      [  17 a - 8 b     11 b + 3 a   ]
 
-        •    • Noncommutative matrix exponentiation.  A scalar base _b_
-               to a matrix power _M_ is carried out element by element
-               and so ‘b^^m’ is the same as ‘b^m’.
+        •    • Noncommutative matrix exponentiation.  A scalar
+               base _b_ to a matrix power _M_ is carried out element by
+               element and so ‘b^^m’ is the same as ‘b^m’.
 
      (%i12) x ^^ 3;
                              [  3833   1719 ]
@@ -6614,8 +6809,9 @@ File: maxima-core-docs.info,  Node: Function matrix row_1 ... row_n,  Next: Vari
                               [    a     b  ]
                               [  %e    %e   ]
 
-        •    • A matrix raised to a -1 exponent with noncommutative
-               exponentiation is the matrix inverse, if it exists.
+        •    • A matrix raised to a -1 exponent with
+               noncommutative exponentiation is the matrix inverse, if
+               it exists.
 
      (%i14) x ^^ -1;
                               [ 11      3  ]
@@ -6650,8 +6846,7 @@ File: maxima-core-docs.info,  Node: Variable matrix_element_add,  Next: Variable
      enclosed in quote marks, the name of a function, or a lambda
      expression.
 
-     See also ‘matrix_element_mult’ and
-     ‘matrix_005felement_005ftranspose’.
+     See also ‘matrix_element_mult’ and ‘matrix_element_transpose’.
 
      Example:
 
@@ -6694,8 +6889,7 @@ File: maxima-core-docs.info,  Node: Variable matrix_element_mult,  Next: Variabl
 
      The dot operator ‘.’ is a useful choice in some contexts.
 
-     See also ‘matrix_element_add’ and
-     ‘matrix_005felement_005ftranspose’.
+     See also ‘matrix_element_add’ and ‘matrix_element_transpose’.
 
      Example:
 
@@ -6756,7 +6950,7 @@ File: maxima-core-docs.info,  Node: Variable matrix_element_transpose,  Next: Fu
 
      The default value, ‘false’, means no operation is applied.
 
-     See also ‘matrix_element_add’ and ‘matrix_005felement_005fmult’.
+     See also ‘matrix_element_add’ and ‘matrix_element_mult’.
 
      Examples:
 
@@ -6809,8 +7003,6 @@ File: maxima-core-docs.info,  Node: Function matrixexp M,  Next: Function matrix
 
      The matrix exponential of a matrix _M_ can be expressed as a power
      series:
-
-     e^M=\sum_{k=0}^\infty{\left(\frac{M^k}{k!}\right)}
 
      e^M=\sum_{k=0}^\infty{\left(\frac{M^k}{k!}\right)}
 
@@ -7491,7 +7683,7 @@ File: maxima-core-docs.info,  Node: Function identfor M,  Next: Function invert_
 
  -- Function: identfor (M)
      Return an identity matrix that has the same shape as the matrix
-     _M_.  The diagonal entries of the identity matrix are the
+     _M_. The diagonal entries of the identity matrix are the
      multiplicative identity of the field _fld_; the default for _fld_
      is _generalring_.
 
@@ -7665,123 +7857,4 @@ File: maxima-core-docs.info,  Node: Function lu_backsub M b,  Next: Function lu_
                                         [ 0  0 ]
      (%o8)                              [      ]
                                         [ 0  0 ]
-
-
-File: maxima-core-docs.info,  Node: Function lu_factor M field,  Next: Function mat_cond M 1,  Prev: Function lu_backsub M b,  Up: linearalgebra
-
- -- Function: lu_factor (M, FIELD)
-     Return a list of the form ‘[LU, perm, fld]’, or ‘[LU, perm, fld,
-     lower-cnd upper-cnd]’, where
-
-       1. The matrix _LU_ contains the factorization of _M_ in a packed
-          form.  Packed form means three things: First, the rows of _LU_
-          are permuted according to the list _perm_.  If, for example,
-          _perm_ is the list ‘[3,2,1]’, the actual first row of the _LU_
-          factorization is the third row of the matrix _LU_. Second, the
-          lower triangular factor of m is the lower triangular part of
-          _LU_ with the diagonal entries replaced by all ones.  Third,
-          the upper triangular factor of _M_ is the upper triangular
-          part of _LU_.
-
-       2. When the field is either ‘floatfield’ or ‘complexfield’, the
-          numbers _lower-cnd_ and _upper-cnd_ are lower and upper bounds
-          for the infinity norm condition number of _M_. For all fields,
-          the condition number might not be estimated; for such fields,
-          ‘lu_factor’ returns a two item list.  Both the lower and upper
-          bounds can differ from their true values by arbitrarily large
-          factors.  (See also ‘mat_cond’.)
-
-     The argument _M_ must be a square matrix.
-
-     The optional argument _fld_ must be a symbol that determines a ring
-     or field.  The pre-defined fields and rings are:
-
-       a. ‘generalring’ - the ring of Maxima expressions,
-
-       b. ‘floatfield’ - the field of floating point numbers of the type
-          double,
-
-       c. ‘complexfield’ - the field of complex floating point numbers
-          of the type double,
-
-       d. ‘crering’ - the ring of Maxima CRE expressions,
-
-       e. ‘rationalfield’ - the field of rational numbers,
-
-       f. ‘runningerror’ - track the all floating point rounding errors,
-
-       g. ‘noncommutingring’ - the ring of Maxima expressions where
-          multiplication is the non-commutative dot operator.
-
-     When the field is ‘floatfield’, ‘complexfield’, or ‘runningerror’,
-     the algorithm uses partial pivoting; for all other fields, rows are
-     switched only when needed to avoid a zero pivot.
-
-     Floating point addition arithmetic isn't associative, so the
-     meaning of 'field' differs from the mathematical definition.
-
-     A member of the field ‘runningerror’ is a two member Maxima list of
-     the form ‘[x,n]’,where _x_ is a floating point number and ‘n’ is an
-     integer.  The relative difference between the 'true' value of ‘x’
-     and ‘x’ is approximately bounded by the machine epsilon times ‘n’.
-     The running error bound drops some terms that of the order the
-     square of the machine epsilon.
-
-     There is no user-interface for defining a new field.  A user that
-     is familiar with Common Lisp should be able to define a new field.
-     To do this, a user must define functions for the arithmetic
-     operations and functions for converting from the field
-     representation to Maxima and back.  Additionally, for ordered
-     fields (where partial pivoting will be used), a user must define
-     functions for the magnitude and for comparing field members.  After
-     that all that remains is to define a Common Lisp structure ‘mring’.
-     The file ‘mring’ has many examples.
-
-     To compute the factorization, the first task is to convert each
-     matrix entry to a member of the indicated field.  When conversion
-     isn't possible, the factorization halts with an error message.
-     Members of the field needn't be Maxima expressions.  Members of the
-     ‘complexfield’, for example, are Common Lisp complex numbers.  Thus
-     after computing the factorization, the matrix entries must be
-     converted to Maxima expressions.
-
-     See also ‘get_lu_factors’.
-
-     Examples:
-
-     (%i1) w[i,j] := random (1.0) + %i * random (1.0);
-     (%o1)          w     := random(1.) + %i random(1.)
-                     i, j
-     (%i2) showtime : true$
-     Evaluation took 0.00 seconds (0.00 elapsed)
-     (%i3) M : genmatrix (w, 100, 100)$
-     Evaluation took 7.40 seconds (8.23 elapsed)
-     (%i4) lu_factor (M, complexfield)$
-     Evaluation took 28.71 seconds (35.00 elapsed)
-     (%i5) lu_factor (M, generalring)$
-     Evaluation took 109.24 seconds (152.10 elapsed)
-     (%i6) showtime : false$
-     
-     (%i7) M : matrix ([1 - z, 3], [3, 8 - z]); 
-                             [ 1 - z    3   ]
-     (%o7)                   [              ]
-                             [   3    8 - z ]
-     (%i8) lu_factor (M, generalring);
-               [ 1 - z         3        ]
-               [                        ]
-     (%o8)    [[   3            9       ], [1, 2], generalring]
-               [ -----  - z - ----- + 8 ]
-               [ 1 - z        1 - z     ]
-     (%i9) get_lu_factors (%);
-                       [   1    0 ]  [ 1 - z         3        ]
-             [ 1  0 ]  [          ]  [                        ]
-     (%o9)  [[      ], [   3      ], [                9       ]]
-             [ 0  1 ]  [ -----  1 ]  [   0    - z - ----- + 8 ]
-                       [ 1 - z    ]  [              1 - z     ]
-     (%i10) %[1] . %[2] . %[3];
-                             [ 1 - z    3   ]
-     (%o10)                  [              ]
-                             [   3    8 - z ]
-
-     See also: ‘mat_cond’, ‘get_lu_factors’.
 

@@ -485,6 +485,19 @@ Default value: `real`
 When `domain` is set to `complex`, `sqrt (x^2)` will remain
 `sqrt (x^2)` instead of returning `abs(x)`.
 
+
+When `domain` is set to `real`, a real quantity raised to a power
+with an integer numerator and an odd denominator, as in `x^(1/3)`,
+`x^(2/3)` or `x^(1/n)` with `n` declared `odd`, is the
+real root: `(-8)^(1/3)` simplifies to `-2` and `(x^3)^(1/3)`
+to `x`. `sign`, `csign`, `rectform`,
+`realpart`, `imagpart`, `polarform` and `carg` treat
+such a power as real too. When `domain` is set to `complex`, the power
+is on the principal branch: `(-8)^(1/3)` simplifies to `2*(-1)^(1/3)`,
+whose `rectform` is `sqrt(3)*%i+1`.
+
+See also: `sign`, `csign`, `rectform`, `realpart`, `imagpart`, `polarform`, `carg`.
+
 <!-- category: Simplification -->
 <!-- keywords: evenfun, oddfun -->
 <!-- signatures: oddfun -->
@@ -1111,7 +1124,7 @@ maxima
 by the Maxima simplifier.
 
 
-Items are added to the `opproperties` list by the function `define_005fopproperty`.
+Items are added to the `opproperties` list by the function `define_opproperty`.
 
 
 Example:

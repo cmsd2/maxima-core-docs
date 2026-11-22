@@ -146,7 +146,7 @@ If `trace(f)` is in effect, then `timer(f)` has no effect;
 `trace` and `timer` cannot both be in effect at the same time.
 
 
-See also `timer_reset` and `timer_005fdevalue`.
+See also `timer_reset` and `timer_devalue`.
 
 See also: `timer_reset`, `timer_devalue`.
 
@@ -165,7 +165,7 @@ Note that time spent in untimed functions is not subtracted from the
 total time.
 
 
-See also `timer` and `timer_005finfo`.
+See also `timer` and `timer_info`.
 
 See also: `timer`, `timer_info`.
 
@@ -196,7 +196,7 @@ get(f, 'calls);  get(f, 'runtime);  get(f, 'gctime);
 ```
 
 
-See also `timer` and `timer_005freset`.
+See also `timer` and `timer_reset`.
 
 See also: `timer`, `timer_reset`.
 
@@ -236,7 +236,7 @@ With no arguments,
 
 
 The `untrace` function disables tracing.
-See also `trace_005foptions`.
+See also `trace_options`.
 
 
 `trace` quotes its arguments.  Thus,

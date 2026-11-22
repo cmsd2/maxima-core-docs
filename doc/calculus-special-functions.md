@@ -10,10 +10,10 @@ and [https://dlmf.nist.gov/6.2#E16DLMF 6.2#E16]()) defined as
 
 
 
-$${\rm Chi}(z) = \gamma + \log z + \int_0^z {{\cosh t - 1} \over t} dt$$
+$$
+{\rm Chi}(z) = \gamma + \log z + \int_0^z {{\cosh t - 1} \over t} dt
+$$
 
-
-$${\rm Chi}(z) = \gamma + \log z + \int_0^z {{\cosh t - 1} \over t} dt$$
 
 
 
@@ -35,10 +35,10 @@ and [https://dlmf.nist.gov/6.2#E13DLMF 6.2#E13]()) defined as
 
 
 
-$${\rm Ci}(z) = \gamma + \log z + \int_0^z {{\cos t - 1} \over t} dt$$
+$$
+{\rm Ci}(z) = \gamma + \log z + \int_0^z {{\cos t - 1} \over t} dt
+$$
 
-
-$${\rm Ci}(z) = \gamma + \log z + \int_0^z {{\cos t - 1} \over t} dt$$
 
 
 
@@ -59,10 +59,10 @@ The Exponential Integral En(z) ([https://personal.math.ubc.ca/~cbm/aands/page_22
 
 
 
-$$E_n(z) = \int_1^\infty {e^{-zt} \over t^n} dt$$
+$$
+E_n(z) = \int_1^\infty {e^{-zt} \over t^n} dt
+$$
 
-
-$$E_n(z) = \int_1^\infty {e^{-zt} \over t^n} dt$$
 
 
 with 
@@ -85,10 +85,10 @@ The Exponential Integral E1(z) defined as
 
 
 
-$$E_1(z) = \int_z^\infty {e^{-t} \over t} dt$$
+$$
+E_1(z) = \int_z^\infty {e^{-t} \over t} dt
+$$
 
-
-$$E_1(z) = \int_z^\infty {e^{-t} \over t} dt$$
 
 
 
@@ -110,12 +110,10 @@ The Exponential Integral Ei(x) defined as
 
 
 
-$$Ei(x) = - -\kern-10.5pt\int_{-x}^\infty {e^{-t} \over t} dt = -\kern-10.5pt\int_{-\infty}^x {e^{t} \over t} dt$$
+$$
+Ei(x) = - -\kern-10.5pt\int_{-x}^\infty {e^{-t} \over t} dt = -\kern-10.5pt\int_{-\infty}^x {e^{t} \over t} dt
+$$
 
-
-$$Ei(x)
-  = - -\kern-10.5pt\int_{-x}^\infty {e^{-t} \over t} dt
-  = -\kern-10.5pt\int_{-\infty}^x {e^{t} \over t} dt  $$
 
 
 
@@ -135,10 +133,10 @@ The Exponential Integral li(x) defined as
 
 
 
-$$li(x) = -\kern-10.5pt\int_0^x {dt \over \ln t}$$
+$$
+li(x) = -\kern-10.5pt\int_0^x {dt \over \ln t}
+$$
 
-
-$$li(x) = -\kern-10.5pt\int_0^x {dt \over \ln t}$$
 
 
 
@@ -159,10 +157,10 @@ and [https://dlmf.nist.gov/6.2#E15DLMF 6.2#E15]()) defined as
 
 
 
-$${\rm Shi}(z) = \int_0^z {\sinh t \over t} dt$$
+$$
+{\rm Shi}(z) = \int_0^z {\sinh t \over t} dt
+$$
 
-
-$${\rm Shi}(z) = \int_0^z {\sinh t \over t} dt$$
 
 
 
@@ -180,10 +178,10 @@ and [https://dlmf.nist.gov/6.2#E9DLMF 6.2#E9]()) defined as
 
 
 
-$${\rm Si}(z) = \int_0^z {\sin t \over t} dt$$
+$$
+{\rm Si}(z) = \int_0^z {\sin t \over t} dt
+$$
 
-
-$${\rm Si}(z) = \int_0^z {\sin t \over t} dt$$
 
 
 
@@ -199,7 +197,7 @@ See also: `expintrep`.
 Default value: false
 
 
-Expand `expintegral_005fe` for half
+Expand `expintegral_e` for half
 integral values in terms of `erfc` or `erf` and
 for positive integers in terms of `expintegral_ei`.
 
@@ -254,9 +252,9 @@ Default value: `false`
 
 
 Change the representation of one of the exponential integrals,
-`expintegral_005fe`,
-`expintegral_005fe1`, or
-`expintegral_005fei` to an equivalent form if possible.
+`expintegral_e`,
+`expintegral_e1`, or
+`expintegral_ei` to an equivalent form if possible.
 
 
 
@@ -292,7 +290,7 @@ The possible values for `expintrep` are:
 
 
 Here are some examples for `expintrep` set to
-`expintrep_002dgamma_002dincomplete`:
+`expintrep-gamma-incomplete`:
 
 
 
@@ -351,7 +349,7 @@ maxima
 ```
 
 
-For `expintrep` set to `expintrep_002dexpintegral_002de1`:
+For `expintrep` set to `expintrep-expintegral-e1`:
 
 
 
@@ -408,7 +406,7 @@ maxima
 ```
 
 
-For `expintrep` set to `expintrep_002dexpintegral_002dei`:
+For `expintrep` set to `expintrep-expintegral-ei`:
 
 
 
@@ -480,7 +478,7 @@ maxima
 ```
 
 
-For `expintrep` set to `expintrep_002dexpintegral_002dli`:
+For `expintrep` set to `expintrep-expintegral-li`:
 
 
 
@@ -554,7 +552,7 @@ maxima
 ```
 
 
-For `expintrep` set to `expintrep_002dexpintegral_002dtrig`:
+For `expintrep` set to `expintrep-expintegral-trig`:
 
 
 
@@ -612,7 +610,7 @@ maxima
 ```
 
 
-For `expintrep` set to `expintrep_002dexpintegral_002dhyp`:
+For `expintrep` set to `expintrep-expintegral-hyp`:
 
 
 

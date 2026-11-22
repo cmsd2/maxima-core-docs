@@ -79,7 +79,7 @@ You may replace the default value of `browser` with other valid browser
 in your system, e.g. `"chrome"` or `"iexplore"`.
 
 
-See also `output_format_for_help`, and `url_005fbase`.
+See also `output_format_for_help`, and `url_base`.
 
 See also: `output_format_for_help`, `url_base`.
 
@@ -96,7 +96,7 @@ to see a semicolon `;` followed by a carriage return.)
 
 `demo` searches the list of directories `file_search_demo` to find
 `filename`.  If the file has the suffix `dem`, the suffix may be
-omitted.  See also `file_005fsearch`.
+omitted.  See also `file_search`.
 
 
 `demo` evaluates its argument.
@@ -162,7 +162,7 @@ on-line manual.
 some documentation is found, otherwise `false`.
 
 
-To display the topics using a Web browser see `output_005fformat_005ffor_005fhelp`.
+To display the topics using a Web browser see `output_format_for_help`.
 Also see `browser` and `url_base` to configure how to display
 the HTML files.
 
@@ -308,7 +308,7 @@ Any other value is a error.
 
 
 
-See also `browser`, and `url_005fbase`.
+See also `browser`, and `url_base`.
 
 See also: `browser`, `url_base`.
 
@@ -332,7 +332,7 @@ exactly the same HTML files as in the Maxima version that you are using,
 otherwise the help topics you are searching might not be found.
 
 
-See also `output_005fformat_005ffor_005fhelp` and `browser`.
+See also `output_format_for_help` and `browser`.
 
 See also: `output_format_for_help`, `browser`.
 

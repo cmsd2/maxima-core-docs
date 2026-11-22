@@ -75,6 +75,18 @@ maxima
 See also: `declare`, `Identifiers`.
 
 <!-- category: Programming -->
+<!-- keywords: ask_hide_prompt -->
+<!-- signatures: ask_hide_prompt -->
+### Variable: ask_hide_prompt
+
+Default value: `false`
+
+
+When set to `true`, the functions `askequal`, `askinteger`, and
+`asksign` do not print a prompt when requesting input from the user. This
+is useful for reducing in non-interactive sessions or automated tests.
+
+<!-- category: Programming -->
 <!-- keywords: askequal -->
 <!-- signatures: askequal(expr1, expr2) -->
 ### Function: askequal (expr1, expr2)
@@ -299,7 +311,7 @@ By default, a parameter is *x* such that `symbolp (x)`
 or `subvarp (x)`.
 
 
-See also `assume` and `assume_005fpos`.
+See also `assume` and `assume_pos`.
 
 
 Examples:
@@ -758,6 +770,11 @@ of the active context.
 
 When a fresh Maxima is started up, the user is in a
 context called `initial`, which has `global` as a subcontext.
+
+
+The context `global` cannot be modified: It cannot be made the current
+context, and the facts it contains cannot be removed. `facts` can still be
+used to inspect it.
 
 
 See also `facts`, `newcontext`, `supcontext`,
@@ -1352,10 +1369,24 @@ The predicates may be expressions equivalent to (but not necessarily identical
 to) those previously assumed.
 
 
+`forget` only sees the facts that are active in the current context: those
+in the current context itself, in its subcontexts and in the contexts activated
+by `activate`.  Facts in other contexts are not removed, and a predicate
+found only there counts as not in the database. If the same fact is stored in
+several active contexts, the one in the current context is removed first.
+
+
+`forget` returns the facts it removed, `redundant` for facts not in
+the database, and `not_done` for built-in assertions in the context
+`global`. Note that this refers to the stored facts, not to what can be
+deduced from them: After `assume(x > 1)`, `forget(x > 0)` removes
+nothing and `is(x > 0)` is still `true`.
+
+
 `forget (L)`, where *L* is a list of predicates,
 forgets each item on the list.
 
-See also: `assume`.
+See also: `assume`, `activate`.
 
 <!-- category: Programming -->
 <!-- keywords: get -->
@@ -1623,13 +1654,19 @@ killed.  If the first available unkilled context is `global` then
 new, empty `initial` context is created.
 
 
-`killcontext` refuses to kill a context which is
-currently active, either because it is a subcontext of the current
-context, or by use of the function `activate`.
+`killcontext` refuses to kill a context which is a subcontext of the
+current context or of a context activated by `activate`, since that
+context depends on it.  A context which has been activated itself is
+deactivated before it is killed.
 
 
 `killcontext` evaluates its arguments.
-`killcontext` returns `done`.
+
+
+`killcontext` returns `not_done` if any of the named contexts could
+not be killed, because it does not exist, is a subcontext of the current or an
+activated context, or is the context `global`. Otherwise, it returns
+`done`.
 
 See also: `activate`.
 
@@ -2060,6 +2097,12 @@ See also: `put`.
 Removes properties associated with atoms.
 
 
+Assertions in the context `global` are built into Maxima and cannot be
+removed by `remove`. In this case, `remove` returns `not_done`.
+The return value `done` does not imply that any of the properties was
+present, though.
+
+
 `remove (a_1, p_1, ..., a_n, p_n)`
 removes property `p_k` from atom `a_k`.
 
@@ -2077,7 +2120,7 @@ have it.
 
 
 The removed properties may be system-defined properties such as
-`function`, `macro`, or `mode_005fdeclare`.
+`function`, `macro`, or `mode_declare`.
 `remove` does not remove properties defined by `put`.
 
 
@@ -2092,7 +2135,7 @@ rather than the translated version.
 `remove ("a", operator)` or, equivalently,
 `remove ("a", op)` removes from *a* the operator properties
 declared by `prefix`, `infix`,
-`function_005fnary`, `postfix`, `matchfix`, or
+`function_nary`, `postfix`, `matchfix`, or
 `nofix`.  Note that the name of the operator must be written as a quoted
 string.
 
@@ -2202,11 +2245,14 @@ in the result (but this is unlikely to occur).
 differential equations (e.g. Bessel functions) there may be incorrect results.
 4. The algorithm uses evaluation at randomly chosen points for carefully selected
 subexpressions.  This is always a somewhat hazardous business, although the
-algorithm tries to minimize the potential for error.
+algorithm tries to minimize the potential for error.  The tolerance of the
+numeric test is controlled by `rootsepsilon`.
 
 
 For example `zeroequiv (sin(2 * x) - 2 * sin(x) * cos(x), x)` returns
 `true` and `zeroequiv (%e^x + x, x)` returns `false`.
 On the other hand `zeroequiv (log(a * b) - log(a) - log(b), a)` returns 
 `dontknow` because of the presence of an extra parameter `b`.
+
+See also: `rootsepsilon`.
 

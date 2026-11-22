@@ -508,7 +508,7 @@ if the brackets are present (see `display_matrix_brackets`).
 
     
 
-See also `display_005fmatrix_005fpadding_005fvertical`.
+See also `display_matrix_padding_vertical`.
 
 
 Examples:
@@ -567,7 +567,7 @@ matrices are not displayed with an empty line between successive rows;
 successive rows are immediately adjacent to each other.
 
 
-See also `display_005fmatrix_005fpadding_005fhorizontal`.
+See also `display_matrix_padding_horizontal`.
 
 
 Examples:
@@ -1753,7 +1753,7 @@ the name of a function,
 or a lambda expression.
 
 
-See also `matrix_element_mult` and `matrix_005felement_005ftranspose`.
+See also `matrix_element_mult` and `matrix_element_transpose`.
 
 
 Example:
@@ -1813,7 +1813,7 @@ or a lambda expression.
 The dot operator `.` is a useful choice in some contexts.
 
 
-See also `matrix_element_add` and `matrix_005felement_005ftranspose`.
+See also `matrix_element_add` and `matrix_element_transpose`.
 
 
 Example:
@@ -1892,7 +1892,7 @@ while the `transpose` option always applies `transpose`.
 The default value, `false`, means no operation is applied.
 
 
-See also `matrix_element_add` and `matrix_005felement_005fmult`.
+See also `matrix_element_add` and `matrix_element_mult`.
 
 
 Examples:
@@ -1978,10 +1978,9 @@ argument. If this argument is omitted `matrixexp` replaces it by `1`.
 
 The matrix exponential of a matrix *M* can be expressed as a power series:
 
-$$e^M=\sum_{k=0}^\infty{\left(\frac{M^k}{k!}\right)}$$
-
-
-$$e^M=\sum_{k=0}^\infty{\left(\frac{M^k}{k!}\right)}$$
+$$
+e^M=\sum_{k=0}^\infty{\left(\frac{M^k}{k!}\right)}
+$$
 
 <!-- category: LinearAlgebra -->
 <!-- keywords: matrixmap -->

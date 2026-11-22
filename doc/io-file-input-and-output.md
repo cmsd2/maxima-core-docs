@@ -22,7 +22,7 @@ See also: `writefile`, `closefile`.
 
 `batch(filename)` reads Maxima expressions from *filename* and 
 evaluates them.  `batch` searches for *filename* in the list 
-`file_005fsearch_005fmaxima`.  See also `file_005fsearch`.
+`file_search_maxima`.  See also `file_search`.
 
 
 `batch(S)` reads Maxima expressions from the input stream *S*
@@ -35,7 +35,7 @@ except that the comments about searching for files do not apply to streams.
 
 `batch(filename, demo)` is like `demo(filename)`.
 In this case `batch` searches for *filename* in the list
-`file_005fsearch_005fdemo`.  See `demo`.
+`file_search_demo`.  See `demo`.
 
 
 `batch(filename, test)` is like `run_testsuite` with the
@@ -43,7 +43,7 @@ option `display_all=true`.  For this case `batch` searches
 *filename* in the list `file_search_maxima` and not in the list
 `file_search_tests` like `run_testsuite`.  Furthermore,
 `run_testsuite` runs tests which are in the list
-`testsuite_005ffiles`.  With `batch` it is possible to run any file in
+`testsuite_files`.  With `batch` it is possible to run any file in
 a test mode, which can be found in the list `file_search_maxima`.  This is
 useful, when writing a test file.
 
@@ -56,6 +56,11 @@ A suitable input file may be created by a text editor or by the
 `stringout` function.
 
 
+*filename* may also be a wxMaxima worksheet, that is a file with the
+extension `wxmx`.  Then `batch` reads the input cells of the
+worksheet and ignores the rest of it, as `load` does; see `load`.
+
+
 `batch` reads each input expression from *filename*, displays
 the input to the console, computes the corresponding output expression,
 and displays the output expression. Input labels are assigned to the
@@ -65,7 +70,7 @@ unless there is an error. If user input is requested (by `asksign`
 or `askinteger`, for example) `batch` pauses to collect
 the requisite input and then continue; if `batch_answers_from_file`
 is `true`, the input is read from the file itself. See also
-`batch_005fanswers_005ffrom_005ffile`.
+`batch_answers_from_file`.
 
 
 
@@ -100,7 +105,7 @@ the tests which have failed.
 See also `load`, `batchload`,
 `batch_answers_from_file`, and `demo`.
 
-See also: `file_search_maxima`, `file_search`, `openr`, `file_search_demo`, `demo`, `run_testsuite`, `file_search_tests`, `testsuite_files`, `%`, `%th`, `stringout`, `asksign`, `askinteger`, `batch_answers_from_file`, `load`, `batchload`.
+See also: `file_search_maxima`, `file_search`, `openr`, `file_search_demo`, `demo`, `run_testsuite`, `file_search_tests`, `testsuite_files`, `%`, `%th`, `stringout`, `load`, `asksign`, `askinteger`, `batch_answers_from_file`, `batchload`.
 
 <!-- category: IO -->
 <!-- keywords: batch_answers_from_file -->
@@ -136,7 +141,7 @@ result.
 The command-line option `--batch-string` binds
 `batch_answers_from_file` to `true`. The `run_testsuite`
 function, as a default, also binds `batch_answers_from_file` to
-`true`. See also `command_line_options` and `run_005ftestsuite`.
+`true`. See also `command_line_options` and `run_testsuite`.
 
 See also: `command_line_options`, `run_testsuite`.
 
@@ -238,6 +243,16 @@ before attempting to match it to “wildcard” file search patterns.
 See `file_search_maxima` concerning file search patterns.
 
 
+While a file is being loaded, that is while `load_pathname` names a file,
+`file_search` looks for *filename* in the directory of that file
+before it searches the path list.  A file that is loaded thus finds the files
+beside it whatever directory Maxima was started in, the way a C
+`#include "..."` directive does.  The search patterns of the path list
+are reused for that directory, so a neighbour is found under its base name
+alone as well as under its full name.  A file the name passed names outright
+still wins over both.
+
+
 The argument *filename* can be a path and file name, or just a file name,
 or, if a file search directory includes a file search pattern, just the base of
 the file name (without an extension).  For example,
@@ -265,16 +280,16 @@ any of the default search directories.  Even if there is only one directory in
 
 
 The user may modify the default search directories.
-See `file_005fsearch_005fmaxima`.
+See `file_search_maxima`.
 
 
 `file_search` is invoked by `load` with `file_search_maxima` and
 `file_search_lisp` as the search directories.
 
 
-See also `file_005fsearch_005fcache`.
+See also `file_search_cache`.
 
-See also: `file_search_maxima`, `file_search_lisp`, `file_search_demo`, `load`, `file_search_cache`.
+See also: `file_search_maxima`, `file_search_lisp`, `file_search_demo`, `load_pathname`, `load`, `file_search_cache`.
 
 <!-- category: IO -->
 <!-- keywords: file_search_cache -->
@@ -285,8 +300,7 @@ Default value: `auto`
 
 
 `file_search_cache` controls the use of a cache by `file_search` in
-order to speed up the search.  Currently, it can only speed up searches where
-the filename part does not contain wildcards (but the directory part may).
+order to speed up the search.
 
 
 When `file_search_cache` is `auto` (the default value), the cache
@@ -296,7 +310,23 @@ by setting `file_search_cache` to `true`, which is not recommended.
 The value `false` prevents the use of the cache.
 
 
-See also `file_005fsearch`.
+See also `file_search`.
+
+See also: `file_search`.
+
+<!-- category: IO -->
+<!-- keywords: file_search_ignore_dirs -->
+<!-- signatures: file_search_ignore_dirs -->
+### Variable: file_search_ignore_dirs
+
+Default value: `[".bzr", ".git", ".github", ".hg", ".svn", ".eclipse", ".idea", ".vs", ".vscode", ".zed"]`
+
+
+`file_search_ignore_dirs` contains directory names (not complete paths)
+that are excluded in the file search in order to speed up the search.
+
+
+See also `file_search`.
 
 See also: `file_search`.
 
@@ -384,7 +414,7 @@ returns `lisp`.  If none of the above, `file_type` returns
 `object`.
 
 
-See also `pathname_005ftype`.
+See also `pathname_type`.
 
 
 See `file_type_maxima` and `file_type_lisp` for the default values.
@@ -420,7 +450,7 @@ Default value:  `[l, lsp, lisp]`
 as denoting a Lisp source file.
 
 
-See also `file_005ftype`.
+See also `file_type`.
 
 See also: `file_type`.
 
@@ -429,14 +459,14 @@ See also: `file_type`.
 <!-- signatures: file_type_maxima -->
 ### Variable: file_type_maxima
 
-Default value:  `[mac, mc, demo, dem, dm1, dm2, dm3, dmt, wxm]`
+Default value:  `[mac, mc, demo, dem, dm1, dm2, dm3, dmt, wxm, wxmx]`
 
 
 `file_type_maxima` is a list of file extensions that maxima recognizes
 as denoting a Maxima source file.
 
 
-See also `file_005ftype`.
+See also `file_type`.
 
 See also: `file_type`.
 
@@ -505,7 +535,7 @@ each printed line with spaces to 80 columns.
 `fortran` always returns `done`.
 
 
-See also the function `function_005ff90` for printing one or more
+See also the function `function_f90` for printing one or more
 expressions as a Fortran 90 program.
 
 
@@ -725,9 +755,19 @@ while processing *filename*, the global variables `_`, `__`,
 called.
 
 
-Note also that structures will only be read back as structures if
-they have been defined by `defstruct` before the `load` command
-is called.
+A wxMaxima worksheet, that is a file with the extension `wxmx`, is loaded
+as a Maxima file: `load` evaluates the input cells of the worksheet, in
+the order the worksheet has them, and ignores everything else it holds — the
+title, section and text cells, and the output wxMaxima stored with the input.
+The answers a worksheet may have recorded for questions `asksign` and
+friends asked are not replayed either; a worksheet that asks a question asks it
+again while it is loaded.
+
+
+A `wxmx` file is a `zip` container, but `load` reads it without
+a `zip` decompressor, because wxMaxima stores the worksheet itself
+uncompressed.  Should a worksheet ever be met whose text part is compressed,
+`load` says so instead of loading part of it.
 
 
 See also `loadfile`, for Lisp files; and `batch`, `batchload`, and
@@ -740,12 +780,14 @@ for loading csv and other data files.
 
 
 During Maxima file loading, the variable `load_pathname` is bound to the pathname of the file
-being loaded.
+being loaded.  A `load` inside the file being loaded therefore searches
+the directory of that file before the usual search lists; see
+`file_search`.
 
 
 `load` evaluates its argument.
 
-See also: `filename_merge`, `file_search`, `file_search_maxima`, `file_search_lisp`, `save`, `translate_file`, `compile_file`, `stringout`, `loadfile`, `batchload`, `batch`, `demo`, `numericalio`, `load_pathname`.
+See also: `filename_merge`, `file_search`, `file_search_maxima`, `file_search_lisp`, `save`, `translate_file`, `compile_file`, `stringout`, `loadfile`, `batchload`, `asksign`, `batch`, `demo`, `numericalio`, `load_pathname`.
 
 <!-- category: IO -->
 <!-- keywords: load_pathname -->
@@ -807,7 +849,7 @@ as much of the path as needed to find the file.
 
 
 `loadfile` can process files created by `save`,
-`translate_file`, and `compile_005ffile`.  The user may find it
+`translate_file`, and `compile_file`.  The user may find it
 more convenient to use `load` instead of `loadfile`.
 
 See also: `file_search`, `save`, `translate_file`, `compile_file`, `load`.
@@ -832,7 +874,7 @@ a file is loaded by the function `loadfile`.
 - *
 When `loadprint` is `'autoload`,
 print a message only if a file is automatically loaded.
-See `setup_005fautoload`.
+See `setup_autoload`.
 - *
 When `loadprint` is `false`, never print a message.
 
@@ -882,7 +924,7 @@ or a symbol; if it is a symbol, it is converted to a string.
 If *path* names a file which is accessible from the current working
 directory, that file is printed to the console.  Otherwise, `printfile`
 attempts to locate the file by appending *path* to each of the elements of
-`file_search_usage` via `filename_005fmerge`.
+`file_search_usage` via `filename_merge`.
 
 
 `printfile` returns *path* if it names an existing file,

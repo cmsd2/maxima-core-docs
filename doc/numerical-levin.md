@@ -58,7 +58,7 @@ See also: `bflevin_u_sum`, `fpprec`.
 ### Function: levin_u_sum (a, n, n_0, nterms, mode)
 
 Estimate `sum(a(n), n, n_0, inf)` using at most *nterms*
-terms using the Levin u-transform `levin_002d1973`.
+terms using the Levin u-transform `levin-1973`.
 
 
 The following values are recognized for the optional argument *mode*.

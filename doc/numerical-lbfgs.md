@@ -58,7 +58,7 @@ Additional information concerning details of the algorithm are found in the
 comments of the original Fortran code [2].
 
 
-See also `lbfgs_nfeval_max` and `lbfgs_005fncorrections`.
+See also `lbfgs_nfeval_max` and `lbfgs_ncorrections`.
 
 
 References:
@@ -159,6 +159,7 @@ I NFN   FUNC                    GNORM                   STEPLENGTH
 ```
 
 
+$$
 \halign{\hfil\tt#&\quad\hfil\tt#\quad&\tt#\hfil\quad&\tt#\hfil\quad&\tt#\hfil\cr
 I& NFN&   FUNC&                    GNORM&                   STEPLENGTH\cr
 &&&&\cr
@@ -199,6 +200,7 @@ I& NFN&   FUNC&                    GNORM&                   STEPLENGTH\cr
 35&42& 1.769004645459358D-07& 1.790537375052208D-02& 1.000000000000000D+00\cr
 36&43& 3.312164100763217D-10& 6.782068426119681D-04& 1.000000000000000D+00\cr
 }
+$$
 
 
 ```maxima
@@ -289,6 +291,7 @@ I  NFN  FUNC                    GNORM                   STEPLENGTH
 ```
 
 
+$$
 \halign{\hfil\tt#&\quad\hfil\tt#\quad&\tt#\hfil\quad&\tt#\hfil\quad&\tt#\hfil\cr
 I& NFN&   FUNC&                    GNORM&                   STEPLENGTH\cr
 &&&&\cr
@@ -302,6 +305,7 @@ I& NFN&   FUNC&                    GNORM&                   STEPLENGTH\cr
 8& 13&5.778664230657800D-03& 3.676866074532179D-04& 1.000000000000000D+00\cr
 9& 14&5.777818823650780D-03& 3.010740179797108D-04& 1.000000000000000D+00\cr
 }
+$$
 
 
 ```maxima
@@ -363,6 +367,7 @@ I  NFN     FUNC                    GNORM                   STEPLENGTH
 ```
 
 
+$$
 \halign{\hfil\tt#&\quad\hfil\tt#\quad&\tt#\hfil\quad&\tt#\hfil\quad&\tt#\hfil\cr
 I& NFN&   FUNC&                    GNORM&                   STEPLENGTH\cr
 &&&&\cr
@@ -382,6 +387,7 @@ I& NFN&   FUNC&                    GNORM&                   STEPLENGTH\cr
   14&  15&    2.293617477985238D-05&  1.334590390856715D-03&  1.000000000000000D+00\cr
   15&  16&    7.683645404048675D-06&  6.011057038099202D-04&  1.000000000000000D+00\cr
 }
+$$
 
 
 ```maxima

@@ -20,7 +20,7 @@ Maxima’s ability to calculate integrals involving the abs function. See
 
 When applied to a list or matrix, `abs` automatically distributes over
 the terms. Similarly, it distributes over both sides of an
-equation. To alter this behaviour, see the variable `distribute_005fover`.
+equation. To alter this behaviour, see the variable `distribute_over`.
 
 
 See also `cabs`.
@@ -265,8 +265,8 @@ the terms.  Similarly, it distributes over both sides of an equation.
 
 
 For further ways to compute with complex numbers, see the functions
-`rectform`, `realpart`, `imagpart`,
-`carg`, `conjugate` and `polarform`.
+`rectform`, `real_imag_part`, `realpart`,
+`imagpart`, `carg`, `conjugate` and `polarform`.
 
 
 Examples:
@@ -319,7 +319,7 @@ maxima
 
 Maxima knows complex identities for the Bessel functions, which allow
 it to compute the absolute value for complex arguments.  Here is an
-example for `bessel_005fj`.
+example for `bessel_j`.
 
 
 
@@ -333,7 +333,7 @@ maxima
 (%o1)                    bessel_i(1, 1)
 ```
 
-See also: `abs`, `atan2`, `rectform`, `realpart`, `imagpart`, `carg`, `conjugate`, `polarform`, `sqrt`, `sin`, `erf`, `bessel_j`.
+See also: `abs`, `atan2`, `rectform`, `real_imag_part`, `realpart`, `imagpart`, `carg`, `conjugate`, `polarform`, `sqrt`, `sin`, `erf`, `bessel_j`.
 
 <!-- category: NumberTheory -->
 <!-- keywords: carg -->
@@ -350,7 +350,8 @@ where `r` is the magnitude of *z*.
 
 
 See also `abs` (complex magnitude), `polarform`,
-`rectform`, `realpart`, and `imagpart`.
+`rectform`, `real_imag_part`, `realpart`, and
+`imagpart`.
 
 
 Examples:
@@ -438,7 +439,7 @@ maxima
                                   a
 ```
 
-See also: `abs`, `polarform`, `rectform`, `realpart`, `imagpart`.
+See also: `abs`, `polarform`, `rectform`, `real_imag_part`, `realpart`, `imagpart`.
 
 <!-- category: NumberTheory -->
 <!-- keywords: ceiling -->
@@ -499,7 +500,7 @@ $$\left \lceil a \right \rceil$$
 
 
 The `ceiling` function distributes over lists, matrices and equations.
-See `distribute_005fover`.
+See `distribute_over`.
 
 
 Finally, for all inputs that are manifestly complex, `ceiling` returns 
@@ -723,7 +724,7 @@ $$\left \lfloor a \right \rfloor$$
 
 
 The `floor` function distributes over lists, matrices and equations.
-See `distribute_005fover`.
+See `distribute_over`.
 
 
 Finally, for all inputs that are manifestly complex, `floor` returns 
@@ -766,7 +767,7 @@ to zero.
 
 
 If you want a unit step function that takes on the value of 0 at *x*
-equal to zero, use `unit_005fstep`.
+equal to zero, use `unit_step`.
 
 See also: `unit_step`.
 
@@ -775,7 +776,10 @@ See also: `unit_step`.
 <!-- signatures: imagpart(expr) -->
 ### Function: imagpart (expr)
 
-Returns the imaginary part of the expression *expr*.
+Returns the imaginary part of the expression *expr*. If both the real and
+the imaginary part of an expression are of interest, then calling `rectform`
+or `real_imag_part` is more efficient than calling `realpart` and
+`imagpart` on the same expression.
 
 
 `imagpart` is a computational function, not a simplifying function.
@@ -784,7 +788,7 @@ Returns the imaginary part of the expression *expr*.
 
 
 See also `abs`, `carg`, `polarform`,
-`rectform`, and `realpart`.
+`rectform`, `real_imag_part`, and `realpart`.
 
 
 Example:
@@ -816,7 +820,7 @@ maxima
 (%o4)                        sqrt(2)
 ```
 
-See also: `abs`, `carg`, `polarform`, `rectform`, `realpart`.
+See also: `rectform`, `real_imag_part`, `abs`, `carg`, `polarform`, `realpart`.
 
 <!-- category: NumberTheory -->
 <!-- keywords: lmax -->
@@ -879,7 +883,7 @@ through *x_n*. For an empty argument list, `max` yields `minf`.
 
 The option variable `maxmin_effort` controls which simplification methods are 
 applied. Using the default value of *twelve* for `maxmin_effort`, 
-`max` uses *all* available simplification methods. To to inhibit all 
+`max` uses *all* available simplification methods. To inhibit all 
 simplifications, set `maxmin_effort` to zero.
 
 
@@ -940,12 +944,12 @@ See also: `min`, `lmax`, `lmin`.
 ### Function: min (x_1, ..., x_n)
 
 Return a simplified value for the numerical minimum of the expressions *x_1* 
-through *x_n*. For an empty argument list, `minf` yields `inf`.
+through *x_n*. For an empty argument list, `min` yields `inf`.
 
 
 The option variable `maxmin_effort` controls which simplification methods are 
 applied. Using the default value of *twelve* for `maxmin_effort`, 
-`max` uses *all* available simplification methods. To to inhibit all 
+`min` uses *all* available simplification methods. To to inhibit all 
 simplifications, set `maxmin_effort` to zero.
 
 
@@ -995,7 +999,7 @@ members and excludes those that are in between; for example
 
 ```maxima
 (%i1) block([maxmin_effort : 4], min(x, 2*x, 3*x, 4*x));
-(%o1) max(x,4*x)
+(%o1) min(x,4*x)
 ```
 
 See also: `max`, `lmax`, `lmin`.
@@ -1128,13 +1132,65 @@ maxima
 ```
 
 <!-- category: NumberTheory -->
+<!-- keywords: real_imag_part -->
+<!-- signatures: real_imag_part(expr) -->
+### Function: real_imag_part (expr)
+
+Returns a list `[a, b]` such that `a + b %i` is equivalent to *expr*
+and *a* and *b* are purely real.
+
+
+Example:
+
+
+
+
+
+
+
+
+
+
+```maxima
+maxima
+
+(%i1) real_imag_part(sqrt(2)*%e^(%i*%pi/4));
+(%o1)                        [1, 1]
+
+
+(%i2) real_imag_part(sqrt(b^2+a^2)*%e^(%i*atan2(b, a)));
+(%o2)                        [a, b]
+
+
+(%i3) real_imag_part(sqrt(5)*%e^(%i*atan(2)));
+(%o3)                        [1, 2]
+
+
+(%i4) [r, i] : real_imag_part(log(x))$
+
+
+(%i5) print("The real part is", r, "and the imaginary part is", i)$
+The real part is log(abs(x)) and the imaginary part is atan2(0, x)
+```
+
+<!-- category: NumberTheory -->
 <!-- keywords: realpart -->
 <!-- signatures: realpart(expr) -->
 ### Function: realpart (expr)
 
 Returns the real part of *expr*.  `realpart` and `imagpart` will
 work on expressions involving trigonometric and hyperbolic functions,
-as well as square root, logarithm, and exponentiation.
+as well as square root, logarithm, and exponentiation. If both the real and
+the imaginary part of an expression are of interest, then calling `rectform`
+or `real_imag_part` is more efficient than calling `realpart` and
+`imagpart` on the same expression.
+
+
+`realpart` is a computational function, not a simplifying function.
+
+
+See also `abs`, `carg`, `polarform`,
+`rectform`, `real_imag_part`, and `imagpart`.
 
 
 Example:
@@ -1166,7 +1222,7 @@ maxima
 (%o4)                           1
 ```
 
-See also: `imagpart`.
+See also: `imagpart`, `rectform`, `real_imag_part`, `abs`, `carg`, `polarform`.
 
 <!-- category: NumberTheory -->
 <!-- keywords: rectform -->
@@ -1174,7 +1230,8 @@ See also: `imagpart`.
 ### Function: rectform (expr)
 
 Returns an expression `a + b %i` equivalent to *expr*,
-such that *a* and *b* are purely real.
+such that *a* and *b* are purely real. To retrieve *a* and *b*
+directly, use `real_imag_part`.
 
 
 Example:
@@ -1201,6 +1258,8 @@ maxima
 (%o3)                       2 %i + 1
 ```
 
+See also: `real_imag_part`.
+
 <!-- category: NumberTheory -->
 <!-- keywords: round -->
 <!-- signatures: round(x) -->
@@ -1212,7 +1271,7 @@ Multiples of 1/2 are rounded to the nearest even integer.  Evaluation of
 
 
 The `round` function distributes over lists, matrices and equations.
-See `distribute_005fover`.
+See `distribute_over`.
 
 See also: `floor`, `ceiling`, `distribute_over`.
 
@@ -1245,7 +1304,7 @@ gives `-signum(x)`) and multiplicative identity (`signum(x*y)` gives
 
 
 The `signum` function distributes over a list, a matrix, or an
-equation.  See `sign` and `distribute_005fover`.
+equation.  See `sign` and `distribute_over`.
 
 See also: `sign`, `distribute_over`.
 
@@ -1260,7 +1319,7 @@ to `floor` and `ceiling`.
 
 
 The `truncate` function distributes over lists, matrices and equations.
-See `distribute_005fover`.
+See `distribute_over`.
 
 See also: `floor`, `ceiling`, `distribute_over`.
 

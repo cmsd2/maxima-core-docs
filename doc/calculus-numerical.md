@@ -341,10 +341,10 @@ To solve numerically the differential equation
 
 
 
-$${{dx}\over{dt}} = t - x^2$$
+$$
+{{dx}\over{dt}} = t - x^2
+$$
 
-
-$${{dx}\over{dt}} = t - x^2$$
 
 
 
@@ -373,13 +373,10 @@ To solve numerically the system:
 
 
 
-$$\eqalign{ {dx\over dy} &= 4-x^2-4y^2 \cr {dy\over dt} &= y^2 - x^2 + 1 }$$
+$$
+\begin{aligned} {dx\over dy} &= 4-x^2-4y^2 \cr {dy\over dt} &= y^2 - x^2 + 1 \end{aligned}
+$$
 
-
-$$\eqalign{
-{dx\over dy} &= 4-x^2-4y^2 \cr
-{dy\over dt} &= y^2 - x^2 + 1
-}$$
 
 
 

@@ -12,10 +12,9 @@ random variable, with $0 \leq p \leq 1$. To make use of this function, write fir
 
 The cdf is
 
-$$F(x; p) = I_{1-p}(1-\lfloor x \rfloor, \lfloor x \rfloor + 1)$$
-
-
-$$F(x; p) = I_{1-p}(1-\lfloor x \rfloor, \lfloor x \rfloor + 1)$$
+$$
+F(x; p) = I_{1-p}(1-\lfloor x \rfloor, \lfloor x \rfloor + 1)
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: cdf_beta -->
@@ -29,15 +28,10 @@ random variable, with $a,b>0$.
 
 The cdf is
 
-$$F(x; a, b) = \cases{ 0 & $x < 0$ \cr I_x(a,b) & $0 \le x \le 1$ \cr 1 & $x > 1$ }$$
+$$
+F(x; a, b) = \begin{cases} 0 & $x < 0$ \cr I_x(a,b) & $0 \le x \le 1$ \cr 1 & $x > 1$ \end{cases}
+$$
 
-
-$$F(x; a, b) =
-\cases{
-0 & $x < 0$ \cr
-I_x(a,b) & $0 \le x \le 1$ \cr
-1 & $x > 1$
-}$$
 
 
 
@@ -72,16 +66,16 @@ random variable, with $0 \leq p \leq 1$ and $n$ a positive integer.
 
 The cdf is
 
-$$F(x; n, p) = I_{1-p}(n-\lfloor x \rfloor, \lfloor x \rfloor + 1)$$
+$$
+F(x; n, p) = I_{1-p}(n-\lfloor x \rfloor, \lfloor x \rfloor + 1)
+$$
 
-
-$$F(x; n, p) = I_{1-p}(n-\lfloor x \rfloor, \lfloor x \rfloor + 1)$$
 
 
 
 where 
 $I_z(a,b)$
-is the `beta_005fincomplete_005fregularized`
+is the `beta_incomplete_regularized`
 function.
 
 
@@ -119,10 +113,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The cdf is
 
-$$F(x; a, b) = {1\over 2} + {1\over \pi} \tan^{-1} {x-a\over b}$$
-
-
-$$F(x; a, b) = {1\over 2} + {1\over \pi} \tan^{-1} {x-a\over b}$$
+$$
+F(x; a, b) = {1\over 2} + {1\over \pi} \tan^{-1} {x-a\over b}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: cdf_chi2 -->
@@ -137,18 +130,14 @@ $\chi^2(n)$
 
 The cdf is
 
-$$F(x; n) = \cases{ 1 - Q\left(\displaystyle{n\over 2}, {x\over 2}\right) & $x > 0$ \cr 0 & otherwise }$$
-
-
-$$F(x; n) =
-\cases{
-1 - Q\left(\displaystyle{n\over 2}, {x\over 2}\right) & $x > 0$ \cr
-0 & otherwise
-}$$
+$$
+F(x; n) = \begin{cases} 1 - Q\left(\displaystyle{n\over 2}, {x\over 2}\right) & $x > 0$ \cr 0 & otherwise \end{cases}
+$$
 
 
 
-where $Q(a,z)$ is the `gamma_005fincomplete_005fregularized` function.
+
+where $Q(a,z)$ is the `gamma_incomplete_regularized` function.
 
 
 
@@ -186,17 +175,9 @@ To make use of this function, write first `load("distrib")`.
 
 The cdf is
 
-$$F(x; a, b) = \cases{ 0 & for $x < a$ \cr \cr \displaystyle{x-a\over b-a} & for $a \le x \le b$ \cr \cr 1 & for $x > b$ }$$
-
-
-$$F(x; a, b) =
-\cases{
-0 & for $x < a$ \cr
-\cr
-\displaystyle{x-a\over b-a} & for $a \le x \le b$ \cr
-\cr
-1 & for $x > b$
-}$$
+$$
+F(x; a, b) = \begin{cases} 0 & for $x < a$ \cr \cr \displaystyle{x-a\over b-a} & for $a \le x \le b$ \cr \cr 1 & for $x > b$ \end{cases}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: cdf_discrete_uniform -->
@@ -210,10 +191,9 @@ random variable, with $n$ a strictly positive integer. To make use of this funct
 
 The cdf is
 
-$$F(x; n) = {\lfloor x \rfloor \over n}$$
-
-
-$$F(x; n) = {\lfloor x \rfloor \over n}$$
+$$
+F(x; n) = {\lfloor x \rfloor \over n}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: cdf_exp -->
@@ -234,14 +214,10 @@ ${\it Weibull}(1,1/m)$
 
 The cdf is
 
-$$F(x; m) = \cases{ 1 - e^{-mx} & $x \ge 0$ \cr 0 & otherwise }$$
+$$
+F(x; m) = \begin{cases} 1 - e^{-mx} & $x \ge 0$ \cr 0 & otherwise \end{cases}
+$$
 
-
-$$F(x; m) =
-\cases{
-1 - e^{-mx} & $x \ge 0$ \cr
-0 & otherwise
-}$$
 
 
 
@@ -268,31 +244,27 @@ Returns the value at *x* of the cumulative distribution function of a F random v
 
 The cdf is
 
-$$F(x; m, n) = \cases{ 1 - I_z\left(\displaystyle{m\over 2}, {n\over 2}\right) & $x > 0$ \cr 0 & otherwise }$$
+$$
+F(x; m, n) = \begin{cases} 1 - I_z\left(\displaystyle{m\over 2}, {n\over 2}\right) & $x > 0$ \cr 0 & otherwise \end{cases}
+$$
 
-
-$$F(x; m, n) =
-\cases{
-1 - I_z\left(\displaystyle{m\over 2}, {n\over 2}\right) & $x > 0$ \cr
-0 & otherwise
-}$$
 
 
 
 
 where
 
-$$z = {n\over mx+n}$$
+$$
+z = {n\over mx+n}
+$$
 
-
-$$z = {n\over mx+n}$$
 
 
 
 
 and 
 $I_z(a,b)$
-is the `beta_005fincomplete_005fregularized`
+is the `beta_incomplete_regularized`
 function.
 
 
@@ -328,19 +300,14 @@ random variable, with $a,b>0$.
 
 The cdf is
 
-$$F(x; a, b) = \cases{ 1-Q(a,{x\over b}) & for $x \ge 0$ \cr \cr 0 & for $x < 0$ }$$
-
-
-$$F(x; a, b) =
-\cases{
-1-Q(a,{x\over b}) & for $x \ge 0$ \cr
-\cr
-0 & for $x < 0$
-}$$
+$$
+F(x; a, b) = \begin{cases} 1-Q(a,{x\over b}) & for $x \ge 0$ \cr \cr 0 & for $x < 0$ \end{cases}
+$$
 
 
 
-where $Q(a,z)$ is the `gamma_005fincomplete_005fregularized` function.
+
+where $Q(a,z)$ is the `gamma_incomplete_regularized` function.
 
 
 
@@ -371,7 +338,7 @@ See also: `gamma_incomplete_regularized`.
 Returns the value at *x* of the cumulative distribution function of a general finite discrete random variable, with vector probabilities $v$.
 
 
-See `pdf_005fgeneral_005ffinite_005fdiscrete` for more details.
+See `pdf_general_finite_discrete` for more details.
 
 
 
@@ -417,10 +384,10 @@ $0 < p \leq 1$
 
 The cdf is
 
-$$1-(1-p)^{1 + \lfloor x \rfloor}$$
+$$
+1-(1-p)^{1 + \lfloor x \rfloor}
+$$
 
-
-$$1-(1-p)^{1 + \lfloor x \rfloor}$$
 
 
 
@@ -439,10 +406,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The cdf is
 
-$$F(x; a, b) = \exp\left[-\exp\left({a-x\over b}\right)\right]$$
-
-
-$$F(x; a, b) = \exp\left[-\exp\left({a-x\over b}\right)\right]$$
+$$
+F(x; a, b) = \exp\left[-\exp\left({a-x\over b}\right)\right]
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: cdf_hypergeometric -->
@@ -461,11 +427,9 @@ To make use of this function, write first `load("distrib")`.
 
 The cdf is
 
-$$F(x; n_1, n_2, n) = {n_2+n_1\choose n}^{-1} \sum_{k=0}^{\lfloor x \rfloor} {n_1 \choose k} {n_2 \choose n - k}$$
-
-
-$$F(x; n_1, n_2, n) = {n_2+n_1\choose n}^{-1}
-\sum_{k=0}^{\lfloor x \rfloor} {n_1 \choose k} {n_2 \choose n - k}$$
+$$
+F(x; n_1, n_2, n) = {n_2+n_1\choose n}^{-1} \sum_{k=0}^{\lfloor x \rfloor} {n_1 \choose k} {n_2 \choose n - k}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: cdf_laplace -->
@@ -479,15 +443,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The cdf is
 
-$$F(x; a, b) = \cases{ \displaystyle{1\over 2} \exp\left({x-a\over b}\right) & for $x < a$\cr \cr 1-\displaystyle{1\over 2} \exp\left({x-a\over b}\right) & for $x \ge a$ }$$
-
-
-$$F(x; a, b) =
-\cases{
-\displaystyle{1\over 2} \exp\left({x-a\over b}\right) & for $x < a$\cr
-\cr
-1-\displaystyle{1\over 2} \exp\left({x-a\over b}\right) & for $x \ge a$
-}$$
+$$
+F(x; a, b) = \begin{cases} \displaystyle{1\over 2} \exp\left({x-a\over b}\right) & for $x < a$\cr \cr 1-\displaystyle{1\over 2} \exp\left({x-a\over b}\right) & for $x \ge a$ \end{cases}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: cdf_logistic -->
@@ -501,10 +459,9 @@ random variable , with $b>0$. To make use of this function, write first `load("d
 
 The cdf is
 
-$$F(x; a, b) = {1\over 1+e^{-(x-a)/b}}$$
-
-
-$$F(x; a, b) = {1\over 1+e^{-(x-a)/b}}$$
+$$
+F(x; a, b) = {1\over 1+e^{-(x-a)/b}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: cdf_lognormal -->
@@ -518,16 +475,10 @@ random variable, with $s>0$. This function is defined in terms of Maxima’s bui
 
 The cdf is
 
-$$F(x; m, s) = \cases{ \displaystyle{1\over 2}\left[1+{\rm erf}\left({\log x - m\over s\sqrt{2}}\right)\right] & for $x > 0$ \cr \cr 0 & for $x \le 0$ }$$
+$$
+F(x; m, s) = \begin{cases} \displaystyle{1\over 2}\left[1+{\rm erf}\left({\log x - m\over s\sqrt{2}}\right)\right] & for $x > 0$ \cr \cr 0 & for $x \le 0$ \end{cases}
+$$
 
-
-$$F(x; m, s) =
-\cases{
-\displaystyle{1\over 2}\left[1+{\rm erf}\left({\log x - m\over s\sqrt{2}}\right)\right] &
-for $x > 0$ \cr
-\cr
-0 & for $x \le 0$
-}$$
 
 
 
@@ -565,16 +516,16 @@ random variable, with $0 < p \leq 1$ and $n$ a positive number.
 
 The cdf is
 
-$$F(x; n, p) = I_p(n,\lfloor x \rfloor + 1)$$
+$$
+F(x; n, p) = I_p(n,\lfloor x \rfloor + 1)
+$$
 
-
-$$F(x; n, p) = I_p(n,\lfloor x \rfloor + 1)$$
 
 
 
 where 
 $I_p(a,b)$
-is the `beta_005fincomplete_005fregularized` function.
+is the `beta_incomplete_regularized` function.
 
 
 
@@ -641,10 +592,10 @@ random variable, with $s>0$. This function is defined in terms of Maxima’s bui
 
 The cdf can be written analytically:
 
-$$F(x; m, s) = {1\over 2} + {1\over 2} {\rm erf}\left(x-m\over s\sqrt{2}\right)$$
+$$
+F(x; m, s) = {1\over 2} + {1\over 2} {\rm erf}\left(x-m\over s\sqrt{2}\right)
+$$
 
-
-$$F(x; m, s) = {1\over 2} + {1\over 2} {\rm erf}\left(x-m\over s\sqrt{2}\right)$$
 
 
 
@@ -682,14 +633,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The cdf is
 
-$$F(x; a, b) = \cases{ 1-\left(\displaystyle{b\over x}\right)^a & for $x \ge b$\cr 0 & for $x < b$ }$$
-
-
-$$F(x; a, b) =
-\cases{
-1-\left(\displaystyle{b\over x}\right)^a & for $x \ge b$\cr
-0 & for $x < b$
-}$$
+$$
+F(x; a, b) = \begin{cases} 1-\left(\displaystyle{b\over x}\right)^a & for $x \ge b$\cr 0 & for $x < b$ \end{cases}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: cdf_poisson -->
@@ -703,14 +649,14 @@ random variable, with $m>0$.
 
 The cdf is
 
-$$F(x; m) = Q(\lfloor x \rfloor + 1, m)$$
+$$
+F(x; m) = Q(\lfloor x \rfloor + 1, m)
+$$
 
 
-$$F(x; m) = Q(\lfloor x \rfloor + 1, m)$$
 
 
-
-where $Q(x,m)$ is the `gamma_005fincomplete_005fregularized`
+where $Q(x,m)$ is the `gamma_incomplete_regularized`
 function.
 
 
@@ -752,14 +698,10 @@ ${\it Weibull}(2,1/b)$
 
 The cdf is
 
-$$F(x; b) = \cases{ 1 - e^{-b^2 x^2} & for $x \ge 0$\cr 0 & for $x < 0$ }$$
+$$
+F(x; b) = \begin{cases} 1 - e^{-b^2 x^2} & for $x \ge 0$\cr 0 & for $x < 0$ \end{cases}
+$$
 
-
-$$F(x; b) =
-\cases{
-1 - e^{-b^2 x^2} & for $x \ge 0$\cr
-0 & for $x < 0$
-}$$
 
 
 
@@ -790,15 +732,10 @@ $t(n)$
 
 The cdf is
 
-$$F(x; n) = \cases{ 1-\displaystyle{1\over 2} I_t\left({n\over 2}, {1\over 2}\right) & $x \ge 0$ \cr \cr \displaystyle{1\over 2} I_t\left({n\over 2}, {1\over 2}\right) & $x < 0$ }$$
+$$
+F(x; n) = \begin{cases} 1-\displaystyle{1\over 2} I_t\left({n\over 2}, {1\over 2}\right) & $x \ge 0$ \cr \cr \displaystyle{1\over 2} I_t\left({n\over 2}, {1\over 2}\right) & $x < 0$ \end{cases}
+$$
 
-
-$$F(x; n) =
-\cases{
-1-\displaystyle{1\over 2} I_t\left({n\over 2}, {1\over 2}\right) & $x \ge 0$ \cr
-\cr
-\displaystyle{1\over 2} I_t\left({n\over 2}, {1\over 2}\right) & $x < 0$
-}$$
 
 
 
@@ -808,7 +745,7 @@ $t = n/(n+x^2)$
 and 
 $I_t(a,b)$
 is the
-`beta_005fincomplete_005fregularized` function.
+`beta_incomplete_regularized` function.
 
 
 
@@ -846,14 +783,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The cdf is
 
-$$F(x; a, b) = \cases{ 1 - e^{-(x/b)^a} & for $x \ge 0$ \cr 0 & for $x < 0$ }$$
-
-
-$$F(x; a, b) =
-\cases{
-1 - e^{-(x/b)^a} & for $x \ge 0$ \cr
-0 & for $x < 0$
-}$$
+$$
+F(x; a, b) = \begin{cases} 1 - e^{-(x/b)^a} & for $x \ge 0$ \cr 0 & for $x < 0$ \end{cases}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_bernoulli -->
@@ -874,10 +806,10 @@ ${\it Binomial}(1,p)$
 
 The kurtosis coefficient is
 
-$$KU[X] = {1-6p(1-p) \over p(1-p)}$$
+$$
+KU[X] = {1-6p(1-p) \over p(1-p)}
+$$
 
-
-$$KU[X] = {1-6p(1-p) \over p(1-p)}$$
 
 
 
@@ -908,11 +840,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The kurtosis coefficient is
 
-$$KU[X] = {3(a+b+1)\left(2(a+b)^2+ab(a+b-6)\right) \over ab(a+b+2)(a+b+3)} - 3$$
-
-
-$$KU[X] = {3(a+b+1)\left(2(a+b)^2+ab(a+b-6)\right) \over
-ab(a+b+2)(a+b+3)} - 3$$
+$$
+KU[X] = {3(a+b+1)\left(2(a+b)^2+ab(a+b-6)\right) \over ab(a+b+2)(a+b+3)} - 3
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_binomial -->
@@ -926,10 +856,9 @@ random variable, with $0 \leq p \leq 1$ and $n$ a positive integer. To make use 
 
 The kurtosis coefficient is
 
-$$KU[X] = {1-6p(1-p)\over np(1-p)}$$
-
-
-$$KU[X] = {1-6p(1-p)\over np(1-p)}$$
+$$
+KU[X] = {1-6p(1-p)\over np(1-p)}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_chi2 -->
@@ -950,10 +879,10 @@ $\Gamma\left(n/2,2\right)$
 
 The kurtosis coefficient is
 
-$$KU[X] = {12\over n}$$
+$$
+KU[X] = {12\over n}
+$$
 
-
-$$KU[X] = {12\over n}$$
 
 
 
@@ -986,10 +915,9 @@ To make use of this function, write first `load("distrib")`.
 
 The kurtosis coefficient is
 
-$$KU[X] = -{6\over5}$$
-
-
-$$KU[X] = -{6\over5}$$
+$$
+KU[X] = -{6\over5}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_discrete_uniform -->
@@ -1003,10 +931,9 @@ random variable, with $n$ a strictly positive integer. To make use of this funct
 
 The kurtosis coefficient is
 
-$$KU[X] = - {6(n^2+1)\over 5 (n^2-1)}$$
-
-
-$$KU[X] = - {6(n^2+1)\over 5 (n^2-1)}$$
+$$
+KU[X] = - {6(n^2+1)\over 5 (n^2-1)}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_exp -->
@@ -1027,10 +954,10 @@ ${\it Weibull}(1,1/m)$
 
 The kurtosis coefficient is
 
-$$KU[X] = 6$$
+$$
+KU[X] = 6
+$$
 
-
-$$KU[X] = 6$$
 
 
 
@@ -1057,10 +984,9 @@ Returns the kurtosis coefficient of a F random variable $F(m,n)$, with $m>0, n>8
 
 The kurtosis coefficient is
 
-$$KU[X] = 12{m(n+m-2)(5n-22) + (n-4)(n-2)^2 \over m(n-8)(n-6)(n+m-2)}$$
-
-
-$$KU[X] = 12{m(n+m-2)(5n-22) + (n-4)(n-2)^2 \over m(n-8)(n-6)(n+m-2)}$$
+$$
+KU[X] = 12{m(n+m-2)(5n-22) + (n-4)(n-2)^2 \over m(n-8)(n-6)(n+m-2)}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_gamma -->
@@ -1074,10 +1000,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The kurtosis coefficient is
 
-$$KU[X] = {6\over a}$$
-
-
-$$KU[X] = {6\over a}$$
+$$
+KU[X] = {6\over a}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_general_finite_discrete -->
@@ -1087,7 +1012,7 @@ $$KU[X] = {6\over a}$$
 Returns the kurtosis coefficient of a general finite discrete random variable, with vector probabilities $v$.
 
 
-See `pdf_005fgeneral_005ffinite_005fdiscrete` for more details.
+See `pdf_general_finite_discrete` for more details.
 
 See also: `pdf_general_finite_discrete`.
 
@@ -1104,10 +1029,10 @@ $0 < p \leq 1$.
 
 The kurtosis coefficient is
 
-$$KU[X] = {p^2-6p+6 \over 1-p}$$
+$$
+KU[X] = {p^2-6p+6 \over 1-p}
+$$
 
-
-$$KU[X] = {p^2-6p+6 \over 1-p}$$
 
 
 
@@ -1126,10 +1051,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The kurtosis coefficient is
 
-$$KU[X] = {12\over 5}$$
-
-
-$$KU[X] = {12\over 5}$$
+$$
+KU[X] = {12\over 5}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_hypergeometric -->
@@ -1143,25 +1067,10 @@ random variable, with $n_1$, $n_2$ and $n$ non negative integers and $n\leq n1+n
 
 The kurtosis coefficient is
 
-$$\eqalign{ KU[X] = & \left[{C(1)C(0)^2 \over n n_1 n_2 C(3)C(2)C(n)}\right. \cr & \times \left.\left( {3n_1n_2\left((n-2)C(0)^2+6nC(n)-n^2C(0)\right) \over C(0)^2 } -6nC(n) + C(0)C(-1) \right)\right] \cr &-3 }$$
-
-
 $$
-\eqalign{
-KU[X] = &
- \left[{C(1)C(0)^2
-   \over
-  n n_1 n_2 C(3)C(2)C(n)}\right. \cr
-  & \times 
-  \left.\left(
-    {3n_1n_2\left((n-2)C(0)^2+6nC(n)-n^2C(0)\right)
-    \over
-    C(0)^2
-    }
-    -6nC(n) + C(0)C(-1)
-  \right)\right] \cr
-  &-3
-}$$
+\begin{aligned} KU[X] = & \left[{C(1)C(0)^2 \over n n_1 n_2 C(3)C(2)C(n)}\right. \cr & \times \left.\left( {3n_1n_2\left((n-2)C(0)^2+6nC(n)-n^2C(0)\right) \over C(0)^2 } -6nC(n) + C(0)C(-1) \right)\right] \cr &-3 \end{aligned}
+$$
+
 
 
 
@@ -1180,10 +1089,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The kurtosis coefficient is
 
-$$KU[X] = 3$$
-
-
-$$KU[X] = 3$$
+$$
+KU[X] = 3
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_logistic -->
@@ -1197,10 +1105,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The kurtosis coefficient is
 
-$$KU[X] = {6\over 5}$$
-
-
-$$KU[X] = {6\over 5}$$
+$$
+KU[X] = {6\over 5}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_lognormal -->
@@ -1214,10 +1121,9 @@ random variable, with $s>0$. To make use of this function, write first `load("di
 
 The kurtosis coefficient is
 
-$$KU[X] = \exp\left(4s^2\right)+2\exp\left(3s^2\right)+3\exp\left(2s^2\right)-3$$
-
-
-$$KU[X] = \exp\left(4s^2\right)+2\exp\left(3s^2\right)+3\exp\left(2s^2\right)-3$$
+$$
+KU[X] = \exp\left(4s^2\right)+2\exp\left(3s^2\right)+3\exp\left(2s^2\right)-3
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_negative_binomial -->
@@ -1231,10 +1137,9 @@ random variable, with $0 < p \leq 1$ and $n$ a positive number. To make use of t
 
 The kurtosis coefficient is
 
-$$KU[X] = {p^2-6p+6 \over n(1-p)}$$
-
-
-$$KU[X] = {p^2-6p+6 \over n(1-p)}$$
+$$
+KU[X] = {p^2-6p+6 \over n(1-p)}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_noncentral_chi2 -->
@@ -1251,10 +1156,10 @@ $ncp \ge 0.$
 
 The kurtosis coefficient is
 
-$$KU[X] = {12(n+4\mu)\over (2+2\mu)^2}$$
+$$
+KU[X] = {12(n+4\mu)\over (2+2\mu)^2}
+$$
 
-
-$$KU[X] = {12(n+4\mu)\over (2+2\mu)^2}$$
 
 
 
@@ -1284,21 +1189,9 @@ the kurtosis is
 
 
 
-$$\eqalign{ KU[U] &= {\mu_4\over \sigma^4} - 3\cr \mu_4 &= {{\left(\mu^4+6\mu^2+3\right)n^2}\over{(n-4)(n-2)}} -\left({{n\left(3(3n-5)+\mu^2(n+1)\right) }\over{(n-3)(n-2)}}-3\sigma^2\right) F \cr \sigma^2 &= {{n\left(\mu^2+1\right)}\over{n-2}}-{{n \mu^2 \Gamma\left({{n-1}\over{2}}\right)^2}\over{2\Gamma\left({{n }\over{2}}\right)^2}} \cr F &= {n\mu^2\Gamma\left({n-1\over 2}\right)^2 \over 2\sigma^4\Gamma\left({n\over 2}\right)^2} }$$
-
-
-$$\eqalign{
-KU[U] &=
-{\mu_4\over \sigma^4} - 3\cr
-  \mu_4 &= {{\left(\mu^4+6\mu^2+3\right)n^2}\over{(n-4)(n-2)}}
- -\left({{n\left(3(3n-5)+\mu^2(n+1)\right)
- }\over{(n-3)(n-2)}}-3\sigma^2\right) F \cr
- \sigma^2 &= {{n\left(\mu^2+1\right)}\over{n-2}}-{{n \mu^2
- \Gamma\left({{n-1}\over{2}}\right)^2}\over{2\Gamma\left({{n
- }\over{2}}\right)^2}} \cr
- F &= {n\mu^2\Gamma\left({n-1\over 2}\right)^2 \over
- 2\sigma^4\Gamma\left({n\over 2}\right)^2}
-}$$
+$$
+\begin{aligned} KU[U] &= {\mu_4\over \sigma^4} - 3\cr \mu_4 &= {{\left(\mu^4+6\mu^2+3\right)n^2}\over{(n-4)(n-2)}} -\left({{n\left(3(3n-5)+\mu^2(n+1)\right) }\over{(n-3)(n-2)}}-3\sigma^2\right) F \cr \sigma^2 &= {{n\left(\mu^2+1\right)}\over{n-2}}-{{n \mu^2 \Gamma\left({{n-1}\over{2}}\right)^2}\over{2\Gamma\left({{n }\over{2}}\right)^2}} \cr F &= {n\mu^2\Gamma\left({n-1\over 2}\right)^2 \over 2\sigma^4\Gamma\left({n\over 2}\right)^2} \end{aligned}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_normal -->
@@ -1312,10 +1205,9 @@ random variable, with $s>0$, which is always equal to 0. To make use of this fun
 
 The kurtosis coefficient is
 
-$$KU[X] = 0$$
-
-
-$$KU[X] = 0$$
+$$
+KU[X] = 0
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_pareto -->
@@ -1329,10 +1221,9 @@ random variable, with $a>4,b>0$. To make use of this function, write first `load
 
 The kurtosis coefficient is
 
-$$KU[X] = {6\left(a^3+a^2-6*a-2\right) \over a(a-3)(a-4)} - 3$$
-
-
-$$KU[X] = {6\left(a^3+a^2-6*a-2\right) \over a(a-3)(a-4)} - 3$$
+$$
+KU[X] = {6\left(a^3+a^2-6*a-2\right) \over a(a-3)(a-4)} - 3
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_poisson -->
@@ -1344,10 +1235,9 @@ Returns the kurtosis coefficient of a Poisson random variable  $Poi(m)$, with $m
 
 The kurtosis coefficient is
 
-$$KU[X] = {1\over m}$$
-
-
-$$KU[X] = {1\over m}$$
+$$
+KU[X] = {1\over m}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_rayleigh -->
@@ -1368,10 +1258,10 @@ ${\it Weibull}(2,1/b)$
 
 The kurtosis coefficient is
 
-$$KU[X] = {32-3\pi\over (4-\pi)^2} - 3$$
+$$
+KU[X] = {32-3\pi\over (4-\pi)^2} - 3
+$$
 
-
-$$KU[X] = {32-3\pi\over (4-\pi)^2} - 3$$
 
 
 
@@ -1407,10 +1297,9 @@ $t(n)$
 
 The kurtosis coefficient is
 
-$$KU[X] = {6\over n-4}$$
-
-
-$$KU[X] = {6\over n-4}$$
+$$
+KU[X] = {6\over n-4}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: kurtosis_weibull -->
@@ -1424,17 +1313,10 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The kurtosis coefficient is
 
-$$KU[X] = { \Gamma_4 - 4\Gamma_1 \Gamma_3 + 6\Gamma_1^2 \Gamma_2 - 3 \Gamma_1^4 \over \left[\Gamma_2 - \Gamma_1^2\right]^2 } - 3$$
+$$
+KU[X] = { \Gamma_4 - 4\Gamma_1 \Gamma_3 + 6\Gamma_1^2 \Gamma_2 - 3 \Gamma_1^4 \over \left[\Gamma_2 - \Gamma_1^2\right]^2 } - 3
+$$
 
-
-$$KU[X] = {
-\Gamma_4
- - 4\Gamma_1 \Gamma_3
- + 6\Gamma_1^2 \Gamma_2
- - 3 \Gamma_1^4
-\over
- \left[\Gamma_2 - \Gamma_1^2\right]^2
-} - 3$$
 
 
 
@@ -1460,10 +1342,10 @@ ${\it Binomial}(1,p)$
 
 The mean is
 
-$$E[X] = p$$
+$$
+E[X] = p
+$$
 
-
-$$E[X] = p$$
 
 
 
@@ -1492,10 +1374,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The mean is
 
-$$E[X] = {a\over a+b}$$
-
-
-$$E[X] = {a\over a+b}$$
+$$
+E[X] = {a\over a+b}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_binomial -->
@@ -1509,10 +1390,9 @@ random variable, with $0 \leq p \leq 1$ and $n$ a positive integer. To make use 
 
 The mean is
 
-$$E[X] = np$$
-
-
-$$E[X] = np$$
+$$
+E[X] = np
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_chi2 -->
@@ -1533,10 +1413,10 @@ $\Gamma\left(n/2,2\right)$
 
 The mean is
 
-$$E[X] = n$$
+$$
+E[X] = n
+$$
 
-
-$$E[X] = n$$
 
 
 
@@ -1568,10 +1448,9 @@ To make use of this function, write first `load("distrib")`.
 
 The mean is
 
-$$E[X] = {a+b\over 2}$$
-
-
-$$E[X] = {a+b\over 2}$$
+$$
+E[X] = {a+b\over 2}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_discrete_uniform -->
@@ -1585,10 +1464,9 @@ random variable, with $n$ a strictly positive integer. To make use of this funct
 
 The mean is
 
-$$E[X] = {n+1\over 2}$$
-
-
-$$E[X] = {n+1\over 2}$$
+$$
+E[X] = {n+1\over 2}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_exp -->
@@ -1609,10 +1487,10 @@ ${\it Weibull}(1,1/m)$
 
 The mean is
 
-$$E[X] = {1\over m}$$
+$$
+E[X] = {1\over m}
+$$
 
-
-$$E[X] = {1\over m}$$
 
 
 
@@ -1641,10 +1519,9 @@ Returns the mean of a F random variable $F(m,n)$, with $m>0, n>2$. To make use o
 
 The mean is
 
-$$E[X] = {n\over n-2}$$
-
-
-$$E[X] = {n\over n-2}$$
+$$
+E[X] = {n\over n-2}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_gamma -->
@@ -1658,10 +1535,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The mean is
 
-$$E[X] = ab$$
-
-
-$$E[X] = ab$$
+$$
+E[X] = ab
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_general_finite_discrete -->
@@ -1671,7 +1547,7 @@ $$E[X] = ab$$
 Returns the mean of a general finite discrete random variable, with vector probabilities $v$.
 
 
-See `pdf_005fgeneral_005ffinite_005fdiscrete` for more details.
+See `pdf_general_finite_discrete` for more details.
 
 See also: `pdf_general_finite_discrete`.
 
@@ -1688,10 +1564,10 @@ $0 < p \leq 1$.
 
 The mean is
 
-$$E[X] = {1\over p} - 1$$
+$$
+E[X] = {1\over p} - 1
+$$
 
-
-$$E[X] = {1\over p} - 1$$
 
 
 
@@ -1714,10 +1590,10 @@ random variable, with $b>0$.
 
 The mean is
 
-$$E[X] = a+b\gamma$$
+$$
+E[X] = a+b\gamma
+$$
 
-
-$$E[X] = a+b\gamma$$
 
 
 
@@ -1734,7 +1610,7 @@ $$E[X] = a+b\gamma$$
 (%o2)                     %gamma b + a
 ```
 
-where symbol `%gamma` stands for the Euler-Mascheroni constant. See also `_0025gamma`.
+where symbol `%gamma` stands for the Euler-Mascheroni constant. See also `%gamma`.
 
 See also: `%gamma`.
 
@@ -1750,10 +1626,9 @@ ${\it Hypergeometric}(n_1,n_2,n)$
 
 The mean is
 
-$$E[X] = {n n_1\over n_2+n_1}$$
-
-
-$$E[X] = {n n_1\over n_2+n_1}$$
+$$
+E[X] = {n n_1\over n_2+n_1}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_laplace -->
@@ -1767,10 +1642,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The mean is
 
-$$E[X] = a$$
-
-
-$$E[X] = a$$
+$$
+E[X] = a
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_logistic -->
@@ -1784,10 +1658,9 @@ random variable , with $b>0$. To make use of this function, write first `load("d
 
 The mean is
 
-$$E[X] = a$$
-
-
-$$E[X] = a$$
+$$
+E[X] = a
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_lognormal -->
@@ -1801,10 +1674,9 @@ random variable, with $s>0$. To make use of this function, write first `load("di
 
 The mean is
 
-$$E[X] = \exp\left(m+{s^2\over 2}\right)$$
-
-
-$$E[X] = \exp\left(m+{s^2\over 2}\right)$$
+$$
+E[X] = \exp\left(m+{s^2\over 2}\right)
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_negative_binomial -->
@@ -1818,10 +1690,9 @@ random variable, with $0 < p \leq 1$ and $n$ a positive number. To make use of t
 
 The mean is
 
-$$E[X] = {n(1-p)\over p}$$
-
-
-$$E[X] = {n(1-p)\over p}$$
+$$
+E[X] = {n(1-p)\over p}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_noncentral_chi2 -->
@@ -1836,10 +1707,10 @@ $ncp \ge 0.$
 
 The mean is
 
-$$E[X] = n + \mu$$
+$$
+E[X] = n + \mu
+$$
 
-
-$$E[X] = n + \mu$$
 
 
 
@@ -1859,11 +1730,10 @@ ${\it nc\_t}(n, ncp)$
 
 The mean is
 
-$$E[X] = {\mu \sqrt{n}\; \Gamma\left(\displaystyle{n-1\over 2}\right) \over \sqrt{2}\;\Gamma\left(\displaystyle{n\over 2}\right)}$$
+$$
+E[X] = {\mu \sqrt{n}\; \Gamma\left(\displaystyle{n-1\over 2}\right) \over \sqrt{2}\;\Gamma\left(\displaystyle{n\over 2}\right)}
+$$
 
-
-$$E[X] = {\mu \sqrt{n}\; \Gamma\left(\displaystyle{n-1\over 2}\right) \over
-\sqrt{2}\;\Gamma\left(\displaystyle{n\over 2}\right)}$$
 
 
 
@@ -1903,10 +1773,9 @@ random variable, with $s>0$. To make use of this function, write first `load("di
 
 The mean is
 
-$$E[X] = m$$
-
-
-$$E[X] = m$$
+$$
+E[X] = m
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_pareto -->
@@ -1920,10 +1789,9 @@ random variable, with $a>1,b>0$. To make use of this function, write first `load
 
 The mean is
 
-$$E[X] = {ab\over a-1}$$
-
-
-$$E[X] = {ab\over a-1}$$
+$$
+E[X] = {ab\over a-1}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_poisson -->
@@ -1937,10 +1805,9 @@ random variable, with  $m>0$. To make use of this function, write first `load("d
 
 The mean is
 
-$$E[X] = m$$
-
-
-$$E[X] = m$$
+$$
+E[X] = m
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_rayleigh -->
@@ -1961,10 +1828,10 @@ ${\it Weibull}(2,1/b)$
 
 The mean is
 
-$$E[X] = {\sqrt{\pi}\over 2b}$$
+$$
+E[X] = {\sqrt{\pi}\over 2b}
+$$
 
-
-$$E[X] = {\sqrt{\pi}\over 2b}$$
 
 
 
@@ -1995,10 +1862,9 @@ $t(n)$
 
 The mean is
 
-$$E[X] = 0$$
-
-
-$$E[X] = 0$$
+$$
+E[X] = 0
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: mean_weibull -->
@@ -2012,10 +1878,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The mean is
 
-$$E[X] = b\Gamma\left(1+{1\over a}\right)$$
-
-
-$$E[X] = b\Gamma\left(1+{1\over a}\right)$$
+$$
+E[X] = b\Gamma\left(1+{1\over a}\right)
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_bernoulli -->
@@ -2036,10 +1901,10 @@ ${\it Binomial}(1,p)$
 
 The mean is
 
-$$f(x; p) = p^x (1-p)^{1-x}$$
+$$
+f(x; p) = p^x (1-p)^{1-x}
+$$
 
-
-$$f(x; p) = p^x (1-p)^{1-x}$$
 
 
 
@@ -2068,16 +1933,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The pdf is
 
-$$f(x; a, b) = \cases{ \displaystyle{x^{a-1}(1-x)^{b-1} \over B(a,b)} & for $0 \le x \le 1$ \cr \cr 0 & otherwise }$$
-
-
-$$f(x; a, b) =
-\cases{
-\displaystyle{x^{a-1}(1-x)^{b-1} \over B(a,b)} & for $0 \le x \le 1$
-\cr
-\cr
-0 & otherwise
-}$$
+$$
+f(x; a, b) = \begin{cases} \displaystyle{x^{a-1}(1-x)^{b-1} \over B(a,b)} & for $0 \le x \le 1$ \cr \cr 0 & otherwise \end{cases}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_binomial -->
@@ -2091,10 +1949,9 @@ random variable, with $0 \leq p \leq 1$ and $n$ a positive integer. To make use 
 
 The pdf is
 
-$$f(x; n, p) = {n\choose x} (1-p)^{n-x}p^x$$
-
-
-$$f(x; n, p) = {n\choose x} (1-p)^{n-x}p^x$$
+$$
+f(x; n, p) = {n\choose x} (1-p)^{n-x}p^x
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_cauchy -->
@@ -2108,10 +1965,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The pdf is
 
-$$f(x; a, b) = {b\over \pi\left((x-a)^2+b^2\right)}$$
-
-
-$$f(x; a, b) = {b\over \pi\left((x-a)^2+b^2\right)}$$
+$$
+f(x; a, b) = {b\over \pi\left((x-a)^2+b^2\right)}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_chi2 -->
@@ -2133,17 +1989,10 @@ The pdf is
 
 
 
-$$f(x; n) = \cases{ \displaystyle{x^{n/2-1} e^{-x/2} \over 2^{n/2} \Gamma\left(\displaystyle{n\over 2}\right)} & for $x > 0$ \cr \cr 0 & otherwise }$$
+$$
+f(x; n) = \begin{cases} \displaystyle{x^{n/2-1} e^{-x/2} \over 2^{n/2} \Gamma\left(\displaystyle{n\over 2}\right)} & for $x > 0$ \cr \cr 0 & otherwise \end{cases}
+$$
 
-
-$$f(x; n) =
-\cases{
- \displaystyle{x^{n/2-1} e^{-x/2} \over 2^{n/2}
- \Gamma\left(\displaystyle{n\over 2}\right)} & for $x
- > 0$ \cr
-\cr
- 0 & otherwise
-}$$
 
 
 
@@ -2178,15 +2027,10 @@ To make use of this function, write first `load("distrib")`.
 
 The pdf
 
-$$f(x; a, b) = \cases{ \displaystyle{1\over b-a} & for $0 \le x \le 1$ \cr \cr 0 & otherwise }$$
+$$
+f(x; a, b) = \begin{cases} \displaystyle{1\over b-a} & for $0 \le x \le 1$ \cr \cr 0 & otherwise \end{cases}
+$$
 
-
-$$f(x; a, b) =
-\cases{
-\displaystyle{1\over b-a} & for $0 \le x \le 1$ \cr
-\cr
-0 & otherwise
-}$$
 
 
 
@@ -2204,10 +2048,9 @@ random variable, with $n$ a strictly positive integer. To make use of this funct
 
 The pdf is
 
-$$f(x,n) = {1\over n}$$
-
-
-$$f(x,n) = {1\over n}$$
+$$
+f(x,n) = {1\over n}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_exp -->
@@ -2228,14 +2071,10 @@ ${\it Weibull}(1,1/m)$
 
 The pdf is
 
-$$f(x; m) = \cases{ me^{-mx} & for $x \ge 0$ \cr 0 & otherwise }$$
+$$
+f(x; m) = \begin{cases} me^{-mx} & for $x \ge 0$ \cr 0 & otherwise \end{cases}
+$$
 
-
-$$f(x; m) =
-\cases{
-me^{-mx} & for $x \ge 0$ \cr
-0 & otherwise
-}$$
 
 
 
@@ -2263,19 +2102,9 @@ Returns the value at *x* of the density function of a F random variable $F(m,n)$
 
 The pdf is
 
-$$f(x; m, n) = \cases{ B\left(\displaystyle{m\over 2}, \displaystyle{n\over 2}\right)^{-1} \left(\displaystyle{m\over n}\right)^{m/ 2} x^{m/2-1} \left(1 + \displaystyle{m\over n}x\right)^{-\left(n+m\right)/2} & $x > 0$ \cr \cr 0 & otherwise }$$
-
-
-$$f(x; m, n) =
-\cases{
-B\left(\displaystyle{m\over 2}, \displaystyle{n\over 2}\right)^{-1}
-\left(\displaystyle{m\over n}\right)^{m/ 2}
-x^{m/2-1}
-\left(1 + \displaystyle{m\over n}x\right)^{-\left(n+m\right)/2} & $x >
-0$ \cr
-\cr
-0 & otherwise
-}$$
+$$
+f(x; m, n) = \begin{cases} B\left(\displaystyle{m\over 2}, \displaystyle{n\over 2}\right)^{-1} \left(\displaystyle{m\over n}\right)^{m/ 2} x^{m/2-1} \left(1 + \displaystyle{m\over n}x\right)^{-\left(n+m\right)/2} & $x > 0$ \cr \cr 0 & otherwise \end{cases}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_gamma -->
@@ -2292,10 +2121,9 @@ The shape parameter is $a$, and the scale parameter is $b$.
 
 The pdf is
 
-$$f(x; a, b) = {x^{a-1}e^{-x/b}\over b^a \Gamma(a)}$$
-
-
-$$f(x; a, b) = {x^{a-1}e^{-x/b}\over b^a \Gamma(a)}$$
+$$
+f(x; a, b) = {x^{a-1}e^{-x/b}\over b^a \Gamma(a)}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_general_finite_discrete -->
@@ -2347,10 +2175,10 @@ $0 < p \leq 1$
 
 The pdf is
 
-$$f(x; p) = p(1-p)^x$$
+$$
+f(x; p) = p(1-p)^x
+$$
 
-
-$$f(x; p) = p(1-p)^x$$
 
 
 
@@ -2372,10 +2200,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The pdf is
 
-$$f(x; a, b) = {1\over b} \exp\left[{a-x\over b} - \exp\left({a-x\over b}\right)\right]$$
-
-
-$$f(x; a, b) = {1\over b} \exp\left[{a-x\over b} - \exp\left({a-x\over b}\right)\right]$$
+$$
+f(x; a, b) = {1\over b} \exp\left[{a-x\over b} - \exp\left({a-x\over b}\right)\right]
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_hypergeometric -->
@@ -2396,11 +2223,9 @@ To make use of this function, write first `load("distrib")`.
 
 The pdf is
 
-$$f(x; n_1, n_2, n) = {\displaystyle{n_1\choose x} {n_2 \choose n-x} \over \displaystyle{n_2+n_1 \choose n}}$$
-
-
-$$f(x; n_1, n_2, n) = {\displaystyle{n_1\choose x} {n_2 \choose n-x}
-\over \displaystyle{n_2+n_1 \choose n}}$$
+$$
+f(x; n_1, n_2, n) = {\displaystyle{n_1\choose x} {n_2 \choose n-x} \over \displaystyle{n_2+n_1 \choose n}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_laplace -->
@@ -2418,10 +2243,9 @@ the scale parameter, related to the variance.
 
 The pdf is
 
-$$f(x; a, b) = {1\over 2b}\exp\left(-{|x-a|\over b}\right)$$
-
-
-$$f(x; a, b) = {1\over 2b}\exp\left(-{|x-a|\over b}\right)$$
+$$
+f(x; a, b) = {1\over 2b}\exp\left(-{|x-a|\over b}\right)
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_logistic -->
@@ -2439,10 +2263,9 @@ parameter.
 
 The pdf is
 
-$$f(x; a, b) = {e^{-(x-a)/b} \over b\left(1 + e^{-(x-a)/b}\right)^2}$$
-
-
-$$f(x; a, b) = {e^{-(x-a)/b} \over b\left(1 + e^{-(x-a)/b}\right)^2}$$
+$$
+f(x; a, b) = {e^{-(x-a)/b} \over b\left(1 + e^{-(x-a)/b}\right)^2}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_lognormal -->
@@ -2456,17 +2279,9 @@ random variable, with $s>0$. To make use of this function, write first `load("di
 
 The pdf is
 
-$$f(x; m, s) = \cases{ \displaystyle{1\over x s \sqrt{2\pi}} \exp\left(-\displaystyle{\left(\log x - m\right)^2\over 2s^2}\right) & for $x \ge 0$ \cr \cr 0 & for $x < 0$ }$$
-
-
-$$f(x; m, s) =
-\cases{
-\displaystyle{1\over x s \sqrt{2\pi}}
-\exp\left(-\displaystyle{\left(\log x - m\right)^2\over 2s^2}\right) & for $x \ge
-0$ \cr
-\cr
-0 & for $x < 0$
-}$$
+$$
+f(x; m, s) = \begin{cases} \displaystyle{1\over x s \sqrt{2\pi}} \exp\left(-\displaystyle{\left(\log x - m\right)^2\over 2s^2}\right) & for $x \ge 0$ \cr \cr 0 & for $x < 0$ \end{cases}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_negative_binomial -->
@@ -2480,10 +2295,9 @@ random variable, with $0 < p \leq 1$ and $n$ a positive number. To make use of t
 
 The pdf is
 
-$$f(x; n, p) = {x+n-1 \choose n-1} (1-p)^xp^n$$
-
-
-$$f(x; n, p) = {x+n-1 \choose n-1} (1-p)^xp^n$$
+$$
+f(x; n, p) = {x+n-1 \choose n-1} (1-p)^xp^n
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_noncentral_chi2 -->
@@ -2507,12 +2321,8 @@ For $x < 0$, the pdf is 0, and for
 $x \ge 0$
 the pdf is
 
-$$f(x; n, \lambda) = {1\over 2}e^{-(x+\lambda)/2} \left(x\over \lambda\right)^{n/4-1/2}I_{{n\over 2} - 1}\left(\sqrt{n \lambda}\right)$$
-
-
-$$f(x; n, \lambda) =
-{1\over 2}e^{-(x+\lambda)/2} \left(x\over
-\lambda\right)^{n/4-1/2}I_{{n\over 2} - 1}\left(\sqrt{n \lambda}\right)
+$$
+f(x; n, \lambda) = {1\over 2}e^{-(x+\lambda)/2} \left(x\over \lambda\right)^{n/4-1/2}I_{{n\over 2} - 1}\left(\sqrt{n \lambda}\right)
 $$
 
 <!-- category: Statistics -->
@@ -2528,29 +2338,19 @@ ${\it nc\_t}(n, ncp)$
 
 The pdf is
 
-$$f(x; n, \mu) = \left[\sqrt{n} B\left({1\over 2}, {n\over 2}\right)\right]^{-1}\left(1+{x^2\over n}\right)^{-{(n+1)/2}} e^{-\mu^2/ 2} \bigg[A_n(x; \mu) + B_n(x; \mu)\bigg]$$
+$$
+f(x; n, \mu) = \left[\sqrt{n} B\left({1\over 2}, {n\over 2}\right)\right]^{-1}\left(1+{x^2\over n}\right)^{-{(n+1)/2}} e^{-\mu^2/ 2} \bigg[A_n(x; \mu) + B_n(x; \mu)\bigg]
+$$
 
-
-$$f(x; n, \mu) = \left[\sqrt{n} B\left({1\over 2}, {n\over
-2}\right)\right]^{-1}\left(1+{x^2\over n}\right)^{-{(n+1)/2}}
-e^{-\mu^2/ 2}
-\bigg[A_n(x; \mu) + B_n(x; \mu)\bigg]$$
 
 
 
 where
 
-$$\eqalign{ A_n(x;\mu) &= {}_1F_1\left({n+1\over 2}; {1\over 2}; {\mu^2 x^2\over 2\left(x^2+n\right)}\right) \cr B_n(x;\mu) &= {\sqrt{2}\mu x \over \sqrt{x^2+n}} {\Gamma\left({n\over 2} + 1\right)\over \Gamma\left({n+1\over 2}\right)}\; {}_1F_1\left({n\over 2} + 1; {3\over 2}; {\mu^2 x^2\over 2\left(x^2+n\right)}\right) }$$
+$$
+\begin{aligned} A_n(x;\mu) &= {}_1F_1\left({n+1\over 2}; {1\over 2}; {\mu^2 x^2\over 2\left(x^2+n\right)}\right) \cr B_n(x;\mu) &= {\sqrt{2}\mu x \over \sqrt{x^2+n}} {\Gamma\left({n\over 2} + 1\right)\over \Gamma\left({n+1\over 2}\right)}\; {}_1F_1\left({n\over 2} + 1; {3\over 2}; {\mu^2 x^2\over 2\left(x^2+n\right)}\right) \end{aligned}
+$$
 
-
-$$\eqalign{
-A_n(x;\mu) &= {}_1F_1\left({n+1\over 2}; {1\over 2}; {\mu^2 x^2\over
-2\left(x^2+n\right)}\right) \cr
-B_n(x;\mu) &= {\sqrt{2}\mu x \over \sqrt{x^2+n}} {\Gamma\left({n\over
-2} + 1\right)\over \Gamma\left({n+1\over 2}\right)}\;
-{}_1F_1\left({n\over 2} + 1; {3\over 2}; {\mu^2 x^2\over
-2\left(x^2+n\right)}\right)
-}$$
 
 
 
@@ -2612,10 +2412,9 @@ random variable, with $s>0$. To make use of this function, write first `load("di
 
 The pdf is
 
-$$f(x; m, s) = {1\over s\sqrt{2\pi}} e^{\displaystyle -{(x-m)^2\over 2s^2}}$$
-
-
-$$f(x; m, s) = {1\over s\sqrt{2\pi}} e^{\displaystyle -{(x-m)^2\over 2s^2}}$$
+$$
+f(x; m, s) = {1\over s\sqrt{2\pi}} e^{\displaystyle -{(x-m)^2\over 2s^2}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_pareto -->
@@ -2629,15 +2428,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The pdf is
 
-$$f(x; a, b) = \cases{ \displaystyle{a b^a \over x^{a+1}} & for $x \ge b$ \cr \cr 0 & for $x < b$ }$$
-
-
-$$f(x; a, b) = 
-\cases{
-\displaystyle{a b^a \over x^{a+1}} & for $x \ge b$ \cr
-\cr
-0 & for $x < b$
-}$$
+$$
+f(x; a, b) = \begin{cases} \displaystyle{a b^a \over x^{a+1}} & for $x \ge b$ \cr \cr 0 & for $x < b$ \end{cases}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_poisson -->
@@ -2651,10 +2444,9 @@ random variable, with $m>0$. To make use of this function, write first `load("di
 
 The pdf is
 
-$$f(x; m) = {m^x e^{-m}\over x!}$$
-
-
-$$f(x; m) = {m^x e^{-m}\over x!}$$
+$$
+f(x; m) = {m^x e^{-m}\over x!}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_rayleigh -->
@@ -2675,14 +2467,10 @@ ${\it Weibull}(2,1/b)$
 
 The pdf is
 
-$$f(x; b) = \cases{ 2b^2 x e^{-b^2 x^2} & for $x \ge 0$ \cr 0 & for $x < 0$ }$$
+$$
+f(x; b) = \begin{cases} 2b^2 x e^{-b^2 x^2} & for $x \ge 0$ \cr 0 & for $x < 0$ \end{cases}
+$$
 
-
-$$f(x; b) =
-\cases{
-2b^2 x e^{-b^2 x^2} & for $x \ge 0$ \cr
-0 & for $x < 0$
-}$$
 
 
 
@@ -2713,11 +2501,9 @@ $t(n)$
 
 The pdf is
 
-$$f(x; n) = \left[\sqrt{n} B\left({1\over 2}, {n\over 2}\right)\right]^{-1} \left(1+{x^2\over n}\right)^{\displaystyle -{n+1\over 2}}$$
-
-
-$$f(x; n) = \left[\sqrt{n} B\left({1\over 2}, {n\over 2}\right)\right]^{-1}
-\left(1+{x^2\over n}\right)^{\displaystyle -{n+1\over 2}}$$
+$$
+f(x; n) = \left[\sqrt{n} B\left({1\over 2}, {n\over 2}\right)\right]^{-1} \left(1+{x^2\over n}\right)^{\displaystyle -{n+1\over 2}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: pdf_weibull -->
@@ -2731,16 +2517,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The pdf is
 
-$$f(x; a, b) = \cases{ \displaystyle{1\over b} \left({x\over b}\right)^{a-1} e^{-(x/b)^a} & for $x \ge 0$ \cr \cr 0 & for $x < 0$ }$$
-
-
-$$f(x; a, b) =
-\cases{
-\displaystyle{1\over b} \left({x\over b}\right)^{a-1} e^{-(x/b)^a} &
-for $x \ge 0$ \cr
-\cr
-0 & for $x < 0$
-}$$
+$$
+f(x; a, b) = \begin{cases} \displaystyle{1\over b} \left({x\over b}\right)^{a-1} e^{-(x/b)^a} & for $x \ge 0$ \cr \cr 0 & for $x < 0$ \end{cases}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: quantile_bernoulli -->
@@ -2897,7 +2676,7 @@ random variable, with $a,b>0$; in other words, this is the inverse of `cdf_gamma
 Returns the *q*-quantile of a general finite discrete random variable, with vector probabilities $v$.
 
 
-See `pdf_005fgeneral_005ffinite_005fdiscrete` for more details.
+See `pdf_general_finite_discrete` for more details.
 
 See also: `pdf_general_finite_discrete`.
 
@@ -3029,7 +2808,7 @@ ${\it nc\_t}(n, ncp)$
 
 Returns the *q*-quantile of a 
 ${\it Normal}(m, s)$
-random variable, with $s>0$; in other words, this is the inverse of `cdf_005fnormal`. Argument *q* must be an element of $[0,1]$. To make use of this function, write first `load("distrib")`.
+random variable, with $s>0$; in other words, this is the inverse of `cdf_normal`. Argument *q* must be an element of $[0,1]$. To make use of this function, write first `load("distrib")`.
 
 
 
@@ -3261,10 +3040,10 @@ $Chi^2(m)$ random variable and $Y$ is a
 $\chi^2(n)$
 random variable, then
 
-$$F={{n X}\over{m Y}}$$
+$$
+F={{n X}\over{m Y}}
+$$
 
-
-$$F={{n X}\over{m Y}}$$
 
 
 
@@ -3306,7 +3085,7 @@ To make use of this function, write first `load("distrib")`.
 Returns a general finite discrete random variate, with vector probabilities $v$. Calling `random_general_finite_discrete` with a second argument *m*, a random sample of size *m* will be simulated.
 
 
-See `pdf_005fgeneral_005ffinite_005fdiscrete` for more details.
+See `pdf_general_finite_discrete` for more details.
 
 
 
@@ -3479,10 +3258,10 @@ random variable with *n* degrees of freedom,
 $\chi^2(n)$
 , then
 
-$$U={{X}\over{\sqrt{{S^2}\over{n}}}}$$
+$$
+U={{X}\over{\sqrt{{S^2}\over{n}}}}
+$$
 
-
-$$U={{X}\over{\sqrt{{S^2}\over{n}}}}$$
 
 
 
@@ -3577,10 +3356,10 @@ $\chi^2(n)$
 
 
 
-$$X={{Z}\over{\sqrt{{S^2}\over{n}}}}$$
+$$
+X={{Z}\over{\sqrt{{S^2}\over{n}}}}
+$$
 
-
-$$X={{Z}\over{\sqrt{{S^2}\over{n}}}}$$
 
 
 is a Student random variable with $n$ degrees of freedom, 
@@ -3624,10 +3403,10 @@ ${\it Binomial}(1,p)$
 
 The skewness coefficient is
 
-$$SK[X] = {1-2p \over \sqrt{p(1-p)}}$$
+$$
+SK[X] = {1-2p \over \sqrt{p(1-p)}}
+$$
 
-
-$$SK[X] = {1-2p \over \sqrt{p(1-p)}}$$
 
 
 
@@ -3658,10 +3437,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The skewness coefficient is
 
-$$SK[X] = {2(b-a)\sqrt{a+b+1} \over (a+b+2)\sqrt{ab}}$$
-
-
-$$SK[X] = {2(b-a)\sqrt{a+b+1} \over (a+b+2)\sqrt{ab}}$$
+$$
+SK[X] = {2(b-a)\sqrt{a+b+1} \over (a+b+2)\sqrt{ab}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_binomial -->
@@ -3675,10 +3453,9 @@ random variable, with $0 \leq p \leq 1$ and $n$ a positive integer. To make use 
 
 The skewness coefficient is
 
-$$SK[X] = {1-2p\over \sqrt{np(1-p)}}$$
-
-
-$$SK[X] = {1-2p\over \sqrt{np(1-p)}}$$
+$$
+SK[X] = {1-2p\over \sqrt{np(1-p)}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_chi2 -->
@@ -3699,10 +3476,10 @@ $\Gamma\left(n/2,2\right)$
 
 The skewness coefficient is
 
-$$SK[X] = \sqrt{8\over n}$$
+$$
+SK[X] = \sqrt{8\over n}
+$$
 
-
-$$SK[X] = \sqrt{8\over n}$$
 
 
 
@@ -3736,10 +3513,9 @@ To make use of this function, write first `load("distrib")`.
 
 The skewness coefficient is
 
-$$SK[X] = 0$$
-
-
-$$SK[X] = 0$$
+$$
+SK[X] = 0
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_discrete_uniform -->
@@ -3753,10 +3529,9 @@ random variable, with $n$ a strictly positive integer. To make use of this funct
 
 The skewness coefficient is
 
-$$SK[X] = 0$$
-
-
-$$SK[X] = 0$$
+$$
+SK[X] = 0
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_exp -->
@@ -3777,10 +3552,10 @@ ${\it Weibull}(1,1/m)$
 
 The skewness coefficient is
 
-$$SK[X] = 2$$
+$$
+SK[X] = 2
+$$
 
-
-$$SK[X] = 2$$
 
 
 
@@ -3807,10 +3582,9 @@ Returns the skewness coefficient of a F random variable $F(m,n)$, with $m>0, n>6
 
 The skewness coefficient is
 
-$$SK[X] = {(n+2m-2)\sqrt{8(n-4)} \over (n-6)\sqrt{m(n+m-2)}}$$
-
-
-$$SK[X] = {(n+2m-2)\sqrt{8(n-4)} \over (n-6)\sqrt{m(n+m-2)}}$$
+$$
+SK[X] = {(n+2m-2)\sqrt{8(n-4)} \over (n-6)\sqrt{m(n+m-2)}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_gamma -->
@@ -3824,10 +3598,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The skewness coefficient is
 
-$$SK[X] = {2\over \sqrt{a}}$$
-
-
-$$SK[X] = {2\over \sqrt{a}}$$
+$$
+SK[X] = {2\over \sqrt{a}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_general_finite_discrete -->
@@ -3837,7 +3610,7 @@ $$SK[X] = {2\over \sqrt{a}}$$
 Returns the skewness coefficient of a general finite discrete random variable, with vector probabilities $v$.
 
 
-See `pdf_005fgeneral_005ffinite_005fdiscrete` for more details.
+See `pdf_general_finite_discrete` for more details.
 
 See also: `pdf_general_finite_discrete`.
 
@@ -3854,10 +3627,10 @@ $0 < p \leq 1$.
 
 The skewness coefficient is
 
-$$SK[X] = {2-p \over \sqrt{1-p}}$$
+$$
+SK[X] = {2-p \over \sqrt{1-p}}
+$$
 
-
-$$SK[X] = {2-p \over \sqrt{1-p}}$$
 
 
 
@@ -3876,10 +3649,10 @@ random variable, with $b>0$.
 
 The skewness coefficient is
 
-$$SK[X] = {12\sqrt{6}\over \pi^3} \zeta(3)$$
+$$
+SK[X] = {12\sqrt{6}\over \pi^3} \zeta(3)
+$$
 
-
-$$SK[X] = {12\sqrt{6}\over \pi^3} \zeta(3)$$
 
 
 
@@ -3914,11 +3687,9 @@ random variable, with $n_1$, $n_2$ and $n$ non negative integers and $n\leq n1+n
 
 The skewness coefficient is
 
-$$SK[X] = {(n_2-n_2)(n_1+n_2-2n)\over n_1+n_2-2} \sqrt{n_1+n_2-1 \over n n_1 n_2 (n_1+n_2-n)}$$
-
-
-$$SK[X] = {(n_2-n_2)(n_1+n_2-2n)\over n_1+n_2-2}
-\sqrt{n_1+n_2-1 \over n n_1 n_2 (n_1+n_2-n)}$$
+$$
+SK[X] = {(n_2-n_2)(n_1+n_2-2n)\over n_1+n_2-2} \sqrt{n_1+n_2-1 \over n n_1 n_2 (n_1+n_2-n)}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_laplace -->
@@ -3932,10 +3703,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The skewness coefficient is
 
-$$SK[X] = 0$$
-
-
-$$SK[X] = 0$$
+$$
+SK[X] = 0
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_logistic -->
@@ -3949,10 +3719,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The skewness coefficient is
 
-$$SK[X] = 0$$
-
-
-$$SK[X] = 0$$
+$$
+SK[X] = 0
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_lognormal -->
@@ -3966,10 +3735,9 @@ random variable, with $s>0$. To make use of this function, write first `load("di
 
 The skewness coefficient is
 
-$$SK[X] = \left(\exp\left(s^2\right)+2\right)\sqrt{\exp\left(s^2\right)-1}$$
-
-
-$$SK[X] = \left(\exp\left(s^2\right)+2\right)\sqrt{\exp\left(s^2\right)-1}$$
+$$
+SK[X] = \left(\exp\left(s^2\right)+2\right)\sqrt{\exp\left(s^2\right)-1}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_negative_binomial -->
@@ -3983,10 +3751,9 @@ random variable, with $0 < p \leq 1$ and $n$ a positive number. To make use of t
 
 The skewness coefficient is
 
-$$SK[X] = {2-p \over \sqrt{n(1-p)}}$$
-
-
-$$SK[X] = {2-p \over \sqrt{n(1-p)}}$$
+$$
+SK[X] = {2-p \over \sqrt{n(1-p)}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_noncentral_chi2 -->
@@ -4003,10 +3770,10 @@ $ncp \ge 0.$
 
 The skewness coefficient is
 
-$$SK[X] = {2^{3/2}(n+3\mu) \over (n+2\mu)^{3/2}}$$
+$$
+SK[X] = {2^{3/2}(n+3\mu) \over (n+2\mu)^{3/2}}
+$$
 
-
-$$SK[X] = {2^{3/2}(n+3\mu) \over (n+2\mu)^{3/2}}$$
 
 
 
@@ -4033,20 +3800,8 @@ $n$ degrees of freedom and a noncentrality parameter
 $\mu,$
 the skewness is
 
-$$\eqalign{ SK[U] &= {\mu\sqrt{n}\,\Gamma\left({{n-1}\over{2}}\right) \over{\sqrt{2}\Gamma\left({{n }\over{2}}\right)\sigma^{3}}}\left({{n \left(2n+\mu^2-3\right)}\over{\left(n-3\right)\left(n-2\right)}} -2\sigma^2\right) \cr \sigma^2 &= {{n\left(\mu^2+1\right)}\over{n-2}}-{{n \mu^2\, \Gamma\left({{n-1}\over{2}}\right)^2}\over{2\Gamma\left({{n }\over{2}}\right)^2}} }$$
-
-
-$$\eqalign{
-SK[U] &= 
-{\mu\sqrt{n}\,\Gamma\left({{n-1}\over{2}}\right)
-\over{\sqrt{2}\Gamma\left({{n
- }\over{2}}\right)\sigma^{3}}}\left({{n
- \left(2n+\mu^2-3\right)}\over{\left(n-3\right)\left(n-2\right)}}
- -2\sigma^2\right) \cr
- \sigma^2 &= {{n\left(\mu^2+1\right)}\over{n-2}}-{{n \mu^2\,
- \Gamma\left({{n-1}\over{2}}\right)^2}\over{2\Gamma\left({{n
- }\over{2}}\right)^2}}
-}
+$$
+\begin{aligned} SK[U] &= {\mu\sqrt{n}\,\Gamma\left({{n-1}\over{2}}\right) \over{\sqrt{2}\Gamma\left({{n }\over{2}}\right)\sigma^{3}}}\left({{n \left(2n+\mu^2-3\right)}\over{\left(n-3\right)\left(n-2\right)}} -2\sigma^2\right) \cr \sigma^2 &= {{n\left(\mu^2+1\right)}\over{n-2}}-{{n \mu^2\, \Gamma\left({{n-1}\over{2}}\right)^2}\over{2\Gamma\left({{n }\over{2}}\right)^2}} \end{aligned}
 $$
 
 <!-- category: Statistics -->
@@ -4061,10 +3816,9 @@ random variable, with $s>0$. To make use of this function, write first `load("di
 
 The skewness coefficient is
 
-$$SK[X] = 0$$
-
-
-$$SK[X] = 0$$
+$$
+SK[X] = 0
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_pareto -->
@@ -4078,10 +3832,9 @@ random variable, with $a>3,b>0$. To make use of this function, write first `load
 
 The skewness coefficient is
 
-$$SK[X] = {2(a+1)\over a-3} \sqrt{a-2\over a}$$
-
-
-$$SK[X] = {2(a+1)\over a-3} \sqrt{a-2\over a}$$
+$$
+SK[X] = {2(a+1)\over a-3} \sqrt{a-2\over a}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_poisson -->
@@ -4095,10 +3848,9 @@ random variable, with $m>0$. To make use of this function, write first `load("di
 
 The skewness is
 
-$$SK[X] = {1\over \sqrt{m}}$$
-
-
-$$SK[X] = {1\over \sqrt{m}}$$
+$$
+SK[X] = {1\over \sqrt{m}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_rayleigh -->
@@ -4119,10 +3871,10 @@ ${\it Weibull}(2,1/b)$
 
 The skewness coefficient is
 
-$$SK[X] = {2\sqrt{\pi}(\pi - 3)\over (4-\pi)^{3/2}}$$
+$$
+SK[X] = {2\sqrt{\pi}(\pi - 3)\over (4-\pi)^{3/2}}
+$$
 
-
-$$SK[X] = {2\sqrt{\pi}(\pi - 3)\over (4-\pi)^{3/2}}$$
 
 
 
@@ -4158,10 +3910,9 @@ $t(n)$
 
 The skewness coefficient is
 
-$$SK[X] = 0$$
-
-
-$$SK[X] = 0$$
+$$
+SK[X] = 0
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: skewness_weibull -->
@@ -4175,16 +3926,8 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The skewness coefficient is
 
-$$SK[X] = {\displaystyle\Gamma\left(1+{3\over a}\right) -3\Gamma\left(1+{1\over a}\right)\Gamma\left(1+{2\over a}\right)+2\Gamma\left(1+{1\over a}\right)^3 \over \displaystyle\left[\Gamma\left(1+{2\over a}\right)-\Gamma\left(1+{1\over a}\right)^2\right]^{3/2} }$$
-
-
-$$SK[X] = {\displaystyle\Gamma\left(1+{3\over a}\right)
--3\Gamma\left(1+{1\over a}\right)\Gamma\left(1+{2\over
-a}\right)+2\Gamma\left(1+{1\over a}\right)^3
- \over
- \displaystyle\left[\Gamma\left(1+{2\over a}\right)-\Gamma\left(1+{1\over
- a}\right)^2\right]^{3/2}
-} 
+$$
+SK[X] = {\displaystyle\Gamma\left(1+{3\over a}\right) -3\Gamma\left(1+{1\over a}\right)\Gamma\left(1+{2\over a}\right)+2\Gamma\left(1+{1\over a}\right)^3 \over \displaystyle\left[\Gamma\left(1+{2\over a}\right)-\Gamma\left(1+{1\over a}\right)^2\right]^{3/2} }
 $$
 
 <!-- category: Statistics -->
@@ -4206,10 +3949,10 @@ ${\it Binomial}(1,p)$
 
 The standard deviation is
 
-$$D[X] = \sqrt{p(1-p)}$$
+$$
+D[X] = \sqrt{p(1-p)}
+$$
 
-
-$$D[X] = \sqrt{p(1-p)}$$
 
 
 
@@ -4238,10 +3981,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The standard deviation is
 
-$$D[X] = {1\over a+b}\sqrt{ab\over a+b+1}$$
-
-
-$$D[X] = {1\over a+b}\sqrt{ab\over a+b+1}$$
+$$
+D[X] = {1\over a+b}\sqrt{ab\over a+b+1}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_binomial -->
@@ -4255,10 +3997,9 @@ random variable, with $0 \leq p \leq 1$ and $n$ a positive integer. To make use 
 
 The standard deviation is
 
-$$D[X] = \sqrt{np(1-p)}$$
-
-
-$$D[X] = \sqrt{np(1-p)}$$
+$$
+D[X] = \sqrt{np(1-p)}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_chi2 -->
@@ -4279,10 +4020,10 @@ $\Gamma\left(n/2,2\right)$
 
 The standard deviation is
 
-$$D[X] = \sqrt{2n}$$
+$$
+D[X] = \sqrt{2n}
+$$
 
-
-$$D[X] = \sqrt{2n}$$
 
 
 
@@ -4313,10 +4054,9 @@ To make use of this function, write first `load("distrib")`.
 
 The standard deviation is
 
-$$D[X] = {b-a \over 2\sqrt{3}}$$
-
-
-$$D[X] = {b-a \over 2\sqrt{3}}$$
+$$
+D[X] = {b-a \over 2\sqrt{3}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_discrete_uniform -->
@@ -4330,10 +4070,9 @@ random variable, with $n$ a strictly positive integer. To make use of this funct
 
 The standard deviation is
 
-$$D[X] = {\sqrt{n^2-1} \over 2\sqrt{3}}$$
-
-
-$$D[X] = {\sqrt{n^2-1} \over 2\sqrt{3}}$$
+$$
+D[X] = {\sqrt{n^2-1} \over 2\sqrt{3}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_exp -->
@@ -4354,10 +4093,10 @@ ${\it Weibull}(1,1/m)$
 
 The standard deviation is
 
-$$D[X] = {1\over m}$$
+$$
+D[X] = {1\over m}
+$$
 
-
-$$D[X] = {1\over m}$$
 
 
 
@@ -4386,10 +4125,9 @@ Returns the standard deviation of a F random variable $F(m,n)$, with $m>0, n>4$.
 
 The standard deviation is
 
-$$D[X] = {\sqrt{2}\, n \over n-2} \sqrt{n+m-2\over m(n-4)}$$
-
-
-$$D[X] = {\sqrt{2}\, n \over n-2} \sqrt{n+m-2\over m(n-4)}$$
+$$
+D[X] = {\sqrt{2}\, n \over n-2} \sqrt{n+m-2\over m(n-4)}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_gamma -->
@@ -4403,10 +4141,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The standard deviation is
 
-$$D[X] = b\sqrt{a}$$
-
-
-$$D[X] = b\sqrt{a}$$
+$$
+D[X] = b\sqrt{a}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_general_finite_discrete -->
@@ -4416,7 +4153,7 @@ $$D[X] = b\sqrt{a}$$
 Returns the standard deviation of a general finite discrete random variable, with vector probabilities $v$.
 
 
-See `pdf_005fgeneral_005ffinite_005fdiscrete` for more details.
+See `pdf_general_finite_discrete` for more details.
 
 See also: `pdf_general_finite_discrete`.
 
@@ -4432,10 +4169,10 @@ $0 < p \leq 1$.
 
 
 
-$$D[X] = {\sqrt{1-p} \over p}$$
+$$
+D[X] = {\sqrt{1-p} \over p}
+$$
 
-
-$$D[X] = {\sqrt{1-p} \over p}$$
 
 
 
@@ -4453,10 +4190,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The standard deviation is
 
-$$D[X] = {\pi \over \sqrt{6}} b$$
-
-
-$$D[X] = {\pi \over \sqrt{6}} b$$
+$$
+D[X] = {\pi \over \sqrt{6}} b
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_hypergeometric -->
@@ -4470,10 +4206,9 @@ random variable, with $n_1$, $n_2$ and $n$ non negative integers and $n\leq n_1+
 
 The standard deviation is
 
-$$D[X] = {1\over n_1+n_2}\sqrt{n n_1 n_2 (n_1 + n_2 - n) \over n_1+n_2-1}$$
-
-
-$$D[X] = {1\over n_1+n_2}\sqrt{n n_1 n_2 (n_1 + n_2 - n) \over n_1+n_2-1}$$
+$$
+D[X] = {1\over n_1+n_2}\sqrt{n n_1 n_2 (n_1 + n_2 - n) \over n_1+n_2-1}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_laplace -->
@@ -4487,10 +4222,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The standard deviation is
 
-$$D[X] = \sqrt{2} b$$
-
-
-$$D[X] = \sqrt{2} b$$
+$$
+D[X] = \sqrt{2} b
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_logistic -->
@@ -4504,10 +4238,9 @@ random variable , with $b>0$. To make use of this function, write first `load("d
 
 The standard deviation is
 
-$$D[X] = {\pi b\over \sqrt{3}}$$
-
-
-$$D[X] = {\pi b\over \sqrt{3}}$$
+$$
+D[X] = {\pi b\over \sqrt{3}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_lognormal -->
@@ -4521,11 +4254,9 @@ random variable, with $s>0$. To make use of this function, write first `load("di
 
 The standard deviation is
 
-$$D[X] = \sqrt{\left(\exp\left(s^2\right) - 1\right)} \exp\left(m+{s^2\over 2}\right)$$
-
-
-$$D[X] = \sqrt{\left(\exp\left(s^2\right) - 1\right)}
-\exp\left(m+{s^2\over 2}\right)$$
+$$
+D[X] = \sqrt{\left(\exp\left(s^2\right) - 1\right)} \exp\left(m+{s^2\over 2}\right)
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_negative_binomial -->
@@ -4539,10 +4270,9 @@ random variable, with $0 < p \leq 1$ and $n$ a positive number. To make use of t
 
 The standard deviation is
 
-$$D[X] = {\sqrt{n(1-p)}\over p}$$
-
-
-$$D[X] = {\sqrt{n(1-p)}\over p}$$
+$$
+D[X] = {\sqrt{n(1-p)}\over p}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_noncentral_chi2 -->
@@ -4559,10 +4289,10 @@ $ncp \ge 0.$
 
 The standard deviation is
 
-$$D[X] = \sqrt{2(n+2\mu)}$$
+$$
+D[X] = \sqrt{2(n+2\mu)}
+$$
 
-
-$$D[X] = \sqrt{2(n+2\mu)}$$
 
 
 
@@ -4582,10 +4312,9 @@ ${\it nc\_t}(n, ncp)$
 
 The standard deviation is
 
-$$D[X] = \sqrt{{n(\mu^2+1)\over n-2} - {n\mu^2\; \Gamma\left(\displaystyle{n-1\over 2}\right)^2 \over 2\Gamma\left(\displaystyle{n\over 2}\right)^2}}$$
-
-
-$$$$
+$$
+D[X] = \sqrt{{n(\mu^2+1)\over n-2} - {n\mu^2\; \Gamma\left(\displaystyle{n-1\over 2}\right)^2 \over 2\Gamma\left(\displaystyle{n\over 2}\right)^2}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_normal -->
@@ -4599,10 +4328,9 @@ random variable, with $s>0$, namely *s*. To make use of this function, write fir
 
 The standard deviation is
 
-$$D[X] = s$$
-
-
-$$D[X] = s$$
+$$
+D[X] = s
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_pareto -->
@@ -4616,10 +4344,9 @@ random variable, with $a>2,b>0$. To make use of this function, write first `load
 
 The standard deviation is
 
-$$D[X] = {b\over a-1} \sqrt{a\over a-2}$$
-
-
-$$D[X] = {b\over a-1} \sqrt{a\over a-2}$$
+$$
+D[X] = {b\over a-1} \sqrt{a\over a-2}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_poisson -->
@@ -4633,10 +4360,9 @@ random variable, with $m>0$. To make use of this function, write first `load("di
 
 The standard deviation is
 
-$$V[X] = \sqrt{m}$$
-
-
-$$V[X] = \sqrt{m}$$
+$$
+V[X] = \sqrt{m}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_rayleigh -->
@@ -4657,10 +4383,10 @@ ${\it Weibull}(2,1/b)$
 
 The standard deviation is
 
-$$D[X] = {1\over b}\sqrt{\displaystyle 1 - {\pi\over 4}}$$
+$$
+D[X] = {1\over b}\sqrt{\displaystyle 1 - {\pi\over 4}}
+$$
 
-
-$$D[X] = {1\over b}\sqrt{\displaystyle 1 - {\pi\over 4}}$$
 
 
 
@@ -4693,10 +4419,9 @@ $t(n)$
 
 The standard deviation is
 
-$$D[X] = \sqrt{\displaystyle{n\over n-2}}$$
-
-
-$$D[X] = \sqrt{\displaystyle{n\over n-2}}$$
+$$
+D[X] = \sqrt{\displaystyle{n\over n-2}}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: std_weibull -->
@@ -4710,11 +4435,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The variance is
 
-$$D[X] = b\sqrt{\Gamma\left(1+{2\over a}\right) - \Gamma\left(1+{1\over a}\right)^2}$$
-
-
-$$D[X] = b\sqrt{\Gamma\left(1+{2\over a}\right) -
-\Gamma\left(1+{1\over a}\right)^2}$$
+$$
+D[X] = b\sqrt{\Gamma\left(1+{2\over a}\right) - \Gamma\left(1+{1\over a}\right)^2}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_bernoulli -->
@@ -4735,10 +4458,10 @@ ${\it Binomial}(1,p)$
 
 The variance is
 
-$$V[X] = p(1-p)$$
+$$
+V[X] = p(1-p)
+$$
 
-
-$$V[X] = p(1-p)$$
 
 
 
@@ -4767,10 +4490,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The variance is
 
-$$V[X] = {ab \over (a+b)^2(a+b+1)}$$
-
-
-$$V[X] = {ab \over (a+b)^2(a+b+1)}$$
+$$
+V[X] = {ab \over (a+b)^2(a+b+1)}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_binomial -->
@@ -4784,10 +4506,9 @@ random variable, with $0 \leq p \leq 1$ and $n$ a positive integer. To make use 
 
 The variance is
 
-$$V[X] = np(1-p)$$
-
-
-$$V[X] = np(1-p)$$
+$$
+V[X] = np(1-p)
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_chi2 -->
@@ -4808,10 +4529,10 @@ $\Gamma\left(n/2,2\right)$
 
 The variance is
 
-$$V[X] = 2n$$
+$$
+V[X] = 2n
+$$
 
-
-$$V[X] = 2n$$
 
 
 
@@ -4843,10 +4564,9 @@ To make use of this function, write first `load("distrib")`.
 
 The variance is
 
-$$V[X] = {(b-a)^2\over 12}$$
-
-
-$$V[X] = {(b-a)^2\over 12}$$
+$$
+V[X] = {(b-a)^2\over 12}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_discrete_uniform -->
@@ -4860,10 +4580,9 @@ random variable, with $n$ a strictly positive integer. To make use of this funct
 
 The variance is
 
-$$V[X] = {n^2-1 \over 12}$$
-
-
-$$V[X] = {n^2-1 \over 12}$$
+$$
+V[X] = {n^2-1 \over 12}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_exp -->
@@ -4884,10 +4603,10 @@ ${\it Weibull}(1,1/m)$
 
 The variance is
 
-$$V[X] = {1\over m^2}$$
+$$
+V[X] = {1\over m^2}
+$$
 
-
-$$V[X] = {1\over m^2}$$
 
 
 
@@ -4916,10 +4635,9 @@ Returns the variance of a F random variable $F(m,n)$, with $m>0, n>4$. To make u
 
 The variance is
 
-$$V[X] = {2n^2(n+m-2) \over m(n-4)(n-2)^2}$$
-
-
-$$V[X] = {2n^2(n+m-2) \over m(n-4)(n-2)^2}$$
+$$
+V[X] = {2n^2(n+m-2) \over m(n-4)(n-2)^2}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_gamma -->
@@ -4933,10 +4651,9 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The variance is
 
-$$V[X] = ab^2$$
-
-
-$$V[X] = ab^2$$
+$$
+V[X] = ab^2
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_general_finite_discrete -->
@@ -4946,7 +4663,7 @@ $$V[X] = ab^2$$
 Returns the variance of a general finite discrete random variable, with vector probabilities $v$.
 
 
-See `pdf_005fgeneral_005ffinite_005fdiscrete` for more details.
+See `pdf_general_finite_discrete` for more details.
 
 See also: `pdf_general_finite_discrete`.
 
@@ -4963,10 +4680,10 @@ $0 < p \leq 1$.
 
 The variance is
 
-$$V[X] = {1-p\over p^2}$$
+$$
+V[X] = {1-p\over p^2}
+$$
 
-
-$$V[X] = {1-p\over p^2}$$
 
 
 
@@ -4985,10 +4702,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The variance is
 
-$$V[X] = {\pi^2\over 6} b^2$$
-
-
-$$V[X] = {\pi^2\over 6} b^2$$
+$$
+V[X] = {\pi^2\over 6} b^2
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_hypergeometric -->
@@ -5005,12 +4721,9 @@ To make use of this function, write first `load("distrib")`.
 
 The variance is
 
-$$V[X] = {n n_1 n_2 (n_1 + n_2 - n) \over (n_1 + n_2 - 1) (n_1 + n_2)^2}$$
-
-
-$$V[X] = {n n_1 n_2 (n_1 + n_2 - n)
- \over
- (n_1 + n_2 - 1) (n_1 + n_2)^2}$$
+$$
+V[X] = {n n_1 n_2 (n_1 + n_2 - n) \over (n_1 + n_2 - 1) (n_1 + n_2)^2}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_laplace -->
@@ -5024,10 +4737,9 @@ random variable, with $b>0$. To make use of this function, write first `load("di
 
 The variance is
 
-$$V[X] = 2b^2$$
-
-
-$$V[X] = 2b^2$$
+$$
+V[X] = 2b^2
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_logistic -->
@@ -5041,10 +4753,9 @@ random variable , with $b>0$. To make use of this function, write first `load("d
 
 The variance is
 
-$$V[X] = {\pi^2 b^2 \over 3}$$
-
-
-$$V[X] = {\pi^2 b^2 \over 3}$$
+$$
+V[X] = {\pi^2 b^2 \over 3}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_lognormal -->
@@ -5058,10 +4769,9 @@ random variable, with $s>0$. To make use of this function, write first `load("di
 
 The variance is
 
-$$V[X] = \left(\exp\left(s^2\right) - 1\right) \exp\left(2m+s^2\right)$$
-
-
-$$V[X] = \left(\exp\left(s^2\right) - 1\right) \exp\left(2m+s^2\right)$$
+$$
+V[X] = \left(\exp\left(s^2\right) - 1\right) \exp\left(2m+s^2\right)
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_negative_binomial -->
@@ -5075,10 +4785,9 @@ random variable, with $0 < p \leq 1$ and $n$ a positive number. To make use of t
 
 The variance is
 
-$$V[X] = {n(1-p)\over p^2}$$
-
-
-$$V[X] = {n(1-p)\over p^2}$$
+$$
+V[X] = {n(1-p)\over p^2}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_noncentral_chi2 -->
@@ -5093,10 +4802,10 @@ $ncp \ge 0.$
 
 The variance is
 
-$$V[X] = 2(n+2\mu)$$
+$$
+V[X] = 2(n+2\mu)
+$$
 
-
-$$V[X] = 2(n+2\mu)$$
 
 
 
@@ -5116,11 +4825,10 @@ ${\it nc\_t}(n, ncp)$
 
 The variance is
 
-$$V[X] = {n(\mu^2+1)\over n-2} - {n\mu^2\; \Gamma\left(\displaystyle{n-1\over 2}\right)^2 \over 2\Gamma\left(\displaystyle{n\over 2}\right)^2}$$
+$$
+V[X] = {n(\mu^2+1)\over n-2} - {n\mu^2\; \Gamma\left(\displaystyle{n-1\over 2}\right)^2 \over 2\Gamma\left(\displaystyle{n\over 2}\right)^2}
+$$
 
-
-$$V[X] = {n(\mu^2+1)\over n-2} - {n\mu^2\; \Gamma\left(\displaystyle{n-1\over 2}\right)^2
-\over 2\Gamma\left(\displaystyle{n\over 2}\right)^2}$$
 
 
 
@@ -5141,10 +4849,9 @@ random variable, with $s>0$. To make use of this function, write first `load("di
 
 The variance is
 
-$$V[X] = s^2$$
-
-
-$$V[X] = s^2$$
+$$
+V[X] = s^2
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_pareto -->
@@ -5158,10 +4865,9 @@ random variable, with $a>2,b>0$. To make use of this function, write first `load
 
 The variance is
 
-$$V[X] = {ab^2\over (a-2)(a-1)^2}$$
-
-
-$$V[X] = {ab^2\over (a-2)(a-1)^2}$$
+$$
+V[X] = {ab^2\over (a-2)(a-1)^2}
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_poisson -->
@@ -5175,10 +4881,9 @@ random variable, with  $m>0$. To make use of this function, write first `load("d
 
 The variance is
 
-$$V[X] = m$$
-
-
-$$V[X] = m$$
+$$
+V[X] = m
+$$
 
 <!-- category: Statistics -->
 <!-- keywords: var_rayleigh -->
@@ -5199,10 +4904,10 @@ ${\it Weibull}(2,1/b)$
 
 The variance is
 
-$$V[X] = {1\over b^2}\left(1-{\pi \over 4}\right)$$
+$$
+V[X] = {1\over b^2}\left(1-{\pi \over 4}\right)
+$$
 
-
-$$V[X] = {1\over b^2}\left(1-{\pi \over 4}\right)$$
 
 
 
@@ -5236,10 +4941,10 @@ $t(n)$
 
 The variance is
 
-$$V[X] = {n\over n-2}$$
+$$
+V[X] = {n\over n-2}
+$$
 
-
-$$V[X] = {n\over n-2}$$
 
 
 
@@ -5269,9 +4974,7 @@ random variable, with $a,b>0$. To make use of this function, write first `load("
 
 The variance is
 
-$$V[X] = b^2\left[\Gamma\left(1+{2\over a}\right) - \Gamma\left(1+{1\over a}\right)^2\right]$$
-
-
-$$V[X] = b^2\left[\Gamma\left(1+{2\over a}\right) -
-\Gamma\left(1+{1\over a}\right)^2\right]$$
+$$
+V[X] = b^2\left[\Gamma\left(1+{2\over a}\right) - \Gamma\left(1+{1\over a}\right)^2\right]
+$$
 

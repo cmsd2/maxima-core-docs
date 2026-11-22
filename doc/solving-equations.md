@@ -136,7 +136,7 @@ an empty list `[]` is returned.
 
 The symbols `%r1`, `%r2`, ..., are introduced as needed to
 represent arbitrary parameters in the solution; these variables are also
-appended to the list `_0025rnum_005flist`.
+appended to the list `%rnum_list`.
 
 
 The method is as follows:
@@ -671,9 +671,11 @@ b(x)
 ```
 
 
-$$p\left(x\right)=q\left(x, p\left(x\right) , \int_{a\left(x\right)}
+$$
+p\left(x\right)=q\left(x, p\left(x\right) , \int_{a\left(x\right)}
 ^{b\left(x\right)}{w\left(x, u, p\left(x\right), p\left(u\right)\right)
-\;du}\right)$$
+\;du}\right)
+$$
 
 
 and a first-kind equation with the form
@@ -690,8 +692,10 @@ b(x)
 ```
 
 
-$$f\left(x\right)=\int_{a\left(x\right)}^{b\left(x\right)}
-{w\left(x, u, p\left(u\right)\right)\;du}$$
+$$
+f\left(x\right)=\int_{a\left(x\right)}^{b\left(x\right)}
+{w\left(x, u, p\left(u\right)\right)\;du}
+$$
 
 
 The different solution techniques used require particular forms of the

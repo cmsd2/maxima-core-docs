@@ -790,7 +790,7 @@ If some formal argument *x_k* is a quoted symbol, the function defined by
 actual arguments are evaluated.
 
 
-See also `define` and `_003a_003a_003d`.
+See also `define` and `::=`.
 
 
 Examples:

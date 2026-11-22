@@ -931,7 +931,7 @@ Example:
 <!-- signatures: remove_constvalue(a) -->
 ### Function: remove_constvalue (a)
 
-Reverts the effect of `declare_005fconstvalue`. This function should be
+Reverts the effect of `declare_constvalue`. This function should be
 loaded with `load ("ezunits")`.
 
 See also: `declare_constvalue`.

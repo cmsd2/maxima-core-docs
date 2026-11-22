@@ -134,7 +134,7 @@ See also: `elevation`, `azimuth`.
 ### Variable: geomview
 
 This is an abbreviation for `[plot_format, geomview]`. See
-`plot_005fformat`.
+`plot_format`.
 
 See also: `plot_format`.
 
@@ -163,7 +163,7 @@ maxima
 This variable must contain a string.
 
 
-See also `gnuplot_command` and `xmaxima_005fplot_005fcommand`.
+See also `gnuplot_command` and `xmaxima_plot_command`.
 
 See also: `gnuplot_command`, `xmaxima_plot_command`.
 
@@ -189,7 +189,7 @@ See also: `set_plot_option`, `remove_plot_option`, `Plotting-Options`.
 ### Variable: gnuplot
 
 This is an abbreviation for `[plot_format, gnuplot]`. See
-`plot_005fformat`.
+`plot_format`.
 
 See also: `plot_format`.
 
@@ -226,7 +226,7 @@ maxima
 This variable must contain a string.
 
 
-See also `geomview_command` and `xmaxima_005fplot_005fcommand`.
+See also `geomview_command` and `xmaxima_plot_command`.
 
 See also: `geomview_command`, `xmaxima_plot_command`.
 
@@ -314,7 +314,7 @@ terminal.  If this option is not set, the command used will be: `"set term pdfca
 ### Variable: gnuplot_pipes
 
 This is an abbreviation for `[plot_format, gnuplot_pipes]`. See
-`plot_005fformat`.
+`plot_format`.
 
 See also: `plot_format`.
 
@@ -344,7 +344,7 @@ for more information.
 This option inserts gnuplot commands after other commands sent to
 Gnuplot and right before the plot command is sent. Any valid gnuplot
 commands may be used. Multiple commands should be separated with a
-semi-colon. See also `gnuplot_005fpreamble`.
+semi-colon. See also `gnuplot_preamble`.
 
 See also: `gnuplot_preamble`.
 
@@ -355,7 +355,7 @@ See also: `gnuplot_preamble`.
 
 This option inserts gnuplot commands before any other commands sent to
 Gnuplot. Any valid gnuplot commands may be used. Multiple commands should
-be separated with a semi-colon. See also `gnuplot_005fpostamble`.
+be separated with a semi-colon. See also `gnuplot_postamble`.
 
 See also: `gnuplot_postamble`.
 
@@ -542,7 +542,7 @@ can be a string or one of the following 3 special symbols
 
 Gnuplot output is displayed in a separate graphical window and the
 gnuplot terminal used will be specified by the value of the option
-`gnuplot_005fdefault_005fterm_005fcommand`.
+`gnuplot_default_term_command`.
 - *
 **dumb**
 
@@ -551,7 +551,7 @@ art" approximation to graphics. If the option `gnuplot_out_file` is
 set to *filename*, the plot will be saved there, instead of the
 default `random-string.gnuplot`. The settings for the “dumb”
 terminal of Gnuplot are given by the value of option
-`gnuplot_005fdumb_005fterm_005fcommand`. If option `run_viewer` is set
+`gnuplot_dumb_term_command`. If option `run_viewer` is set
 to true and the plot_format is `gnuplot` that ASCII representation
 will also be shown in the Maxima or Xmaxima console.
 - *
@@ -560,7 +560,7 @@ will also be shown in the Maxima or Xmaxima console.
 Gnuplot generates commands in the PostScript page description language.
 If the option `gnuplot_out_file` is set to *filename*, gnuplot
 writes the PostScript commands to *filename*.  Otherwise, it is
-saved as `maxplot.ps` file. The settings for this terminal are given by the value of the option `gnuplot_005fdumb_005fterm_005fcommand`.
+saved as `maxplot.ps` file. The settings for this terminal are given by the value of the option `gnuplot_dumb_term_command`.
 - *
 A string representing any valid gnuplot term specification
 
@@ -801,7 +801,7 @@ function that depends on those two variables).  The three functions
 *fx*, *fy*, *fz* must depend only on those 3 variables, and
 will give the corresponding x, y and z coordinates that should be
 plotted.  There are two transformations defined by default:
-`polar_to_xy` and `spherical_005fto_005fxyz`. See the documentation
+`polar_to_xy` and `spherical_to_xyz`. See the documentation
 for those two transformations.
 
 See also: `transform_xy`, `polar_to_xy`, `spherical_to_xyz`.
@@ -921,7 +921,7 @@ sequentially.
 
 
 The color of the mesh lines will be given by the option
-`mesh_005flines_005fcolor`. If `palette` is given the value
+`mesh_lines_color`. If `palette` is given the value
 `false`, the surfaces will not be shaded but represented with a
 mesh of curves only. In that case, the colors of the lines will be
 determined by the option `color`.
@@ -1450,7 +1450,7 @@ maxima
 Plot of a “spherical harmonic” function, using the predefined
 transformation, `spherical_to_xyz` to transform from spherical
 coordinates to rectangular coordinates. See the documentation for
-`spherical_005fto_005fxyz`.
+`spherical_to_xyz`.
 
 
 
@@ -1471,7 +1471,7 @@ maxima
 
 Use of the pre-defined function `polar_to_xy` to transform from
 cylindrical to rectangular coordinates.  See the documentation for
-`polar_005fto_005fxy`.
+`polar_to_xy`.
 
 
 
@@ -1593,7 +1593,7 @@ This variable is being kept for compatibility with older versions of Wxmaxima,
 but its use is deprecated. To set global plotting options, see their current
 values or remove options, use `set_plot_option`,
 `get_plot_option` `remove_plot_option`, and
-`reset_005fplot_005foptions`.
+`reset_plot_options`.
 
 See also: `set_plot_option`, `get_plot_option`, `remove_plot_option`, `reset_plot_options`.
 
@@ -1765,7 +1765,7 @@ See also: `gnuplot_term`, `gnuplot_out_file`.
 
 It can be either true or false. If true, the scales used in the x and y
 axes will be the same, in either 2d or 3d plots. See also
-`yx_005fratio`. `same_xy` and `nosame_xy` are synonyms for
+`yx_ratio`. `same_xy` and `nosame_xy` are synonyms for
 `[same_xy, true]` and `[same_xy, false]`.
 
 See also: `yx_ratio`.
@@ -1900,7 +1900,7 @@ radius, color, type of object to replace the points, and the gnuplot
 pointinterval option to control space between points.
 
 
-See also `color` and `point_005ftype`.
+See also `color` and `point_type`.
 
 See also: `color`, `point_type`.
 
@@ -1949,7 +1949,7 @@ previously defined.
 
 
 See `make_transform`, `polar_to_xy` and
-`spherical_005fto_005fxyz`.
+`spherical_to_xyz`.
 
 See also: `make_transform`, `polar_to_xy`, `spherical_to_xyz`.
 
@@ -1995,7 +1995,7 @@ See also: `plot2d`, `plot3d`.
 ### Variable: xmaxima
 
 This is an abbreviation for `[plot_format, xmaxima]`. See
-`plot_005fformat`.
+`plot_format`.
 
 See also: `plot_format`.
 
@@ -2025,7 +2025,7 @@ maxima
 This variable must contain a string.
 
 
-See also `gnuplot_command` and `geomview_005fcommand`.
+See also `gnuplot_command` and `geomview_command`.
 
 See also: `gnuplot_command`, `geomview_command`.
 
@@ -2059,7 +2059,7 @@ arguments are the scale factors for the x and y axes.
 
 This option does not change the size of the graphic window or the placement
 of the graph in the window. If you want to change the aspect ratio of the
-plot, it is better to use option `yx_005fratio`. For instance,
+plot, it is better to use option `yx_ratio`. For instance,
 `[yx_ratio, 10]` instead of `[xy_scale, 0.1, 1]`.
 
 See also: `yx_ratio`.
@@ -2114,7 +2114,7 @@ and `noytics` is a synonym for `[ytics, false]`
 ### Variable: yx_ratio
 
 In a 2d plot, the ratio between the vertical and the horizontal sides of
-the rectangle used to make the plot. See also `same_005fxy`.
+the rectangle used to make the plot. See also `same_xy`.
 
 See also: `same_xy`.
 

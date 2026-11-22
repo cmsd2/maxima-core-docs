@@ -7,10 +7,10 @@
 
 `%catalan` represents Catalan’s constant, $G$, defined by
 
-$$G = \sum_{n=0}^\infty {(-1)^n\over (2n+1)^2}$$
+$$
+G = \sum_{n=0}^\infty {(-1)^n\over (2n+1)^2}
+$$
 
-
-$$G = \sum_{n=0}^\infty {(-1)^n\over (2n+1)^2}$$
 
 
 
@@ -36,10 +36,9 @@ value 2.718281828459045d0.  (See [https://personal.math.ubc.ca/~cbm/aands/page_6
 
 The Euler-Mascheroni constant, 0.5772156649015329.... It is defined by ([https://personal.math.ubc.ca/~cbm/aands/page_255.htmA&S eqn 6.1.3]() and [https://dlmf.nist.gov/5.2.iiDLMF 5.2.ii]())
 
-$$\gamma = \lim_{n \rightarrow \infty} \left(\sum_{k=1}^n {1\over k} - \log n\right)$$
-
-
-$$\gamma = \lim_{n \rightarrow \infty} \left(\sum_{k=1}^n {1\over k} - \log n\right)$$
+$$
+\gamma = \lim_{n \rightarrow \infty} \left(\sum_{k=1}^n {1\over k} - \log n\right)
+$$
 
 <!-- category: Programming -->
 <!-- keywords: %i -->
@@ -436,7 +435,7 @@ creates $m$ arrays, all of the same dimensions.
 
 
 
-See also `arraymake`, `arrayinfo` and `make_005farray`.
+See also `arraymake`, `arrayinfo` and `make_array`.
 
 See also: `arraymake`, `arrayinfo`, `make_array`.
 
@@ -4000,7 +3999,7 @@ than the default one; Arrays created by `make_array` are not affected by
 `use_fast_arrays`.
 
 
-See also `translate_005ffast_005farrays`.
+See also `translate_fast_arrays`.
 
 See also: `hashed-arrays`, `make_array`, `translate_fast_arrays`.
 
@@ -4017,7 +4016,7 @@ The argument *s* is a list.
 
 Functions known to be n-ary include
 addition `+`, multiplication `*`, `and`, `or`, `max`,
-`min`, and `append`.
+`min`, `append`, and `union`.
 Functions may also be declared n-ary by `declare(F, nary)`.
 For these functions,
 `xreduce` is expected to be faster than either `rreduce` or `lreduce`.

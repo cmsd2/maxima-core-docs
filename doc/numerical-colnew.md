@@ -14,8 +14,8 @@ The function arguments are:
 
 **x** — List of x-coordinates to calculate solution.
 **zlen** — *mstar*, the length of the solution list z
-**fspace** — List *fspace* returned from `colnew_005fexpert`.
-**ispace** — List *ispace* returned from `colnew_005fexpert`.
+**fspace** — List *fspace* returned from `colnew_expert`.
+**ispace** — List *ispace* returned from `colnew_expert`.
 
 See also: `colnew_expert`.
 
@@ -103,12 +103,9 @@ ${\rm ipar[6]} = {\rm nmax}\times {\rm nsizei}$
   where
 ${\rm nsizei} = 3 + {\rm kdm}$
   with
-$$\eqalign{ {\rm kdm} &= {\rm kd} + m^* \cr {\rm kd} &= k + {\rm ncomp} \cr {\rm nrec} &= {\it number\, of\, right\, end\, boundary\, conditions} \cr }$$ $$\eqalign{
-    {\rm kdm} &= {\rm kd} + m^* \cr
-    {\rm kd} &= k + {\rm ncomp} \cr
-    {\rm nrec} &= {\it number\, of\, right\, end\, boundary\, conditions} \cr
-  }$$
-.
+$$
+\begin{aligned} {\rm kdm} &= {\rm kd} + m^* \cr {\rm kd} &= k + {\rm ncomp} \cr {\rm nrec} &= {\it number\, of\, right\, end\, boundary\, conditions} \cr \end{aligned}
+$$ .
 - * 
 *ipar[7]* ( = iprint )
   output control

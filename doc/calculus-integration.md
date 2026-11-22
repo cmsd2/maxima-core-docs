@@ -189,11 +189,10 @@ method in both the x and y directions to calculate
 
 
 
-$$\int_a^b \int_{r\left(x\right)}^{s\left(x\right)} f\left(x,y\right) \, dy \, dx$$
-
-
-$$\int_a^b \int_{r\left(x\right)}^{s\left(x\right)} f\left(x,y\right) \, dy \, dx
 $$
+\int_a^b \int_{r\left(x\right)}^{s\left(x\right)} f\left(x,y\right) \, dy \, dx
+$$
+
 
 
 
@@ -830,10 +829,10 @@ Attempts to compute the Laplace transform of *expr* with respect to the
 variable *t* and transform parameter *s*.  The Laplace
 transform of the function `f(t)` is the one-sided transform defined by
 
-$$F(s) = \int_0^{\infty} f(t) e^{-st} dt$$
+$$
+F(s) = \int_0^{\infty} f(t) e^{-st} dt
+$$
 
-
-$$F(s) = \int_0^{\infty} f(t) e^{-st} dt$$
 
 
 
@@ -866,10 +865,10 @@ for them and substituting their values back.
 
 `laplace` recognizes convolution integrals of the form
 
-$$\int_0^t f(x) g(t-x) dx$$
+$$
+\int_0^t f(x) g(t-x) dx
+$$
 
-
-$$\int_0^t f(x) g(t-x) dx$$
 
 
 
@@ -1128,10 +1127,10 @@ are suitable for strongly oscillating integrands.
 
 
 
-$$\int_a^b f(x)\, dx$$
+$$
+\int_a^b f(x)\, dx
+$$
 
-
-$$\int_a^b f(x)\, dx$$
 
 
 
@@ -1225,26 +1224,26 @@ then the same strategy as in `quad_qags` is applied.
 
 
 
-$$\int_a^\infty f(x) \, dx$$
-
-
-$$\int_a^\infty f(x) \, dx$$
-
-
-
-
-$$\int_\infty^a f(x) \, dx$$
-
-
-$$\int_\infty^a f(x) \, dx$$
+$$
+\int_a^\infty f(x) \, dx
+$$
 
 
 
 
-$$\int_{-\infty}^\infty f(x) \, dx$$
+
+$$
+\int_\infty^a f(x) \, dx
+$$
 
 
-$$\int_{-\infty}^\infty f(x) \, dx$$
+
+
+
+$$
+\int_{-\infty}^\infty f(x) \, dx
+$$
+
 
 
 
@@ -1336,10 +1335,10 @@ extrapolation (de Doncker, 1978) by the Epsilon algorithm (Wynn, 1956).
 
 
 
-$$\int_a^b f(x) \, dx$$
+$$
+\int_a^b f(x) \, dx
+$$
 
-
-$$\int_a^b f(x) \, dx$$
 
 
 
@@ -1421,7 +1420,7 @@ maxima
 
 The integrand has singularities at `1` and `sqrt(2)` so we supply
 these points to `quad_qagp`.  We also note that `quad_qagp` is
-more accurate and more efficient that `quad_005fqags`.
+more accurate and more efficient that `quad_qags`.
 
 See also: `quad_qags`.
 
@@ -1439,10 +1438,10 @@ extrapolation (de Doncker, 1978) by the Epsilon algorithm (Wynn, 1956).
 
 
 
-$$\int_a^b f(x)\, dx$$
+$$
+\int_a^b f(x)\, dx
+$$
 
-
-$$\int_a^b f(x)\, dx$$
 
 
 
@@ -1527,10 +1526,10 @@ which contain the point $x = c$.
 
 
 
-$$\int_{a}^{b}{{{f\left(x\right)}\over{x-c}}\>dx}$$
+$$
+\int_{a}^{b}{{{f\left(x\right)}\over{x-c}}\>dx}
+$$
 
-
-$$\int_{a}^{b}{{{f\left(x\right)}\over{x-c}}\>dx}$$
 
 
 
@@ -1639,10 +1638,10 @@ series of the integral contributions.
 
 
 
-$$\int_a^\infty f(x) \, w(x) \, dx$$
+$$
+\int_a^\infty f(x) \, w(x) \, dx
+$$
 
-
-$$\int_a^\infty f(x) \, w(x) \, dx$$
 
 
 
@@ -1747,10 +1746,10 @@ routine:
 
 
 
-$$\int_a^b f(x) \, w(x) \, dx$$
+$$
+\int_a^b f(x) \, w(x) \, dx
+$$
 
-
-$$\int_a^b f(x) \, w(x) \, dx$$
 
 
 
@@ -1853,10 +1852,10 @@ subintervals which contain the endpoints of the interval of integration.
 
 
 
-$$\int_a^b f(x) \, w(x) \, dx$$
+$$
+\int_a^b f(x) \, w(x) \, dx
+$$
 
-
-$$\int_a^b f(x) \, w(x) \, dx$$
 
 
 
