@@ -1,0 +1,107 @@
+## minpack
+
+<!-- category: Numerical -->
+<!-- keywords: minpack_lsquares -->
+<!-- signatures: minpack_lsquares(flist, varlist, guess), minpack_lsquares(..., 'tolerance=tolerance), minpack_lsquares(..., 'jacobian=jacobian) -->
+### Function: minpack_lsquares (flist, varlist, guess)
+
+リスト *flist*の関数の平方の和を最小化する
+点を計算します。
+変数はリスト *varlist*の中にあります。
+最適点の初期推測は*guess*で供給されなければいけません
+
+
+オプションのキーワード引数 *tolerance*と *jacobian*は
+アルゴリズム上のある制御を提供します。
+*tolerance*は平方の和に関する相対誤差を見積もられます。
+*jacobian*はJacobianを指定するのにつかうことができます。
+もし *jacobian*が与えられず、l
+(デフォルト)`true` なら、
+*flist*から計算されます。
+もし *jacobian*が `false`なら数値近似が使われます。
+
+
+`minpack_lsquares`はリストを返します。
+最初の項目は見積もられた解です;
+二番目は平方の和で，
+三番目はアルゴリズムの成功を示します。
+可能な値は以下の通りです。
+
+
+
+**0** — 不適切な入力パラメータ。
+**1** — アルゴリズムが平方の和の相対誤差がせいぜい`tolerance`と見積もります。
+**2** — アルゴリズムがxと解の相対誤差がせいぜい `tolerance`と見積もります。
+**3** — info = 1と info = 2の条件が両方とも成立します。
+**4** — fvec が機械精度のjacobianの列に直交的です。
+**5** — iflag = 1が100*(n+1)に至るfcnへのコールの回数
+**6** — tolが小さすぎます。平方の和の更なる減少は不可能です。
+**7** — tolが小さすぎます。近似解xの更なる改善は不可能です。
+
+
+
+```maxima
+/* Problem 6: Powell singular function */
+(%i1) powell(x1,x2,x3,x4) := 
+         [x1+10*x2, sqrt(5)*(x3-x4), (x2-2*x3)^2, 
+              sqrt(10)*(x1-x4)^2]$
+(%i2) minpack_lsquares(powell(x1,x2,x3,x4), [x1,x2,x3,x4], 
+                       [3,-1,0,1]);
+(%o2) [[1.652117596168394e-17, - 1.652117596168393e-18, 
+        2.643388153869468e-18, 2.643388153869468e-18], 
+       6.109327859207777e-34, 4]
+```
+
+
+
+```maxima
+/* Same problem but use numerical approximation to Jacobian */
+(%i3) minpack_lsquares(powell(x1,x2,x3,x4), [x1,x2,x3,x4], 
+                       [3,-1,0,1], jacobian = false);
+(%o3) [[5.060282149485331e-11, - 5.060282149491206e-12, 
+        2.179447843547218e-11, 2.179447843547218e-11], 
+       3.534491794847031e-21, 5]
+```
+
+<!-- category: Numerical -->
+<!-- keywords: minpack_solve -->
+<!-- signatures: minpack_solve(flist, varlist, guess), minpack_solve(..., 'tolerance=tolerance), minpack_solve(..., 'jacobian=jacobian) -->
+### Function: minpack_solve (flist, varlist, guess)
+
+`n`個の未知数に関する
+`n`個の方程式系を解きます。
+`n`個の方程式形がリスト *flist*で
+与えられます。
+解の初期推測は*guess*の中で提供されます。
+
+
+オプションのキーワード引数、 *tolerance*と *jacobian*は
+アルゴリズム上のある制御を提供します。
+*tolerance*は、平方の和に関して宣言された見積もられた相対誤差です。
+*jacobian*はJacobianを指定するのに使うことができます。
+もし*jacobian*が与えらないか、`true`(デフォルト)なら、
+Jacobianを*flist*から計算します。
+もし*jacobian*が`false`なら、数値近似が使われます。
+
+
+`minpack_solve`はリストを返します。
+最初の項は見積もられた解です;
+最初のエスティマート解であることが解されます。
+最初の解が、最初の項は未つられた解と一緒なranmpolが渡り気味。
+リストを返します。
+評価された解の最初の案件はリストを返します。
+
+
+
+**0** — 不適切な入力パラメータ。
+**1** — アルゴリズムが解の相対誤差がせいぜい`tolerance`と見積もります。
+**2** — iflag = 1でfcnをコールした回数が100*(n+1)に達しました。
+**3** — tolが小さ過ぎます。平方和の中で換算がこれ以上不可能です。
+**4** — 繰り返しがよい進捗を産んでいません。
+
+
+
+```maxima
+
+```
+
