@@ -1,0 +1,31 @@
+## makeOrders
+
+<!-- category: Other -->
+<!-- keywords: makeOrders -->
+<!-- signatures: makeOrders(indvarlist, orderlist) -->
+### Function: makeOrders (indvarlist, orderlist)
+
+引数までの多項式のべきすべてのリストを返します。
+
+
+
+```maxima
+(%i1) load("makeOrders")$
+
+(%i2) makeOrders([a,b],[2,3]);
+(%o2) [[0, 0], [0, 1], [0, 2], [0, 3], [1, 0], [1, 1],
+            [1, 2], [1, 3], [2, 0], [2, 1], [2, 2], [2, 3]]
+(%i3) expand((1+a+a^2)*(1+b+b^2+b^3));
+       2  3      3    3    2  2      2    2    2
+(%o3) a  b  + a b  + b  + a  b  + a b  + b  + a  b + a b
+                                                  2
+                                           + b + a  + a + 1
+```
+
+ここで、
+`[0, 1]`は項$b$に関連づけられ、
+`[2, 3]`は$a^2 b^3$に関連づけられます。
+
+
+この関数を使うには、最初に`load("makeOrders")`を書いてください。
+

@@ -1,0 +1,342 @@
+## interpol
+
+<!-- category: Numerical -->
+<!-- keywords: charfun2 -->
+<!-- signatures: charfun2(x, a, b) -->
+### Function: charfun2 (x, a, b)
+
+Returns `true` if number *x* belongs to the interval $[a, b)$, 
+and `false` otherwise.
+
+<!-- category: Numerical -->
+<!-- keywords: cspline -->
+<!-- signatures: cspline(points), cspline(points, option1, option2, ...) -->
+### Function: cspline (points)
+
+Computes the polynomial interpolation by the cubic splines method. Argument 
+*points* must be either:
+
+
+
+- *
+a two column matrix, `p:matrix([2,4],[5,6],[9,3])`,
+- *
+a list of pairs, `p: [[2,4],[5,6],[9,3]]`,
+- *
+a list of numbers, `p: [4,6,3]`, in which case the abscissas will be assigned automatically to 1, 2, 3, etc.
+
+
+In the first two cases the pairs are ordered with respect to the first coordinate before making computations.
+
+
+There are three options to fit specific needs:
+
+
+- *
+`'d1`, default `'unknown`, is the first derivative at $x_1$; if it is `'unknown`, the second derivative at $x_1$ is made equal to 0 (natural cubic spline); if it is equal to a number, the second derivative is calculated based on this number.
+- *
+`'dn`, default `'unknown`, is the first derivative at $x_n$; if it is `'unknown`, the second derivative at $x_n$ is made equal to 0 (natural cubic spline); if it is equal to a number, the second derivative is calculated based on this number.
+- *
+`'varname`, default `'x`, is the name of the independent variable.
+
+
+Examples:
+
+
+```maxima
+(%i1) load("interpol")$
+(%i2) p:[[7,2],[8,2],[1,5],[3,2],[6,7]]$
+(%i3) /* Unknown first derivatives at the extremes
+         is equivalent to natural cubic splines */
+      cspline(p);
+              3         2
+        1159 x    1159 x    6091 x   8283
+(%o3)  (------- - ------- - ------ + ----) charfun2(x, minf, 3)
+         3288      1096      3288    1096
+            3         2
+      2587 x    5174 x    494117 x   108928
+ + (- ------- + ------- - -------- + ------) charfun2(x, 7, inf)
+       1644       137       1644      137
+          3          2
+    4715 x    15209 x    579277 x   199575
+ + (------- - -------- + -------- - ------) charfun2(x, 6, 7)
+     1644       274        1644      274
+            3         2
+      3287 x    2223 x    48275 x   9609
+ + (- ------- + ------- - ------- + ----) charfun2(x, 3, 6)
+       4932       274      1644     274
+
+(%i4) f(x):=''%$
+(%i5) /* Some evaluations */
+      map(f,[2.3,5/7,%pi]), numer;
+(%o5) [1.991460766423356, 5.823200187269903, 2.227405312429507]
+(%i6) load("draw")$  /* load draw package */
+(%i7) /* Plotting interpolating function */
+      draw2d(
+        color      = red,
+        key        = "Cubic splines",
+        explicit(f(x),x,0,10),
+        point_size = 3,
+        color      = blue,
+        key        = "Sample points",
+        points(p))$
+(%i8) /* New call, but giving values at the derivatives */
+      cspline(p,d1=0,dn=0);
+              3          2
+        1949 x    11437 x    17027 x   1247
+(%o8)  (------- - -------- + ------- + ----) charfun2(x, minf, 3)
+         2256       2256      2256     752
+            3          2
+      1547 x    35581 x    68068 x   173546
+ + (- ------- + -------- - ------- + ------) charfun2(x, 7, inf)
+        564       564        141      141
+         3          2
+    607 x    35147 x    55706 x   38420
+ + (------ - -------- + ------- - -----) charfun2(x, 6, 7)
+     188       564        141      47
+            3         2
+      3895 x    1807 x    5146 x   2148
+ + (- ------- + ------- - ------ + ----) charfun2(x, 3, 6)
+       5076       188      141      47
+(%i8) /* Defining new interpolating function */
+      g(x):=''%$
+(%i9) /* Plotting both functions together */
+      draw2d(
+        color      = black,
+        key        = "Cubic splines (default)",
+        explicit(f(x),x,0,10),
+        color      = red,
+        key        = "Cubic splines (d1=0,dn=0)",
+        explicit(g(x),x,0,10),
+        point_size = 3,
+        color      = blue,
+        key        = "Sample points",
+        points(p))$
+```
+
+<!-- category: Numerical -->
+<!-- keywords: lagrange -->
+<!-- signatures: lagrange(points), lagrange(points, option) -->
+### Function: lagrange (points)
+
+Computes the polynomial interpolation by the Lagrangian method. Argument *points* must be either:
+
+
+
+- *
+a two column matrix, `p:matrix([2,4],[5,6],[9,3])`,
+- *
+a list of pairs, `p: [[2,4],[5,6],[9,3]]`,
+- *
+a list of numbers, `p: [4,6,3]`, in which case the abscissas will be assigned automatically to 1, 2, 3, etc.
+
+
+In the first two cases the pairs are ordered with respect to the first coordinate before making computations.
+
+
+With the *option* argument it is possible to select the name for the independent variable, which is `'x` by default; to define another one, write something like `varname='z`. 
+
+
+Note that when working with high degree polynomials, floating point evaluations are unstable.
+
+
+Examples:
+
+
+
+```maxima
+(%i1) load("interpol")$
+(%i2) p:[[7,2],[8,2],[1,5],[3,2],[6,7]]$
+(%i3) lagrange(p);
+       (x - 7) (x - 6) (x - 3) (x - 1)
+(%o3)  -------------------------------
+                     35
+   (x - 8) (x - 6) (x - 3) (x - 1)
+ - -------------------------------
+                 12
+   7 (x - 8) (x - 7) (x - 3) (x - 1)
+ + ---------------------------------
+                  30
+   (x - 8) (x - 7) (x - 6) (x - 1)
+ - -------------------------------
+                 60
+   (x - 8) (x - 7) (x - 6) (x - 3)
+ + -------------------------------
+                 84
+(%i4) f(x):=''%;
+               (x - 7) (x - 6) (x - 3) (x - 1)
+(%o4)  f(x) := -------------------------------
+                             35
+   (x - 8) (x - 6) (x - 3) (x - 1)
+ - -------------------------------
+                 12
+   7 (x - 8) (x - 7) (x - 3) (x - 1)
+ + ---------------------------------
+                  30
+   (x - 8) (x - 7) (x - 6) (x - 1)
+ - -------------------------------
+                 60
+   (x - 8) (x - 7) (x - 6) (x - 3)
+ + -------------------------------
+                 84
+(%i5) /* Evaluate the polynomial at some points */
+      expand(map(f,[2.3,5/7,%pi]));
+                                  4          3           2
+                    919062  73 %pi    701 %pi    8957 %pi
+(%o5)  [- 1.567535, ------, ------- - -------- + ---------
+                    84035     420       210         420
+                                             5288 %pi   186
+                                           - -------- + ---]
+                                               105       5
+(%i6) %,numer;
+(%o6) [- 1.567535, 10.9366573451538, 2.89319655125692]
+(%i7) load("draw")$  /* load draw package */
+(%i8) /* Plot the polynomial together with points */
+      draw2d(
+        color      = red,
+        key        = "Lagrange polynomial",
+        explicit(f(x),x,0,10),
+        point_size = 3,
+        color      = blue,
+        key        = "Sample points",
+        points(p))$
+(%i9) /* Change variable name */
+      lagrange(p, varname=w);
+       (w - 7) (w - 6) (w - 3) (w - 1)
+(%o9)  -------------------------------
+                     35
+   (w - 8) (w - 6) (w - 3) (w - 1)
+ - -------------------------------
+                 12
+   7 (w - 8) (w - 7) (w - 3) (w - 1)
+ + ---------------------------------
+                  30
+   (w - 8) (w - 7) (w - 6) (w - 1)
+ - -------------------------------
+                 60
+   (w - 8) (w - 7) (w - 6) (w - 3)
+ + -------------------------------
+                 84
+```
+
+<!-- category: Numerical -->
+<!-- keywords: linearinterpol -->
+<!-- signatures: linearinterpol(points), linearinterpol(points, option) -->
+### Function: linearinterpol (points)
+
+Computes the polynomial interpolation by the linear method. Argument 
+*points* must be either:
+
+
+
+- *
+a two column matrix, `p:matrix([2,4],[5,6],[9,3])`,
+- *
+a list of pairs, `p: [[2,4],[5,6],[9,3]]`,
+- *
+a list of numbers, `p: [4,6,3]`, in which case the abscissas will be assigned automatically to 1, 2, 3, etc.
+
+
+In the first two cases the pairs are ordered with respect to the first coordinate before making computations.
+
+
+With the *option* argument it is possible to select the name for the independent variable, which is `'x` by default; to define another one, write something like `varname='z`. 
+
+
+Examples:
+
+
+```maxima
+(%i1) load("interpol")$
+(%i2) p: matrix([7,2],[8,3],[1,5],[3,2],[6,7])$
+(%i3) linearinterpol(p);
+        13   3 x
+(%o3)  (-- - ---) charfun2(x, minf, 3)
+        2     2
+ + (x - 5) charfun2(x, 7, inf) + (37 - 5 x) charfun2(x, 6, 7)
+    5 x
+ + (--- - 3) charfun2(x, 3, 6)
+     3
+
+(%i4) f(x):=''%;
+                13   3 x
+(%o4)  f(x) := (-- - ---) charfun2(x, minf, 3)
+                2     2
+ + (x - 5) charfun2(x, 7, inf) + (37 - 5 x) charfun2(x, 6, 7)
+    5 x
+ + (--- - 3) charfun2(x, 3, 6)
+     3
+(%i5)  /* Evaluate the polynomial at some points */
+       map(f,[7.3,25/7,%pi]);
+                            62  5 %pi
+(%o5)                 [2.3, --, ----- - 3]
+                            21    3
+(%i6) %,numer;
+(%o6)  [2.3, 2.952380952380953, 2.235987755982989]
+(%i7) load("draw")$  /* load draw package */
+(%i8)  /* Plot the polynomial together with points */
+       draw2d(
+         color      = red,
+         key        = "Linear interpolator",
+         explicit(f(x),x,-5,20),
+         point_size = 3,
+         color      = blue,
+         key        = "Sample points",
+         points(args(p)))$
+(%i9)  /* Change variable name */
+       linearinterpol(p, varname='s);
+       13   3 s
+(%o9) (-- - ---) charfun2(s, minf, 3)
+       2     2
+ + (s - 5) charfun2(s, 7, inf) + (37 - 5 s) charfun2(s, 6, 7)
+    5 s
+ + (--- - 3) charfun2(s, 3, 6)
+     3
+```
+
+<!-- category: Numerical -->
+<!-- keywords: ratinterpol -->
+<!-- signatures: ratinterpol(points, numdeg), ratinterpol(points, numdeg, option1) -->
+### Function: ratinterpol (points, numdeg)
+
+Generates a rational interpolator for data given by *points* and the degree of the numerator
+being equal to *numdeg*; the degree of the denominator is calculated
+automatically. Argument *points* must be either:
+
+
+
+- *
+a two column matrix, `p:matrix([2,4],[5,6],[9,3])`,
+- *
+a list of pairs, `p: [[2,4],[5,6],[9,3]]`,
+- *
+a list of numbers, `p: [4,6,3]`, in which case the abscissas will be assigned automatically to 1, 2, 3, etc.
+
+
+In the first two cases the pairs are ordered with respect to the first coordinate before making computations.
+
+
+There is one option to fit specific needs:
+
+
+- *
+`'varname`, default `'x`, is the name of the independent variable.
+
+
+Examples:
+
+
+
+```maxima
+(%i1) load("interpol")$
+(%i2) load("draw")$
+(%i3) p:[[7.2,2.5],[8.5,2.1],[1.6,5.1],[3.4,2.4],[6.7,7.9]]$
+(%i4) for k:0 thru length(p)-1 do                                     
+        draw2d(
+          explicit(ratinterpol(p,k),x,0,9),                      
+          point_size = 3,                                        
+          points(p),                                             
+          title = concat("Degree of numerator = ",k),            
+          yrange=[0,10])$
+```
+

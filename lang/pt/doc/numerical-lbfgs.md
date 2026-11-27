@@ -1,0 +1,130 @@
+## lbfgs
+
+<!-- category: Numerical -->
+<!-- keywords: lbfgs -->
+<!-- signatures: lbfgs(FOM, X, X0, epsilon, iprint) -->
+### Function: lbfgs (FOM, X, X0, epsilon, iprint)
+
+Encontra uma solução aproximada da minimização não limitada de número de mérito *FOM*
+sobre a lista de variáveis *X*,
+começando a partir da estimativa inicial *X0*,
+tal que $norm grad FOM < epsilon max(1, norm X)$.
+
+
+O algoritmo aplicado é um algoritmo de memória limitada[1] quasi-Newton (BFGS).
+Esse algoritmo é chamado de método de memória limitada porque uma aproximação de baixo ranque da
+inverso da matriz Hessiana é armazenado em lugar da inversa da matriz Hessiana completa.
+
+
+*iprint* controla as messaens de progresso mostradas através de `lbfgs`.
+
+
+
+**iprint[1]** — `iprint[1]` controla a frequência das mensagens de progresso. 
+**iprint[1] < 0** — Nenhuma mensagem de progresso.
+**iprint[1] = 0** — Messagens na primeira iteração e na última iteração.
+**iprint[1] > 0** — Mostra uma mensagem a cada `iprint[1]` iterações.
+**iprint[2]** — `iprint[2]` controla a quantidade de informações fornecidas pelas mensagens de progresso (verbosidade). 
+**iprint[2] = 0** — Mostra na tela o contador de iterações, o número de avaliações de *FOM*, o valor de *FOM*,
+a norma do gradiente de *FOM*, e o comprimento do salto.
+**iprint[2] = 1** — O mesmo que `iprint[2] = 0`, adicionando *X0* e o gradiente de *FOM* avaliado em *X0*.
+**iprint[2] = 2** — O mesmo que `iprint[2] = 1`, adicionando valores de *X* a cada iteração.
+**iprint[2] = 3** — O mesmo que `iprint[2] = 2`, adicionando o gradiente de *FOM* a cada iteração.
+
+
+Veja também `lbfgs_nfeval_max` e `lbfgs_ncorrections`.
+
+
+Referências:
+
+
+[1] D. Liu and J. Nocedal. "On the limited memory BFGS method for large
+scale optimization". *Mathematical Programming B* 45:503–528 (1989)
+
+
+Exemplo:
+
+
+
+
+
+
+
+
+
+
+
+
+
+```maxima
+(%i1) load ("lbfgs");
+(%o1)   /usr/share/maxima/5.10.0cvs/share/lbfgs/lbfgs.mac
+(%i2) FOM : '((1/length(X))*sum((F(X[i]) - Y[i])^2, i, 1, length(X)));
+                               2
+               sum((F(X ) - Y ) , i, 1, length(X))
+                       i     i
+(%o2)          -----------------------------------
+                            length(X)
+(%i3) X : [1, 2, 3, 4, 5];
+(%o3)                    [1, 2, 3, 4, 5]
+(%i4) Y : [0, 0.5, 1, 1.25, 1.5];
+(%o4)                [0, 0.5, 1, 1.25, 1.5]
+(%i5) F(x) := A/(1 + exp(-B*(x - C)));
+                                   A
+(%o5)            F(x) := ----------------------
+                         1 + exp((- B) (x - C))
+(%i6) ''FOM;
+                A               2            A                2
+(%o6) ((----------------- - 1.5)  + (----------------- - 1.25)
+          - B (5 - C)                  - B (4 - C)
+        %e            + 1            %e            + 1
+            A             2            A               2
+ + (----------------- - 1)  + (----------------- - 0.5)
+      - B (3 - C)                - B (2 - C)
+    %e            + 1          %e            + 1
+             2
+            A
+ + --------------------)/5
+      - B (1 - C)     2
+   (%e            + 1)
+(%i7) estimates : lbfgs (FOM, '[A, B, C], [1, 1, 1], 1e-4, [1, 0]);
+*************************************************
+  N=    3   NUMBER OF CORRECTIONS=25
+       INITIAL VALUES
+ F=  1.348738534246918D-01   GNORM=  2.000215531936760D-01
+*************************************************
+
+   I  NFN     FUNC                    GNORM                   STEPLENGTH
+
+   1    3     1.177820636622582D-01   9.893138394953992D-02   8.554435968992371D-01  
+   2    6     2.302653892214013D-02   1.180098521565904D-01   2.100000000000000D+01  
+   3    8     1.496348495303005D-02   9.611201567691633D-02   5.257340567840707D-01  
+   4    9     7.900460841091139D-03   1.325041647391314D-02   1.000000000000000D+00  
+   5   10     7.314495451266917D-03   1.510670810312237D-02   1.000000000000000D+00  
+   6   11     6.750147275936680D-03   1.914964958023047D-02   1.000000000000000D+00  
+   7   12     5.850716021108205D-03   1.028089194579363D-02   1.000000000000000D+00  
+   8   13     5.778664230657791D-03   3.676866074530332D-04   1.000000000000000D+00  
+   9   14     5.777818823650782D-03   3.010740179797255D-04   1.000000000000000D+00  
+
+ THE MINIMIZATION TERMINATED WITHOUT DETECTING ERRORS.
+ IFLAG = 0
+(%o7) [A = 1.461933911464101, B = 1.601593973254802, 
+                                           C = 2.528933072164854]
+(%i8) plot2d ([F(x), [discrete, X, Y]], [x, -1, 6]), ''estimates;
+(%o8)
+```
+
+<!-- category: Numerical -->
+<!-- keywords: lbfgs_ncorrections -->
+<!-- signatures: lbfgs_ncorrections -->
+### Variable: lbfgs_ncorrections
+
+Valor por omissão: 25
+
+<!-- category: Numerical -->
+<!-- keywords: lbfgs_nfeval_max -->
+<!-- signatures: lbfgs_nfeval_max -->
+### Variable: lbfgs_nfeval_max
+
+Valor por omissão: 100
+
